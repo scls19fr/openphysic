@@ -1,0 +1,31 @@
+TO_DO List
+==========  by S. Celles
+
+Fix Ke as constant	TO_DO
+
+Color			TO_FIX		DONE
+
+Draw_Vector		TO_DO		TO FIX
+
+
+Add Charge				DONE
+Move charge		TO_DO
+Delete charge		TO_DO
+
+Menus			TO_DO		NEARLY
+
+Save (XML)		TO_LEARN
+Open (XML)		TO_LEARN
+
+Internat. (i18n)	TO_LEARN	DONE
+	  see 'info gettext'
+	  Modify string in source code (add wx/intl.h) and _("string to translate")
+	  Extract string from source code (using 'xgettext') to get a .po file
+	  Translate .po file using 'kbabel' or 'poedit' (caution to CHARSET)
+	  Compiling .po file to .mo file using 'msgfmt'
+	  see also msg<TAB> (msgmerge...)
+
+Electrostatic				DONE
+Magnetostatic		TO DO		DONE (Fix Km)
+
+./configure (cf autobook)

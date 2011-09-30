@@ -1,0 +1,48 @@
+<Project name="fieldEB" standardNamespace="fieldEB" description="" newfilesearch="None" enableviewstate="True" version="1.1" projecttype="C#">
+  <Contents>
+    <File name=".\AssemblyInfo.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Vector_draw.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Charge.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Charges.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Color.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Constant.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Data.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Datas.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Electrostatic_field.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Electrostatic_potential.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\frmAddCharge.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\frmLicense.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\frmMain.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Grain_draw.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Grid.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Magnetostatic_field.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Manifest.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Position.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Rectangle_draw.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Scale_Linear.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Vector3d.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Vector3d_applied.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\fieldE.MainForm.resources" subtype="Code" buildaction="EmbedAsResource" dependson="" data="" />
+  </Contents>
+  <References>
+    <Reference type="Assembly" refto="..\bin\Debug\ICSharpCode.SharpZipLib.dll" localcopy="True" />
+  </References>
+  <DeploymentInformation target="" script="" strategy="File" />
+  <Configuration runwithwarnings="True" name="Debug">
+    <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="" warninglevel="4" nowarn="" includedebuginformation="True" optimize="False" unsafecodeallowed="False" generateoverflowchecks="True" mainclass="" target="WinExe" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
+    <Execution commandlineparameters="" consolepause="False" />
+    <Output directory="..\bin\Debug" assembly="fieldEB" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+  </Configuration>
+  <Configurations active="Debug">
+    <Configuration runwithwarnings="True" name="Debug">
+      <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="" warninglevel="4" nowarn="" includedebuginformation="True" optimize="False" unsafecodeallowed="False" generateoverflowchecks="True" mainclass="" target="WinExe" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
+      <Execution commandlineparameters="" consolepause="False" />
+      <Output directory="..\bin\Debug" assembly="fieldEB" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+    </Configuration>
+    <Configuration runwithwarnings="True" name="Release">
+      <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="" warninglevel="4" nowarn="" includedebuginformation="False" optimize="True" unsafecodeallowed="False" generateoverflowchecks="False" mainclass="" target="WinExe" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
+      <Execution commandlineparameters="" consolepause="False" />
+      <Output directory="..\bin\Release" assembly="fieldEB" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+    </Configuration>
+  </Configurations>
+</Project>

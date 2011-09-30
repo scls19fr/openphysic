@@ -1,0 +1,29 @@
+\contentsline {chapter}{\numberline {1}field\discretionary {-}{}{}EB Class Index}{1}
+\contentsline {section}{\numberline {1.1}field\discretionary {-}{}{}EB Class List}{1}
+\contentsline {chapter}{\numberline {2}field\discretionary {-}{}{}EB Class Documentation}{3}
+\contentsline {section}{\numberline {2.1}Charge Class Reference}{3}
+\contentsline {subsection}{\numberline {2.1.1}Detailed Description}{3}
+\contentsline {subsection}{\numberline {2.1.2}Member Function Documentation}{3}
+\contentsline {subsubsection}{\numberline {2.1.2.1}\setlength {\rightskip }{0pt plus 5cm}void Charge::Draw (wx\discretionary {-}{}{}Window\discretionary {-}{}{}DC $\ast $ {\em dc}, int {\em mode})}{3}
+\contentsline {section}{\numberline {2.2}Charges Class Reference}{5}
+\contentsline {subsection}{\numberline {2.2.1}Detailed Description}{5}
+\contentsline {section}{\numberline {2.3}Color Class Reference}{6}
+\contentsline {subsection}{\numberline {2.3.1}Detailed Description}{6}
+\contentsline {section}{\numberline {2.4}Draw\_\discretionary {-}{}{}Grain Class Reference}{7}
+\contentsline {subsection}{\numberline {2.4.1}Detailed Description}{7}
+\contentsline {section}{\numberline {2.5}Draw\_\discretionary {-}{}{}Rectangle Class Reference}{8}
+\contentsline {subsection}{\numberline {2.5.1}Detailed Description}{8}
+\contentsline {section}{\numberline {2.6}Draw\_\discretionary {-}{}{}Vector Class Reference}{9}
+\contentsline {subsection}{\numberline {2.6.1}Detailed Description}{9}
+\contentsline {section}{\numberline {2.7}My\discretionary {-}{}{}App Class Reference}{10}
+\contentsline {subsection}{\numberline {2.7.1}Detailed Description}{10}
+\contentsline {section}{\numberline {2.8}Position Class Reference}{11}
+\contentsline {subsection}{\numberline {2.8.1}Detailed Description}{11}
+\contentsline {section}{\numberline {2.9}Vector3d Class Reference}{12}
+\contentsline {subsection}{\numberline {2.9.1}Detailed Description}{12}
+\contentsline {section}{\numberline {2.10}Window\_\discretionary {-}{}{}Add\_\discretionary {-}{}{}Charge Class Reference}{13}
+\contentsline {subsection}{\numberline {2.10.1}Detailed Description}{13}
+\contentsline {section}{\numberline {2.11}Window\_\discretionary {-}{}{}Main Class Reference}{14}
+\contentsline {subsection}{\numberline {2.11.1}Detailed Description}{14}
+\contentsline {subsection}{\numberline {2.11.2}Constructor \& Destructor Documentation}{14}
+\contentsline {subsubsection}{\numberline {2.11.2.1}\setlength {\rightskip }{0pt plus 5cm}Window\_\discretionary {-}{}{}Main::Window\_\discretionary {-}{}{}Main (wx\discretionary {-}{}{}Window $\ast $ {\em parent}, int {\em id}, const wx\discretionary {-}{}{}String \& {\em title}, const wx\discretionary {-}{}{}Point \& {\em pos} = {\tt wxDefaultPosition}, const wx\discretionary {-}{}{}Size \& {\em size} = {\tt wxDefaultSize}, long {\em style} = {\tt wxDEFAULT\_\discretionary {-}{}{}FRAME\_\discretionary {-}{}{}STYLE})}{14}

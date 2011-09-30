@@ -1,0 +1,175 @@
+# translation of fielde.po to 
+# translation of fielde.po to
+# translation of fielde.po to
+# translation of fielde.po to
+# translation of fielde.po to
+# translation of fielde.po to
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+# Sebastien Celles <s.cls@laposte.net>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fielde\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-01-03 20:48+0100\n"
+"PO-Revision-Date: 2005-01-03 21:18+0100\n"
+"Last-Translator: Sebastien Celles <s.cls@laposte.net>\n"
+"Language-Team:  <fr@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Country: FRANCE\n"
+"X-Generator: KBabel 1.3.1\n"
+
+#: ../fielde.cpp:67
+msgid "fieldE, an electrostatic simulator under GNU/GPL license by S. Celles"
+msgstr "fieldE, un simulateur d'électrostatique sous licence GNU/GPL par S. Celles"
+
+#: ../window_add_charge.cpp:65
+msgid "OK"
+msgstr "Accepter"
+
+#: ../window_add_charge.cpp:66
+#: ../window_add_charge.cpp:94
+msgid "Cancel"
+msgstr "Annuler"
+
+#: ../window_add_charge.cpp:89
+msgid "Ok"
+msgstr "Accepter"
+
+#: ../window_main.cpp:84
+msgid "&About...\tCTRL-?"
+msgstr "&A propos de...\tCTRL-?"
+
+#: ../window_main.cpp:84
+#: ../window_main.cpp:168
+#: ../window_main.cpp:443
+msgid "About fieldE"
+msgstr "A propos de fieldE"
+
+#: ../window_main.cpp:88
+msgid "E&xit\tCTRL-Q"
+msgstr "&Quitter\tCTRL-Q"
+
+#: ../window_main.cpp:88
+msgid "Quit fieldE"
+msgstr "Quitter fieldE"
+
+#: ../window_main.cpp:93
+msgid "&Image"
+msgstr "&Image"
+
+#: ../window_main.cpp:95
+msgid "Show &Field..."
+msgstr "Montrer le &champ..."
+
+#: ../window_main.cpp:95
+msgid "Show field"
+msgstr "Montre le champ"
+
+#: ../window_main.cpp:97
+msgid "Show Field &Lines..."
+msgstr "Montrer les &lignes de champs..."
+
+#: ../window_main.cpp:97
+msgid "Show field lines"
+msgstr "Montre les lignes de champs"
+
+#: ../window_main.cpp:99
+msgid "Show &Equipotentials..."
+msgstr "Montrer les &Equipotentielles..."
+
+#: ../window_main.cpp:99
+msgid "Show equipotentials"
+msgstr "Montre les équipotentielles"
+
+#: ../window_main.cpp:104
+msgid "&Options"
+msgstr "&Options"
+
+#: ../window_main.cpp:106
+msgid "Field As &Vector"
+msgstr "Montrer le champs avec des &Vecteurs"
+
+#: ../window_main.cpp:106
+msgid "Show field as vector"
+msgstr "Montre le champ avec des vecteurs"
+
+#: ../window_main.cpp:108
+msgid "Field As &Grains"
+msgstr "Montrer le champs avec des \"&Graines\""
+
+#: ../window_main.cpp:108
+msgid "Show field as grains"
+msgstr "Montre le champs avec des graines"
+
+#: ../window_main.cpp:115
+msgid "&Colors"
+msgstr "&Couleurs"
+
+#: ../window_main.cpp:116
+msgid "Use &Colors"
+msgstr "Utiliser les &Couleurs"
+
+#: ../window_main.cpp:116
+msgid "Use &Colors for grains, vectors or lines"
+msgstr "Utilise les &Couleurs pour les graines, les vecteurs, ou les lignes"
+
+#: ../window_main.cpp:117
+msgid "Use Black, White and Gray"
+msgstr "Utiliser du Noir, du Blanc et du &Gris"
+
+#: ../window_main.cpp:117
+msgid "Use Black, White and &Gray for grains, vectors or lines"
+msgstr "Utilise du Noir, du Blanc et du Gris pour les graines, les vecteurs ou les lignes"
+
+#: ../window_main.cpp:118
+msgid "Use &Black and White"
+msgstr "Utiliser du &Noir et Blanc"
+
+#: ../window_main.cpp:118
+msgid "Use &Black and White for grains, vectors or lines"
+msgstr "Utilise du Noir et Blanc pour les graines, les vecteurs ou les lignes"
+
+#: ../window_main.cpp:144
+#: ../window_main.cpp:524
+msgid "Ready !"
+msgstr "Prêt !"
+
+#: ../window_main.cpp:167
+msgid "TO_DO : Sorry, this feature is not ready !"
+msgstr "A_FAIRE : Désolé mais cette fonctionnalité n'est pas encore implémentée"
+
+#: ../window_main.cpp:174
+msgid "Testing"
+msgstr "En Test..."
+
+#: ../window_main.cpp:174
+msgid "Test"
+msgstr "Test"
+
+#: ../window_main.cpp:443
+msgid ""
+"fieldE... \n"
+" an electrostatic simulator \n"
+" by Sebastien Celles \n"
+" s.cls@laposte.net \n"
+" under GNU General Public License"
+msgstr ""
+"fieldE... \n"
+"un simulateur d'électrostatique \n"
+"par Sébastien Celles \n"
+" s.cls@laposte.net \n"
+" sous licence GNU General Public License (GPL)"
+
+#: ../window_main.cpp:554
+msgid "fieldE : Add a charge"
+msgstr "fieldE : Ajouter une charge"
+
+#: ../window_main.cpp:628
+msgid "You are moving a charge"
+msgstr "Vous êtes en train de déplacer une charge"
+

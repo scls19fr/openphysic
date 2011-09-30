@@ -1,0 +1,73 @@
+\section{Charge Class Reference}
+\label{classCharge}\index{Charge@{Charge}}
+{\tt \#include $<$charge.hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Charge} (double const charge, double const radius, double const x, double const y, double const z)\label{classCharge_a1}
+
+\item 
+{\bf Charge} (double const charge, double const radius, double const x, double const y)\label{classCharge_a2}
+
+\item 
+void {\bf Draw} (wx\-Window\-DC $\ast$dc, int mode)
+\item 
+double {\bf get\_\-charge} (void)\label{classCharge_a4}
+
+\item 
+void {\bf set\_\-charge} (double const charge)\label{classCharge_a5}
+
+\item 
+double {\bf get\_\-radius} (void)\label{classCharge_a6}
+
+\item 
+void {\bf set\_\-radius} (double const radius)\label{classCharge_a7}
+
+\item 
+bool {\bf get\_\-movable} () const \label{classCharge_a8}
+
+\item 
+void {\bf set\_\-movable} (void)\label{classCharge_a9}
+
+\item 
+void {\bf unset\_\-movable} (void)\label{classCharge_a10}
+
+\item 
+void {\bf set\_\-movable} (bool const value)\label{classCharge_a11}
+
+\item 
+void {\bf set\_\-position} (double const x, double const y, double const z)\label{classCharge_a12}
+
+\item 
+{\bf Position} {\bf get\_\-position} () const \label{classCharge_a13}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Describe an electical charge or an electrical current 
+
+
+
+\subsection{Member Function Documentation}
+\index{Charge@{Charge}!Draw@{Draw}}
+\index{Draw@{Draw}!Charge@{Charge}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Charge::Draw (wx\-Window\-DC $\ast$ {\em dc}, int {\em mode})}\label{classCharge_a3}
+
+
+Drawing a charge \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em dc}]is a drawing context on the frame \item[{\em mode}]is an int that is equal to 0 for E-mode and equal to 1 for B-mode \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]void \end{Desc}
+\begin{Desc}
+\item[See also:]Grid::Draw() \end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+charge.hpp\item 
+charge.cpp\end{CompactItemize}
