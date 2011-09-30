@@ -1,0 +1,100 @@
+V "GNAT Lib v3.15"
+M P W=b
+P
+R nnvnnnnvnnnnnvvvvnvnnvnnnnnnnnnvnvnnnnnnnnvvvnnnvvnn
+
+U main%b		main.adb		2a3200f7 NE SU
+W ada.tags%s		a-tags.adb		a-tags.ali
+W gtk%s			gtk.ads			gtk.ali
+W gtk.main%s		gtk-main.adb		gtk-main.ali
+W gtk.window%s		gtk-window.adb		gtk-window.ali
+
+U main%s		main.ads		93075c49 EE NE SU
+
+D ada.ads		20021024080216 a0108083
+D a-except.ads		20021024080215 a9cbab76
+D a-finali.ads		20021024080215 d4be2e87
+D a-filico.ads		20021024080215 83058640
+D a-stream.ads		20021024080216 dbe6acb4
+D a-tags.ads		20021024080216 bc792b69
+D a-tags.adb		20021024080216 c218693f
+D a-unccon.ads		20021024080216 5b55fe29
+D a-uncdea.ads		20021024080216 5a774be9
+D gdk.ads		20010514181013 21b8a925
+D gdk-bitmap.ads	20020107165831 bc47b1a9
+D gdk-color.ads		20030719170641 4883f5ac
+D gdk-cursor.ads	20010626130539 c95f2608
+D gdk-drawable.ads	20030505142226 37dd74cc
+D gdk-event.ads		20030922143000 62492640
+D gdk-font.ads		20030612162949 8870cc05
+D gdk-gc.ads		20021112132136 d5562957
+D gdk-pixbuf.ads	20030831201017 d8495541
+D gdk-pixmap.ads	20020107165831 fbee86d5
+D gdk-rectangle.ads	20021112132154 2b92adaf
+D gdk-region.ads	20021104102739 9fa42437
+D gdk-rgb.ads		20030719170641 191384ff
+D gdk-types.ads		20020325095554 6ddb4e85
+D gdk-visual.ads	20020103090706 624e08db
+D gdk-window.ads	20030714184403 368b0512
+D glib.ads		20030829160358 682805cf
+D glib-error.ads	20020102223754 52a4959a
+D glib-generic_properties.ads  20020411102237 080d6ad4
+D glib-glist.ads	20020502093051 c76ebbf7
+D glib-gslist.ads	20000120110118 e0d62065
+D glib-object.ads	20030925090148 9ba84be5
+D glib-properties.ads	20031013075343 e80f4b9c
+D glib-values.ads	20030730140544 3f42700f
+D gnat.ads		20021024080218 6380ea48
+D g-htable.ads		20021024080218 88a5f4ba
+D gtk.ads		20020103092729 da626b2a
+D gtk-accel_group.ads	20030322230640 5a716a28
+D gtk-adjustment.ads	20020103092729 2363d65a
+D gtk-bin.ads		20020103092729 2e1c9fc3
+D gtk-container.ads	20030505135011 abaf0826
+D gtk-enums.ads		20030505142226 3d10f6f0
+D gtk-main.ads		20030505142226 f915a078
+D gtk-object.ads	20030505132726 6fdc218e
+D gtk-style.ads		20030505142226 a4e082ce
+D gtk-widget.ads	20030923134937 87cc963f
+D gtk-window.ads	20031008143012 dbe59c52
+D gtkada.ads		20000324092821 c5c855dc
+D gtkada-types.ads	20010727102115 3212df8e
+D interfac.ads		20021024080219 6e859da6
+D i-c.ads		20021024080218 fef7fe28
+D i-cstrin.ads		20021024080219 1be20329
+D main.ads		20050123105837 93075c49
+D main.adb		20041005163352 9bc56094
+D pango.ads		20010523140143 ce857f5e
+D pango-attributes.ads	20021007103413 c35eb92b
+D pango-context.ads	20021007102938 239c0821
+D pango-enums.ads	20020701075656 5a541bcc
+D pango-font.ads	20021007102919 9af69830
+D pango-layout.ads	20030808123053 1dd33b9f
+D system.ads		20021024080214 6e13833c
+D s-exctab.ads		20021024080220 52f2ffc0
+D s-finimp.ads		20021024080220 ef65ab1e
+D s-finroo.ads		20021024080220 7e5e077b
+D s-parame.ads		20021024080221 315d7d16
+D s-secsta.ads		20021024080221 e384df23
+D s-soflin.ads		20021024080221 14059e84
+D s-stache.ads		20021024080221 8fc58eaa
+D s-stalib.ads		20021024080221 76713122
+D s-stoele.ads		20021024080221 c6bef0ad
+D s-stratt.ads		20021024080221 9fdf8f81
+D s-unstyp.ads		20021024080221 05ad3732
+D unchconv.ads		20021024080222 1b7a14c5
+X 36 gtk.ads
+47K9*Gtk 80e8 53|1r6 1r16 4r13 6r4 7r4 8r4 9r4
+X 42 gtk-main.ads
+47K13*Main 352e13 53|1r10 6r8 9r8
+54U14*Init 53|6r13
+144U14*Main 53|9r13
+X 46 gtk-window.ads
+61K13*Window 666e15 53|1r20 4r17 7r8 8r8
+64P9*Gtk_Window 53|4r24
+66U14*Gtk_New 53|7r15
+X 52 main.ads
+1U11*Main 53|3b11 10l5 10t9
+X 53 main.adb
+4p4 Window{46|64P9} 7m24 8r21
+

@@ -1,0 +1,1 @@
+Sortie texte sur écran en Ada

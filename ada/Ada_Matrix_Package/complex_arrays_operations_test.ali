@@ -1,0 +1,214 @@
+V "GNAT Lib v3.15"
+M P W=b
+P
+R nnvvnnnvnnnnnvvvvvvnvvvnnnnvnnnvnvnnnnnnnnnvnnnnvvnn
+
+U complex_arrays_operations_test%b  complex_arrays_operations_test.adb  773bb959 NE SU
+W ada%s			ada.ads			ada.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.numerics%s	a-numeri.ads		a-numeri.ali
+W ada.numerics.aux%s	a-numaux.adb		a-numaux.ali
+W ada.numerics.generic_complex_types%s
+W ada.numerics.generic_elementary_functions%s
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W generic_complex_arrays%s  generic_complex_arrays.adb  generic_complex_arrays.ali
+W generic_complex_arrays.operations%s  generic_complex_arrays-operations.adb  generic_complex_arrays-operations.ali
+W generic_real_arrays%s	generic_real_arrays.adb	generic_real_arrays.ali
+W system%s		system.ads		system.ali
+W system.exception_table%s  s-exctab.adb	s-exctab.ali
+W system.exn_flt%s	s-exnflt.ads		s-exnflt.ali
+W system.fat_flt%s	s-fatflt.ads		s-fatflt.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.standard_library%s  s-stalib.adb	s-stalib.ali
+
+D ada.ads		20021024080216 a0108083
+D a-except.ads		20021024080215 a9cbab76
+D a-finali.ads		20021024080215 d4be2e87
+D a-filico.ads		20021024080215 83058640
+D a-inteio.ads		20021024080215 58c81565
+D a-ioexce.ads		20021024080215 d52e128a
+D a-numeri.ads		20021024080216 24750733
+D a-numaux.ads		20021024080215 a59c15c5
+D a-ngcoty.ads		20021024080215 36def867
+D a-ngcoty.adb		20021024080215 210f8ed7
+D a-ngelfu.ads		20021024080215 95071d99
+D a-ngelfu.adb		20021024080215 a87c25ee
+D a-stream.ads		20021024080216 dbe6acb4
+D a-tags.ads		20021024080216 bc792b69
+D a-textio.ads		20021024080216 98d7a37c
+D a-tiinio.ads		20021024080216 d2c49634
+D a-unccon.ads		20021024080216 5b55fe29
+D a-uncdea.ads		20021024080216 5a774be9
+D array_exceptions.ads	19960711212048 2d93d4ed
+D complex_arrays_operations_test.adb  19961120180148 1b041b50
+D generic_complex_arrays.ads  19960904172750 50d65a32
+D generic_complex_arrays.adb  19961212143938 62545d28
+D generic_complex_arrays-operations.ads  19960904173244 d7058874
+D generic_complex_arrays-operations.adb  19961120194512 453f038a
+D generic_real_arrays.ads  19960904161200 882a23a8
+D generic_real_arrays.adb  19961120194620 6e8c85ea
+D interfac.ads		20021024080219 6e859da6
+D i-cstrea.ads		20021024080218 4c49c040
+D system.ads		20021024080214 6e13833c
+D s-exctab.ads		20021024080220 52f2ffc0
+D s-exnflt.ads		20021024080220 3b4236b8
+D s-exngen.ads		20021024080220 8326a4b5
+D s-fatflt.ads		20021024080220 485be067
+D s-fatgen.ads		20021024080220 176a60c7
+D s-fatgen.adb		20021024080220 ad1d790b
+D s-ficobl.ads		20021024080220 14416104
+D s-finimp.ads		20021024080220 ef65ab1e
+D s-finroo.ads		20021024080220 7e5e077b
+D s-parame.ads		20021024080221 315d7d16
+D s-secsta.ads		20021024080221 e384df23
+D s-soflin.ads		20021024080221 14059e84
+D s-stache.ads		20021024080221 8fc58eaa
+D s-stalib.ads		20021024080221 76713122
+D s-stoele.ads		20021024080221 c6bef0ad
+D s-stratt.ads		20021024080221 9fdf8f81
+D s-unstyp.ads		20021024080221 05ad3732
+D unchconv.ads		20021024080222 1b7a14c5
+X 1 ada.ads
+18K9*Ada 21e8 20|1r6 2r6 3r6 4r6 8r5 13r32 41r7 42r7 43r7 44r7 375r3 376r3
+X 5 a-inteio.ads
+20K13*Integer_Text_IO 20|2r10 376r7
+X 7 a-numeri.ads
+19K13*Numerics 30e17 20|3r10 4r10 13r36
+X 9 a-ngcoty.ads
+43k22*Generic_Complex_Types 161e39 20|4r19 13r45
+47R9 Complex 20|17r69[13]
+58V13 Re{float} 20|16i3[13] 53r13[13] 53r27[13] 67r11[13] 67r23[13]
+59V13 Im{float} 20|16i3[13] 55r13[13] 55r27[13] 68r11[13] 68r23[13]
+62U14 Set_Re 20|16i3[13]
+63U14 Set_Im 20|16i3[13]
+66V13 Compose_From_Cartesian{47R9} 20|16i3[13]
+70V13 Modulus{float} 20|16i3[13]
+73V13 Argument{float} 20|16i3[13]
+74V13 Argument{float} 20|16i3[13]
+76V13 Compose_From_Polar{47R9} 20|16i3[13]
+80V13 Compose_From_Polar{47R9} 20|16i3[13]
+86V13 Conjugate{47R9} 20|16i3[13]
+X 11 a-ngelfu.ads
+21k22*Generic_Elementary_Functions 75e46 20|3r19
+X 15 a-textio.ads
+51K13*Text_IO 442e16 20|1r10 8r9 41r11 42r11 43r11 44r11 375r7
+169U14*New_Line 20|41r19 81r3 93r3 104r3 114r3 131r3 145r3 153r3 169r3 185r3
+. 198r3 209r3 219r3 258r3 302r3 337r3 369r3
+245U14*Put 20|375r15
+260U14*Put_Line 20|42r19 43r19 44r19 79r3 80r3 90r3 91r3 92r3 103r3 111r3
+. 112r3 113r3 127r3 128r3 129r3 130r3 144r3 151r3 152r3 166r3 167r3 168r3
+. 183r3 184r3 196r3 197r3 208r3 217r3 218r3 255r3 256r3 257r3 299r3 300r3
+. 301r3 333r3 334r3 335r3 336r3 368r3
+X 16 a-tiinio.ads
+69U14*Put 20|376r23[20|20]
+X 20 complex_arrays_operations_test.adb
+10U11*Complex_Arrays_Operations_Test 378l5 378t35
+12K11 Real_Arrays 14r7
+13K11 Complex_Types 15r7
+16K11 Complex_Arrays 18r44 19r7
+18K11 Complex_Arrays_Operations 20r7
+22p3 V_Ptr1{23|49P8} 82m3 83r10 84r10 85r10 105m18
+22p11 V_Ptr2{23|49P8} 94m3 95r10 96r10 97r10 98r10 106m18
+23p3 M_Ptr1{23|53P8} 115m3 116r10 117r10 118r10 119r10 120r10 121r10 146m18
+. 154m3 155r10 156r10 157r10 158r10 159r10 160r10 161m18 170m3 171r10 172r10
+. 173r10 174r10 175r10 176r10 177r10
+23p11 M_Ptr2{23|53P8} 132m3 133r10 134r10 135r10 136r10 137r10 138r10 139r10
+. 147m18
+24a3 A{21|80A8} 186r12 187r20 187r32 188r17 199r12 200r18 201r19 210r19 303r12
+. 304r21 305r22 305r28 305r43 311r12 312r21 313r22 313r25 313r40 319r12 319r24
+. 320r14 320r26 321r21 321r38 322r24 338r12 339r21 340r22 340r28 340r43 347r12
+. 348r21 349r22 349r25 349r40 356r12 356r24 357r14 357r26 358r21 358r38 359r24
+. 371r14
+29a3 B{21|79A8} 220r15 222r22 222r28 222r43 225r15 227r22 227r28 227r43 231r15
+. 233r22 233r28 233r43 238r15 240r22 240r28 240r43 246r20 246r23 246r32 259r15
+. 261r22 261r28 261r43 265r15 267r22 267r28 267r43 272r15 274r22 274r28 274r43
+. 280r15 282r22 282r28 282r43 289r20 289r23 289r32
+34f3 O{float} 187m6 188r32 188r40 189r32 189r40 190r32 190r40 191r32 191r40
+. 200m5 201r34 201r41 202r34 202r41 203r34 203r41 204r34 204r41 221m5 222r57
+. 222r64 223r57 223r68 226m5 227r59 227r66 228r59 228r70 229r59 229r70 232m5
+. 233r59 233r66 234r59 234r70 235r59 235r70 236r59 236r70 239m5 240r59 240r66
+. 241r59 241r70 242r59 242r70 243r59 243r70 244r59 244r70 260m5 262r44 262r51
+. 263r44 263r55 266m5 268r44 268r51 269r44 269r55 270r44 270r55 273m5 275r34
+. 275r41 276r34 276r45 277r34 277r45 278r34 278r45 281m5 283r44 283r51 284r44
+. 284r55 285r44 285r55 286r44 286r55 287r44 287r55 304m5 306r21 306r33 307r21
+. 307r33 308r21 308r33 309r21 309r33 312m5 314r22 314r34 315r22 315r34 316r22
+. 316r34 317r22 317r34 321m7 323r24 323r32 323r42 323r50 323r60 323r68 324r24
+. 324r32 324r42 324r50 324r60 324r68 325r24 325r32 325r42 325r50 325r60 325r68
+. 339m5 342r21 342r33 343r21 343r33 344r21 344r33 345r21 345r33 348m5 351r22
+. 351r34 352r22 352r34 353r22 353r34 354r22 354r34 358m7 361r24 361r32 361r42
+. 361r50 361r60 361r68 362r24 362r32 362r42 362r50 362r60 362r68 363r24 363r32
+. 363r42 363r50 363r60 363r68
+36i3 Tests_Failed{integer} 45m7 45r23 376r27
+38U13 Assert 47t6 83r3 84r3 85r3 95r3 96r3 97r3 98r3 116r3 117r3 118r3 119r3
+. 120r3 121r3 133r3 134r3 135r3 136r3 137r3 138r3 139r3 155r3 156r3 157r3
+. 158r3 159r3 160r3 171r3 172r3 173r3 174r3 175r3 176r3 177r3 188r6 201r5
+. 210r3 222r5 227r5 233r5 240r5 246r3 261r5 267r5 274r5 282r5 289r3 305r5
+. 313r5 322r7 340r5 349r5 359r7 370r3 371r3 372r3
+38b20 Test_Case{boolean} 40r12
+49V12 Compare{boolean} 62l7 62t14
+49a20 X1{21|80A8} 51r14 52r16 53r16 53r48 54r48 55r16 55r48 56r48
+49a24 X2{21|80A8} 53r30 53r33 54r33 55r30 55r33 56r33
+51i9 R{integer} 53r19 53r46 55r19 55r46
+52i11 C{integer} 53r21 54r46 55r21 56r46
+64V12 Compare{boolean} 73l7 73t14
+64a20 X1{21|79A8} 66r14 67r14 67r41 68r14 68r41
+64a24 X2{21|79A8} 67r26 67r29 68r26 68r29
+66i9 I{integer} 67r17 67r39 68r17 68r39
+186i7 I{integer} 187r18 188r20
+199i7 I{integer} 200r16 201r22
+220i7 I{integer} 221r16 222r25 222r40
+225i7 I{integer} 226r16 227r25 227r40
+231i7 I{integer} 232r16 233r25 233r40
+238i7 I{integer} 239r16 240r25 240r40
+259i7 I{integer} 260r16 261r25 261r40
+265i7 I{integer} 266r16 267r25 267r40
+272i7 I{integer} 273r16 274r25 274r40
+280i7 I{integer} 281r16 282r25 282r40
+303i7 I{integer} 304r19 305r25 305r40
+311i7 I{integer} 312r19 313r37 313r51
+319i7 R{integer} 321r36 322r27 322r33
+320i9 C{integer} 321r19 322r30 322r38
+338i7 I{integer} 339r19 340r25 340r40
+347i7 I{integer} 348r19 349r37 349r51
+356i7 R{integer} 358r36 359r27 359r33
+357i9 C{integer} 358r19 359r30 359r38
+X 21 generic_complex_arrays.ads
+75k9*GENERIC_COMPLEX_ARRAYS 20|6r6 7r6 16r33 21|273e27
+79A8 COMPLEX_VECTOR 20|29r6[16] 64r31[16]
+80A8 COMPLEX_MATRIX 20|24r6[16] 49r31[16]
+X 23 generic_complex_arrays-operations.ads
+44k32 Operations 20|7r29 23|173e38
+49P8 Complex_Vector_Ptr(21|79A8) 20|22r19[18]
+53P8 Complex_Matrix_Ptr(21|80A8) 20|23r19[18]
+59V12 Create_Vector{49P8} 20|82r13[18]
+65V12 Create_Vector{49P8} 20|94r13[18]
+66r26 Default_Value{21|34R8} 20|94r33[18]
+73V12 Create_Matrix{53P8} 20|115r13[18]
+81V12 Create_Matrix{53P8} 20|132r13[18]
+83r26 Default_Value{21|34R8} 20|132r39[18]
+89V12 Create_Matrix{53P8} 20|154r13[18]
+95V12 Create_Matrix{53P8} 20|170r13[18]
+96r26 Default_Value{21|34R8} 20|170r33[18]
+102U13 Destroy_Vector 20|105r3[18] 106r3[18]
+106U13 Destroy_Matrix 20|146r3[18] 147r3[18] 161r3[18]
+112V12 Row{21|79A8} 20|188r13[18]
+118V12 Column{21|79A8} 20|201r12[18]
+127V12 Diagonal{21|79A8} 20|210r10[18]
+132V12 SubVector{21|79A8} 20|222r12[18] 227r12[18] 233r12[18] 240r12[18]
+. 246r10[18]
+138V12 SubVector{21|79A8} 20|261r12[18] 267r12[18] 274r12[18] 282r12[18]
+. 289r10[18]
+139i22 First_Index{integer} 20|262r22[18] 268r22[18] 275r12[18] 283r22[18]
+. 290r20[18]
+146V12 SubMatrix{21|80A8} 20|305r12[18] 313r12[18] 322r14[18]
+155V12 SubMatrix{21|80A8} 20|340r12[18] 349r12[18] 359r14[18]
+157i22 First_Row_index{integer} 20|341r22[18] 350r22[18] 360r24[18]
+157i39 First_Col_Index{integer} 20|341r45[18] 350r45[18] 360r47[18]
+166V12 Det{21|34R8} 20|370r10[18] 371r10[18] 372r10[18]
+X 25 generic_real_arrays.ads
+13k9*GENERIC_REAL_ARRAYS 20|5r6 12r30 25|90e24
+17A8 REAL_VECTOR 20|16r63[12]
+18A8 REAL_MATRIX 20|17r56[12]
+

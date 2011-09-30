@@ -1,0 +1,20 @@
+V "GNAT Lib v3.15"
+A -gnato
+A -gnatin
+P
+R nnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnvnnnnnnnnnnnnnnvvnn
+
+U phone.numbers%s	phone-numbers.ads	afb885d4 NE PK IU
+W phone%s		phone.adb		phone.ali
+
+D phone.ads		20041005121554 bddc68b5
+D phone-numbers.ads	20041005121554 1264ed61
+D system.ads		20021023073320 2f3adf03
+D s-exctab.ads		20021023073328 52f2ffc0
+D s-stalib.ads		20021023073330 76713122
+D unchconv.ads		20020314110021 1b7a14c5
+X 1 phone.ads
+10K9*PHONE 31e10 2|10r9 12r5
+X 2 phone-numbers.ads
+10K17*NUMBERS 12l13 12e20
+

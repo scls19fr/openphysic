@@ -1,0 +1,6 @@
+package ARRAY_EXCEPTIONS is
+
+  ARRAY_INDEX_ERROR: exception;
+
+end ARRAY_EXCEPTIONS;
+

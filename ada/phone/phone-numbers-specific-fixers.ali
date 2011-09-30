@@ -1,0 +1,49 @@
+V "GNAT Lib v3.15"
+A -gnato
+A -gnatin
+P NO
+R nnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnvnnnnnnnnnnnnnnvvnn
+
+U phone.numbers.specific.fixers%s  phone-numbers-specific-fixers.ads  d9138163 EE PK GE IU
+W phone%s		phone.adb		phone.ali
+W phone.numbers%s	phone-numbers.ads	phone-numbers.ali
+W phone.numbers.specific%s  phone-numbers-specific.adb  phone-numbers-specific.ali
+
+D phone.ads		20041005121554 bddc68b5
+D phone-numbers.ads	20041005121554 1264ed61
+D phone-numbers-specific.ads  20041005121554 10cf6971
+D phone-numbers-specific-fixers.ads  20041005121554 c9dce812
+D system.ads		20021023073320 2f3adf03
+D s-exctab.ads		20021023073328 52f2ffc0
+D s-stalib.ads		20021023073330 76713122
+D unchconv.ads		20020314110021 1b7a14c5
+X 1 phone.ads
+10K9*PHONE 31e10 4|14r9 34r5
+X 2 phone-numbers.ads
+10K17*NUMBERS 12e20 4|14r17 34r13
+X 3 phone-numbers-specific.ads
+14k27*SPECIFIC 54e31 4|14r27 34r23
+18R10 NUMBER 52e16 4|18r58 19r74 29r53 30r54
+20R10 COUNTRY_TYPE 4|16r24
+21R10 REGION_TYPE 4|19r32 27r27
+22R10 LOCAL_TYPE 4|19r54 30r34
+29V14 BUILD{20R10} 4|16r40
+30V14 BUILD{21R10} 4|27r42
+X 4 phone-numbers-specific-fixers.ads
+12s5 COUNTRY_CODE{string} 16r48
+14k38 FIXERS 34l34 34e40
+16R5 COUNTRY{3|20R10}
+18V14 BUILD{3|18R10}
+18s22 REGION{string}
+18s31 LOCAL{string}
+19V14 BUILD{3|18R10}
+19R22 REGION{3|21R10}
+19R46 LOCAL{3|22R10}
+23s9 REGION_CODE{string} 27r50
+25k13 REGION_FIXER 32l9 32e21
+27R9 REGION{3|21R10}
+29V18 BUILD{3|18R10}
+29s26 LOCAL{string}
+30V18 BUILD{3|18R10}
+30R26 LOCAL{3|22R10}
+

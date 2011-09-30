@@ -1,0 +1,43 @@
+V "GNAT Lib v3.15"
+A -gnato
+A -gnatin
+P
+R nnnnnnnnnnnnnnvnnnnnnvnnnnnnnnnnnvnnnnnnnnnnnnnnvvnn
+
+U phone%b		phone.adb		8c617833 NE PK IU
+W ada.exceptions%s	a-except.adb		a-except.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U phone%s		phone.ads		bddc68b5 EB EE PK IU
+W system%s		system.ads		system.ali
+W system.exception_table%s  s-exctab.adb	s-exctab.ali
+W system.standard_library%s  s-stalib.adb	s-stalib.ali
+
+D ada.ads		20020314105901 a0108083
+D a-except.ads		20021023073320 a9cbab76
+D phone.ads		20041005121554 bddc68b5
+D phone.adb		20041005122947 31bd1086
+D system.ads		20021023073320 2f3adf03
+D s-exctab.ads		20021023073328 52f2ffc0
+D s-secsta.ads		20021023073330 e384df23
+D s-stalib.ads		20021023073330 76713122
+D s-stoele.ads		20020314105958 c6bef0ad
+D unchconv.ads		20020314110021 1b7a14c5
+X 3 phone.ads
+10K9*PHONE 31l5 31e10 4|10b14 39l5 39t10
+14X5*NOT_A_NUMBER 4|16r23
+16X5*OVERFLOW 4|20r19
+20R10 FIXED_STRING 23e16 25r44 26r35 27r40 4|12r44 26r40 33r35
+20i25*SIZE{positive} 22r30 4|19r36
+21i9*USED{integer} 4|22r17 28r20 36r42
+22a9*TEXT{string} 4|23r17 36r23
+25U15 FIXED_BUILD 29r21 4|12b15 24l9 24t20
+25r29 USING{20R10} 4|12b29 19r28 22m9 23m9
+25s59 FROM{string} 4|12b59 14r22 15r16 19r12 22r25 23r29 23r48
+26V14 FIXED_IMAGE{string} 29r35 4|33b14 37l9 37t20
+26r28 FROM{20R10} 4|33b28 35r23 36r16 36r35
+27U15 FIXED_CHECK 29r49 4|26b15 31l9 31t20 35r9
+27r29 USING{20R10} 4|26b29 28r12
+X 4 phone.adb
+14i13 INDEX{integer} 15r23
+

@@ -1,0 +1,17 @@
+V "GNAT Lib v3.15"
+A -gnato
+A -gnatin
+P
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+
+U mod_2004_a.taille_2_2_6%s  mod_2004_a-taille_2_2_6.ads  e2de38d8 NE PK IU
+W mod_2004_a%s		mod_2004_a.ads		mod_2004_a.ali
+
+D mod_2004_a.ads	20041005121554 8f35107f
+D mod_2004_a-taille_2_2_6.ads  20041005121554 6deb28a7
+D system.ads		20021023073320 2f3adf03
+X 1 mod_2004_a.ads
+10K9*MOD_2004_A 12e15 2|10r9 12r5
+X 2 mod_2004_a-taille_2_2_6.ads
+10K22*TAILLE_2_2_6 12l18 12e30
+

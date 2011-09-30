@@ -1,0 +1,72 @@
+V "GNAT Lib v3.15"
+M P W=b
+P
+R nnvnnnnvnnnnnvvvvvvnnvvnnnnnnnnvnvnnnnnnnnnnnnnnvvnn
+
+U main%b		main.adb		6f3db193 NE SU
+W ada%s			ada.ads			ada.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W generic_real_arrays%s	generic_real_arrays.adb	generic_real_arrays.ali
+W generic_real_arrays.array_io%s  generic_real_arrays-array_io.adb  generic_real_arrays-array_io.ali
+W system.exn_flt%s	s-exnflt.ads		s-exnflt.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+
+D ada.ads		20021024080216 a0108083
+D a-except.ads		20021024080215 a9cbab76
+D a-finali.ads		20021024080215 d4be2e87
+D a-filico.ads		20021024080215 83058640
+D a-inteio.ads		20021024080215 58c81565
+D a-ioexce.ads		20021024080215 d52e128a
+D a-stream.ads		20021024080216 dbe6acb4
+D a-tags.ads		20021024080216 bc792b69
+D a-textio.ads		20021024080216 98d7a37c
+D a-tiflio.ads		20021024080216 661a85c9
+D a-tiinio.ads		20021024080216 d2c49634
+D array_exceptions.ads	19960711212048 2d93d4ed
+D generic_real_arrays.ads  19960904161200 882a23a8
+D generic_real_arrays.adb  19961120194620 6e8c85ea
+D generic_real_arrays-array_io.ads  19960904161730 e52f7d4f
+D generic_real_arrays-array_io.adb  19961120180244 674e27fb
+D interfac.ads		20021024080219 6e859da6
+D i-cstrea.ads		20021024080218 4c49c040
+D main.adb		20050203145606 c227596d
+D system.ads		20021024080214 6e13833c
+D s-exctab.ads		20021024080220 52f2ffc0
+D s-exnflt.ads		20021024080220 3b4236b8
+D s-exngen.ads		20021024080220 8326a4b5
+D s-ficobl.ads		20021024080220 14416104
+D s-finimp.ads		20021024080220 ef65ab1e
+D s-finroo.ads		20021024080220 7e5e077b
+D s-parame.ads		20021024080221 315d7d16
+D s-secsta.ads		20021024080221 e384df23
+D s-soflin.ads		20021024080221 14059e84
+D s-stache.ads		20021024080221 8fc58eaa
+D s-stalib.ads		20021024080221 76713122
+D s-stoele.ads		20021024080221 c6bef0ad
+D s-stratt.ads		20021024080221 9fdf8f81
+D s-unstyp.ads		20021024080221 05ad3732
+D unchconv.ads		20021024080222 1b7a14c5
+X 1 ada.ads
+18K9*Ada 21e8 19|5r6 5r23 6r6
+X 5 a-inteio.ads
+20K13*Integer_Text_IO 19|6r10
+X 9 a-textio.ads
+51K13*Text_IO 442e16 19|5r10 5r27
+260U14*Put_Line 19|33r4
+X 13 generic_real_arrays.ads
+13k9*GENERIC_REAL_ARRAYS 90e24 19|12r6 14r6 20r31
+18A8 REAL_MATRIX 19|28r8[20] 29r8[20] 30r8[20]
+62V12 "+"{18A8} 19|48r10[20]
+X 15 generic_real_arrays-array_io.ads
+36k29 ARRAY_IO 42e33 19|14r26
+X 19 main.adb
+17U11*Main 53l5 53t9
+18f4 n{float} 34m4
+20K12 Real_Arrays 24r8
+28a4 A{13|18A8} 36m4 48r9
+29a4 B{13|18A8} 42m4 48r11
+30a4 C{13|18A8} 48m4
+

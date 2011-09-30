@@ -1,0 +1,89 @@
+V "GNAT Lib v3.15"
+A -gnato
+A -gnatin
+P
+R nnvnnnnvnnnnnvvvvvvnnvnnnnnnnnnnnvnnnnnnnnnnnnnnvvnn
+
+U mod_2004_a.taille_2_2_6.fichiers%b  mod_2004_a-taille_2_2_6-fichiers.ads  4d4276e4 NE PK IU
+W ada%s			ada.ads			ada.ali
+W ada.io_exceptions%s	a-ioexce.ads		a-ioexce.ali
+W ada.sequential_io%s
+W ada.tags%s		a-tags.adb		a-tags.ali
+W interfaces%s		interfac.ads		interfac.ali
+W interfaces.c_streams%s  i-cstrea.adb		i-cstrea.ali
+W mod_2004_a%s		mod_2004_a.ads		mod_2004_a.ali
+W mod_2004_a.taille_2_2_6%s  mod_2004_a-taille_2_2_6.ads  mod_2004_a-taille_2_2_6.ali
+W mod_2004_a.taille_2_2_6.numeros%s  mod_2004_a-taille_2_2_6-numeros.ads  mod_2004_a-taille_2_2_6-numeros.ali
+W system%s		system.ads		system.ali
+W system.file_control_block%s  s-ficobl.ads	s-ficobl.ali
+W system.file_io%s	s-fileio.adb		s-fileio.ali
+W system.sequential_io%s  s-sequio.adb		s-sequio.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+W system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+W unchecked_conversion%s
+
+U mod_2004_a.taille_2_2_6.fichiers%s  mod_2004_a-taille_2_2_6-fichiers.ads  f68760e8 EB NE PK IU
+W ada%s			ada.ads			ada.ali
+W ada.io_exceptions%s	a-ioexce.ads		a-ioexce.ali
+W ada.sequential_io%s
+W mod_2004_a%s		mod_2004_a.ads		mod_2004_a.ali
+W mod_2004_a.taille_2_2_6%s  mod_2004_a-taille_2_2_6.ads  mod_2004_a-taille_2_2_6.ali
+W mod_2004_a.taille_2_2_6.numeros%s  mod_2004_a-taille_2_2_6-numeros.ads  mod_2004_a-taille_2_2_6-numeros.ali
+W system%s		system.ads		system.ali
+W system.sequential_io%s  s-sequio.adb		s-sequio.ali
+W system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+D ada.ads		20020314105901 a0108083
+D a-except.ads		20021023073320 a9cbab76
+D a-finali.ads		20021023073320 d4be2e87
+D a-filico.ads		20021023073320 83058640
+D a-ioexce.ads		20020314105849 d52e128a
+D a-sequio.ads		20021023073321 545d9cf1
+D a-sequio.adb		20021023073321 dd52a300
+D a-stream.ads		20021023073321 dbe6acb4
+D a-tags.ads		20021023073321 bc792b69
+D a-tags.adb		20021023073321 c218693f
+D gnat.ads		20020314105923 6380ea48
+D g-htable.ads		20020314105919 88a5f4ba
+D interfac.ads		20020314105929 6e859da6
+D i-cstrea.ads		20021023073326 12f12cf1
+D mod_2004_a.ads	20041005121554 8f35107f
+D mod_2004_a-taille_2_2_6.ads  20041005121554 6deb28a7
+D mod_2004_a-taille_2_2_6-fichiers.ads  20041005121554 4d4276e4
+D mod_2004_a-taille_2_2_6-fichiers.ads  20041005121554 4d4276e4
+D mod_2004_a-taille_2_2_6-numeros.ads  20041005121554 8273a25a
+D phone.ads		20041005121554 bddc68b5
+D phone-numbers.ads	20041005121554 1264ed61
+D phone-numbers-specific.ads  20041005121554 10cf6971
+D system.ads		20021023073320 2f3adf03
+D s-arit64.ads		20021023073328 be646b3c
+D s-exctab.ads		20021023073328 52f2ffc0
+D s-ficobl.ads		20021023073328 14416104
+D s-fileio.ads		20021023073328 125e5cb8
+D s-finimp.ads		20021023073328 ef65ab1e
+D s-finroo.ads		20021023073328 7e5e077b
+D s-parame.ads		20021023073330 315d7d16
+D s-secsta.ads		20021023073330 e384df23
+D s-sequio.ads		20021023073330 6f825cc5
+D s-soflin.ads		20021023073330 14059e84
+D s-stache.ads		20021023073330 8fc58eaa
+D s-stalib.ads		20021023073330 76713122
+D s-stoele.ads		20020314105958 c6bef0ad
+D s-stratt.ads		20021023073331 9fdf8f81
+D s-unstyp.ads		20021023073331 05ad3732
+D unchconv.ads		20020314110021 1b7a14c5
+X 1 ada.ads
+17K9*Ada 20e8 18|11r6 12r53
+X 6 a-sequio.ads
+46k13*Sequential_IO 127e22 18|11r12 12r59
+X 15 mod_2004_a.ads
+10K9*MOD_2004_A 12e15 18|10r6 12r9 13r34
+X 16 mod_2004_a-taille_2_2_6.ads
+10K22*TAILLE_2_2_6 12e30 18|10r19 12r22 13r47
+X 18 mod_2004_a-taille_2_2_6-fichiers.ads
+12K37*FICHIERS
+X 19 mod_2004_a-taille_2_2_6-numeros.ads
+11K37*NUMEROS 18|10r34 13r62
+X 22 phone-numbers-specific.ads
+18R10*NUMBER 18|13r72[18|11]
+

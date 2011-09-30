@@ -1,0 +1,150 @@
+V "GNAT Lib v3.15"
+P
+R nnnvnnnnnnnnnnvnvnnnnnvnnnnvnnnnnvnnnnnnnnnvnnnnvvnn
+
+U generic_complex_arrays.operations%b  generic_complex_arrays-operations.adb  c84dc017 NE PK GE
+W ada%s			ada.ads			ada.ali
+W ada.unchecked_deallocation%s
+W generic_complex_arrays%s  generic_complex_arrays.adb  generic_complex_arrays.ali
+
+U generic_complex_arrays.operations%s  generic_complex_arrays-operations.ads  87d3d246 EE NE PK GE
+W generic_complex_arrays%s  generic_complex_arrays.adb  generic_complex_arrays.ali
+
+D ada.ads		20021024080216 a0108083
+D a-numeri.ads		20021024080216 24750733
+D a-uncdea.ads		20021024080216 5a774be9
+D array_exceptions.ads	19960711212048 2d93d4ed
+D generic_complex_arrays.ads  19960904172750 50d65a32
+D generic_complex_arrays-operations.ads  19960904173244 d7058874
+D generic_complex_arrays-operations.adb  19961120194512 453f038a
+D system.ads		20021024080214 6e13833c
+D s-exctab.ads		20021024080220 52f2ffc0
+D s-stalib.ads		20021024080221 76713122
+D unchconv.ads		20021024080222 1b7a14c5
+X 1 ada.ads
+18K9*Ada 21e8 7|27r6 34r32 37r32
+X 3 a-uncdea.ads
+22u15*Unchecked_Deallocation 7|27r10 34r36 37r36
+X 5 generic_complex_arrays.ads
+34+8 COMPLEX 6|66r44 83r44 96r44 166r45 7|31r26 32r27 47r44 67r44 84r44 198r45
+. 199r13 217r21
+42V17 COMPOSE_FROM_CARTESIAN{34+8} 7|31r37 32r38
+54V17 "-"{34+8} 7|235r25
+57V17 "+"{34+8} 7|234r28
+58V17 "-"{34+8} 7|209r69
+59V17 "*"{34+8} 7|209r43 210r42 234r41 234r62
+75k9*GENERIC_COMPLEX_ARRAYS 273e27 6|44r9 173r5 7|29r14 244r5
+79A8 COMPLEX_VECTOR 6|49r37 113r40 119r43 127r50 132r28 133r12 138r28 140r12
+. 7|37r59 42r16 104r40 105r13 115r43 116r13 125r50 126r13 138r28 139r12 141r13
+. 150r28 152r12 154r13
+80A8 COMPLEX_MATRIX 6|53r37 112r22 118r25 127r27 146r28 148r12 155r28 158r12
+. 166r22 7|34r59 61r16 103r22 114r25 125r27 163r28 166r12 168r13 179r28 183r12
+. 185r13 198r22 215r18
+271X1 ARRAY_INDEX_ERROR 7|129r13 202r13
+X 6 generic_complex_arrays-operations.ads
+44k32 Operations 173l28 173e38 7|29b37 244l28 244t38
+49P8 Complex_Vector_Ptr(5|79A8) 60r12 67r12 102r38 7|37r75 40r58 48r12 49r13
+. 91r38
+53P8 Complex_Matrix_Ptr(5|80A8) 75r12 84r12 90r12 97r12 106r38 7|34r75 59r12
+. 67r60 68r13 76r58 77r13 84r60 85r13 97r38 214r18
+59V12 Create_Vector{49P8} 7|40b12 43l7 43t20 51r15
+59i26 First{integer} 7|40b26 42r31
+59i33 Last{integer} 7|40b33 42r38
+65V12 Create_Vector{49P8} 7|46b12 54l7 54t20
+65i26 First{integer} 7|46b26 51r29
+65i33 Last{integer} 7|46b33 51r36
+66+26 Default_Value{5|34+8} 7|47b26 52r30
+73V12 Create_Matrix{53P8} 7|57b12 62l7 62t20 70r15 79r12
+73i26 First_row{integer} 7|57b26 61r31
+73i37 First_col{integer} 7|57b37 61r52
+74i26 Last_row{integer} 7|58b26 61r42
+74i36 Last_col{integer} 7|58b36 61r63
+81V12 Create_Matrix{53P8} 7|65b12 73l7 73t20 87r12
+81i26 First_row{integer} 7|65b26 70r29
+81i37 First_col{integer} 7|65b37 70r40
+82i26 Last_row{integer} 7|66b26 70r51
+82i36 Last_col{integer} 7|66b36 70r61
+83+26 Default_Value{5|34+8} 7|67b26 71r41
+89V12 Create_Matrix{53P8} 7|76b12 80l7 80t20
+89i26 First{integer} 7|76b26 79r26 79r33
+89i33 Last{integer} 7|76b33 79r40 79r45
+95V12 Create_Matrix{53P8} 7|83b12 88l7 88t20
+95i26 First{integer} 7|83b26 87r26 87r33
+95i33 Last{integer} 7|83b33 87r40 87r46
+96+26 Default_Value{5|34+8} 7|84b26 87r52
+102U13 Destroy_Vector 7|91b13 94l7 94t21
+102p28 X{49P8} 7|91b28 93m17
+106U13 Destroy_Matrix 7|97b13 100l7 100t21 237r9
+106p28 X{53P8} 7|97b28 99m17
+112V12 Row{5|79A8} 7|103b12 111l7 111t10
+112a16 X{5|80A8} 7|103b16 105r28 107r14 108r20
+113i16 Row{integer} 7|104b16 108r22
+118V12 Column{5|79A8} 7|114b12 122l7 122t13
+118a19 X{5|80A8} 7|114b19 116r28 118r14 119r20
+119i19 Col{integer} 7|115b19 119r25
+127V12 Diagonal{5|79A8} 7|125b12 135l7 135t15
+127a21 X{5|80A8} 7|125b21 126r28 128r8 128r23 131r14 132r20 132r28 132r40
+132V12 SubVector{5|79A8} 7|138b12 147l7 147t16
+132a22 X{5|79A8} 7|138b22 144r20
+132i44 First{integer} 7|138b44 141r28 143r14
+132i51 Last{integer} 7|138b51 141r35 143r21
+138V12 SubVector{5|79A8} 7|150b12 160l7 160t16
+138a22 X{5|79A8} 7|150b22 157r40
+138i44 First{integer} 7|150b44 154r59 156r14 157r29
+138i51 Last{integer} 7|150b51 154r54 156r21
+139i22 First_Index{integer} 7|151b22 154r28 154r41 157r14
+146V12 SubMatrix{5|80A8} 7|163b12 176l7 176t16
+146a22 X{5|80A8} 7|163b22 172r25
+147i22 First_Row{integer} 7|164b22 168r28 170r14
+147i33 First_Col{integer} 7|164b33 168r48 171r16
+147i44 Last_Row{integer} 7|165b22 168r39 170r25
+147i54 Last_Col{integer} 7|165b32 168r59 171r27
+155V12 SubMatrix{5|80A8} 7|179b12 195l7 195t16
+155a22 X{5|80A8} 7|179b22 191r50
+156i22 First_Row{integer} 7|180b22 185r71 188r14 190r35
+156i33 First_Col{integer} 7|180b33 186r68 189r16 191r35
+156i44 Last_Row{integer} 7|181b22 185r62 188r25
+156i54 Last_Col{integer} 7|181b32 186r59 189r27
+157i22 First_Row_index{integer} 7|182b22 185r28 185r45 190r16
+157i39 First_Col_Index{integer} 7|182b39 186r25 186r42 191r16
+166V12 Det{5|34+8} 7|198b12 234r64 241l7 241t10
+166a16 X{5|80A8} 7|198b16 201r8 201r23 205r10 207r17 207r19 207r31 209r17
+. 209r19 209r31 209r45 209r47 209r58 210r17 210r19 210r31 210r44 210r46 210r58
+. 215r33 215r47 216r30 216r42 219r20 220r21 221r27 222r26 222r40 223r39 227r21
+. 228r34 229r26 229r40 230r41 234r43 234r45
+170X3 Matrix_Singular
+171X3 Matrix_Convergence
+X 7 generic_complex_arrays-operations.adb
+31+3 Complex_Zero{5|34+8} 212r17
+32+3 Complex_Unity{5|34+8} 217r32
+34U13 Free_Matrix 99r5
+37U13 Free_Vector 93r5
+49p5 Result{6|49P8} 51m5 52r5 53r12
+68p5 Result{6|53P8} 70m5 71r5 72r12
+77p5 Result{6|53P8}
+85p5 Result{6|53P8}
+105a5 Result{5|79A8} 108m7 110r12
+107i9 I{integer} 108r14 108r27
+116a5 Result{5|79A8} 119m7 121r12
+118i9 I{integer} 119r14 119r22
+126a5 Result{5|79A8} 132m7 134r12
+131i9 I{integer} 132r14 132r22 132r26
+141a5 Result{5|79A8} 144m7 146r12
+143i9 I{integer} 144r14 144r22
+154a5 Result{5|79A8} 157m7 159r12
+156i9 I{integer} 157r27 157r42
+168a5 Result{5|80A8} 172m9 175r12
+170i9 R{integer} 172r16 172r27
+171i11 C{integer} 172r19 172r30
+185a5 Result{5|80A8} 190m9 194r12
+188i9 R{integer} 190r33 191r52
+189i11 C{integer} 191r33 191r55
+199+5 Result{5|34+8} 207m7 209m7 212m7 234m11 234r21 240r12
+214p9 submat{6|53P8} 223m17 230m17 234r68 237m24
+217+9 unity_sign{5|34+8} 234r30 235m11 235r26
+219i13 COL{integer} 220r14 221r39 227r14 228r27 234r57
+221i17 SUBCOL{integer} 223r28 223r45
+222i19 ROW{integer} 223r24 223r41
+228i17 SUBCOL{integer} 230r28 230r47
+229i19 ROW{integer} 230r24 230r43
+

@@ -1,0 +1,14 @@
+V "GNAT Lib v3.15"
+M P W=b
+P
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+
+U main%b		main.adb		23c9d91b NE SU
+
+D main.adb		20040929143015 23c9d91b
+D system.ads		20021024080214 6e13833c
+X 1 main.adb
+4U11*Main 15t4
+7I12 Entier{integer} 10r6
+10i4 N{7I12} 14m4
+

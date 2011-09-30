@@ -1,0 +1,18 @@
+V "GNAT Lib v3.15"
+P
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnvvnn
+
+U array_exceptions%s	array_exceptions.ads	2d93d4ed EE PK IU
+W system%s		system.ads		system.ali
+W system.exception_table%s  s-exctab.adb	s-exctab.ali
+W system.standard_library%s  s-stalib.adb	s-stalib.ali
+
+D array_exceptions.ads	19960711212048 2d93d4ed
+D system.ads		20021024080214 6e13833c
+D s-exctab.ads		20021024080220 52f2ffc0
+D s-stalib.ads		20021024080221 76713122
+D unchconv.ads		20021024080222 1b7a14c5
+X 1 array_exceptions.ads
+1K9*ARRAY_EXCEPTIONS 5l5 5e21
+3X3*ARRAY_INDEX_ERROR
+

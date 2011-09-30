@@ -1,0 +1,47 @@
+V "GNAT Lib v3.15"
+M P W=b
+A -g
+A -gnatQ
+A -g
+A -gnatA
+A -gnatO
+P
+R nnvnnnnvnnnnnvvvvvvnnvnnnnnnnnnnnvnnnnnnnnnnnnnnvvnn
+
+U main%b		main.adb		137d458c NE SU IL
+W ada%s			ada.ads			ada.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+
+D ada.ads		20021024080216 a0108083
+D a-except.ads		20021024080215 a9cbab76
+D a-finali.ads		20021024080215 d4be2e87
+D a-filico.ads		20021024080215 83058640
+D a-ioexce.ads		20021024080215 d52e128a
+D a-stream.ads		20021024080216 dbe6acb4
+D a-tags.ads		20021024080216 bc792b69
+D a-textio.ads		20021024080216 98d7a37c
+D interfac.ads		20021024080219 6e859da6
+D i-cstrea.ads		20021024080218 4c49c040
+D main.adb		20050223142801 8baae6f0
+D system.ads		20021024080214 6e13833c
+D s-exctab.ads		20021024080220 52f2ffc0
+D s-ficobl.ads		20021024080220 14416104
+D s-finimp.ads		20021024080220 ef65ab1e
+D s-finroo.ads		20021024080220 7e5e077b
+D s-parame.ads		20021024080221 315d7d16
+D s-secsta.ads		20021024080221 e384df23
+D s-soflin.ads		20021024080221 14059e84
+D s-stache.ads		20021024080221 8fc58eaa
+D s-stalib.ads		20021024080221 76713122
+D s-stoele.ads		20021024080221 c6bef0ad
+D s-stratt.ads		20021024080221 9fdf8f81
+D s-unstyp.ads		20021024080221 05ad3732
+D unchconv.ads		20021024080222 1b7a14c5
+X 1 ada.ads
+18K9*Ada 21e8 11|6r6 6r23
+X 8 a-textio.ads
+51K13*Text_IO 442e16 11|6r10 6r27
+260U14*Put_Line 11|10r4
+X 11 main.adb
+8U11*main 11l5 11t9
+

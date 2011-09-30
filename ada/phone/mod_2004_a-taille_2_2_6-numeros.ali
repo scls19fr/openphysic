@@ -1,0 +1,52 @@
+V "GNAT Lib v3.15"
+A -gnato
+A -gnatin
+P
+R nnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnvnnnnnnnnnnnnnnvvnn
+
+U mod_2004_a.taille_2_2_6.numeros%b  mod_2004_a-taille_2_2_6-numeros.ads  8273a25a NE PK IU
+W mod_2004_a%s		mod_2004_a.ads		mod_2004_a.ali
+W mod_2004_a.taille_2_2_6%s  mod_2004_a-taille_2_2_6.ads  mod_2004_a-taille_2_2_6.ali
+W phone%s		phone.adb		phone.ali
+W phone.numbers%s	phone-numbers.ads	phone-numbers.ali
+W phone.numbers.specific%s  phone-numbers-specific.adb  phone-numbers-specific.ali  ED
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.string_ops%s	s-strops.adb		s-strops.ali
+W system.string_ops_concat_5%s  s-sopco5.adb	s-sopco5.ali
+
+U mod_2004_a.taille_2_2_6.numeros%s  mod_2004_a-taille_2_2_6-numeros.ads  ff57e38c EB NE PK IU
+W mod_2004_a%s		mod_2004_a.ads		mod_2004_a.ali
+W mod_2004_a.taille_2_2_6%s  mod_2004_a-taille_2_2_6.ads  mod_2004_a-taille_2_2_6.ali
+W phone%s		phone.adb		phone.ali
+W phone.numbers%s	phone-numbers.ads	phone-numbers.ali
+W phone.numbers.specific%s  phone-numbers-specific.adb  phone-numbers-specific.ali  ED
+
+D mod_2004_a.ads	20041005121554 8f35107f
+D mod_2004_a-taille_2_2_6.ads  20041005121554 6deb28a7
+D mod_2004_a-taille_2_2_6-numeros.ads  20041005121554 8273a25a
+D mod_2004_a-taille_2_2_6-numeros.ads  20041005121554 8273a25a
+D phone.ads		20041005121554 bddc68b5
+D phone-numbers.ads	20041005121554 1264ed61
+D phone-numbers-specific.ads  20041005121554 10cf6971
+D phone-numbers-specific.adb  20041005122927 836394bb
+D system.ads		20021023073320 2f3adf03
+D s-exctab.ads		20021023073328 52f2ffc0
+D s-secsta.ads		20021023073330 e384df23
+D s-stalib.ads		20021023073330 76713122
+D s-stoele.ads		20020314105958 c6bef0ad
+D s-strops.ads		20021023073331 1d376900
+D s-sopco5.ads		20021023073330 57309ce3
+D unchconv.ads		20020314110021 1b7a14c5
+X 1 mod_2004_a.ads
+10K9*MOD_2004_A 12e15 4|11r9
+X 2 mod_2004_a-taille_2_2_6.ads
+10K22*TAILLE_2_2_6 12e30 4|11r22
+X 4 mod_2004_a-taille_2_2_6-numeros.ads
+11K37*NUMEROS
+X 5 phone.ads
+10K9*PHONE 4|10r6 11r52 5|31e10
+X 6 phone-numbers.ads
+10K17*NUMBERS 4|10r14 11r60 6|12e20
+X 7 phone-numbers-specific.ads
+14k27*SPECIFIC 4|10r24 11r70 7|54e31
+

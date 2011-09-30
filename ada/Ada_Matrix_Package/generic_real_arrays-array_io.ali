@@ -1,0 +1,74 @@
+V "GNAT Lib v3.15"
+P
+R nnvnnnnvnnnnnvvvvvvnnvnnnnnnnnnnnvnnnnnnnnnnnnnnvvnn
+
+U generic_real_arrays.array_io%b  generic_real_arrays-array_io.adb  1ab6f9c8 NE PK GE IU
+W ada%s			ada.ads			ada.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W ada.text_io.float_aux%s  a-tiflau.adb		a-tiflau.ali
+W generic_real_arrays%s	generic_real_arrays.adb	generic_real_arrays.ali
+
+U generic_real_arrays.array_io%s  generic_real_arrays-array_io.ads  6d055ee7 EE NE PK GE IU
+W generic_real_arrays%s	generic_real_arrays.adb	generic_real_arrays.ali
+
+D ada.ads		20021024080216 a0108083
+D a-except.ads		20021024080215 a9cbab76
+D a-finali.ads		20021024080215 d4be2e87
+D a-filico.ads		20021024080215 83058640
+D a-ioexce.ads		20021024080215 d52e128a
+D a-stream.ads		20021024080216 dbe6acb4
+D a-tags.ads		20021024080216 bc792b69
+D a-textio.ads		20021024080216 98d7a37c
+D a-tiflau.ads		20021024080216 ba8cb130
+D a-tiflio.ads		20021024080216 661a85c9
+D a-tiflio.adb		20021024080216 7c98c807
+D array_exceptions.ads	19960711212048 2d93d4ed
+D generic_real_arrays.ads  19960904161200 882a23a8
+D generic_real_arrays-array_io.ads  19960904161730 e52f7d4f
+D generic_real_arrays-array_io.adb  19961120180244 674e27fb
+D interfac.ads		20021024080219 6e859da6
+D i-cstrea.ads		20021024080218 4c49c040
+D system.ads		20021024080214 6e13833c
+D s-exctab.ads		20021024080220 52f2ffc0
+D s-ficobl.ads		20021024080220 14416104
+D s-finimp.ads		20021024080220 ef65ab1e
+D s-finroo.ads		20021024080220 7e5e077b
+D s-parame.ads		20021024080221 315d7d16
+D s-secsta.ads		20021024080221 e384df23
+D s-soflin.ads		20021024080221 14059e84
+D s-stache.ads		20021024080221 8fc58eaa
+D s-stalib.ads		20021024080221 76713122
+D s-stoele.ads		20021024080221 c6bef0ad
+D s-stratt.ads		20021024080221 9fdf8f81
+D s-unstyp.ads		20021024080221 05ad3732
+D unchconv.ads		20021024080222 1b7a14c5
+X 1 ada.ads
+18K9*Ada 21e8 15|28r6 34r35 38r5 42r7 43r7 46r5 47r5 52r5 55r7 60r7 62r9
+. 67r5 68r5
+X 8 a-textio.ads
+51K13*Text_IO 442e16 15|28r10 34r39 38r9 42r11 43r11 46r9 47r9 52r9 55r11
+. 60r11 62r13 67r9 68r9
+169U14*New_Line 15|42r19 47r17 60r19 68r17
+245U14*Put 15|38r17 43r19 46r17 52r17 55r19 62r21 67r17
+X 10 a-tiflio.ads
+49k21*Float_IO 92e25 15|34r47
+71U14 Put 15|39r22[34] 44r24[34] 53r22[34] 56r24[34] 63r26[34]
+X 13 generic_real_arrays.ads
+11F8 REAL 15|34r56
+13k9*GENERIC_REAL_ARRAYS 90e24 14|36r9 42r5 15|30r14 70r5
+17A8 REAL_VECTOR 14|39r24 15|36r23
+18A8 REAL_MATRIX 14|40r24 15|50r23
+X 14 generic_real_arrays-array_io.ads
+36k29 ARRAY_IO 42l25 42e33 15|30b34 70l25 70t33
+39U13 Put 15|36b13 48l7 48t10
+39a17 v{13|17A8} 15|36b17 39r26 39r28 41r14 41r25 44r28
+40U13 Put 15|50b13 69l7 69t10
+40a17 m{13|18A8} 15|50b17 53r26 53r28 53r39 54r14 54r28 56r28 56r30 59r14
+. 59r28 61r16 61r28 63r30
+X 15 generic_real_arrays-array_io.adb
+34K11 Float_Element_IO 39r5 44r7 53r5 56r7 63r9
+41i9 I{integer} 44r30
+54i9 C{integer} 56r41
+59i9 R{integer} 63r32
+61i11 C{integer} 63r34
+

@@ -1,0 +1,28 @@
+project Ada_Text_Io is
+
+   for Languages use ("Ada");
+   for Source_Dirs use (".");
+   for Object_Dir use ".";
+
+   package Linker is
+      for Default_Switches ("ada") use ("-g");
+   end Linker;
+
+   package Binder is
+      for Default_Switches ("ada") use ("-static");
+   end Binder;
+
+   package Compiler is
+      for Default_Switches ("ada") use ("-g");
+      for Default_Switches ("c") use ("");
+      for Default_Switches ("c++") use ("");
+   end Compiler;
+
+   package Builder is
+      for Default_Switches ("ada") use ("-g", "-gnatQ");
+   end Builder;
+
+   for Main use ("main.adb");
+
+end Ada_Text_Io;
+
