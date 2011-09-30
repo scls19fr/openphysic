@@ -1,0 +1,77 @@
+ % Comment obtenir ce document ?
+
+\thispagestyle{empty}
+
+%\vressort{1}
+\vressort{3}
+
+Ce document est réalisé avec \LaTeX2e\footnote{\url{http://www.latex-project.org}}.
+
+\vressort{1}
+
+\section*{Obtenir une copie de ce document}
+Vous pouvez obtenir une copie de ce document au format \verb+.pdf+
+Acrobat Reader sur :
+\begin{itemize}
+\item \url{http://www.celles.net/wikini/wakka.php?wiki=Enseignement}
+%\item \url{http://s.cls.free.fr/wikini/wakka.php?wiki=Enseignement}
+\item
+  \url{http://svn.berlios.de/wsvn/openphysic/doc_classe_latex_phys_ch_pha/pdf/main_dvips_suite_2.pdf} pour le document réduit en 2 pages en 1
+\item
+  \url{http://svn.berlios.de/wsvn/openphysic/doc_classe_latex_phys_ch_pha/pdf/main.pdf} pour le document non réduit
+\end{itemize}
+
+
+\vressort{1}
+
+
+\section*{Obtenir les fichiers \LaTeX2e par Subversion pour les modifier}
+
+Il est possible d'obtenir les fichiers \LaTeX2e  à l'aide du gestionnaire
+de version Subversion\footnote{\url{http://subversion.tigris.org}}.
+
+\subsection*{Accès web}
+%\begin{verbatim}
+\noindent
+\url{http://svn.berlios.de/viewcvs/openphysic/doc_classe_latex_phys_ch_pha}
+%\end{verbatim}
+
+\subsection*{Accès anonyme}
+\begin{verbatim}
+svn checkout svn://svn.berlios.de/openphysic/doc_classe_latex_phys_ch_pha
+\end{verbatim}
+
+\subsection*{Accès développeur}
+\begin{verbatim}
+svn checkout svn+ssh://scls19fr@svn.berlios.de/svnroot/repos/openphysic/
+ .../doc_classe_latex_phys_ch_pha
+\end{verbatim}
+
+
+\vressort{1}
+
+\section*{Compiler le document}
+Pour compiler ce document, il est nécessaire d'installer une distribution de
+\LaTeX2e comme teTex\footnote{\url{http://www.tug.org/teTeX}} ou
+Miktex\footnote{\url{http://www.miktex.org}}.
+
+Pour éditer les fichiers \verb+.tex+, on peut utiliser un éditeur
+spécialisé pour \LaTeX\ comme
+TeXnicCenter\footnote{\url{http://www.toolscenter.org}} ou
+Kile\footnote{\url{http://kile.sourceforge.net}}. On peut aussi
+utiliser un éditeur de texte généraliste comme GNU Emacs\footnote{\url{http://www.gnu.org/software/emacs/emacs.html}}.
+
+Dans un environnement GNU/Linux ou Cygwin\footnote{\url{http://www.cygwin.com}} comportant GNU Make\footnote{\url{http://www.gnu.org/software/make}} il suffit de taper :
+
+\begin{itemize}
+\item \verb+make view-ps+ pour obtenir un fichier PostScript \verb+.ps+
+\item \verb+make view-ps-2+ pour obtenir un fichier PostScript
+  \verb+.ps+ avec une réduction 2 pages en 1
+\item \verb+make view-pdf+ pour obtenir un fichier Acrobat Reader \verb+.pdf+
+\item \verb+make view-pdf-2+ pour obtenir un fichier Acrobat Reader
+  \verb+.pdf+ avec une réduction 2 pages en 1
+\end{itemize}
+
+
+\vressort{3}
+

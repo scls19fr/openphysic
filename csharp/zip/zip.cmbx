@@ -1,0 +1,16 @@
+<Combine fileversion="1.0" name="zip" description="">
+  <StartMode startupentry="zip" single="True">
+    <Execute entry="zip" type="None" />
+  </StartMode>
+  <Entries>
+    <Entry filename=".\.\zip.prjx" />
+  </Entries>
+  <Configurations active="Debug">
+    <Configuration name="Release">
+      <Entry name="zip" configurationname="Debug" build="False" />
+    </Configuration>
+    <Configuration name="Debug">
+      <Entry name="zip" configurationname="Debug" build="False" />
+    </Configuration>
+  </Configurations>
+</Combine>

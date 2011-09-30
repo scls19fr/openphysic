@@ -1,0 +1,137 @@
+try: 1/0
+except ZeroDivisionError: print "Détection d'une tentative de division par zéro"
+
+----------
+
+try:
+    try: 1/0
+    except: print "Exception capturée"
+except ZeroDivisionError:
+    print "Tentative de division par zéro"
+# Affiche : Exception capturée
+
+----------
+
+print repr(valeur), "est",
+try:
+    valeur + 0
+except TypeError:
+    # Ce n'est pas un nombre. Peut-être une chaîne, Unicode, définie par l'utilisateur...?
+    try:
+        valeur + ''
+    except TypeError:
+        print "ni un nombre, ni une chaîne"
+    else:
+        print "une chaîne, ou une valeur apparentée"
+else:
+    print "un nombre"
+
+----------
+
+f = open(unFichier, "w")
+try:
+    traiter_fichier(f)
+finally:
+    f.close()
+
+----------
+
+def f():
+    print "Dans f, avant 1/0"
+    1/0                           # lève une exception ZeroDivisionError 
+    print "Dans f, après 1/0"
+
+def g():
+    print "Dans g, avant f()"
+    f()
+    print "Dans g, après f()"
+
+def h():
+    print "Dans h, avant g()"
+    try:
+        g()
+        print "dans h, après g()"
+    except ZeroDivisionError:
+        print "Capture de l'exception ZeroDivisionError"
+    print "Fin de la fonction h"
+
+----------
+
+def produitCartesien(seq1, seq2):
+    if not seq1 or not seq2:
+        raise ValueError, "Les séquences en paramètres ne doivent pas être vides"
+    return [ (x1, x2) for x1 in seq1 for x2 in seq2 ]
+
+----------
+
+class AttributIncorrect(AttributeError):
+    "Sert à indiquer les attributs qui ne pourront jamais être corrects"
+
+----------
+
+class UneClasseDrole(object):
+    "De nombreuses fonctionnalités ont été omises"
+    def __getattr__(self, nom):
+        "Ce __getattr__ ne clarifie que la catégorie de l'erreur d'attribut"
+        if name.startswith('_'):
+            raise AttributIncorrect, "Attribut privé inconnu : " + nom
+        else:
+            raise AttributeError, "Attribut inconnu : " + nom
+
+----------
+
+s = UneClasseDrole()
+try:
+    valeur = getattr(s, leNom)
+except AttributIncorrect, err:
+    warnings.warn(str(err))
+    valeur = None
+# Les autres cas que AttributIncorrect sont simplement propagés, car inattendus
+
+----------
+
+import sys
+class ExceptionPerso(Exception):
+    "Enveloppe une exception quelconque, s'il y en a une, avec d'autres infos"
+    def __init__(self, *params):
+        Exception.__init__(self, *params)
+        self.wrapped_exc = sys.exc_info()
+
+----------
+
+def appel_wrapped(appelable, *params, **mcles):
+    try: return appelable(*params, **mcles)
+    except: raise ExceptionPerso, "Exception propagée de la fonction enveloppée"
+
+----------
+
+def division_sure_1(x, y):
+    if y == 0:
+        print "Détection d'une tentative de division par zéro."
+        return None
+    else:
+        return x/y
+
+----------
+
+def division_sure_2(x, y):
+    try:
+        return x/y
+    except ZeroDivisionError:  
+        print "Détection d'une tentative de division par zéro."
+        return None
+
+----------
+
+def essai_appel(obj, attrib, defaut, *params, **mcles):
+    try: return getattr(obj, attrib)(*params, **mcles)
+    except AttributeError: return defaut
+
+----------
+
+def essai_appel(obj, attrib, defaut, *params, **mcles):
+    try: methode = getattr(obj, attrib)
+    except AttributeError: return defaut
+    else: return methode(*params, **mcles)
+
+

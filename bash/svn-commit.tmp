@@ -1,0 +1,6 @@
+
+--Cette ligne, et les suivantes ci-dessous, seront ignorées--
+
+D    internet_rules/internet_rules_s32.dat
+A    internet_rules/internet_rules_room_32.dat
+M    internet_rules/internet_rules.sh

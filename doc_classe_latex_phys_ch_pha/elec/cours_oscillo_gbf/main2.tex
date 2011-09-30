@@ -1,0 +1,147 @@
+\cours[Visualisation à l'aide d'un oscilloscope d'une tension délivrée
+par un Générateur Basse Fréquence]{Visualisation à l'aide d'un
+  oscilloscope\\
+d'une tension délivrée par un Générateur Basse Fréquence}
+
+
+
+Un oscilloscope permet de visualiser des tensions alternatives.
+
+
+C'est un voltmètre qui permet d'afficher la tension sur un écran.
+
+
+\vspace*{\stretch{3}}
+
+\section{Tension continue ou tension alternative ?}
+
+\subsection{Tension continue}
+C'est une tension dont la valeur est constant dans le temps.
+
+
+On délivre généralement cette tension à l'aide d'un générateur de tension continue.
+
+
+\emph{Exemple :} $U = 3~V$
+
+Sa valeur «~maximale~» est constante et vaut $3~V$.
+
+% chronogramme
+\begin{center}
+\begin{pspicture}(-1,-1)(4,2)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-0.25)(0,1.75) % Axe des y
+\rput{0}(4,-0.25){$t (s)$}
+\psline{->}(-1.25,0)(4,0) % Axe des x
+\rput{0}(-0.25,1.75){$u (V)$}
+%\psplot{0}{2}{x 1 sub} % y=x-1 (add(1+2) div(1/2) mul(1*2) sub(1-2) exp(1^2) neg abs sin cos ln log
+%\psplot{0}{4}{2.71828 x neg exp } % exp(-x)
+\psline[linecolor=black,linewidth=2pt](-1,1)(3,1)
+%\psplot[linecolor=red,linewidth=2pt]{0}{4}{2.71828 x neg exp neg 1 add} % 1-exp(-x)
+\rput{0}(-0.25,1.1){$3$}
+%\rput{0}(-0.25,0.76){$2$}
+%\rput{0}(-0.25,0.43){$1$}
+\end{pspicture}
+\end{center}
+
+% TO DO utiliser \psaxe
+
+
+Un voltmètre «~classique~» est suffisant pour pouvoir mesurer une tension continue.
+
+\vspace*{\stretch{1}}
+
+
+
+% oscillogramme
+
+%\newpsstyle {BlueDots}{plotstyle=dots, 
+%linecolor=blue,linewidth=0.02,plotpoints=50}
+%\Oscillo[amplitude1=3, plotstyle2 =BlueDots,amplitude2=2]V
+
+\newpsstyle{BlackStyle}{plotstyle=line,linecolor=black,linewidth=0.075}
+\newpsstyle{InvisibleStyle}{linecolor=black,linewidth=0}
+
+\begin{center}
+\Oscillo[offset1=3,amplitude1=0,plotstyle1=BlackStyle,plotstyle2=InvisibleStyle]
+\end{center}
+
+
+\pagebreak
+
+\subsection{Tension alternative}
+
+C'est une tension qui varie dans le temps. On délivre généralement une tension alternative à l'aide d'un Générateur Basse Fréquence (G.B.F.). Pour pouvoir caractériser une tension alternative il est nécessaire de donner ses caractéristiques.
+
+\subsubsection{Le type de signal}
+
+\begin{itemize}
+\item sinusoïdal
+
+\begin{center}
+\scalebox{0.7}{\Oscillo[amplitude1=1,plotstyle1=BlackStyle,plotstyle2=InvisibleStyle]}
+\end{center}
+
+
+\item triangulaire
+
+\begin{center}
+\scalebox{0.7}{\Oscillo[Wave1=\TriangleA,plotstyle1=BlackStyle,plotstyle2=InvisibleStyle]}
+\end{center}
+
+
+\item rectangulaire ou en créneaux
+
+\begin{center}
+\scalebox{0.7}{\Oscillo[Wave1=\RectangleA,plotstyle1=BlackStyle,plotstyle2=InvisibleStyle]}
+\end{center}
+
+
+\end{itemize}
+
+
+\subsubsection{La période $T$ du signal}
+
+La période $T$ est la plus petite durée au bout de laquelle la tension reprend la même valeur en variant dans le même sens.
+
+$T$ s'exprime en seconde $s$.
+
+
+\subsubsection{La fréquence}
+Le nombre de périodes par seconde est appelé fréquence $f$.
+
+\[f = \frac{1}{T}\]
+
+\begin{itemize}
+\item $f$ : fréquence (en Hertz $Hz$)
+\item $T$ : période (en seconde $s$)
+\end{itemize}
+
+\subsubsection{Tension crête à crête}
+C'est la différence de tension entre les valeurs maximales et minimales de la tension ; on la note $U_{CC}$.
+
+L'amplitude de la tension est $U_M = \frac{U_{CC}}{2}$ car elle varie entre $-U_M$ et $+U_M$.
+
+
+\section{Utiliser un oscilloscope}
+
+
+\section{Principe de fonctionnement de l'oscilloscope}
+
+
+\section*{Exercices sur l'oscilloscope}
+
+
+
+\begin{center}
+Redressement monoalternance
+\Oscillo[amplitude1=1,amplitude2=0.5,offset2=0.5,Wave2=\RectangleB,operation=mul,combine=true,plotstyle1=InvisibleStyle,plotstyle2=InvisibleStyle]
+\end{center}
+
+
+\begin{center}
+Redressement bialternance
+\Oscillo[amplitude1=1,amplitude2=1,Wave2=\RectangleB,operation=mul,combine=true,plotstyle1=InvisibleStyle,plotstyle2=InvisibleStyle]
+\end{center}

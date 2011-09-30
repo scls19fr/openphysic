@@ -1,0 +1,13 @@
+\documentclass[a4paper]{article}
+\usepackage{pst-plot}
+
+\begin{document}
+
+\readdata{\Data}{main.csv}
+
+\begin{pspicture}(0,0)(5,5)
+\psgrid[subgriddiv=0, griddots=5]
+\dataplot[plotstyle=dots]{\Data}
+\end{pspicture}
+
+\end{document}

@@ -1,0 +1,15 @@
+;; Object applet2/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "applet2/"
+  :tables (list 
+   (semanticdb-table "makefile"
+    :major-mode 'makefile-mode
+    :tags '(("all" function nil nil [1 159]) ("run" function nil nil [159 259]))
+    :file "makefile"
+    :pointmax 259
+    )
+   )
+  :file "semantic.cache"
+  :semantic-tag-version "2.0beta3"
+  :semanticdb-version "2.0beta3"
+  )

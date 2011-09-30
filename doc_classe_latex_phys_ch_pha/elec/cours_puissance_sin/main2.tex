@@ -1,0 +1,434 @@
+\cours{Puissances en régime sinusoïdal}
+
+
+\section{Rappels : puissance en régime continu}
+On étudie dans ce paragraphe un dipôle en \emph{convention récepteur}.
+
+\begin{pspicture}(-2,-0.5)(2,1.5)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(-2,0){A}
+\pnode(2,0){B}
+\resistor[intensitylabel=$I$,tensionlabel=$U$,dipoleconvention=receptor](A)(B){Dip\^ole}
+\end{pspicture}
+
+
+\[P=U \cdot I\]
+\begin{itemize}
+\item $P$ : puissance reçue ($W$)
+\item $U$ : tension ($V$)
+\item $I$ : intensité du courant ($A$)
+\end{itemize}
+
+Étudions le signe de la puissance.
+
+\begin{itemize}
+\item $P>0$ : le dipôle \emph{reçoit} de la puissance (c'est un récepteur étudié en convention récepteur)
+\item $P<0$ : le dipôle \emph{fournit} de la puissance (c'est un générateur étudié en convention récepteur)
+\end{itemize}
+
+\section{Puissance instantanée}
+
+
+
+\subsection{Définitions}
+Dans tout ce cours, le dipôle étudié (résistance, bobine, condensateur) est étudié en \emph{convention récepteur}.
+
+
+\begin{pspicture}(-2,-0.5)(2,1.5)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(-2,0){A}
+\pnode(2,0){B}
+\resistor[intensitylabel=$i(t)$,tensionlabel=$u(t)$,dipoleconvention=receptor](A)(B){Dip\^ole}
+\end{pspicture}
+
+
+
+\[p(t)=u(t) \cdot i(t)\]
+\begin{itemize}
+\item $p(t)$ : puissance instantanée reçue ($W$)
+\item $u(t)$ : tension ($V$)
+\item $i(t)$ : intensité du courant ($A$)
+\end{itemize}
+
+A un instant $t$ donné si :
+
+\begin{itemize}
+\item $p(t)>0$ : le dipôle \emph{reçoit} à cet instant t de la puissance.
+\item $p(t)<0$ : le dipôle \emph{fournit} à cet instant t de la puissance.
+\end{itemize}
+
+\subsection{Régime sinusoïdal}
+On se place à partir de maintenant et jusqu'à la fin du chapitre en régime sinusoïdal.
+
+Le dipôle est toujours considéré en convention récepteur.
+
+
+On impose aux bornes du dipôle la tension.
+\[u(t)=U \sqrt{2} cos{\omega t}\]
+
+Le courant qui parcourt ce dipôle est alors :
+\[i(t)=I \sqrt{2} cos(\omega t - \varphi)\]
+
+$\varphi$ représente le déphasage de l'intensité $i$ par rapport à la tension $u$.
+
+
+Calculons la puissance instantanée reçue par le dipôle.
+
+$p(t)=u(t) \cdot i(t) = ( U \sqrt{2} cos{\omega t} )\cdot (I \sqrt{2} cos(\omega t - \varphi)) = 2 \cdot U \cdot I \cdot cos{\omega t} \cdot cos(\omega t - \varphi)$
+
+On applique la formule de trigonométrie suivante : $\displaystyle cos(p) \cdot cos(q) = \frac{cos(p+q)+cos(p-q)}{2}$.
+
+On obtient alors :
+
+\[p(t)=U I cos{\varphi} + U I cos(2 \omega t - \varphi)\]
+
+Le premier terme : $U I cos{\varphi}$ est indépendant du temps c'est la valeur moyenne de $p(t)$.
+
+Le seconde terme : $U I cos(2 \omega t - \varphi)$ est un terme sinusoïdal de pulsation $2 \omega$.
+
+
+
+\begin{pspicture}(-1,-5.5)(7,1.5)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-1.5)(0,1.5) % Axe des y
+
+\psline{->}(-0.25,0)(7,0) % Axe des x
+%\psplot{0}{2}{x 1 sub} % y=x-1 (add(1+2) div(1/2) mul(1*2) sub(1-2) exp(1^2) neg abs sin cos ln log
+\psplot[linecolor=red,linewidth=2pt]{0}{7}{180 3.14 div x mul cos 1.25 mul}
+\psplot[linecolor=green,linewidth=2pt]{0}{7}{180 3.14 div x mul 60 sub cos 0.75 mul}
+
+\rput{0}(-0.25,-0.25){$0$}
+\rput{0}(3.14,-0.25){$\frac{T}{2}$}
+\rput{0}(6.28,-0.25){$T$}
+\rput{0}(7,-0.25){$t$}
+\rput{0}(0.25,1.5){$u$}
+\rput{0}(1.25,1){$i$}
+
+\psline{->}(0,-5.5)(0,-2.5) % Axe des y
+\psline{->}(-0.25,-4)(7,-4) % Axe des x
+
+\psplot[linecolor=blue,linewidth=2pt]{0}{7}{
+  180 3.14 div x mul cos 1.25 mul
+  180 3.14 div x mul 60 sub cos 0.75 mul
+  mul
+  4 sub
+}
+\rput{0}(-0.25,-2.25){$p(t)$}
+\rput{0}(-0.25,-4.25){$0$}
+\rput{0}(3.14,-4.25){$\frac{T}{2}$}
+\rput{0}(6.28,-4.25){$T$}
+\rput{0}(7,-4.25){$t$}
+
+%\rput{0}(-0.25,1){$u$}
+\end{pspicture}
+
+
+\section{Puissance active P}
+\subsection{Définition}
+On appelle \emph{puissance active} et on note $P$ la \emph{valeur moyenne} de la puissance instantanée.
+
+
+\[P = U I cos{\varphi}\]
+
+
+\begin{itemize}
+\item $P$ : puissance active reçue ($W$)
+\item $U$ : valeur efficace de la tension ($V$)
+\item $I$ : valeur efficace de l'intensité du courant ($A$)
+\end{itemize}
+
+\vspace{0.5cm}
+
+Remarque :  \emph{En moyenne}, un dipôle passif ne peut être que récepteur même si il peut être générateur à certains instants.
+
+\subsection{Puissance active de dipôles élémentaires}
+
+
+\subsubsection{Conducteur ohmique de résistance $R$}
+$u$ et $i$ sont en phase donc $\varphi=0$ d'où $cos(\varphi)=1$ d'où $P = U I$.
+
+L'impédance $Z_R$ d'un conducteur ohmique de résistance $R$ est $R$ : $Z_R = R$, donc :
+
+\[P = U I = R I^2 = \frac{U^2}{R}\]
+
+
+
+\subsubsection{Bobine idéale d'inductance $L$}
+$\varphi=\frac{\pi}{2}$ donc $cos(\varphi)=0$ d'où $P = 0$.
+
+Un dipôle purement inductif ne reçoit pas de puissance active.
+
+
+\subsubsection{Condensateur idéal de capacité $C$}
+$\varphi=-\frac{\pi}{2}$ donc $cos(\varphi)=0$ d'où $P = 0$.
+
+Un dipôle purement capacitif ne reçoit pas de puissance active.
+
+
+\section{Puissance apparente S}
+
+\[S = U I\]
+\begin{itemize}
+\item $S$ : puissance apparente ($VA$)
+\item $U$ : valeur efficace de la tension ($V$)
+\item $I$ : valeur efficace de l'intensité du courant ($A$)
+\end{itemize}
+
+\section{Puissance réactive Q}
+%\subsection{Introduction}
+% calculs préliminaires dans la partie théorème de Boucherot.
+
+\subsection{Définition}
+\[Q = U I sin \varphi\]
+\begin{itemize}
+\item $Q$ : puissance réactive ($var$)
+\item $U$ : valeur efficace de la tension ($V$)
+\item $I$ : valeur efficace de l'intensité du courant ($A$)
+\end{itemize}
+
+
+
+\subsection{Puissance réactive de dipôles élémentaires}
+
+
+\subsubsection{Conducteur ohmique de résistance $R$}
+$u$ et $i$ sont en phase donc $\varphi=0$ d'où $sin(\varphi)=0$ d'où $Q = 0$.
+
+
+Un dipôle purement résistif ne reçoit pas de puissance réactive.
+
+
+
+\subsubsection{Bobine idéale d'inductance $L$}
+$\varphi=\frac{\pi}{2}$ donc $sin(\varphi)=1$ d'où $Q = U I$.
+
+Un dipôle purement inductif \emph{reçoit} de la puissance réactive.
+
+On a $U = Z I = L \omega I$ on en déduit alors :
+
+\[Q = U I = L \omega I^2 = \frac{U^2}{L \omega}\]
+
+
+\subsubsection{Condensateur idéal de capacité $C$}
+$\varphi=-\frac{\pi}{2}$ donc $sin(\varphi)=-1$ d'où $Q = - U I$.
+
+Un dipôle purement capacitif \emph{fournit} de la puissance réactive.
+
+On a $U = Z I = \frac{I}{C \omega}$ on en déduit alors :
+
+\[Q = - U I = - \frac{I^2}{C \omega} = - C \omega U^2\]
+
+\section{Relations entre P, Q, S et $\varphi$}
+On rappelle les définitions suivantes :
+
+\begin{itemize}
+\item $S = U I$ (puissance apparente)
+\item $P = U I cos \varphi = S cos \varphi$ (puissance active)
+\item $Q = U I sin \varphi = S sin \varphi$ (puissance réactive)
+\end{itemize}
+
+\subsection{Relation entre Q, P et S}
+\[S = \sqrt{ P^2 + Q^2 }\]
+
+\begin{pspicture}(0,0)(2,1)
+\psline{->}(0,0)(2,0)
+\psline{->}(2,0)(2,1)
+\psline{->}(0,0)(2,1)
+\psarc{->}(0,0){1}{0}{26.56}
+%\rput{0}(-0.25,-0.25){$O$}
+\rput{0}(1,-0.25){$P$}
+\rput{0}(2.25,0.5){$Q$}
+\rput{0}(1,0.75){$S$}
+\rput{0}(1.25,0.25){$\varphi$}
+\end{pspicture}
+
+\subsection{Relation entre Q, P et $\varphi$}
+\[Q = P tan \varphi\]
+
+\section{Théorème de Boucherot}
+\subsection{\'Enoncé}
+La puissance active absorbée par un groupement de dipôles est égale à la somme des puissances actives absorbées par chaque dipôle du groupement.
+\[P = P_1 + P_2 + P_3 + ... = U I cos \varphi = U_1 I_1 cos \varphi_1 + U_2 I_2 cos \varphi_2 + U_3 I_3 cos \varphi_3 + ...\]
+
+La puissance réactive absorbée par un groupement de dipôles est égale à la somme des puissances réactives absorbées par chaque dipôle du groupement.
+\[Q = Q_1 + Q_2 + Q_3 + ... = U I sin \varphi = U_1 I_1 sin \varphi_1 + U_2 I_2 sin \varphi_2 + U_3 I_3 sin \varphi_3 + ...\]
+
+\subsection{Remarque}
+La puissance apparente absorbée par un groupement de dipôles \underline{n'est pas égale} à la somme des puissances apparentes absorbées par chaque dipôle du groupement.
+
+\[S \ne S_1 + S_2 + S_3 + ...\]
+
+Si on veut calculer $S$ on utilise le théorème de Boucherot et la relation entre P,Q et S :
+\[S = \sqrt{ (P_1 + P_2 + P_3 + ...)^2 + (Q_1 + Q_2 + Q_3 + ...)^2 }\]
+
+
+\section*{Exercice d'application}
+Soit l'association en série d'une résistance et d'un condensateur.
+
+\begin{pspicture}(-2,-2.5)(2,1)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(-2,0){A}
+\pnode(2,0){B}
+\pnode(2,-2){C}
+\pnode(-2,-2){D}
+\resistor[intensitylabel=$i(t)$,dipoleconvention=receptor](A)(B){$R$}
+\capacitor(B)(C){$C$}
+\wire(C)(D)
+\Ucc[labeloffset=1cm](D)(A){$u(t)$}
+\end{pspicture}
+
+On donne $R = 150~\Omega$ ; $C = 22 \mu F$ ; $U = 230~V$ et $f = 50 Hz$
+
+\begin{enumerate}
+\item Calculer l'impédance complexe du dipôle R,C série.
+\item Déduire la norme de l'impédance complexe ainsi que son argument.
+\item Calculer la valeur efficace $I$ du courant dans le circuit.
+\item Calculer la puissance active reçue $P$ par  cette association sous une tension $u(t) = U \sqrt{2} cos \omega t$.
+\item Calculer la puissance apparente $S_{RC}$ reçue par l'ensemble résistance, condensateur.
+\item Calculer la puissance apparente $S_{R}$ reçue par la résistance.
+\item Calculer la puissance apparente $S_{C}$ reçue par le condensateur.
+\item Comparez $S_{C}$ + $S_{R}$ à $S_{RC}$.
+\item Calculer la puissance réactive reçue $Q$ par ce circuit (en fait il en fournit).
+\item En utilisant $P$ et $Q$, retrouver $I$ et $cos \varphi$.
+\end{enumerate}
+
+% A faire
+
+
+
+\section{Facteur de puissance}
+\subsection{Définition}
+Le facteur de puissance noté $f_p$ ou $k$ est, par définition égale à :
+\[f_p = \frac{P}{S}\]
+
+Comme la puissance active $P = U I cos \varphi$ et la puissance apparente $S = U I$ on en déduit :
+\[f_p = cos \varphi\]
+
+\subsection{Importance du facteur  de puissance}
+Soit une installation électrique absorbant une puissance $P$, sous une tension $U$ avec un déphasage de $i$ par rapport à $u$ égal à $\varphi$.
+
+Le courant absorbé par l'installation vaut $\displaystyle I = \frac{P}{U cos \varphi}$.
+
+Afin de minimiser les pertes par effet Joules dans la ligne il faut miniminer I et donc augmenter $cos \varphi$ au maximum c'est à dire 1. \textsc{EDF} impose dans ses contrats (conditions légales) que le facteur de puissance soit supérieur à $0,93$.
+
+\subsection{Mesurer le $cos \varphi$}
+
+\subsubsection*{Méthode 1}
+On mesure le déphasage $\varphi$ de $i$ par rapport à $u$ comme indiqué dans le cours sur le régime sinusoïdal ou à la l'aide d'un appareil dédié : le phasemètre.
+
+On calcule $f_p=cos \varphi$.
+
+
+\subsubsection*{Méthode 2}
+On mesure la valeur efficace $U$ de la tension $u(t)$.
+
+On mesure la valeur efficace $I$ de l'intensité du courant $i(t)$.
+
+On calcule alors la puissance apparente $S$.
+
+On mesure la puissance active $P$.
+
+On calcule $f_p = \frac{P}{S}$.
+
+
+\subsection{Augmenter (relever) le $cos \varphi$ d'une installation électrique}
+En général une installation électrique est plutôt de type inductif (présence de moteurs, fils non parfaits ayant une certaine inductance, etc...). Pour relever son $cos \varphi$ on place donc en dérivation par rapport à l'installation initiale un condensateur de capacité $C$.
+
+On veut faire passer l'installation du facteur de puissance $cos \varphi_1 = 0,7$ à $cos \varphi_2 = 0,93$.
+
+L'installation est reliée au réseau $U = 230~V$ $f = 50~Hz$ et absorbe une puissance active $P_1 =15~kW$.
+
+
+\begin{pspicture}(0,0)(4,2.5)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(0,2){A}
+\pnode(2,2){B}
+\pnode(4,2){C}
+\pnode(4,0){D}
+\pnode(2,0){E}
+\pnode(0,0){F}
+\resistor[labeloffset=1.5cm](C)(D){Installation}
+\capacitor(B)(E){$C$}
+\wire(A)(C)
+\wire(D)(F)
+\rput{0}(0.25,1.5){Réseau}
+\rput{0}(0.25,1){$230~V$}
+\rput{0}(0.25,0.5){$50~Hz$}
+
+\end{pspicture}
+
+\begin{enumerate}
+\item Calculez $\varphi_1$ et $\varphi_2$.
+\item Après ajout du condensateur de capacité $C$, calculez la puissance active absorbée $P_2$ par l'installation.
+\item Déterminez l'expression de la puissance réactive $Q_C$ reçue par le condensateur (en fait il en fournit).
+\item Après ajout du condensateur de capacité $C$, déterminez l'expression de la puissance réactive absorbée $Q_2$ par l'installation.
+\item Déduisez de la relation précédente la capacité $C$ à placer sur l'installation
+\end{enumerate}
+
+% Avant relèvement
+% P = P_1
+% Q = Q_1
+% Après relèvement
+% P = P_2 = P_1
+% Q = Q_2 = Q_1 + Q_C
+% Q_C = - C \omega U^2
+
+% Q = P tan \varphi
+
+% P tan \varphi_2 = P tan \varphi_1 - C \omega U^2
+
+
+
+
+
+\subsection{Mesure de puissance}
+Pour mesurer la puissance active reçue par un dipôle, on utilise un \emph{wattmètre}.
+
+
+Un wattmètre est composé de deux circuits :
+\begin{itemize}
+\item le circuit \og tension \fg
+\item le circuit \og intensité \fg
+\end{itemize}
+
+Afin d'éviter d'ouvrir le circuit de l'installation on utilise des pinces wattmétriques.
+
+
+\begin{tabular}{ccc}
+
+\begin{pspicture}(0,0)(6,2.5)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(0,2){A}
+\pnode(1,2){B}
+\pnode(3,2){C}
+\pnode(4,2){D}
+\pnode(4,0){GND1}
+\pnode(0,0){GND2}
+
+\circledipole[labeloffset=0cm](B)(C){W}
+\wire(1,1.25)(1.75,1.25)
+\wire(1,1.25)(1,2)
+\wire(1.75,1.25)(1.75,1.6)
+\wire(2.25,1.6)(2.25,0)
+
+\resistor[labeloffset=1cm](D)(GND1){Dip\^ole}
+\wire(A)(B)
+\wire(C)(D)
+\wire(GND1)(GND2)
+\end{pspicture}
+
+&
+
+\includegraphics[width=3cm]{elec/cours_puissance_sin/wattmetre.eps} %163x227
+
+&
+
+\hspace{2cm}
+\includegraphics[width=3cm]{elec/cours_puissance_sin/pince_watt.eps} % 61x46
+
+\end{tabular}
+
+
+

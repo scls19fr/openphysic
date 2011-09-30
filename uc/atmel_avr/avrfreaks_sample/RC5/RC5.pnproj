@@ -1,0 +1,1 @@
+<Project name="RC5"><Folder name="C Source Files"><File path="main.c"></File></Folder><Folder name="Assembler Source Files"><File path="Rc5.S"></File></Folder><Folder name="Header Files"><File path="RC5.h"></File></Folder><Folder name="Misc Files"><File path="makefile"></File></Folder></Project>

@@ -1,0 +1,66 @@
+#include <Python.h>
+
+static PyObject*
+merge(PyObject* self, PyObject* params, PyObject* mcles)
+{
+    static char* noms_params[] = {"x", "y", "override", NULL};
+    PyObject *x, *y;
+    int override = 0;
+    if(!PyArg_ParseTupleAndKeywords(params, mcles, "O!O|i", noms_params,
+                                    &PyDict_Type, &x, &y, &override))
+            return NULL;
+    if(-1 == PyDict_Merge(x, y, override)) {
+        if(!PyErr_ExceptionMatches(PyExc_TypeError))
+            return NULL;
+        PyErr_Clear();
+        if(-1 == PyDict_MergeFromSeq2(x, y, override))
+            return NULL;
+    }
+    return Py_BuildValue("");
+}
+
+static char merge_docs[] = "\
+merge(x, y, override = False): fusionne dans le dictionnaire x les éléments du\
+    dictionnaire y (ou les paires de y, si y est une séquence), avec écrasement\
+    éventuel. Modifie directement x et renvoie None.\n\
+";
+
+static PyObject*
+mergenew(PyObject* self, PyObject* params, PyObject* mcles)
+{
+    static char* noms_params[] = {"x", "y", "override", NULL};
+    PyObject *x, *y, *resultat;
+    int override = 0;
+    if(!PyArg_ParseTupleAndKeywords(params, mcles, "O!O|i", noms_params,
+                                    &PyDict_Type, &x, &y, &override))
+            return NULL;
+    resultat = PyObject_CallMethod(x, "copy", "");
+    if(!resultat)
+        return NULL;
+    if(-1 == PyDict_Merge(resultat, y, override)) {
+        if(!PyErr_ExceptionMatches(PyExc_TypeError))
+            return NULL;
+        PyErr_Clear();
+        if(-1 == PyDict_MergeFromSeq2(resultat, y, override))
+            return NULL;
+    }
+    return resultat;
+}
+
+static char mergenew_docs[] = "\
+mergenew(x,y,override=False): fusionne dans le dictionnaire x les éléments du\
+    dictionnaire y (ou les paires de y, si y est une séquence), avec écrasement\
+    éventuel. Ne modifie PAS x, mais renvoie la copie modifiée.\n\
+";
+
+static PyMethodDef funcs[] = {
+    {"merge", (PyCFunction)merge, METH_KEYWORDS, merge_docs},
+    {"mergenew", (PyCFunction)mergenew, METH_KEYWORDS, mergenew_docs},
+    {NULL}
+};
+
+void
+initmerge(void)
+{
+    Py_InitModule3("merge", funcs, "Exemple de module d'extension");
+}

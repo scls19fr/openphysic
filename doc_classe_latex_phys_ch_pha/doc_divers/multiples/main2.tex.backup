@@ -1,0 +1,14 @@
+%\doc{Multiples et sous-multiples}
+
+\newcommand{\tabmultiples}{%
+\small
+\begin{tabularx}{\textwidth}{|c*{13}{|>{\centering}X}|}
+\hline
+\emph{Facteur multiplicatif} & $10^{-12}$ & $10^{-9}$ & $10^{-6}$ & $10^{-3}$ & $10^{-2}$ & $10^{-1}$ & $1$ & $10^1$   & $10^2$      & $10^{3}$ & $10^{6}$ & $10^{9}$ & $10^{12}$  \tabularnewline \hline
+\emph{Préfixe}               & pico       & nano      & micro     & milli     & centi     & déci      &     & déca     & hecto       & kilo     & méga     & giga     & téra       \tabularnewline \hline
+\emph{Symbole}               & $p$        & $n$       & $\mu$     & $m$       & $c$       & $d$       &     & $da$     & $h$         & $k$      & $M$      & $G$      & $T$        \tabularnewline \hline
+\end{tabularx}
+\normalsize
+}
+
+%\tabprefixes

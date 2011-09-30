@@ -1,0 +1,92 @@
+\tp{Transistor en commutation}
+
+\Section{Montage}
+
+On veut mesurer $I_B$, $V_{BE}$, $I_C$ et $V_{CE}$. Faire un schéma de câblage.
+
+
+
+\montage{
+\item transistor 2N1613 (ou 2N1711)
+\item $R_C = 1~k\Ohm$
+\itme $R_B$ : boite A.O.I.P. ($\times~100~k\Ohm$ et $\times~10k\Ohm$)
+}
+
+
+% montage
+
+
+On veut polariser le transistor à :
+\begin{itemize}
+\item $I_C = 5~mA$
+\item $V_{CE} = 5~V$
+\end{itemize}
+
+
+Calculer $E_C$.
+
+
+\Section{Mesures}
+
+On fait varier $R_B$ de $1~M\Ohm$ à $20~k\Ohm$. Relever $I_B$, $V_{BE}$, $I_C$ et $V_{CE}$.
+
+
+\begin{center}
+\emph{NE PAS DESCENDRE EN DESSOUS DE $20~k\Ohm$}
+\end{center}
+
+
+% tableau
+
+
+\begin{enumerate}
+\item Tracer les courbes $I_C = f(I_B)$ et $I_C = f(V_{CE})$.
+
+\item Tracer sur le repère $I_C = f(V_{CE})$ la droite de charge théorique.
+
+\item Interpréter les résultats :
+
+\begin{enumerate}
+\item Déduire de la courbe d'amplification en courant $\beta$.
+
+\item Déterminer, d'après les mesures, la valeur de $I_B$ qui correspond au début de la saturation et en déduire la valeur de $R_B$ correspondante.
+
+\item Préciser le comportement du transistor (en commutation la comparaison avec un interrupteur fermé ou un interrupteur ouvert est-elle justifiée).
+
+\item Où est le point de fonctionnement lorsque $R_B$ varie ?
+\end{enumerate}
+
+
+\end{enumerate}
+
+
+
+
+\newpage
+
+\Section{\'Etude à l'oscilloscope}
+
+Faire un schéma de câblage, avec les voies de l'oscilloscope, sachant que l'on veut visualiser $V_e$ et $V_{CE}$.
+
+
+
+
+% Montage
+
+
+
+\begin{enumerate}
+\item Calculer ${R_B}_{max}$ pour que le transistor soit saturé quand $V_e = {V_e}_{max} = 1~V$, en prenant les valeurs de saturation trouvées précédemment.
+
+\item Réaliser le montage avec :\\
+\begin{itemize}
+\item ${V_e}_{max} = 1~V$ ; $f = 1~kHz$
+\item $E_C = 10~V$
+\item $R_C = 1~k\Ohm$
+\end{itemize}
+
+\item Relever, en concordance de temps, les courbes $V_e = f(t)$ et $V_{CE} = f(t)$.
+
+\item Préciser le comportement du transistor et interpréter.
+
+\end{enumerate}

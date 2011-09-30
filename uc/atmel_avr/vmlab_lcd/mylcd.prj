@@ -1,0 +1,36 @@
+; ************************************************************
+; PROJECT:
+; AUTHOR:
+; ************************************************************
+
+; Micro + software running
+; ------------------------------------------------------------
+.MICRO "ATmega8535"
+.TOOLCHAIN "GCC"
+.GCCPATH   "C:\WinAVR"
+.GCCMAKE   AUTO
+.TARGET    "mylcd.hex"
+.SOURCE    "mylcd.c"
+
+.TRACE              ; Activate micro trace
+
+; Following lines are optional; if not included
+; exactly these values are taken by default
+; ------------------------------------------------------------
+.POWER VDD=5 VSS=0  ; Power nodes
+.CLOCK 4meg         ; Micro clock
+.STORE 250m         ; Trace (micro+signals) storage time
+
+; Micro nodes: RESET, PB0-PB7, PD0-PD7, PE0-PE2, ACO, TIM1OVF
+; Define here the hardware around the micro
+; ------------------------------------------------------------
+
+
+;X[inst_name]  LCD(chars lines oscil_freq) RS RW E D7 D6 D5 D4 D3 D2 D1 D0
+X2 LCD(16 2 250K) PD5 PD6 PD7 PC7 PC6 PC5 PC4 PC3 PC2 PC1 PC0
+
+;X[inst_name]  TTY(baud_rate [n_bits] [parity] [odd_parity] [n_stop_bits] [rx_display_as]) node_tx node_rx
+
+
+
+

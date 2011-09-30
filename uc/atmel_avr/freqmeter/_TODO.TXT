@@ -1,0 +1,2 @@
+Voir précision du RPM
+printf d'un double

@@ -1,0 +1,57 @@
+import socket
+import select
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.bind(('', 8881))
+sock.listen(5)
+
+# Listes de sockets pour lesquelles on surveille les événements d'entrée et de sortie
+ins = [sock]
+outs = []
+# mapping socket -> données a envoyer sur celle-ci quand c'est possible
+donnees = {}
+# mapping socket -> (hôte, port) sur lequel s'exécute le client running
+adrs = {}
+
+try:
+    while True:
+        i, o, e = select.select(ins, outs, [])  # par d'exceptions ni de délai
+        for x in i:
+            if x is sock:
+                # Un évt. d'entrée sur sock signifie qu'un client tente de se connecter
+                newSocket, adresse = sock.accept()
+                print "Connexion de", adresse
+                ins.append(newSocket)
+                adrs[newSocket] = adresse
+            else:
+                # Les autres évts d'entrée indiquent que des données sont arrivées, ou des déconnexions
+                newDonnees = x.recv(8192)
+                if newDonnees:
+                    # Données arrivées, on prépare la réponse et on la met en attente
+                    print "%d octets venant de %s" % (len(newDonnees), adrs[x])
+                    donnees[x] = donnees.get(x, '') + newDonnees
+                    if x not in outs: outs.append(x)
+                else:
+                    # Déconnexion, on affiche un message et on nettoie
+                    print "Déconnexion de", adrs[x]
+                    del adrs[x]
+                    try: outs.remove(x)
+                    except ValueError: pass
+                    x.close()
+        for x in o:
+            # Les évts de sortie indique toujours que l'on peut envoyer des données
+            aEnvoyer = donnees.get(x)
+            if aEnvoyer:
+                nbEnvoyees = x.send(aEnvoyer)
+                print "%d octets vers %s" % (nbEnvoyees, adrs[x])
+                # Mémorise les données restant éventuellement à envoyer
+                aEnvoyer = aEnvoyer[nbEnvoyees:]
+            if aEnvoyer: 
+                print "%d octets restent pour %s" % (len(aEnvoyer), adrs[x])
+                donnees[x] = aEnvoyer
+            else:
+                try: del donnees[x]
+                except KeyError: pass
+                outs.remove(x)
+                print "Il ne reste plus de données pour", adrs[x]
+finally:
+    sock.close()

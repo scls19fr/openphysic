@@ -1,0 +1,360 @@
+\cours{\'Etude d'un prisme}
+
+\section{\'Etude générale}
+
+\subsection{Dispositif et notations}
+
+
+%\begin{multicols}{2}
+
+\begin{center}
+
+\includegraphics{opt/cours_prisme/prisme2d.gif.eps}
+
+
+\includegraphics{opt/cours_prisme/prisme3d.gif.eps}
+
+\end{center}
+
+%\end{multicols}
+
+
+\begin{itemize}
+\item $A$ : angle du prisme
+\item La déviation se fait toujours vers la base du prisme.
+\item $D$ dépend de $n$ donc de $\lambda$.
+\item $D$ dépend de $i$.
+\end{itemize}
+
+
+
+\subsection{Relations entre les angles}
+
+\begin{itemize}
+\item Lois de Descartes
+  \begin{itemize}
+    \item $\sin i = n \sin r$
+    \item $\sin i' = n \sin r'$
+  \end{itemize}
+
+
+\item Triangle $IO'I'$
+  \begin{itemize}
+    \item $(i' - r') + (i - r) + (\pi - D) = \pi$
+    \item $i' + i - r - r' = D$
+  \end{itemize}
+
+
+\item Triangle $IOI'$
+  \begin{itemize}
+    \item $A + (\pi / 2 - r) + (\pi/2 - r') = \pi$
+  \end{itemize}
+
+\end{itemize}
+
+
+\begin{itemize}
+ \item $A = r + r'$
+ \item $D = i + i' - A$
+\end{itemize}
+
+
+\newpage
+
+\subsection{Condition d'émergence d'un rayon}
+
+
+\subsubsection{\`A l'entrée}
+
+\begin{multicols}{2}
+
+\begin{center}
+\includegraphics{opt/cours_prisme/prisme_entree.gif.eps}
+\end{center}
+
+$n_2 > n_1$
+
+
+Il existe un rayon réfracté quel que soit $i$.
+
+
+\end{multicols}
+
+
+\vressort{3}
+
+\subsubsection{\`A la sortie}
+
+\begin{multicols}{2}
+
+\begin{center}
+\includegraphics{opt/cours_prisme/prisme_sortie.gif.eps}
+\end{center}
+
+
+$n'_1 > n'_2$ ; $i' > r'$
+
+
+
+Il peut y avoir réflexion totale sur la face de sortie.
+
+Il existe un rayon réfracté pour : $\displaystyle \frac{n \sin{r'}}{1} < 1$
+
+$\displaystyle \sin{r'} < \frac{1}{n}$
+
+
+\end{multicols}
+
+
+
+soit  $r' < \theta$ tel que  $\displaystyle \sin{\theta} = \frac{1}{n}$
+
+Il faut donc $A - r < \theta$
+
+
+$r > A - \theta$
+
+$\displaystyle \sin(i) > n \sin(A - \theta) = \frac{\sin(A-\theta)}{\sin(\theta)}$
+
+
+\vressort{1}
+
+\subsection*{1\ier cas : $\displaystyle \frac{\sin(A-\theta)}{\sin(\theta)} > 1$}
+
+Soit si $A - \theta > \theta$ soit encore $A > 2 \theta$
+
+
+
+Il n'y a pas de rayon émergent ($n = 1,5$ d'où $2 \theta = 84°$)
+
+
+\vressort{1}
+
+
+\subsection*{2\ieme cas : $\displaystyle \frac{\sin(A-\theta)}{\sin(\theta)} < 1$}
+
+
+
+Il existe un rayon émergent pour $i > i_0$ tel que $\displaystyle \sin{i_0} =
+\frac{\sin(A-\theta)}{\sin{\theta}}$
+
+
+
+
+\vressort{3}
+
+
+\emph{Application numérique :} $A \approx 60°$ ; $n \approx 1,5$ \donc
+$i_0 \approx 25°$
+
+
+
+En pratique pour obtenir un rayon émergent,
+\begin{itemize}
+\item Choisissez l'arête
+\item Tournez le prisme de façon à éclairer une face en incidence quasi rasante et vers l'arête.
+\item Cherchez les rayons émergents dévié vers la base.
+\end{itemize}
+
+
+\newpage
+
+\section{Pouvoir dispersif d'un prisme}
+
+
+Pour un angle d'incidence $i$ donné, $D$ dépend de $n$ or $n$ dépend
+de $\lambda$ donc $D$ dépend de $\lambda$.
+
+
+\bigskip
+
+
+
+Si $n$ augmente $r$ diminue ($\sin{i} = n \sin{r}$)
+
+
+d'où $r'$ augmente ($A = r + r'$)
+
+
+d'où $i'$ augmente ($\sin{i'} = n \sin{r'}$)
+
+
+
+
+\bigskip
+
+$D$ augmente avec $n$
+
+\bigskip
+
+Or $n$ diminue quand $\lambda$ augmente (Loi de Cauchy $\displaystyle n = A + \frac{B}{\lambda ^2}$)
+
+
+\bigskip
+
+D'où $D$ augmente quand $\lambda$ décroît.
+
+\bigskip
+
+
+La déviation croît du rouge au violet dans le domaine visible.
+
+
+\vressort{3}
+
+\subsection*{Manipulation}
+
+\begin{center}
+\includegraphics{opt/cours_prisme/prisme_dispersion.gif.eps}
+\end{center}
+
+
+\vressort{3}
+
+
+Le collimateur produit un faisceau de rayons parallèles.
+
+
+Chaque $\lambda$  est déviée.
+
+
+$L_1$ fait converger chaque faisceau parallèle dans son plan focal où
+l'on a placé l'écran.
+
+\bigskip
+
+On obtient plusieurs images \og spectre \fg de la source.
+
+
+\bigskip
+
+En pratique, on utilise une fente source colinéaire à l'arête du prisme.
+On observe des raies sur l'écran ou dans le plan focal de l'objectif de la lunette.
+
+
+\newpage
+
+\section{\'Etude de $D = f(i)$}
+
+Ici $n$ est supposé constant : on considère les rayons de longueur d'onde $\lambda$ donnée.
+
+
+\vressort{3}
+
+
+\subsection{Données expérimentales}
+
+Lorsque $i$ varie, $D$ passe par un minimum $D_m$.
+
+
+\begin{center}
+\includegraphics{opt/cours_prisme/deviation_incidence.gif.eps}
+\end{center}
+
+
+Pour $D$ fixé,
+
+\begin{itemize}
+\item incidence $i$ \donc émergence $i'$
+\item incidence $i'$ \donc émergence $i$ (principe du
+  retour inverse de la lumière)
+\end{itemize}
+
+
+\smallskip
+
+$D = i + i' - A$
+
+\smallskip
+
+Les deux incidences $i$ et $i'$ donnent la même déviation.\\
+Or $D_m$ est obtenue pour une seule incidence donc dans ce cas $D = 2i
+- A$
+
+\smallskip
+
+$i = i'$
+ \donc $r = r'$
+ \donc $A = 2r$
+ \donc $\displaystyle n = \frac{\sin{\frac{D_m + A}{2}}}{\sin{\frac{A}{2}}}$
+
+
+
+\vressort{3}
+
+
+
+\subsection{Relation entre $n$, $A$ et $D_m$}
+
+Par différenciation des formules du prime
+
+$0 = dr + dr'$
+
+$dD = di + di'$ \hspace{2cm} $\displaystyle \frac{dD}{di} = 1 + \frac{di'}{di}$
+
+
+\bigskip
+
+
+$\cos(i) di = \cos(r) dr$
+
+$\cos(i') di' = \cos(r') dr'$ \hspace{2cm} 
+$\displaystyle \frac{di'}{di} = \frac{\cos(i)}{\cos(i')} \frac{\cos(r')}{\cos(r)} \frac{dr}{dr'}$
+
+
+\bigskip
+
+
+$\displaystyle \frac{dD}{di} = 1 - \frac{\cos(i)}{\cos(i')} \frac{\cos(r')}{\cos(r)}$
+
+
+On cherche le minimum :
+
+$\displaystyle {\left(\frac{\mbox{d}D}{\mbox{d}i}\right)}_{i = i_{\mbox{min}}} = 0$
+
+
+$i = i'$ et $r = r'$ conviennent.
+
+
+
+$A = 2 r$ \donc $\displaystyle r = \frac{A}{2}$
+
+
+
+$D_m = 2 i - A$ \donc $\displaystyle i = \frac{D_m + A}{2}$
+
+
+$\sin i = n \sin r$
+
+
+\bigskip
+
+$\displaystyle n = \frac{%
+\sin \frac{D_m + A}{2}}{%
+\sin \frac{A}{2}}
+$
+
+
+
+\vressort{1}
+
+\emph{Application : } mesure de $n$ pour une longueur d'onde donnée.
+
+
+
+\emph{Remarque : } il faut d'abord déterminer l'angle $A$ du prisme.
+
+
+
+%\newpage
+
+
+
+%\subsection{Mesure de l'angle du prisme}
+% cf TP
+
+%\subsection{Mesure de l'indice du prisme}
+% cf TP
+
+%\subsection{Détermination d'une longueur d'onde inconnue}
+% cf TP

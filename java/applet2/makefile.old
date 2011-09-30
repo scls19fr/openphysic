@@ -1,0 +1,3 @@
+all:
+	#javac *.java
+	gcj --classpath=/usr/include/javax/,/usr/include/java -C *java

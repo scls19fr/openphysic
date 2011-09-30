@@ -1,0 +1,11 @@
+import socket
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+donnees = """Quelques lignes de données
+pour tester le fonctionnement
+du serveur et du client."""
+for ligne in donnees.splitlines( ):
+    sock.sendto(ligne, ('localhost', 8881))
+    print "Envoyé :", ligne
+    reponse = sock.recv(8192)
+    print "Reçu :", reponse
+sock.close( )

@@ -1,0 +1,165 @@
+if q.empty( ): print "Rien à faire..."
+else: x = q.get_nowait( )
+
+----------
+
+try: x = q.get_nowait( )
+except Queue.Empty: print "Rien à faire..."
+
+----------
+
+c.acquire( )
+while not etat_ok(s):
+    c.wait( )
+utiliser_etat(s)
+c.release( )
+
+----------
+
+c.acquire( )
+modifier_etat(s)
+c.notify( )    # ou c.notifyAll( )
+c.release( )
+
+----------
+
+import threading, Queue
+class InterfaceExterne(Threading.Thread):
+    def __init__(self, externalCallable, **kwds):
+        Threading.Thread.__init__(self, **kwds)
+        self.setDaemon(1)
+        self.externalCallable = externalCallable
+        self.workRequestQueue = Queue.Queue( )
+        self.resultQueue = Queue.Queue ()
+        self.start( )
+    def request(self, *args, **kwds):
+        "Appelée par les autres threads comme le serait externalCallable"
+        self.workRequestQueue.put((args,kwds))
+        return self.resultQueue.get( )
+    def run(self):
+        while 1:
+            args, kwds = self.workRequestQueue.get()
+            self.resultQueue.put(self.externalCallable(*args, **kwds))
+
+----------
+
+import threading, Queue
+class Serialiseur(Threading.Thread):
+    def __init__(self, **kwds):
+        Threading.Thread.__init__(self, **kwds)
+        self.setDaemon(1)
+        self.workRequestQueue = Queue.Queue( )
+        self.resultQueue = Queue.Queue( )
+        self.start( )
+    def apply(self, callable, *args, **kwds):
+        "Appelée par les autres threads comme le serait l'appelable"
+        self.workRequestQueue.put((callable, args,kwds))
+        return self.resultQueue.get()
+    def run(self):
+        while 1:
+            callable, args, kwds = self.workRequestQueue.get()
+            self.resultQueue.put(callable(*args, **kwds))
+
+----------
+
+import threading
+class Travailleur(Threading.Thread):
+    requestID = 0
+    def __init__(self, requestsQueue, resultsQueue, **kwds):
+        Threading.Thread.__init__(self, **kwds)
+        self.setDaemon(1)
+        self.workRequestQueue = requestsQueue
+        self.resultQueue = resultsQueue
+        self.start()
+    def travaille(self, callable, *args, **kwds):
+        "Appelé par le thread principal comme le serait un appelable, mais sans résultat"
+        Travailleur.requestID += 1
+        self.workRequestQueue.put((Travailleur.requestID, callable, args, kwds))
+        return Travailleur.requestID
+    def run(self):
+        while 1:
+            requestID, callable, args, kwds = self.workRequestQueue.get()
+            self.resultQueue.put((requestID, callable(*args, **kwds)))
+
+----------
+
+import Queue
+requestsQueue = Queue.Queue()
+resultsQueue = Queue.Queue()
+for i in range(nombreDeTravailleurs):
+    ouvrier = Travailleur(requestsQueue, resultsQueue)
+
+----------
+
+import random, time
+def auTravail( ):
+    return "%d %s %d"%(random.randrange(2,10),
+        random.choice(('+', '-', '*', '/', '%', '**')),
+        random.randrange(2,10))
+def evalueLentement(expression):
+    time.sleep(random.randrange(1,5))
+    return eval(expression)
+workRequests = { }
+def afficheResultats( ):
+    while 1:
+        try: id, resultats = resultsQueue.get_nowait()
+        except Queue.Empty: return
+        print 'Résultat %d : %s -> %s' % (id, workRequests[id], resultats)
+        del workRequests[id]
+for i in range(10):
+    expression = auTravail( )
+    id = ouvrier.travaille(evalueLentement, expression)
+    workRequests[id] = expression
+    print 'Requête soumise %d : %s' % (id, expression)
+    time.sleep(1)
+    afficheResultats( )
+while workRequests:
+    time.sleep(1)
+    afficheResultats( )
+
+----------
+
+import os
+shell = os.environ.get('COMSPEC')
+if shell is None: shell = os.environ.get('SHELL')
+if shell is None: shell = 'Interpréteur de commandes inconnu'
+print 'Exécution sous', shell
+
+----------
+
+import os
+def pipethrough(cmd, liste_de_lignes):
+    fi, fo = os.popen2(cmd, 't')
+    fi.writelines(liste_de_lignes)
+    fi.close()
+    lignes_resultat = fo.readlines()
+    fo.close()
+    return lignes_resultat
+
+----------
+
+import os
+os.spawnv(os.P_WAIT, editeur, [fictexte])
+
+----------
+
+fileob = open('xxx', 'w')
+while True:
+    data = raw_input('Entrez un texte :')
+    fileob.seek(0)
+    fileob.write(data)
+    fileob.truncate()
+    fileob.flush()
+
+----------
+
+import mmap, os, time
+mx = mmap.mmap(os.open('xxx', os.O_RDWR), 1)
+dernier = None
+while True:
+    mx.resize(mx.size())
+    donnees = mx[:]
+    if donnees != dernier:
+        print donnees
+        dernier = donnees
+    time.sleep(1)

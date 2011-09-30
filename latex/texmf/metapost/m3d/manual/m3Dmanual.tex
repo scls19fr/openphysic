@@ -1,0 +1,409 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% 3D extensions for MetaPost by Anthony Phan.
+% file: m3Dmanual.tex
+% last modification: january 11, 2006
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input m3Dmanmac
+\input epsf
+\useoptions{preprint,magstep1,english,AMSsectioning}
+
+\def\TM{\textsuperscript{TM}}
+\def\cs#1{\ifmmode\hbox{\tt#1}\else{\tt#1}\fi}%
+\def\var#1{\ifmmode\hbox{\it#1\/}\else{\it#1\/}\fi}%
+\newdimen\fboxsep\fboxsep=2pt
+\newdimen\fboxrule\fboxrule=0.4pt
+\def\mybox#1{\vcenter{\setbox0=\hbox{\vrule width\fboxrule
+	\vbox{\hrule height\fboxrule\kern\fboxsep
+	\hbox{\kern\fboxsep\epsfbox{#1}\kern\fboxsep}\kern\fboxsep
+	\hrule height\fboxrule}\vrule width\fboxrule}
+	\copy0\kern\fboxsep\hbox to\wd0{\hss\tt#1\hss}}}%
+%\def\mybox#1{\hbox{\tt#1}}
+\title{m3D package manual}
+\author{Anthony Phan, \date}
+\maketitle
+
+\section*{Introduction}
+
+In the second half of the nineties (of the past century),
+I discovered \TeX, MetaFont and,
+then, MetaPost. I was truly enthousiastic about this last tool
+since it allows a very simple inclusion of images produced by
+some MetaFont-like language
+into \TeX\ documents. My first attempt in 3D pictures
+with MetaPost was very simple: the projection system was absolutely
+rigid and the picture was composed of a few lines and labels and
+only 4 filled flat surfaces whose colors where static.
+Then I understood that it is necessary to have a parametrizable
+frame since one does not always know if a picture, viewed from
+a certain angle, will be meaningfull or not. So the first and main
+step was done: having a parametrizable frame, dealing with space
+coordinates, drawing contours if their projection on the screen
+is well-oriented.
+
+Then I heard of Denis Roegel's package ``3D''. Its syntax didn't
+fit what I could have in mind about 3D-programming in MetaPost,
+but it features facilities for {\tt eps} to {\tt gif} conversion
+and animation. I stolled these animation facilities in order to
+have fun and also to find the best angle for my picture.
+Then I began to make more complex designs
+intended to illustrate my web pages\dots
+
+What was my {\it leitmotiv}\/
+was to keep the closest as possible to usual MetaFont/MetaPost
+programming, but also to consider every 3-dimensional object
+as enough complex to deserve a quite technical code.
+So I've come to think that what could be nice should be to
+have a stable and powerfull basic program and add to it libraries
+of common objects. Some more complex objects could then be build up
+from those more basic ones by moving them, rotating them and
+rescaling them. My idea about objects is certainly not related to
+object-programming, it is just the naive notion of solid bodies.
+
+The aim one can have with such a project is boundless.
+The package ``m3D'' remains still in progress. I'm only
+glad to be able to use it when a friend ask me if I can
+draw a better picture than he does.
+
+Also one of my believes is that any MetaPost programmer
+prefers to build his/her own macros' system than relying
+on someone else's programs---especially when these ones
+are claimed to be unstable. Such a programmer would
+simply have an overview of the syntax, of some special
+hacks, may publish his/her own programs on Internet
+and in this way give some feed back to every other
+people interested in such programming.
+ 
+\section{Basic concepts}
+
+As anyone knows, MetaPost provides standard facilities
+for manipulating 3~dimensional vectors with the variable
+type ``color'': type-check, addition, substraction, scalar
+multiplication. What may be seen as missing is affine
+transformations of 3~dimensional vectors or pictures
+but no one would complain about that since MetaPost
+is a 2-dimensional oriented programming language
+and anyone would accept using some higher level
+control sequences for such tasks.
+
+  
+\section{Coordinates system}
+
+\section{Projection system}
+
+\section{Rendering parameters}
+
+\list{definitions}
+
+\item{\tt ObsZ :=} internal numeric.
+
+\item{\tt Resolution :=} internal numeric.
+
+\item{\tt Phong :=} internal numeric.
+
+\item{\tt Specularity :=} internal numeric.
+
+\item{\tt Luminosity :=} internal numeric.
+
+\item{\tt Contrast :=} internal numeric.
+
+\item{\tt Fog :=} internal numeric.
+
+\item{\tt FogZ :=} internal numeric.
+
+\item{\tt FogHalf :=} internal numeric.
+
+\item{\tt FinePlotFlag :=} boolean.
+
+\item{\tt ShadedTextFlag :=} boolean.
+
+\item{\tt LightAtInfinity :=} boolean.
+
+\item{\tt LightSource :=} color.
+
+\item{\tt ObjectColor :=} color.
+
+\endlist
+
+\section{About the light source}
+
+There is only one light source defined in {\tt m3Dplain.mp}.
+It can be located at infinity ({\tt LightAtInfinity := true})
+or at some point in the scenery ({\tt LightAtInfinity := false}).
+In both cases its coordinates {\tt LightSource} refer to the
+global screen frame and are not modified when objects are
+translated or rotated, that is that the light is fixed
+for the observer.
+
+If one wants to link the light source to a peculiar object,
+one has to write within the definition of the object something like
+$$
+	\hbox{\tt LightSource := GDir(x,y,z)}
+$$
+if the light source is located at infinity, or
+$$
+	\hbox{\tt LightSource := GCoord(x,y,z)}
+$$
+if the light source is located at some point in space
+({\tt (x,y,z)} are here {\it local}\/ coordinates).
+One should notice that it is barely the only direct use
+of the control sequences {\tt GDir} and {\tt GCoord}.
+
+If one needs more than one light source, one has to
+define anew the control sequence {\tt Light} of
+{\tt m3Dplain.mp} (good luck since it is already
+a heavy machinery).
+
+\section{Ordering and hidden bodies}
+
+Drawing a single convex body is an easy task: one just have to draw
+every facet which contour is seen, or projected, as a positively
+(resp. negatively) oriented path when drawing its exterior (resp.
+interior) side. So, hidden facets are no problem in these cases.
+Switching between inside and outside can be done with \cs{Inside}
+and \cs{Outside} control sequences. They simply reverse the condition
+about orientation.
+
+When dealing with non-convex bodies, one has to decompose these bodies
+into their convex parts and draw them in a proper order. Thus, we come
+to ordering. A fairly tricky control sequence named \cs{QuickSort}
+has been designed for this purpose. Its argument is some text that
+must contain at least two terms and its output is a control sequence
+named \cs{SortedList} which content is the previous (expanded) list
+ordered with respect to a \cs{SortCriterion}.
+\cs{SortCriterion} is a control sequence with two arguments (members of
+the list which is to be sorted) whose replacement text is a boolean.
+By default, these arguments are triples and the condition is about their
+actual depth relatively to the current observer. Thus
+\cs{QuickSort(\var{list of triples})} would output \cs{SortedList}
+whose replacement text is just the expected ordered list of triples.
+One can change this just by adapting \cs{SortCriterion} in order
+to sort numerics, pairs, strings, \dots
+
+It wouldn't be very elegant to sort things this way if one wants to perform
+a list of actions with respect to the depth of a list of points in space.
+A more natural way to do so is to use the following procedure:
+
+\cs{OnDepth;}
+
+\cs{Refpoint \var{triple};}
+
+\cs{Action (\var{delimited control sequences});}
+
+...
+
+\cs{endOnDepth;}
+
+\noindent
+What this procedure does is the following: save and reset a few things
+at the \cs{OnDepth} statement; increase the \cs{Action\_counter} and
+stores the current reference point (a \var{triple}) at \cs{Refpoint}
+invocation; stores the \var{delimited control sequences} into a
+variable control sequence numbered (here there is a little trick that
+I have been looking for a very very long time) with the current
+\cs{Action\_counter}; at \cs{endOnDepth} orders the list
+$1,\dots,\cs{Action\_counter}$ with respect to the depth of the
+reference points and then performs actions with respect to the sorted
+list. The most interesting thing with this procedure is that actions
+may depend on some parameters just as loop or macro parameters.  Note
+that the \cs{SortCriterion} has a special and temporary meaning when
+performing \cs{endOnDepth}: its two arguments are then some indexes in
+$1,\dots,\cs{Action\_counter}$ and the comparison is done between the
+depths of the two corresponding reference points.
+
+\section{Integrating text}
+
+This is clear that for some nice and funny pictures, one has to
+integrate text in the three dimensional space, for instance when
+moving a text around a picture as I've done once or twice. This is
+rather particular. Defining any general scheme for doing so seems to
+me rather pointless: it is too complicated, it is hard to imagine what
+people would like to do, etc.  Anyway, some control sequence that
+allows to move flat text around would be a basic stuff. Also, basic
+programming of such things may help to design special control
+sequences for more complicated tasks.
+
+\subsection{Simple text}
+An object named \cs{simpletext} is defined in \cs{m3Dplain.mp}.  Its
+specific parameters consist, first, in a string describing the
+alignment (\cs{"left"}, \cs{"justify"}, \cs{"center"} or \cs{"right"})
+and a string telling where on the text the reference point should be
+(typically \cs{"right"}, \cs{"urt"}, \cs{"top"}, \cs{"ulft"},
+\cs{"left"}, \cs{"llft"}, \cs{"bot"}, \cs{"lrt"} or [say!]
+\cs{"center"}), then, in a list of strings which would be displayed
+one above another.
+
+For instance, at a top level ({\it see}\/ further on about the scale parameter),
+\tabindent=\parindent
+\verbatim
+	UseObject(simpletext, Origin, (90, 0, 90), 10pt, "justify", "ulft",
+		"Come let me sing into your ear;",
+		"Those dancing days are gone,",
+		"All that silk and satin gear;",
+		"Crouch upon a stone,",
+		"Wrapping that foul body up",
+		"In as foul a rag:",
+		"I carry the sun in a golden cup;",
+		"The moon in a silver bag."));
+\endverbatim
+\noindent
+would display, at basepoint {\tt Origin}, with frame the current one
+rotated by $(90,0,90)$, with scale $10\,\rm pt$, the first part of J.B.~Yeats'
+poem \og Those dancing days are gone\fg. If it is reasonable,
+each line would be justified and the basepoint would correspond
+to the upper left corner of the text.
+
+The {\tt simpletext} object uses a font named by the string {\tt
+mthreeDfont} (default value: {\tt"rphvb"}). Its design size is defined
+by the numerical variable named {\tt mtheeDfontsize} (default value:
+{\tt10pt}).  The numerical parameter \cs{baselineskip} parameter has
+its usual role (default value: {\tt12pt}). These parameters are only
+related to the font, not to the {\tt CurrentScale}. Thus, when using
+{\tt simpletext} into an object, beware of the \var{scale} given in
+statements like
+$$
+\displaylines{\indent
+\cs{UseObject(simpletext, \var{origin}, \var{Euler angles}, \var{scale},}
+\hfill\cr\hfill
+\cs{\var{alignment string}, \var{location string}, \var{list of strings})}\indent}
+$$
+since \var{scale} must be a {\it local scale}.
+
+Justification is obtained by stretching the normal space
+width of the font up to a \cs{TextStretchFactor}
+(whose default value is $2$ which is quite large). Many
+successive spaces into a sentence count as as many spaces: {\it they are
+not reduced into a single space.}
+
+Each character is drawn separately just to make sure that the affine
+transformation acting on the character would be approximatively
+correct if the projection is not linear. {\it Since every character
+would have a special scaling, one must set\/ \cs{prologues}\/ to 1 or
+2 in order to not overflow MetaPost capacities (the whole font will
+simply be declared at the beginning of the eps figure and not every
+character with its own transformation).} Of course, one should use
+PostScript\TM\ fonts for such use. This is why we have introduced {\tt
+mthreeDfont}.
+
+\subsection{Curved text}
+Planned but not released.
+
+\remark
+Remember that annotating graphics can still be done with usual control
+sequence like
+$$
+\cs{label{\it.loc}({\it label}, proj($x$, $y$, $z$))}
+$$
+since things like {\tt simpletext} or {\tt curvedtext}
+are rather for very special effects.
+\endremark
+
+\section{Animations}
+
+\subsection{Introduction}
+Denis Roegel demonstrated that it is possible to use usual Unix tools
+to merge a list of MetaPost outputs into an animated GIF image (3D package).
+I've learned a lot from his ``metapost to shell'' script. The idea is the following: first, keep track of the maximum boundary limits of every eps outputs; then convert these eps outputs into PostScript\TM\ or eps files with these maximum boundary limits; convert these last files to, say, simple GIF images; then merge all these images into an animation.
+
+\subsection{How-to with m3D}
+With {\tt m3Dplain} (as for {\tt 3D}), (hidden) numerics named
+\cs{xmin\_}, \cs{xmax\_}, \cs{ymin\_} and \cs{ymax\_} are updated
+at every figure ends through a control sequence named {\tt compute\_bbox}
+(embedded by {\tt m3Dplain.mp} into \cs{extra\_endfig}). Executing
+$$
+\hbox{\tt Animate({\it numeric}, {\it boolean or color})}
+$$
+at the end of the file would produce an external file whose name is,
+by default, {\tt animate-script}. 
+Once the MetaPost job finished, under Unix-like system, execute
+$$
+	\hbox{\tt bash animate-script}
+$$
+from a console ({\tt xterm} or such) in the right directory. The final
+output is \cs{jobname.gif} where {\tt jobname} is the actual name of the MetaPost program.
+
+\subsection{External programs}
+This script requires the following programs: {\tt sed} and {\tt convert}.
+We choose to use {\tt sed} to change the boundary parameters of every MetaPost output---the resulting temporary files are named {\tt jobname.xxx.eps} where {\tt jobname.xxx} is the name of one of the MetaPost outputs. The PostScript\TM\ to GIF conversion was performed with the Netpbm library in Roegel's macros and their merging into an animation was performed by {\tt gifmerge} (a non standard but very nice Unix program freely available on the web). These last years, ImageMagick (copyrighted first by Dupont de Nemours, then by ImageMagick Studio, but quite free in fact) has spread over almost every Linux distribution. It is a very high quality tool that converts anything into everything, even animations. One of the basic control sequence is {\tt convert} which is the one called by the former script.
+
+\subsection{Details} The following provides more detailed explanations.
+
+\list{definitions}
+
+\item{\tt Animate({\it numeric}, {\it boolean or color})}
+Control sequence whose first parameter is the border in {\tt bp} provided with no units, and the second one is a color or a boolean. When the second parameter is a color, this color will be made transparent in the animation. When it is a boolean, {\tt background} (color) will be made transparent if the boolean is true, and no transparency will be made if this boolean is false.
+
+
+\item{\tt AnimateScript} String variable, name of the (bash) script file which is output by {\tt Animate}.
+
+\item{\tt AnimateQuality} Numerical variable, typical values are 1, 2, 4\dots
+
+\item{\tt AnimateDelay} Numerical variable, time in $1/100$ seconds between every image in the animation.
+
+\item{\tt AnimateLoop} Numerical variable, parameter for the animation, its dafult value is equal to 0 (infinite loop).
+
+\item{\tt compute\_bbox} and also \cs{xmin\_}, \cs{xmax\_}, \cs{ymin\_}, \cs{ymax\_} have been explained before.
+\endlist
+
+\section{Outputting encapsuled PostScript directly}
+
+\cs{DirectEPS \var{filename};}
+
+...
+
+\cs{endDirectEPS;}
+
+\section{Some samples}
+
+The first picture is made with \cs{Fill} equal to \cs{TechnoFill} (I
+have to change this name one day), the next one with \cs{Fill} equal
+to \cs{WireFill} (more conventional). I have also added a text (W.B. Yeats)
+for testing the \cs{simpletext} object. There is, in the second picture, a cylinder but the most
+important is the use of an object named \cs{rope}: given a path in
+space through $x(t)$, $y(t)$, $z(t)$, a radius $r$, a range for $t$,
+this object is what one can expect it to be. Also computations are
+quite fragile (second order) and may leads to unexpected and ugly
+effects. If the object \cs{cylinder} is defined in \cs{m3Dlib01.mp},
+\cs{rope} is defined in \cs{m3Dplain.mp} since I think it may be a
+basic tool.
+$$\mybox{m3Dmanual.1}$$
+$$\mybox{m3Dmanual.2}$$ Here there are two
+Sierpinski--Menger objects: the sponge (object named
+\cs{sierpinskip\_sponge}) and the gasket (object named
+\cs{sierpinskip\_gasket}). The sponge is drawn with \cs{Fill} equal to
+\cs{SolidFill} and the gasket with \cs{Fill} equal to
+\cs{SolidWireFill}. Both objects are defined in \cs{m3Dlib01.mp}. The
+gasket---since it grows as $4^n$ where $n$ is the level of
+recursion---is a lot easier to draw than the sponge---which grows as
+$20^n$. Reaching the level 3 on my current MetaPost implementation for
+the sponge was not an easy task.
+$$\mybox{m3Dmanual.3}\qquad\mybox{m3Dmanual.4}$$
+$$\mybox{m3Dmanual.5}\qquad\mybox{m3Dmanual.6}$$
+$$
+	\mybox{m3Dmanual.7}
+$$
+This last example shows the use of the object named \cs{cylinderlike}
+which is defined in \cs{m3Dplain.mp}.
+$$
+	\mybox{m3Dmanual.8}
+$$
+Its specific parameters are an
+$xOy$-cycle path and the height of the cyclinder. Thus, former picture
+as be obtained with
+\verbatim
+	beginfig(8);
+		UseObject(cylinderlike,(0,0,0),(0,0,0),1cm,
+			for i = 0 upto 4:
+				2dir(i/5*360)--dir((i+0.5)/5*360)--
+			endfor cycle, 1);
+	endfig;
+\endverbatim
+\noindent which is rather simple.
+$$
+	\mybox{m3Dmanual.9}
+$$
+%\verbatimfile{m3Dplain.mp}
+\bye
+

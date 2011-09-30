@@ -1,0 +1,16 @@
+HEADER
+COMPND    H2O (exp)
+
+
+Gérard Dupuis
+
+REMARK construit à partir des données exp.
+(longueur O-H : 0,0957 nm)
+(angle entre les liaisons 104,52°)
+
+ATOM      1  O                   0.000   0.000   0.000                          
+ATOM      2  H                   0.957   0.000   0.000                          
+ATOM      3  H                  -0.240   0.926   0.000                          
+CONECT    1    2    3
+MASTER        0    0    0    0    0    0    0    0    3    0    0    0
+END

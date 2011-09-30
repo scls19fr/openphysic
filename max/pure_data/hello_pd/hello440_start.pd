@@ -1,0 +1,11 @@
+#N canvas 306 144 666 331 10;
+#X obj 154 53 osc~ 440;
+#X obj 225 88 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
+;
+#X obj 154 169 *~;
+#X obj 154 243 dac~;
+#X text 247 86 Cliquez ici pour lancer le son;
+#X connect 0 0 2 0;
+#X connect 1 0 2 1;
+#X connect 2 0 3 0;
+#X connect 2 0 3 1;

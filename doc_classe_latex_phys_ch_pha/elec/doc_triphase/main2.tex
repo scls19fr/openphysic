@@ -1,0 +1,119 @@
+\docsanstitre{Systèmes triphasés}
+
+%\chapter*{}
+
+
+\renewcommand{\reproduire}{%
+
+%\thispagestyle{empty}
+
+\vressort{3}
+
+\section*{Tensions simples}
+
+\vressort{1}
+
+\begin{pspicture}(-1,-2.5)(13,2.5)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=2}
+\psset{yunit=2}
+\psline{->}(0,-1)(0,1.5) % Axe des y
+%\rput{0}(6,-0.25){$t$}
+\psline{->}(-0.25,0)(6.75,0) % Axe des x
+%\rput{0}(-0.25,1.75){$u_C$}
+\psplot[linecolor=red,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul cos} % sin(x)
+\psplot[linecolor=green,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul 120 sub cos} % sin(x-2pi/3)
+\psplot[linecolor=blue,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul 240 sub cos} % sin(x-4pi/3)=sin(x+2pi/3)
+\rput{0}(-0.25,1.25){$v_1$}
+\rput{0}(2,1.25){$v_2$}
+\rput{0}(4,1.25){$v_3$}
+\rput{0}(6,1.25){$v_1$}
+\end{pspicture}
+
+\vressort{3}
+
+\section*{Tensions simples et tensions composées}
+
+\vressort{1}
+
+\begin{pspicture}(-1,-2.5)(13,2.5)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=2}
+\psset{yunit=1}
+\psline{->}(0,-2)(0,3) % Axe des y
+%\rput{0}(6,-0.25){$t$}
+\psline{->}(-0.25,0)(6.75,0) % Axe des x
+%\rput{0}(-0.25,1.75){$u_C$}
+\psplot[linecolor=red,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul cos} % sin(x)
+\psplot[linecolor=green,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul 120 sub cos} % sin(x-2pi/3)
+\psplot[linecolor=blue,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul 240 sub cos} % sin(x-4pi/3)=sin(x+2pi/3)
+% 1.732 = sqrt(3) 1rad=57.296°
+\psplot[linecolor=red,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul cos x 57.296 mul 120 sub cos sub} % u12
+\psplot[linecolor=green,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul cos x 57.296 mul 240 sub cos sub} % u13
+\psplot[linecolor=blue,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul 120 sub cos x 57.296 mul 240 sub cos sub} % u23
+\psplot[linecolor=red,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul cos x 57.296 mul 120 sub cos sub neg} % -u12
+\psplot[linecolor=green,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul cos x 57.296 mul 240 sub cos sub neg} % -u13
+\psplot[linecolor=blue,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul 120 sub cos x 57.296 mul 240 sub cos sub neg} % -u2
+%\rput{0}(-0.25,1.25){$v_1$}
+%\rput{0}(2,1.25){$v_2$}
+%\rput{0}(4,1.25){$v_3$}
+
+\rput{0}(-0.5,2.5){$u_{12}$}
+\rput{0}(0.5,2.5){$u_{13}$}
+\rput{0}(1.5,2.5){$u_{23}$}
+
+\rput{0}(2.5,2.5){$u_{21}$}
+\rput{0}(3.5,2.5){$u_{31}$}
+\rput{0}(4.5,2.5){$u_{23}$}
+
+\rput{0}(5.5,2.5){$u_{12}$}
+\end{pspicture}
+
+
+\vressort{3}
+
+\section*{Tensions composées}
+
+\vressort{1}
+
+\begin{pspicture}(-1,-2.5)(13,2.5)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=2}
+\psset{yunit=2}
+\psline{->}(0,-1)(0,1.5) % Axe des y
+%\rput{0}(6,-0.25){$t$}
+\psline{->}(-0.25,0)(6.75,0) % Axe des x
+%\rput{0}(-0.25,1.75){$u_C$}
+%\psplot[linecolor=red,linewidth=1pt]{-0.5}{6}{x 57.296 mul cos} % sin(x)
+%\psplot[linecolor=green,linewidth=1pt]{-0.5}{6}{x 57.296 mul 120 sub cos} % sin(x-2pi/3)
+%\psplot[linecolor=blue,linewidth=1pt]{-0.5}{6}{x 57.296 mul 240 sub cos} % sin(x-4pi/3)=sin(x+2pi/3)
+% 1.732 = sqrt(3) 1rad=57.296°
+\psplot[linecolor=red,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul cos x 57.296 mul 120 sub cos sub 1.732 div} % u12
+\psplot[linecolor=green,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul cos x 57.296 mul 240 sub cos sub 1.732 div} % u13
+\psplot[linecolor=blue,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul 120 sub cos x 57.296 mul 240 sub cos sub 1.732 div} % u23
+\psplot[linecolor=red,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul cos x 57.296 mul 120 sub cos sub neg 1.732 div} % -u12
+\psplot[linecolor=green,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul cos x 57.296 mul 240 sub cos sub neg 1.732 div} % -u13
+\psplot[linecolor=blue,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul 120 sub cos x 57.296 mul 240 sub cos sub neg 1.732 div} % -u2
+
+\rput{0}(-0.5,1.25){$u_{12}$}
+\rput{0}(0.5,1.25){$u_{13}$}
+\rput{0}(1.5,1.25){$u_{23}$}
+
+\rput{0}(2.5,1.25){$u_{21}$}
+\rput{0}(3.5,1.25){$u_{31}$}
+\rput{0}(4.5,1.25){$u_{23}$}
+
+\rput{0}(5.5,1.25){$u_{12}$}
+
+\end{pspicture}
+
+\vressort{3}
+}
+
+\reproduire
+
+%\newpage
+
+\docsuitesanstitre
+
+\reproduire

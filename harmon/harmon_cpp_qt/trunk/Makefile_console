@@ -1,0 +1,15 @@
+all:
+	$(MAKE) clean
+	g++ *.cc -o harmon
+	$(MAKE) start
+	$(MAKE) plot
+
+start:
+	./harmon
+
+
+plot:
+	gnuplot -persist test_value.gp
+
+clean:
+	$(RM) test_value.dat

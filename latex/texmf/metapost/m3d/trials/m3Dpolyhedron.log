@@ -1,0 +1,13 @@
+This is MetaPost, Version 0.641 (Web2C 7.4.5) (mem=mpost 2006.2.13)  13 FEB 2006 22:13
+**m3Dpolyhedron.mp
+(m3Dpolyhedron.mp
+! I can't find file `m3Dplain.mp'.
+l.15 input m3Dplain.mp
+                      ;
+Please type another input file name
+! Emergency stop.
+l.15 input m3Dplain.mp
+                      ;
+*** (job aborted, file error in nonstop mode)
+
+

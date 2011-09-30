@@ -1,0 +1,51 @@
+%Filename: ot1nnt.fd
+%Created by: tex Fam_2488
+%Created using fontinst v1.800
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{ot1nnt.fd}
+   [1998/11/05 Fontinst v1.800 font definitions for OT1/nnt.]
+
+\DeclareFontFamily{OT1}{nnt}{}
+
+\DeclareFontShape{OT1}{nnt}{m}{n}{
+   <-> nntr7t
+}{}
+
+\DeclareFontShape{OT1}{nnt}{m}{sc}{
+   <-> nntrc7t
+}{}
+
+\DeclareFontShape{OT1}{nnt}{m}{sl}{
+   <-> nntro7t
+}{}
+
+\DeclareFontShape{OT1}{nnt}{m}{it}{
+   <-> nntri7t
+}{}
+
+\DeclareFontShape{OT1}{nnt}{b}{n}{
+   <-> nntb7t
+}{}
+
+\DeclareFontShape{OT1}{nnt}{b}{sc}{
+   <-> nntbc7t
+}{}
+
+\DeclareFontShape{OT1}{nnt}{b}{sl}{
+   <-> nntbo7t
+}{}
+
+\DeclareFontShape{OT1}{nnt}{b}{it}{
+   <-> nntbi7t
+}{}
+
+\DeclareFontShape{OT1}{nnt}{bx}{n}{<->ssub * nnt/b/n}{}
+\DeclareFontShape{OT1}{nnt}{bx}{sc}{<->ssub * nnt/b/sc}{}
+\DeclareFontShape{OT1}{nnt}{bx}{sl}{<->ssub * nnt/b/sl}{}
+\DeclareFontShape{OT1}{nnt}{bx}{it}{<->ssub * nnt/b/it}{}
+
+\DeclareFontShape{OT1}{nnt}{m}{ui}{<->ssub * nnt/m/it}{}
+\DeclareFontShape{OT1}{nnt}{b}{ui}{<->ssub * nnt/b/it}{}
+\endinput

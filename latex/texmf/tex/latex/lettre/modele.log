@@ -1,0 +1,147 @@
+This is e-TeX, Version 3.14159-2.1 (Web2C 7.4.5) (format=latex 2006.2.13)  8 MAR 2006 18:45
+entering extended mode
+**modele.tex
+(./modele.tex
+LaTeX2e <2001/06/01>
+Babel <v3.7h> and hyphenation patterns for american, french, german, ngerman, b
+ahasa, basque, catalan, croatian, czech, danish, dutch, finnish, greek, iceland
+ic, irish, italian, latin, magyar, norsk, norsk, portuges, romanian, russian, s
+lovak, slovene, spanish, swedish, turkish, ukrainian, nohyphenation, loaded.
+(./lettre.cls (/usr/share/texmf/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texmf/tex/latex/graphics/graphics.sty
+Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2001/08/31 v1.1 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: dvips.def on input line 80.
+
+(/usr/share/texmf/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+\Gin@req@height=\dimen102
+\Gin@req@width=\dimen103
+)
+Document Class: lettre 2002/02/05 v2.345
+Copyleft Denis Megevand - Observatoire de Geneve
+(/usr/share/texmf/tex/latex/base/size12.clo
+File: size12.clo 2001/04/21 v1.4e Standard LaTeX file (size option)
+)
+\auxcount=\count79
+\c@infos=\count80
+\c@labelstart=\count81
+\c@lettre=\count82
+\c@telefax=\count83
+\emailcount=\count84
+\faxpage=\count85
+\sigflag=\count86
+\signum=\count87
+\letterwidth=\dimen104
+\openingspace=\dimen105
+\openingindent=\dimen106
+\lettermargin=\dimen107
+\listmargin=\dimen108
+\sigspace=\dimen109
+\ssigindent=\dimen110
+\ssigwidth=\dimen111
+\msigwidth=\dimen112
+\fromaddress@let@width=\dimen113
+\fromlieu@let@width=\dimen114
+\toaddress@let@width=\dimen115
+\fromaddress@fax@width=\dimen116
+\faxstring@width=\dimen117
+\faxbox@width=\dimen118
+\toaddress@fax@width=\dimen119
+\fromname@fax@width=\dimen120
+\@tensionaux=\write3
+\@dateaux=\write4
+\@etiqaux=\write5
+\@faxaux=\write6
+
+LETTRE INFO: Langage par defaut: francais.
+) (./modele.aux)
+\openout1 = `modele.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+ (./modele.tns)
+No file modele.odt.
+\openout3 = `modele.tns'.
+
+LETTRE INFO: Lettre 1.
+(./lycee.ins
+LETTRE INFO: Adresse precisee.
+LETTRE INFO: Numero de telephone precise.
+LETTRE INFO: Numero d'E-Mail precise.
+LETTRE INFO: Lieu precise.
+LETTRE INFO: Numero de fax supprime.
+)
+Missing character: There is no ^^e2 in font cmr12!
+Missing character: There is no ^^e9 in font cmr12!
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 13.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 13.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 13.
+
+LETTRE INFO: Ligne auxiliaire demandee.
+Missing character: There is no ^^e9 in font cmr12!
+Missing character: There is no ^^e9 in font cmr12!
+
+Overfull \hbox (0.43909pt too wide) in paragraph at lines 31--33
+ []\OT1/cmr/m/n/12 Nous esp^^Serons que tout ceci saura vous con-va-in-cre et q
+ue nous pour-rons prochaine-
+ []
+
+LETTRE INFO: Signature simple.
+[1
+
+
+]
+LETTRE INFO: Annexes declarees.
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--36
+
+ []
+
+LETTRE INFO: Post-scriptum defini.
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+
+ []
+
+LETTRE INFO: Longueur de la derniere page : 253.69246pt>= 250pt.
+[2]
+LETTRE INFO: Nombre de lettres :1.
+LETTRE INFO: Nombre de telefax :0.
+(./modele.aux) ) 
+Here is how much of TeX's memory you used:
+ 648 strings out of 95370
+ 7020 string characters out of 1188185
+ 60797 words of memory out of 1000001
+ 3751 multiletter control sequences out of 10000+50000
+ 7146 words of font info for 26 fonts, out of 500000 for 1000
+ 198 hyphenation exceptions out of 1000
+ 32i,7n,25p,225b,348s stack positions out of 1500i,500n,5000p,200000b,5000s
+
+Output written on modele.dvi (2 pages, 2348 bytes).

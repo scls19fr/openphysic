@@ -1,0 +1,111 @@
+﻿Chap 14  :				REVISIONS D'OPTIQUE - COMMENT VOIR ?			1ère S
+
+I]	Condition de visibilité.
+1)	Voir un objet.
+
+Un objet non lumineux est visible s'il est éclairé.
+Un objet visible diffuse de la lumière.
+Un objet lumineux ou éclairé est visible si la lumière qu'il envoie pénètre dans l'œil de l'observateur.
+
+2)	Peut-on voir la lumière ?
+
+On ne voit pas la lumière mais seulement les objets, à condition que ces derniers envoient de la lumière dans l'œil de l'observateur.
+
+
+II]	Propagation de la lumière.
+1)	Propagation rectiligne.
+
+Dans un milieu transparent et homogène, la propagation de la lumière est rectiligne.
+
+2)	Modèle du rayon lumineux. Point – objet.
+
+Les sources de lumière (primaires ou secondaires) sont constituées par un ensemble de sources ponctuelles appelées points – objet.
+Le trajet de la lumière est représenté par des rayons lumineux : droites munies d'une flèche symbolisant le sens de propagation. Il s'agit d'une conception purement géométrique.
+
+III]	Les lentilles.
+
+Tous les instruments optiques contiennent des lentilles.
+
+1)	Définitions.
+
+Lentille : c'est un milieu transparent limité par 2 surfaces dont l'une au moins est non plane (en général sphérique).
+
+Ses éléments géométriques sont : 
+
+L'axe optique qui joint les centres de courbure des 2 faces.
+
+Le centre optique O (voir schéma).
+
+
+
+Tout rayon passant par le centre optique O n'est pas dévié.
+
+
+
+
+2)	Lentilles divergentes.
+
+
+Une lentille à bords épais est divergente. (Les rayons lumineux qui la traversent s'écartent les uns des autres).
+
+3)	Lentilles convergentes.
+
+Une lentille à bords minces est convergente. (Les rayons lumineux se rapprochent les uns des autres).
+
+4)	Foyer et distance focale d'une lentille convergente.
+
+Des rayons //, traversant une L placée à la , convergent en une tache ponctuelle sur l'axe optique, appelée foyer ppal image F'.
+La distance OF' est caractéristique de la lentille. Une fois l'espace orienté, OF' est appelée distance focale.
+La vergence : utilisée par les opticiens. C = 1 / OF' = 1 / f' en dioptries .
+
+
+5)	Pourquoi une lentille dévie-t-elle les rayons lumineux ?
+
+La direction de propagation de la lumière change à la traversée du dioptre séparant 2 milieux d'indices  : phénomène de réfraction (cf. prog 2nde).
+
+
+
+
+
+IV]	L'œil.
+
+
+1)	Anatomie sommaire.
+
+La pupille joue le rôle de diaphragme.
+
+La cornée, l'humeur aqueuse, le cristallin, l'humeur vitrée forment la lentille convergente.
+
+La rétine constituée de cônes (sensibles aux couleurs) et bâtonnets (sensibles à l'intensité lumineuse) constitue l'écran de réception de la lumière.
+
+Le nerf optique transmet l'information au cerveau.
+
+
+2)	Analogie entre l'œil (système optique biologique) et un système optique au sens physique du terme.
+
+
+
+3)	Accommodation.
+
+La mise au point du système optique de l'œil est un mécanisme réflexe appelé accommodation et est assurée par le changement de forme du cristallin (changement de distance focale).
+
+On appelle ponctum Remotum (PR), le point le plus reculé visible par l'œil au repos.
+On appelle ponctum proximum (PP), le point le plus proche visible lors d'une accommodation maximale.
+
+Pour un œil dit normal, le PR se situe à l'infini tandis que le PP se trouve à 25 cm.
+
+4)	Rôle de l'œil et du cerveau.
+
+
+
+
+
+
+
+
+
+O est vu en O', c'est à dire plus proche que ce qu'il n'est en réalité.
+
+En outre (réfraction 2nde), il est vu dans une direction décalée par rapport à la réalité.
+
+Le cerveau, conditionné à la propagation rectiligne de la lumière, localise l'image en fonction des rayons lumineux qui pénètre dans l'œil. Il voit O en O'.

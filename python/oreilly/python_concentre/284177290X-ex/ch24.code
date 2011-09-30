@@ -1,0 +1,212 @@
+#include <Python.h>
+
+/* Le corps du module x est omis */
+
+void
+initx(void)
+{
+    /* Le code qui initialise le module x est omis */
+}
+
+----------
+
+from distutils.core import setup, Extension
+setup(name = 'x', ext_modules = [ Extension('x', sources = ['x.c']) ])
+
+----------
+
+void
+initx(void)
+{
+    PyObject* thismod = Py_InitModule3("x", x_méthodes, "docstring pour x");
+    /* Facultatif : appels à PyModule_AddObject(cemodule, "unnom", "unobjet")
+       et autres appels de l'API C pour terminer la préparation de l'objet 
+       module cemodule, de ses types (éventuels) et des autres objets.
+    */
+}
+
+----------
+
+static PyObject*
+fction_avec_params_nommés(PyObject* self, PyObject* params, PyObject* mclés)
+{
+    /* Omis : le corps de la fonction qui accède aux paramètres via la
+       fonction PyArg_ParseTupleAndKeywords de l'API C et qui renvoie un 
+       résultat PyObject*, ou NULL en cas d'erreurs */
+}
+
+----------
+
+static PyObject*
+fction_avec_params_positionnels_seulement(PyObject* self, PyObject* params)
+{
+    /* Omis : le corps de la fonction qui accède aux paramètres via la
+       fonction PyArg_ParseTuple de l'API C et qui renvoie un résultat PyObject*,
+       ou NULL en cas d'erreurs */
+}
+
+----------
+
+#include <Python.h>
+
+static PyObject*
+helloworld(PyObject* self)
+{
+    return Py_BuildValue("s", "Bienvenue dans le monde des extensions de Python codées en C !");
+}
+
+static char helloworld_docs[] = 
+    "helloworld(): renvoie un message d'accueil connu\n";
+
+static PyMethodDef helloworld_funcs[] = {
+    {"helloworld", (PyCFunction)helloworld, METH_NOARGS, helloworld_docs},
+    {NULL}
+};
+
+void
+inithelloworld(void)
+{
+    Py_InitModule3("helloworld", helloworld_funcs, 
+                   "Module d'extension trivial");
+}
+
+----------
+
+typedef struct {
+    char* ml_name;        /* Nom Python de la fonction ou de la méthode */
+    PyCFunction ml_meth;  /* Pointeur vers l'implémentation de la fonction en C */
+    int ml_flags;         /* Drapeau indiquant comment passer les paramètres */
+    char* ml_doc;         /* Docstring de la fonction ou de la méthode */
+} PyMethodDef
+
+----------
+
+static PyObject*
+fction_c(PyObject* self, PyObject* params, PyObject* mcles)
+{
+    static char* noms_params[] = {"x", "y", "z", NULL};
+    double x, y = 0.0, z = 0.0;
+    if(!PyArg_ParseTupleAndKeywords(params, mcles, "d|dd", noms_params, &x, &y, &z))
+        return NULL;
+    /* Le reste de la fonction est omis  */
+    ...
+}
+
+def fction_py(x, y = 0.0, z = 0.0):
+    x, y, z = map(float, (x, y, z))
+    # Le reste de la fonction est omis
+
+----------
+
+return PyErr_Format(PyExc_KeyError, 
+    "Clé inconnue (%s)", chaine_cle);
+
+----------
+
+PyModule_AddObject(module, "erreur", 
+    PyErr_NewException("monmodule.erreur", NULL, NULL));
+
+----------
+
+return PyErr_NoMemory();
+
+----------
+
+return PyErr_SetFromErrno(PyExc_IOError);
+
+----------
+
+import merge
+x = {'a':1, 'b':2 }
+merge.merge(x, [['b',3], ['c',4]])
+print x                                                # Affiche : {'a':1, 'b':2, 'c':4 }
+print merge.mergenew(x, {'a':5, 'd':6}, override = 1)  # Affiche : {'a':5, 'b':2, 'c':4, 'd':6 }
+print x                                                # Affiche : {'a':1, 'b':2, 'c':4 }
+
+----------
+
+typedef struct {
+    PyObject_HEAD
+    /* Autres données nécessaires aux instances de ce type */
+} montype;
+
+----------
+
+static PyTypeObject t_montype = {
+/* tp_head */        PyObject_HEAD_INIT(NULL)   /* Utiliser NULL pour MSVC++ */
+/* tp_internal */    0,                 /* Doit valoir 0 */
+/* tp_name /        "monmodule.montype",  /* Nom du type avec le module */
+/* tp_basicsize */   sizeof(montype),
+/* tp_itemsize */    0,                 /* 0, sauf pour un type de taille variable */
+/* tp_dealloc */     (destructor)montype_dealloc,
+/* tp_print */       0,                 /* Habituellement 0, utiliser str à la place */
+/* tp_getattr */     0,                 /* Habituellement 0 (voir getattro) */
+/* tp_setattr */     0,                 /* Habituellement 0 (voir setattro) */
+/* tp_compare*/      0,                 /* Voir aussi richcompare */
+/* tp_repr */        (reprfunc)montype_str,    /* Comme le __repr__ de Python */
+    /* Le reste de la structure est omis */
+
+----------
+
+static PyObject* montype_str(montype* self) { ... /* Le reste est omis */
+
+----------
+
+static void montype_dealloc(PyObject *x)
+{
+    x->ob_type->tp_free((PyObject*)x);
+}
+
+----------
+
+int init_nom(PyObject *self, PyObject *params, PyObject *mcles)
+
+----------
+
+PyObject* new_nom(PyObject *soustype, PyObject *params, PyObject *mcles)
+
+----------
+
+typedef struct {
+    char* name;        /* Nom du membre vu par Python */
+    int type;          /* Code indiquant le type de données du membre */
+    int offset;        /* Déplacement du membre dans la structure de l'instance */
+    int flags;         /* READONLY pour un membre en lecture seule */
+    char* doc;         /* docstring du membre */
+} PyMemberDef
+
+----------
+
+typedef struct {
+    PyObject_HEAD
+    double date;
+    char* nom;
+} montype;
+
+----------
+
+static PyMemberDef[] montype_members = {
+    {"date", T_DOUBLE, offsetof(montype, date), 0, "La date courante"},
+    {"nom", T_STRING, offsetof(montype, nom), READONLY, "Nom de la date"},
+    {NULL}
+};
+
+----------
+
+class intpair(object):
+    __slots__ = 'first', 'second'
+    def __init__(self, first, second):
+        self.first = first
+        self.second = second
+    def __repr__(self):
+        return 'intpair(%s, %s)' % (self.first, self.second)
+
+----------
+
+import intpair
+x = intpair.intpair(1.2, 3.4)                 # x vaut : intpair(1,3)
+
+----------
+
+PyObject* nouveauModule = PyModule_New("monmodule");
+PyModule_AddStringConstant(nouveauModule, "__file__", "<synthetic>");

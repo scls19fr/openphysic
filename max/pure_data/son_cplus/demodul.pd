@@ -1,0 +1,18 @@
+#N canvas 0 22 462 312 10;
+#X obj 140 258 dac~;
+#X obj 142 36 adc~ 1;
+#X text 226 37 micro (in);
+#X text 206 260 haut-parleur ou casque (out);
+#X obj 209 137 osc~ 12800;
+#X text 243 82 passe-bas 12800Hz;
+#X text 277 212 passe-bas 12800Hz;
+#X obj 142 167 *~;
+#X obj 143 83 lop~ 12800;
+#X obj 141 207 lop~ 12800;
+#X text 291 156 modulation amplitude porteuse 12800Hz;
+#X connect 1 0 8 0;
+#X connect 4 0 7 1;
+#X connect 7 0 9 0;
+#X connect 8 0 7 0;
+#X connect 9 0 0 0;
+#X connect 9 0 0 1;

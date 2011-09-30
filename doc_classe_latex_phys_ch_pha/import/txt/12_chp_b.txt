@@ -1,0 +1,113 @@
+Chap 12 ? :					LE CHAMP MAGNETIQUE					1ère S
+
+I]	Propriétés des aimants.
+
+Depuis l'antiquité, on connaît les aimants permanents. Les objets à base de fer, du nickel, du cobalt sont fortement attirés par les aimants. Une fois influencés, ils peuvent conserver une aimantation rémanente (persistante en l'absence de l'aimant initial).
+
+Un aimant possède toujours des zones très actives appelées pôles (en nombre pair) : on distingue pôle Nord et pôle Sud.
+
+2 pôles de même nature se repoussent, 2 pôles de nature ? s'attirent. Le pôle Sud d'1 aimant attire le pôle Nord d'1 boussole.
+
+II]	Le champ magnétique.
+
+Un aimant ou un électroaimant modifient leur espace environnant. Ils créent dans leur voisinage un champ magnétique B.
+
+1)	Valeur du champ magnétique B.
+
+La valeur de ??B?? s'exprime en tesla (T) dans le S I. Elle peut être mesurée à l'aide d'un teslamètre.
+
+2)	Le vecteur champ magnétique.
+
+Le champ magnétique en 1 point de l'espace se caractérise non seulement par 1 valeur mais aussi par 1 orientation, donc par 1 vecteur.
+
+Le vecteur champ magnétique B en un point M a pour caractéristiques : 
+
+direction : celle d'une petite aiguille aimantée mobile placée en ce point.
+Sens : Sud - Nord de cette aiguille aimantée ??
+Norme : valeur du champ magnétique au point considéré.
+
+
+3)	Le champ magnétique terrestre.
+
+Nord magnétique et géographique ne coïncident pas tout à fait. Leur écart angulaire évolue et est appelé déclinaison magnétique.
+Les boussoles usuelles sont sensibles à la composante horizontale de BT dont la valeur vaut environ 20 ?T en France.
+
+4)	Superposition de champs magnétiques.
+
+Le vecteur champ magnétique en M résultant de plusieurs contributions est la somme vectorielle de tous les vecteurs champ magnétique : B = B1 + B2 + ? + Bn.
+
+5)	Champ magnétique uniforme.
+
+Lorsque dans une région de l'espace, un champ magnétique garde la même valeur, la même direction et le même sens, on dit qu'il est uniforme.
+
+
+III]	Spectres magnétiques.
+
+1)	Spectre et lignes de champ.
+
+La figure obtenue avec de la limaille de fer est appelée spectre de l'aimant. Chaque grain de limaille s'aimante et devient l'équivalent d'une petite boussole. Les courbes observées correspondent aux lignes de champ magnétique.
+
+1 ligne de champ est 1 courbe orientée telle qu'en chacun de ses points, B lui est tangent. Elle a même orientation que B.
+
+
+
+
+2)	Propriétés des lignes de champ magnétique.
+
+L'orientation d'une ligne de champ magnétique reste la même tout au long de la ligne.
+
+Les lignes de champ magnétique se referment toujours sur elles-mêmes (éventuellement à l'infini).
+
+Les lignes de champ traversent les aimants du pôle Sud vers le pôle Nord.
+
+Les lignes de champ se resserrent dans les zones où la valeur de B est plus élevée.
+
+Dans une zone où règne un champ B uniforme, les lignes de champ sont des droites // entre elles.
+
+IV]	Champs magnétiques créés par des courants électriques.
+
+En 1819, pour la première ?, le physicien HC Oersted observe l'apparition d'un champ B au voisinage d'un courant électrique.
+
+Tout courant électrique est à l'origine d'un champ magnétique.
+
+1)	Propriétés des champs créés par des courants.
+
+
+On montre que B ? I en un point de l'espace (à mesurer). Si on inverse le sens de I, B change de sens mais pas de direction.
+
+Pour un conducteur donné et un point donné de l'espace, il existe une constante k telle que : B = k I.
+
+2)	Champ créé par un conducteur rectiligne.
+
+Les lignes de champ sont contenues dans des plans ? au conducteur. Donc B en M est ? au conducteur.
+Les lignes de champ forment des cercles concentriques dans un plan : le vecteur B en M est ? au rayon joignant M au conducteur.
+Un teslamètre montre que ??B?? = cte le long d'une ligne de champ et ? si on s'éloigne du conducteur.
+
+La règle du bonhomme d'ampère permet de déterminer le sens de B : 
+
+On imagine un bonhomme couché sur le conducteur, le courant lui entrant par les pieds et lui sortant par la tête. Lorsqu'il regarde le point où l'on veut déterminer le champ, son bras gauche indique la direction et le sens du champ.
+
+
+
+
+3)	Champ créé par un solénoïde.
+
+Un solénoïde est une bobine longue, càd dont la longueur est grande / à son diamètre.
+
+A l'intérieur d'un solénoïde, B est uniforme et // à l'axe du solénoïde.
+
+Le sens de B peut être donné par la règle du bonhomme d'Ampère ou d'autres moyens mnémotechniques : 
+
+Règle de la main droite : s'enroulant dans le sens du courant, le pousse indiquant le sens de B.
+Règle des faces Nord et Sud : Inscription d'un S ou d'un N sur les faces du solénoïde (voir).
+
+
+
+La valeur du champ magnétique B à l'intérieur du solénoïde peut être calculée : B = ?0 n I.
+B en tesla (T), I en A, n en m-1, ?0 = 4?.10-7 SI.
+
+4)	Applications.
+
+La valeur de ?0 étant faible, B créé est faible, on pallie cet inconvénient en enroulant les spires autour d'un noyau en matériau ferromagnétique = principe de l'électroaimant. Ex: têtes d'enregistrement, disjoncteurs, verrouillages de portes coupe-feu, systèmes de levage (3,5 T). Possibilité d'utiliser des bobines supraconductrices (B = 35 T). 
+
+

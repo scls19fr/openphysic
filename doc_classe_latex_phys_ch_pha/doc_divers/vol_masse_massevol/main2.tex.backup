@@ -1,0 +1,15 @@
+%\doc{Unités de volume, de masse et de masse volumique}
+
+\newcommand{\tabvolmassemassevol}{%
+%\small
+\begin{tabularx}{\textwidth}{*{3}{|>{\centering}X}|}
+\hline
+\emph{Volume}                             & \emph{Masse}                    & \emph{Masse volumique}          \tabularnewline \hline
+$1~L = 1~dm^3 = 10^{-3}~m^3$              & $1~\mbox{tonne} = 10^3~kg$      & $1~kg.m^{-3} = 1~g.L^{-1}$      \tabularnewline \hline
+\footnotesize $1~cm^3 = 1~mL = 10^{-3}~L = 10^{-6}~m^3$ & $1~kg = 10^3~g$   & $1~kg.dm^{-3} = 1 g.cm^{-3}$    \tabularnewline \hline
+$1~m^3 = 10^3~dm^3 = 10^3~L$              &                                 & $1~kg.dm^{-3} = 10^3~kg.m^{-3}$ \tabularnewline \hline
+\end{tabularx}
+%\normalsize
+}
+
+%\tabvolmassemassevol

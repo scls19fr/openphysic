@@ -1,0 +1,19 @@
+\ProvidesFile{omsnnt.fd}
+\DeclareFontFamily{OMS}{nnt}{\skewchar\font48}
+\DeclareFontShape{OMS}{nnt}{m}{n}
+   {<-> ssub * cmsy/m/n}{}
+\DeclareFontShape{OMS}{nnt}{m}{it}
+   {<-> ssub * cmsy/m/n}{}
+\DeclareFontShape{OMS}{nnt}{m}{sl}
+   {<-> ssub * cmsy/m/n}{}
+\DeclareFontShape{OMS}{nnt}{m}{sc}
+   {<-> ssub * cmsy/m/n}{}
+\DeclareFontShape{OMS}{nnt}{b}{n}
+   {<-> ssub * cmsy/b/n}{}
+\DeclareFontShape{OMS}{nnt}{b}{it}
+   {<-> ssub * cmsy/b/n}{}
+\DeclareFontShape{OMS}{nnt}{b}{sl}
+   {<-> ssub * cmsy/b/n}{}
+\DeclareFontShape{OMS}{nnt}{b}{sc}
+   {<-> ssub * cmsy/b/n}{}
+\endinput

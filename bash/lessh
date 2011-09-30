@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#sudo apt-get install highlight
+highlight --ansi --force $1 | less

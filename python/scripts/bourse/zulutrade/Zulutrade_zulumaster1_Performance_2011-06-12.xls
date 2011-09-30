@@ -1,0 +1,2307 @@
+<?xml version="1.0"?>
+<?mso-application Excel.Sheet?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40">
+<DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+</DocumentProperties>
+<ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+<ProtectStructure>False</ProtectStructure>
+<ProtectWindows>False</ProtectWindows>
+</ExcelWorkbook>
+ <Styles>
+                                  <Style ss:ID="Default" ss:Name="Normal">
+                                   <Alignment ss:Vertical="Bottom"/>
+                                   <Borders/>
+                                   <Font ss:FontName="Calibri" x:CharSet="161" x:Family="Swiss" ss:Size="11"
+                                    ss:Color="#000000"/>
+                                   <Interior/>
+                                   <NumberFormat/>
+                                   <Protection/>
+                                  </Style>
+                                  <Style ss:ID="s57">
+                                   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+                                   <Font ss:FontName="Calibri" x:CharSet="161" x:Family="Swiss" ss:Size="11"
+                                    ss:Color="#000000" ss:Bold="1"/>
+                                  </Style>
+                                  <Style ss:ID="s58">
+                                   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+                                   <NumberFormat ss:Format="#,##0"/>
+                                  </Style>
+                                  <Style ss:ID="s59">
+                                   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+                                  </Style>
+                                  <Style ss:ID="s60">
+                                   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+                                   <NumberFormat ss:Format="General Date"/>
+                                  </Style>
+                                 </Styles>
+                                 <Worksheet ss:Name="Sheet1"><Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="129" x:FullColumns="1" x:FullRows="1" ss:DefaultRowHeight="15">  <Column ss:Width="130.5"/>
+                                   <Column ss:Index="5" ss:Width="66.75"/>
+                                   <Column ss:Width="78"/>
+                                   <Column ss:AutoFitWidth="0" ss:Width="72"/>
+                                   <Column ss:AutoFitWidth="0" ss:Width="66.75"/>
+                                   <Column ss:AutoFitWidth="0" ss:Width="80.25"/>
+                                   <Column ss:AutoFitWidth="0" ss:Width="61.5"/>
+                                   <Column ss:AutoFitWidth="0" ss:Width="67.5"/>
+                                   <Column ss:AutoFitWidth="0" ss:Width="68.25"/>
+                                   <Column ss:AutoFitWidth="0" ss:Width="70.5"/>
+                                   <Column ss:Index="15" ss:AutoFitWidth="0" ss:Width="68.25"/>
+                                   <Column ss:AutoFitWidth="0" ss:Width="69.75"/>
+                                   <Column ss:AutoFitWidth="0" ss:Width="62.25"/>
+                                   <Column ss:AutoFitWidth="0" ss:Width="82.5"/>
+                                   <Row ss:Height="45">
+                                    <Cell ss:StyleID="s57"><Data ss:Type="String">Provider Ticket</Data></Cell>
+                                    <Cell ss:StyleID="s57"><Data ss:Type="String">Type</Data></Cell>
+                                    <Cell ss:StyleID="s57"><Data ss:Type="String">Lots</Data></Cell>
+                                    <Cell ss:StyleID="s57"><Data ss:Type="String">Currency</Data></Cell>
+                                    <Cell ss:StyleID="s57"><Data ss:Type="String">Date Opened</Data></Cell>
+                                    <Cell ss:StyleID="s57"><Data ss:Type="String">Date Closed</Data></Cell>
+                                    <Cell ss:StyleID="s57"><Data ss:Type="String">Price Opened</Data></Cell>
+                                    <Cell ss:StyleID="s57"><Data ss:Type="String">Price Closed</Data></Cell>
+                                    <Cell ss:StyleID="s57"><Data ss:Type="String">Highest Profit</Data></Cell>
+                                    <Cell ss:StyleID="s57"><Data ss:Type="String">Worst Drawdown</Data></Cell>
+                                    <Cell ss:StyleID="s57"><Data ss:Type="String">Roll</Data></Cell>
+                                    <Cell ss:StyleID="s57"><Data ss:Type="String">Pips</Data></Cell>
+                                    <Cell ss:StyleID="s57"><Data ss:Type="String">Net Profit &amp; Loss</Data></Cell>
+                                    <Cell ss:StyleID="s57"><Data ss:Type="String">Live Trade?</Data></Cell>
+                                    <Cell ss:StyleID="s57"><Data ss:Type="String">Accumulated Pips</Data></Cell>
+                                    <Cell ss:StyleID="s57"><Data ss:Type="String">Accumulated Profit</Data></Cell>
+                                   </Row>\n<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1307362945102</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/06/09 06:00:21</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/06/09 07:05:29</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98051</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97946</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-8</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.07</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1192</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">589.95</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1307362945002</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/06/09 06:00:04</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/06/09 07:05:27</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98056</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97955</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.03</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1181.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">588.88</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1307362325229</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/06/07 05:30:23</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/06/08 09:26:22</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97921</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98026</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-62</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">-0.03</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.04</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1171.4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">587.85</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1307362325157</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/06/07 05:30:05</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/06/08 09:26:05</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97915</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98023</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-61</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">-0.03</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.8</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.07</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1160.9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">586.81</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1306098006306</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/22 21:45:10</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/31 05:21:06</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97367</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97257</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-81</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.07</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.2</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1150.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">585.74</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1306098019256</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/22 22:45:21</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/31 02:07:53</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97454</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97349</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">14</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-72</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.07</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.15</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">NO</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1139.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">584.54</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1306098019153</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/22 22:45:04</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/31 01:54:15</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97455</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97356</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">14</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-72</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.07</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">9.9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.09</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">NO</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1128.6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">583.39</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1306331138816</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/26 15:00:29</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/26 16:46:23</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98053</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97954</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">9.9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.01</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1118.7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">582.3</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1306331138759</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/26 15:00:07</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/26 16:28:15</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98074</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97978</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">9.6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.98</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1108.8</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">581.29</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1305733275776</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/20 13:00:02</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/20 16:33:31</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97155</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97050</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">12</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-58</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.08</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1099.2</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">580.31</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1305733275866</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/20 13:00:23</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/20 16:32:39</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97161</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97056</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-57</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.08</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1088.7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">579.23</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1305621961637</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/18 10:30:03</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/18 14:51:26</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97294</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97182</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-31</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11.2</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.15</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1078.2</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">578.15</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1305621961737</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/18 10:30:23</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/18 14:50:57</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97303</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97198</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-30</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.08</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1067</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">577</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1305493528056</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/16 19:00:02</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/17 20:23:53</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97281</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97246</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">8</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-67</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.01</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">3.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.37</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1056.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">575.92</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1305493528113</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/16 19:00:22</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/17 20:23:47</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97280</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97246</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">8</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-67</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.01</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">3.4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.36</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1053</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">575.55</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1305493561161</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/16 21:30:29</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/17 06:21:54</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97474</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97369</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-18</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.01</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.09</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1049.6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">575.19</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1305493561124</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/16 21:30:11</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/17 05:06:01</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97503</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97398</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-15</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.01</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.09</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1039.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">574.1</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1305493425630</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/16 11:30:03</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/16 12:09:34</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97514</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97414</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.03</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1028.6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">573.01</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1305493425759</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/16 11:30:23</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/16 12:09:34</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97519</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97414</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.08</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1018.6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">571.98</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1304962757046</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/12 07:30:03</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/12 17:03:58</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.96409</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.96349</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-55</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.62</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1008.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">570.9</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1304962757103</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/12 07:30:23</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/12 17:03:51</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.96432</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.96362</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-52</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.73</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1002.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">570.28</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1304962298678</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/10 20:30:22</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/11 16:02:21</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95810</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95915</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-69</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">-0.03</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.06</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">995.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">569.55</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1304962298626</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/10 20:30:03</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/11 16:02:17</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95802</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95907</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-68</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">-0.03</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.06</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">984.6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">568.49</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1304962491917</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/11 11:35:57</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/11 11:57:31</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95191</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95282</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">9.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">95.51</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">974.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">567.43</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1304284463723</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/04 22:00:22</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/04 22:57:41</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95847</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95828</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1.9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.2</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">965</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">471.92</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1304284463644</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/04 22:00:03</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/04 22:57:33</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95849</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95818</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">3.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.32</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">963.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">471.72</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1304283691837</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/02 03:30:25</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/02 06:18:05</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.94859</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.94754</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">960</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">471.4</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1304283691775</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/02 03:30:07</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/05/02 06:15:22</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.94883</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.94778</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-2</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">949.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">470.29</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1303119871284</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/20 00:30:02</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/26 00:56:54</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95507</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95612</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-98</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">-0.17</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.93</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">939</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">469.18</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1303119871363</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/20 00:30:21</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/26 00:55:34</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95504</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95609</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-97</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">-0.17</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.93</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">928.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">468.25</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1303121645026</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/22 16:30:06</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/24 21:24:20</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95334</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95229</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-14</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.01</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">918</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">467.32</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1303121645154</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/22 16:30:23</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/24 21:24:20</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95334</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95229</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-14</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.01</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">907.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">466.21</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1303120466395</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/20 21:30:07</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/22 18:13:42</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95321</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95426</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-79</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">-0.11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.99</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">897</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">465.1</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1303120466509</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/20 21:30:26</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/22 18:13:42</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95321</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95426</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-79</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">-0.11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.99</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">886.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">464.11</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1303121490514</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/22 11:00:03</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/22 12:37:56</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95329</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95261</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">6.8</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.71</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">876</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">463.12</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1303121490583</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/22 11:00:21</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/22 12:37:49</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95328</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95261</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">6.7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">869.2</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">462.41</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1303118900157</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/18 12:30:10</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/18 13:10:56</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.96422</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.96303</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">12</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11.9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.24</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">862.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">461.71</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1303118900279</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/18 12:30:30</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/18 13:10:49</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.96422</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.96323</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">9.9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.03</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">850.6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">460.47</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1302474053883</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/14 11:30:04</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/14 13:41:41</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.96573</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.96467</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">840.7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">459.44</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1302474053926</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/14 11:30:21</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/14 13:41:40</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.96579</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.96474</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.09</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">830.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">458.34</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1302471612706</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/12 15:30:19</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/12 16:43:12</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.96321</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.96216</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.09</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">819.6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">457.25</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1302471612630</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/12 15:30:01</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/12 16:15:23</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.96324</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.96219</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.09</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">809.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">456.16</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1302471191732</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/12 08:00:02</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/12 11:17:28</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95722</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95827</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">12</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-12</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">798.6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">455.07</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1302471191801</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/12 08:00:21</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/12 11:17:27</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95713</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95818</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">13</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">788.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">453.97</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1302470861036</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/12 02:00:20</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/12 09:53:23</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95747</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95642</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-63</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">777.6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">452.87</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1302470859947</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/12 02:00:02</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/12 08:38:22</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95754</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95649</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-62</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">767.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">451.77</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1302470970208</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/12 04:00:01</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/12 05:51:26</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.96145</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.96042</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.3</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.07</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">756.6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">450.67</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1302470970341</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/12 04:00:21</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/12 05:22:49</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.96155</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.96050</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.09</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">746.3</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">449.6</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1301870094648</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/08 03:00:42</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/08 19:20:43</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95726</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95820</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-47</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">9.4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.98</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">735.8</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">448.51</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1301870094583</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/08 03:00:24</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/08 19:20:38</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95723</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95818</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-47</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">9.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.99</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">726.4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">447.53</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1301870271332</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/08 06:30:26</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/08 14:09:58</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95535</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95640</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">24</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-28</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">NO</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">716.9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">446.54</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1301870271255</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/08 06:30:08</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/04/08 14:09:58</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95535</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.95640</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">24</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-28</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">NO</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">706.4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">445.44</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1301494563881</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/31 00:00:04</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/31 00:53:20</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97184</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97079</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.08</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">NO</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">695.9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">444.34</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1300656288736</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/23 01:30:26</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/23 03:57:44</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98203</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98098</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.07</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">685.4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">443.26</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1300656288692</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/23 01:30:07</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/23 03:56:57</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98216</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98111</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-3</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.07</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">674.9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">442.19</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1300655790206</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/21 06:00:20</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/22 23:57:57</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98102</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98208</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-64</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">-0.03</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.05</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">664.4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">441.12</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1300655790163</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/21 06:00:03</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/22 23:53:38</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98095</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98200</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-64</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">-0.03</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.04</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">653.8</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">440.07</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1300051555059</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/15 16:30:26</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/15 16:44:06</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98169</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98274</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-3</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.07</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">643.3</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">439.03</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1300051554970</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/15 16:30:04</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/15 16:43:42</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98155</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98259</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-3</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.06</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">632.8</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">437.96</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1300051396575</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/15 04:00:04</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/15 07:51:26</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98123</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98016</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-36</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.09</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">622.4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">436.9</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1300051396660</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/15 04:00:27</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/15 07:50:28</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98145</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98045</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-34</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.02</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">611.7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">435.81</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1299842698787</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/11 12:30:01</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/11 14:40:23</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97754</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97649</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-31</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.08</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">601.7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">434.79</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1299842699003</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/11 12:30:25</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/11 14:40:22</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97762</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97657</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">12</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-30</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.08</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">591.2</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">433.71</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1299779934526</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/11 07:00:25</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/11 08:20:50</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97543</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97439</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.07</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">580.7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">432.63</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">400.1299779934459</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/11 07:00:02</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/11 08:03:21</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97557</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97454</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.3</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.06</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">570.3</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">431.56</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1299451623206</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/07 18:00:25</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/07 19:47:38</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97373</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97317</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">5.6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.58</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">560</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">430.5</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1299451622840</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/07 18:00:03</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/07 19:47:29</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97374</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97317</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">5.7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.59</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">554.4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">429.92</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1299451403455</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/07 11:00:24</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/07 16:08:15</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97106</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97211</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">12</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.08</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">548.7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">429.33</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1299451403197</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/07 11:00:03</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/07 16:08:15</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97100</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97205</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">12</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.08</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">538.2</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">428.25</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1299167225303</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/03 20:00:25</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/04 00:36:09</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97223</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97328</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">-0.03</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.05</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">527.7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">427.17</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1299167224985</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/03 20:00:07</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/04 00:36:09</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97224</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97322</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">-0.03</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">9.8</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.98</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">517.2</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">426.12</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1298928758882</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/01 16:00:02</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/03/02 13:23:19</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97353</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.97299</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-42</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.01</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">5.4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.56</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">507.4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">425.14</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1298243192014</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/02/23 11:30:02</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/02/24 00:18:36</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98889</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98787</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">13</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-71</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.02</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.2</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.05</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">502</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">424.58</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1298243192219</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/02/23 11:30:23</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/02/24 00:18:36</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98892</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98787</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">13</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-70</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.02</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.08</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">491.8</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">423.53</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1298241897670</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/02/21 13:00:03</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/02/22 02:34:51</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98354</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98459</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-14</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">-0.03</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.04</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">481.3</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">422.45</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1298241897882</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/02/21 13:00:26</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/02/22 02:34:51</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98360</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98465</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-15</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">-0.03</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.04</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">470.8</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">421.41</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1298241675058</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/02/21 04:31:44</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/02/21 08:41:26</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98639</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98534</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.07</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">460.3</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">420.37</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1298241675167</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/02/21 04:32:04</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/02/21 08:41:26</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98637</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98532</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.07</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">449.8</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">419.3</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1298241699507</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/02/21 05:30:37</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/02/21 07:05:40</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98686</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98581</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.07</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">439.3</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">418.23</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1298241699323</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/02/21 05:30:16</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/02/21 07:05:40</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98686</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98581</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">1.07</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">428.8</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">417.16</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1297099785652</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/02/07 19:00:26</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/02/08 10:06:26</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98843</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98738</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-33</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.07</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">418.3</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">416.09</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1297099785444</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/02/07 19:00:06</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/02/08 10:05:32</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98845</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98748</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-33</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0.07</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">9.7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">9.89</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">407.8</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">405.39</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1296578970556</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/02/03 09:30:30</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/02/03 12:50:01</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98730</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98835</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-8</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.62</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">398.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">395.5</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1296578970389</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/02/03 09:30:07</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/02/03 12:08:14</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98726</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.98831</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-8</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.62</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">387.6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">384.88</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1296144563609</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/01/28 01:00:03</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/01/28 11:35:44</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.99536</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.99432</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-23</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.46</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">377.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">374.26</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1296144563753</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/01/28 01:00:22</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/01/28 11:35:44</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.99537</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.99432</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-23</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.56</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">366.7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">363.8</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1296144601317</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/01/28 02:00:02</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/01/28 10:32:57</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.99588</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.99483</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-18</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.55</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">356.2</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">353.24</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1296144601577</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/01/28 02:00:24</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/01/28 10:32:55</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.99593</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.99488</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-17</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.55</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">345.7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">342.69</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1295378059235</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/01/20 13:30:02</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/01/20 13:32:11</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.99907</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.99804</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.3</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.32</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">335.2</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">332.14</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1294612404573</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/01/10 05:00:03</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/01/10 17:00:32</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.99325</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.99267</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-53</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">5.8</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">5.84</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">324.9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">321.82</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1294612404781</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/01/10 05:00:24</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/01/10 17:00:21</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.99323</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.99267</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-53</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">5.6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">5.64</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">319.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">315.98</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1294612515666</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/01/10 10:00:02</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/01/10 13:42:46</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.99642</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.99588</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-20</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">5.4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">5.42</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">313.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">310.34</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1294612515860</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/01/10 10:00:27</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/01/10 13:42:38</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.99649</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.99592</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-19</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">5.7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">5.72</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">308.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">304.92</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1294153284411</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/01/06 08:00:01</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/01/06 14:38:20</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.99458</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.99561</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-22</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.3</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.35</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">302.4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">299.2</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1294153284694</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/01/06 08:00:26</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/01/06 14:38:09</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.99451</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.99556</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-21</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.55</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">292.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">288.85</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1294153312126</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/01/06 09:00:29</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/01/06 13:37:10</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.99399</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.99504</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-16</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.55</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">281.6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">278.3</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1294153311910</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/01/06 09:00:05</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2011/01/06 13:37:09</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.99402</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">0.99506</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-16</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.45</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">271.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">267.75</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1292853235454</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/20 16:30:21</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/20 17:56:10</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.01833</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.01765</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-13</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">6.8</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">6.68</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">260.7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">257.3</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1292853235407</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/20 16:30:00</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/20 17:56:04</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.01831</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.01770</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-13</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">6.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">5.99</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">253.9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">250.62</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1292853212133</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/20 15:30:24</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/20 16:20:00</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.01983</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.01878</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.31</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">247.8</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">244.63</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1292853212012</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/20 15:30:02</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/20 16:19:56</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.01989</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.01884</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.31</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">237.3</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">234.32</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1292236706037</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/16 11:30:22</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/16 12:32:42</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.00557</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.00452</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.45</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">226.8</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">224.01</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1292236705870</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/16 11:30:01</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/16 12:32:42</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.00558</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.00454</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.35</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">216.3</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">213.56</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1292235835180</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/14 18:00:22</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/14 19:43:22</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.00499</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.00604</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-15</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.44</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">205.9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">203.21</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1292235835017</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/14 18:00:01</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/14 19:43:01</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.00475</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.00582</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-12</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.64</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">195.4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">192.77</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1292235604296</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/14 07:30:04</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/14 09:49:02</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.00720</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.00825</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-23</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.41</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">184.7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">182.13</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1292235604467</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/14 07:30:24</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/14 09:48:42</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.00713</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.00816</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-22</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.3</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.22</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">174.2</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">171.72</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1291635070409</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/08 04:00:02</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/08 10:02:54</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.01188</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.01083</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-24</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.39</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">163.9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">161.5</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1291635070495</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/08 04:00:19</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/08 09:56:12</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.01188</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.01088</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-24</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">9.89</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">153.4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">151.11</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1291117450774</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/02 17:00:01</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/03 13:31:42</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.00476</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.00575</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-46</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">-0.27</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">9.9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">9.57</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">143.4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">141.22</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1291117244701</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/02 08:00:01</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/02 08:43:09</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.01398</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.01502</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.25</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">133.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">131.65</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1291117244927</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/02 08:00:20</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/12/02 08:43:09</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.01398</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.01503</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.34</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">123.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">121.4</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1291116375062</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/11/30 15:00:40</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/11/30 18:20:34</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.02553</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.02448</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">12</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-27</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.25</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">112.6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">111.06</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1291116374934</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/11/30 15:00:21</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/11/30 18:20:30</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.02567</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.02462</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-25</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.25</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">102.1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">100.81</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1291116374816</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/11/30 15:00:01</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/11/30 18:20:30</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.02571</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.02462</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-25</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.64</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">91.6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">90.56</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1291014542746</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">EUR/USD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/11/29 12:50:37</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/11/29 12:53:46</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.31585</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.31614</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">6</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">2.9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">2.9</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">80.7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">79.92</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1291014543100</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">EUR/USD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/11/29 12:51:12</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/11/29 12:53:43</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.31577</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.31625</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-3</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">4.8</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">4.8</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">77.8</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">77.02</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1291014541575</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">EUR/USD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/11/29 12:48:42</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/11/29 12:53:37</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.31567</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.31634</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-4</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">6.7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">6.7</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">73</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">72.22</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1291014534864</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">BUY</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">EUR/USD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/11/29 12:30:00</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/11/29 12:53:26</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.31515</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.31638</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">12</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-13</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">12.3</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">12.3</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">66.3</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">65.52</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1290732900740</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/11/26 12:00:36</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/11/26 12:57:15</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.02213</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.02108</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-14</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.28</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">NO</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">54</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">53.22</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1290732900583</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/11/26 12:00:18</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/11/26 12:54:32</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.02227</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.02122</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-12</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.28</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">NO</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">43.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">42.94</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1290732900432</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/11/26 12:00:00</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/11/26 12:54:32</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.02221</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.02116</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-13</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.28</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">NO</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">33</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">32.66</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1290732756685</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">USD/CAD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/11/26 06:30:05</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/11/26 08:35:22</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.01275</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.01170</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">11</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-21</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">10.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">10.38</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">YES</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">22.5</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">22.38</Data></Cell>
+</Row>
+<Row>
+<Cell ss:StyleID="s58"><Data ss:Type="String">300.1290444304156</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">SELL</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">1</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">EUR/USD</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/11/25 17:00:03</Data></Cell>
+<Cell ss:StyleID="s60"><Data ss:Type="String">2010/11/25 20:46:13</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.33729</Data></Cell>
+<Cell ss:StyleID="s58"><Data ss:Type="String">1.33609</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">12</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">-16</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">0</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="Number">12</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">12</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">NO</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">12</Data></Cell>
+<Cell ss:StyleID="s59"><Data ss:Type="String">12</Data></Cell>
+</Row>
+</Table>
+<WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+<Selected/>
+<ProtectObjects>False</ProtectObjects>
+<ProtectScenarios>False</ProtectScenarios>
+</WorksheetOptions>
+</Worksheet>
+</Workbook>

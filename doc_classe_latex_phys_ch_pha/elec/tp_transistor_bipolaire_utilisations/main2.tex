@@ -1,0 +1,91 @@
+\tp{Utilisation d'un transistor NPN}
+
+
+\Section{Régulateur de tension par transistor et diode Zener}
+
+\Subsection{Montage}
+
+\materiel{
+\item diode Zéner $V_Z = 7,5~V$ (${I_Z}_{min} = 5~mA$ ; ${I_Z}_{max} = 60~mA$)
+\item transistor 2N1613 ou 2N1711 (${I_C}_{max} = 150~mA$  ; $P_{max} = 800~mW$)
+}
+
+
+
+\Subsection{Préparation}
+
+\begin{enumerate}
+\item Déterminer l'expression de $V_s$ en fonction de $V_Z$ et $V_{BE}$.\\
+Montrer que ce montage fournit une tension $V_S$ stabilisée lorsque $E$ varie. Préciser à quelles conditions.
+
+\item Entre quelles limites peut-on faire varier $E$ si $R_B = 100~\Ohm$ ?
+
+\item Quelle puissant faut-il choisir pour la résistance $R_B$ ?\\
+Quelle valeur minimum doit-on attribuer à la résistance $R$ ?
+
+
+\end{enumerate}
+
+\Subsection{Mesures}
+\begin{enumerate}
+\item Avec $R = 220~\Ohm$ et $R_B = 100~\Ohm$, réaliser le montage permettant de mesurer $E$, $V_S$, $I_S$ et $I_Z$.
+
+\item On maintient $R$ constant. On fait varier $E$.\\
+Relever et tracer $V_S = f(E)$ et $I_Z = f(E)$ sans dépasser les valeurs permises pour $I_Z$ et $I_S$. Noter la valeur de $V_{BE}$.
+
+
+
+% tableau
+
+
+\item Justifier  l'allure des courbes. Préciser le coportement de la diode Zéner.
+
+\end{enumerate}
+
+
+\newpage
+
+
+\Section{Réalisation et étude d'un générateur de courant}
+
+\Subsection{Montage}
+
+\materiel{
+\item transistor 2N1613 (ou 2N1711)
+\item Diode Zéner $V_Z = 7,5~V$
+\item $R_1 = 1~k\Ohm$
+\item $R_C$ : résistance de charge (boites A.O.I.P. $\times~10~k\Ohm$ et $\times~1~k\Ohm$
+\item $R_E = 6,8~k\Ohm$ (ou potentiomètre de $10~k\Ohm$)
+}
+
+
+% montage
+
+
+
+
+\Subsection{Préparation}
+
+\begin{enumerate}
+\item Exprimer la tension $V_{EM}$ en fonction de $V_Z$ et de $V_{BE}$. Calculer $V_{EM}$.
+
+\item Montrer que $I_E$ ne dépend que de $R_E$. Préciser à quelles conditions ?
+
+\item Déterminer $I_C$ et les limites de $R_C$ pour que le montage délivre un courant $I_C$ constant si $R_E = 6,8~k\Ohm$, $C_{CC} = 20~V$ et ${V_{CE}}_SAT = 0,4~V$.
+\end{enumerate}
+
+
+\Subsection{Mesures}
+
+\begin{enumerate}
+\item Faire un schéma de câblage sachant que l'on veut mesurer $I_C$.\\
+Réaliser le montage en prenant $V_{CC} = 20~V$, $R_E = 6,8~k\Ohm$ et $R_C$ résistance variable.
+
+\item Mesurer $I_C$ pour $R_C = 0~\Ohm$ (si nécessaire remplacer $R_E$ par le potentiomètre et régler $R_E$ pour obtenir $I_C \approx 1~mA$).\\
+Noter $V_{BE}$ et $V_Z$ et comparer avec les valeurs utilisées au B.1.
+
+\item Faire varier $R_C$ de $0$ à $20~k\Ohm$ et relever $I_C$. Tracer $I_C = f(R_C)$.
+
+\item Interpréter l'allure de la courbe obtenue et vérifier les valeurs trouvées au B.3.
+
+\end{enumerate}

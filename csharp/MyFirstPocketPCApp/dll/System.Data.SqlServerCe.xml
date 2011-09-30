@@ -1,0 +1,2376 @@
+<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>System.Data.SqlServerCe</name>
+  </assembly>
+  <members>
+    <member name="T:System.Data.SqlServerCe.SqlCeEngine">
+      <summary>
+        <para> Represents the properties, methods, and
+      other objects of the SQL Server CE
+      Engine. This class cannot be inherited.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeEngine.#ctor">
+      <summary>
+        <para> Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeEngine" /> class.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeEngine.#ctor(System.String)">
+      <summary>
+        <para> Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeEngine" /> class with
+   the specified local connection string.</para>
+      </summary>
+      <param name="localConnectionString">src connection string</param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeEngine.Dispose">
+      <summary>
+        <para> Releases all SQL Server CE <see cref="T:System.Data.SqlServerCe.SqlCeEngine" />
+resources.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeEngine.Finalize">
+      <summary>
+        <para> Frees resources before the <see cref="T:System.Data.SqlServerCe.SqlCeEngine" /> is reclaimed by the Garbage Collector.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeEngine.Compact(System.String)">
+      <summary>
+        <para> Reclaims wasted space in the SQL Server CE database. The <see cref="M:System.Data.SqlServerCe.SqlCeEngine.Compact(System.String)" /> method is also used to change the
+   collating order, encryption, or password of the SQL Server CE database. For more
+   information, see the SQL Server CE Books Online.</para>
+      </summary>
+      <param name="destConnect">destination connection string</param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeEngine.CreateDatabase">
+      <summary>
+        <para>Creates a new database.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeEngine.LocalConnectionString">
+      <summary>
+        <para> Gets or sets the connection string for the SQL
+      Server CE database.</para>
+      </summary>
+    </member>
+    <member name="T:System.Data.SqlServerCe.DbRangeOptions">
+      <summary>
+        <para> Options used by <see cref="M:System.Data.SqlServerCe.SqlCeCommand.SetRange(System.Data.SqlServerCe.DbRangeOptions,System.Object[],System.Object[])" /> when
+   specifying the index range over which to <see cref="M:System.Data.SqlServerCe.SqlCeDataReader.Seek(System.Data.SqlServerCe.DbSeekOptions,System.Object[])" />
+   .</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.DbRangeOptions.InclusiveStart">
+      <summary>
+        <para>Includes the startData value in the range.</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.DbRangeOptions.InclusiveEnd">
+      <summary>
+        <para>Includes the endData value in the range.</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.DbRangeOptions.ExclusiveStart">
+      <summary>
+        <para> Excludes the startData value from the range.</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.DbRangeOptions.ExclusiveEnd">
+      <summary>
+        <para>Excludes the endData value from the range.</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.DbRangeOptions.ExcludeNulls">
+      <summary>
+        <para>Excludes null values from the range.</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.DbRangeOptions.Prefix">
+      <summary>
+        <para> Specifies a range where index values 
+      begin with the value of startData. In this case, endData must be
+      set to null.</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.DbRangeOptions.Match">
+      <summary>
+        <para>Specifies a range where index values match the value of 
+      startData. In this case, endData must be set to null.</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.DbRangeOptions.Default">
+      <summary>
+        <para>Equivalent to InclusiveStart | InclusiveEnd.</para>
+      </summary>
+    </member>
+    <member name="T:System.Data.SqlServerCe.DbSeekOptions">
+      <summary>
+        <para> Options that specify how to <see cref="M:System.Data.SqlServerCe.SqlCeDataReader.Seek(System.Data.SqlServerCe.DbSeekOptions,System.Object[])" /> on an
+   index. </para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.DbSeekOptions.FirstEqual">
+      <summary>
+        <para> Advances to the first matching row on the index, in index 
+      order.</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.DbSeekOptions.LastEqual">
+      <summary>
+        <para>Advances to the last matching row on the index, in index order.</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.DbSeekOptions.AfterEqual">
+      <summary>
+        <para> Advances to the last matching row on 
+      the index. If there are no matching rows, advances to the first row with values after the
+      seek value, in index order. </para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.DbSeekOptions.After">
+      <summary>
+        <para> Advances to the 
+      first row with values after the seek value, in index order.</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.DbSeekOptions.BeforeEqual">
+      <summary>
+        <para>Advances to the first matching row on the index. If 
+      there are no matching rows, advances to the last row with values before the seek
+      value, in index order.</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.DbSeekOptions.Before">
+      <summary>
+        <para>Advances to the last row with values before the seek 
+      value, in index order.</para>
+      </summary>
+    </member>
+    <member name="T:System.Data.SqlServerCe.RdaTrackOption">
+      <summary>
+        <para>Specifies whether or not the table being pulled to the
+      device is tracked.</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.RdaTrackOption.TrackingOff">
+      <summary>
+        <para>Indicates that SQL Server CE does not track changes to 
+      the pulled table. No PRIMARY KEY constraints are created locally.</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.RdaTrackOption.TrackingOn">
+      <summary>
+        <para>Indicates that SQL Server CE tracks all changes to the 
+      pulled table. PRIMARY KEY constraints related to the value specified
+      for <paramref name="sqlSelectString" /> are created on the local table. (default)</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.RdaTrackOption.TrackingOnWithIndexes">
+      <summary>
+        <para>Indicates that SQL Server CE tracks all changes to the 
+      pulled table. Indexes and PRIMARY KEY constraints that existed on the SQL Server
+      table specified in <paramref name="sqlSelectString" /> are created on the local table.</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.RdaTrackOption.TrackingOffWithIndexes">
+      <summary>
+        <para>Indicates that SQL Server CE does not track changes to 
+      the pulled table. Indexes and PRIMARY KEY constraints that existed on the SQL
+      Server table specified in <paramref name="sqlSelectString" /> are created on the local table.</para>
+      </summary>
+    </member>
+    <member name="T:System.Data.SqlServerCe.RdaBatchOption">
+      <summary>
+        <para>Specifies whether or not the rows associated with the
+   <see cref="M:System.Data.SqlServerCe.SqlCeRemoteDataAccess.Push(System.String,System.String)" /> should be batched together in a single transaction.</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.RdaBatchOption.BatchingOff">
+      <summary>
+        <para>Indicates that SQL Server CE does not batch rows pushed 
+      to SQL Server. The server processes each row. (Default)</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.RdaBatchOption.BatchingOn">
+      <summary>
+        <para>Indicates that SQL Server CE batches the rows pushed to 
+      SQL Server into a single transaction.</para>
+      </summary>
+    </member>
+    <member name="T:System.Data.SqlServerCe.SqlCeRemoteDataAccess">
+      <summary>
+        <para> Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeRemoteDataAccess" />
+object. For more information about Remote Data Access, see the SQL Server CE Books Online.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeRemoteDataAccess.#ctor">
+      <summary>
+        <para> Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeRemoteDataAccess" /> object.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeRemoteDataAccess.#ctor(System.String,System.String)">
+      <summary>
+        <para> Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeRemoteDataAccess" /> object and configures
+   it for Anonymous access to Microsoft Internet Information Services (IIS).</para>
+      </summary>
+      <param name="internetUrl">The URL used to connect to the SQL Server CE Server Agent.</param>
+      <param name=" localConnectionString">The OLE DB connection string for the SQL Server CE database.</param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeRemoteDataAccess.#ctor(System.String,System.String,System.String,System.String)">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeRemoteDataAccess" /> 
+object and configures it for a Basic
+or Integrated Windows authentication to Microsoft Internet Information Services (IIS).</para>
+      </summary>
+      <param name="internetUrl">The URL used to connect to the SQL Server CE Server Agent.</param>
+      <param name=" internetLogin">The login name used when connecting to the SQL Server CE Server Agent.</param>
+      <param name=" internetPassword">The password used when connecting to the SQL Server CE Server Agent.</param>
+      <param name=" localConnectionString">The OLE DB connection string for the SQL Server CE database.</param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeRemoteDataAccess.Dispose">
+      <summary>
+        <para>Releases all unmanaged resources.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeRemoteDataAccess.Finalize">
+      <summary>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeRemoteDataAccess.Pull(System.String,System.String,System.String)">
+      <summary>
+        <para> Extracts data from a SQL Server database and stores
+      it in a table in a SQL Server CE
+      database. </para>
+      </summary>
+      <param name="localTableName">The name of the SQL Server CE table that will receive the extracted SQL Server records. An error occurs if the table already exists.</param>
+      <param name=" sqlSelectString">Any valid Transact-SQL statement, including SELECT statements and stored procedures, that specifies which table, columns, and records to extract from the SQL Server database for storing in the SQL Server CE database.</param>
+      <param name=" oledbConnectionString">The OLE DB connection string used when connecting to the SQL Server database.</param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeRemoteDataAccess.Pull(System.String,System.String,System.String,System.Data.SqlServerCe.RdaTrackOption)">
+      <summary>
+        <para> Extracts data from a SQL Server database and stores it 
+      in a table in a SQL Server CE database. Specifies whether index information should be included and if changes
+      made to the pulled table should be
+      tracked. </para>
+      </summary>
+      <param name="localTableName">The name of the SQL Server CE table that will receive the extracted SQL Server records. An error occurs if the table already exists.</param>
+      <param name=" sqlSelectString">Any valid Transact-SQL statement, including SELECT statements and stored procedures, that specifies which table, columns, and records to extract from the SQL Server database for storing in the SQL Server CE database.</param>
+      <param name=" oledbConnectionString">The OLE DB connection string used when connecting to the SQL Server database.</param>
+      <param name=" trackOption">The option indicating whether SQL Server CE tracks changes made to the pulled table and if the indexes that exist on the table being pulled are brought down to the device with the PRIMARY KEY constraints.</param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeRemoteDataAccess.Pull(System.String,System.String,System.String,System.Data.SqlServerCe.RdaTrackOption,System.String)">
+      <summary>
+        <para> Extracts data from a SQL Server database and stores it in
+      a table in a SQL Server CE database.</para>
+      </summary>
+      <param name="localTableName">The name of the SQL Server CE table that will receive the extracted SQL Server records. An error occurs if the table already exists.</param>
+      <param name=" sqlSelectString">Any valid Transact-SQL statement, including SELECT statements and stored procedures, that specifies which table, columns, and records to extract from the SQL Server database for storing in the SQL Server CE database.</param>
+      <param name=" oledbConnectionString">The OLE DB connection string used when connecting to the SQL Server database.</param>
+      <param name=" trackOption">The option indicating whether SQL Server CE tracks changes made to the pulled table and if the indexes that exist on the table being pulled are brought down to the device with the PRIMARY KEY constraints.</param>
+      <param name=" errorTable">The name of the local error table that is created if an error occurs when the Push method is later called to send changes back to SQL Server. This option can be specified only when the <paramref name="RdaTrackOption" /> value is TrackingOn or TrackingOnWithIndexes.</param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeRemoteDataAccess.Push(System.String,System.String)">
+      <summary>
+        <para>Transmits changes from a pulled tracked table in SQL
+      Server CE back to the originating SQL Server table. These changes are
+      individually applied to the server in separate transactions.</para>
+      </summary>
+      <param name="localTableName">The name of the SQL Server CE table that will receive the extracted SQL Server records. An error occurs if the table already exists. </param>
+      <param name=" oledbConnectionString">The OLE DB connection string used when connecting to the SQL Server database.</param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeRemoteDataAccess.Push(System.String,System.String,System.Data.SqlServerCe.RdaBatchOption)">
+      <summary>
+        <para> Transmits changes from a pulled tracked table in
+      SQL Server CE back to the SQL Server table. These changes can be either
+      individually applied to the server or batched together in a single transaction.</para>
+      </summary>
+      <param name="localTableName">The name of the SQL Server CE table that will receive the extracted SQL Server records. An error occurs if the table already exists.</param>
+      <param name=" oledbConnectionString">The OLE DB connection string used when connecting to the SQL Server database.</param>
+      <param name=" batchOption">The option indicates whether the changes being sent back to the SQL Server table should be batched together in a single transaction or individually applied.</param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeRemoteDataAccess.SubmitSql(System.String,System.String)">
+      <summary>
+        <para> Submits SQL statements for execution on a database in
+      Microsoft SQL Server on a remote server.</para>
+      </summary>
+      <param name="sqlString">Any SQL statement that does not return rows.</param>
+      <param name=" oledbConnectionString">The OLE DB connection string for the remote SQL Server database. </param>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeRemoteDataAccess.LocalConnectionString">
+      <summary>
+        <para>Specifies the OLE DB connection string for the SQL Server CE database on the Microsoft Windows
+      CE .NET-based device.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeRemoteDataAccess.InternetUrl">
+      <summary>
+        <para>Specifies the URL used to connect to the SQL Server CE
+      Server Agent. The SQL Server CE Server Agent is the Microsoft Information
+      Services (IIS) ISAPI DLL that connects the Microsoft SQL Server 2000 Windows CE
+      Edition (SQL Server CE) client to the Microsoft SQL Server Database. This property must be specified.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeRemoteDataAccess.InternetLogin">
+      <summary>
+        <para>Specifies the Microsoft Internet Information Services (IIS) login name used when connecting to the SQL
+      Server CE Server Agent.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeRemoteDataAccess.InternetPassword">
+      <summary>
+        <para>Specifies the Microsoft Internet Information Services (IIS) password used when connecting to the SQL
+      Server CE Server Agent.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeRemoteDataAccess.InternetProxyServer">
+      <summary>
+        <para>Specifies the proxy server to use when accessing the 
+      HTTP resource specified in the <see cref="P:System.Data.SqlServerCe.SqlCeRemoteDataAccess.InternetUrl" /> property.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeRemoteDataAccess.InternetProxyLogin">
+      <summary>
+        <para>Specifies the login name used when connecting to a proxy
+      server (defined in the <see cref="P:System.Data.SqlServerCe.SqlCeRemoteDataAccess.InternetProxyServer" /> property) that requires authentication.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeRemoteDataAccess.InternetProxyPassword">
+      <summary>
+        <para>Specifies the password used when connecting to a proxy
+      server (defined in the <see cref="P:System.Data.SqlServerCe.SqlCeRemoteDataAccess.InternetProxyServer" /> property) that requires authentication.</para>
+      </summary>
+    </member>
+    <member name="T:System.Data.SqlServerCe.AddOption">
+      <summary>
+        <para>Specifies the source of the newly created SQL Server CE database.</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.AddOption.ExistingDatabase">
+      <summary>
+        <para>Assumes the SQL Server CE database is already created.</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.AddOption.CreateDatabase">
+      <summary>
+        <para> Causes the SQL Server CE database to be created on
+      the Windows CE .NET-based device.</para>
+      </summary>
+    </member>
+    <member name="T:System.Data.SqlServerCe.DropOption">
+      <summary>
+        <para>Specifies whether to leave or delete the SQL Server CE 
+      database during a drop subscription.</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.DropOption.LeaveDatabase">
+      <summary>
+        <para>Deletes the replication system tables and three 
+      replication system columns in the user tables, but does not delete the database.</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.DropOption.DropDatabase">
+      <summary>
+        <para>Deletes the SQL Server CE database.</para>
+      </summary>
+    </member>
+    <member name="T:System.Data.SqlServerCe.NetworkType">
+      <summary>
+        <para>Specifies the network protocol used.</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.NetworkType.DefaultNetwork">
+      <summary>
+        <para>Use the current configured client Net-Library.</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.NetworkType.TcpIpSockets">
+      <summary>
+        <para>Use the TCP/IP Sockets Net Library.</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.NetworkType.MultiProtocol">
+      <summary>
+        <para>Use the Multiprotocol Net Library.</para>
+      </summary>
+    </member>
+    <member name="T:System.Data.SqlServerCe.SecurityType">
+      <summary>
+        <para>Specifies the mode of security enforced.</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.SecurityType.DBAuthentication">
+      <summary>
+        <para>SQL Server standard security (default).</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.SecurityType.NTAuthentication">
+      <summary>
+        <para>Windows Authentication.</para>
+      </summary>
+    </member>
+    <member name="T:System.Data.SqlServerCe.ExchangeType">
+      <summary>
+        <para>Specifies whether data merges up to the Publisher or in 
+      both directions between the Publisher and the Subscriber</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.ExchangeType.Upload">
+      <summary>
+        <para>Merges only the Subscriber changes with the Publisher.</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.ExchangeType.BiDirectional">
+      <summary>
+        <para>Merges all changes between the Publisher and Subscriber (default).</para>
+      </summary>
+    </member>
+    <member name="T:System.Data.SqlServerCe.ValidateType">
+      <summary>
+        <para>Specifies the type of data validation to perform.</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.ValidateType.NoValidation">
+      <summary>
+        <para>Do no validation (default).</para>
+      </summary>
+    </member>
+    <member name="F:System.Data.SqlServerCe.ValidateType.RowCountOnly">
+      <summary>
+        <para>Do a row count comparison on the published data.</para>
+      </summary>
+    </member>
+    <member name="T:System.Data.SqlServerCe.SqlCeReplication">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeReplication" /> object. For more information on
+   replication, see SQL Server Books Online. For more information on merge
+   replication in SQL Server CE, see the SQL Server CE Books Online.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeReplication.#ctor">
+      <summary>
+        <para> Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeReplication" /> object. Default Constructor.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeReplication.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeReplication" /> object and configures replication
+   for Basic or Integrated authentication to IIS and SQL Server Authentication
+   to SQL Server.</para>
+      </summary>
+      <param name="internetUrl">The URL used to connect to the SQL Server CE Server Agent.</param>
+      <param name=" internetLogin">The login name used when connecting to the SQL Server CE Server Agent.</param>
+      <param name=" internetPassword">The password used when connecting to the SQL Server CE Server Agent.</param>
+      <param name=" publisher">The name of the Publisher.</param>
+      <param name=" publisherDatabase">The name of the publication database.</param>
+      <param name=" publisherLogin">The login name used when connecting to the Publisher.</param>
+      <param name=" publisherPassword">The login password used when connecting to the Publisher.</param>
+      <param name=" publication">The publication name that has been enabled for anonymous merge subscriptions.</param>
+      <param name=" subscriber">The name of the Subscriber.</param>
+      <param name=" subscriberConnectionString">The OLE DB connection string for the SQL Server CE database on the Windows CE .NET-based device.</param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeReplication.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeReplication" /> object and
+   configures replication for Basic or Integrated authentication to IIS and Integrated
+   Windows Authentication to SQL Server.</para>
+      </summary>
+      <param name=" internetUrl">The URL used to connect to the SQL Server CE Server Agent.</param>
+      <param name=" internetLogin">The login name used when connecting to the SQL Server CE Server Agent.</param>
+      <param name=" internetPassword">The password used when connecting to the SQL Server CE Server Agent.</param>
+      <param name=" publisher">The name of the Publisher.</param>
+      <param name=" publisherDatabase">The name of the publication database.</param>
+      <param name=" publication">The publication name that has been enabled for anonymous merge subscriptions.</param>
+      <param name=" subscriber">The name of the Subscriber.</param>
+      <param name=" subscriberConnectionString">The OLE DB connection string for the SQL Server CE database on the Windows CE .NET-based device.</param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeReplication.Dispose">
+      <summary>
+        <para>Releases all native resources.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeReplication.Finalize">
+      <summary>
+        <para>Releases the resources held by this instance.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeReplication.AddSubscription(System.Data.SqlServerCe.AddOption)">
+      <summary>
+        <para>Creates a new anonymous subscription to an existing
+      Microsoft SQL Server publication. After calling the <see cref="M:System.Data.SqlServerCe.SqlCeReplication.AddSubscription(System.Data.SqlServerCe.AddOption)" />
+      method, the
+      application must call the <see cref="M:System.Data.SqlServerCe.SqlCeReplication.Synchronize" /> method to synchronize the
+      new subscription to the publication based on the latest snapshot.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeReplication.DropSubscription(System.Data.SqlServerCe.DropOption)">
+      <summary>
+        <para>Drops the subscription to a SQL Server publication and
+      optionally deletes the SQL Server CE database from the Windows CE .NET-based device.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeReplication.ReinitializeSubscription(System.Boolean)">
+      <summary>
+        <para>Marks a subscription for reinitialization. After calling
+   <see cref="M:System.Data.SqlServerCe.SqlCeReplication.ReinitializeSubscription(System.Boolean)" />, an application must call the <see cref="M:System.Data.SqlServerCe.SqlCeReplication.Synchronize" /> method
+      to download the latest snapshot of the publication to the device.</para>
+      </summary>
+      <param name="uploadBeforeReinit">If True, the changes in the subscription database are uploaded to the Publisher before the snapshot is applied at the Subscriber. The default is False.</param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeReplication.Synchronize">
+      <summary>
+        <para>Invokes merge replication between the SQL Server CE 
+      subscription and the SQL Server Publisher.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.Distributor">
+      <summary>
+        <para>Specifies the SQL Server Distributor.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.DistributorNetwork">
+      <summary>
+        <para>Specifies the network protocol used when the SQL Server Reconciler
+      communicates with the Distributor. </para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.DistributorAddress">
+      <summary>
+        <para>Specifies the network address used when the <SPAN>SQL
+      Server Reconciler </SPAN> is connecting
+   to the Distributor.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.DistributorSecurityMode">
+      <summary>
+        <para>Specifies the security mode used when connecting to the Distributor.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.DistributorLogin">
+      <summary>
+        <para>Specifies the login name used when connecting to the Distributor.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.DistributorPassword">
+      <summary>
+        <para>Specifies the login password used when connecting to the Distributor.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.ExchangeType">
+      <summary>
+        <para> Specifies whether the synchronization between the Publisher
+      and the Subscriber is bi-directional or upload only.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.HostName">
+      <summary>
+        <para>Sets the host name used for the device when connecting to the Publisher.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.InternetUrl">
+      <summary>
+        <para>Specifies the URL used to connect to the SQL Server CE Server Agent.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.InternetLogin">
+      <summary>
+        <para>Specifies the login name used when connecting to the SQL
+      Server CE Server Agent.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.InternetPassword">
+      <summary>
+        <para>Specifies the password used when connecting to the SQL
+      Server CE Server Agent.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.InternetProxyServer">
+      <summary>
+        <para>Specifies the proxy server to use when accessing the HTTP
+      resource specified in the <see cref="P:System.Data.SqlServerCe.SqlCeReplication.InternetUrl" /> property.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.InternetProxyLogin">
+      <summary>
+        <para>Specifies the login name used when connecting to an
+   <see cref="P:System.Data.SqlServerCe.SqlCeReplication.InternetProxyServer" /> that requires authentication.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.InternetProxyPassword">
+      <summary>
+        <para>Specifies the password used when connecting to an 
+      InternetProxyServer that requires authentication.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.LoginTimeout">
+      <summary>
+        <para>Specifies the maximum number of seconds to wait for 
+      connections to be established.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.ProfileName">
+      <summary>
+        <para>Specifies the name of the agent profile at the
+      Distributor to be used by the <see cref="T:System.Data.SqlServerCe.SqlCeReplication" /> object.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.Publisher">
+      <summary>
+        <para>Specifies the name of the Publisher. The Publisher is 
+      the computer that is running SQL Server and that contains the publication.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.PublisherNetwork">
+      <summary>
+        <para> Specifies the network protocol used when the SQL
+      Server Replication Provider communicates with the Publisher.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.PublisherAddress">
+      <summary>
+        <para>Specifies the network address used when connecting to the Publisher.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.PublisherSecurityMode">
+      <summary>
+        <para>Specifies the security mode used when connecting to the Publisher.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.PublisherLogin">
+      <summary>
+        <para>Specifies the login name used when connecting to the Publisher.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.PublisherPassword">
+      <summary>
+        <para>Specifies the login password used when connecting to the Publisher.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.PublisherDatabase">
+      <summary>
+        <para>Specifies the name of the publication database.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.Publication">
+      <summary>
+        <para>Specifies the publication name that has been enabled for 
+      anonymous merge subscriptions.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.PublisherChanges">
+      <summary>
+        <para>Specifies the total number of Publisher changes applied 
+      at the Subscriber when the <see cref="M:System.Data.SqlServerCe.SqlCeReplication.Synchronize" /> method was last called.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.PublisherConflicts">
+      <summary>
+        <para>Specifies the total number of conflicts that occurred at 
+      the Publisher when the <see cref="M:System.Data.SqlServerCe.SqlCeReplication.Synchronize" /> method was last called.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.QueryTimeout">
+      <summary>
+        <para>Specifies the number of seconds allowed for internal 
+      queries to complete.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.Subscriber">
+      <summary>
+        <para>Specifies the name of the Subscriber.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.SubscriberConnectionString">
+      <summary>
+        <para>Specifies the OLE DB connection string for the SQL Server
+      CE database on the Windows CE .NET-based device.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.SubscriberChanges">
+      <summary>
+        <para>Specifies the total number of Subscriber changes applied 
+      at the Publisher when the Synchronize method was last called.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeReplication.Validate">
+      <summary>
+        <para>Specifies the type of data validation SQL Server
+      CE replication performs while synchronizing.</para>
+      </summary>
+    </member>
+    <member name="T:System.Data.SqlServerCe.SqlCeDataAdapter">
+      <summary>
+        <para> Represents a set of data commands and a
+      database connection that are used to fill the <see cref="T:System.Data.DataSet" />
+      and update the data source.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataAdapter.#ctor">
+      <summary>
+        <para>Initializes a new
+      instance of the <see cref="T:System.Data.SqlServerCe.SqlCeDataAdapter" />
+      class.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataAdapter.#ctor(System.Data.SqlServerCe.SqlCeCommand)">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeDataAdapter" /> class with the specified <see cref="T:System.Data.SqlServerCe.SqlCeCommand" /> as the <see cref="P:System.Data.SqlServerCe.SqlCeDataAdapter.SelectCommand" /> property.</para>
+      </summary>
+      <param name="selectCommand">A <see cref="T:System.Data.SqlServerCe.SqlCeCommand" /> that is a SELECT statement. This <see cref="T:System.Data.SqlServerCe.SqlCeCommand" /> is set as the <see cref="P:System.Data.SqlServerCe.SqlCeDataAdapter.SelectCommand" /> property of the <see cref="T:System.Data.SqlServerCe.SqlCeDataAdapter" />.</param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataAdapter.#ctor(System.String,System.String)">
+      <summary>
+        <para>Initializes a new instance
+      of the <see cref="T:System.Data.SqlServerCe.SqlCeDataAdapter" /> class with a <see cref="P:System.Data.SqlServerCe.SqlCeDataAdapter.SelectCommand" /> and a connection
+      string.</para>
+      </summary>
+      <param name="selectCommandText">A <see cref="T:System.String" /> that is an SQL SELECT statement to be used as the <see cref="P:System.Data.SqlServerCe.SqlCeCommand.CommandText" /> of the <see cref="P:System.Data.SqlServerCe.SqlCeDataAdapter.SelectCommand" /> property of the <see cref="T:System.Data.SqlServerCe.SqlCeDataAdapter" />.</param>
+      <param name="selectConnectionString">The connection string.</param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataAdapter.#ctor(System.String,System.Data.SqlServerCe.SqlCeConnection)">
+      <summary>
+        <para>Inintializes a new instance
+      of the <see cref="T:System.Data.SqlServerCe.SqlCeDataAdapter" /> class with a <see cref="P:System.Data.SqlServerCe.SqlCeDataAdapter.SelectCommand" />
+      and a <see cref="T:System.Data.SqlServerCe.SqlCeConnection" />
+      object.</para>
+      </summary>
+      <param name="selectCommandText">A <see cref="T:System.String" /> that is an SQL SELECT statement to be used as the <see cref="P:System.Data.SqlServerCe.SqlCeCommand.CommandText" /> of the <see cref="P:System.Data.SqlServerCe.SqlCeDataAdapter.SelectCommand" /> property of the <see cref="T:System.Data.SqlServerCe.SqlCeDataAdapter" />.</param>
+      <param name="selectConnection">A <see cref="T:System.Data.SqlServerCe.SqlCeConnection" /> that represents the connection.</param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataAdapter.OnRowUpdated(System.Data.Common.RowUpdatedEventArgs)">
+      <summary>
+        <para> Raises the <see cref="E:System.Data.SqlServerCe.SqlCeDataAdapter.RowUpdated" /> event using a <see cref="T:System.Data.Common.RowUpdatedEventArgs" />
+object.</para>
+      </summary>
+      <param name="value">A <see cref="T:System.Data.Common.RowUpdatedEventArgs" /> that contains the event data. </param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataAdapter.OnRowUpdating(System.Data.Common.RowUpdatingEventArgs)">
+      <summary>
+        <para> Raises the <see cref="E:System.Data.SqlServerCe.SqlCeDataAdapter.RowUpdating" /> event using a <see cref="T:System.Data.Common.RowUpdatingEventArgs" />
+object.</para>
+      </summary>
+      <param name="value">A <see cref="T:System.Data.Common.RowUpdatingEventArgs" /> that contains the event data. </param>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeDataAdapter.DeleteCommand">
+      <summary>
+        <para> Gets or sets an SQL statement for deleting records from the data set.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeDataAdapter.InsertCommand">
+      <summary>
+        <para> Gets or sets an SQL statement used to insert new records into the data source.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeDataAdapter.SelectCommand">
+      <summary>
+        <para> Gets or
+      sets an SQL statement used to select records in the data source.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeDataAdapter.UpdateCommand">
+      <summary>
+        <para> Gets
+      or sets an SQL statement used to update records in the data source.</para>
+      </summary>
+    </member>
+    <member name="E:System.Data.SqlServerCe.SqlCeDataAdapter.RowUpdated">
+      <summary>
+        <para>Occurs during <see cref="M:System.Data.Common.DbDataAdapter.Update(System.Data.DataSet)" /> after a command is executed against the data
+   source.
+   The attempt to update is made, so the event fires.</para>
+      </summary>
+    </member>
+    <member name="E:System.Data.SqlServerCe.SqlCeDataAdapter.RowUpdating">
+      <summary>
+        <para>Occurs during <see cref="M:System.Data.Common.DbDataAdapter.Update(System.Data.DataSet)" /> before a command is
+   executed against the data source. The attempt to update is made, so the event
+   fires.</para>
+      </summary>
+    </member>
+    <member name="T:System.Data.SqlServerCe.SqlCeError">
+      <summary>
+        <para> Collects information relevant to a
+      warning or error returned by the data source. This class cannot be
+      inherited.
+      </para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeError.ToString">
+      <summary>
+        <para>Gets the complete text of the error message.</para>
+      </summary>
+      <returns>
+        <para>The complete text of the error.</para>
+      </returns>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeError.HResult">
+      <summary>
+        <para>Returns an HRESULT value that identifies the type of error.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeError.Message">
+      <summary>
+        <para>Gets the text describing the error.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeError.NativeError">
+      <summary>
+        <para> Gets the native error number of the <see cref="T:System.Data.SqlServerCe.SqlCeError" />. For more information on these errors, see the
+   SQL Server CE Errors topic
+   in the Troubleshooting section of SQL Server CE Books Online.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeError.Source">
+      <summary>
+        <para>Gets the name of the provider that generated the error.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeError.NumericErrorParameters">
+      <summary>
+        <para>Gets the first three error parameters. Error parameters
+      are used by SQL Server CE to provide additional details about an error.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeError.ErrorParameters">
+      <summary>
+        <para>Gets the last three error parameters. Error parameters
+      are used by SQL Server CE to provide additional details about an error.</para>
+      </summary>
+    </member>
+    <member name="T:System.Data.SqlServerCe.SqlCeErrorCollection">
+      <summary>
+        <para> Collects all errors generated by the .NET Compact Framework Data Provider for SQL Server CE. This class cannot be inherited.
+      </para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeErrorCollection.CopyTo(System.Array,System.Int32)">
+      <summary>
+        <para>Copies the elements of the
+   <see cref="T:System.Data.SqlServerCe.SqlCeErrorCollection" /> into an <see cref="T:System.Array" />, starting at the given index within the
+   <see cref="T:System.Array" />.</para>
+      </summary>
+      <param name="array">The <see cref="T:System.Array" /> into which to copy the elements. </param>
+      <param name=" index">The starting index of the <paramref name="array" />. </param>
+      <exception cref="T:System.ArgumentException">The sum of <paramref name="index" /> and the number of elements in the <see cref="T:System.Data.SqlServerCe.SqlCeErrorCollection" /> is greater than the <see cref="P:System.Array.Length" /> of the <see cref="T:System.Array" />. </exception>
+      <exception cref="T:System.ArgumentNullException">The <paramref name="array" /> is <see langword="null" />. </exception>
+      <exception cref="T:System.ArgumentOutOfRangeException">The <paramref name="index" /> is not valid for the <paramref name="array" />. </exception>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeErrorCollection.Count">
+      <summary>
+        <para>Gets the number of <see cref="T:System.Data.SqlServerCe.SqlCeError" /> objects in the collection.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeErrorCollection.Item(System.Int32)">
+      <summary>
+        <para>Gets the error at the specified index.</para>
+      </summary>
+      <param name="index">The zero-based index of the <see cref="T:System.Data.SqlServerCe.SqlCeError" /> to retrieve.</param>
+    </member>
+    <member name="T:System.Data.SqlServerCe.SqlCeException">
+      <summary>
+        <para>The exception that is thrown when the underlying provider returns a warning or
+      error from a SQL Server CE data source. This class cannot be inherited.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeException.Errors">
+      <summary>
+        <para>Gets a collection of one or more <see cref="T:System.Data.SqlServerCe.SqlCeError" /> objects that contain detailed information about exceptions generated by the .NET
+   Compact Framework Data Provider for SQL Server CE.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeException.HResult">
+      <summary>
+        <para>Gets the <see langword="HRESULT" />
+value of the exception. This value is the same as the
+value of <see cref="P:System.Data.SqlServerCe.SqlCeError.HResult" /> for the first instance of
+<see cref="T:System.Data.SqlServerCe.SqlCeError" />in 
+the <see cref="T:System.Data.SqlServerCe.SqlCeErrorCollection" /> for the
+exception.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeException.NativeError">
+      <summary>
+        <para>Gets the native error number of the first <see cref="T:System.Data.SqlServerCe.SqlCeError" />in the <see cref="T:System.Data.SqlServerCe.SqlCeErrorCollection" />. For more
+   information on the error, see the SQL Server CE Errors topic in the Troubleshooting section of
+   SQL Server CE Books Online.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeException.Message">
+      <summary>
+        <para> Gets the text describing the first instance 
+      of <see cref="T:System.Data.SqlServerCe.SqlCeError" /> in the <see cref="T:System.Data.SqlServerCe.SqlCeErrorCollection" /> for this exception.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeException.Source">
+      <summary>
+        <para>Gets the name of the OLE DB provider that generated the error.</para>
+      </summary>
+    </member>
+    <member name="T:System.Data.SqlServerCe.SqlCeInfoMessageEventArgs">
+      <summary>
+        <para> Provides data for the <see cref="E:System.Data.SqlServerCe.SqlCeConnection.InfoMessage" />
+event. This class cannot be inherited.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeInfoMessageEventArgs.ToString">
+      <summary>
+        <para>Retrieves a string representation of the <see cref="E:System.Data.SqlServerCe.SqlCeConnection.InfoMessage" /> event.</para>
+      </summary>
+      <returns>
+        <para>A string representing the <see cref="E:System.Data.SqlServerCe.SqlCeConnection.InfoMessage" /> event.</para>
+      </returns>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeInfoMessageEventArgs.ErrorCode">
+      <summary>
+        <para>Gets
+      the HRESULT following the ANSI SQL standard for the database.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeInfoMessageEventArgs.Errors">
+      <summary>
+        <para>Gets the collection of warnings sent from the data source.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeInfoMessageEventArgs.Message">
+      <summary>
+        <para>Gets the complete text of the error sent from the data source.</para>
+      </summary>
+    </member>
+    <member name="T:System.Data.SqlServerCe.SqlCeInfoMessageEventHandler">
+      <summary>
+        <para>Represents the method that will handle the <see cref="E:System.Data.SqlServerCe.SqlCeConnection.InfoMessage" /> event of a <see cref="T:System.Data.SqlServerCe.SqlCeConnection" />.</para>
+      </summary>
+      <param name="sender">The source of the event.</param>
+      <param name=" e">The <see cref="T:System.Data.SqlServerCe.SqlCeInfoMessageEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="T:System.Data.SqlServerCe.SqlCeRowUpdatedEventArgs">
+      <summary>
+        <para> Provides data for the <see cref="E:System.Data.SqlServerCe.SqlCeDataAdapter.RowUpdated" /> event.
+   </para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeRowUpdatedEventArgs.#ctor(System.Data.DataRow,System.Data.IDbCommand,System.Data.StatementType,System.Data.Common.DataTableMapping)">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeRowUpdatedEventArgs" /> class.</para>
+      </summary>
+      <param name="dataRow">The <see cref="T:System.Data.DataRow" /> sent through an <see cref="M:System.Data.Common.DbDataAdapter.Update(System.Data.DataSet)" />.</param>
+      <param name=" command">The <see cref="T:System.Data.IDbCommand" /> executed when <see cref="M:System.Data.Common.DbDataAdapter.Update(System.Data.DataSet)" /> is called.</param>
+      <param name=" statementType">One of the <see cref="T:System.Data.StatementType" /> values that specifies the type of query executed.</param>
+      <param name=" tableMapping">The <see cref="T:System.Data.Common.DataTableMapping" /> sent through an <see cref="M:System.Data.Common.DbDataAdapter.Update(System.Data.DataSet)" />. </param>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeRowUpdatedEventArgs.Command">
+      <summary>
+        <para>Gets the <see cref="T:System.Data.SqlServerCe.SqlCeCommand" /> executed when <see cref="M:System.Data.Common.DbDataAdapter.Update(System.Data.DataSet)" /> is called.</para>
+      </summary>
+    </member>
+    <member name="T:System.Data.SqlServerCe.SqlCeRowUpdatedEventHandler">
+      <summary>
+        <para>Represents the method that will handle the <see cref="E:System.Data.SqlServerCe.SqlCeDataAdapter.RowUpdated" /> event of a <see cref="T:System.Data.SqlServerCe.SqlCeDataAdapter" />.</para>
+      </summary>
+      <param name="sender">The source of the event.</param>
+      <param name=" e">The <see cref="T:System.Data.SqlServerCe.SqlCeRowUpdatedEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="T:System.Data.SqlServerCe.SqlCeRowUpdatingEventArgs">
+      <summary>
+        <para> Provides data for the <see cref="E:System.Data.SqlServerCe.SqlCeDataAdapter.RowUpdating" /> event.
+   </para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeRowUpdatingEventArgs.#ctor(System.Data.DataRow,System.Data.IDbCommand,System.Data.StatementType,System.Data.Common.DataTableMapping)">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeRowUpdatingEventArgs" /> class.</para>
+      </summary>
+      <param name="dataRow">The <see cref="T:System.Data.DataRow" /> to <see cref="M:System.Data.Common.DbDataAdapter.Update(System.Data.DataSet)" />.</param>
+      <param name="command">The <see cref="T:System.Data.IDbCommand" /> to execute during <see cref="M:System.Data.Common.DbDataAdapter.Update(System.Data.DataSet)" />.</param>
+      <param name="statementType">One of the <see cref="T:System.Data.StatementType" /> values that specifies the type of query executed. </param>
+      <param name="tableMapping">The <see cref="T:System.Data.Common.DataTableMapping" /> sent through an <see cref="M:System.Data.Common.DbDataAdapter.Update(System.Data.DataSet)" />.</param>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeRowUpdatingEventArgs.Command">
+      <summary>
+        <para>Gets or sets the <see cref="T:System.Data.SqlServerCe.SqlCeCommand" /> to execute when performing
+   an <see cref="M:System.Data.Common.DbDataAdapter.Update(System.Data.DataSet)" />.</para>
+      </summary>
+    </member>
+    <member name="T:System.Data.SqlServerCe.SqlCeRowUpdatingEventHandler">
+      <summary>
+        <para>Represents the method that will handle the <see cref="E:System.Data.SqlServerCe.SqlCeDataAdapter.RowUpdating" /> event of a <see cref="T:System.Data.SqlServerCe.SqlCeDataAdapter" />.</para>
+      </summary>
+      <param name="sender">The source of the event.</param>
+      <param name=" e">The <see cref="T:System.Data.SqlServerCe.SqlCeRowUpdatingEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="T:System.Data.SqlServerCe.SqlCeCommand">
+      <summary>
+        <para> Represents an SQL statement to execute against a data source.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeCommand.#ctor">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeCommand" />
+class.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeCommand.#ctor(System.String)">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeCommand" /> class with the text of the query.</para>
+      </summary>
+      <param name="cmdText">The text of the query.</param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeCommand.#ctor(System.String,System.Data.SqlServerCe.SqlCeConnection)">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeCommand" /> class with the text of the query and a
+<see cref="T:System.Data.SqlServerCe.SqlCeConnection" />.</para>
+      </summary>
+      <param name="cmdText">The text of the query.</param>
+      <param name="connection">A <see cref="T:System.Data.SqlServerCe.SqlCeConnection" /> that represents the connection to a data source.</param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeCommand.#ctor(System.String,System.Data.SqlServerCe.SqlCeConnection,System.Data.SqlServerCe.SqlCeTransaction)">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeCommand" /> class with the text of the query, a
+<see cref="T:System.Data.SqlServerCe.SqlCeConnection" />, and the 
+<see cref="T:System.Data.SqlServerCe.SqlCeTransaction" />.</para>
+      </summary>
+      <param name="cmdText">The text of the query.</param>
+      <param name="connection">A <see cref="T:System.Data.SqlServerCe.SqlCeConnection" /> that represents the connection to a data source.</param>
+      <param name="transaction">The transaction in which the <see cref="T:System.Data.SqlServerCe.SqlCeCommand" /> executes.</param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeCommand.Dispose">
+      <summary>
+        <para>Releases the unmanaged resources used by the <see cref="T:System.Data.SqlServerCe.SqlCeCommand" /> 
+.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeCommand.SetRange(System.Data.SqlServerCe.DbRangeOptions,System.Object[],System.Object[])">
+      <summary>
+        <para>Restricts the set of rows that will be read by the
+   <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" />.</para>
+      </summary>
+      <param name="dbRangeOptions">The options used when specifying the range. </param>
+      <param name="startData">The starting key values for the range.</param>
+      <param name="endData">The ending key values for the range. </param>
+      <exception cref="T:System.InvalidOperationException">
+        <see cref="P:System.Data.SqlServerCe.SqlCeCommand.IndexName" /> property has not been set.</exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeCommand.Cancel">
+      <summary>
+        <para>Attempts to cancel the execution of a <see cref="T:System.Data.SqlServerCe.SqlCeCommand" />.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeCommand.CreateParameter">
+      <summary>
+        <para>Creates
+      a new instance of a <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> object. </para>
+      </summary>
+      <returns>
+        <para>A <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> object.</para>
+      </returns>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeCommand.ExecuteReader">
+      <summary>
+        <para>Sends the <see cref="P:System.Data.SqlServerCe.SqlCeCommand.CommandText" /> to the <see cref="P:System.Data.SqlServerCe.SqlCeCommand.Connection" /> and builds a <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" />.</para>
+      </summary>
+      <returns>
+        <para>A <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> object.</para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">Cannot execute a command within a transaction context that differs from the context in which the connection was originally enlisted.</exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeCommand.ExecuteReader(System.Data.CommandBehavior)">
+      <summary>
+        <para>Sends the <see cref="P:System.Data.SqlServerCe.SqlCeCommand.CommandText" /> to the <see cref="P:System.Data.SqlServerCe.SqlCeCommand.Connection" /> and builds a <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> by using one of the <see cref="T:System.Data.CommandBehavior" /> values.</para>
+      </summary>
+      <param name="behavior">One of the <see cref="T:System.Data.CommandBehavior" /> values.</param>
+      <returns>
+        <para>A <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> object.</para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">Cannot execute a command within a transaction context that differs from the context in which the connection was originally enlisted.</exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeCommand.ExecuteNonQuery">
+      <summary>
+        <para> Executes an SQL statement against the <see cref="T:System.Data.SqlServerCe.SqlCeConnection" /> and returns the number of rows
+   affected.</para>
+      </summary>
+      <returns>
+        <para>The number of rows affected.</para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">
+        <para> The connection does not exist.</para>
+        <para>Or</para>
+        <para>The connection is not open.</para>
+        <para>Or</para> Cannot execute a command within a transaction context that differs from the context in which the connection was originally enlisted.</exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeCommand.ExecuteScalar">
+      <summary>
+        <para>Executes the query and returns the first column of the first row in the result set that is returned by the query. Extra columns or rows are ignored.</para>
+      </summary>
+      <returns>
+        <para>The first column of the first row in the result set.</para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">Cannot execute a command within a transaction context that differs from the context in which the connection was originally enlisted.</exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeCommand.Prepare">
+      <summary>
+        <para>Creates a prepared (or compiled) version of the command on the data
+      source.</para>
+      </summary>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The <see cref="P:System.Data.SqlServerCe.SqlCeCommand.Connection" /> is not set.</para>
+        <para>Or</para>
+        <para>The <see cref="P:System.Data.SqlServerCe.SqlCeCommand.Connection" /> is not <see cref="M:System.Data.SqlServerCe.SqlCeConnection.Open" />.</para>
+      </exception>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeCommand.CommandText">
+      <summary>
+        <para> Gets or sets an SQL statement to execute at the data source.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeCommand.IndexName">
+      <summary>
+        <para>Specifies the index to be opened.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeCommand.CommandTimeout">
+      <summary>
+        <para>Gets or sets the wait time before terminating
+      the attempt to execute a command and generating an error.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeCommand.CommandType">
+      <summary>
+        <para>Gets or sets a value indicating how the <see cref="P:System.Data.SqlServerCe.SqlCeCommand.CommandText" /> property is interpreted.</para>
+      </summary>
+      <exception cref="T:System.ArgumentException">The value was not a valid <see cref="T:System.Data.CommandType" />.</exception>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeCommand.Connection">
+      <summary>
+        <para>Gets or sets the <see cref="T:System.Data.SqlServerCe.SqlCeConnection" />
+used by this instance of the <see cref="T:System.Data.SqlServerCe.SqlCeCommand" />.</para>
+      </summary>
+      <exception cref="T:System.InvalidOperationException">The <see cref="P:System.Data.SqlServerCe.SqlCeCommand.Connection" /> property was changed while a transaction was in progress.</exception>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeCommand.Parameters">
+      <summary>
+        <para> Gets the <see cref="T:System.Data.SqlServerCe.SqlCeParameterCollection" />.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeCommand.Transaction">
+      <summary>
+        <para>Gets or sets the transaction
+      in which the <see cref="T:System.Data.SqlServerCe.SqlCeCommand" />
+      executes.
+      </para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeCommand.UpdatedRowSource">
+      <summary>
+        <para> Gets or sets how command results are applied to the <see cref="T:System.Data.DataRow" /> when used
+   by the <see cref="M:System.Data.Common.DbDataAdapter.Update(System.Data.DataSet)" /> method of the <see cref="T:System.Data.Common.DbDataAdapter" />. This property
+   should not be used with the .NET Compact Framework data provider for SQL Server
+   CE.</para>
+      </summary>
+      <exception cref="T:System.ArgumentException">The value entered was not one of the <see cref="T:System.Data.UpdateRowSource" /> values.</exception>
+    </member>
+    <member name="T:System.Data.SqlServerCe.SqlCeCommandBuilder">
+      <summary>
+        <para>Provides a means of automatically generating
+      single-table commands used to reconcile changes made to a <see cref="T:System.Data.DataSet" /> with the associated SQL Server CE database. This
+      class cannot be inherited.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeCommandBuilder.#ctor">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeCommandBuilder" /> 
+class.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeCommandBuilder.#ctor(System.Data.SqlServerCe.SqlCeDataAdapter)">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeCommandBuilder" /> class with associated <see cref="T:System.Data.SqlServerCe.SqlCeDataAdapter" /> 
+and <see cref="T:System.Data.SqlServerCe.SqlCeCommand" />objects.</para>
+      </summary>
+      <param name="adapter">The name of the <see cref="T:System.Data.SqlServerCe.SqlCeDataAdapter" />.</param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeCommandBuilder.Dispose">
+      <summary>
+        <para>Releases the resources used by the <see cref="T:System.Data.SqlServerCe.SqlCeCommandBuilder" />.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeCommandBuilder.GetInsertCommand">
+      <summary>
+        <para> Gets the automatically generated <see cref="T:System.Data.SqlServerCe.SqlCeCommand" />
+object required to perform inserts on the database when an application
+calls <see cref="M:System.Data.Common.DbDataAdapter.Update(System.Data.DataSet)" /> on the <see cref="T:System.Data.SqlServerCe.SqlCeDataAdapter" />.</para>
+      </summary>
+      <returns>
+        <para>The automatically generated <see cref="T:System.Data.SqlServerCe.SqlCeCommand" /> object required to perform inserts.</para>
+      </returns>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeCommandBuilder.GetUpdateCommand">
+      <summary>
+        <para> Gets the automatically generated <see cref="T:System.Data.SqlServerCe.SqlCeCommand" />
+object required to perform updates on the database when an application calls
+<see cref="M:System.Data.Common.DbDataAdapter.Update(System.Data.DataSet)" /> on
+the <see cref="T:System.Data.SqlServerCe.SqlCeDataAdapter" />.</para>
+      </summary>
+      <returns>
+        <para>The automatically generated <see cref="T:System.Data.SqlServerCe.SqlCeCommand" /> object required to perform updates.</para>
+      </returns>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeCommandBuilder.GetDeleteCommand">
+      <summary>
+        <para>Gets the automatically generated <see cref="T:System.Data.SqlServerCe.SqlCeCommand" /> object
+   required to perform deletions on the database when an application calls <see cref="M:System.Data.Common.DbDataAdapter.Update(System.Data.DataSet)" /> on the <see cref="T:System.Data.SqlServerCe.SqlCeDataAdapter" />.</para>
+      </summary>
+      <returns>
+        <para>The automatically generated <see cref="T:System.Data.SqlServerCe.SqlCeCommand" /> object required to perform deletions.</para>
+      </returns>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeCommandBuilder.RefreshSchema">
+      <summary>
+        <para>Refreshes the database schema information used to generate INSERT, UPDATE, or DELETE statements.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeCommandBuilder.DataAdapter">
+      <summary>
+        <para> Gets or sets a <see cref="T:System.Data.SqlServerCe.SqlCeDataAdapter" /> object for which SQL statements are
+   automatically generated.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeCommandBuilder.QuotePrefix">
+      <summary>
+        <para>Gets or sets the beginning character or characters to 
+      use when specifying SQL Server database objects (for example, tables or
+      columns) whose names contain characters such as spaces or reserved tokens.</para>
+      </summary>
+      <exception cref="T:System.InvalidOperationException">This property cannot be changed after an INSERT, UPDATE, or DELETE command has been generated.</exception>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeCommandBuilder.QuoteSuffix">
+      <summary>
+        <para>Gets or sets the ending character or characters to use 
+      when specifying SQL Server database objects (for example, tables or columns)
+      whose names contain characters, such as spaces or reserved tokens.</para>
+      </summary>
+      <exception cref="T:System.InvalidOperationException">This property cannot be changed after an INSERT, UPDATE, or DELETE command has been generated.</exception>
+    </member>
+    <member name="T:System.Data.SqlServerCe.SqlCeConnection">
+      <summary>
+        <para>Represents an open connection to a data source.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeConnection.#ctor">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeConnection" />
+class.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeConnection.#ctor(System.String)">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeConnection" />
+class with the specified connection string.</para>
+      </summary>
+      <param name="connectionString">The connection used to open the database.</param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeConnection.Dispose">
+      <summary>
+        <para> Releases all the unmanaged resources used by the <see cref="T:System.Data.SqlServerCe.SqlCeConnection" /> and
+   optionally releases the managed resources.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeConnection.Finalize">
+      <summary>
+        <para>Releases the unmanaged resources used by the <see cref="T:System.Data.SqlServerCe.SqlCeConnection" />. This method cannot be called by client applications.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeConnection.BeginTransaction(System.Data.IsolationLevel)">
+      <summary>
+        <para>Begins a database transaction with the current <see cref="T:System.Data.IsolationLevel" />
+value.</para>
+      </summary>
+      <param name="isolationLevel">The transaction isolation level for this connection.</param>
+      <returns>
+        <para>An object representing the new transaction.</para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">Parallel transactions are not supported.</exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeConnection.BeginTransaction">
+      <summary>
+        <para>Begins a database transaction.</para>
+      </summary>
+      <returns>
+        <para>An object representing the new transaction. </para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">Parallel transactions are not supported.</exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeConnection.ChangeDatabase(System.String)">
+      <summary>
+        <para>Changes the current database for an open <see cref="T:System.Data.SqlServerCe.SqlCeConnection" />.</para>
+      </summary>
+      <param name="value">The database name.</param>
+      <returns>
+        <para>
+          <see langword="true" /> if the database was changed successfully; otherwise,
+<see langword="false" />.</para>
+      </returns>
+      <exception cref="T:System.ArgumentException">The database name is not valid.</exception>
+      <exception cref="T:System.InvalidOperationException">The connection is not open.</exception>
+      <exception cref="T:System.Data.SqlServerCe.SqlCeException">The databases cannot be changed.</exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeConnection.Close">
+      <summary>
+        <para>Closes the connection to the data source. This is the preferred method of closing any open connection.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeConnection.CreateCommand">
+      <summary>
+        <para>Creates and returns a <see cref="T:System.Data.SqlServerCe.SqlCeCommand" /> object associated with
+   the <see cref="T:System.Data.SqlServerCe.SqlCeConnection" />.</para>
+      </summary>
+      <returns>
+        <para>A <see cref="T:System.Data.SqlServerCe.SqlCeCommand" /> object. </para>
+      </returns>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeConnection.Open">
+      <summary>
+        <para>Opens a database connection with the property
+      settings specified by the <see cref="P:System.Data.SqlServerCe.SqlCeConnection.ConnectionString" />.</para>
+      </summary>
+      <exception cref="T:System.InvalidOperationException">
+        <para> The connection is already open.</para>
+      </exception>
+      <exception cref="T:System.Data.SqlServerCe.SqlCeException">A connection-level error occurred while opening the connection.</exception>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeConnection.ConnectionString">
+      <summary>
+        <para>Gets or sets the string used to open a database.</para>
+      </summary>
+      <exception cref="T:System.ArgumentException">An invalid connection string argument has been supplied. </exception>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeConnection.ConnectionTimeout">
+      <summary>
+        <para> Gets the time to wait while trying to establish a connection before
+      terminating the attempt and generating an error.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeConnection.Database">
+      <summary>
+        <para> Gets the name of the current database or the database to be used when a connection is open.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeConnection.DataSource">
+      <summary>
+        <para> Gets the file name of the data source. In SQL Server
+      CE, databases are always stored in separate files. </para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeConnection.State">
+      <summary>
+        <para>Gets the current state of the connection.</para>
+      </summary>
+    </member>
+    <member name="E:System.Data.SqlServerCe.SqlCeConnection.InfoMessage">
+      <summary>
+        <para>Occurs when the .NET Compact Framework data provider for SQL Server sends a warning or an informational message.</para>
+      </summary>
+    </member>
+    <member name="E:System.Data.SqlServerCe.SqlCeConnection.StateChange">
+      <summary>
+        <para>Occurs when the state of the connection changes.</para>
+      </summary>
+    </member>
+    <member name="T:System.Data.SqlServerCe.SqlCeDataReader">
+      <summary>
+        <para> Provides a way of reading
+      a forward-only stream of data rows from a data source. This class cannot be
+      inherited.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.Close">
+      <summary>
+        <para>Closes the <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> object.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetSchemaTable">
+      <summary>
+        <para>Returns a <see cref="T:System.Data.DataTable" /> that describes the column meta data
+   of the <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" />. </para>
+      </summary>
+      <returns>
+        <para>A <see cref="T:System.Data.DataTable" /> that describes the column meta data.</para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.Seek(System.Data.SqlServerCe.DbSeekOptions,System.Object[])">
+      <summary>
+        <para> Places the <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> on the record with indexed values
+   that match the specified parameters.</para>
+      </summary>
+      <param name=" dbSeekOptions">
+      </param>
+      <param name="index">
+      </param>
+      <returns>
+        <para>
+          <see langword="" />
+        </para>
+      </returns>
+      <exception cref="T:System.Data.SqlServerCe.SqlCeException">The value was not found, or other error.</exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.NextResult">
+      <summary>
+        <para> Not supported in the .NET Compact Framework data provider for SQL Server
+      CE.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.Read">
+      <summary>
+        <para> Advances <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" />
+to the next record.</para>
+      </summary>
+      <returns>
+        <para>
+          <see langword="true" /> if there are more rows; otherwise,
+<see langword="false" />.</para>
+      </returns>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetBoolean(System.Int32)">
+      <summary>
+        <para>Gets the value of the specified column as a Boolean.</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <returns>
+        <para>The value of the column.</para>
+      </returns>
+      <exception cref="T:System.InvalidCastException">
+        <para> The specified cast is not valid.</para>
+      </exception>
+      <exception cref="T:System.Data.SqlTypes.SqlNullValueException">
+        <para> The value is null.</para>
+      </exception>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetDecimal(System.Int32)">
+      <summary>
+        <para>Gets the value of the specified column as
+      a <see cref="T:System.Decimal" />
+      object.</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <returns>
+        <para>The value of the specified column.</para>
+      </returns>
+      <exception cref="T:System.InvalidCastException">
+        <para> The specified cast is not valid.</para>
+      </exception>
+      <exception cref="T:System.Data.SqlTypes.SqlNullValueException">
+        <para> The value is null.</para>
+      </exception>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetByte(System.Int32)">
+      <summary>
+        <para>Gets the value of the specified column as a byte.</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <returns>
+        <para>The value of the specified column as a byte.</para>
+      </returns>
+      <exception cref="T:System.InvalidCastException">
+        <para> The specified cast is not valid.</para>
+      </exception>
+      <exception cref="T:System.Data.SqlTypes.SqlNullValueException">
+        <para> The value is null.</para>
+      </exception>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetBytes(System.Int32,System.Int64,System.Byte[],System.Int32,System.Int32)">
+      <summary>
+        <para> Reads a stream of bytes from the specified column offset into
+      the
+      buffer as an array starting at the given buffer offset.</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <param name=" dataIndex">The index within the field from which to begin the read operation. </param>
+      <param name=" buffer">The buffer into which to read the stream of bytes. </param>
+      <param name=" bufferIndex">The index for <paramref name="buffer" /> to begin the read operation. </param>
+      <param name=" length">The maximum length to copy into the buffer. </param>
+      <returns>
+        <para>The actual number of bytes read.</para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetChars(System.Int32,System.Int64,System.Char[],System.Int32,System.Int32)">
+      <summary>
+        <para>Reads a stream of characters from the specified column offset
+      into the buffer as an array starting at the given buffer offset.</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <param name=" dataIndex">The index within the row from which to begin the read operation. </param>
+      <param name=" buffer">The buffer into which to copy data. </param>
+      <param name=" bufferIndex">The index for <paramref name="buffer" /> to begin the read operation. </param>
+      <param name=" length">The number of characters to read. </param>
+      <returns>
+        <para>The actual number of characters read.</para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetChar(System.Int32)">
+      <summary>
+        <para> Not supported in the .NET Compact Framework data provider for SQL Server
+      CE.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetDataTypeName(System.Int32)">
+      <summary>
+        <para>Gets the name of the source data type.</para>
+      </summary>
+      <param name="index">The zero-based column ordinal. </param>
+      <returns>
+        <para>The name of the back-end data type.</para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetDateTime(System.Int32)">
+      <summary>
+        <para>Gets the value of the specified column as
+      a <see cref="T:System.DateTime" />
+      object.</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <returns>
+        <para>The value of the specified column.</para>
+      </returns>
+      <exception cref="T:System.InvalidCastException">
+        <para> The specified cast is not valid.</para>
+      </exception>
+      <exception cref="T:System.Data.SqlTypes.SqlNullValueException">
+        <para> The value is null.</para>
+      </exception>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetDouble(System.Int32)">
+      <summary>
+        <para>Gets the value of the specified column as a double-precision floating point number.</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <returns>
+        <para>The value of the specified column.</para>
+      </returns>
+      <exception cref="T:System.InvalidCastException">
+        <para> The specified cast is not valid.</para>
+      </exception>
+      <exception cref="T:System.Data.SqlTypes.SqlNullValueException">
+        <para> The value is null.</para>
+      </exception>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetFieldType(System.Int32)">
+      <summary>
+        <para>Gets the <see cref="T:System.Type" />
+that is the data type of the object.</para>
+      </summary>
+      <param name="index">The zero-based column ordinal. </param>
+      <returns>
+        <para>The <see cref="T:System.Type" />
+that is the data type of the object.</para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetFloat(System.Int32)">
+      <summary>
+        <para>Gets the value of the specified column as a single-precision floating point number.</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <returns>
+        <para>The value of the specified column.</para>
+      </returns>
+      <exception cref="T:System.InvalidCastException">
+        <para> The specified cast is not valid.</para>
+      </exception>
+      <exception cref="T:System.Data.SqlTypes.SqlNullValueException">
+        <para> The value is null.</para>
+      </exception>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetGuid(System.Int32)">
+      <summary>
+        <para>Gets the value of the specified column as a globally unique identifier (GUID).</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <returns>
+        <para>The value of the specified column.</para>
+      </returns>
+      <exception cref="T:System.InvalidCastException">
+        <para> The specified cast is not valid.</para>
+      </exception>
+      <exception cref="T:System.Data.SqlTypes.SqlNullValueException">
+        <para> The value is null.</para>
+      </exception>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetInt16(System.Int32)">
+      <summary>
+        <para>Gets the
+      value of the specified column as a 16-bit signed integer.</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <returns>
+        <para>The value of the specified column.</para>
+      </returns>
+      <exception cref="T:System.InvalidCastException">
+        <para> The specified cast is not valid.</para>
+      </exception>
+      <exception cref="T:System.Data.SqlTypes.SqlNullValueException">
+        <para> The value is null.</para>
+      </exception>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetInt32(System.Int32)">
+      <summary>
+        <para>Gets the
+      value of the specified column as a 32-bit signed integer.</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <returns>
+        <para>The value of the specified column.</para>
+      </returns>
+      <exception cref="T:System.InvalidCastException">
+        <para> The specified cast is not valid.</para>
+      </exception>
+      <exception cref="T:System.Data.SqlTypes.SqlNullValueException">
+        <para> The value is null.</para>
+      </exception>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetInt64(System.Int32)">
+      <summary>
+        <para>Gets the
+      value of the specified column as a 64-bit signed integer.</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <returns>
+        <para>The value of the specified column.</para>
+      </returns>
+      <exception cref="T:System.InvalidCastException">
+        <para> The specified cast is not valid.</para>
+      </exception>
+      <exception cref="T:System.Data.SqlTypes.SqlNullValueException">
+        <para> The value is null.</para>
+      </exception>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetName(System.Int32)">
+      <summary>
+        <para>Gets the name of the specified column.</para>
+      </summary>
+      <param name="index">The zero-based column ordinal. </param>
+      <returns>
+        <para>The name of the specified column.</para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetOrdinal(System.String)">
+      <summary>
+        <para>Gets the column ordinal, given the name of the column.</para>
+      </summary>
+      <param name="name">The name of the column.</param>
+      <returns>
+        <para>The zero-based column ordinal.</para>
+      </returns>
+      <exception cref="T:System.IndexOutOfRangeException">The name specified is not a valid column name.</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetString(System.Int32)">
+      <summary>
+        <para>Gets the value of the specified column as a string.</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <returns>
+        <para>The value of the specified column.</para>
+      </returns>
+      <exception cref="T:System.InvalidCastException">
+        <para> The specified cast is not valid.</para>
+      </exception>
+      <exception cref="T:System.Data.SqlTypes.SqlNullValueException">
+        <para> The value is null.</para>
+      </exception>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetValue(System.Int32)">
+      <summary>
+        <para> Gets the
+      value of the column at the specified ordinal in its native format.</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <returns>
+        <para>The value to return.</para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetValues(System.Object[])">
+      <summary>
+        <para> Gets all the attribute columns in the current
+      row.</para>
+      </summary>
+      <param name="values">An array of <see cref="T:System.Object" /> into which to copy the attribute columns.</param>
+      <returns>
+        <para>The number of instances of <see cref="T:System.Object" /> in the array.</para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetSqlBoolean(System.Int32)">
+      <summary>
+        <para>Gets the value of the specified column as a <see cref="T:System.Data.SqlTypes.SqlBoolean" />.</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal.</param>
+      <returns>
+        <para>The value of the column.</para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetSqlMoney(System.Int32)">
+      <summary>
+        <para>Gets the value of the specified column as a <see cref="T:System.Data.SqlTypes.SqlMoney" />.</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <returns>
+        <para>A <see cref="T:System.Data.SqlTypes.SqlMoney" />.</para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetSqlDecimal(System.Int32)">
+      <summary>
+        <para>Gets the value of the specified column as a <see cref="T:System.Data.SqlTypes.SqlDecimal" />.</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <returns>
+        <para>A <see cref="T:System.Data.SqlTypes.SqlDecimal" />.</para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetSqlByte(System.Int32)">
+      <summary>
+        <para>Gets the value of the specified column as a <see cref="T:System.Data.SqlTypes.SqlByte" />.</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <returns>
+        <para>A <see cref="T:System.Data.SqlTypes.SqlByte" />.</para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetSqlBinary(System.Int32)">
+      <summary>
+        <para>Gets the value of the specified column as a <see cref="T:System.Data.SqlTypes.SqlBinary" />.</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <returns>
+        <para>A <see cref="T:System.Data.SqlTypes.SqlBinary" />.</para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetSqlDateTime(System.Int32)">
+      <summary>
+        <para>Gets the value of the specified column as a <see cref="T:System.Data.SqlTypes.SqlDateTime" />.</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <returns>
+        <para>A <see cref="T:System.Data.SqlTypes.SqlDateTime" />.</para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetSqlDouble(System.Int32)">
+      <summary>
+        <para>Gets the value of the specified column as a <see cref="T:System.Data.SqlTypes.SqlDouble" />.</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <returns>
+        <para>A <see cref="T:System.Data.SqlTypes.SqlDouble" />.</para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetSqlSingle(System.Int32)">
+      <summary>
+        <para>Gets the value of the specified column as a <see cref="T:System.Data.SqlTypes.SqlSingle" />.</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <returns>
+        <para>A <see cref="T:System.Data.SqlTypes.SqlSingle" />.</para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetSqlGuid(System.Int32)">
+      <summary>
+        <para>Gets the value of the specified column as a <see cref="T:System.Data.SqlTypes.SqlGuid" />.</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <returns>
+        <para>A <see cref="T:System.Data.SqlTypes.SqlGuid" />.</para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetSqlInt16(System.Int32)">
+      <summary>
+        <para>Gets the value of the specified column as a <see cref="T:System.Data.SqlTypes.SqlInt16" />.</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <returns>
+        <para>A <see cref="T:System.Data.SqlTypes.SqlInt16" />.</para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetSqlInt32(System.Int32)">
+      <summary>
+        <para>Gets the value of the specified column as a <see cref="T:System.Data.SqlTypes.SqlInt32" />.</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <returns>
+        <para>A <see cref="T:System.Data.SqlTypes.SqlInt32" />.</para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetSqlInt64(System.Int32)">
+      <summary>
+        <para>Gets the value of the specified column as a <see cref="T:System.Data.SqlTypes.SqlInt64" />.</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <returns>
+        <para>A <see cref="T:System.Data.SqlTypes.SqlInt64" />.</para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.GetSqlString(System.Int32)">
+      <summary>
+        <para>Gets the value of the specified column as a <see cref="T:System.Data.SqlTypes.SqlString" />.</para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <returns>
+        <para>A <see cref="T:System.Data.SqlTypes.SqlString" />.</para>
+      </returns>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The operation is not valid. The <see cref="T:System.Data.SqlServerCe.SqlCeDataReader" /> may be positioned after the last row in the result set.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeDataReader.IsDBNull(System.Int32)">
+      <summary>
+        <para> Gets a value indicating whether the column contains nonexistent or missing values.
+      </para>
+      </summary>
+      <param name="ordinal">The zero-based column ordinal. </param>
+      <returns>
+        <para>
+          <see langword="true" /> if the specified
+   column value is equivalent to <see cref="T:System.DBNull" />;
+   otherwise, <see langword="false" />.
+   </para>
+      </returns>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeDataReader.Depth">
+      <summary>
+        <para> Gets a value indicating the depth of nesting for the current row.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeDataReader.FieldCount">
+      <summary>
+        <para> Gets the number of columns in the current row.
+      </para>
+      </summary>
+      <exception cref="T:System.InvalidOperationException">There is no current connection to a data source. </exception>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeDataReader.IsClosed">
+      <summary>
+        <para> Indicates whether the data reader
+      is closed.
+      </para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeDataReader.RecordsAffected">
+      <summary>
+        <para> Gets the number of rows changed, inserted, or deleted by execution of the SQL statement.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeDataReader.Item(System.Int32)">
+      <summary>
+        <para> 
+      Gets the value of the specified column in its native format given
+      the column ordinal.
+      </para>
+      </summary>
+      <param name="index">The column ordinal. </param>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeDataReader.Item(System.String)">
+      <summary>
+        <para> Gets the value of the specified column in its native format given
+      the column name.
+      </para>
+      </summary>
+      <param name="name">The column name. </param>
+    </member>
+    <member name="T:System.Data.SqlServerCe.SqlCeParameter">
+      <summary>
+        <para>Represents a parameter to a <see cref="T:System.Data.SqlServerCe.SqlCeCommand" /> and optionally, its mapping to
+   a <see cref="T:System.Data.DataSet" /> column. This class
+   cannot be inherited.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeParameter.#ctor">
+      <summary>
+        <para> Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeParameter" />
+class.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeParameter.#ctor(System.String,System.Object)">
+      <summary>
+        <para> Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> class with the parameter name and the value of the
+   new <see cref="T:System.Data.SqlServerCe.SqlCeParameter" />.
+   </para>
+      </summary>
+      <param name="name">The name of the parameter to map. </param>
+      <param name="value">The value of the new <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> object. </param>
+      <exception cref="T:System.InvalidCastException">The object supplied as the <paramref name="value" /> parameter cannot be converted to a string. This can happen if the object is not a primative type, SqlDbType or byte array. </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeParameter.#ctor(System.String,System.Data.SqlDbType)">
+      <summary>
+        <para> Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> class with the parameter name and data
+   type.
+   </para>
+      </summary>
+      <param name="name">The name of the parameter to map. </param>
+      <param name="dataType">One of the <see cref="T:System.Data.SqlDbType" /> values. </param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeParameter.#ctor(System.String,System.Data.SqlDbType,System.Int32)">
+      <summary>
+        <para> Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> class with the parameter name, data
+   type, and
+   length.
+   </para>
+      </summary>
+      <param name="name">The name of the parameter to map. </param>
+      <param name="dataType">One of the <see cref="T:System.Data.SqlDbType" /> values. </param>
+      <param name="size">The length of the parameter. </param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeParameter.#ctor(System.String,System.Data.SqlDbType,System.Int32,System.String)">
+      <summary>
+        <para> Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> class with the parameter name, data
+   type,
+   length, and source column
+   name.
+   </para>
+      </summary>
+      <param name="name">The name of the parameter to map. </param>
+      <param name="dataType">One of the <see cref="T:System.Data.SqlDbType" /> values. </param>
+      <param name="size">The length of the parameter. </param>
+      <param name="srcColumn">The name of the source column. </param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeParameter.#ctor(System.String,System.Data.SqlDbType,System.Int32,System.Boolean,System.Byte,System.Byte,System.String,System.Data.DataRowVersion,System.Object)">
+      <summary>
+        <para> Initializes a new instance of the <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> class with the parameter name, data
+   type, length,
+   source column name, parameter direction, numeric precision, and other properties. SQL Server CE only
+   supports input
+   parameters.
+   </para>
+      </summary>
+      <param name="parameterName">The name of the parameter. </param>
+      <param name="dbType">One of the <see cref="T:System.Data.SqlDbType" /> values. </param>
+      <param name="size">The length of the parameter. </param>
+      <param name="isNullable">
+        <see langword="true" /> if the value of the field can be null; otherwise, <see langword="false" />. </param>
+      <param name="precision">The total number of digits to the left and right of the decimal point to which <see cref="P:System.Data.SqlServerCe.SqlCeParameter.Value" /> is resolved. </param>
+      <param name="scale">The total number of decimal places to which <see cref="P:System.Data.SqlServerCe.SqlCeParameter.Value" /> is resolved. </param>
+      <param name="srcColumn">The name of the source column. </param>
+      <param name="srcVersion">One of the <see cref="T:System.Data.DataRowVersion" /> values. </param>
+      <param name="value">An <see cref="T:System.Object" /> that is the value of the <see cref="T:System.Data.SqlServerCe.SqlCeParameter" />. </param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeParameter.ToString">
+      <summary>
+        <para>Gets a string containing the <see cref="P:System.Data.SqlServerCe.SqlCeParameter.ParameterName" />.</para>
+      </summary>
+      <returns>
+        <para>A string containing the <see cref="P:System.Data.SqlServerCe.SqlCeParameter.ParameterName" />.</para>
+      </returns>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeParameter.DbType">
+      <summary>
+        <para> Gets or sets the <see cref="T:System.Data.DbType" /> of the
+   parameter.</para>
+      </summary>
+      <exception cref="T:System.ArgumentOutOfRangeException">The property was not set to a valid <see cref="T:System.Data.DbType" />.</exception>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeParameter.Direction">
+      <summary>
+        <para>This property always
+      returns <see langword="ParameterDirection.Input" /> for SQL Server CE Data
+      Provider. Setting this property to a different value causes an <see cref="T:System.InvalidOperationException" />
+      to be thrown.</para>
+      </summary>
+      <exception cref="T:System.InvalidOperationException">The user attempted to set this property.</exception>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeParameter.IsNullable">
+      <summary>
+        <para>Gets or
+      sets a value indicating whether or not the parameter accepts null values.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeParameter.SqlDbType">
+      <summary>
+        <para> Gets or sets
+      the <see cref="T:System.Data.SqlDbType" /> of the parameter.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeParameter.ParameterName">
+      <summary>
+        <para>Gets or sets the name of the <see cref="T:System.Data.SqlServerCe.SqlCeParameter" />.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeParameter.Precision">
+      <summary>
+        <para>Gets or sets the maximum number of digits used to
+      represent the <see cref="P:System.Data.SqlServerCe.SqlCeParameter.Value" />
+      property.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeParameter.Scale">
+      <summary>
+        <para>Gets or sets the number of decimal places to
+      which <see cref="P:System.Data.SqlServerCe.SqlCeParameter.Value" />
+      is resolved.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeParameter.Size">
+      <summary>
+        <para> Gets or sets
+      the maximum length of the data within the column.</para>
+      </summary>
+      <summary>
+        <para> Gets or sets
+      the maximum length of the data within the column.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeParameter.SourceColumn">
+      <summary>
+        <para>Gets or sets the name of the source column mapped to
+      the <see cref="T:System.Data.DataSet" /> and used for loading or returning the <see cref="P:System.Data.SqlServerCe.SqlCeParameter.Value" />.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeParameter.SourceVersion">
+      <summary>
+        <para>Gets or sets the <see cref="T:System.Data.DataRowVersion" /> to use when loading <see cref="P:System.Data.SqlServerCe.SqlCeParameter.Value" />.</para>
+      </summary>
+      <exception cref="T:System.ArgumentException">The property was not set to one of the <see cref="T:System.Data.DataRowVersion" /> values.</exception>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeParameter.Value">
+      <summary>
+        <para>Gets or sets the value of the parameter.</para>
+      </summary>
+    </member>
+    <member name="T:System.Data.SqlServerCe.SqlCeParameterCollection">
+      <summary>
+        <para>Collects all parameters relevant to a <see cref="T:System.Data.SqlServerCe.SqlCeCommand" /> as well as their
+   respective mappings to <see cref="T:System.Data.DataSet" />
+   columns.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeParameterCollection.Add(System.Object)">
+      <summary>
+        <para> Adds a <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> object to the <see cref="T:System.Data.SqlServerCe.SqlCeCommand" />.
+   </para>
+      </summary>
+      <param name="value">The <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> object to add to the collection. </param>
+      <returns>
+        <para>The index of the new <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> object in the collection.</para>
+      </returns>
+      <exception cref="T:System.InvalidCastException">The parameter passed was not a <see cref="T:System.Data.SqlServerCe.SqlCeParameter" />. </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeParameterCollection.Add(System.Data.SqlServerCe.SqlCeParameter)">
+      <summary>
+        <para> Adds the specified <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> to the <see cref="T:System.Data.SqlServerCe.SqlCeParameterCollection" />.
+   </para>
+      </summary>
+      <param name="value">The <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> to add to the collection. </param>
+      <returns>
+        <para>A reference to the new <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> object.</para>
+      </returns>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeParameterCollection.Add(System.String,System.Object)">
+      <summary>
+        <para>Adds a <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> to the <see cref="T:System.Data.SqlServerCe.SqlCeParameterCollection" /> given the parameter name and value.</para>
+      </summary>
+      <param name="parameterName">The name of the parameter. </param>
+      <param name="value">The <see cref="T:System.Object" /> value of the <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> to add to the collection. </param>
+      <returns>
+        <para>A reference to the new <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> object.</para>
+      </returns>
+      <exception cref="T:System.InvalidCastException">The object supplied as the <paramref name="value" /> parameter cannot be converted to a string. This can happen if the object is not a primative type, SqlDbType or byte array. </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeParameterCollection.Add(System.String,System.Data.SqlDbType)">
+      <summary>
+        <para> Adds a <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> to the <see cref="T:System.Data.SqlServerCe.SqlCeParameterCollection" /> given the parameter name and data
+   type.
+   </para>
+      </summary>
+      <param name="parameterName">The name of the parameter. </param>
+      <param name="type">One of the <see langword="SqlDbType" /> values. </param>
+      <returns>
+        <para> A reference to the new <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> object.
+   </para>
+      </returns>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeParameterCollection.Add(System.String,System.Data.SqlDbType,System.Int32)">
+      <summary>
+        <para> Adds a <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> to the <see cref="T:System.Data.SqlServerCe.SqlCeParameterCollection" /> given the the parameter name, data type, and column width.
+   </para>
+      </summary>
+      <param name="parameterName">The name of the parameter. </param>
+      <param name="type">One of the <see langword="SqlDbType" /> values. </param>
+      <param name="size">The width of the column. </param>
+      <returns>
+        <para> A reference to the new <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> object.
+   </para>
+      </returns>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeParameterCollection.Add(System.String,System.Data.SqlDbType,System.Int32,System.String)">
+      <summary>
+        <para> Adds a <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> to the <see cref="T:System.Data.SqlServerCe.SqlCeCommand" /> given the parameter
+   name, data type, column width, and source column name.
+   </para>
+      </summary>
+      <param name="parameterName">The name of the parameter. </param>
+      <param name="type">One of the <see langword="SqlDbType" /> values. </param>
+      <param name="size">The width of the column. </param>
+      <param name="sourceColumn">The name of the source column. </param>
+      <returns>
+        <para> A reference to the new <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> object.
+   </para>
+      </returns>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeParameterCollection.Contains(System.String)">
+      <summary>
+        <para>Gets a value indicating whether a <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> with the specified parameter name exists in the collection.</para>
+      </summary>
+      <param name="value">The name of the parameter.</param>
+      <returns>
+        <para>
+          <see langword="true" /> if the collection contains the parameter; otherwise,
+<see langword="false" />.</para>
+      </returns>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeParameterCollection.Contains(System.Object)">
+      <summary>
+        <para>Gets a value indicating whether or not a <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> object
+   exists in the collection.</para>
+      </summary>
+      <param name="value">The value of the <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> object to find.</param>
+      <returns>
+        <para>
+          <see langword="true" /> if the
+   collection contains the <see cref="T:System.Data.SqlServerCe.SqlCeParameter" />; otherwise,
+<see langword="false" />.</para>
+      </returns>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeParameterCollection.Clear">
+      <summary>
+        <para> Removes all items from the collection.
+      </para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeParameterCollection.CopyTo(System.Array,System.Int32)">
+      <summary>
+        <para> Copies <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> objects from the
+<see cref="T:System.Data.SqlServerCe.SqlCeParameterCollection" /> to the specified array. </para>
+      </summary>
+      <param name="array">The <see cref="T:System.Array" /> into which to copy the <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> objects. </param>
+      <param name="index">The starting index of the array. </param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeParameterCollection.IndexOf(System.String)">
+      <summary>
+        <para>Gets the location of the <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> in the collection with the specified parameter name.</para>
+      </summary>
+      <param name="parameterName">The name of the parameter to find.</param>
+      <returns>
+        <para>The location of the <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> in the collection.</para>
+      </returns>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeParameterCollection.IndexOf(System.Object)">
+      <summary>
+        <para>Gets the location of the <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> object
+   in the collection.</para>
+      </summary>
+      <param name="value">The <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> object to locate. </param>
+      <returns>
+        <para>The zero-based location of the <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> in the collection.</para>
+      </returns>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeParameterCollection.Insert(System.Int32,System.Object)">
+      <summary>
+        <para>Inserts a <see cref="T:System.Data.SqlServerCe.SqlCeParameter" />
+in the collection at the specified index.</para>
+      </summary>
+      <param name="index">The zero-based index where the parameter is to be inserted within the collection.</param>
+      <param name="value">The <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> to add to the collection. </param>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeParameterCollection.RemoveAt(System.Int32)">
+      <summary>
+        <para> Removes the <see cref="T:System.Data.SqlServerCe.SqlCeParameter" />
+at
+the specified index from the collection.</para>
+      </summary>
+      <param name="index">The zero-based index of the parameter to remove. </param>
+      <exception cref="T:System.IndexOutOfRangeException">The specified index does not exist. </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeParameterCollection.RemoveAt(System.String)">
+      <summary>
+        <para> Removes the <see cref="T:System.Data.SqlServerCe.SqlCeParameter" />
+with
+the specified name from the collection.</para>
+      </summary>
+      <param name="parameterName">The name of the parameter to remove. </param>
+      <exception cref="T:System.ArgumentException">
+        <para>A parameter with the specified name does not exist in the collection.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeParameterCollection.Remove(System.Object)">
+      <summary>
+        <para>Removes the specified <see cref="T:System.Data.SqlServerCe.SqlCeParameter" />
+from the collection.</para>
+      </summary>
+      <param name="value">The <see cref="T:System.Data.SqlServerCe.SqlCeParameter" /> object to remove from the collection. </param>
+      <exception cref="T:System.SystemException">The parameter does not exist.</exception>
+      <exception cref="T:System.InvalidCastException">The parameter is not a <see cref="T:System.Data.SqlServerCe.SqlCeParameter" />.</exception>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeParameterCollection.Count">
+      <summary>
+        <para>Gets the number of <see cref="T:System.Data.SqlServerCe.SqlCeParameter" />
+objects in the collection.</para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeParameterCollection.Item(System.Int32)">
+      <summary>
+        <para>Gets or
+      sets the <see cref="T:System.Data.SqlServerCe.SqlCeParameter" />
+      at the specified index.</para>
+      </summary>
+      <param name="index">The zero-based index of the parameter to retrieve.</param>
+      <exception cref="T:System.IndexOutOfRangeException">The index specified does not exist.</exception>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeParameterCollection.Item(System.String)">
+      <summary>
+        <para>Gets or
+      sets the <see cref="T:System.Data.SqlServerCe.SqlCeParameter" />
+      with the specified name.</para>
+      </summary>
+      <param name="parameterName">The name of the parameter to retrieve.</param>
+      <exception cref="T:System.IndexOutOfRangeException">The name specified does not exist.</exception>
+    </member>
+    <member name="T:System.Data.SqlServerCe.SqlCeTransaction">
+      <summary>
+        <para> Represents an SQL transaction to be made at a data source. This class cannot be inherited.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeTransaction.Dispose">
+      <summary>
+        <para>Releases all <see cref="T:System.Data.SqlServerCe.SqlCeConnection" /> objects associated with the transaction.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeTransaction.Finalize">
+      <summary>
+        <para>Frees resources before the <see cref="T:System.Data.SqlServerCe.SqlCeTransaction" /> is reclaimed by the Garbage Collector.</para>
+      </summary>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeTransaction.Commit">
+      <summary>
+        <para> Commits the database transaction.
+      </para>
+      </summary>
+      <exception cref="T:System.Exception">An error occured while trying to commit the transaction. </exception>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The transaction has already been committed or rolled back.</para>
+        <para>-or-</para>
+        <para>The connection is broken.</para>
+      </exception>
+    </member>
+    <member name="M:System.Data.SqlServerCe.SqlCeTransaction.Rollback">
+      <summary>
+        <para> Rolls back a transaction from a pending state.
+      </para>
+      </summary>
+      <exception cref="T:System.Exception">An error occured while trying to commit the transaction. </exception>
+      <exception cref="T:System.InvalidOperationException">
+        <para>The transaction has already been committed or rolled back.</para>
+        <para>-or-</para>
+        <para>The connection is broken.</para>
+      </exception>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeTransaction.Connection">
+      <summary>
+        <para>Gets the <see cref="T:System.Data.SqlServerCe.SqlCeConnection" /> object associated with the transaction, or
+<see langword="null" /> if the transaction is no longer valid. </para>
+      </summary>
+    </member>
+    <member name="P:System.Data.SqlServerCe.SqlCeTransaction.IsolationLevel">
+      <summary>
+        <para>Specifies the <see cref="T:System.Data.IsolationLevel" />
+for this transaction.</para>
+      </summary>
+    </member>
+  </members>
+</doc>

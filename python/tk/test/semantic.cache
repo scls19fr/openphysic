@@ -1,0 +1,15 @@
+;; Object test/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "test/"
+  :tables (list 
+   (semanticdb-table "main.py"
+    :major-mode 'python-mode
+    :tags '(("Tkinter" include nil nil [1 22]) ("App" type (:members (("__init__" function (:arguments (("self" variable nil (reparse-symbol function_parameters) [52 56]) ("master" variable nil (reparse-symbol function_parameters) [58 64]))) (reparse-symbol indented_block_body) [39 466]) ("job" function (:arguments (("self" variable nil (reparse-symbol function_parameters) [478 482]))) (reparse-symbol indented_block_body) [470 525])) :type "class") nil [24 525]) ("if" code nil nil [525 623]))
+    :file "main.py"
+    :pointmax 623
+    )
+   )
+  :file "semantic.cache"
+  :semantic-tag-version "2.0beta3"
+  :semanticdb-version "2.0beta3"
+  )

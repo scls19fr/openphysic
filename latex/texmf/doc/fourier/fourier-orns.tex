@@ -1,0 +1,63 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{array}
+\usepackage{fourier-orns}
+\usepackage[frenchb,english]{babel}
+\setlength{\leftmargini}{1em}
+\newcommand{\fourier}{Fourier-GUT\kern-0.15em\textit{enberg}}
+\title{\floweroneleft{}\,The \emph{fourier-orns} package\,\floweroneright}
+\author{Michel Bovani\\\texttt{michel.bovani@wanadoo.fr}}
+%%\renewcommand{\FrenchLabelItem}{\textbullet}
+\renewcommand\arraystretch{1.5}
+\renewcommand{\labelitemi}{\starredbullet}
+\begin{document}
+\maketitle
+
+\fourier{} provides several logos and ornaments: they are now usable by those who do not want to use
+the \fourier{} font system. In this case, just call the \textit{fourier-orns} package (\verb=\usepackage{fourier-orns}=).
+Remember that:
+\begin{itemize} 
+\item You have to install \fourier{} anyway.
+\item If you call \textit{fourier}, you should \emph{not} call \textit{fourier-orns}, because \textit{fourier} will do it anyway.
+All the commands described here may be used with \textit{fourier}.
+\end{itemize}
+Here are the provided symbols:
+
+\begin{itemize}
+\item A variant of the euro symbol: \verb=\eurologo= \eurologo, \textbf{\eurologo}. 
+
+Please note that the \verb=\textit= command will not change the slant of this symbol, 
+but \verb=\textsl{\eurologo}= \textsl{\eurologo} will do it.
+
+\item A ``starred'' bullet \verb=\starredbullet=: used as the item mark in this document.
+\item Decos and logos typesetted in \verb=\LARGE= size: 
+
+
+\begin{tabular}{l>{\centering\LARGE}p{2cm}l>{\centering\LARGE}p{2cm}}
+\verb=\noway= &\noway&\verb=\danger=& \danger\tabularnewline
+\verb=\textxswup=&\textxswup&\verb=\textxswdown= &\textxswdown\tabularnewline
+ \verb=\decoone= &\decoone& \verb=\decotwo= &\decotwo\tabularnewline
+ \verb=\decothreeleft= &\decothreeleft& \verb=\decothreeright=& \decothreeright\tabularnewline
+ \verb=\decofourleft= &\decofourleft&\verb=\decofourright= &\decofourright\tabularnewline
+ \verb=\floweroneleft= &\floweroneleft&\verb=\floweroneright= &\floweroneright\tabularnewline
+ \verb=\lefthand= &\lefthand&\verb=\righthand=& \righthand\tabularnewline
+\verb=\decosix= &\decosix&\verb=\bomb=&\bomb
+ \end{tabular}
+\item Smileys typesetted in \verb=\LARGE= size:
+
+\begin{tabular}{l>{\centering\LARGE}p{2cm}l>{\centering\LARGE}p{2cm}}
+ \verb=\grimace=& \grimace&\verb=\textthing= \textthing
+ \end{tabular}
+\item Leaves typesetted in \verb=\LARGE= size: 
+
+\begin{tabular}{l>{\centering\LARGE}p{2cm}l>{\centering\LARGE}p{2cm}}
+\verb=\leafleft= &\leafleft&\verb=\leafright=&\leafright\tabularnewline
+ \verb=\leafNE= &\leafNE& \verb=\aldine=&\aldine\tabularnewline
+ \verb=\aldineleft= &\aldineleft&\verb=\aldineright=& \aldineright\tabularnewline
+  \verb=\aldinesmall=& \aldinesmall&&
+  \end{tabular}
+\end{itemize}
+
+
+
+\end{document}

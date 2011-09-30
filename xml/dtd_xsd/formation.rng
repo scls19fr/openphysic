@@ -1,0 +1,34 @@
+<!--
+		RelaxNG pour fichier formations.xml
+-->
+
+<element name="formation" xmlns="http://relaxng.org/ns/structure/1.0">
+	<oneOrMore>
+		<element name="session">
+			<attribute name="nom">
+				<text/>
+			</attribute>
+			<element name="apprenants">
+				<oneOrMore>
+					<element name="apprenant">
+						<attribute name="identifiant">
+							<text/>
+						</attribute>
+						<attribute name="password">
+							<text/>
+						</attribute>
+						<element name="nom">
+							<text/>
+						</element>
+						<element name="prenom">
+							<text/>
+						</element>
+						<element name="groupes">
+							<text/>
+						</element>
+					</element>
+				</oneOrMore>					
+			</element>
+		</element>
+	</oneOrMore>
+</element>

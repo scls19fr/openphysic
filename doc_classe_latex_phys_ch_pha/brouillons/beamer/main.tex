@@ -1,0 +1,120 @@
+\documentclass{beamer}
+%\documentclass[h, xcolor=pst, dvips]{beamer} % presentation normale avec du PSTricks (dvi->ps->pdf)
+%\documentclass[trans, xcolor=pst, dvips]{beamer} % transparents (1 page par frame)
+
+%\documentclass[class=article,a4paper]{beamer}
+%\documentclass[10pt, green, handout]{beamer}
+%\documentclass[ slidestop, xcolor=pst, dvips]{beamer} % slidestop doit être remplacé par h
+
+%\usepackage{beamerthemesplit}
+
+
+%\colorlet{structure}{green!50!black}
+
+\mode<article> % pour la version 'article'
+{
+  \usepackage{fullpage}
+  \usepackage{hyperref}
+}
+
+
+\mode<presentation> % pour la version 'presentation'
+{
+  %\setbeamertemplate{background canvas}[vertical shading][bottom=red!10,top=blue!10]
+  % définir un fond personnalisé pour Beamer (fichier.pdf)
+  % \setbeamertemplate{background}{\includegraphics[width=15cm]{fichier}} 
+  \usetheme{Warsaw} % Warsaw Frankfurt
+  %\usefonttheme[onlysmall]{structurebold}
+  %\usecolortheme{rose} % seahorse rose
+}
+
+% handout
+% handout + notes
+
+
+%\setbeamercolor{math text}{fg=green!50!black}
+%\setbeamercolor{normal text in math text}{parent=math text}
+
+% \mode<handout> % pour la version 'handout'
+% {
+%   \usepackage{pgfpages}
+%   \pgfpagelayout{resize}[a4paper,border shrink=5mm,landscape]
+%   %\pgfpagelayout{2 on 1}[a4paper,border shrink=5mm]
+% }
+
+
+%\mode<handout>{\setbeamercolor{background canvas}{bg=black!5}}
+
+\usepackage[frenchb]{babel}     % specification francaise
+\usepackage[latin1]{inputenc}   % entree clavier latin1
+%\usepackage[T1]{fontenc}        % sortie
+
+
+
+\makeatother
+
+
+\renewcommand{\emph}[1]{\textcolor{red}{\underline{\textit{\textcolor{black}{#1}}}}}
+
+
+
+\title{La lumière}
+\author{S. \textsc{CELLES}}
+
+\institute{Lycée Raoul Dautry - LIMOGES (87)}
+
+\date{Année 2005 - 2006}
+%\date{\today}
+%\subject{...}
+
+\begin{document}
+
+
+\frame{
+  % \maketitle
+  \titlepage
+}
+
+
+\frame
+{
+    \tableofcontents
+}
+
+
+%\insertsectionhead
+%\insertsubsectionhead
+
+
+\section*{Introduction : Qu'est-ce que la lumière ?}
+
+
+\frame{
+  \frametitle{\insertsectionhead}
+  \pause
+  \onslide<2->Il existe \textbf{deux modèles} pour décrire la lumière.
+
+  \onslide<3->\begin{block}{Modèle ondulatoire}
+  \onslide<5->\hspace{0.5cm}La lumière est assimilée à une onde électromagnétique.
+  \end{block}
+
+  \onslide<4->\begin{block}{Modèle corpusculaire}
+  \onslide<6->\hspace{0.5cm}La lumière est assimilée à des grains d'énergie qui se propagent.
+  \end{block}
+}
+
+\frame{
+  \section{yyy}
+
+  \subsection{Test}
+
+  xxx
+
+
+
+  fdgdgd
+}
+
+
+
+\end{document}

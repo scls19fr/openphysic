@@ -1,0 +1,35 @@
+<Project name="PlaySound" description="" newfilesearch="None" enableviewstate="True" version="1.1" projecttype="C#" xmlns:convtool="urn:convtool">
+  <Contents>
+    <File name="..\..\Common\dxmut.cs" buildaction="Compile" subtype="Code" />
+    <File name="..\..\Common\dxmutdata.cs" buildaction="Compile" subtype="Code" />
+    <File name="..\..\Common\dxmutenum.cs" buildaction="Compile" subtype="Code" />
+    <File name="..\..\Common\dxmutexception.cs" buildaction="Compile" subtype="Code" />
+    <File name="..\..\Common\dxmutgui.cs" buildaction="Compile" subtype="Code" />
+    <File name="..\..\Common\dxmutmesh.cs" buildaction="Compile" subtype="Code" />
+    <File name="..\..\Common\dxmutmisc.cs" buildaction="Compile" subtype="Code" />
+    <File name="..\..\Common\dxmutSettingsDlg.cs" buildaction="Compile" subtype="Code" />
+    <File name="..\..\Common\AssemblyInfo.cs" buildaction="Compile" subtype="Code" />
+    <File name=".\main.cs" buildaction="Compile" subtype="Code" />
+    <File name="..\..\Common\directx.ico" buildaction="EmbedAsResource" subtype="Code" />
+    <File name=".\main.resources" buildaction="EmbedAsResource" subtype="Code" />
+  </Contents>
+  <DeploymentInformation target="" script="" strategy="File" />
+  <Configurations active="Debug">
+    <Configuration runwithwarnings="False" name="Debug">
+      <CodeGeneration runtime="MsNet" compiler="Csc" warninglevel="4" includedebuginformation="True" optimize="False" unsafecodeallowed="True" generateoverflowchecks="False" mainclass="" target="WinExe" definesymbols="DEBUG;TRACE" generatexmldocumentation="False" win32Icon="" />
+      <Execution commandlineparameters="" consolepause="True" />
+      <Output directory=".\bin\Debug\" assembly="PlaySound" />
+    </Configuration>
+    <Configuration runwithwarnings="False" name="Release">
+      <CodeGeneration runtime="MsNet" compiler="Csc" warninglevel="4" includedebuginformation="False" optimize="True" unsafecodeallowed="True" generateoverflowchecks="False" mainclass="" target="WinExe" definesymbols="TRACE" generatexmldocumentation="False" win32Icon="" />
+      <Execution commandlineparameters="" consolepause="True" />
+      <Output directory=".\bin\Release\" assembly="PlaySound" />
+    </Configuration>
+  </Configurations>
+  <References>
+    <Reference type="Gac" refto="Microsoft.DirectX, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference type="Gac" refto="Microsoft.DirectX.DirectSound, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference type="Gac" refto="Microsoft.DirectX.Direct3D, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference type="Gac" refto="Microsoft.DirectX.Direct3DX, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+  </References>
+</Project>

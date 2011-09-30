@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<navigation>
+	<menu titre="menu1">
+		<sous-menu titre="sous menu 1">
+			<lien url="http://www.google.fr">Google</lien>
+			<lien url="http://www.yahoo.fr">Yahoo</lien>
+		</sous-menu>
+		<sous-menu titre="sous menu 2">
+			<lien url="http://www.wikipedia.org">Wikipédia</lien>
+			<lien url="http://fr.wikipedia.org">Wikipédia France</lien>
+		</sous-menu>
+	</menu>
+	<menu titre="menu2">
+		<lien url="http://www.linuxfr.org">Linux FR</lien>
+	</menu>
+	<menu titre="menu3">
+		<lien url="http://eof.eu.org/">L'école ouverte francophone</lien>
+	</menu>
+</navigation>

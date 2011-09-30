@@ -1,0 +1,11 @@
+
+
+texmf/dvips/utopia/utopia.map
+texmf/fonts/type1/adobe/utopia/putb8a.pfb
+texmf/fonts/type1/adobe/utopia/putbi8a.pfb
+texmf/fonts/type1/adobe/utopia/putr8a.pfb
+texmf/fonts/type1/adobe/utopia/putri8a.pfb
+texmf/tpm/packages/utopia.tpm
+!addMap utopia.map
+
+texmf/tpm/lists/utopia

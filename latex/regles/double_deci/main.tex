@@ -1,0 +1,68 @@
+\documentclass[a4paper]{article}
+\usepackage{pstricks}
+\usepackage{multido}
+
+\pagestyle{empty}
+\SpecialCoor
+\begin{document}
+
+\vspace*{-4cm}
+
+\begin{center}
+\begin{pspicture}(-2,-12)(2,12)
+%\psgrid[subgriddiv=1,griddots=5,gridlabels=0pt]
+%\psset{xunit=1} \psset{yunit=1}
+% contour règle
+\psline(2,-11)(2,11)
+\psline(-2,-11)(-2,11)
+\psline(-2,-11)(2,-11)
+\psline(-2,11)(2,11)
+% graduations cm
+\multido{\d=-10cm+1cm}{21}{%
+ \psline[linewidth=.01](-2,\d)(-1.5,\d)
+ \psline[linewidth=.01](2,\d)(1.4,\d)
+}
+
+% graduations 1/2 cm
+\multido{\d=-9.5cm+0.5cm}{40}{%
+ \psline[linewidth=.01](-2,\d)(-1.6,\d)
+ \psline[linewidth=.01](2,\d)(1.5,\d)
+}
+
+% graduations mm
+\multido{\d=-10cm+0.1cm}{201}{%
+ \psline[linewidth=.01](-2,\d)(-1.7,\d)
+ \psline[linewidth=.01](2,\d)(1.6,\d)
+}
+
+% graduations 1/2 mm
+\multido{\d=0cm+0.05cm}{200}{%
+ \psline[linewidth=.01](2,\d)(1.8,\d)
+ \psline[linewidth=.01](2,-\d)(1.8,-\d)
+}
+
+% nombres
+\multido{\i=0+1}{21}{%
+ \rput{0}(0,10){%
+  \rput{270}(1.25,-\i){\i}
+ }
+ \rput{0}(0,-10){%
+  \rput{90}(-1.25,\i){\i}
+ }
+}
+
+
+
+% poigné
+\pscircle(0,0){0.1}
+
+\pscircle(0,-9.5){0.25}
+
+% marque
+\rput{90}(-0.2,8.5){S. \textsc{CELLES}}
+\rput{90}(0.2,8.5){{\tiny MADE IN FRANCE}}
+
+\end{pspicture}
+\end{center}
+
+\end{document}

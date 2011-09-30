@@ -1,0 +1,2 @@
+Dans cet example MyIterator est placé au debut.
+Il faut voir comment le déplacer.

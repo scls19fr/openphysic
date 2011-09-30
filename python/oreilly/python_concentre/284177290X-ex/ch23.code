@@ -1,0 +1,107 @@
+p = make_parser()
+p.setContentHandler(handler)
+if error_handler is not None: 
+    p.setErrorHandler(error_handler)
+p.parse(file)
+
+----------
+
+xml.sax.saxutils.escape(data,{'"':'&quot;', "'":"&apos;"})
+
+----------
+
+import xml.sax, xml.sax.saxutils
+
+def renommeBalise(entree, sortie, dictRenommage):
+    base = xml.sax.saxutils.XMLGenerator
+
+    class Renommeur(base):
+        def rename(self, name):
+            return dictRenommage.get(name, name)
+        def startElement(self, name, attrs):
+            base.startElement(self, self.rename(name), attrs)
+        def endElement(self, name):
+            base.endElement(self, self.rename(name))
+
+    xml.sax.parse(entree, Renommeur(sortie))
+
+----------
+
+import xml.sax, urllib, urlparse
+
+class LinksHandler(xml.sax.ContentHandler):
+    def startDocument(self):
+        self.seen = {}
+    def startElement(self, tag, attributes):
+        if tag != 'a': return
+        valeur = attributes.get('href')
+        if valeur is not None and valeur not in self.seen:
+            self.seen[valeur] = True
+            pieces = urlparse.urlparse(valeur)
+            if pieces[0] != 'http': return
+            print urlparse.urlunparse(pieces)
+
+p = xml.sax.make_parser()
+p.setContentHandler(LinksHandler())
+f = urllib.urlopen('http://www.w3.org/MarkUp/')
+BUFSIZE = 8192
+
+while True:
+    donnees = f.read(BUFSIZE)
+    if not donnees: break
+    p.feed(donnees)
+
+p.close()
+
+----------
+
+import xml.dom.minidom, urllib, urlparse
+
+f = urllib.urlopen('http://www.w3.org/MarkUp/')
+doc = xml.dom.minidom.parse(f)
+as = doc.getElementsByTagName('a')
+seen = {}
+for a in as:
+    valeur = a.getAttribute('href')
+    if valeur and valeur not in seen:
+        seen[valeur] = True
+        pieces = urlparse.urlparse(valeur)
+        if pieces[0] == 'http' and pieces[1] != 'www.w3.org':
+            print urlparse.urlunparse(pieces)
+
+----------
+
+import xml.dom.pulldom, urllib, urlparse
+
+f = urllib.urlopen('http://www.w3.org/MarkUp/')
+doc = xml.dom.pulldom.parse(f)
+seen = {}
+for evt, noeud in doc:
+    if evt == 'START_ELEMENT' and noeud.nodeName == 'a':
+        doc.expandNode(noeud)
+        valeur = noeud.getAttribute('href')
+        if valeur and valeur not in seen:
+            seen[valeur] = True
+            pieces = urlparse.urlparse(valeur)
+            if pieces[0] == 'http' and pieces[1] != 'www.w3.org':
+                print urlparse.urlunparse(pieces)
+
+----------
+
+import xml.dom.minidom, urllib, sys
+
+f = urllib.urlopen('http://www.w3.org/MarkUp/')
+doc = xml.dom.minidom.parse(f)
+as = doc.getElementsByTagName('a')
+for a in as:
+    valeur = a.getAttribute('href')
+    if valeur:
+        nouveau = doc.createTextNode(' (((%s)))' % valeur)
+        a.parentNode.insertBefore(nouveau, a)
+
+class UnicodeStdoutWriter:
+    def write(self, data):
+        sys.stdout.write(data.encode('utf-8'))
+
+doc.writexml(UnicodeStdoutWriter())
+

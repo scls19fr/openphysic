@@ -1,0 +1,9 @@
+## RelaxNG compact pour fichier formations.xml
+
+start = 
+element formation {
+  element session {
+  	text
+  }*
+}
+

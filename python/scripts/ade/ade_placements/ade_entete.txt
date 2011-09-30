@@ -1,0 +1,12 @@
+Date verrouillée
+Ressources verouillées
+Semaine
+Code
+Jour
+Type
+Durée (h)
+Début
+Activité
+Salles
+Groupes d'étudiants
+Enseignants

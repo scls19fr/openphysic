@@ -1,0 +1,498 @@
+\cours{Les régimes sinusoïdaux}
+
+\section{Visualisation d'une tension alternative sinusoïdale}
+
+\subsection{Visualisation}
+On voit que la tension $u$ prend alternativement des valeurs positives
+et négatives.
+
+\begin{itemize}
+\item Elle est maximale en $A$.
+\item Elle s'annule en $O$.
+\item Elle est minimale en $B$.
+\item Elle s'annule de nouveau en $O_2$.
+\item Et ainsi de suite...
+\end{itemize}
+
+\subsection{Caractéristiques}
+\subsubsection{Période $T$}
+La prériode $T$ d'un signal est la plus petite durée au bout de
+laquelle la tension reprend la même valeur en variant dans le même
+sens.
+
+\begin{unites}
+\item $T$ : période (en $s$)
+\end{unites}
+
+\subsubsection{Fréquence $f$}
+La fréquence $f$ d'un signal est le nombre de périodes $T$ par
+seconde.
+
+\[
+f= \frac{1}{T}
+\]
+
+\begin{unites}
+\item $T$ : période (en $s$)
+\item $f$ : fréquence (en $Hz$)
+\end{unites}
+
+\subsubsection{Valeur maximale $U_{m}$}
+La valeur de la tension alternative est comprise entre deux valeurs
+extrêmes :
+
+\begin{itemize}
+\item $U_{max}$
+\item $-U_{max}$
+\end{itemize}
+
+
+\subsection{Tension instantanée}
+La tension instantanée $u(t)$ ou simplement $u$ (en lettre \emph{minuscule})
+s'exprime en fonction du temps par la relation :
+
+\[
+u(t) = U_{max} \cos{\omega t}
+\]
+
+\begin{unites}
+\item $u(t)$ : tension instantanée (en $V$)
+\item $U_{max}$ : tension maximale (en $V$)
+\item $\omega$ : pulsation (en $rad.s^{-1}$)
+\end{unites}
+
+\subsection{Relation entre $\omega$ et $T$}
+\`A l'instant $t$ on a : $u(t) = U_{max} \cos{\omega t}$
+
+
+\`A l'instant $t+T$ on a : $u(t+T) = U_{max} \cos{\omega (t+T)}$\\
+soit $u(t+T) = U_{max} \cos{\omega t + \omega T}$\\
+or  $u(t+T) = u(t)$ et comme la fonction $\cos$ est $2 \pi$-périodique 
+on en déduit : $\omega T = 2 \pi$ soit :
+
+\[
+T = \frac{2 \pi}{\omega} = \frac{1}{f}
+\]
+
+Ou encore :
+
+\[
+\omega = 2 \pi f = \frac{2 \pi}{T}
+\]
+
+
+
+\section{Intensité instantanée}
+
+\subsection{Expression de l'intensité en fonction du temps}
+Dans des circuits électriques comportant des bobines l'intensité et la
+tension sont déphasées.
+
+\[
+i(t) = I_{max} \cos{\omega t + \varphi}
+\]
+
+
+\begin{unites}
+\item $i(t)$ : intensité instantanée (en $A$)
+\item $I_{max}$ : amplitude (intensité maximale) (en $A$)
+\item $\omega$ : pulsation (en $rad.s^{-1}$)
+\item $\varphi$ : phase (ou déphasage de l'intensité par rapoort à la
+  tension) (en $rad$)
+\end{unites}
+
+\subsection{Déphasage entre $i$ et $u$}
+
+Soit $\tau$ le temps qui sépare deux maximums consécutifs des deux
+courbes.
+
+\[
+\varphi = \omega \tau
+\]
+
+$\omega T = 2 \pi$ donc $\omega = \frac{2 \pi}{T}$
+
+\[
+\tau = \frac{2 \pi \tau}{T}
+\]
+
+\begin{unites}
+\item $tau$ : le temps qui sépare deux maximums consécutifs (en $s$)
+\item $T$ : période (en $s$)
+\item $\varphi$ : déphasage (en $rad$)
+\end{unites}
+
+
+\[
+u(t) = U_{max} \cos{\omega t}
+\]
+
+\[
+i(t) = I_{max} \cos{\omega (t+\tau)} = I_{max} \cos{\omega t + \omega \tau}
+\]
+
+On pose :
+
+\[
+\varphi = \omega \tau
+\]
+
+\begin{itemize}
+\item On dit que $i$ est en avance sur $u$ lorsque la courbe
+  représentant $i(t)$ passe par un maximum (ou une valeur nulle,
+  ou un minimum) un instant $\tau$ \emph{avant} $u(t)$. $\varphi > 0$
+
+\item On dit que $i$ est en retard sur $u$ lorsque la courbe
+  représentant $i(t)$ passe par un maximum (ou une valeur nulle,
+  ou un minimum) un instant $\tau$ \emph{après} $u(t)$. $\varphi < 0$
+\end{itemize}
+
+\section{Tension et intensité efficaces}
+\subsection{Définition}
+L'intensité efficace $I$ (en lettre \emph{majuscule}) d'un courant
+alternatif sinusoïdal dans une résistance est l'intensité du courant
+continu qui produirait le même effet thermique pendant le même temps.
+
+La tension efficace $U$ appliquée aux bornes d'une résistance est la
+tension continue $U$ qui produirait le même effet thermique pendant le
+même temps.
+
+\[
+U = U_{eff} = \frac{U_{max}}{\sqrt{2}}
+\]
+
+
+\[
+I = I_{eff} = \frac{I_{max}}{\sqrt{2}}
+\]
+
+\remarque{
+En courant alternatif, lorsqu'on utilise une lettre majuscule cela
+désigne une valeur efficace (même si on ne note pas toujours $eff$).
+}
+
+
+\section{Impédance d'un dipôle}
+\subsection{Impédance d'une bobine}
+\begin{itemize}
+\item En continu $\frac{U}{I}$ représente la résistance $R$ de la
+  bobine.
+
+\item En alternatif $\frac{U}{I}$ représente l'impédance $Z$ de la
+  bobine.
+\end{itemize}
+
+
+L'impédance d'un dipôle passif est égal au quotient de la tension
+efficace par l'intensité efficace qui le traverse :
+
+\[
+Z = \frac{U}{I} = \frac{U_{eff}}{I_{eff}} = \frac{U_{max}}{I_{max}}
+\]
+
+On a donc en courant alternatif, l'analogue de la loi d'Ohm en courant
+continu :
+
+
+\[
+U = Z I
+\]
+
+\exemple{
+Dans le cas d'une bobine :
+\[
+Z = \sqrt{R^2 + L^2 \omega^2}
+\]
+
+\begin{unites}
+\item $L$ : inductance de la bobine (en $H$)
+\item $R$ : résistance de la bobine (en $\Ohm$)
+\end{unites}
+}
+
+\subsection{Impédance d'un dipôle R,L,C}
+
+L'impédance du circuit $R$ $L$ $C$ vaut :
+
+\[
+Z = \sqrt{R^2 + (L \omega - \frac{1}{C \omega})^2}
+\]
+
+\begin{unites}
+\item $L$ : inductance de la bobine (en $H$)
+\item $R$ : résistance (en $\Ohm$)
+\item $C$ : capacité du condensateur (en $F$)
+\end{unites}
+
+
+\subsection{Le phénomène de résonance}
+On remarque que l'impédance du circuit $R$ $L$ $C$ dépend de $\omega$
+donc de la fréquence.
+
+
+Il existe une fréquence $f_0$ pour laquelle l'impédance est minimale :
+on dit qu'il y a résonance.
+
+
+\`A cette fréquence là l'intensité efficace dans le circuit passe par
+un maximum.
+
+
+Il y a résonance lorsque $L \omega_0 - \frac{1}{C \omega_0} = 0$. Dans
+cette situation on a alors $Z = R$.
+
+
+$L \omega_0 = \frac{1}{C \omega_0}$ soit $L C \omega_0^2 = 1$ donc
+$\omega_0 = \frac{1}{\sqrt{L C}}$ soit :
+
+\[
+f_0 = \frac{1}{2 \pi \sqrt{L C}}
+\]
+
+\section{Le transformateur}
+\subsection{Principe}
+Un transformateur a pour rôle de modifier la valeur efficace d'une
+tension alternative sans modifier sa fréquence.
+
+
+Il est formé par deux enroulements (bobine) appelés primaire et
+secondaire.
+
+
+Soit $U$ la tension efficace aux bornes du primaire.
+
+
+La tension sinusoïdale dans le primaire produit en champ magnétique.
+
+Le secondaire est soumis au champ magnétique produit par le
+primaire. Il en résulte une variation de flux qui donne naissance à
+une force électromotrice d'induction.
+
+
+\subsection{Rapport de transformation}
+$k$ est le rapport de transfomation.
+
+\[
+k = \frac{U_2}{U_1} = \frac{N_2}{N_1}
+\]
+
+\begin{unites}
+\item $k$ : rapport de transformation (sans unité)
+\item $U_2$ : tension efficace aux bornes de l'enroulement secondaire.
+\item $U_1$ :  tension efficace aux bornes de l'enroulement primaire.
+\item $N_2$ : nombre de spires de l'enroulement secondaire.
+\item $N_1$ : nombre de spires de l'enroulement primaire.
+\end{unites}
+
+\begin{itemize}
+\item $N_2 > N_1$ donc $U_2 > U_1$ : le transformateur élève la
+  tension
+\item $N_2 < N_1$ donc $U_2 < U_1$ : le transformateur abaisse la
+  tension
+\end{itemize}
+
+\subsection{Rendement d'un transformateur}
+On définit le rendement d'un transformateur par :
+\[
+\eta = \frac{P_2}{P_1} = \frac{U_2 I_2}{U_1 I_1}
+\]
+
+On peut admettre en première approximation que le rendement $\eta$
+d'un tranformateur est proche de $1$. donc $U_2 I_2 \approx U_1 I_1$
+donc :
+
+\[
+k = \frac{N_2}{N_1} = \frac{U_2}{U_1} \approx \frac{I_1}{I_2}
+\]
+
+\subsection{Intérêt des transformateurs}
+\subsubsection{\'Elevateur de tension}
+On utilise les transformateurs dans un téléviseur pour augmenter la
+tension du secteur $220~V$ efficace à $15~kV$ efficace pour
+alimenter le tube cathodique.
+
+On utilise aussi des transformateurs pour alimenter les tubes lumineux ($10~kV$)
+
+Afin de limiter les pertes par effet Joule dans les lignes électriques
+on augmente aussi la tension (donc le courant en ligne est plus faible
+pour transporter la même puissance).
+
+\subsubsection{Abaisseur de tension}
+On utilise des transformateurs en abaisseur de tension dans certains
+jouets, dans les générateurs $6-12~V$.
+
+
+\newpage
+
+\setcounter{figure}{0}
+
+\section*{Quelques exemples d'oscillogrammes}
+
+% voir pst-osci
+% http://www.ctan.org/tex-archive/graphics/pstricks/contrib/pst-osci/
+
+% sensivity 20 10 5 2 1 0.5 0.2 0.1 0.05
+% timediv = 10 5 2 1 0.5 0.2 0.1 0.05 0.02 0.01 0.005 0.002
+
+\vressort{1}
+
+\begin{tabularx}{\linewidth}{{X>\centering}X}
+
+
+\scalebox{0.5}{%
+\Oscillo
+}
+\caption{$T = $\ ............ ; $U_m = $\ ............}
+
+
+&
+
+
+\scalebox{0.5}{%
+\Oscillo[amplitude1=0.7,sensivity1=0.2,period1=50,timediv=10,phase1=15]
+}
+\caption{$T = $\ ............ ; $U_m = $\ ............}
+
+
+\tabularnewline
+
+
+\scalebox{0.5}{%
+\Oscillo[amplitude1=1.7,sensivity1=0.5,period1=0.20,timediv=0.10,phase1=90]
+}
+\caption{$T = $\ ............ ; $U_m = $\ ............}
+
+&
+
+\scalebox{0.5}{%
+\Oscillo[amplitude1=17,sensivity1=5,period1=50,timediv=10,phase1=225]
+}
+\caption{$T = $\ ............ ; $U_m = $\ ............}
+
+
+
+
+\tabularnewline
+
+
+
+
+\scalebox{0.5}{%
+\Oscillo[amplitude1=0.7,sensivity1=0.2,period1=20,timediv=5,phase1=0,
+amplitude2=0.5,sensivity2=0.2,period2=20,phase2=45]
+}
+\caption{$T = $\ ............ ; $\varphi = $\ ............}
+\begin{center}
+\vspace{-0.3cm}
+$i$ en avance/retard par rapport à $u$
+\end{center}
+
+&
+
+\scalebox{0.5}{%
+\Oscillo[amplitude1=0.7,sensivity1=0.2,period1=20,timediv=5,phase1=0,
+amplitude2=0.5,sensivity2=0.2,period2=20,phase2=-45]
+}
+\caption{$T = $\ ............ ; $\varphi = $\ ............}
+\begin{center}
+\vspace{-0.3cm}
+$i$ en avance/retard par rapport à $u$
+\end{center}
+
+\tabularnewline
+
+
+\scalebox{0.5}{%
+\Oscillo[amplitude1=0.7,sensivity1=0.2,period1=20,timediv=5,phase1=0,
+amplitude2=0.5,sensivity2=0.2,period2=20,phase2=90]
+}
+\caption{$T = $\ ............ ; $\varphi = $\ ............}
+\begin{center}
+\vspace{-0.3cm}
+$i$ en avance/retard par rapport à $u$
+\end{center}
+
+&
+
+\scalebox{0.5}{%
+\Oscillo[amplitude1=0.7,sensivity1=0.2,period1=20,timediv=5,phase1=0,
+amplitude2=0.5,sensivity2=0.2,period2=20,phase2=180]
+}
+\caption{$T = $\ ............ ; $\varphi = $\ ............}
+\begin{center}
+\vspace{-0.3cm}
+%$i$ en avance/retard par rapport à $u$
+\end{center}
+
+\end{tabularx}
+
+
+\newpage
+
+\vressort{1}
+
+\begin{tabularx}{\linewidth}{{X>\centering}X}
+
+
+\scalebox{0.5}{%
+\Oscillo
+}
+\caption{$T = $\ ............ ; $U_m = $\ ............}
+
+
+&
+
+
+\scalebox{0.5}{%
+\Oscillo
+}
+\caption{$T = $\ ............ ; $U_m = $\ ............}
+
+
+\tabularnewline
+
+
+\scalebox{0.5}{%
+\Oscillo
+}
+\caption{$T = $\ ............ ; $U_m = $\ ............}
+
+&
+
+\scalebox{0.5}{%
+\Oscillo
+}
+\caption{$T = $\ ............ ; $U_m = $\ ............}
+
+
+\tabularnewline
+
+
+\scalebox{0.5}{%
+\Oscillo
+}
+\caption{$T = $\ ............ ; $U_m = $\ ............}
+
+&
+
+\scalebox{0.5}{%
+\Oscillo
+}
+\caption{$T = $\ ............ ; $U_m = $\ ............}
+
+\tabularnewline
+
+
+\scalebox{0.5}{%
+\Oscillo
+}
+\caption{$T = $\ ............ ; $U_m = $\ ............}
+
+&
+
+\scalebox{0.5}{%
+\Oscillo
+}
+\caption{$T = $\ ............ ; $U_m = $\ ............}
+
+\end{tabularx}

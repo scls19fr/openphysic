@@ -1,0 +1,27 @@
+
+\listfiles\errorcontextlines=100
+\documentclass{article}
+
+%\usepackage{fp}
+%\input{multido}
+\usepackage{multido}[2004/05/15]
+\usepackage{fp}
+
+\begin{document}
+
+\typeout{\meaning\FPadd}
+\typeout{\meaning\FPsub}
+\typeout{\meaning\fpAdd}
+\typeout{\meaning\fpSub}
+
+\setlength{\unitlength}{1cm}
+
+\begin{picture}(8,1)(0,-.5)
+  \small
+  \put(0,0){\vector(1,0){8}}
+  \multido{\i=0+1,\n=0+0.25}{8}{%
+    \put(\i,-.1){\line(0,1){.2}}
+    \put(\i,-.2){\makebox(0,0)[t]{\n}}}
+\end{picture}
+
+\end{document}

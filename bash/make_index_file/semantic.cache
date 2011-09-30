@@ -1,0 +1,22 @@
+;; Object file_index/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "file_index/"
+  :tables (list 
+   (semanticdb-table "index.html"
+    :major-mode 'html-mode
+    :tags '(("index" section nil nil [88 123]) ("index" section (:members (("index" section (:members (("index.html" section nil nil [177 245]) ("make_index.sh" section nil nil [245 320]) ("make_index.sh~" section nil nil [320 397]) ("semantic.cache" section nil nil [397 475]) ("semantic.cache~" section nil nil [475 550]) ("test_a.txt" section nil nil [550 615]) ("test_b.txt" section nil nil [615 680]) ("test_c.txt" section nil nil [680 745]) ("test_d.txt" section nil nil [745 810]) ("test_e.txt" section nil nil [810 875]) ("test_f.txt" section nil nil [875 878]))) nil [136 139]))) nil [123 128]))
+    :file "index.html"
+    :pointmax 937
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "makefile"
+    :major-mode 'makefile-mode
+    :tags '(("all" function nil nil [1 44]))
+    :file "makefile"
+    :pointmax 44
+    )
+   )
+  :file "semantic.cache"
+  :semantic-tag-version "2.0beta3"
+  :semanticdb-version "2.0beta3"
+  )

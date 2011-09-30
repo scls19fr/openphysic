@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE simulation PUBLIC "-//UTC//DTD XMLlab V1.5//FR"
+"http://www.xmllab.org/dtd/1.5/fr/simulation.dtd">
+<simulation>
+  <header>
+    <title>Periode d'un pendule simple (avec animation)</title>
+
+    <author>Sebastien CELLES</author>
+
+    <date>Wed Feb 14 09:00:00 CEST 2006</date>
+
+    <keywords>simulation,scilab,xml, pendule, mecanique, periode, oscillateur,
+    oscillation</keywords>
+  </header>
+
+  <notes>
+    <p>Il s'agit d'une simulation d'un pendule simple. On visualise une
+    animation representant un pendule simple et on mesure la periode du
+	 mouvement de ce pendule.</p>
+  </notes>
+
+  <parameters widget="notebook">
+    <section>
+      <title>Parametres du pendule</title>
+
+      <scalar label="L" unit="m">
+        <name>Longueur du pendule (m)</name>
+
+        <value>1</value>
+      </scalar>
+
+      <scalar increment="1" label="theta_0_deg" max="179" min="1" unit="rad"
+              widget="slider">
+        <name>Angle initial</name>
+
+        <value>20</value>
+      </scalar>
+
+      <scalar label="g0" unit="ms^-2">
+        <name>Acceleration de la pesanteur (N/kg)</name>
+
+        <value>9.81</value>
+      </scalar>
+    </section>
+
+    <section>
+      <title>Animation</title>
+
+      <scalar increment="1" label="iv" max="500" min="1" period="40"
+              widget="animate">
+        <name>Instant de visualisation</name>
+
+        <value>1</value>
+      </scalar>
+    </section>
+
+    <section>
+      <title>Parametres de resolution</title>
+
+      <scalar label="tf" unit="s">
+        <name>Temps final</name>
+
+        <value>20</value>
+      </scalar>
+    </section>
+  </parameters>
+
+  <compute>
+    <defdomain1d label="tc">
+      <interval steps="31">
+        <initialvalue>0</initialvalue>
+
+        <finalvalue>2*3.1415926535</finalvalue>
+      </interval>
+    </defdomain1d>
+
+    <defdomain1d label="t" unit="s">
+      <name>Temps</name>
+
+      <interval steps="500">
+        <initialvalue>0</initialvalue>
+
+        <finalvalue>tf</finalvalue>
+      </interval>
+    </defdomain1d>
+
+    <ode dependencies="theta_0_deg tf L g0" label="pendule">
+      <refdomain1d ref="t" />
+
+      <states>
+        <state label="theta" unit="deg">
+          <name>Angle du pendule</name>
+
+          <derivative>theta_point</derivative>
+
+          <initialcondition>theta_0_deg</initialcondition>
+        </state>
+
+        <state label="theta_point" unit="deg">
+          <name>Derivee de l'angle</name>
+
+          <derivative>-180/%pi*g0/L*sin(theta*%pi/180)</derivative>
+
+          <initialcondition>0</initialcondition>
+        </state>
+      </states>
+    </ode>
+  </compute>
+
+  <graphs>
+    <parametriccurve2d label="circ1">
+      <refdomain1d ref="tc" />
+
+      <x1>
+        <value>L*sin(theta(iv)*%pi/180)+cos(tc)*L/20</value>
+      </x1>
+
+      <x2>
+        <value>-L*cos(theta(iv)*%pi/180)+sin(tc)*L/20</value>
+      </x2>
+    </parametriccurve2d>
+
+    <polyline label="pendule_nonlin">
+      <vertex x1="0" x2="0"></vertex>
+
+      <vertex x1="L*sin(theta(iv)*%pi/180)" x2="-L*cos(theta(iv)*%pi/180)"></vertex>
+    </polyline>
+
+    <parametriccurve2d label="pph1">
+      <x1>
+        <value>theta</value>
+      </x1>
+
+      <x2>
+        <value>theta_point/(sqrt(g0/L))</value>
+      </x2>
+    </parametriccurve2d>
+  </graphs>
+
+  <display>
+    <window dependencies="theta_0_deg tf L g0">
+      <title>Portrait de phase</title>
+
+      <axis2d iso="yes" xmax="theta_0_deg" xmin="-theta_0_deg" ymax="theta_0_deg"
+              ymin="-theta_0_deg">
+        <drawcurve2d color="red" ref="pph1" thickness="2" />
+      </axis2d>
+    </window>
+
+    <window dependencies="theta_0_deg tf L g0">
+      <title>Angle du pendule en fonction du temps</title>
+
+      <axis2d xmax="tf" xmin="0" ymax="theta_0_deg"
+              ymin="-theta_0_deg">
+        <drawcurve2d color="red" ref="theta" thickness="2" />
+      </axis2d>
+    </window>
+
+    <window>
+      <title>Animation du pendule</title>
+
+      <axis2d iso="yes" xmax="1.2" xmin="-1.2" ymax="1.2" ymin="-1.2">
+        <title variables="t(iv)">t = %f s</title>
+
+        <drawcurve2d color="red" ref="pendule_nonlin" />
+
+        <drawcurve2d color="red" ref="circ1" />
+      </axis2d>
+    </window>
+
+  </display>
+</simulation>

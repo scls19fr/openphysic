@@ -1,0 +1,298 @@
+\tp{Réflexion - Réfraction}
+
+\begin{multicols}{2}
+
+\objectifs{
+\item Vérifier les lois de Snell-Descartes.
+}
+
+\materiel{
+\item lanterne et fente
+\item disque gradué
+\item miroir
+\item demi-cylindre en plexiglas
+}
+
+\end{multicols}
+
+\newcommand{\optdisquegradue}{%
+\psline(-7,0)(7,0)
+\pscircle(0,0){1.5}
+\uput{.1}[225](-1.5,0){$0°$}
+\uput{.1}[90](0,1.5){$90°$}
+\uput{.1}[270](0,-1.5){$90°$}
+\uput{.1}[210](-1.3,-0.75){$30°$} % 1.5*cos(30) 1.5*sin(30) % 30 + 180 = 210
+\uput{.1}[240](-0.75,-1.3){$60°$} % 1.5*cos(60) 1.5*sin(60) % 60 + 180 = 240 
+
+\uput{.1}[-45](1.5,0){$0°$}
+}
+
+
+
+\section{Réflexion}
+
+\begin{center}
+\begin{pspicture}(-7,-2)(7,2)
+%\psgrid[subgriddiv=1,griddots=10]
+%\pnode(6,0){A}
+
+\optdisquegradue
+
+% miroir
+%\psline(0,0.75)(0,-0.75)
+
+%\psline(0,0)(0.25,0.25)
+
+% Coordonnées A B
+% Une coordonnée que l'on construit avec deux coordonnées. (A|B) a pour abscisse l'abscisse de A et a pour ordonnée l'ordonnée de B. Cerise sur le gâteau, les coordonnées A et B peuvent être de n'importe quel type et pas forcément les mêmes (cartésien, polaire, code postscript, noeud).
+%  Bien entendu, cela ne fonctionne qu'avec \SpecialCoor.
+
+% Translation
+% \psline((0,0)+(0,0.25))((0.25,0.25)+(0,0.25))
+%\psline(0,0.25)(0.25,0.5)
+%\psline(0,0.5)(0.25,0.75)
+%\psline(0,0.75)(0.25,1)
+
+%\psline(0,-0.25)(0.25,0)
+%\psline(0,-0.5)(0.25,-0.25)
+%\psline(0,-0.75)(0.25,-0.5)
+
+%\psline{->}(2,2)(0.5,0.75)
+%\uput{0.1}[45](2,2){miroir}
+
+
+% \rput(0,0){\psline(0,0)(0.25,0.25)}
+% \rput(0,0.25){\psline(0,0)(0.25,0.25)}
+% \rput(0,0.5){\psline(0,0)(0.25,0.25)}
+% \rput(0,0.75){\psline(0,0)(0.25,0.25)}
+% \rput(0,-0.25){\psline(0,0)(0.25,0.25)}
+% \rput(0,-0.5){\psline(0,0)(0.25,0.25)}
+% \rput(0,-0.75){\psline(0,0)(0.25,0.25)}
+
+% miroir 
+\psline(0,0.75)(0,-0.75)
+\multiput(0,0)(0,0.25){4}{\psline(0,0)(0.25,0.25)}
+\multiput(0,0)(0,-0.25){4}{\psline(0,0)(0.25,0.25)}
+
+
+
+% rayons
+\psline(-4,-2)(0,0) \psline{->}(-4,-2)(-2,-1)
+\psline(0,0)(-4,2)  \psline{->}(0,0)(-2,1) 
+
+\rput(-5.5,2){rayon réfléchi}
+\rput(-5.5,-2){rayon incident}
+
+% angles
+\rput(-3.5,0.5){$r$ : angle de réflexion}
+\rput(-3.5,-0.5){$i$ : angle d'incidence}
+
+\pswedge(0,0){0.65}{180}{206.6} % 180+atan(2/4) = 206.6
+\pswedge(0,0){0.85}{153.4}{180} % 180-atan(2/4) = 153.4
+
+\end{pspicture}
+\end{center}
+
+\begin{enumerate}
+\item Poser le miroir sur un disque gradué de telle sorte que son plan soit perpendiculaire à l'axe $0°$ du disque gradué.
+
+
+\item \'Eclairer le miroir par un pinceau lumineux.
+
+\item Faire varier l'angle d'incidence $i$ (par rapport à la normale au miroir). Mesurer l'angle de réflexion $r$. Reporter les résultats expérimentaux dans le tableau suivant :
+
+%\begin{tabularx}{\linewidth}{|m{4cm}|X|X|X|X|X|X|X|X|X|X|}
+% \begin{tabularx}{\linewidth}{|m{4cm}|*{10}{|>{\centering}X}|}
+% \hline
+% Angle d'incidence $i$ ($°$)  & $0$ & $10$ & $20$ & $30$ & $40$ & $50$ & $60$ & $70$ & $80$ & $85$ \tabularnewline \hline
+% Angle de réflexion $r$ ($°$) & \rule{0cm}{1.5cm}    &      &      &      &      &      &      &      &      &      \tabularnewline \hline
+% \end{tabularx}
+
+% \begin{arraydata}{10}
+% \hline
+% Angle d'incidence $i$ ($°$)  & 0 & 10 & 20 & 30 & 40 & 50 & 60 & 70 & 80 & 85 \\ \hline
+% Angle de réflexion $r$ ($°$) &   &    &    &    &    &    &    &    &    &    \\[1cm] \hline
+% \end{arraydata}
+
+
+\begin{arraydata}{10}
+\hline
+Angle d'incidence $i$ ($°$)  & 0 & 10 & 20 & 30 & 40 & 50 & 60 & 70 & 80
+& 85 \\ \hline
+\rule[-0.4cm]{0cm}{1cm}%
+Angle de r\'eflexion $r$ ($°$) &   &    &    &    &    &    &    &    &
+ &    \\ \hline
+\end{arraydata}
+
+\item Conclusion
+
+\bigskip
+
+\end{enumerate}
+
+
+
+
+
+
+
+\section{Réfraction}
+
+\subsection{Réfraction air-plexiglas}
+
+\begin{center}
+\begin{pspicture}(-7,-2)(7,2)
+%\psgrid[subgriddiv=1,griddots=10]
+%\pnode(6,0){A}
+\optdisquegradue
+
+% demi-cylindre coté plan
+\pswedge[fillstyle=vlines](0,0){0.75}{270}{90}
+
+
+% rayon incident
+\rput(-5.5,-2){rayon incident}
+\psline(-4,-2)(0,0) \psline{->}(-4,-2)(-2,-1)
+\rput(-3.5,-0.5){$i_1$ : angle d'incidence}
+\pswedge(0,0){0.75}{180}{206.6}
+
+% rayon réfracté
+\rput(5.5,1){rayon réfracté}
+\psline(0,0)(4,1) \psline{>-}(2,0.5)(4,1)
+\rput(3.5,0.25){$i_2$ : angle de réfraction}
+\pswedge(0,0){1}{0}{14}
+
+
+% légende milieu
+\rput(-5,2){AIR - milieu transparent n° 1}
+\rput(5,2){PLEXIGLAS - milieu transparent n° 2}
+\psline{->}(2,1.75)(0.25,0.25)
+
+\end{pspicture}
+\end{center}
+
+
+\begin{enumerate}
+\item Remplacer le miroir par un demi-cylindre en plexiglas.
+
+\item Envoyer le pinceau lumineux en direction de la face plane du demi cylindre.
+
+\item Faire varier l'angle d'incidence $i_1$ (par rapport à la normale au plan du demi-cylindre). Mesurer l'angle de réfraction $i_2$. Reporter les résultats expérimentaux dans le tableau suivant :
+
+%\bigskip 
+
+
+\begin{arraydata}{10}
+\hline
+Angle d'incidence $i_1$ ($°$)  & 0 & 10 & 20 & 30 & 40 & 50 & 60 & 70 & 80 & 85 \\ \hline
+\rule[-0.4cm]{0cm}{1cm}%
+Angle de réfraction $i_2$ ($°$) &   &    &    &    &    &    &    &    &    &    \\ \hline
+\rule[-0.4cm]{0cm}{1cm}%
+$\sin(i_1)$  &   &    &    &    &    &    &    &    &    &    \\ \hline
+\rule[-0.4cm]{0cm}{1cm}%
+$\sin(i_2)$  &   &    &    &    &    &    &    &    &    &    \\ \hline
+\rule[-0.4cm]{0cm}{1cm}%
+$\displaystyle \frac{\sin(i_1)}{\sin(i_2)}$    &   &    &    &    &    &    &    &    &    &    \\ \hline
+\end{arraydata}
+%\frac{sin(i_1)}{sin(i_2}}
+
+\bigskip
+
+\item Conclusion.
+
+\item Tracer $y = \sin(i_1)$ en fonction de $x = \sin(i_2)$. De quel type de fonction s'agit-il ? Donner son équation.
+
+
+\item Calculer l'indice de réfraction $n_2$ du plexiglas. On suppose que l'indice de l'air vaut $n_1 = 1$.
+
+\item Déduire la relation entre $n_1$, $n_2$, $i_1$ et $i_2$.
+
+\item Y a-t-il toujours réfraction lorsque l'on fait varier l'angle d'incidence $i_1$ de $0°$ à $90°$ ?
+
+\item Mesurer puis calculer l'angle d'incidence limite ${i_1}_{lim}$ pour lequel il y a encore réfraction (s'il existe).
+
+\item Mesurer puis calculer l'angle de réfraction limite ${i_2}_{lim}$ (s'il existe).
+\end{enumerate}
+
+
+\vressort{3}
+
+
+\subsection{Réfraction plexiglas-air}
+
+
+\begin{center}
+\begin{pspicture}(-7,-2)(7,2)
+%\psgrid[subgriddiv=1,griddots=10]
+%\pnode(6,0){A}
+\optdisquegradue
+
+% demi-cylindre coté arrondi
+\pswedge[fillstyle=vlines](0,0){0.75}{90}{270}
+
+% Rayon incident
+\rput(-5.5,-1){rayon incident}
+\psline(0,0)(-4,-1) \psline{->}(-4,-1)(-2,-0.5)
+\rput(-4,-0.25){$i_1$ : angle d'incidence}
+\pswedge(0,0){1}{180}{194}
+
+% Rayon réfracté
+\rput(5.5,2){rayon réfracté}
+\psline(4,2)(0,0) \psline{>-}(2,1)(4,2)
+\rput(3.5,0.5){$i_2$ : angle de réfraction}
+\pswedge(0,0){0.75}{0}{26.6}
+
+
+% légende milieu
+\rput(-5,2){PLEXIGLAS - milieu transparent n° 1}
+\psline{->}(-2,1.75)(-0.25,0.25)
+\rput(5,-2){AIR - milieu transparent n° 2}
+
+\end{pspicture}
+\end{center}
+
+\begin{enumerate}
+\item Placer le demi-cylindre en plexiglas dans l'autre sens.
+
+\item Envoyer le pinceau lumineux en direction de la face arrondie du demi cylindre.
+
+\item Faire varier l'angle d'incidence $i_1$ (par rapport à la normale interne au plan du demi-cylindre). Mesurer l'angle de réfraction $i_2$. Reporter les résultats expérimentaux dans le tableau suivant :
+
+\begin{arraydata}{10}
+\hline
+Angle d'incidence $i_1$ ($°$)  & 0 & 10 & 20 & 30 & 40 & 50 & 60 & 70 & 80 & 85 \\ \hline
+\rule[-0.4cm]{0cm}{1cm}%
+Angle de réfraction $i_2$ ($°$) &   &    &    &    &    &    &    &    &    &    \\ \hline
+\rule[-0.4cm]{0cm}{1cm}%
+$\sin(i_1)$  &   &    &    &    &    &    &    &    &    &    \\ \hline
+\rule[-0.4cm]{0cm}{1cm}%
+$\sin(i_2)$  &   &    &    &    &    &    &    &    &    &    \\ \hline
+\rule[-0.4cm]{0cm}{1cm}%
+$\displaystyle \frac{\sin(i_2)}{\sin(i_1)}$    &   &    &    &    &    &    &    &    &    &    \\ \hline %\rule[-1cm]{0cm}{2cm}
+\end{arraydata}
+
+
+
+
+\bigskip
+
+
+\item Conclusion.
+
+\item Expliquer pourquoi il n'y a pas changement de direction du rayon lumineux à la surface cylindrique séparant le plexiglas et l'air.
+
+
+\item Tracer $y = \sin(i_2)$ en fonction de $x = \sin(i_1)$. De quel type de fonction s'agit-il ? Donner son équation.
+
+\item Calculer l'indice de réfraction $n_1$ du plexiglas en supposant que l'indice de l'air vaut $n_2 = 1$.
+
+\item Déduire la relation entre $n_1$, $n_2$, $i_1$ et $i_2$.
+
+\item Y a-t-il toujours réfraction lorsque l'on fait varier l'angle d'incidence $i_1$ de $0°$ à $90°$ ?
+
+\item Mesurer puis calculer l'angle d'incidence limite ${i_1}_{lim}$ pour lequel il y a encore réfraction (s'il existe).
+
+\item Mesurer puis calculer l'angle de réfraction limite ${i_2}_{lim}$ (s'il existe).
+
+
+\end{enumerate}

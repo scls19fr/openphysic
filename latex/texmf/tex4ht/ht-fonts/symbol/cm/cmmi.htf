@@ -1,0 +1,133 @@
+cmmi 0 127
+'<font face="SYMBOL">G</font>' ''  Gamma  0 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'<font face="SYMBOL">D</font>' ''  Delta  1 % cmmi.htf                     2002-05-12 %
+'<font face="SYMBOL">Q</font>' ''  Theta  2 % Copyright (C) 2000--2002 Eitan M. Gurari %
+'<font face="SYMBOL">L</font>' '' Lambda  3 %                                          %
+'<font face="SYMBOL">X</font>' '' Xi      4 % This file can redistributed and/or       %
+'<font face="SYMBOL">P</font>' '' Pi      5 % modified under the terms of the LaTeX    %
+'<font face="SYMBOL">S</font>' '' Sigma   6 % Project Public License Distributed from  %
+'<font face="SYMBOL">\161\</font>'  '' Ups7 % CTAN archives in directory               %
+'<font face="SYMBOL">F</font>' '' Phi     8 % macros/latex/base/lppl.txt; either       %
+'<font face="SYMBOL">Y</font>' '' Psi     9 % version 1 of the License, or (at your    %
+'<font face="SYMBOL">W</font>' '' Omega  10 % option) any later version.               %
+'<font face="SYMBOL">a</font>' ''alpha   11 %    However, you are allowed to modify    %
+'<font face="SYMBOL">b</font>' ''beta    12 % this file without changing its name, if  %
+'<font face="SYMBOL">g</font>' ''gamma   13 % you add a note of your own after this    %
+'<font face="SYMBOL">d</font>' ''delta   14 % copyright note.                          %
+'<font face="SYMBOL">e</font>' ''epsilon 15 %                                          %
+'<font face="SYMBOL">z</font>' ''-zeta   16 %                gurari@cis.ohio-state.edu %
+'<font face="SYMBOL">h</font>' ''-eta    17 %    http://www.cis.ohio-state.edu/~gurari %
+'<font face="SYMBOL">q</font>' ''theta   18 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'<font face="SYMBOL">i</font>' ''iota    19 
+'<font face="SYMBOL">k</font>' ''kappa     20
+'<font face="SYMBOL">l</font>' ''lambda    21
+'<font face="SYMBOL">m</font>' ''-mu       22
+'<font face="SYMBOL">n</font>' ''nu        23
+'<font face="SYMBOL">q</font>' ''xi        24
+'<font face="SYMBOL">p</font>' ''pi        25
+'<font face="SYMBOL">r</font>' ''rho       26
+'<font face="SYMBOL">s</font>' ''sigma     27
+'<font face="SYMBOL">t</font>' ''tau       28
+'<font face="SYMBOL">u</font>' ''upsilon   29
+'<font face="SYMBOL">f</font>'    ''phi       30
+'<font face="SYMBOL">c</font>'    ''chi       31
+'<font face="SYMBOL">y</font>'    ''psi       32
+'<font face="SYMBOL">w</font>'    ''omega     33
+'<font face="SYMBOL">e</font>'    ''varepsilon34
+'<font face="SYMBOL">J</font>'    ''vartheta  35
+'<font face="SYMBOL">v</font>'    ''varpi     36
+'r'    '3'varrho                              37
+'<font face="SYMBOL">V</font>'    ''-varzeta  38
+'<font face="SYMBOL">j</font>'    ''-varphi   39
+*'_*   *1* leftharpoonup    40
+',_'   '1' leftharpoondown  41
+*_'*   *1* righttharpoonup 42
+'-,'   '1' rightharpoondown43
+''     ''                 44
+''     ''                 45
+'|\\'  '1'triangleright   46
+'/|'   '1'triangleleft    47
+'0'    ''          48
+'1'    ''          49    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'2'    ''          50    % cmmi.htf, (symbol)                    2002-05-12 %
+'3'    ''          51 % Copyright (C) 2000--2002 Eitan M. Gurari %
+'4'    ''          52 %                                          %
+'5'    ''          53 % This file can redistributed and/or       %
+'6'    ''          54 % modified under the terms of the LaTeX    %
+'7'    ''          55 % Project Public License Distributed from  %
+'8'    ''          56 % CTAN archives in directory               %
+'9'    ''          57 % macros/latex/base/lppl.txt; either       %
+'.'    ''          58 % version 1 of the License, or (at your    %
+','    ''          59 % option) any later version.               %
+'&lt;' ''          60 %    However, you are allowed to modify    %
+'/'    ''          61 % this file without changing its name, if  %
+'&gt;' ''          62 % you add a note of your own after this    %
+'*'    ''          63 % copyright note.                          %
+'<font face="SYMBOL">\182\</font>'    ''partial   64 %                                          %
+'A'    ''          65 %                gurari@cis.ohio-state.edu %
+'B'    ''          66 %    http://www.cis.ohio-state.edu/~gurari %
+'C'    ''          67 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'D'    ''          68 
+'E'    ''          69
+'F'    ''          70
+'G'    ''          71
+'H'    ''          72
+'I'    ''          73
+'J'    ''          74
+'K'    ''          75
+'L'    ''          76
+'M'    ''          77
+'N'    ''          78
+'O'    ''          79
+'P'    ''          80
+'Q'    ''          81
+'R'    ''          82
+'S'    ''          83
+'T'    ''          84
+'U'    ''          85
+'V'    ''          86
+'W'    ''          87
+'X'    ''          88
+'Y'    ''          89
+'Z'    ''          90
+'b'    '1'flat     91
+'H'    '3'natural  92
+'#'    ''sharp     93
+'~'    '1'smile    94
+'^'    '3'frown     95
+'l'    '1'el       96
+'a'    ''          97
+'b'    ''          98
+'c'    ''          99
+'d'    ''         100
+'e'    ''         101
+'f'    ''         102
+'g'    ''         103
+'h'    ''         104
+'i'    ''         105
+'j'    ''         106
+'k'    ''         107
+'l'    ''         108
+'m'    ''         109
+'n'    ''         110
+'o'    ''         111
+'p'    ''         112
+'q'    ''         113
+'r'    ''         114
+'s'    ''         115
+'t'    ''         116
+'u'    ''         117
+'v'    ''         118
+'w'    ''         119
+'x'    ''         120
+'y'    ''         121
+'z'    ''         122
+'i'    ''         123
+'j'    ''         124
+'<font face="SYMBOL">\195\</font>'    ''wp       125
+''     ''         126
+''     ''         127
+cmmi 0 127
+htfcss: cmmi font-style: italic;
+htfcss: cmmib font-style: italic; font-weight: bold;
+

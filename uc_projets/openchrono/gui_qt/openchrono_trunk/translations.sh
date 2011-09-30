@@ -1,0 +1,1 @@
+lupdate -verbose openchrono.pro

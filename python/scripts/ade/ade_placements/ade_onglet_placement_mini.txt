@@ -1,0 +1,9 @@
+false	false	S37: 12 sept. 18 sept.	Vendredi 16/09/2011	TD	01h30	09h30	Anglais	MP14	TD2	TEST MICHELE
+false	false	S37: 12 sept. 18 sept.	Vendredi 16/09/2011	TD	01h30	11h00	Anglais	MP13	TD1	TEST MICHELE
+false	false	S37: 12 sept. 18 sept.	Vendredi 16/09/2011	TP	02h00	13h30	Bureau	MP-I-10	TPB	TEST NATHALIE
+false	false	S37: 12 sept. 18 sept.	Mercredi 14/09/2011	TP	02h00	13h30	Bureau	MP-I-10	TPA	TEST NATHALIE
+false	false	S37: 12 sept. 18 sept.	Mercredi 14/09/2011	CM	01h30	08h00	Maths	MP-A	S1	TEST NATHALIE
+false	false	S37: 12 sept. 18 sept.	Vendredi 16/09/2011	CM	01h30	08h00	Maths	MP-A	S1	TEST NATHALIE
+false	false			EXAM	02h00		Anglais CTL		S1	TEST MICHELE
+false	false			CC	02h00		Anglais CTL		S1	TEST MICHELE
+false	false	S37: 12 sept. 18 sept.	Mercredi 14/09/2011	CM	01h30	08h00	Maths	MP-A	S1	TEST ERIC

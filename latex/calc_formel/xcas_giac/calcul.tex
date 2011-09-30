@@ -1,0 +1,43 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{verbatim}
+
+\makeatletter
+
+\newwrite\giac@file
+\newcounter{giac@count}
+
+\def\giac@begin{\stepcounter{giac@count}\immediate\write\giac@file{Sortie:=fopen("\jobname.giac.\thegiac@count.tex");}}
+\def\giac@end{\immediate\write\giac@file{fclose(Sortie);}\IfFileExists{\jobname.giac.\thegiac@count.tex}{\def\*{\cdot}\catcode`\"=9\input{\jobname.giac.\thegiac@count.tex}}{}}
+
+\def\giac@write#1{\catcode`\$=12\immediate\write\giac@file{#1}\immediate\write\giac@file{Resultat:=cat("$$",latex(ans()),"$$");}\immediate\write\giac@file{fprint(Sortie,Resultat);}}
+
+\def\giac@@write#1{\immediate\write\giac@file{#1}}
+
+\def\giac@processline{[giac]\ \the\verbatim@line\par%
+\giac@write{\the\verbatim@line}}
+
+\def\giac@@processline{[giac]\ \the\verbatim@line\par%
+\giac@@write{\the\verbatim@line}}
+
+\newenvironment{Giac}{\immediate\openout\giac@file=\jobname.giac\immediate\write\giac@file{maple_mode(0);}}{\immediate\closeout\giac@file}
+
+\newenvironment{giac}{\giac@begin\begingroup
+\def\verbatim@processline{\giac@processline}\@verbatim\verbatim@start}%
+{\endgroup\giac@end}
+
+\makeatother
+
+\begin{document}
+
+\begin{Giac}
+Un calcul d'int\'egrale :
+\begin{giac}
+int(exp(x)*cos(x),x);
+\end{giac}
+\end{Giac}
+
+\end{document}

@@ -1,0 +1,15 @@
+;; Object applet1/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "applet1/"
+  :tables (list 
+   (semanticdb-table "CMonApplet.java"
+    :major-mode 'java-mode
+    :tags '(("javax.swing.*" include nil nil [1 22]) ("java.awt.*" include nil nil [23 41]) ("CMonApplet" type (:typemodifiers ("public") :superclasses "JApplet" :members (("init" function (:typemodifiers ("public") :type "void") (reparse-symbol class_member_declaration) [89 177])) :type "class") nil [43 179]))
+    :file "CMonApplet.java"
+    :pointmax 180
+    )
+   )
+  :file "semantic.cache"
+  :semantic-tag-version "2.0beta3"
+  :semanticdb-version "2.0beta3"
+  )

@@ -1,0 +1,96 @@
+; ************************************************************
+; PROJECT:
+; AUTHOR:
+; ************************************************************
+
+; Micro + software running
+; ------------------------------------------------------------
+.MICRO "ATmega32"
+.TOOLCHAIN "GCC"
+.GCCPATH   "C:\WinAVR"
+.GCCMAKE   AUTO
+.TARGET    "freq.hex"
+.SOURCE    "freq.c"
+
+.TRACE              ; Activate micro trace
+
+; Following lines are optional; if not included
+; exactly these values are taken by default
+; ------------------------------------------------------------
+.POWER VDD=5 VSS=0  ; Power nodes
+.CLOCK 8meg         ; Micro clock
+.STORE 250m         ; Trace (micro+signals) storage time
+
+; Micro nodes: RESET, AREF, PA0-PA7, PB0-PB7, PC0-PC7, PD0-PD7, ACO, TIM1OVF
+; Define here the hardware around the micro
+; ------------------------------------------------------------
+
+;PD5 signal output
+;PD2 signal input (INT0 = external interrupt)
+
+;V[inst_name]  node VSS PULSE(v_initial v_final t_delay t_rise t_fall t_width t_period)
+;V1 PD2 VSS PULSE(0 5 0.0005 0.00001 0.00001 0.0005 0.020) ; 50 Hz
+;V1 PD2 VSS PULSE(0 5 0.0005 0.00001 0.00001 0.0005 0.030) ; 33 Hz
+
+; régime mini maxi
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.0044444) ; 13500 RPM
+
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.003)    ; 20000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.004)    ; 15000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.0042857); 14000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.0046154); 13000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.005)    ; 12000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.0054545); 11000 RPM
+V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.006)    ; 10000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.006667) ;  9000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.0075)   ;  8000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.00857)  ;  7000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.01)     ;  6000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.012)    ;  5000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.015)    ;  4000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.02)     ;  3000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.03)     ;  2000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.06)     ;  1000 RPM
+
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.06667)  ;   900 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.075)    ;   800 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.0857)   ;   700 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.1)      ;   600 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.12)     ;   500 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.15)     ;   400 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.2)      ;   300 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.3)      ;   200 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.6)      ;   100 RPM (too low)
+
+; précision régime
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.047837353) ; 1254.25 RPM = 20.9041666 Hz
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.047799243) ; 1255.25 RPM = 20.9208333 Hz
+
+D1 VDD PA0  ; x: Panel LEDs 1 - 8
+D2 VDD PA1
+D3 VDD PA2
+D4 VDD PA3
+D5 VDD PA4
+D6 VDD PA5
+D7 VDD PA6
+D8 VDD PA7
+
+;R0  PD5 PD2 100
+
+
+
+.PLOT V(PD2)
+
+X2 LCD(20 2 250K) PB5 PB6 PB7 PC7 PC6 PC5 PC4 PC3 PC2 PC1 PC0
+
+
+
+
+
+
+
+
+
+
+
+

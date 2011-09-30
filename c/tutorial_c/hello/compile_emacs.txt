@@ -1,0 +1,11 @@
+Pour compiler facilement depuis emacs
+
+Ajouter à la première ligne
+===========================
+
+// -*- compile-command: "g++ -g essai.cc" -*-
+
+
+Lancer la compilation
+=====================
+en tapant ...

@@ -1,0 +1,8 @@
+Sur Linux Mandrake ajouter le media JPackage (urpmi-addmedia)
+
+su
+urpmi gcj -y
+urpmi gcj
+urpmi java -y
+urpmi j2sdk -y
+urpmi jdk -y

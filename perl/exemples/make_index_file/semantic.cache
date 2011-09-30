@@ -1,0 +1,15 @@
+;; Object make_index/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "make_index/"
+  :tables (list 
+   (semanticdb-table "index.html"
+    :major-mode 'html-mode
+    :tags '(("index" section nil nil [88 123]) ("index" section (:members (("index" section nil nil [136 139]))) nil [123 128]))
+    :file "index.html"
+    :pointmax 199
+    )
+   )
+  :file "semantic.cache"
+  :semantic-tag-version "2.0beta3"
+  :semanticdb-version "2.0beta3"
+  )

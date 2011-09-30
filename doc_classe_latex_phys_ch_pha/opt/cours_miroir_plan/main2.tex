@@ -1,0 +1,657 @@
+\cours{Miroir plan}
+
+\vressort{1}
+
+\section*{Introduction}
+Un \emph{miroir} est une surface opaque polie ; contrairement à une surface
+opaque non polie, elle réfléchit la lumière au lieu de la diffuser.
+
+%On parle ici de miroirs \emph{plans} car la surface du miroir est plane.
+% autres types ?
+
+\vressort{1}
+
+
+\section{Expérience des deux bougies}
+
+\begin{multicols}{2}
+
+\vspace{1cm}
+\materiel{
+\item miroir semi-réflechissant (vitre)
+\item papier A3, règle graduée, stylo
+\item 2 bougies
+}
+\vspace{1cm}
+
+Sur une table, dressons une vitre de faible épaisseur en position
+rigoureusement verticale. De part et d'autre, en position symétrique
+par rapport au plan de la vitre, disposons deux bougies de même taille
+et allumons la bougie située du côté de l'observateur. La seconde
+bougie paraît allumée tout au moins tant qu'elle est observée au
+travers de la vitre.
+
+
+\end{multicols}
+
+\begin{multicols}{2}
+
+\begin{center}
+\includegraphics[width=3cm]{exp_2bougies_1.jpg.eps}
+%\caption{L'image de la bougie 1 et la bougie 2 se superposent}
+\end{center}
+
+L'image de la flamme donnée par la vitre se situe à l'endroit où se
+trouve la seconde bougie, c'est-à-dire derrière la vitre.\vspace{1cm}
+
+\end{multicols}
+
+\begin{multicols}{2}
+Il suffit de décaler légèrement l'une des bougies pour que la supercherie
+apparaisse.
+
+\begin{center}
+\includegraphics[width=3cm]{exp_2bougies_2.jpg.eps}
+%\caption{L'image de la bougie 1 et la bougie 2 ne se superposent plus}
+\end{center}
+
+\end{multicols}
+
+
+\emph{Conclusion :} $A'$ est le symétrique de $A$ par rapport au plan
+du miroir.
+
+
+
+
+$AB$ est l'objet (réel).
+
+
+$A'B'$ est une image virtuelle : on ne peut pas l'observer directement
+sur un écran.
+
+
+
+\vressort{1}
+
+\section{Tracés}
+
+\subsection{Comment tracer le rayon issu d'un point et se
+  réfléchissant  sur un miroir plan ?}
+
+
+Tracez un rayon lumineux issu de $A$ et se réfléchissant sur le
+miroir en utilisant les deux méthodes proposées.
+
+\newpage
+
+\subsubsection{Méthode 1 : report d'angle - $i = r$}
+
+\begin{itemize}
+
+\item Le rayon incident, le rayon réfléchi et la normale au miroir plan sont
+dans le même plan appelé plan d'incidence (ici le plan de la feuille). Ceci constitue la
+\emph{1\iere\ loi de Snell-Descartes sur la réflexion}.
+
+
+
+\item L'angle de réflexion est égal à l'angle d'incidence. $i =
+  r$. Ceci constitue la \emph{2\ieme\ loi de Snell-Descartes sur la
+    réflexion}.
+
+
+\end{itemize}
+
+
+
+% \newcommand{\miroirplgr}{
+% \begin{center}
+% \begin{pspicture}(-8,-10)(8,10)
+% %\psgrid[subgriddiv=1,griddots=10]
+
+% \psline[linewidth=0.05](0,10)(0,-10)
+
+% \multiput(0,0)(0,0.5){21}{\psline[linewidth=0.05](0,0)(0.5,-0.5)}
+% \multiput(0,0)(0,-0.5){21}{\psline[linewidth=0.05](0,0)(0.5,-0.5)}
+
+% \rput{0}(-5,-8){%
+% \psline(-0.125,-0.125)(0.125,0.125)
+% \psline(-0.125,0.125)(0.125,-0.125)
+% \rput{0}(0,-0.5){$A$}
+% }
+% \end{pspicture}
+% \end{center}
+% }
+
+\newcommand{\miroirpl}{
+\begin{center}
+\begin{pspicture}(-8,-5)(8,5)
+%\psgrid[subgriddiv=1,griddots=10]
+
+\psline[linewidth=0.05](0,5)(0,-5)
+
+\multiput(0,0)(0,0.5){11}{\psline[linewidth=0.05](0,0)(0.5,-0.5)}
+\multiput(0,0)(0,-0.5){11}{\psline[linewidth=0.05](0,0)(0.5,-0.5)}
+
+\rput{0}(0.25,5.25){$M$}
+
+\rput{0}(-5,-4){%
+\psline(-0.125,-0.125)(0.125,0.125)
+\psline(-0.125,0.125)(0.125,-0.125)
+\rput{0}(0,-0.5){$A$}
+}
+
+\end{pspicture}
+\end{center}
+}
+
+\vressort{1}
+
+\miroirpl
+
+\vressort{1}
+
+
+
+%\newpage
+
+
+
+\subsubsection{Méthode 2 : en utilisant le point image $A'$ - symétrie plane}
+
+
+On trace par symétrie par rapport au plan du miroir l'image $A'$ de
+l'objet $A$.
+
+
+Le rayon réfléchi est issu de $A'$.
+
+
+
+\vressort{1}
+
+\miroirpl
+
+\vressort{1}
+
+
+\emph{Remarque : } aucun rayon réel ne se coupe en $A'$ ; $A'$ est
+donc une image virtuelle.
+
+
+
+\newpage
+
+\subsection{Faisceau réfléchi par un miroir}
+
+Tracez un faisceau lumineux issu de $A$ et se réfléchissant sur le
+miroir plan.
+
+\vressort{1}
+
+\miroirpl
+
+\vressort{1}
+
+L'oeil ne verra $A'$ que s'il est contenu dans le faisceau réfléchi.
+
+
+
+%\newpage
+
+
+\subsection{Champ d'un miroir plan}
+
+Soit un observateur $O$ regardant un miroir plan $M$ de dimension
+finie.\\ % pour éviter que la figure du périscope déborde ici
+On cherche l'ensemble des points $A$ visible par l'observateur
+au travers le miroir.
+
+
+\vressort{1}
+
+%\vspace{10cm}
+
+\begin{center}
+\begin{pspicture}(-8,-5)(8,5)
+%\psgrid[subgriddiv=1,griddots=10]
+
+\psline[linewidth=0.05](0,3)(0,-3)
+
+\multiput(0,0)(0,0.5){7}{\psline[linewidth=0.05](0,0)(0.5,-0.5)}
+\multiput(0,0)(0,-0.5){7}{\psline[linewidth=0.05](0,0)(0.5,-0.5)}
+
+\rput{0}(0.25,3.25){$M$}
+
+\rput{0}(-6,+4){%
+\psline(-0.125,-0.125)(0.125,0.125)
+\psline(-0.125,0.125)(0.125,-0.125)
+\rput{0}(0,+0.5){$O$}
+}
+\end{pspicture}
+\end{center}
+
+\vressort{1}
+
+
+\newpage
+
+\section{Applications}
+\subsection{Périscope}
+
+Un périscope permet à un sous-marin d'observer à la surface de l'eau
+tout en étant immergé. 
+
+% attention, expacement important pour pouvoir faire la figure
+
+\vressort{3}
+
+%\vspace{0.5cm}
+
+\begin{center}
+\begin{pspicture}(-9,-5)(8,5) % à la place de (-8,-5)(8,5)
+%\psgrid[subgriddiv=1,griddots=10]
+
+\rput{0}(0,3){% miroir haut
+\rotatebox{45}{%
+\psline[linewidth=0.05](0,3)(0,-3)
+\multiput(0,0)(0,0.5){7}{\psline[linewidth=0.05](0,0)(0.5,-0.5)}
+\multiput(0,0)(0,-0.5){7}{\psline[linewidth=0.05](0,0)(0.5,-0.5)}
+}
+}
+\rput{0}(3.25,0.75){$M_1$}
+
+\rput{0}(0,-3){% miroir bas
+\rotatebox{-135}{%
+\psline[linewidth=0.05](0,3)(0,-3)
+\multiput(0,0)(0,0.5){7}{\psline[linewidth=0.05](0,0)(0.5,-0.5)}
+\multiput(0,0)(0,-0.5){7}{\psline[linewidth=0.05](0,0)(0.5,-0.5)}
+}
+}
+\rput{0}(3.25,-5.25){$M_2$}
+
+% objet AB
+\rput{0}(-8,3){%
+\optobjab
+}
+
+% oeil
+\rput{0}(8,-3){%
+\oeil
+}
+
+
+\end{pspicture}
+\end{center}
+
+
+\vressort{1}
+
+
+
+
+\subsection{Appareil photo «~réflex~»}
+
+% http://www.itisphoto.com/html/mag/technique/reflex.htm
+
+Certains appareils photos «~réflex~» disposent de deux miroirs plans
+parallèles (comme le périscope). Un miroir est fixe l'autre est mobile
+afin d'amener les rayons lumineux tantôt dans l'oeil de l'observateur
+tantôt sur la pellicule photographique.
+
+
+%\vspace{4cm}
+%\captionnoum{Appareil photo «~réflex~» }
+
+
+\begin{multicols}{2}
+\begin{center}
+\includegraphics[width=7.5cm]{reflex1.gif.eps}
+
+
+\includegraphics[width=7.5cm]{reflex2.gif.eps}
+\end{center}
+\end{multicols}
+
+Mais on utilise plutôt un prisme (dans ce cas ça n'est plus de
+réflexion sur un miroir dont il est question mais de réfraction par un
+prisme réfringent et réflexion totale à l'intérieur du prisme)
+
+
+%\vressort{1}
+
+\newpage
+
+\subsection{Miroirs orthogonaux}
+
+Soit deux miroirs faisant un angle de $90°$ entre eux.
+
+\begin{itemize}
+
+\item Faites l'image de l'objet $AB$ au travers le miroir 1 puis au travers
+le miroir 2.
+
+%Qu'observez vous lorsqu'un rayon lumineux issu de l'objet $AB$ se
+%réfléchit sur le miroir 1 puis sur le miroir 2 ?
+
+\item Faites le tracé de deux rayons lumineux provenant de $A$ et se
+réfléchissant sur les deux miroirs.
+
+\item Faites le tracé de deux rayons lumineux provenant de $B$ et se
+réfléchissant sur les deux miroirs.
+
+\item Conclusion.
+\end{itemize}
+
+
+
+\vspace{2cm} % réponse élève
+
+
+
+
+\vressort{1}
+
+\vspace{2cm}
+
+
+\begin{center}
+\begin{pspicture}(-8,-5)(8,5)
+%\psgrid[subgriddiv=1,griddots=10]
+
+\rput{0}(1.5,0){%
+\psline[linewidth=0.05](0,3)(0,-3)
+\multiput(0,0)(0,0.5){7}{\psline[linewidth=0.05](0,0)(0.5,-0.5)}
+\multiput(0,0)(0,-0.5){7}{\psline[linewidth=0.05](0,0)(0.5,-0.5)}
+}
+
+\rput{0}(-1.5,3){%
+\psline[linewidth=0.05](3,0)(-3,0)
+\multiput(0,0)(0.5,0){7}{\psline[linewidth=0.05](0,0)(-0.5,0.5)}
+\multiput(0,0)(-0.5,0){7}{\psline[linewidth=0.05](0,0)(-0.5,0.5)}
+}
+
+\rput{0}(-5.5,3.25){$M_2$}
+
+\rput{0}(1.75,-4){$M_1$}
+
+
+\psline(1.5,3.5)(2,3)
+
+
+\rput{0}(-1,-2){%
+\rotatebox{225}{%
+\psline{->}(0,0)(0,1)
+\rput{0}(0.25,-0.25){\rotatebox{-225}{$A$}}
+\rput{0}(0.25,1.25){\rotatebox{-225}{$B$}}
+}
+}
+
+
+\end{pspicture}
+\end{center}
+
+
+\vressort{1}
+
+% voir changemargin
+% 
+
+\begin{LARGE}
+
+\begin{changemargin}{3cm}{0cm}
+$AB$ \optsyst{M_1} $A'_1B'_1$
+
+$AB$ \optsyst{M_2} $A'_2B'_2$
+
+$AB$ \optsyst{M_1} $A'_1B'_1$ \optsyst{M_2} $A'_3B'_3$
+
+$AB$ \optsyst{M_2} $A'_2B'_2$ \optsyst{M_1} $A'_4B'_4$ = $A'_3B'_3$
+\end{changemargin}
+
+
+\end{LARGE}
+
+\vressort{1}
+
+\emph{Remarque : } après 2 réflexions le rayon réfléchi repart avec la
+même direction mais dans le sens opposé.
+
+
+\newpage
+
+\section{Relation de conjugaison et grandissement}
+
+\subsection{Conventions de signe}
+En optique géométrique, une mesure algébrique est une longueur
+affectée d'un signe, ce qui permet d'en orienter le sens sur un axe
+donné.
+
+Ainsi, alors que la longueur d'un segment est toujours positive, on
+peut utiliser une mesure algébrique de ce segment, qui sera égale à sa
+longueur si on la prend dans un sens, et à l'opposé de sa longueur si
+on la prend dans l'autre.
+
+
+On note $\ma{AB}$ la mesure algébrique du segment [AB].
+
+
+Conventionnellement, on choisit le sens de propagation de la lumière
+comme sens d'orientation positif.
+
+
+\vressort{1}
+
+
+\begin{center}
+\begin{pspicture}(-8,-3)(8,3)
+%\psgrid[subgriddiv=1,griddots=10]
+
+% miroir
+\psline[linewidth=0.05](0,3)(0,-3)
+\multiput(0,0)(0,0.5){7}{\psline[linewidth=0.05](0,0)(0.5,-0.5)}
+\multiput(0,0)(0,-0.5){7}{\psline[linewidth=0.05](0,0)(0.5,-0.5)}
+
+\rput{0}(0.25,3.25){$M$}
+
+% axe optique
+\psline{->}(-8,0)(8,0)
+
+\rput{0}(-0.25,-0.25){$O$}
+
+%AB
+\rput{0}(-6,0){%
+\optobjab
+}
+
+
+
+\rput{0}(-8,2.5){% convention d'orientation
+\optconvorient
+}
+
+\end{pspicture}
+\end{center}
+
+
+\remarque{ici, $\ma{OA} < 0$ et $\ma{AO} > 0$}
+
+\medskip
+
+\noindent Tracez un faisceau provenant de $B$ et se réfléchissant sur le miroir
+plan.
+
+
+\noindent Trouvez la position de $A$. Comment s'appelle cette propriété du
+miroir plan qui vous a permis de trouver la position de $A$ ?
+C'est \trou{l'aplanétisme} : un objet perpendiculaire
+à l'axe du miroir plan a une image elle-même perpendiculaire à l'axe
+miroir plan.
+
+
+
+
+
+\vressort{1}
+
+
+\subsection{Relation de conjugaison}
+
+Une \emph{relation de conjugaison} est une relation qui donne la
+position de l'image en fonction de la position de l'objet et des
+caractéristiques du système optique.
+
+
+Une relation de conjugaison est toujours écrite de manière
+\emph{algébrique}, c'est à dire avec des longueurs qui peuvent être
+positives ou négatives.
+
+\emph{Exemple : }
+
+$OA = 10~cm$ mais $\ma{OA} = -10~cm$
+
+ici
+\begin{itemize}
+\item $\ma{OA} < 0$ et $\ma{OA'} > 0$
+\item $\ma{AB} > 0$ et $\ma{A'B}' > 0$
+\end{itemize}
+
+
+$AO = OA'$ devient, avec la convention de signe $\ma{AO} = \ma{OA'}$
+soit $-\ma{OA} = \ma{OA'}$
+
+
+
+On obtient alors la relation de conjugaison pour un miroir plan
+
+\[\ma{OA'} + \ma{OA} = 0\]
+
+
+\vressort{1}
+
+
+\subsection{Grandissement}
+
+Le grandissement $\gamma$ permet de déterminer la taille et le sens de
+l'image.
+
+
+\[\gamma = \frac{\ma{A'B'}}{\ma{AB}}\]
+
+
+Le grandissement $\gamma$ peut être positif ou négatif,
+
+
+
+% schéma
+
+
+
+
+
+Pour un miroir plan, le grandissement $\gamma$ vaut : 
+
+
+\[\gamma = 1\]
+
+
+car $\ma{AB} = \ma{A'B'} = \ma{OO_2}$
+
+
+
+% \newpage
+
+
+
+% \subsection{Lois de Snell-Descartes}
+
+% %\begin{multicols}{2}
+
+
+% \begin{center}
+% \begin{pspicture}(-3,-1)(3,2)
+% %\psgrid[subgriddiv=1,griddots=10]
+% \psline(-3,0)(3,0)
+% \multiput(0,0)(0.25,0){25}{\psline(-3,0)(-3.25,-0.25)}
+
+% \psline[linestyle=dashed](0,2)(0,-1)
+
+% \psline(-2,2)(0,0) \psline{->}(-2,2)(-1,1)
+% \psline(2,2)(0,0) \psline{->}(0,0)(1,1)
+
+% \pswedge(0,0){0.75}{90}{135}
+% \rput{0}(-0.5,1){$i$}
+
+% \pswedge(0,0){0.75}{45}{90}
+% \rput{0}(0.5,1){$i'$}
+
+
+% \end{pspicture}
+% \caption{Réflexion d'un rayon lumineux sur un miroir plan}
+% \end{center}
+
+
+% \subsubsection{1\iere\ loi de Snell-Descartes sur la réflexion}
+
+% Le rayon réfléchi est dans le plan d'incidence.
+
+
+% \subsubsection{2\ieme\ loi de Snell-Descartes sur la réflexion}
+
+% L'angle de réflexion est égal à l'angle d'incidence.
+
+% \[
+% i = i'
+% \]
+
+% %\end{multicols}
+
+
+
+% \subsection{Formation de l'image}
+
+% % \begin{center}
+% % \begin{pspicture}(-3,-2)(3,2)
+% % \psgrid[subgriddiv=1,griddots=10]
+% % \end{pspicture}
+% % \caption{Formation de l'image $A'$ de l'objet $A$ au travers un
+% %   miroir plan}
+% % \end{center}
+
+% $A'$ est l'image de l'objet $A$ au travers le miroir plan.
+
+
+% Tracez 3 rayons lumineux issus de $A$ et se réfléchissant sur le miroir.
+
+
+% $A'$ est le symétrique de $A$ par rapport au plan du miroir.
+
+
+% L'oeil ne verra $A'$ que s'il est contenu dans le faisceau réfléchi.
+
+% \newpage
+
+% \vressort{3}
+
+% \begin{center}
+% \begin{pspicture}(-8,-12)(8,12)
+% %\psgrid[subgriddiv=1,griddots=10]
+
+% \psline[linewidth=0.05](0,12)(0,-12)
+
+% \multiput(0,0)(0,1){13}{\psline[linewidth=0.05](0,0)(1,-1)}
+% \multiput(0,0)(0,-1){12}{\psline[linewidth=0.05](0,0)(1,-1)}
+
+% \rput{0}(-5,-9){%
+% \psline(-0.125,-0.125)(0.125,0.125)
+% \psline(-0.125,0.125)(0.125,-0.125)
+% \rput{0}(0,-0.5){$A$}
+% }
+
+
+% \end{pspicture}
+% \caption{Formation de l'image $A'$ de l'objet $A$ au travers un
+%   miroir plan}
+% \end{center}
+
+% \vressort{3}

@@ -1,0 +1,322 @@
+% Fichier de style de la 
+% Version PAPIER (basé sur book)
+% ==============================
+
+
+% Permet d'annuler l'effet des commandes
+% de Beamer (Présentation en PDF)
+
+% Permet d'isoler les packages incompatibles avec Beamer
+% (ou sans objet)
+
+
+
+
+% *-----------------------------------*
+% * ---- Numérotation personnelle ----*
+% *-----------------------------------*
+% \usepackage{titlesec}
+% \titlelabel{\thetitle.~} % ajoute un point et une espace insécable après un numéro de titre
+% \renewcommand{\thesection}{\Roman{section}}
+% \renewcommand{\thesubsection}{\Alph{subsection}}
+% \renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+% \renewcommand{\theparagraph}{\alph{paragraph}}
+% \setcounter{secnumdepth}{4}
+% \titleformat{\paragraph}%
+%     {\normalfont \normalsize \itshape}%
+%     {\theparagraph}{1em}{}
+%   \titlespacing*{\paragraph}{0pt}{1ex plus 0.2ex}{0.5ex plus .2ex}
+
+
+
+%\newcounter{pagelocal}
+ % numérotation locale (sur le papier mais mais
+ % dans le fichier ps ou pdf)
+ % permet d'avoir les liens avec hyperref dans
+ % le sommaire
+% http://www.grappa.univ-lille3.fr/FAQ-LaTeX/29.59.html
+
+
+
+
+
+\usepackage{titlesec}
+
+% \newcommand{\classe}[2]{%
+% \newpage
+% \addcontentsline{toc}{part}{{\LARGE #2}}
+% \razpage
+% \setcounter{part}{0}
+% \thispagestyle{empty}
+% \begin{Huge}
+% \vspace*{\stretch{3}}
+% \begin{framed}
+% \begin{center}
+% \textbf{#1}
+% \end{center}
+% \end{framed}
+% \vspace*{\stretch{3}}
+% \end{Huge}
+% \newpage
+% \null
+% \thispagestyle{empty}
+% }
+
+
+\newcommand{\classe}[2][\DefaultOpt]{%
+\def\DefaultOpt{#2}%
+\newpage
+\addcontentsline{toc}{part}{{\LARGE #1}}
+\razpage
+\setcounter{part}{0}
+\thispagestyle{empty}
+\begin{Huge}
+\vspace*{\stretch{3}}
+\begin{framed}
+\begin{center}
+\textbf{#2}
+\end{center}
+\end{framed}
+\vspace*{\stretch{3}}
+\end{Huge}
+\newpage
+\null
+\thispagestyle{empty}
+}
+
+
+
+\titleformat{\part}[display]%
+    {\thispagestyle{empty}\razpage\normalfont \huge \bfseries \filcenter}%
+    {}{0pt}{\Huge}
+    %{\partname \space \thepart}{0pt}{\Huge}
+
+% \titleclass{\chapter}{page}
+\titleformat{\chapter}[display]{%
+    \razpage% mettre à 0 le compteur de page
+%    \setcounter{figure}{0}% mettre à 0 le compteur de figure
+%    \setcounter{table}{0}% mettre à 0 le compteur de table
+    \normalfont \huge \bfseries \filcenter
+  }{}{20pt}{\Huge}
+\titlelabel{\thetitle.~} % ajoute un point et une espace insécable après un numéro de titre
+
+%\titlespacing{\chapter}{0pt}{50pt}{40pt}
+\titlespacing{\chapter}{0pt}{-40pt}{20pt}
+
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\Alph{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+\renewcommand{\theparagraph}{\alph{paragraph}}
+\setcounter{secnumdepth}{4}
+\titleformat{\paragraph}%
+    {\normalfont \normalsize \itshape}%
+    {\theparagraph}{1em}{}
+  \titlespacing*{\paragraph}{0pt}{1ex plus 0.2ex}{0.5ex plus .2ex}
+
+
+\newcommand{\chapitre}[1]{%
+% attention \chapitre est un \part pas un \chapter !!!
+ \part{#1}
+% \setcounter{chapter}{0}
+}
+
+
+%\newcommand{\cours}[1]{%
+% \chapter{#1} 
+%}
+
+\newcommand{\cours}[2][\DefaultOpt]{%
+  \def\DefaultOpt{#2}%
+  \chapter[#1]{#2}
+}
+
+
+% \newcommand{\td}[1]{%
+%  \chapter{TD : #1}
+% }
+
+\newcommand{\td}[2][\DefaultOpt]{%
+  \def\DefaultOpt{#2}%
+  \chapter[TD : #1]{TD : #2}
+}
+
+% \newcommand{\tp}[1]{%
+%  \chapter{TP : #1}
+% }
+
+\newcommand{\tp}[2][\DefaultOpt]{%
+  \def\DefaultOpt{#2}%
+  \chapter[TP : #1]{TP : #2}
+}
+
+
+
+
+
+
+\newcommand*\Section{\@ifstar{\starSection}{\nonstarSection}}
+\newcommand*{\nonstarSection}[1]{%
+ \section{#1}
+}
+\newcommand*{\starSection}[1]{%  version étoilée de Section (pas de numérotation)
+  \section*{#1}%
+}
+
+
+\newcommand*\Subsection{\@ifstar{\starSubsection}{\nonstarSubsection}}
+\newcommand*{\nonstarSubsection}[1]{% version non étoilée de Subsection (avec numérotation)
+     \subsection{#1}%
+}
+\newcommand*{\starSubsection}[1]{%  version étoilée de Subection (pas de numérotation)
+  \subsection*{#1}%
+}
+
+
+\newcommand*\Subsubsection{\@ifstar{\starSubsection}{\nonstarSubsection}}
+
+\newcommand*{\nonstarSubsubsection}[1]{%
+  \subsubsection{#1}%
+}
+
+\newcommand*{\starSubsubsection}[1]{%
+  \subsubsection*{#1}%
+}
+
+
+% *----------------*
+% *---- Marges ----*
+% *----------------*
+
+% Réglage manuel
+%%%%%%%%%%%%%%%%
+
+%\setlength{\voffset}{-1in}              % annulation décalage vertical (default=-1in) % fait planter \layout
+%\setlength{\hoffset}{-1in}              % annulation décalage horizontal (default=-1in) % fait planter \layout
+%\setlength{\textwidth}{17.5cm}          % largeur de la zone de texte (default=16.5cm)
+%\setlength{\textheight}{26cm}           % hauteur de la zone de texte (default=24cm)
+%\setlength{\marginparwidth}{40pt}       % largeur marge (default=40pt)
+%\setlength{\topmargin}{1cm}           % hauteur de la marge supérieure (default=2cm)
+%\setlength{\evensidemargin}{2cm}      % marge de gauche pour les pages paires (default=2cm)
+%\setlength{\oddsidemargin}{2cm}       % marge de gauche pour les pages impaires (default=2.5cm)
+%%\setlength{\parskip}{\smallskipamount}  % espacement entre les paragraphes (default=\smallskipamount)
+%\setlength{\skip\footins}{0.6cm}        % espacement entre le corps de texte et les notes de bas de page (default=0.6cm)
+
+
+% Réglage automatique via le package geometry
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{geometry}
+%\geometry{ hmargin=2.5cm, vmargin=1.6cm }
+\geometry{hmargin=2.5cm, vmargin=1.5cm} % default
+
+% Changement local des marges
+%\usepackage{changemargin}
+\newenvironment{changemargin}[2]{\begin{list}{}{%
+\setlength{\topsep}{0pt}%
+\setlength{\leftmargin}{0pt}%
+\setlength{\rightmargin}{0pt}%
+\setlength{\listparindent}{\parindent}%
+\setlength{\itemindent}{\parindent}%
+\setlength{\parsep}{0pt plus 1pt}%
+\addtolength{\leftmargin}{#1}%
+\addtolength{\rightmargin}{#2}%
+}\item }{\end{list}}
+
+
+% Tester les marges
+\usepackage[francais]{layout}
+%\usepackage{fullpage}
+
+
+
+% *----------------------*
+% *---- Numéros page ----*
+% *----------------------*
+
+%\pagenumbering{empty} % roman, Roman, arabic, alph, Alph
+%\pagestyle{empty} % empty, plain, headings, myheadings
+
+
+
+% *-----------------*
+% *---- En-tête ----*
+% *-----------------*
+\usepackage{fancyhdr}
+% à placer après \begin{document}....
+\pagestyle{fancy}       
+%\lhead{haut de page gauche} % haut de page gauche
+%\chead{haut de page centre} % haut de page centre
+%\rhead{haut de page droite} % haut de page droite
+%\lfoot{pied de page gauche} % pied de page gauche
+%\cfoot{pied de page centré} % pied de page centré
+%\rfoot{pied de page droit}  % pied de page droit
+%\renewcommand{\headrulewidth}{0.4pt} % Trace un trait de séparation de largeur 0,4 point. Mettre 0pt pour supprimer le trait.
+%\renewcommand{\footrulewidth}{0.4pt}
+
+
+\renewcommand*{\partmark}[1]{\markboth{#1}{}}
+\renewcommand*{\chaptermark}[1]{}
+\renewcommand*{\sectionmark}[1]{}
+\fancyhf{} % effacer header et footer
+\rhead{\itshape S. \textsc{CELLES}}
+\lhead{\itshape Sciences Physiques}
+\chead{\itshape \leftmark}
+%\cfoot{}
+%\cfoot{\thepagelocal}
+%\cfoot{\thepage} % la vraie page
+\cfoot{\getnewpagevalue} % la page remise à 1 en début de partie, chapitre, cours, tp, td...
+\rfoot{\null}
+\lfoot{\null}
+
+\renewcommand{\headrulewidth}{0.4pt} % Trace un trait de séparation de largeur 0,4 point. Mettre 0pt pour supprimer le trait.
+%\renewcommand{\footrulewidth}{0.4pt} % Trace un trait de séparation
+%de largeur 0,4 point. Mettre 0pt pour supprimer le trait.
+
+
+
+\fancypagestyle{plain}{%
+\fancyhf{} % effacer header et footer
+\cfoot{\getnewpagevalue}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+}
+
+
+% Portrait / paysage
+% http://www.grappa.univ-lille3.fr/FAQ-LaTeX/6.8.html
+% \begin{landscape}
+%   Un petit tour à la campagne,~\ldots
+% \end{landscape}
+\usepackage{lscape}
+
+
+
+% Redéfinition mise en forme (version papier)
+
+\renewcommand{\emph}[1]{\textbf{\textit{#1}}}
+
+
+
+% enlevé de s-celles.sty
+\usepackage{picins} % Figure insérée dans le texte
+% cf LaTeX par la pratique p248
+%\parpic{...}
+%\usepackage{picinpar}
+
+
+
+
+
+% Anti-Beamer
+% ===========
+% Cette partie annule les fonctions de Beamer
+\renewcommand{\frame}[1]{#1} %% TO FIX !!! renew !
+\newcommand{\pause}{}
+\newcommand{\frametitle}{}
+\newcommand{\insertsectionhead}{}
+\newcommand{\insertsubsectionhead}{}
+
+% affiche le texte passé en paramètre
+\newcommand{\papier}[1]{#1} % version papier
+\newcommand{\diaporama}[1]{} % version diaporama
+
+\newenvironment{block}{}{}

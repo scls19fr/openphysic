@@ -1,0 +1,23 @@
+;; Object hello/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "hello/"
+  :tables (list 
+   (semanticdb-table "main.java"
+    :major-mode 'java-mode
+    :tags '(("java.awt.*" include nil nil [82 100]) ("java.awt.event.*" include nil nil [101 125]) ("javax.swing.*" include nil nil [126 147]) ("FenetreSimpleExec" type (:members (("main" function (:typemodifiers ("public" "static") :arguments (("args" variable (:type "String[]") (reparse-symbol formal_parameters) [215 228])) :type "void") (reparse-symbol class_member_declaration) [191 407])) :type "class") nil [151 409]) ("FenetreSimple" type (:superclasses "JFrame" :members (("FenetreSimple" function (:constructor-flag t :typemodifiers ("public")) (reparse-symbol class_member_declaration) [453 892])) :type "class") nil [412 894]) ("Contenu" type (:superclasses "JPanel" :members (("maFenetre" variable (:typemodifiers ("private") :type "FenetreSimple") (reparse-symbol class_member_declaration) [932 971]) ("Contenu" function (:constructor-flag t :typemodifiers ("public") :arguments (("maFenetre" variable (:type "FenetreSimple") (reparse-symbol formal_parameters) [991 1014]))) (reparse-symbol class_member_declaration) [976 1265]) ("paintComponent" function (:typemodifiers ("public") :arguments (("g" variable (:type "Graphics") (reparse-symbol formal_parameters) [1298 1308])) :type "void") (reparse-symbol class_member_declaration) [1271 1383]) ("MyListener" type (:interfaces ("ActionListener") :members (("actionPerformed" function (:typemodifiers ("public") :arguments (("event" variable (:type "ActionEvent") (reparse-symbol formal_parameters) [1467 1484])) :type "void") (reparse-symbol class_member_declaration) [1439 1517])) :type "class") (reparse-symbol class_member_declaration) [1389 1523])) :type "class") nil [897 1525]))
+    :file "main.java"
+    :pointmax 1526
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "Makefile"
+    :major-mode 'makefile-mode
+    :tags '(("all" function nil nil [1 37]))
+    :file "Makefile"
+    :pointmax 37
+    :unmatched-syntax 'nil
+    )
+   )
+  :file "semantic.cache"
+  :semantic-tag-version "2.0beta3"
+  :semanticdb-version "2.0beta3"
+  )

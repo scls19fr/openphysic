@@ -1,0 +1,394 @@
+\cours{Circuit électrique\\Courant et tension électrique}
+
+%\montrefalse % affiche les pointillés
+%\montretrue % affiche la solution
+
+\section{Circuit électrique}
+
+\subsection{Comment réaliser un circuit électrique ?}
+
+\subsubsection{Matériels}
+
+Pour réaliser un circuit électrique il faut au moins :
+\begin{enumerate}
+  \item \trouligne{un générateur G}
+  \item \trouligne{un récepteur D}
+  \item \trouligne{des fils de liaison}
+  \item \trouligne{éventuellement un interrupteur K}
+\end{enumerate}
+
+
+%TO DO FIG
+\fig{15cm}{4cm}{}
+
+
+
+%\newcommand{\papiermilli}[3]
+
+%\medskip
+
+% \begin{pspicture}(-4,-4)(4,4)
+%   \psmilli
+% %  \psmilliblack
+% %  \psmillicolor
+% \end{pspicture}
+
+
+% Considérons un lecteur de MP3 portable.
+% 
+% 
+% \begin{enumerate}
+% 
+% \item Quelle partie constitue le récepteur ?
+% 
+% \trouligne{le casque}
+% 
+% 
+% \item Quelle partie constitue le générateur ?
+% 
+% \trouligne{le baladeur}
+% 
+% \item Comment sont reliés le récepteur et le générateur ?
+% 
+% \trouligne{par un câble de liaison}
+% 
+% \end{enumerate}
+
+
+%\pagebreak[4]
+
+
+\subsubsection{Rôle des éléments du circuit}
+Le générateur est \trou{ la source d'énergie électrique}.
+
+Le récepteur \trou{ convertit } l'énergie électrique en :
+
+\begin{itemize}
+  \item \trouligne{énergie calorifique (radiateurs, ampoules)}
+  \item \trouligne{énergie électromagnétique (moteurs)}
+  \item \trouligne{énergie chimique (cuves à électrolyse)}
+  \item \trouligne{énergie lumineuse (diodes électroluminescentes)}
+\end{itemize}
+
+Les fils de liaison permettent \trouligne{ le transport de l'énergie électrique} \\ \trouligne{du générateur vers le récepteur}
+
+
+\subsection{Vocabulaire}
+
+\begin{itemize}
+\item Un dipôle \trouligne{ est un dispositif comportant deux bornes.}
+\item Un n\oe ud \trouligne{ est une connexion qui réunit} \trouligne{ plus de deux dipôles.}
+\item Un circuit est constitué de plusieurs \trou{branches}.
+\end{itemize}
+
+%\pagebreak[4]
+
+\section{Le courant électrique}
+\subsection{Nature du courant électrique}
+Dans un conducteur électrique, le courant électrique est constitué \\ par un déplacement \trou{ d'électrons.}
+
+La mise en mouvement est réalisée par le \trou{ générateur.}
+
+Dans les électrolytes, les porteurs de charges sont \trou{ des ions.}
+
+\fig{15cm}{4cm}{}
+
+\important{Le sens conventionnel du courant est le sens \trou{ contraire} de celui des électrons, donc de la borne \trou{ + } à la borne { - } à l'extérieur du générateur.}
+
+\begin{figure}[H]
+\includegraphics{ions.eps}
+\caption{Double migration des ions}
+Indiquez sur le schéma ci-dessus le sens de déplacement des électrons, du courant et des ions.
+\end{figure}
+
+\begin{center}
+\begin{figure}[H]
+\includegraphics{courant.eps}
+\caption{Le courant électrique dans une section de circuit}
+Ajoutez sur ce schéma les électrons responsables du courant ainsi que leur sens de déplacement.
+\end{figure}
+\end{center}
+
+\important{L'intensité du courant électrique est la quantité d'électricité (charge électrique) qui traverse une section du circuit pendant une unité de temps.
+
+%\[I=\frac{Q}{t}\]
+\trouformule{I=\frac{Q}{t}}
+
+\begin{center}
+\begin{itemize}
+\item $Q$ : \trouligne{quantité d'électricité (charge) (en coulomb $C$)}
+\item $t$ : \trouligne{durée (en seconde $s$)}
+\item $I$ : \trouligne{intensité du courant électrique (en ampère $A$)}
+\end{itemize}
+\end{center}
+
+
+La charge d'un électron est de \trou{$1,6.10^{-19}~C$}.
+}
+
+
+\subsection{Mesure}
+L'intensité d'un courant se mesure à l'aide
+\begin{itemize}
+\item \trouligne{d'un ampèremètre}
+\item  ou \trouligne{d'un multimètre en fonction ampèremètre.}
+\end{itemize}
+
+Pour mesurer l'intensité du courant traversant le circuit il faut brancher cet appareil
+
+\trouligne{ en série}
+
+Afin de ne pas perturber le montage, la résistance interne de cet appareil \trouligne{ est quasi nulle.}
+
+On utilise les bornes \trou{ A } et \trou{ COM}.
+
+Le courant électrique doit rentrer par la borne \trouligne{A.}
+
+Il doit sortir par la borne \trouligne{COM.}
+
+On doit toujours placer le sélecteur de l'appareil sur le calibre \trouligne{ le plus élevé.}
+
+Ensuite, on \trou{ diminue } le calibre sans que l'intensité du courant mesurée ne dépasse la valeur de ce calibre.
+
+
+\fig{15cm}{4cm}{Exemple de montage avec mesure de courant}
+% Bien insister sur les bornes
+
+Lorsqu'on dessine le montage on ne doit pas oublier de préciser les bornes des appareils de mesure.
+
+
+\section{La tension électrique}
+\subsection{Introduction}
+La tension électrique est également appelée différence de \trou{ potentiel}.
+
+Un potentiel électrique s'exprime \trou{ en volt ($V$)}
+
+\fig{15cm}{4cm}
+% schéma avec un géné 2 dipoles et les point A B et C
+% on fleche les tensions Uab et Ubc
+
+
+\medskip
+
+\indent
+La tension $U_{AB}$ est la différence de potentiel entre les points $A$ et $B$.
+
+%\[U_{AB} = V_A - V_B\]
+\trouformule{U_{AB} = V_A - V_B}
+
+On représente la tension $U_{AB}$ par une flèche de \trou{ B } vers \trou{ A}.
+
+\important{ATTENTION ! Le sens de la flèche représentant la tension $U_{AB}$ est \trou{ opposé } au sens de la flèche représentant le vecteur $\V{AB}$
+
+\vspace{3cm}
+}
+
+On remarque que comme $U_{BA} = V_B - V_A$ et que $U_{AB} = V_A - V_B$ on a :
+
+%\[U_{BA} = - U_{AB}\]
+\trouformule{U_{BA} = - U_{AB}}
+
+
+
+\subsection{Mesure}
+La tension électrique se mesure à l'aide
+\begin{itemize}
+\item \trouligne{d'un voltmètre}
+\item  ou \trouligne{d'un multimètre en fonction voltmètre.}
+\end{itemize}
+
+
+Pour mesurer une tension électrique entre 2 points d'un circuit il faut brancher cet appareil
+
+\trouligne{en dérivation.}
+
+Afin de ne pas perturber le montage, la résistance interne de cet appareil \trouligne{ est quasi infini.}
+
+On utilise les bornes \trou{ V } et \trou{ COM}.
+
+Afin de mesurer une tension positive on branche :
+
+\begin{itemize}
+\item la borne \trou{$V$} sur le potentiel le plus élevé.
+\item la borne \trou{$COM$} sur le potentiel le plus faible.
+\end{itemize}
+
+On doit toujours placer le sélecteur de l'appareil sur le calibre \trouligne{ le plus élevé.}
+
+Ensuite, on \trou{ diminue } le calibre sans que la tension mesurée ne dépasse la valeur de ce calibre.
+
+\pagebreak[5]
+
+\section{Montages en série et en dérivation}
+\subsection{Montage en série}
+
+\subsubsection{Mesure des courants dans le circuit}
+Dessinez dans le cadre ci-dessous un montage comportant un générateur de tension continu de tension à vide $E = 10~V$, 2 résistances $R_1$ et $R_2$ associées en série et trois ampèremètres.
+
+Un ampèremètre doit mesurer le courant $I_G$ qui sort du générateur.
+
+Un autre ampèremètre doit mesurer le courant $I_1$ qui sort de la résistance $R_1$.
+
+Un autre ampèremètre doit mesurer le courant $I_2$ qui sort de la résistance $R_2$.
+
+\fig{15cm}{4cm}
+
+\medskip
+
+\important{
+
+Quelle relation existe-t'il entre $I_G$, $I_1$, et $I_2$ ?
+
+
+\trouformule{I_G = I_1 = I_2}
+
+\trouligne{Dans un circuit série, le courant}
+\trouligne{ est le même en tout point.}
+}
+
+\subsubsection{Mesure des tensions aux bornes des dipôles du circuit}
+Dessinez dans le cadre ci-dessous un montage comportant un générateur de tension continu de tension à vide $E = 10~V$, 2 résistances $R_1$ et $R_2$ associées en série et trois voltmètres.
+
+Un voltmètre doit mesurer la tension $U_G$ aux bornes du générateur.
+
+Un voltmètre doit mesurer la tension $U_1$ aux bornes de la résistance $R_1$.
+
+Un voltmètre doit mesurer la tension $U_2$ aux bornes de la résistance $R_2$.
+
+
+
+\fig{15cm}{4cm}
+
+
+\important{
+
+Quelle relation existe-t'il entre $U_G$, $U_1$, et $U_2$ ?
+
+\trouformule{U_G = U_1 + U_2}
+
+\trouligne{La tension aux bornes d'une série de dipôles}
+\trouligne{ est égale à la somme des tensions}
+\trouligne{ aux bornes de chacun de ces dipôles}
+}
+
+\pagebreak[4]
+
+\subsection{Montage en dérivation}
+\subsubsection{Mesure des courants dans le circuit}
+Dessinez dans le cadre ci-dessous un montage comportant un générateur de tension continu de tension à vide $E = 10~V$, 2 résistances $R_1$ et $R_2$ associées en parallèle et trois ampèremètres.
+
+Un ampèremètre doit mesurer le courant $I_G$ qui sort du générateur.
+
+Un autre ampèremètre doit mesurer le courant $I_1$ qui sort de la résistance $R_1$.
+
+Un autre ampèremètre doit mesurer le courant $I_2$ qui sort de la résistance $R_2$.
+
+\fig{15cm}{4cm}
+
+\medskip
+
+\important{
+
+Quelle relation existe-t'il entre $I_G$, $I_1$, et $I_2$ ?
+
+\trouformule{I_G = I_1 + I_2}
+
+\trouligne{\`A un n\oe ud, la somme des courants qui arrivent}
+\trouligne{est la même que la somme des courants qui en sortent.}
+}
+
+\subsubsection{Mesure des tensions aux bornes des dipôles du circuit}
+Dessinez dans le cadre ci-dessous un montage comportant un générateur de tension continu de tension à vide $E = 10~V$, 2 résistances $R_1$ et $R_2$ associées en dérivation et trois voltmètres.
+
+Un voltmètre doit mesurer la tension $U_G$ aux bornes du générateur.
+
+Un voltmètre doit mesurer la tension $U_1$ aux bornes de la résistance $R_1$.
+
+Un voltmètre doit mesurer la tension $U_2$ aux bornes de la résistance $R_2$.
+
+
+
+\fig{15cm}{4cm}
+
+\medskip
+
+\important{
+
+Quelle relation existe-t'il entre $U_G$, $U_1$, et $U_2$ ?
+
+\trouformule{U_G = U_1 = U_2}
+
+\trouligne{La tension aux bornes de dipôles associés en dérivation}
+\trouligne{ est toujours la même.}
+}
+
+\pagebreak[5]
+
+\section{Lois relatives aux réseaux électriques}
+\subsection{Loi des noeuds}
+\fig{15cm}{4cm}
+
+\medskip
+
+\important{
+
+%\[I_1 + I_2 + I_3 = I_4 + I_5 + I_6\]
+\trouformule{I_1 + I_2 + I_3 = I_4 + I_5 + I_6}
+
+La somme des intensité des courants qui arrivent à un n\oe ud est égale à la somme des intensités des courants qui en sortent.
+}
+
+\subsection{Additivité des tensions}
+\fig{15cm}{4cm}
+
+\medskip
+
+\important{
+\indent
+\trouligne{$U_{AC} = U_{AB} + U_{BC}$}
+
+\trouligne{L'additivité des tensions est en Physique}
+
+\trouligne{l'analogue de la relation de Chasles}
+
+\trouligne{en Mathématiques pour les vecteurs}
+
+\trouligne{$\V{AC} = \V{AB} + \V{BC}$}
+}
+
+\subsection{Loi des mailles}
+%\fig{15cm}{4cm}
+\begin{itemize}
+\item On flèche les courants dans le circuit ainsi que les tensions
+\item \trouligne{On choisit un point de départ pour la maille}
+\item \trouligne{On choisit une maille et un sens de parcours}
+\item On tourne le long de la maille en appliquant la règle suivante :
+\begin{itemize}
+  \item Si la flèche de la tension est dans le même sens que le sens de parcours de la maille on met un signe +
+  \item Si la flèche de la tension est dans le sens opposé au sens de parcours de la maille on met un signe -
+\end{itemize}
+\item Une fois que l'on a fait le tour de la maille on est revenu au point de départ donc la différence de potentiel est nulle.
+\end{itemize}
+
+\pagebreak[4]
+
+\emph{Exemple 1 :}
+
+\fig{15cm}{8cm}
+
+
+\emph{Exemple 2 :}
+
+\fig{15cm}{8cm}
+
+
+%\newpage
+%\pagebreak[n] % n 0-4 (4 fort !)
+
+
+%Hello
+
+\subsection{Loi de Pouillet}
+
+\fig{15cm}{8cm}
+

@@ -1,0 +1,32 @@
+Bilan pour ADE - v 0.0.1 alpha
+
+Copyright (C) 2011  "Sébastien CELLES" <sebastien.celles@univ-poitiers.fr>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>
+
+
+
+   But : ce script permet de générer des bilans à partir
+   des données présentes dans l'onglet "Placement" d'ADE
+    * Bilan matières
+    * Bilan enseignants
+
+	Remarque : modifier le fichier ade_entete.txt afin d'avoir
+    une disposition des données convenables
+    l'ordre des colonnes de l'onglet "Placement" doit être
+    le même que l'ordre dans le fichier ade_entete.txt
+    Il est nécessaire d'afficher les informations suivantes dans le client ADE
+     - Type
+     - Durée
+     - Enseignants
+     - Code
+     - Activité
+     - Semaine
+
+
+(*) Les heures équivalents TD sont calculées à titre indicatif
+sans prendre en compte le prorata (dépend du statut) avec les coefficients suivants :
+CM=1.5 ; TD=1 ; TP=1

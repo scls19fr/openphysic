@@ -1,0 +1,12 @@
+<ai>
+ <name> Scls AI </name>
+ <author> S. CELLES </author>
+ <comment> a quite advanced example of X-Foot AI programming </comment>
+ <wdir> ./ </wdir>
+ <command>
+	<windows>advanced_example.exe</windows>
+	<linux>./advanced_example</linux>
+	<macosx>./advanced_example.app/Contents/MacOS/advanced_example</macosx>
+ </command>
+ <args> </args>
+</ai>

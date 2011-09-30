@@ -1,0 +1,85 @@
+pstricks-add.pro ----------- (Dominik Rodriguez/hv)
+ v 0.05 2005-11-12 fix bug in GTriangle
+ v 0.04 2005-10-06 added subroutines for calculating wavelength to rgb color(hv)
+                   changing name of pst-eqdf.pro to pstricks-add.pro
+ v 2005.03  2005/05/16 (hv) small changes to the code
+ v 2005.02  2005/03/05 (dr) white space removal from expression
+ v 2004.02  2004/11/14 (dr) correction of a priority problem ^ before unary - (new rule FS)
+ v 2004.01  2004/09/14 (dr) initial version
+
+pstricks-add -----------
+ v 2.72 2005-11-27 - fix introduced bug in psgraph
+                    - add new macro \psStep with new option StepType
+ v 2.71 2005-10-24 - use \def instead of \edef for subtickcolor
+                     and also using \pst@getcolor
+		   - fix bug with Ox and log axes
+ v 2.70 2005-10-20 - use \def instead of \edef for X|YAxisLabel
+                   - make psgraph correct use of the origin values
+		   - added a new macro \psLNode and \nlput for a
+		     node label with absolute position
+ v 2.69 2005-10-12 moving the basic arrows into pstricks )-(,]-[
+                   bugfix for hook arrow
+ v 2.68 2005-10-09 fix a bug with trigLabels and showorigin
+ v 2.67 2005-10-08 rewrote \psrotate macro
+                   added three predefined hatchstyles for simulating transparent colors
+		   TRed, TGreen,TBlue 
+ v 2.66 2005-10-06 add more support for Gouraud-shading, emulate the PS subroutines
+                   if not present in the PS level 
+ v 2.65 2005-10-03 add support for Gouraud-shading 
+ v 2.64 2005-09-25 fix a bug in reading ticksize values (\pst@getdimdim} 
+ v 2.63 2005-09-18 fix another bug with option names 
+ v 2.62 2005-09-08 fix new introduced bug in \psbrace 
+ v 2.61 2005-09-08 fix bug in \psbrace 
+ v 2.60 2005-08-28 added some more line fill styles 
+ v 2.59 2005-08-06 bugfix for option intSeparator
+		   add macro \psrotate
+ v 2.58 2005-07-25 ArrowInside=- for \psbrace
+ v 2.57 2005-07-07 some improvements to psgraph
+ v 2.56 2005-06-25 fix bug with \pscustom and poynom
+		   fix introduced trailing space in \readdata
+ v 2.55 2005-05-26 some tweeks to the code, updating the documentation
+ v 2.54 2005-05-25 added option ChangeOrder
+ v 2.53 2005-05-23 dito
+ v 2.52 2005-05-22 fix bug in psplotTangent
+ v 2.51 2005-05-21 drop support of option varStep
+ v 2.50 2005-05-20 first try with psplotDiffEqn, plotting differential equation,
+                   needs _newest_ pst-eqdf.pro and pstricks.pro
+ v 2.49 2005-05-19 fix bug in psplotTangent and make option showpointa available
+ v 2.48 2005-05-18 fix some new introduced bugs and make psplotTangent for all
+                   plot macros working 
+ v 2.47 2005-05-17 make psplotTangens also available for the parametric plot 
+                   together with the algebraic option 		   
+ v 2.46 2005-05-16 make psplotTangens also available for the polarplot and
+                   algebraic option 		   
+ v 2.45 2005-05-16 small changes to the code
+ v 2.44 2005-05-15 added macro psplotTangent
+ v 2.43 2005-04-20 some more tweeks to triglabels
+ v 2.42 2005-04-17 small bugfix with the options
+ v 2.41 2005-04-17 new option ignoreLines for  \readdata
+ v 2.40 2005-04-13 new option trigLabels
+ v 2.39 2005-03-17 modify the Rhook subroutine (abs)
+ v 2.38 2005-03-03 move the loading of a config file into pstricks-add.sty
+ v 2.37 2005-02-20 drop support of tickstyle (pst-plot),
+                   fix several bugs in connection with the ticksize option
+		   minor code changes
+ v 2.36 2005-02-20 added missing LabelFactor
+ v 2.35 2005-02-19 small improvements
+ v 2.34 2005-02-10 fix bug with comma
+ v 2.33 2005-01-18 add a config file
+ v 2.32 2005-01-16 added hook arrow (for bond lines)
+ v 2.31 2004-12-11 activate \pslinestyle for the axes
+ v 2.30 2004-12-07 make xyAxes run
+ v 2.29 2004-12-04 spurious blank in ArrowInside
+ v 2.28 2004-11-23 small changes to the code
+ v 2.27 2004-11-19 tickstyle now a pstricks-add key
+ v 2.26 2004-11-17 spurious blank in \psbrace
+ v 2.25 2004-11-13 fixed a new introduced bug
+ v 2.24 2004-11-12 added the psRandom macro for random dots
+ v 2.23 2004-11-11 added the star option for psgraph
+ v 2.22 2004-11-04 fixed bug with \psset
+ v 2.21 2004-10-24 added \psParallelLine for lines parallel to another one
+                   added \psIntersectionPoint(#1)(#2)(#3)(#4){nodeName} 
+ v 2.20 2004-10-24 added \psRelLine for lines relative to another one
+ v 2.19 2004-10-20 small changes
+ v 2.18 2004-10-20 add \ncbarr
+ v 2.17	2004-10-14 new multiple arrows

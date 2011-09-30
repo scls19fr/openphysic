@@ -1,0 +1,25 @@
+%Filename: 8rugq.fd
+%Created by: tex Fam_6898
+%Created using fontinst v1.800
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{8rugq.fd}
+   [1998/11/05 Fontinst v1.800 font definitions for 8r/ugq.]
+
+\DeclareFontFamily{8r}{ugq}{}
+
+\DeclareFontShape{8r}{ugq}{b}{n}{
+   <-> ugqb8r
+}{}
+
+\DeclareFontShape{8r}{ugq}{b}{sl}{
+   <-> ugqbo8r
+}{}
+
+\DeclareFontShape{8r}{ugq}{bx}{n}{<->ssub * ugq/b/n}{}
+\DeclareFontShape{8r}{ugq}{bx}{sl}{<->ssub * ugq/b/sl}{}
+\DeclareFontShape{8r}{ugq}{b}{it}{<->ssub * ugq/b/sl}{}
+\DeclareFontShape{8r}{ugq}{bx}{it}{<->ssub * ugq/b/it}{}
+
+\endinput

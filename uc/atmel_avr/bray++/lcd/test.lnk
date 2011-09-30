@@ -1,0 +1,429 @@
+Running:
+  C:/Work/Avr/Avrgcc/bin/ava.exe C:/Work/Avr/Avrgcc/lib/crt1-8515.o C:/Work/Avr/Avrgcc/lib/crtn.o C:/Work/Avr/Avrgcc/lib/libgcc.o C:/Work/Avr/Avrgcc/lib/libm/fplib.o C:/Work/Avr/Avrgcc/lib/libc/string.o C:/Work/Avr/Avrgcc/lib/libc/malloc.o C:/Work/Avr/Avrgcc/lib/libc/ctype.o C:/Work/Avr/Avrgcc/lib/libc/eeprom.o lcd.o test.o -v -ltest.lnk --multiple-output-files --motorola -IC:/Work/Avr/Avrgcc/include -o test 
+
+Starting linker on Wed Oct 13 17:09:14 1999
+
+
+SEGMENT TREE:                         ABS       SIZE    FLAGS
+  + eeprom                         $00000000      .     
+  + flash                          $00000000      .     
+    * table                            -          .     *REMOVED*
+      * FPlib                          -          .     *REMOVED*
+        * FPtan                        -      $00000022 *REMOVED*
+        * FPasin                       -      $00000061 *REMOVED*
+        * FPacos                       -      $00000010 *REMOVED*
+        * FPexp                        -      $0000001e *REMOVED*
+    * crt1                         $00000000  $0000008a 
+    * code                         $0000008a      .     
+      * umodqi3                        -      $00000008 *REMOVED*
+      * udivqi3                        -      $00000004 *REMOVED*
+      * modqi3                         -      $00000006 *REMOVED*
+      * modhi3                         -      $00000004 *REMOVED*
+      * umodsi3                        -      $0000000e *REMOVED*
+      * modsi3                         -      $00000004 *REMOVED*
+      * prologue_saves                 -      $0000003c *REMOVED*
+      * epilogue_restores              -      $00000038 *REMOVED*
+      * FPlib                          -          .     *REMOVED*
+        * FPadd                        -      $00000010 *REMOVED*
+        * FPaddx                       -      $0000006c *REMOVED*
+        * FPmul                        -      $00000014 *REMOVED*
+        * FPmulx                       -      $00000094 *REMOVED*
+        * FPdiv                        -      $000000a0 *REMOVED*
+        * FPsplit                      -      $00000020 *REMOVED*
+        * FPmerge                      -      $0000003e *REMOVED*
+        * FPnan                        -      $00000006 *REMOVED*
+        * FPneg                        -      $00000012 *REMOVED*
+        * FPcmp                        -      $00000076 *REMOVED*
+        * FPsqrt                       -      $000000b0 *REMOVED*
+        * FPceil                       -      $00000038 *REMOVED*
+        * FPfloor                      -      $00000034 *REMOVED*
+        * FPfabs                       -      $00000004 *REMOVED*
+        * FPfmod                       -      $0000003c *REMOVED*
+        * FPfrexp                      -      $00000022 *REMOVED*
+        * FPldexp                      -      $0000001c *REMOVED*
+        * FPmodf                       -      $00000054 *REMOVED*
+        * FPcos                        -      $0000000c *REMOVED*
+        * FPsin                        -      $00000024 *REMOVED*
+        * FPcosinus                    -      $00000062 *REMOVED*
+        * FPtan                        -      $0000007c *REMOVED*
+        * FPasin                       -      $00000032 *REMOVED*
+        * FPexp                        -      $00000088 *REMOVED*
+        * FPsinh                       -      $0000001e *REMOVED*
+        * FPcosh                       -      $0000001c *REMOVED*
+        * FPtanh                       -      $00000050 *REMOVED*
+        * FPpowerseries                -      $00000098 *REMOVED*
+        * FPfp2long                    -      $00000022 *REMOVED*
+        * FPlong2fp                    -      $00000042 *REMOVED*
+      * string                         -          .     *REMOVED*
+        * memcpy                       -      $0000001a *REMOVED*
+        * progmem_read_block           -      $0000001c *REMOVED*
+        * memmove                      -      $0000002a *REMOVED*
+        * strcat                       -      $0000000e *REMOVED*
+        * strcpy                       -      $00000012 *REMOVED*
+        * strncpy                      -      $00000026 *REMOVED*
+        * memset                       -      $00000014 *REMOVED*
+        * strlen                       -      $00000014 *REMOVED*
+      * ctype                          -          .     *REMOVED*
+        * isascii                      -      $0000000a *REMOVED*
+        * toascii                      -      $00000006 *REMOVED*
+        * isalnum                      -      $0000000c *REMOVED*
+        * isfalse                      -      $00000006 *REMOVED*
+        * isalpha                      -      $00000014 *REMOVED*
+        * isdigit                      -      $0000000e *REMOVED*
+        * isxdigit                     -      $00000012 *REMOVED*
+        * iscntrl                      -      $00000010 *REMOVED*
+        * isprint                      -      $00000012 *REMOVED*
+        * isspace                      -      $0000001e *REMOVED*
+        * ispunct                      -      $00000018 *REMOVED*
+        * tolower                      -      $0000000c *REMOVED*
+        * toupper                      -      $0000000c *REMOVED*
+      * eeprom                         -          .     *REMOVED*
+        * eeprom_rb                    -      $00000010 *REMOVED*
+        * eeprom_wb                    -      $00000016 *REMOVED*
+        * eeprom_read_block            -      $00000024 *REMOVED*
+      * eeptom                         -          .     *REMOVED*
+        * eeprom_rw                    -      $0000001a *REMOVED*
+      * f_print10                  $0000008a  $0000027a 
+      * f_printf                   $00000304  $00000156 
+      * f_malloc                   $0000045a  $000000f0 
+      * f_print5                   $0000054a  $000000c0 
+      * f_print3                   $0000060a  $00000088 
+      * divsi3                     $00000692  $00000086 Removable 
+      * f_lcd_init                 $00000718  $00000070 
+      * f_print2                   $00000788  $00000054 
+      * divhi3                     $000007dc  $0000004c Removable 
+      * f_main                     $00000828  $00000042 
+      * f_lcd_control              $0000086a  $00000036 
+      * mulsi3                     $000008a0  $00000036 Removable 
+      * divqi3                     $000008d6  $00000030 Removable 
+      * f_printhex                 $00000906  $00000026 
+      * f_printbin                 $0000092c  $00000022 
+      * f_lcd_putch                $0000094e  $00000022 
+      * mulhi3                     $00000970  $00000022 Removable 
+      * f_delay                    $00000992  $0000001e 
+      * f_lcd_goto                 $000009b0  $0000001e 
+      * f_lcd_delay                $000009ce  $0000001e 
+      * f_lcd_putstr               $000009ec  $0000001a 
+      * f_free                     $00000a06  $00000016 
+      * f_lcd_home                 $00000a1c  $00000012 
+      * f_lcd_cls                  $00000a2e  $00000012 
+      * mulqi3                     $00000a40  $00000012 Removable 
+      * f_toggle_E                 $00000a52  $0000000e 
+      * umodhi3                    $00000a60  $0000000a Removable 
+      * udivsi3                    $00000a6a  $00000004 Removable 
+      * udivhi3                    $00000a6e  $00000004 Removable 
+    * gcc_data_section             $00000a72  $00000053 
+      * z                          $00000ac5  $00000001 
+  + eram                           $00000000      .     Abstract 
+    * registers                    $00000000      .     Abstract 
+    * io_space                     $00000020      .     Abstract 
+    * gcc_data_section             $00000060  $00000053 Abstract 
+      * z                          $000000b3  $00000001 Abstract 
+    * gcc_bss_section              $000000b4      .     Abstract 
+      * T                          $000000b4  $00000001 Abstract 
+
+OVERALL SEGMENT INFO:              SUM SIZE   MAX SIZE  USAGE [%]
+  + eeprom                         $00000000  $00000200   0.0
+  + flash                          $00000ac6  $00002000   33.7
+  + eram                           $000000b5  $00000260   29.8
+
+Linking:
+ * C:/Work/Avr/Avrgcc/lib/crt1-8515.o
+ * C:/Work/Avr/Avrgcc/lib/crtn.o
+ * C:/Work/Avr/Avrgcc/lib/libgcc.o
+ * C:/Work/Avr/Avrgcc/lib/libm/fplib.o
+ * C:/Work/Avr/Avrgcc/lib/libc/string.o
+ * C:/Work/Avr/Avrgcc/lib/libc/malloc.o
+ * C:/Work/Avr/Avrgcc/lib/libc/ctype.o
+ * C:/Work/Avr/Avrgcc/lib/libc/eeprom.o
+ * lcd.o
+ * test.o
+
+Completed.
+
+Running:
+  C:/Work/Avr/Avrgcc/bin/ava.exe C:/Work/Avr/Avrgcc/lib/crt1-8515.o C:/Work/Avr/Avrgcc/lib/crtn.o C:/Work/Avr/Avrgcc/lib/libgcc.o C:/Work/Avr/Avrgcc/lib/libm/fplib.o C:/Work/Avr/Avrgcc/lib/libc/string.o C:/Work/Avr/Avrgcc/lib/libc/malloc.o C:/Work/Avr/Avrgcc/lib/libc/ctype.o C:/Work/Avr/Avrgcc/lib/libc/eeprom.o lcd.o test.o -v -ltest.lnk --multiple-output-files --motorola -IC:/Work/Avr/Avrgcc/include -o test 
+
+Starting linker on Wed Oct 13 17:10:38 1999
+
+
+SEGMENT TREE:                         ABS       SIZE    FLAGS
+  + eeprom                         $00000000      .     
+  + flash                          $00000000      .     
+    * table                            -          .     *REMOVED*
+      * FPlib                          -          .     *REMOVED*
+        * FPtan                        -      $00000022 *REMOVED*
+        * FPasin                       -      $00000061 *REMOVED*
+        * FPacos                       -      $00000010 *REMOVED*
+        * FPexp                        -      $0000001e *REMOVED*
+    * crt1                         $00000000  $0000008a 
+    * code                         $0000008a      .     
+      * umodqi3                        -      $00000008 *REMOVED*
+      * udivqi3                        -      $00000004 *REMOVED*
+      * modqi3                         -      $00000006 *REMOVED*
+      * modhi3                         -      $00000004 *REMOVED*
+      * umodsi3                        -      $0000000e *REMOVED*
+      * modsi3                         -      $00000004 *REMOVED*
+      * prologue_saves                 -      $0000003c *REMOVED*
+      * epilogue_restores              -      $00000038 *REMOVED*
+      * FPlib                          -          .     *REMOVED*
+        * FPadd                        -      $00000010 *REMOVED*
+        * FPaddx                       -      $0000006c *REMOVED*
+        * FPmul                        -      $00000014 *REMOVED*
+        * FPmulx                       -      $00000094 *REMOVED*
+        * FPdiv                        -      $000000a0 *REMOVED*
+        * FPsplit                      -      $00000020 *REMOVED*
+        * FPmerge                      -      $0000003e *REMOVED*
+        * FPnan                        -      $00000006 *REMOVED*
+        * FPneg                        -      $00000012 *REMOVED*
+        * FPcmp                        -      $00000076 *REMOVED*
+        * FPsqrt                       -      $000000b0 *REMOVED*
+        * FPceil                       -      $00000038 *REMOVED*
+        * FPfloor                      -      $00000034 *REMOVED*
+        * FPfabs                       -      $00000004 *REMOVED*
+        * FPfmod                       -      $0000003c *REMOVED*
+        * FPfrexp                      -      $00000022 *REMOVED*
+        * FPldexp                      -      $0000001c *REMOVED*
+        * FPmodf                       -      $00000054 *REMOVED*
+        * FPcos                        -      $0000000c *REMOVED*
+        * FPsin                        -      $00000024 *REMOVED*
+        * FPcosinus                    -      $00000062 *REMOVED*
+        * FPtan                        -      $0000007c *REMOVED*
+        * FPasin                       -      $00000032 *REMOVED*
+        * FPexp                        -      $00000088 *REMOVED*
+        * FPsinh                       -      $0000001e *REMOVED*
+        * FPcosh                       -      $0000001c *REMOVED*
+        * FPtanh                       -      $00000050 *REMOVED*
+        * FPpowerseries                -      $00000098 *REMOVED*
+        * FPfp2long                    -      $00000022 *REMOVED*
+        * FPlong2fp                    -      $00000042 *REMOVED*
+      * string                         -          .     *REMOVED*
+        * memcpy                       -      $0000001a *REMOVED*
+        * progmem_read_block           -      $0000001c *REMOVED*
+        * memmove                      -      $0000002a *REMOVED*
+        * strcat                       -      $0000000e *REMOVED*
+        * strcpy                       -      $00000012 *REMOVED*
+        * strncpy                      -      $00000026 *REMOVED*
+        * memset                       -      $00000014 *REMOVED*
+        * strlen                       -      $00000014 *REMOVED*
+      * ctype                          -          .     *REMOVED*
+        * isascii                      -      $0000000a *REMOVED*
+        * toascii                      -      $00000006 *REMOVED*
+        * isalnum                      -      $0000000c *REMOVED*
+        * isfalse                      -      $00000006 *REMOVED*
+        * isalpha                      -      $00000014 *REMOVED*
+        * isdigit                      -      $0000000e *REMOVED*
+        * isxdigit                     -      $00000012 *REMOVED*
+        * iscntrl                      -      $00000010 *REMOVED*
+        * isprint                      -      $00000012 *REMOVED*
+        * isspace                      -      $0000001e *REMOVED*
+        * ispunct                      -      $00000018 *REMOVED*
+        * tolower                      -      $0000000c *REMOVED*
+        * toupper                      -      $0000000c *REMOVED*
+      * eeprom                         -          .     *REMOVED*
+        * eeprom_rb                    -      $00000010 *REMOVED*
+        * eeprom_wb                    -      $00000016 *REMOVED*
+        * eeprom_read_block            -      $00000024 *REMOVED*
+      * eeptom                         -          .     *REMOVED*
+        * eeprom_rw                    -      $0000001a *REMOVED*
+      * f_print10                  $0000008a  $0000027a 
+      * f_printf                   $00000304  $00000156 
+      * f_malloc                   $0000045a  $000000f0 
+      * f_print5                   $0000054a  $000000c0 
+      * f_print3                   $0000060a  $00000088 
+      * divsi3                     $00000692  $00000086 Removable 
+      * f_lcd_init                 $00000718  $00000070 
+      * f_print2                   $00000788  $00000054 
+      * divhi3                     $000007dc  $0000004c Removable 
+      * f_main                     $00000828  $00000042 
+      * f_lcd_control              $0000086a  $00000036 
+      * mulsi3                     $000008a0  $00000036 Removable 
+      * divqi3                     $000008d6  $00000030 Removable 
+      * f_printhex                 $00000906  $00000026 
+      * f_printbin                 $0000092c  $00000022 
+      * f_lcd_putch                $0000094e  $00000022 
+      * mulhi3                     $00000970  $00000022 Removable 
+      * f_delay                    $00000992  $0000001e 
+      * f_lcd_goto                 $000009b0  $0000001e 
+      * f_lcd_delay                $000009ce  $0000001e 
+      * f_lcd_putstr               $000009ec  $0000001a 
+      * f_free                     $00000a06  $00000016 
+      * f_lcd_home                 $00000a1c  $00000012 
+      * f_lcd_cls                  $00000a2e  $00000012 
+      * mulqi3                     $00000a40  $00000012 Removable 
+      * f_toggle_E                 $00000a52  $0000000e 
+      * umodhi3                    $00000a60  $0000000a Removable 
+      * udivsi3                    $00000a6a  $00000004 Removable 
+      * udivhi3                    $00000a6e  $00000004 Removable 
+    * gcc_data_section             $00000a72  $00000053 
+      * z                          $00000ac5  $00000001 
+  + eram                           $00000000      .     Abstract 
+    * registers                    $00000000      .     Abstract 
+    * io_space                     $00000020      .     Abstract 
+    * gcc_data_section             $00000060  $00000053 Abstract 
+      * z                          $000000b3  $00000001 Abstract 
+    * gcc_bss_section              $000000b4      .     Abstract 
+      * T                          $000000b4  $00000001 Abstract 
+
+OVERALL SEGMENT INFO:              SUM SIZE   MAX SIZE  USAGE [%]
+  + eeprom                         $00000000  $00000200   0.0
+  + flash                          $00000ac6  $00002000   33.7
+  + eram                           $000000b5  $00000260   29.8
+
+Linking:
+ * C:/Work/Avr/Avrgcc/lib/crt1-8515.o
+ * C:/Work/Avr/Avrgcc/lib/crtn.o
+ * C:/Work/Avr/Avrgcc/lib/libgcc.o
+ * C:/Work/Avr/Avrgcc/lib/libm/fplib.o
+ * C:/Work/Avr/Avrgcc/lib/libc/string.o
+ * C:/Work/Avr/Avrgcc/lib/libc/malloc.o
+ * C:/Work/Avr/Avrgcc/lib/libc/ctype.o
+ * C:/Work/Avr/Avrgcc/lib/libc/eeprom.o
+ * lcd.o
+ * test.o
+
+Completed.
+
+Running:
+  C:/Work/Avr/Avrgcc/bin/ava.exe C:/Work/Avr/Avrgcc/lib/crt1-8515.o C:/Work/Avr/Avrgcc/lib/crtn.o C:/Work/Avr/Avrgcc/lib/libgcc.o C:/Work/Avr/Avrgcc/lib/libm/fplib.o C:/Work/Avr/Avrgcc/lib/libc/string.o C:/Work/Avr/Avrgcc/lib/libc/malloc.o C:/Work/Avr/Avrgcc/lib/libc/ctype.o C:/Work/Avr/Avrgcc/lib/libc/eeprom.o lcd.o test.o -v -ltest.lnk --multiple-output-files --motorola -IC:/Work/Avr/Avrgcc/include -o test 
+
+Starting linker on Wed Oct 13 17:13:16 1999
+
+
+SEGMENT TREE:                         ABS       SIZE    FLAGS
+  + eeprom                         $00000000      .     
+  + flash                          $00000000      .     
+    * table                            -          .     *REMOVED*
+      * FPlib                          -          .     *REMOVED*
+        * FPtan                        -      $00000022 *REMOVED*
+        * FPasin                       -      $00000061 *REMOVED*
+        * FPacos                       -      $00000010 *REMOVED*
+        * FPexp                        -      $0000001e *REMOVED*
+    * crt1                         $00000000  $0000008a 
+    * code                         $0000008a      .     
+      * umodqi3                        -      $00000008 *REMOVED*
+      * udivqi3                        -      $00000004 *REMOVED*
+      * modqi3                         -      $00000006 *REMOVED*
+      * modhi3                         -      $00000004 *REMOVED*
+      * umodsi3                        -      $0000000e *REMOVED*
+      * modsi3                         -      $00000004 *REMOVED*
+      * prologue_saves                 -      $0000003c *REMOVED*
+      * epilogue_restores              -      $00000038 *REMOVED*
+      * FPlib                          -          .     *REMOVED*
+        * FPadd                        -      $00000010 *REMOVED*
+        * FPaddx                       -      $0000006c *REMOVED*
+        * FPmul                        -      $00000014 *REMOVED*
+        * FPmulx                       -      $00000094 *REMOVED*
+        * FPdiv                        -      $000000a0 *REMOVED*
+        * FPsplit                      -      $00000020 *REMOVED*
+        * FPmerge                      -      $0000003e *REMOVED*
+        * FPnan                        -      $00000006 *REMOVED*
+        * FPneg                        -      $00000012 *REMOVED*
+        * FPcmp                        -      $00000076 *REMOVED*
+        * FPsqrt                       -      $000000b0 *REMOVED*
+        * FPceil                       -      $00000038 *REMOVED*
+        * FPfloor                      -      $00000034 *REMOVED*
+        * FPfabs                       -      $00000004 *REMOVED*
+        * FPfmod                       -      $0000003c *REMOVED*
+        * FPfrexp                      -      $00000022 *REMOVED*
+        * FPldexp                      -      $0000001c *REMOVED*
+        * FPmodf                       -      $00000054 *REMOVED*
+        * FPcos                        -      $0000000c *REMOVED*
+        * FPsin                        -      $00000024 *REMOVED*
+        * FPcosinus                    -      $00000062 *REMOVED*
+        * FPtan                        -      $0000007c *REMOVED*
+        * FPasin                       -      $00000032 *REMOVED*
+        * FPexp                        -      $00000088 *REMOVED*
+        * FPsinh                       -      $0000001e *REMOVED*
+        * FPcosh                       -      $0000001c *REMOVED*
+        * FPtanh                       -      $00000050 *REMOVED*
+        * FPpowerseries                -      $00000098 *REMOVED*
+        * FPfp2long                    -      $00000022 *REMOVED*
+        * FPlong2fp                    -      $00000042 *REMOVED*
+      * string                         -          .     *REMOVED*
+        * memcpy                       -      $0000001a *REMOVED*
+        * progmem_read_block           -      $0000001c *REMOVED*
+        * memmove                      -      $0000002a *REMOVED*
+        * strcat                       -      $0000000e *REMOVED*
+        * strcpy                       -      $00000012 *REMOVED*
+        * strncpy                      -      $00000026 *REMOVED*
+        * memset                       -      $00000014 *REMOVED*
+        * strlen                       -      $00000014 *REMOVED*
+      * ctype                          -          .     *REMOVED*
+        * isascii                      -      $0000000a *REMOVED*
+        * toascii                      -      $00000006 *REMOVED*
+        * isalnum                      -      $0000000c *REMOVED*
+        * isfalse                      -      $00000006 *REMOVED*
+        * isalpha                      -      $00000014 *REMOVED*
+        * isdigit                      -      $0000000e *REMOVED*
+        * isxdigit                     -      $00000012 *REMOVED*
+        * iscntrl                      -      $00000010 *REMOVED*
+        * isprint                      -      $00000012 *REMOVED*
+        * isspace                      -      $0000001e *REMOVED*
+        * ispunct                      -      $00000018 *REMOVED*
+        * tolower                      -      $0000000c *REMOVED*
+        * toupper                      -      $0000000c *REMOVED*
+      * eeprom                         -          .     *REMOVED*
+        * eeprom_rb                    -      $00000010 *REMOVED*
+        * eeprom_wb                    -      $00000016 *REMOVED*
+        * eeprom_read_block            -      $00000024 *REMOVED*
+      * eeptom                         -          .     *REMOVED*
+        * eeprom_rw                    -      $0000001a *REMOVED*
+      * f_print10                  $0000008a  $0000027a 
+      * f_printf                   $00000304  $00000156 
+      * f_malloc                   $0000045a  $000000f0 
+      * f_print5                   $0000054a  $000000c0 
+      * f_print3                   $0000060a  $00000088 
+      * divsi3                     $00000692  $00000086 Removable 
+      * f_lcd_init                 $00000718  $00000070 
+      * f_print2                   $00000788  $00000054 
+      * divhi3                     $000007dc  $0000004c Removable 
+      * f_main                     $00000828  $00000042 
+      * f_lcd_control              $0000086a  $00000036 
+      * mulsi3                     $000008a0  $00000036 Removable 
+      * divqi3                     $000008d6  $00000030 Removable 
+      * f_printhex                 $00000906  $00000026 
+      * f_printbin                 $0000092c  $00000022 
+      * f_lcd_putch                $0000094e  $00000022 
+      * mulhi3                     $00000970  $00000022 Removable 
+      * f_delay                    $00000992  $0000001e 
+      * f_lcd_goto                 $000009b0  $0000001e 
+      * f_lcd_delay                $000009ce  $0000001e 
+      * f_lcd_putstr               $000009ec  $0000001a 
+      * f_free                     $00000a06  $00000016 
+      * f_lcd_home                 $00000a1c  $00000012 
+      * f_lcd_cls                  $00000a2e  $00000012 
+      * mulqi3                     $00000a40  $00000012 Removable 
+      * f_toggle_E                 $00000a52  $0000000e 
+      * umodhi3                    $00000a60  $0000000a Removable 
+      * udivsi3                    $00000a6a  $00000004 Removable 
+      * udivhi3                    $00000a6e  $00000004 Removable 
+    * gcc_data_section             $00000a72  $00000053 
+      * z                          $00000ac5  $00000001 
+  + eram                           $00000000      .     Abstract 
+    * registers                    $00000000      .     Abstract 
+    * io_space                     $00000020      .     Abstract 
+    * gcc_data_section             $00000060  $00000053 Abstract 
+      * z                          $000000b3  $00000001 Abstract 
+    * gcc_bss_section              $000000b4      .     Abstract 
+      * T                          $000000b4  $00000001 Abstract 
+
+OVERALL SEGMENT INFO:              SUM SIZE   MAX SIZE  USAGE [%]
+  + eeprom                         $00000000  $00000200   0.0
+  + flash                          $00000ac6  $00002000   33.7
+  + eram                           $000000b5  $00000260   29.8
+
+Linking:
+ * C:/Work/Avr/Avrgcc/lib/crt1-8515.o
+ * C:/Work/Avr/Avrgcc/lib/crtn.o
+ * C:/Work/Avr/Avrgcc/lib/libgcc.o
+ * C:/Work/Avr/Avrgcc/lib/libm/fplib.o
+ * C:/Work/Avr/Avrgcc/lib/libc/string.o
+ * C:/Work/Avr/Avrgcc/lib/libc/malloc.o
+ * C:/Work/Avr/Avrgcc/lib/libc/ctype.o
+ * C:/Work/Avr/Avrgcc/lib/libc/eeprom.o
+ * lcd.o
+ * test.o
+
+Completed.
+

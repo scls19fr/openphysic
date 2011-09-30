@@ -1,0 +1,13 @@
+Autres conteneurs standards
+===========================
+
+vector <T>		vecteur de taille variable
+list <T>		liste doublement chainée
+queue <T>		file
+stack <T>		pile
+deque <T>		file à double sens
+priority_queue <T>	file triée par valeur
+set <T>			ensemble
+multiset <T>		ensemble dans lequel une valeur peut apparaître plusieurs fois
+map<key, val>		tableau associatif
+multimap <kay, val>	map dans lequel une clé peut apparaître plusieurs fois

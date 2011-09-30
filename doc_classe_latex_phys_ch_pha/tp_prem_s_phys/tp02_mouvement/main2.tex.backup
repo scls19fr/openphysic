@@ -1,0 +1,290 @@
+\tp{Mouvement d'un solide\\Vecteur vitesse}
+
+\begin{multicols}{2}
+
+\objectifs{
+\item Se familiariser avec les différents dispositifs expérimentaux
+\item \^Etre capable de déterminer la vitesse instantanée d'un mobile
+\item Connaître la relation entre vitesse linéaire et vitesse angulaire
+\item \^Etre capable d'identifier le type du mouvement d'un solide
+\item Savoir tracer un vecteur vitesse
+}
+
+\bigskip
+
+\materiel{
+\item ordinateur et logiciel \og CD MOVIE \fg
+\item table à coussin d'air et mobiles autoporteurs
+}
+
+
+\section{\'Etude avec le logiciel \og CD MOVIE \fg \ de différents mouvements pour un solide}
+
+% Matériel : Ordinateur + logiciel CD MOVIE.
+
+\subsection{Manipulation}
+Pour chacun des mouvements suivants (Image $\rightarrow$ Série d'images $\rightarrow$ Par nom de fichier), relever les positions successives de deux points du mobile au cours du temps. En déduire les caractéristiques du mouvement ainsi que sa nature.
+
+\begin{itemize}
+\item 1\ier\ mouvement : fichier \verb+TRAPMP.MOV+
+\item 2\ieme\ mouvement : fichier \verb+TOURDI.MOV+
+\item 3\ieme\ mouvement : fichier \verb+ESGLTR.MOV+
+\end{itemize}
+
+
+
+\end{multicols}
+
+
+\section{\'Etude du centre d'inertie}
+
+% Matériel : table à coussin d'air horizontale, mobile muni d'un pointeur central A et d'un pointeur périphérique B.
+
+\subsection{Manipulations}
+Lancer le mobile et déclencher les impulsions (intervalle entre deux impulsions : $20~ms$).
+
+
+\subsection{Exploitation}
+\begin{itemize}
+\item Que peut-on dire des trajectoires des points A et B ?
+\item Que peut-on dire du point A ?
+\end{itemize}
+
+
+\section{Vecteur vitesse}
+
+\begin{multicols}{2}
+
+% Matériel : table à coussin d'air, valet élévateur.
+
+\subsection{Manipulations}
+Incliner la table à coussin d'air d'un angle $\alpha$ par rapport à l'horizontale à l'aide du valet élévateur. Lancer le mobile de façon à obtenir un mouvement parabolique et déclencher les impulsions (intervalle entre deux impulsions : $40~ms$).
+
+
+\begin{center}
+\includegraphics[width=10cm]{montage_mobile_table.gif.eps}
+\end{center}
+
+
+
+\end{multicols}
+
+\subsection{Exploitation}
+Sélectionner un point $M$ proche du sommet de la trajectoire et déterminer la vitesse instantanée du mobile en ce point.
+Tracer le vecteur vitesse du mobile au point $M$ (suggestion d'échelle $1~cm \leftrightarrow 0,05~m.s^{-1}$).
+Recommencer l'opération pour un autre point : $N$.
+
+
+
+\section{\'Etude d'un mouvement circulaire uniforme}
+
+% Matériel : table à coussin d'air horizontale, plot central muni d'un axe.
+
+\subsection{Manipulation}
+Fixer le mobile autoporteur  à l'aide de l'axe au plot central. Repérer la position centrale $O$. Déclencher les impulsions. Lancer le mobile : celui-ci effectue un mouvement circulaire.
+
+\subsection{Exploitation}
+
+\subsubsection{Vitesse linéaire}
+Numéroter les points de l'enregistrement ($M_0$, $M_1$, \ldots).
+Déterminer la vitesse instantanée du mobile lors de son passage aux points $M_0$ et $M_{10}$.
+En déduire la vitesse moyenne du mobile entre les points $M_0$ et $M_{10}$.
+Tracer le vecteur vitesse du mobile au point $M_{10}$.
+
+\subsubsection{Vitesse angulaire}
+\begin{itemize}
+\item Mesurer à l'aide d'un rapporteur la valeur $\theta$ de l'angle \anglevec{OM_0}{OM_{10}}.
+\item En déduire la valeur de la vitesse angulaire $\omega$ du mobile.
+\item Mesurer le rayon $R$ de la trajectoire.
+\item Calculer la quantité $R \cdot \omega$.
+\item Comparer $R \cdot \omega$ à la vitesse moyenne du mobile et conclure.
+\end{itemize}
+
+
+\section{Applications}
+\begin{itemize}
+\item Exploiter chacune des trajectoires suivantes.
+\item Déterminer l'un des vecteurs vitesse du mobile.
+\item Dire quelle est la nature du mouvement enregistré.
+\end{itemize}
+
+
+\newpage
+
+\def\etincelle(#1){%
+ \pscircle*(#1){0.05}
+}
+
+
+%\usepackage{fp-basic,fp-eval,fp-snap}
+%\usepackage{pstricks}
+
+\newcommand{\mobileini}[2]{%
+ \newcommand{\mobilex}{#1}
+ \newcommand{\mobiley}{#2}
+}
+
+\newcommand{\mobileaffiche}{%
+ \pscircle*(\mobilex,\mobiley){0.05}
+}
+
+\newcommand{\mobiletranslate}[2]{%
+ \FPadd{\mobilex}{\mobilex}{#1}
+ \FPadd{\mobiley}{\mobiley}{#2}
+}
+
+% \begin{pspicture}(0,-1)(16,1)
+% \psgrid[subgriddiv=1,griddots=10]
+% 
+% \mobileini{0}{0}
+% \mobileaffiche
+% 
+% \mobiletranslate{1}{0.5}
+% \mobileaffiche
+% 
+% \mobiletranslate{1}{-1}
+% \mobileaffiche
+% 
+% \end{pspicture}
+
+
+
+\begin{center}
+
+
+
+
+\begin{figure}[H]
+\begin{pspicture}(0,-1)(16,1)
+%\psgrid[subgriddiv=1,griddots=10]
+%\etincelle(0,0)
+%\multido{\nx=0+0.4}{10}{\etincelle(\nx,0)}
+%\parametricplot[plotpoints=10,linecolor=black,plotstyle=dots]{0}{9}{t 1.8 mul 0} % x(t)=1,8t y(t)=0
+\parametricplot[plotpoints=10,linecolor=black,plotstyle=dots]{0}{0.4}{t 40 mul 0} % x(t)=1,8t y(t)=0
+\rput(0,-0.5){$M_0$}
+\rput(1.8,-0.5){$M_1$}
+\rput(3.5,-0.5){$M_2$}
+\rput(5.3,-0.5){$M_3$}
+%\multido{\n=0+1}{4}{\rput(\n,0.5){\n}}
+%\rput(1,-0.5){$\tau = 40~ms$}
+\end{pspicture}
+\caption{Mouvement 1 ; $\tau = 40~ms$}
+\end{figure}
+
+\begin{figure}[H]
+\begin{pspicture}(0,-1)(16,1)
+%\psgrid[subgriddiv=1,griddots=10]
+%\parametricplot[linecolor=black,plotstyle=dots,plotpoints=11]{0}{10}{t t mul 0.2 mul 0} % x(t)=0,2t^2 y(t)=0
+\parametricplot[plotpoints=9,linecolor=black,plotstyle=dots]{0}{0.4}{t t mul 100 mul 0} % x(t)=1,8t y(t)=0
+%\parametricplot[linecolor=black,plotstyle=dots,plotpoints=11]{0}{0.360}{t t mul 100 mul 0} % x(t)=0,2t^2 y(t)=0
+\rput(0,-0.5){$M_0$}
+\rput(0.2,0.5){$M_1$}
+\rput(1,-0.5){$M_2$}
+\rput(2.2,-0.5){$M_3$}
+\end{pspicture}
+\caption{Mouvement 2 ; $\tau = 40~ms$}
+\end{figure}
+
+\begin{figure}[H]
+\begin{pspicture}(0,0)(16,9)
+%\psgrid[subgriddiv=1,griddots=10]
+% x(t) = v0x t + x0
+% y(t) = -g/2*t^2 + v0y t + y0
+%\parametricplot[linecolor=black,plotstyle=dots,plotpoints=20]{0}{0.1}{t 0.8 mul 1.6 t mul 9.81 2 div t mul t mul sub}
+\psplot[plotpoints=20,plotstyle=dots]{0}{16}{x x 17 sub mul neg 0.1 mul}
+%\parametricplot[linecolor=black,plotstyle=dots,plotpoints=21]{0}{1.2}{t 20 mul 60 t mul 9.81 2 div 5 mul t mul t mul sub}
+\rput(0.5,0){$M_0$}
+\end{pspicture}
+\caption{Mouvement 3 ; $\tau = 60~ms$}
+\end{figure}
+
+
+
+
+%\begin{tabular}{cc}
+
+\begin{figure}[H]
+\begin{pspicture}(-4,-4)(4,4)
+%%\psgrid[subgriddiv=1,griddots=10]
+\parametricplot[linecolor=black,plotstyle=dots,plotpoints=22]{0}{300}{t cos 3 mul neg t sin 3 mul}
+\parametricplot[linecolor=black,plotstyle=dots,plotpoints=22]{0}{300}{t cos 4 mul neg t sin 4 mul}
+\rput(-4.5,0){$A_0$}
+\rput(-2.5,0){$B_0$}
+\end{pspicture}
+\caption{Mouvement 4 ; $\tau = 40~ms$}
+\end{figure}
+
+%&
+
+\begin{figure}[H]
+\begin{pspicture}(-4,-4)(4,4)
+%\psgrid[subgriddiv=1,griddots=10]
+\parametricplot[linecolor=black,plotstyle=dots,plotpoints=22]{90}{360}{t cos 3 mul neg t sin 3 mul 0.5 sub}
+\parametricplot[linecolor=black,plotstyle=dots,plotpoints=22]{90}{360}{t cos 3 mul neg t sin 3 mul 0.5 add}
+\rput(0,4){$A_0$}
+\rput(0,2){$B_0$}
+\end{pspicture}
+\caption{Mouvement 5 ; $\tau = 40~ms$}
+\end{figure}
+
+%\\
+
+%\end{tabular}
+
+
+
+% \begin{figure}[H]
+% \begin{pspicture}(-6,-6)(3,6)
+% %%\psgrid[subgriddiv=1,griddots=10]
+% \parametricplot[linecolor=black,plotstyle=dots,plotpoints=22]{0}{360}{t cos 3 mul t sin 3 mul}
+% \parametricplot[linecolor=green,plotstyle=dots,plotpoints=22]{0}{360}{t cos 4 mul t sin 4 mul}
+% \end{pspicture}
+% \caption{Mouvement 4 ; $\tau = 40~ms$}
+% \end{figure}
+% 
+% 
+% \begin{figure}[H]
+% \begin{pspicture}(-6,-6)(3,6)
+% %%\psgrid[subgriddiv=1,griddots=10]
+% \parametricplot[linecolor=black,plotstyle=dots,plotpoints=22]{0}{360}{t cos 3 mul t sin 3 mul 0.5 sub}
+% \parametricplot[linecolor=green,plotstyle=dots,plotpoints=22]{0}{360}{t cos 3 mul t sin 3 mul 0.5 add}
+% \end{pspicture}
+% \caption{Mouvement 5 ; $\tau = 40~ms$}
+% \end{figure}
+
+
+\begin{figure}[H]
+\begin{pspicture}(-5,-5)(3,5)
+%\psgrid[subgriddiv=1,griddots=10]
+\parametricplot[linecolor=black,plotstyle=dots,plotpoints=22]{120}{330}{t cos 3 mul t sin 3 mul}
+\parametricplot[linecolor=black,plotstyle=dots,plotpoints=22]{90}{300}{t cos 5 mul t sin 5 mul}
+\rput(3,-1.25){$B_0$}
+\rput(3,-4.25){$A_0$}
+\end{pspicture}
+\caption{Mouvement 6 ; $\tau = 40~ms$}
+\end{figure}
+
+
+\begin{figure}[H]
+\begin{pspicture}(0,-2)(8,2)
+%\psgrid[subgriddiv=1,griddots=10]
+\parametricplot[linecolor=black,plotstyle=dots,plotpoints=22]{0}{360}{t sin 2 mul t 0.02 mul add t cos 2 mul}
+\parametricplot[linecolor=black,plotstyle=dots,plotpoints=22]{0}{360}{t 0.02 mul 0}
+\rput(0,-0.5){$G_0$}
+\rput(0,2.5){$A_0$}
+\end{pspicture}
+\caption{Mouvement 7 ; $\tau = 40~ms$}
+\end{figure}
+
+% \begin{figure}[H]
+% \begin{pspicture}(-6,-6)(3,6)
+% \psgrid[subgriddiv=1,griddots=10]
+% \parametricplot[linecolor=black,plotstyle=dots,plotpoints=22]{120}{330}{t cos 3 mul t sin 3 mul}
+% \parametricplot[linecolor=black,plotstyle=dots,plotpoints=22]{90}{300}{t cos 5 mul t sin 5 mul}
+% %\rput(
+% \end{pspicture}
+% \caption{Mouvement 5 ; $\tau = 40~ms$}
+% \end{figure}
+
+
+\end{center}

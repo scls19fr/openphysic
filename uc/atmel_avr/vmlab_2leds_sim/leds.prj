@@ -1,0 +1,40 @@
+; ************************************************************
+; PROJECT:
+; AUTHOR:
+; ************************************************************
+
+; Micro + software running
+; ------------------------------------------------------------
+.MICRO "ATmega128"
+.TOOLCHAIN "GCC"
+.GCCPATH   "C:\WinAVR"
+.GCCMAKE   AUTO
+.TARGET    "my_idea.hex"
+.SOURCE    "main.c"
+
+.TRACE              ; Activate micro trace
+
+; Following lines are optional; if not included
+; exactly these values are taken by default
+; ------------------------------------------------------------
+.POWER VDD=5 VSS=0  ; Power nodes
+.CLOCK 1meg         ; Micro clock
+.STORE 250m         ; Trace (micro+signals) storage time
+
+; Micro nodes: RESET, PB0-PB7, PD0-PD7, PE0-PE2, ACO, TIM1OVF
+; Define here the hardware around the micro
+; ------------------------------------------------------------
+
+
+; R1 et D1 en serie entre masse et PD0
+D1 VDD D1_NODE
+R1 D1_NODE PD0 0.62K
+; R2 et D2 en serie entre masse et PD7
+D2 VDD D2_NODE
+R2 D2_NODE PD7 0.62K
+; scope (PD0 et PD7)
+.PLOT V(PD0) V(PD7)
+
+
+
+

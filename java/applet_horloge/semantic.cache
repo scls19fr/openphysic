@@ -1,0 +1,16 @@
+;; Object applet_horloge/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "applet_horloge/"
+  :tables (list 
+   (semanticdb-table "Makefile"
+    :major-mode 'makefile-mode
+    :tags '(("all" function nil nil [1 52]))
+    :file "Makefile"
+    :pointmax 52
+    :unmatched-syntax 'nil
+    )
+   )
+  :file "semantic.cache"
+  :semantic-tag-version "2.0beta3"
+  :semanticdb-version "2.0beta3"
+  )

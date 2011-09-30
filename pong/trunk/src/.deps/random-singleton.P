@@ -1,0 +1,34 @@
+random-singleton.o: random-singleton.cc random-singleton.h \
+  /usr/include/c++/4.0.2/cmath \
+  /usr/include/c++/4.0.2/i486-linux-gnu/bits/c++config.h \
+  /usr/include/c++/4.0.2/i486-linux-gnu/bits/os_defines.h \
+  /usr/include/features.h /usr/include/sys/cdefs.h \
+  /usr/include/gnu/stubs.h /usr/include/c++/4.0.2/bits/cpp_type_traits.h \
+  /usr/include/math.h /usr/include/bits/huge_val.h \
+  /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h \
+  /usr/include/bits/inf.h /usr/include/bits/nan.h \
+  /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h \
+  /usr/include/c++/4.0.2/bits/cmath.tcc /usr/include/c++/4.0.2/limits \
+  /usr/include/c++/4.0.2/cfloat \
+  /usr/lib/gcc/i486-linux-gnu/4.0.2/include/float.h
+random-singleton.cc :
+random-singleton.h :
+/usr/include/c++/4.0.2/cmath :
+/usr/include/c++/4.0.2/i486-linux-gnu/bits/c++config.h :
+/usr/include/c++/4.0.2/i486-linux-gnu/bits/os_defines.h :
+/usr/include/features.h :
+/usr/include/sys/cdefs.h :
+/usr/include/gnu/stubs.h :
+/usr/include/c++/4.0.2/bits/cpp_type_traits.h :
+/usr/include/math.h :
+/usr/include/bits/huge_val.h :
+/usr/include/bits/huge_valf.h :
+/usr/include/bits/huge_vall.h :
+/usr/include/bits/inf.h :
+/usr/include/bits/nan.h :
+/usr/include/bits/mathdef.h :
+/usr/include/bits/mathcalls.h :
+/usr/include/c++/4.0.2/bits/cmath.tcc :
+/usr/include/c++/4.0.2/limits :
+/usr/include/c++/4.0.2/cfloat :
+/usr/lib/gcc/i486-linux-gnu/4.0.2/include/float.h :

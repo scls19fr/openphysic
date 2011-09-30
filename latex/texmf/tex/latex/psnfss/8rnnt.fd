@@ -1,0 +1,40 @@
+%Filename: 8rnnt.fd
+%Created by: tex Fam_2488
+%Created using fontinst v1.800
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{8rnnt.fd}
+   [1998/11/05 Fontinst v1.800 font definitions for 8r/nnt.]
+
+\DeclareFontFamily{8r}{nnt}{}
+
+\DeclareFontShape{8r}{nnt}{m}{n}{
+   <-> nntr8r
+}{}
+
+\DeclareFontShape{8r}{nnt}{m}{sl}{
+   <-> nntro8r
+}{}
+
+\DeclareFontShape{8r}{nnt}{m}{it}{
+   <-> nntri8r
+}{}
+
+\DeclareFontShape{8r}{nnt}{b}{n}{
+   <-> nntb8r
+}{}
+
+\DeclareFontShape{8r}{nnt}{b}{sl}{
+   <-> nntbo8r
+}{}
+
+\DeclareFontShape{8r}{nnt}{b}{it}{
+   <-> nntbi8r
+}{}
+
+\DeclareFontShape{8r}{nnt}{bx}{n}{<->ssub * nnt/b/n}{}
+\DeclareFontShape{8r}{nnt}{bx}{sl}{<->ssub * nnt/b/sl}{}
+\DeclareFontShape{8r}{nnt}{bx}{it}{<->ssub * nnt/b/it}{}
+
+\endinput

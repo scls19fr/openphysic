@@ -1,0 +1,13 @@
+%Filename: 8ruaq.fd
+%Created by: tex Fam_6892
+%Created using fontinst v1.800
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{8ruaq.fd}
+   [1998/11/05 Fontinst v1.800 font definitions for 8r/uaq.]
+
+\DeclareFontFamily{8r}{uaq}{}
+
+
+\endinput

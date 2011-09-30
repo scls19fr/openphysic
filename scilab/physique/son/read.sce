@@ -1,0 +1,11 @@
+clear;
+s=loadwave("son.wav");
+fs=44100;
+plot(s);
+halt();
+xbasc();
+analyze(s,fmin=100,fmax=3000,rate=fs);
+halt();
+xbasc();
+mapsound(s,dt=0.1,simpl=1,fmin=100,fmax=3000,rate=fs);
+//playsnd(s);

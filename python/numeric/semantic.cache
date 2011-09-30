@@ -1,0 +1,15 @@
+;; Object numeric/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "numeric/"
+  :tables (list 
+   (semanticdb-table "main.py"
+    :major-mode 'python-mode
+    :tags '(("print" code nil nil [70 104]) ("A" variable nil nil [106 121]) ("print" code nil nil [123 130]) ("print" code nil nil [132 142]) ("print" code nil nil [198 236]) ("print" code nil nil [271 294]) ("B" variable nil nil [342 357]) ("numarray" include nil nil [404 419]) ("A_num" variable nil nil [421 458]) ("print" code nil nil [459 493]))
+    :file "main.py"
+    :pointmax 494
+    )
+   )
+  :file "semantic.cache"
+  :semantic-tag-version "2.0beta3"
+  :semanticdb-version "2.0beta3"
+  )

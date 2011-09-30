@@ -1,0 +1,31 @@
+// Mur de refend
+
+real e1 = 4; // epaisseur mur 1
+real e2 = 4; // epaisseur mur 2
+
+real l = 18; // longueur/2
+
+real lambda = 1;
+
+//border bas(t=0,1){x=2*l*t;y=0;};
+//border droite(t=0,1){x=2*l;y=e1*t;};
+//border haut(t=0,1){x=2*l*(1-t);y=e1;};
+//border gauche(t=0,1){x=0;y=e1*(1-t);};
+// cercle
+
+//border SW(t=0,1){x=-(l-e1)*t;y=0;};
+//border W(t=0,1){x=-(l-e1);y=-l*t;};
+//border S(t=-1,1){x=(l-e1)*t;y=-l;};
+//border E(t=0,1){x=l-e1;y=l*t;};
+//border SE(
+
+mesh Th = buildmesh (bas(50) + droite(50) + haut(50) + gauche(50));
+
+//fespace Vh(Th,P2); // P2 conforming triangular FEM
+//Vh u,v;
+//Vh lambda=1+2*(x<-1)*(x>-2)*(y<3)*(y>-3);
+
+//solve Laplace(u,v)=int2d(Th)(lambda*(dx(u)*dx(v) + dy(u)*dy(v))) + on(E,u=10) + on(W,u=80);
+
+plot(Th,wait=true);
+//plot(u,wait=true);

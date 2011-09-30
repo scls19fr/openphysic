@@ -1,0 +1,351 @@
+\documentclass[a4paper,10pt]{book}
+
+\usepackage[frenchb]{babel}     % specification francaise
+\usepackage[latin1]{inputenc}   % entree clavier latin1
+\usepackage[T1]{fontenc}        % sortie
+
+
+\usepackage[french]{minitoc} % table des matières par chapitre
+
+\usepackage{listings} % insertion de code source
+% voir aussi : lgrind 
+
+%\usepackage{bbding}
+
+\title{Utilisation de Scilab\\ en Sciences Physiques}
+\author{Sébastien \textsc{CELLES}}
+\date{\today} 
+
+
+\begin{document}
+
+% insertion de code source
+\lstset{%
+%  showspaces = \true,
+%  showtabs = true,
+%  tab = \rightarrowfill,
+  basicstyle = \small,
+  language = Scilab, % choix du langage Scilab
+  extendedchars = true, % contre les problèmes avec les accents
+  breaklines = true, % retour à la ligne
+  breakindent = 10pt,
+  prebreak = \mbox{$\ \hookleftarrow$}, %\mbox{\ \ldots\ }, %\ArrowBoldDownRight % $\hookleftarrow$, % caractère avant le retour à la ligne
+  postbreak = \mbox{\ \ldots\ }, %\dots,  %\space, % caractère après le retour à la ligne
+%  frame = single % cadre ?
+} 
+
+
+
+
+\newcommand{\ins}[1]{% insérer un fichier Scilab (externe)
+\lstinputlisting{#1}
+}
+
+% \newcommand{\sce}[1]{% colorer un code Scilab (interne)
+% \begin{lstlisting}{}
+% #1
+% \end{lstlisting}
+% }
+
+% \lstinline!...!
+
+
+% Titre
+\maketitle
+
+
+
+% Sommaire
+\dominitoc % table des matières locales 
+\tableofcontents
+
+
+% références biblio
+% La physique avec Maple 1ère et 2ème année
+%   MP PC PSI PT
+%   Vincent BOURGES
+%   Ed. Ellipse
+
+
+% Maple cours et applications (2ème édition)
+%   MPSI PCSI PTSI
+%   MP PSI PC PT
+%   Lionel PORCHERON
+%   Ed. DUNOD
+
+% MATLAB pour l'ingénieur
+%   Adrian BIRAN et Moshe BREINER
+%   Ed. PEARSON Education
+
+
+%\part{Part1}
+
+
+
+
+
+
+\newcommand{\chapitre}[1]{%
+\chapter{#1}
+\vspace*{\stretch{1}}
+\minitoc
+\vspace*{\stretch{3}}
+\newpage
+}
+
+
+\chapitre{Test}
+\section{Test}
+\begin{lstlisting}{}
+A = [1 2 3];
+B = [1 2 3];
+C = A + B;
+xbasc(); // ceci est un test accentué
+\end{lstlisting}
+
+
+Mon texte $\hookleftarrow$ $\cdots$ \dots
+
+
+% \section{Test 2}
+% \sce{
+% A = [1 2 3];
+% B = [1 2 3];
+% C = A + B;
+% xbasc(); // ceci est un test accentué
+% }
+
+\chapitre{Mécanique}
+
+\section{Cinématique}
+
+\subsection{Cycloïde}
+\ins{../physique/mecanique/cinematique/velo_cycloide/velo_cycloide.sce}
+
+\section{Chute libre : Mouvement d'un obus}
+
+% ../physique/mecanique/meca_rfd_vec.sce
+
+%\begin{lstlisting}{}
+%\end{lstlisting}
+
+%\lstinputlisting{../physique/mecanique/meca_rfd_vec.sce}
+\ins{../physique/mecanique/meca_rfd_vec.sce}
+
+
+\section{Mouvement d'un satellite}
+% portrait de phase
+% points singuliers points fixes points critique diagramme de
+% bifurcation
+
+\section{Oscillateurs mécaniques}
+
+\subsection{Oscillateur harmonique libre non amorti}
+
+\subsection{Oscillateur harmonique libre amorti}
+
+\subsection{Portrait de phase d'un oscillateur mécanique}
+
+\subsection{Oscillateur harmonique amorti en régime forcé}
+
+\subsection{Oscillateurs couplés}
+
+
+
+
+%\part{Part2}
+
+
+\chapitre{\'Electronique}
+
+\section{Diagramme de Bode}
+
+\section{Comparateur}
+
+\section{Oscillateurs}
+
+\section{Valeur moyenne - valeur efficace}
+\ins{../physique/elec/moy_eff.sce}
+
+\section{Harmoniques}
+\ins{../physique/elec/harmoniques.sce}
+
+% voir Scicos
+
+
+
+\section{Triphasé}
+\ins{../physique/elec/triphase.sce}
+
+
+\section{Résonance d'un circuit RLC}
+\ins{../physique/elec/resonance_rlc.sce}
+
+
+\chapitre{\'Electrostatique}
+\section{Spectre du champ électrique}
+\ins{../physique/electromag/chp_e/main.sce}
+
+\section{Mouvement d'une particule dans un champ électrique}
+
+
+
+
+
+\chapitre{Magnétostatique}
+\section{Spectre du champ magnétique}
+%\ins{
+
+\section{Mouvement d'une particule dans un champ magnétique}
+\ins{../physique/electromag/meca_rfd_vec_particule.sce}
+
+
+
+\chapitre{Optique}
+\section{Optique géométrique}
+
+\section{Interférences}
+
+\section{Diffraction}
+
+\section{Réseau}
+
+
+\chapitre{Radioactivité}
+\section{Décroissance radioactive}
+\ins{../physique/radioac/main.sci}
+
+
+\chapitre{Physique ondulatoire}
+\section{\'Etude d'une onde à une dimension}
+
+\section{Ondes stationnaires}
+%\section{\'Etude d'une onde à deux dimensions}
+%\subsection{d
+
+
+
+
+\chapitre{Analyse vectorielle}
+\section{Gradient}
+
+\section{Divergence}
+
+\section{Rotationnel}
+
+\section{Laplacien}
+
+
+
+\chapitre{Mécanique des fluides}
+\section{\'Etude d'un écoulement laminaire autour d'une sphère}
+
+\section{\'Ecoulement}
+% voir la simu Scilab de Biansan (Optgéo)
+
+
+
+\chapitre{Traitement du signal}
+\section{Analyse de Fourier}
+\subsection{Transformée de Fourier à l'aide du calcul formel}
+\subsection{Transformée de Fourier Rapide (FFT)}
+
+
+\section{Transformation de Laplace}
+
+
+
+\chapitre{Automatique}
+%\section{}
+% Bode Black Nyquist
+% Non linéaire (Plan de phase)
+
+
+
+\chapitre{Thermodynamique}
+\section{Diffusion}
+
+
+
+
+
+\chapitre{Physique non linéaire}
+\section{Espace de phase}
+
+\section{Trajectoire de phase}
+
+
+
+\chapitre{Chimie}
+\section{Orbitales de l'atome d'hydogène}
+
+\section{Réaction acido-basiques}
+
+\section{Cinétique chimique}
+
+\section{Diagramme potentiel-pH}
+
+% conductimétrie
+
+
+
+\chapitre{Fractales}
+\section{Ensemble de Cantor}
+
+\section{Courbe de Koch}
+
+\section{Courbe de Péano}
+
+\section{Tamis de Siepinski}
+% sapin/arbre de noel
+% fougère
+
+\section{Arbres de Pythagore}
+% arbre à broccoli
+
+\section{Conway : le jeu de la vie}
+% -> automate
+
+\section{Courbe du crabe}
+
+\section{Courbe de Hilbert}
+
+\section{Ensemble de Julia}
+
+\section{Ensemble de Mendelbrot}
+
+\section{Gaussienne}
+
+\section{Profil brownien d'une montagne}
+
+
+
+
+
+
+
+\chapitre{Chaos}
+
+\section{Scénario de Feigenbaum}
+
+\section{Attracteur de Hénon}
+
+\section{Attracteur de Rössler}
+
+\section{Attracteur de Lorentz}
+
+
+
+
+%\section{Pendule}
+
+% accrochage d'une machine synchrone sur le réseau ?
+
+
+
+
+
+
+\end{document}
+
+

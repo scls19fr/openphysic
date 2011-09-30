@@ -1,0 +1,111 @@
+\tp{Caractéristique d'une pile}
+
+\nomprenomclasse
+
+\begin{multicols}{2}
+
+
+\objectifs{
+\item Tracer la caractéristique $U = f(I)$ d'une pile.
+\item Déterminer sa force électromotrice $E$ et sa résistance interne $r$
+}
+
+\materiel{
+\item pile $1,5~V$
+\item 2 multimètres
+\item 1 interrupteur $K$
+\item 1 rhéostat $R_h \leq 100~\Omega$
+\item 1 résistance de protection $R = 10~\Omega$
+}
+
+%\tiny
+\section{Montage}
+
+\begin{center}
+\begin{pspicture}(0,0)(7,5)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(0,4){B}
+\pnode(7,4){A}
+\battery[tensionlabel=$U$](B)(A){}
+\circledipole[parallel,parallelarm=-1,parallelsep=0,labeloffset=0](2,4)(5,4){\large \textbf{V}}
+\pnode(0,0.5){C}
+\pnode(6,0.5){D}
+\wire(C)(B)
+\pnode(2,0.5){CD1}
+\pnode(4,0.5){CD2}
+\ammeter{C}{CD1}
+\resistor[intensitylabel=$I$,dipoleconvention=receptor](CD1)(CD2){$R$}
+\switch(CD2)(D){$K$}
+\resistor(D)(6,3){$R_h$}
+\psline(A)(7,1.75)
+\psline{->}(7,1.75)(6.25,1.75)
+\end{pspicture}
+\end{center}
+
+
+\end{multicols}
+
+\section{Manipulations}
+\small
+\begin{enumerate}
+\item Préciser les bornes des appareils de mesure puis réaliser le montage et demander au professeur de le vérifier avant mise sous tension.
+\item Ouvrir l'interrupteur $K$. Mesurer $U$.
+\item Placer le rhéostat sur sa plus grande valeur ${R_h}_{\mbox{max}}$ (plus grande longueur de conducteur).\\
+Fermer l'interrupteur $K$.\\
+Mesurer $U$ et $I$.\\
+Renouveler ces 2 mesures pour des valeurs plus élevées de $I$ en diminuant $R_h$ (en diminuant la longueur de conducteur dans le rhéostat).
+\end{enumerate}
+
+
+\begin{arraydata}{9}
+\hline
+$I$ ($mA$) &  0 & 10 & 20 & 30 & 40 & 50 & 60 & 70 & 80 \\ \hline
+\rule[-0.3cm]{0cm}{0.7cm}
+$U$ ($V$)  &    &    &    &    &    &    &    &    &    \\ \hline
+\end{arraydata}
+
+
+\section{Résultats}
+\begin{enumerate}
+\item Tracer la caractéristique $U = f(I)$ de la pile.
+\item On obtient une droite décroissante ne passant pas par l'origine (fonction affine)\\
+On vérifie la \emph{loi d'Ohm pour un générateur} \fbox{$U = E -r I$}.
+
+$E$ est \trouligne{l'ordonnée à l'origine de la droite.}
+
+$r$ est \trouligne{le coefficient directeur de la droite.}
+
+
+Lorsque $I = 0~A$, $U = \trou{\hspace{0.5cm}E}$ : c'est la \trou{force électromotrice de la pile}, notée en abrégé \trou{f.e.m.}. Elle vaut $E = \makebox[20mm][l]{\dotfill}~V$
+
+\medskip
+
+Déterminer le coefficient directeur de la droite :
+
+\trouformule{ a = \frac{U_2 - U_1}{I_2 - I_1}}
+
+En déduire la résistance interne de la pile : $r = \troufixe{2cm}~\Omega$
+
+
+\end{enumerate}
+
+%\newpage
+
+
+\normalsize
+
+\pagepapiermilli
+
+
+% \begin{changemargin}{-1}{-1}
+
+% \begin{center}
+% \scalebox{1.414}{
+% \begin{pspicture}(0,0)(11,19)
+% \psmilli
+% \end{pspicture}
+% }
+% \end{center}
+
+% \end{changemargin}
+

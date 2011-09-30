@@ -1,0 +1,68 @@
+    /*
+       Evaluation d'une expression
+       Partie analyseur grammatical.
+    */
+%{
+int appel_fonc (char *, int, int *);
+%}
+
+%union  { char chaine[256]; int valeur; }
+%token <chaine> Tid
+%token <valeur> Tnb
+%type  <valeur> EXPR_NUM FACTEUR TERME APPEL_FONC
+%start  EXPR_CALCS
+
+%%
+EXPR_CALCS : EXPR_CALC              
+           | EXPR_CALCS EXPR_CALC   
+           ;
+
+EXPR_CALC : EXPR_NUM '='            {printf ("%d\n", $1);}
+          | error '='               {yyerrok;}
+          ;
+
+EXPR_NUM : FACTEUR                  
+         | EXPR_NUM '+' FACTEUR     {$$ = $1 + $3;}
+         | EXPR_NUM '-' FACTEUR     {$$ = $1 - $3;}
+         ;
+
+FACTEUR  : TERME                    
+         | FACTEUR '*' TERME        {$$ = $1 * $3;}
+         | FACTEUR '/' TERME        {$$ = $1 / $3;}
+         ;
+
+TERME    : Tnb                      {$$ = $1;}
+         | '(' EXPR_NUM ')'         {$$ = $2;}
+         | APPEL_FONC               {$$ = $1;}
+         ;
+
+
+APPEL_FONC : Tid '(' EXPR_NUM ')'   {if (! appel_fonc ($1, $3, &$$)) YYERROR;}
+           ;
+%%
+
+#include <stdio.h>
+#include <string.h>
+#include "lex.yy.c"
+
+yyerror ()
+{ fprintf(stderr,"Erreur\n"); }
+
+main()
+{
+    if ( yyparse() != 0 )
+        { fprintf(stderr,"Syntaxe incorrecte\n"); return 1; }
+    else
+        return 0;
+}
+
+int appel_fonc (char *chaine, int valeur, int * val)
+{
+    if (strcmp(chaine, "abs")==0)
+        *val = abs(valeur);
+    else if (strcmp(chaine, "neg")==0)
+        *val = - valeur;
+    else
+        { fprintf(stderr,"Fonction inconnue\n"); return 0; }
+    return 1;
+}

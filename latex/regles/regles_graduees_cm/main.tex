@@ -1,0 +1,83 @@
+\documentclass[a4paper]{article}
+\usepackage{pstricks}
+\usepackage{multido}
+\usepackage{geometry}
+\geometry{ hmargin=0.5cm, vmargin=0.5cm }
+
+\pagestyle{empty}
+\SpecialCoor
+\begin{document}
+
+\vspace*{1cm}
+
+\begin{center}
+
+\begin{pspicture}(0,0)(15,27)
+%\psgrid[subgriddiv=1,griddots=5,gridlabels=0pt]
+%\psset{xunit=1} \psset{yunit=1}
+
+% graduations cm
+%\multido{\d=0cm+1cm}{28}{%
+% \psline[linewidth=.01](-2,\d)(-1.75,\d)
+% \psline[linewidth=.01](2,\d)(1.75,\d)
+%}
+
+% nombres
+\multido{\i=0+1}{28}{%
+  \rput{0}(0,0){%
+    \psline[linewidth=.01](0,\i)(0.25,\i)
+    \rput{0}(0,0){%
+      \rput{0}(0.5,\i){\i}
+    }
+  }
+  \rput{0}(2,0){%
+    \psline[linewidth=.01](0,\i)(0.25,\i)
+    \rput{0}(0,27){%
+      \rput{0}(0.5,-\i){\i}
+    }
+  }
+  \rput{0}(4,0){%
+    \psline[linewidth=.01](0,\i)(0.25,\i)
+    \rput{0}(0,0){%
+      \rput{0}(-0.25,\i){\i}
+    }
+  }
+  \rput{0}(6,0){%
+    \psline[linewidth=.01](0,\i)(0.25,\i)
+    \rput{0}(0,27){%
+      \rput{0}(-0.25,-\i){\i}
+    }
+  }
+  \rput{0}(8,0){%
+    \rput{0}(0,0){%
+      \psline[linewidth=.01](0,\i)(0.25,\i)
+      \rput{0}(0,0){%
+        \rput{90}(0.5,\i){\i}
+      }
+    }
+    \rput{0}(2,0){%
+      \psline[linewidth=.01](0,\i)(0.25,\i)
+      \rput{0}(0,27){%
+        \rput{90}(0.5,-\i){\i}
+      }
+    }
+    \rput{0}(4,0){%
+      \psline[linewidth=.01](0,\i)(0.25,\i)
+      \rput{0}(0,0){%
+        \rput{270}(-0.25,\i){\i}
+      }
+    }
+    \rput{0}(6,0){%
+      \psline[linewidth=.01](0,\i)(0.25,\i)
+      \rput{0}(0,27){%
+        \rput{270}(-0.25,-\i){\i}
+      }
+    }
+  }
+}
+
+\end{pspicture}
+
+\end{center}
+
+\end{document}

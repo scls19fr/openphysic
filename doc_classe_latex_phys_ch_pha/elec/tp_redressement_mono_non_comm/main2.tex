@@ -1,0 +1,317 @@
+\cours{Redressement monophasé\\ non commandé}
+
+
+
+\section*{Consignes pour la réalisation des mesures}
+Dans cette séance de TP, nous allons être amené à mesurer des tensions importantes ou des tensions non référencées par rapport à la terre. Ceci nous impose donc de réaliser toutes les mesures de tensions avec l'oscilloscope par l'intermédiaire d'une \emph{sonde différentielle}.
+
+Les intensités seront, elles, observées par l'intermédiaire de \emph{sondes de courant}.
+
+
+\section{Quelques rappels sur le modèle de la diode idéale}
+
+
+
+
+\begin{tabular}{cc}
+
+\hspace{7cm}
+
+&
+
+\hspace{7cm}
+
+\\
+
+
+\begin{pspicture}(-2,-1)(2,1)
+
+
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(-1.5,0){A}
+\pnode(1.5,0){B}
+\diode[intensitylabel=$i_D$,tensionlabel=$u_D$,dipoleconvention=receptor](A)(B){$D$}
+%[intensitylabel=$i_D$,tensionlabel=$u_D = v_A - v_K$,dipoleconvention=receptor]
+\rput{0}(-1.5,0.25){$A$}
+\rput{0}(1.5,0.25){$K$}
+\end{pspicture}
+
+&
+
+\begin{pspicture}(-2,-2)(2,2)
+%\psgrid[subgriddiv=1,griddots=10]
+\psline{->}(-2,0)(2,0)
+\psline{->}(0,-2)(0,2)
+\rput{0}(2,0.25){$v_D$}
+\rput{0}(0.25,2){$i_D$}
+\end{pspicture}
+
+
+\end{tabular}
+
+
+\vspace{3cm}
+
+\begin{tabular}{c|c}
+
+\hspace{7cm}
+
+&
+
+\hspace{7cm}
+
+\\
+
+\begin{pspicture}(-2,-1)(2,1)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(-1.5,0){A}
+\pnode(1.5,0){B}
+\pnode(-0.5,0){A2}
+\pnode(0.5,0){B2}
+\psline(A)(A2)
+\psline(B)(B2)
+%\diode[intensitylabel=$i_D$,tensionlabel=$u_D$,dipoleconvention=receptor](A)(B){$D$}
+%[intensitylabel=$i_D$,tensionlabel=$u_D = v_A - v_K$,dipoleconvention=receptor]
+\rput{0}(-1.5,0.25){$A$}
+\rput{0}(1.5,0.25){$K$}
+\end{pspicture}
+
+&
+
+\begin{pspicture}(-2,-1)(2,1)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(-1.5,0){A}
+\pnode(1.5,0){B}
+\pnode(-0.5,0){A2}
+\pnode(0.5,0){B2}
+\psline(A)(A2)
+\psline(B)(B2)
+%\diode[intensitylabel=$i_D$,tensionlabel=$u_D$,dipoleconvention=receptor](A)(B){$D$}
+%[intensitylabel=$i_D$,tensionlabel=$u_D = v_A - v_K$,dipoleconvention=receptor]
+\rput{0}(-1.5,0.25){$A$}
+\rput{0}(1.5,0.25){$K$}
+\end{pspicture}
+
+
+\\
+
+$u_D ...............$
+
+&
+
+$i_D ...............$
+
+\\
+
+$i_D ...............$
+
+&
+
+$u_D ...............$
+
+
+\\
+
+diode \emph{bloquée} & diode \emph{passante}
+
+\\
+
+interrupteur ............... & interrupteur ..............
+
+
+\end{tabular}
+
+
+\newpage
+
+\section{Redressement monophasé monoalternance}
+
+
+\begin{pspicture}(0,0)(6,4)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(1,3){A}
+\pnode(1,0){B}
+\pnode(3,3){C}
+\pnode(3,0){D}
+\transformer(A)(B)(C)(D){$\mathcal T$}
+\resistor[tensionlabel=$u_c$](6,3)(6,0){$R_C$}
+\diode[tensionlabel=$u_D$,intensitylabel=$i$](C)(6,3){$D$}
+\wire(6,0)(D)
+\wire(0,0)(1,0)
+\wire(0,3)(1,3)
+\tension(D)(C){$v$}
+\end{pspicture}
+
+
+\vspace{0.5cm}
+
+\begin{pspicture}(0,-2)(16,2)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=0.02777}
+\psline{->}(-20,0)(560,0)
+\psline{->}(0,-2)(0,2)
+\rput{0}(560,-0.25){$t$}
+\rput{0}(-20,2){$v$}
+
+
+
+\psplot[linecolor=red,linewidth=2pt]{0}{540}{x sin 1.5 mul}
+\rput{0}(-20,1.5){$\widehat{v}$}
+\rput{0}(-20,-1.5){$-\widehat{v}$}
+\psline[linestyle=dashed](0,1.5)(90,1.5)
+\psline[linestyle=dashed](0,-1.5)(270,-1.5)
+
+
+\rput{0}(90,-0.5){$\frac{T}{4}$}
+\psline{-}(90,-0.1)(90,0.1)
+\rput{0}(180,-0.5){$\frac{T}{2}$}
+\psline{-}(180,-0.1)(180,0.1)
+\rput{0}(270,-0.5){$\frac{3T}{4}$}
+\psline{-}(270,-0.1)(270,0.1)
+\rput{0}(360,-0.5){$T$}
+\psline{-}(360,-0.1)(360,0.1)
+
+\end{pspicture}
+
+\begin{tabular}{|c|c|c|}
+\hline
+$0<t<\frac{T}{2}$ & $\frac{T}{2}<t<T$ & \hspace{5cm} \\ \hline
+\hspace{4.6cm} & \hspace{4.6cm} & Signe de $v$ \\ \hline
+ & & Etat de la diode \\ \hline
+ & & $u_c$ \\ \hline
+ & & $u_D$ \\ \hline
+\end{tabular}
+
+\begin{pspicture}(0,-2)(16,2)
+\psset{xunit=0.02777}
+\psline{->}(-20,0)(560,0)
+\psline{->}(0,-2)(0,2)
+\psplot[linecolor=black,linewidth=1pt,linestyle=dotted]{0}{540}{x sin 1.5 mul}
+\psplot[linecolor=black,linewidth=1pt,linestyle=dotted]{0}{540}{x sin 1.5 mul neg} % dashed, dotted
+\rput{0}(560,-0.25){$t$}
+\rput{0}(-20,2){$u_c$}
+\end{pspicture}
+
+
+\begin{pspicture}(0,-2)(16,2)
+\psset{xunit=0.02777}
+\psline{->}(-20,0)(560,0)
+\psline{->}(0,-2)(0,2)
+\psplot[linecolor=black,linewidth=1pt,linestyle=dotted]{0}{540}{x sin 1.5 mul}
+\psplot[linecolor=black,linewidth=1pt,linestyle=dotted]{0}{540}{x sin 1.5 mul neg} % dashed, dotted
+\rput{0}(560,-0.25){$t$}
+\rput{0}(-20,2){$i$}
+\end{pspicture}
+
+
+\begin{pspicture}(0,-2)(16,2)
+\psset{xunit=0.02777}
+\psline{->}(-20,0)(560,0)
+\psline{->}(0,-2)(0,2)
+\psplot[linecolor=black,linewidth=1pt,linestyle=dotted]{0}{540}{x sin 1.5 mul}
+\psplot[linecolor=black,linewidth=1pt,linestyle=dotted]{0}{540}{x sin 1.5 mul neg} % dashed, dotted
+\rput{0}(560,-0.25){$t$}
+\rput{0}(-20,2){$u_D$}
+\end{pspicture}
+
+
+
+
+
+
+
+%\[\overline{u_c} = \frac{\widehat{v}}{\pi}\]
+
+% U_C =
+
+
+\section{Redressement monophasé bialternance}
+\subsection{\'Etude d'un groupement de diodes}
+\subsubsection{\'Etude d'un groupement de diodes à cathodes communes}
+
+
+
+\subsubsection{\'Etude d'un groupement de diodes à anodes communes}
+
+
+\subsection{\'Etude du pont de Graetz}
+Nous allons étudier un convertisseur alternatif-continu couramment utilisé : le pont de Graëtz.
+
+Ce montage comporte quatre diodes (pont PD2). On peut observer qu'il se décompose en deux parties :
+
+\begin{itemize}
+\item \hfill
+\item \hfill
+\end{itemize}
+
+
+
+
+On étudiera notamment l'influence des éléments de filtrage (condensateur et bobine de lissage) sur les formes d'onde des tensions et des intensités.
+
+
+
+\subsection{Montage}
+
+
+
+\begin{enumerate}
+\item Coloriez en rouge le groupement de diodes à cathodes communes.
+\item Coloriez en vert le groupement de diodes à anodes communes.
+\end{enumerate}
+
+\subsection{Charge résistive - visualisation de l'allure des tensions et des courants}
+
+%\subsection{}
+
+\begin{enumerate}
+\item Relevez en concordance de temps l'allure de la tension $v$ (en entrée du pont de Graëtz), la tension $u_C$ aux bornes de la résistance de charge $R_C$ ainsi que les tensions $u_{D_1}$, $u_{D_2}$, $u_{D_3}$, $u_{D_4}$ respectivement aux bornes des diodes $D_1$, $D_2$, $D_3$ et $D_4$.
+
+\item On suppose que pour $0 < t < \frac{T}{2}$, $v(t)>0$. Redessinez le montage en remplaçant les diodes passantes par des interrupteurs fermés et les diodes bloquées par des interrupteurs ouverts.
+
+\item On suppose que pour $\frac{T}{2} < t < T$, $v(t)<0$. Redessinez le montage en remplaçant les diodes passantes par des interrupteurs fermés et les diodes bloquées par des interrupteurs ouverts.
+
+\item Indiquez comment mesurer $\overline{u_C}$. Mesurez-la et vérifiez qu'elle vaut :
+\[\overline{u_c} = \frac{2 \widehat{v}}{\pi}\]
+
+\item Indiquez comment mesurer $U_C$. Mesurez-la et vérifiez qu'elle vaut :
+\[\overline{u_c} = \frac{\widehat{v}}{\sqrt{2}}\]
+
+\item Indiquez comment mesurer ${U_C}_a$. Mesurez-la et vérifiez qu'elle vaut :
+\[{U_C}_a^2 = U_C^2 - \overline{u_C}^2\]
+
+
+\end{enumerate}
+
+\subsection{Effet d'un condensateur placé en parallèle sur la charge}
+
+On place désormais en sortie du pont de Graëtz un condensateur $C$.
+
+\begin{enumerate}
+\item Relevez en concordance de temps l'allure de la tension $v$ (en entrée du pont de Graëtz), la tension $u_C$ aux bornes de la résistance de charge $R_C$ ainsi que les tensions $u_{D_1}$, $u_{D_2}$, $u_{D_3}$, $u_{D_4}$ respectivement aux bornes des diodes $D_1$, $D_2$, $D_3$ et $D_4$.
+\item Concluez sur l'effet du condesateur.
+\item Visualisez précisemment l'ondulation de la tension sortie. Quelle touche de l'oscilloscope utilisez-vous pour réaliser cette opération.
+\end{enumerate}
+
+Remarque : pour arriver à obtenir l'effet désiré, on se souviendra qu'il faut :
+
+\[R_C \cdot C \cdot \omega \gg 1\]
+
+\subsection{Effet d'une bobine en série avec la charge}
+
+%\subsection{Critères de qualité de la conversion alternatif-continu}
+
+%\subsubsection{Facteur de puissance $k$ (vu du secondaire du transformateur)}
+
+%\[k = \frac{P}{S}\]
+%\begin{itemize}
+%\item $P$ : puissance active ($W$)
+%\item $S$ : puissance apparente ($VA$)
+%\end{itemize}
+
+
+\subsubsection{Taux d'ondulation de la tension de sortie}
+
+\[\frac{\Delta u_C}{\overline{u_C}} = \frac{\hat{u_c}-\check{u_c}}{\overline{u_C}} \approx \frac{1}{4 R_C C f}\]
+
+

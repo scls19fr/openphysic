@@ -1,0 +1,1 @@
+<Project name="UART"><Folder name="Source Files"><File path="main.c"></File><File path="UART.c"></File></Folder><Folder name="Header Files"><File path="UART.h"></File></Folder><Folder name="Misc Files"><File path="makefile"></File></Folder></Project>

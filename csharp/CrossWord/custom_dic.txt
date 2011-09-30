@@ -1,0 +1,8 @@
+// Ce fichier est le dictionnaire personnel.
+// Complétez-le à votre guise
+// Vous pouvez ajouter des commentaires après le mot
+// En mettant un slash
+azerty
+Isis/Osiris
+lee/Enfant de virginie
+meneur

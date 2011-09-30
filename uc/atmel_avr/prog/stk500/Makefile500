@@ -1,0 +1,7 @@
+output=my_idea.hex
+
+all:
+	#$(MAKE) program
+
+program:
+	stk500 -dATmega8 -e -if$(output) -pf -vf

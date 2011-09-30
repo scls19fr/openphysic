@@ -1,0 +1,10 @@
+v1.5			Sun Oct 16 16:32:32 CEST 2005
+
+These files are French translations of the classical 
+BibTeX style files. The translations can easily be 
+modified by simply redefining FUNCTIONs named fr.*, 
+at the beginning (lines 50-150) of each file.
+If you modify anything, however, please change the 
+name of the file.
+
+NM  <markey@lsv.ens-cachan.fr>

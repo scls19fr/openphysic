@@ -1,0 +1,27 @@
+COMPILATION PC
+==============
+
+    MAKE
+    ====
+    $ vi hello.c
+    $ make hello
+
+    GCC
+    ===
+    $ gcc hello.c -o hello.exe
+
+    ou
+
+    $ gcc hello.c -o hello
+
+    EXECUTION
+    =========
+    $ ./hello
+
+
+
+COMPILATION POCKET PC
+=====================
+http://win-ce.voxware.com:28575/Development%20Tools/gnuwince.html
+
+arm-wince-pe-gcc -march=armv4 -mapcs-32 -malignment-traps -DNEWLIB -DSARM -DWIN32 -DGNUWINCE hello.c -lc -lgcc -lwinsock -lcoredll

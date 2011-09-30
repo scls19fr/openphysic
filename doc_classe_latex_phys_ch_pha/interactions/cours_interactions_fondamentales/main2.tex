@@ -1,0 +1,253 @@
+\cours{Les intéractions fondamentales}
+
+
+\section{Interaction gravitationnelle}
+
+\subsection{La loi de Newton}
+
+\begin{framed}
+Deux objets ponctuels de masses $m_1$ et $m_2$ exercent l'un sur
+l'autre des forces d'interaction gravitationnelle attractives, dont la
+valeur est proportionnelle à chacune des masses et inversement
+proportionnel au carré de la distance $d$ qui les sépare.
+\end{framed}
+
+
+\[\norme{\vect{F_{2/1}}} = \norme{\vect{F_{1/2}}} = G \frac{m_1 m_2}{d^2}\]
+
+\begin{itemize}
+\item $F$ et $F'$ sont exprimés en newton ($N$)
+\item $m$ et $m'$ en $kg$
+\item $d$ en $m$
+\end{itemize}
+
+Ces 2 forces ont même direction, des sens contraires et même valeur.
+
+\[\vect{F_{2/1}} = -\vect{F_{1/2}}\]
+
+
+G est appelée \emph{constante universelle de gravitation}.
+
+\[G = 6,67.10^{-11}~N.kg^{-2}.m^2\]
+
+\begin{framed}
+Cette loi s'applique aussi à des objets non ponctuels si la
+répartition des masses est à symétrie sphérique, c'est à dire si la
+masse volumique $\rho$ ne dépend que de la distance au centre de
+symétrie. $d$ est alors la distance entre les centres de symétrie.
+\end{framed}
+
+
+Cette force est très faible sauf si les masses mises en jeu sont
+colossales. 
+
+
+\subsection{Le poids d'un corps}
+
+Tout objet de masse $m$, situé au voisinage de la surface de la Terre
+est soumis à une force d'attraction gravitationnelle exercée par la
+Terre. \`A sa surface, la valeur de cette force est :
+
+
+\[F_0 = G \frac{M_T \cdot m}{{R_T}^2}\]
+
+\`A la surface de la Terre, le poids d'un objet est
+$\displaystyle P_0 = m \cdot g_0 = G \frac{M_T \cdot m}{{R_T}^2}$.
+
+
+On définit ainsi l'\emph{intensité de la pesanteur terrestre :}
+
+
+\[g_0 = G \frac{M_T}{{R_T}^2} = 9,80~N.kg^{-1}\]
+
+
+
+En un point d'altitude $z$, la force gravitationnelle agissant sur un
+objet de masse $m$ est :
+
+\[F = G \frac{M_T \cdot m}{(R_T + z)^2}\]
+
+
+
+En reportant l'expression de $g_0$ dans celle de $F$, on obtient
+l'expression du poids :
+
+
+\[P = m \cdot g = F = m \cdot g_0 \frac{R_T^2}{(R_T + z)^2}\]
+
+Le poids d'un objet diminue quand l'altitude $z$ augmente.
+
+
+\[g = g_0 \frac{R_T^2}{(R_T + z)^2}\]
+
+
+Pour $z = 10~km$, $g = 9,77~N.kg^{-1}$.
+
+
+\exemple{%
+si la Lune tourne autour de la Terre, c'est qu'elle n'en finit pas de
+tomber. La force gravitationnelle est la cause de son mouvement.
+}
+
+
+\section{Interaction électrostatique}
+
+\subsection{La loi de Coulomb}
+
+Deux charges électriques $q_1$ et $q_2$ exercent l'une sur l'autre des
+forces d'interaction électrostatique, dont la valeur est proportionnelle à
+chacune des charges et inversement proportionnelle au carré de la
+distance $d$ qui les sépare : 
+
+
+
+\[
+\norme{\vect{F_{2/1}}}
+ = \norme{\vect{F_{1/2}}}
+ = k \frac{q_1 q_2}{d^2}
+\]
+
+
+\begin{itemize}
+\item $F_{2/1}$ et $F_{1/2}$ en $N$
+\item $d$ en $m$
+\item $q_1$ et $q_2$ en $C$
+\item $k$ : constante dépendant du milieu, $k = 9.109~N.C^{-2}.m^2$ dans le vide ou l'air.
+\end{itemize}
+
+
+\begin{tabularx}{\linewidth}{XX}
+
+%Si les 2 charges ont même signe, l'interaction est répulsive.
+
+\begin{center}
+\includegraphics{coulomb_repuls.png.eps}
+\caption{Les deux charge ont le même signe : elle se repoussent.}
+\end{center}
+
+&
+
+%Si les 2 charges ont des signes différents, elle est attractive.
+
+\begin{center}
+\includegraphics{coulomb_attire.png.eps}
+\caption{Les deux charges ont des signes différents : elles s'attirent.}
+\end{center}
+
+\end{tabularx}
+
+
+\exemple{%
+Calculer la valeur identique de 2 charges situées à $d = 1~m$ l'une de
+l'autre subissant une force d'interaction de $1~N$.
+}
+
+
+\subsection{Interaction entre plusieurs charges électriques}
+
+Considérons un ensemble de 3 charges ponctuelles. Dans ce cas, chacune
+des charges sera soumise à l'influence des 2 autres.
+
+
+\subsection{Interaction électrostatique et stabilité des noyaux}
+
+La stabilité des noyaux est assurée par l'interaction forte entre un
+nucléon et ses voisins proches. Cependant l'interaction
+électrostatique entre protons est répulsive et existe. De ce fait, les
+noyaux lourds et riches en protons sont instables et se désintègrent
+parfois en noyaux + légers en libérant des particules d'hélium
+\noyau{He}{2}{4}. Il n'existe pas de noyaux stables contenant plus de
+$83$ protons.
+
+
+
+\subsection{Atomes et interaction électromagnétique}
+
+Entre l'électron et le proton de l'atome d'hydrogène, la loi de
+Coulomb nous donne :
+
+\[F_e = k \frac{e^2}{r^2} = 8,20.10^{-8}~N\]
+
+
+La force d'interaction gravitationnelle est donnée par la loi de
+Newton :
+
+\[F_g = G \frac{m_e \cdot m_p}{r^2} = 3,61.10^{-47}~N\]
+
+
+L'intensité de cette force est négligeable par rapport à la
+précédente.
+
+
+\subsection{Les dipôles électriques}
+
+Un dipôle est formé par une paire de charges électriques ponctuelles
+opposées $q$ et $-q$ proches l'une de l'autre. Certaines molécules
+possèdent un caractère dipolaire car les atomes constitutifs
+présentent une différence d'électronégativité.
+
+
+\begin{center}
+\includegraphics{dipole_electrostat.png.eps}
+\caption{Deux charges opposées proches l'une de l'autre forment un dipôle.}
+\end{center}
+
+
+
+\exemple{l'eau.}
+
+
+\subsection{Les solides et l'interaction électrostatique}
+
+\subsubsection{Les solides ioniques}
+
+Edifices cristallisés formés d'un empilement compact et ordonné de
+cations et d'anions. La cohésion du cristal est assurée par
+l'interaction électrostatique entre ces ions (liaison ionique). Ex:
+cristal cubique de chlorure de sodium. Réseau CFC des ions $Cl^-$ avec
+occupation des sites octaédriques par les ions $Na^+$ ou vice versa.
+
+\begin{center}
+\includegraphics{cfc.png.eps}
+\caption{Réseau CFC de chlorure de sodium}
+\end{center}
+
+
+\subsubsection{Les solides moléculaires}
+
+
+Corps cristallisés où les molécules \emph{polaires} sont empilées
+périodiquement dans l'espace.
+
+
+\exemple{l'eau.}
+
+
+\section{Comparaison des 2 interactions}
+
+
+\begin{tabularx}{\linewidth}{XX}
+\emph{Interaction gravitationnelle}
+ & \emph{Interaction électrostatique} \\
+
+
+\[F_g = G \frac{m_1.m_2}{d^2}\]
+ &  \[Fe = k \frac{|q_1| |q_2|}{d^2}\] \\
+
+
+Toujours attractive
+ & Tantôt attractive, tantôt répulsive \\
+
+La force existant entre particules élémentaires est faible.
+ & La force existant entre particules élémentaires chargées est
+ importante. \\
+
+
+Les effets des grandes masses se cumulent toujours.
+ & Les effets des charges électriques algébriques se neutralisent à
+ grande échelle. \\
+
+\end{tabularx} 
+
+
+

@@ -1,0 +1,3 @@
+Programmateur Tuxgraphics
+Compatible STK500 USB
+Driver FTDI FT232R

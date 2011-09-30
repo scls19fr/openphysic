@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.1">
+<Document>
+	<name>merignac.kml</name>
+	<Style id="sh_ylw-pushpin_copy1">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/K.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/K-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin_copy1">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/K.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/K-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<StyleMap id="msn_ylw-pushpin_copy1">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin_copy1</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin_copy1</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Placemark>
+		<name>Piste de Karting - Merignac</name>
+		<LookAt>
+			<longitude>-0.7220164179161721</longitude>
+			<latitude>44.84354197231547</latitude>
+			<altitude>0</altitude>
+			<range>742.0206428237866</range>
+			<tilt>-0</tilt>
+			<heading>-0.006521240941821777</heading>
+			<altitudeMode>relativeToGround</altitudeMode>
+		</LookAt>
+		<styleUrl>#msn_ylw-pushpin_copy1</styleUrl>
+		<Point>
+			<coordinates>-0.7188588419791984,44.84436723404927,0</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>

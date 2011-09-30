@@ -1,0 +1,31 @@
+<html>
+
+	<head>
+
+	</head>
+
+	<body>
+
+#CACHE{0}
+
+
+[(#REM) Ceci est un commentaire. ]
+
+[(#REM) Afficher article http://127.0.0.1/stagespip/spip.php?page=tutoriel&id_rubrique=1]
+
+
+
+	<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+	<h1>#TITRE</h1>
+
+	<BOUCLE_article(ARTICLES){id_article=1}>
+		<h1>#TITRE</h1>
+		<b>#CHAPO</b>
+		<div align="justify">#TEXTE</div>
+	</BOUCLE_article>
+
+	</BOUCLE_rubrique>
+
+
+
+</html>

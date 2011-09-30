@@ -1,0 +1,60 @@
+c = {}
+for cle, valeur in x: c[cle] = valeur
+
+----------
+
+def iterSequence(obj):
+    i = 0
+    while 1:
+        try: yield obj[i]
+        except IndexError: raise StopIteration
+        i += 1
+
+----------
+
+def iterSentinel(func, sentinel):
+    while 1:
+        elt = func()
+        if elt == sentinel: raise StopIteration
+        yield elt
+
+----------
+
+def reduce_equivalent(fction, seq, init = None):
+    if init is None: init, seq = seq[0], seq[1:]
+    for elt in seq: init = fction(init, elt)
+    return init
+
+----------
+
+somme = reduce(operator.add, seq, 0)
+
+----------
+
+if value is not None:
+    __builtin__._ = value
+    print repr(value)
+
+----------
+
+sousliste = [1, 2]
+original = [sousliste, sousliste]
+copie = copy.deepcopy(original)
+
+----------
+
+try:                     # Peut-on hériter de list ?
+    class _Temp(list): 
+        pass
+except:                  # non : on utilise UserList.UserList comme classe de base
+    from UserList import UserList as ListeBase
+else:                    # oui : on supprime _Temp et on utilise list comme classe de base
+    del _Temp
+    ListeBase = list
+class ListeAutomatique(ListeBase):
+    """Une liste où l'on peut toujours faire L[i]=x même pour un grand i :
+       L grossit automatiquement, si nécessaire, pour que i soit un indice
+       correct."""
+    def __setitem__(self, idx, val):
+        self.extend((1 + idx - len(self)) * [None])
+        ListeBase.__setitem__(self, idx, val)

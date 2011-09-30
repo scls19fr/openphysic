@@ -1,0 +1,354 @@
+% tracé de données (.cvs)
+% issues d'un oscillo Tektronix TDS 1002
+% Jean-Côme Charpentier
+
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[a4paper,left=1cm]{geometry}
+\usepackage{multido}
+\usepackage[nomessages]{fp}
+\usepackage{pst-plot}
+\usepackage{lmodern}
+\usepackage[frenchb]{babel}
+
+\makeatletter
+% Numéro de fichier pour les opérations de lecture.
+\newread\csvfile
+
+% La macro |\currentcsvfile| va garder le nom
+% du fichier csv en cours de lecture. Cela ne sert
+% que pour l'affichage des erreurs.
+\newcommand*\currentcsvfile{}
+
+% |\opencsv| ouvre le fichier CSV dont le nom est passé en paramètre.
+% On ne peut ouvrir un fichier CSV que si aucun autre fichier
+% de ce type est en cours de traitement (désolé). D'où le test en
+% début de macro.
+\newcommand*\opencsv[1]{%
+% À ma connaissance, on ne peut pas distinguer un fichier ouvert
+% entièrement lu d'un fichier non ouvert. Par conséquent, on pourra
+% ouvrir un fichier CSV après avoir entièrement lu un fichier CSV
+% précédent même sans le fermer... on doit normalement pouvoir s'en
+% battre l'oeil dans le cas présent (ouverture en lecture seule).
+  \ifeof\csvfile
+% Avant de tenter d'ouvrir le fichier, on vérifie quand même qu'on
+% peut le faire (fichier existant, droits corrects, etc.)
+    \IfFileExists{#1}
+% Quand tout va bien, on mémorise le nom du
+% fichier et on ouvre (bêtement) en lecture
+    {%
+      \renewcommand*\currentcsvfile{#1}%
+      \immediate\openin\csvfile=#1\relax
+    }
+% Sinon, on reporte le problème.
+    {%
+      \PackageError{csv}
+      {%
+        Impossible to open `#1'
+      }
+      {%
+        File `#1' doesn't exist, or it is not readable.^^J%
+        Be aware that when you don't write an extension, `.tex' is
+        added.
+      }%
+    }%
+  \else
+% Si un autre fichier CSV est en cours de traitement, on avertit
+% l'utilisateur.
+    \PackageError{csv}
+    {%
+      You are not allowed to open several CSV files.^^J
+      \@spaces\@spaces\@spaces\@spaces\@spaces
+      File \currentcsvfile\space is already open
+    }
+    {%
+      In order to use a second \string\opencsv\space macro,^^J%
+      you have to close the first CSV file
+      via the \string\closecsv\space macro.
+    }%
+  \fi
+% |\ignorespaces| pour que l'utilisateur ne s'embête pas à protéger
+% ses fins de ligne.
+  \ignorespaces
+}
+
+% Beennnn, |\closecsv| ferme le fichier CSV préalablement ouvert.
+\newcommand*\closecsv{%
+  \immediate\closein\csvfile
+}
+
+% |\skipcsvlines| passe |#1| lignes du fichier sans les traiter
+\newcommand*\skipcsvlines[1]{%
+  \multido{}{#1}{%
+    \read\csvfile to\csv@trash
+  }%
+% |\ignorespaces| pour que l'utilisateur ne s'embête pas à protéger
+% ses fins de ligne.
+  \ignorespaces
+}
+
+% |\readcsvline| découpe une ligne du fichier CSV en plaçant le
+% contenu des <n> champs de la ligne courante dans les macros |\CSV1|,
+% |\CSV2|, ..., |\CSV<n>|.
+\newcommand*\readcsvline{%
+  \read\csvfile to\csv@trash
+%  Le compteur de brouillon de TeX |\count@| servira à repérer le
+%  numéro de champ en cours (on commence avec le champ numéro 1).
+  \count@ \@ne
+% C'est parti pour le premier appel récursif.
+  \let\next\@readcsvline
+  \expandafter\next\csv@trash,\@nil
+}
+% Macro récursive de lecture d'une ligne. |#1| contiendra le champ en
+% train d'être traité et |#2| contiendra le reste de la ligne (vide
+% lorsque la récursion devra être stoppée).
+\def\@readcsvline#1,#2\@nil{%
+  \@namedef{CSV\the\count@}{#1}%
+  \advance\count@ 1
+  \ifx\empty#2\empty
+    \let\next\gobble@nil
+  \fi
+  \next#2\@nil
+}
+
+\def\gobble@nil#1\@nil{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Macros spécifiques aux fichiers %%%
+%%% produit par l'oscilloscope et   %%%
+%%% devant produire une courbe en   %%%
+%%% utilisant pstricks              %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newwrite\outputcvs
+% Indication du nombre de champ par enregistrement
+\newcommand\NbField{}
+\newcounter{RemainderLines}
+
+\def\TraceUneVoie#1#2{%
+% #1 = nom du fichier CSV
+% #2 = nom du fichier de sortie
+%
+% Initialisations diverses et ouverture du fichier de sortie
+  \renewcommand\NbField{5}%
+  \@namedef{oldCSV1}{0}%
+  \@namedef{oldCSV2}{0}%
+  \@namedef{oldCSV3}{0}%
+  \@namedef{oldCSV4}{0}%
+  \@namedef{oldCSV5}{0}%
+  \opencsv{#1}%
+  \immediate\openout\outputcvs=#2\relax
+  %
+  % Les premières lignes donnent des renseignements variés
+  % ligne 1
+  \readcsvline
+  \edef\NbLines{\@nameuse{CSV2}}%
+  \expandafter\SciToNormal\expandafter{\csname CSV4\endcsname}{CSV4}%
+  % Je suis obligé de mémoriser les abscisses des premiers points
+  % puisque (bizarrement) l'ordonnée n'est pas encore connue !!!
+  \edef\Xi{\@nameuse{CSV4}}%
+  % ligne 2
+  \readcsvline
+  \expandafter\SciToNormal\expandafter{\csname CSV2\endcsname}{CSV2}%
+  \edef\HResolution{\@nameuse{CSV2}}%
+  \edef\HResolutionUnit{\@nameuse{CSV3}}%
+  \expandafter\SciToNormal\expandafter{\csname CSV4\endcsname}{CSV4}%
+  \FPeval{\fptmp}{(CSV4 - Xi) * 1000}%
+  \FPround{\fptmp}{\fptmp}{6}%
+  \edef\Xii{\fptmp}%
+  % lignes 3 à 5 : pas compris l'intérêt
+  \readcsvline
+  \expandafter\SciToNormal\expandafter{\csname CSV4\endcsname}{CSV4}%
+  \FPeval{\fptmp}{(CSV4 - Xi) * 1000}%
+  \FPround{\fptmp}{\fptmp}{6}%
+  \edef\Xiii{\fptmp}%
+  \readcsvline
+  \expandafter\SciToNormal\expandafter{\csname CSV4\endcsname}{CSV4}%
+  \FPeval{\fptmp}{(CSV4 - Xi) * 1000}%
+  \FPround{\fptmp}{\fptmp}{6}%
+  \edef\Xiv{\fptmp}%
+  \readcsvline
+  \expandafter\SciToNormal\expandafter{\csname CSV4\endcsname}{CSV4}%
+  \FPeval{\fptmp}{(CSV4 - Xi) * 1000}%
+  \FPround{\fptmp}{\fptmp}{6}%
+  \edef\Xv{\fptmp}%
+  % ligne 6 (première donnée complète)
+  % On peut commencer à remplir le fichier \dataone qui
+  % contiendra toutes les coordonnées de tous les points à tracer.
+  % Question bête : c'est comme cela pour tous les fichiers fournis
+  % par l'oscilloscope ?
+  \readcsvline
+  \expandafter\SciToNormal\expandafter{\csname CSV4\endcsname}{CSV4}%
+  \FPeval{\fptmp}{(CSV4 - Xi) * 1000}%
+  \FPround{\fptmp}{\fptmp}{6}%
+  \edef\Xvi{\fptmp}%
+  \expandafter\SciToNormal\expandafter{\csname CSV5\endcsname}{CSV5}%
+  % Ok, c'est bon, on peut commencer à écrire les données dans le
+  % fichier de sortie (un point par ligne, coordonnées entre accolades
+  % séparées par une virgule)
+  \immediate\write\outputcvs{{0.000000, \@nameuse{CSV5}}}%
+  \immediate\write\outputcvs{{\Xii, \@nameuse{CSV5}}}%
+  \immediate\write\outputcvs{{\Xiii, \@nameuse{CSV5}}}%
+  \immediate\write\outputcvs{{\Xiv, \@nameuse{CSV5}}}%
+  \immediate\write\outputcvs{{\Xv, \@nameuse{CSV5}}}%
+  \immediate\write\outputcvs{{\Xvi, \@nameuse{CSV5}}}%
+  \expandafter\edef\csname oldCSV5\endcsname{\@nameuse{CSV5}}%
+  % ligne 7
+  % À partir de maintenant, on utilise \ReadLine (son rôle est
+  % expliqué plus bas).
+  \ReadLine
+  \edef\ChanelName{\@nameuse{CSV2}}%
+  % ligne 8
+  \ReadLine
+  \edef\VUnit{\@nameuse{CSV2}}%
+  % ligne 9
+  \ReadLine
+  \expandafter\SciToNormal\expandafter{\csname CSV2\endcsname}{CSV2}%
+  \edef\VScale{\@nameuse{CSV2}}%
+  % ligne 10
+  \ReadLine
+  \expandafter\SciToNormal\expandafter{\csname CSV2\endcsname}{CSV2}%
+  \edef\VOffset{\@nameuse{CSV4}}%
+  % ligne 11
+  \ReadLine
+  \edef\HUnit{\@nameuse{CSV2}}%
+  % ligne 12
+  \ReadLine
+  \expandafter\SciToNormal\expandafter{\csname CSV2\endcsname}{CSV2}%
+  \edef\HScale{\@nameuse{CSV2}}% Je ne pense pas que ce soit bien
+                               % utile pour le tracé avec PsTricks
+                               % mais sait-on jamais !
+  % lignes 13 à 16
+  \multido{}{4}{\ReadLine}%
+  % ligne 17
+  \ReadLine
+  \edef\NOTES{\@nameuse{CSV2}}%
+  % À partir de la ligne 18, il n'y a plus que des coordonnées de
+  % points (\NbLines - 17 lignes à lire)
+  \setcounter{RemainderLines}{\NbLines}%
+  \addtocounter{RemainderLines}{-17}%
+  \loop
+  \ifnum\c@RemainderLines>0
+    \advance\c@RemainderLines \m@ne
+    \ReadLine
+  \repeat
+  \immediate\closeout\outputcvs
+  \closecsv
+}
+
+% La macro |\CharDot| sert à tester si la valeur d'un champ est le
+% point (si oui, il faut utiliser la dernière valeur fournie pour ce
+% champ).
+\newcommand*\CharDot{.}
+\newcommand*\ReadLine{%
+% La macro |\ReadLine| lit une ligne complète,
+  \readcsvline
+% On sauve les |\NbField| champs dans des macros |\CSV<n>| 
+  \multido{\i=1+1}{\NbField}{%
+% Si la valeur du champ est le point
+    \expandafter\ifx\csname CSV\i\endcsname\CharDot
+% Le champ est égal à la dernière valeur mémorisée
+      \expandafter\xdef\csname CSV\i\endcsname{\csname oldCSV\i\endcsname}%
+    \else
+% sinon, on mémorise la valeur courante
+      \expandafter\xdef\csname oldCSV\i\endcsname{\csname CSV\i\endcsname}%
+    \fi
+% Dans tous les cas, en sortie, on a un |\CSV<n>| avec une valeur
+% valable.
+  }
+% Les champs 4 et 5 sont transformés en nombre à virgule (pas de
+% notation scientifique).
+  \expandafter\SciToNormal\expandafter{\csname CSV4\endcsname}{CSV4}%
+% Pour l'abscisse, on soustrait la valeur |\Xi| pour que la suite des
+% abscisses commencent à zéro. On multiplie ici par 1000 pour ne pas
+% avoir de problème d'unité par la suite mais cela ne devrait pas être
+% codé en dur dans une version finale.
+  \FPeval{\fptmp}{(CSV4 - Xi) * 1000}%
+% On arrondi à 6 chiffre après la virgule pour ne pas avoir d'ennui
+% avec pstricks
+  \FPround{\fptmp}{\fptmp}{6}%
+% Ouf ! C'est bon, on peut mémoriser
+  \expandafter\edef\csname CSV4\endcsname{\fptmp}%
+% Pour l'ordonnée, je n'ai fait que transformer une éventuelle
+% notation scientifique en notation normale (pas de "normalisation")
+% mais là aussi, il faudrait revoir cela.
+  \expandafter\SciToNormal\expandafter{\csname CSV5\endcsname}{CSV5}%
+% C'est tout bon, on peut écrire les coordonnées dans le fichier de
+% sortie.
+  \immediate\write\outputcvs{{\@nameuse{CSV4}, \@nameuse{CSV5}}}%
+}
+
+% Transformation d'un nombre, éventuellement sous forme scientifique,
+% en une forme normale.
+\newcommand*\SciToNormal[2]{%
+  % #1 = Nombre sous forme Scientifique (ou non)
+  % #2 = Macro qui va prendre le résultat sous forme normale
+  \expandafter\SciToNorm@l#1E\@nil{#2}\relax
+}
+% Permet de récupérer la mantisse en #1 et un éventuel exposant en #2
+% (sinon  #2 est vide). #3 est la macro qui doit accueillir le
+% résultat final.
+\def\SciToNorm@l#1E#2\@nil#3{%
+  \ifx\empty#2\empty
+% Si pas d'exposant, on sauve tout de suite
+    \@namedef{#3}{#1}%
+  \else
+% Sinon on doit effectuer un calcul pour transformer. On ne peut pas
+% le faire tout de suite car ici, le paramètre #2 va obligatoirement
+% avoir un "E" terminal dont il faut se débarasser, d'où l'appel
+% suivant.
+    \SciToN@rm@l#1E#2\@nil{#3}\relax
+  \fi
+}
+\def\SciToN@rm@l#1E#2E#3\@nil#4{%
+% Ici, on a #1 qui est la mantisse, #2 qui est l'exposant (sans la
+% lettre "E"), #3 dont on se fout et #4 qui est le nom de la macro de
+% sauvegarde.
+% FP est embêtant car il ne reconnait pas le moins unaire d'où le
+% détour par le test |\@ifnegative| afin de toujours travailler avec
+% des quantités positives et de faire une division ou une
+% multiplication en fonction du signe de l'exposant.
+  \@ifnegative{#2}
+  {%
+    \FPeval{\fptmp}{(#1) / (pow(EXPO,10))}%
+  }
+  {
+    \FPeval{\fptmp}{(#1) * (pow(EXPO,10))}%
+  }%
+% N'oublions pas l'arrondi pour faire plaisir à pstricks (et à
+% PostScript).
+  \FPround{\fptmp}{\fptmp}{6}%
+% Et on peut enfin sauvegarder la valeur.
+  \expandafter\edef\csname #4\endcsname{\fptmp}%
+}
+
+% |\@ifnegative| teste si le premier argument est négatif. Si oui,
+% |\EXP| vaut la valeur absolue de #1 et #2 est exécuté. Si non, |EXP|
+% vaut #1 et #3 est exécuté.
+\def\@ifnegative#1#2#3{%
+  \ifnum #1<0
+    \count@ #1\relax
+    \count@ -\count@
+    \edef\EXPO{\the\count@}%
+    \def\reserved@a{#2}%
+  \else
+    \edef\EXPO{#1}%
+    \def\reserved@a{#3}%
+  \fi
+  \reserved@a
+}
+\makeatother
+
+\begin{document}
+\begin{center}
+% Valeur (0,0)(15,0) au pif => pas terrible
+\begin{pspicture}(0,0)(15,10)
+  % ligne suivante à commenter après la première compilation 
+  %\TraceUneVoie{test.csv}{test.dat}
+% Valeurs 4cm et 2cm au pif => toujours pas terrible
+  \psset{xunit=4cm,yunit=2cm}
+  \fileplot{test.dat}
+\end{pspicture}
+\end{center}
+\end{document}

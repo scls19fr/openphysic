@@ -1,0 +1,52 @@
+m3D package
+--------------------
+
+Last modification: december 14, 2005
+------------------------------------
+
+Summary
+-------
+
+The m3D package is an extension to plain MetaPost designed
+for 3 dimensional graphics. 
+
+Licence
+-------
+
+Standard LaTeX licence even if I also like the
+``Feel-free-to-send-me-a-postcard'' one.
+
+Brief description of the files
+------------------------------
+
+*  mpinputs: MetaPost input files.
+   o  m3Dplain.mp (the very core of m3D, reading
+      it is better than read any manual)
+   o  m3Dsty01.mp (initialize style parameters)
+   o  m3Dlib01.mp (a small library where one cand find
+      some common mathematical objects)
+   o  One may add here new libraries or style files.
+
+*  manual: a draft for a manual.
+   o  m3Dmanual.pdf (to be read directly)
+   o  m3Dmanual.tex (the text [plain-TeX]),
+   o  m3Dmanual.mp  (illustrations, this helps also to understand
+      how to use m3D),
+   o  m3Dmanmac.tex (personal plain-TeX format)
+
+*  trials: various things using m3D. Try them.
+
+*  gallery: a small gallery of still or animated images.
+
+Suggested TDS location for the contents of mpinputs:
+----------------------------------------------------
+$TEXMF/metapost/misc/m3D
+
+Suggested TDS location for other files:
+---------------------------------------
+/dev/null
+
+Brief commentary: Happy MetaPosting.
+-----------------
+
+Anthony Phan.

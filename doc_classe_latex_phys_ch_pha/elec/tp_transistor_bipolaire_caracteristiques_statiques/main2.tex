@@ -1,0 +1,107 @@
+\tp{Caractéristiques statiques d'un transistor NPN}
+
+\Section{Montage Emetteur Commun}
+
+\materiel{
+\item transistor 2N1613 (ou 2N1711)
+\item $R_B = 100~k\Ohm$
+\item $R_C = 1~k\Ohm$
+}
+
+
+
+% montage
+
+
+\begin{itemize}
+\item La jonction base émetteur est polarisée en direct.
+\item La jonction collecteur base est polarisée en inverse.
+\end{itemize}
+
+
+\Section{Caractéristique d'entrée : $I_B = f(V_{BE})$ pour $V_{CE} = cste$}
+
+\begin{enumerate}
+\item \`A l'aide de $E_B$, on fait varier $I_B$ de $0$ à environ $110~\mu A$ et on relève les valeurs de $V_{BE}$, $I_B$ et $I_C$ en maintenant $V_{CE} = 5~V$.
+
+\item Tracer la caractéristique $I_B = f(V_{BE})$ et en déduite la résistance dynamique $\displaystyle r = \frac{\Delta V_{BE}}{\Delta I_B}$
+
+\item Interpréter les résultats.
+
+\end{enumerate}
+
+
+
+\Section{Caractéristique de transfert de courant : $I_C = f(I_B)$ pour $V_{CE} = cste$}
+
+\begin{enumerate}
+\item Tracer la caractéristique $I_C = f(I_B)$ pour $V_{CE} = 5~V$.
+
+\item Calculer le facteur d'amplification en courant : $\displaystyle \beta = \frac{\Delta I_C}{\Delta I_B}$.
+
+\item Interpréter les résultats.
+\end{enumerate}
+
+
+
+\Section{Caractéristique de sortie : $I_C = f(V_{CE})$ pour $I_B = cste$}
+\begin{enumerate}
+\item On maintient $I_B$ constant. On fait varier $V_{CE}$ et on relève $I_C$ et $V_{CE}$.
+
+ 
+\item Faire le tableau des mesures pour $I_B = 20\ 40\ 60\ 80\ 100~\mu A$
+
+\newpage
+
+% tableau
+
+
+\item Tracer les caractéristiques $I_C = f(V_{CE})$ et calculer, dans la partie rectiligne de la première et dernière courbe, la résistance $\displaystyle R = \frac{\Delta V_{CE}}{\Delta I_C}$
+
+
+\item Interpréter les résultats.
+
+\end{enumerate}
+
+
+\Section{Polarisation du transistor : Point de fonctionnement. Droite de charge.}
+
+
+\Subsection{Montage}
+
+\begin{enumerate}
+
+\item Dans le montage précédent, dont on vient de déterminer les caractéristiques on remplace $R_B$ par une résistance fixe de $10~k\Ohm$ et deux boites A.O.I.P. ($\times~1~k\Ohm$ et $\times~10~k\Ohm$).\\
+Onfixe $E_B = 3~V$ et $E_C = 20~V$.
+
+
+\item Faire varier $R_B$ pour polariser le transistor à $I_C = 5~mA$. Relever la valeur de $R_B$.
+\end{enumerate}
+
+
+\Subsection{Mesures : détermination expérimentale du point de fonctionnement}
+
+\begin{enumerate}
+\item Mesurer $I_B$.
+\item Mesurer $I_C$.
+\item Mesurer $V_{BE}$.
+\item Mesurer $V_{CE}$.
+\end{enumerate}
+
+
+
+\Subsection{Détermination graphique du point de fonctionnement}
+\begin{enumerate}
+
+\item Déterminer l'équation de la droite de charge en appliquant la loi des mailles au circuit de sortie : $E_C = R_C I_C + V_{CE}$.\\
+Construire cette droite dans le repère ($I_C$ ; $V_{CE}$) des caractéristiques du transistor.\\
+Expliquer la construction.
+
+\item Déterminer l'équation de la droite d'attaque en appliquant la loi des mailles au circuit d'entrée : $E_B = R_B I_B + V_{BE}$.\\
+Construire cette droite dans le repère ($I_B$ ; $V_{BE}$) des caractéristiques du transistor.\\
+Expliquer la construction.
+
+\item Déterminer les coordonnées du point de fonctionnement du transistor. Comparer les valeurs trouvées graphiquement et expérimentalement.
+
+\end{enumerate}
+

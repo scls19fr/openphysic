@@ -1,0 +1,130 @@
+blmi-bs 0 127
+'&#x0393;' '14'  Gamma     0 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'&#x0394;' '14'  Delta     1 % blmi-bs.htf (unicode)         2001-03-14 %
+'&#x0398;' '14'  Theta     2 % Copyright (C) 2001            Phil Viton %
+'&#x039B;' '14'  Lambda    3 %                                          %
+'&#x039E;' '14'  Xi        4 % This file can redistributed and/or       %
+'&#x03A0;' '14'  Pi        5 % modified under the terms of the LaTeX    %
+'&#x03A3;' '14'  Sigma     6 % Project Public License Distributed from  %
+'&#x03A5;' '14'  Upsilon   7 % CTAN archives in directory               %
+'&#x03A6;' '14'  Phi       8 % macros/latex/base/lppl.txt; either       %
+'&#x03A8;' '14'  Psi       9 % version 1 of the License, or (at your    %
+'&#x03A9;' '14'  Omega    10 % option) any later version.               %
+'&#x03B1;' '14'  alpha    11 %    However, you are allowed to modify    %
+'&#x03B2;' '14'  beta     12 % this file without changing its name, if  %
+'&#x03B3;' '14'  gamma    13 % you add a note of your own after this    %
+'&#x03B4;' '14'  delta    14 % copyright note.                          %
+'&#x03B5;' '14'  epsilon  15 %                                          %
+'&#x03B6;' '14'  zeta     16 % I would appreciate being told if you     %
+'&#x03B7;' '14'  eta      17 % find errors                              %
+'&#x03B8;' '14'  theta    18 %                          viton.1@osu.edu %
+'&#x03B9;' '14'  iota     19 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'&#x03BA;' '14'  kappa    20
+'&#x03BB;' '14'  lambda             21
+'&#x03BC;' '14'  mu                 22
+'&#x03BD;' '14'  nu                 23
+'&#x03BE;' '14'  xi                 24
+'&#x03C0;' '14'  pi                 25
+'&#x03C1;' '14'  rho                26
+'&#x03C3;' '14'  sigma              27
+'&#x03C4;' '14'  tau                28
+'&#x03C5;' '14'  upsilon            29
+'&#x03C6;' '14'  phi                30
+'&#x03C7;' '14'  chi                31
+'&#x03C8;' '14'  psi                32
+'&#x03C9;' '14'  omega              33
+'&#x025B;' '14'  varepsilon         34
+'&#x03D1;' '14'  vartheta           35
+'&#x03D6;' '14'  varpi              36
+'&#x03F1;' '14'  varrho             37
+'&varzeta;''14'  varzeta            38
+'&#x03D5;' '14'  varphi             39
+'&#x21BC;' '14'  leftharpoonup      40
+'&#x21BD;' '14'  leftharpoondown    41
+'&#x21C0;' '14'  righttharpoonup    42
+'&#x21C1;' '14'  rightharpoondown   43
+'`'        ''            left quote         44
+*'*        **  right quota        45
+'&#x22B3;' ''  triangleright      46
+'&#x22B2;' ''  triangleleft       47
+'&#x0393;' ''  UprightGamma
+'&#x0394;' ''  UprightDelta
+'&#x0398;' ''  UprightTheta
+'&#x039E;' ''  UprightXi
+'&#x03A0;' ''  UprightPi
+'&#x03A3;' ''  UprightSigma
+'&#x03A5;' ''  UprightUpsilon
+'&#x03A6;' ''  UprightPhi
+'&#x03A8;' ''  UprightPsi
+'.'        ''  full stop          58
+','        ''  comma              59
+'&#x003C;' ''  less than          60
+'/'        ''  slash              61
+'&#x003E;' ''  greater than       62
+'*'        ''  star               63
+'&#x2202;' ''  partial            64
+'A'        '14'  letter A           65
+'B'        '14'  letter B           66
+'C'        '14'  letter C           67
+'D'        '14'  letter D           68
+'E'        '14'  letter E           69
+'F'        '14'  letter F           70
+'G'        '14'  letter G           71
+'H'        '14'  letter H           72
+'I'        '14'  letter I           73
+'J'        '14'  letter J           74
+'K'        '14'  letter K           75
+'L'        '14'  letter L           76
+'M'        '14'  letter M           77
+'N'        '14'  letter N           78
+'O'        '14'  letter O           79
+'P'        '14'  letter P           80
+'Q'        '14'  letter Q           81
+'R'        '14'  letter R           82
+'S'        '14'  letter S           83
+'T'        '14'  letter T           84
+'U'        '14'  letter U           85
+'V'        '14'  letter V           86
+'W'        '14'  letter W           87
+'X'        '14'  letter X           88
+'Y'        '14'  letter Y           89
+'Z'        '14'  letter Z           90
+'&#x266D;' ''  flat               91
+'&#x266E;' ''  natural            92
+'&#x266F;' ''  sharp              93
+'&#x2323;' ''  smile              94
+'&#x2322;' ''  frown              95
+'&#x2113;' ''  script small l     96
+'a'        '14'  letter a           97
+'b'        '14'  letter b           98
+'c'        '14'  letter c           99
+'d'        '14'  letter d          100
+'e'        '14'  letter e          101
+'f'        '14'  letter f          102
+'g'        '14'  letter g          103
+'h'        '14'  letter h          104
+'i'        '14'  letter i          105
+'j'        '14'  letter j          106
+'k'        '14'  letter k          107
+'l'        '14'  letter l          108
+'m'        '14'  letter m          109
+'n'        '14'  letter n          110
+'o'        '14'  letter o          111
+'p'        '14'  letter p          112
+'q'        '14'  letter q          113
+'r'        '14'  letter r          114
+'s'        '14'  letter s          115
+'t'        '14'  letter t          116
+'u'        '14'  letter u          117
+'v'        '14'  letter v          118
+'w'        '14'  letter w          119
+'x'        '14'  letter x          120
+'y'        '14'  letter y          121
+'z'        '14'  letter z          122
+'&#x0131;' '14'  dotless i         123
+'j'        '14'  dotless j         124
+'&#x2118;' ''    weierstrass p     125
+'&#x03BA;' ''    varkappa          126
+'&#x03A9;' ''    upright Omenga  127
+blmi-bs 0 127
+

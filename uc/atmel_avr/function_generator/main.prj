@@ -1,0 +1,36 @@
+; ************************************************************
+; PROJECT:
+; AUTHOR:
+; ************************************************************
+
+; Micro + software running
+; ------------------------------------------------------------
+.MICRO "ATmega8"
+.TOOLCHAIN "GCC"
+.GCCPATH   "C:\WinAVR"
+.GCCMAKE   AUTO
+.TARGET    "main.hex"
+.SOURCE    "main.c"
+
+.TRACE              ; Activate micro trace
+
+; Following lines are optional; if not included
+; exactly these values are taken by default
+; ------------------------------------------------------------
+.POWER VDD=5 VSS=0  ; Power nodes
+.CLOCK 8meg         ; Micro clock
+.STORE 250m         ; Trace (micro+signals) storage time
+
+; Micro nodes: RESET, AREF, PB0-PB7, PC0-PC6, PD0-PD7, ACO, TIM1OVF, ADC6, ADC7
+; Define here the hardware around the micro
+; ------------------------------------------------------------
+
+
+;Kx node1 node2 [type(delay)] ; x: Buttons 0 - F. Optional type: MONOSTABLE(t_delay), LATCHED
+
+;X1 D2A8 PB7 PB6 PB5 PB4 PB3 PB2 PB1 PB0 Vout
+X1 D2A8 PD7 PD6 PD5 PD4 PD3 PD2 PD1 PD0 Vout
+
+
+.PLOT V(Vout)
+

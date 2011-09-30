@@ -1,0 +1,5 @@
+\ProvidesFile{upsy.fd}
+  [2000/01/12 PSNFSS-v8.1 font definitions for U/psy.]
+\DeclareFontFamily{U}{psy}{}
+\DeclareFontShape{U}{psy}{m}{n}{<->psyr}{}
+\endinput

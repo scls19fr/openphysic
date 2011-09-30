@@ -1,0 +1,52 @@
+%\doc{L'alphabet Grec}
+
+\newcommand{\Alpha}{\mbox{A}}
+\newcommand{\Beta}{\mbox{B}}
+\newcommand{\Epsilon}{\mbox{E}}
+\newcommand{\Zeta}{\mbox{Z}}
+\newcommand{\Eta}{\mbox{H}}
+\newcommand{\Iota}{\mbox{I}}
+\newcommand{\Kappa}{\mbox{K}}
+\newcommand{\Mu}{\mbox{M}}
+\newcommand{\Nu}{\mbox{N}}
+\newcommand{\Rho}{\mbox{P}}
+\newcommand{\Tau}{\mbox{T}}
+
+\newcommand{\omicron}{\mbox{o}}
+\newcommand{\Omicron}{\mbox{O}}
+
+\newcommand{\tabalphabetgrec}{%
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Nom} & \textbf{Majuscule} & \textbf{Minuscule} \\ \hline
+alpha & $\alpha$ & $\Alpha$ \\ \hline
+b\^eta & $\beta$ & $\Beta$ \\ \hline
+gamma & $\gamma$ & $\Gamma$ \\ \hline
+delta & $\delta$ & $\Delta$ \\ \hline
+epsilon & $\epsilon$ & $\Epsilon$ \\ \hline
+z\^eta & $\zeta$ & $\Zeta$ \\ \hline
+\^eta & $\eta$ & $\Eta$ \\ \hline
+th\^eta & $\theta$ & $\Theta$ \\ \hline
+iota & $\iota$ & $\Iota$ \\ \hline
+kappa & $\kappa$ & $\Kappa$ \\ \hline
+lambda & $\lambda$ & $\Lambda$ \\ \hline
+mu & $\mu$ & $\Mu$ \\ \hline
+nu & $\nu$ & $\Nu$ \\ \hline
+xi & $\xi$ & $\Xi$ \\ \hline
+omicron & $\omicron$ & O \\ \hline
+pi & $\pi$ & $\Pi$ \\ \hline
+rh\^o & $\rho$ & $\Rho$ \\ \hline
+sigma & $\sigma$ & $\Sigma$ \\ \hline
+tau & $\tau$ & $\Tau$ \\ \hline
+upsilon & $\upsilon$ & $\Upsilon$ \\ \hline
+phi & $\varphi$ & $\Phi$ \\ \hline
+khi (ou chi) & $\chi$ & $\chi$ \\ \hline
+psi & $\psi$ & $\Psi$ \\ \hline
+omega & $\omega$ & $\Omega$ \\ \hline
+\end{tabular}
+\end{center}
+}
+
+%\Large
+%\tabalphabetgrec

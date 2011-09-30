@@ -1,0 +1,1709 @@
+% Fichier de style LaTeX de Sebastien CELLES
+% Application : Cours, TD, TP, DS
+
+\ProvidesPackage{s-celles}
+
+
+
+% Pour trouver de l'info sur un package utilisé
+% dans mon fichier de style il suffit de taper
+% $ texdoc le_package_en_question
+
+
+
+%\documentclass[a4paper]{article}
+%\documentclass{report}
+%\documentclass{book}
+%\documentclass{slides}
+
+%\usepackage{s-celles}     % Definition style perso
+
+
+\usepackage[frenchb]{babel}     % specification francaise
+
+\usepackage[latin1]{inputenc}   % entree clavier latin1
+%\usepackage[utf8x]{inputenc}   % entree clavier unicode
+
+\usepackage[T1]{fontenc}        % sortie
+
+
+% Tailles de police
+% =================
+%\tiny
+%\scriptsize
+%\footnotesize
+%\small
+%\normalsize
+%\large
+%\Large
+%\LARGE
+%\huge
+%\Huge
+
+
+
+
+% Gestionnaire de versions (RCS, CVS, Subversion SVN)
+% ===================================================
+% RCS
+%\usepackage{rcs}
+
+% CVS
+% ?
+
+% SVN Subversion
+%ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/svn/
+%\usepackage{svn}
+%\usepackage[today]{svninfo}
+
+% L'option today remplace la date retournée par \today par la date de
+% révision du document 
+
+% $ svn propset svn:keywords "Id" version.tex 
+%\svnInfoRevision \svnInfoDate \svnInfoFile \svnInfoOwner \svnInfoDay
+
+
+% itemize avec des puces (rondes) et non des tirets
+\renewcommand*{\FrenchLabelItem}{\smalltextbullet} %\textbullet
+\newcommand*{\smalltextbullet}{%
+  \raisebox{0.5ex - (\height + \depth) / 2}{{\scriptsize \textbullet}}%
+}
+
+\newcommand{\inclure}[1]{
+  \graphicspath{%
+    {#1/}%
+  }
+  \input{#1/main2.tex}
+}
+%\inclure{rep/sous_rep}
+
+
+%\usepackage{minitoc} % table des matières intermédiaire
+
+
+
+% Polices de caractères
+% http://www.eleves.ens.fr/home/noirel/latex/litt/polices.html
+
+% par défaut : Computer Modern Roman
+
+%\usepackage{textcomp}
+
+%Latin modern
+%\usepackage{lmodern}
+
+%Palatino
+%\usepackage{textcomp}
+%\usepackage[sc,osf]{mathpazo}
+
+%Times
+%\usepackage{textcomp}
+%\usepackage{mathptmx}
+
+%Bookman
+%\usepackage{textcomp}
+%\usepackage{bookman}
+
+%Charter
+%\usepackage{textcomp}
+%\usepackage{charter}
+
+%New Century Schoolbook
+%\usepackage{textcomp}
+%\usepackage{newcent}
+
+% Fourier (utopia)
+%\usepackage{fourier}
+
+% Garamond
+%\usepackage{textcomp}
+%\renewcommand{\rmdefault}{ugm}
+
+% aeguil ?
+
+%\usepackage{onlyamsmath}       % pas de $$...$$ mais \[...\]
+
+\usepackage{amsmath}           % package ams-math
+\usepackage{amsfonts}          % package ams-fonts
+\usepackage{amssymb}           % package ams-symb
+
+
+% Symboles Elec AC DC
+\newcommand{\dcsymbol}{\dcsymbolone}
+%\newcommand{\dcsymbolone}{$\underline{- -}\ $} % TO FIX
+\newcommand{\dcsymbolone}{$=\ $}
+
+\newcommand{\acsymbol}{\acsymbolone}
+\newcommand{\acsymbolone}{$\thicksim\ $}
+\newcommand{\acsymboltwo}{$\backsimeq\ $}
+\newcommand{\acsymbolthree}{$\thickapprox\ $}
+
+\newcommand{\acdcsymbol}{\acdcsymbolone}
+\newcommand{\acdcsymbolone}{$\backsimeq\ $}
+
+
+% Symboles Elec (ferromagnétique, magnétoélec, ...)
+
+
+% sous-multiple
+\newcommand{\micro}{\mu}
+
+% Unités
+\newcommand{\Ohm}{\Omega}
+
+
+% pstricks ou pdftricks ou pgf
+\usepackage{pstricks}
+% \usepackage{pst-plot}
+%\usepackage{pst-infixplot} % tracé de fonctions sans le mode RPN
+\usepackage{pst-circ} % circuit en elec
+
+
+% Ampèremètre
+
+%\newcommand{\ammeter}[2]{%
+%  \circledipole[labeloffset=0](#1)(#2){\large \textbf{A}}
+%}
+\newcommand{\ammeter}[3][]{%
+  \circledipole[labeloffset=0, #1](#2)(#3){\large \textbf{A}}
+}
+% Attention les points sont entre {} et pas () comme le reste de pst-circ
+%\def\toto[#1](#2)(#3){Mes trois arguments sont #1, #2 et #3}
+%\toto[un](deux)(trois)
+
+\def\gbf[#1](#2)(#3){\circledipole[labeloffset=0, dipoleconvention=generator, #1](#2)(#3){GBF}}
+
+%\newcommand{\gbf}[3][]{%
+%  \circledipole[labeloffset=0, #1](#2)(#3){\large \textbf{GBF}}
+%}
+
+
+%\usepackage{pstricks-add}
+%\psline[ArrowInside=->,ArrowInsidePos=.5](0,0)(0,2)
+% rayons lumineux
+\SpecialCoor
+
+\def\psrayon[#1](#2,#3)(#4,#5){%
+  \psline[#1](#2,#3)(#4,#5)
+  \psline[#1,origin={#2,#3},unit=0.5]{->}(!#4 #2 sub #5 #3 sub)%
+}
+%  \psrayon[arrowscale=2](0,0)(4,4)
+%  \psrayon[arrowscale=2](1,0)(4,1)
+
+
+
+\usepackage{pst-plot} % tracé de fonctions (en notation RPN)
+% \usepackage{infix-plot} % tracés sans la notation RPN
+
+
+\usepackage{pst-coil} % bobine, zig-zag (utile pour dessiner des ressorts en méca)
+
+%\usepackage{pst-eucl} % Géométrie Euclidienne, rotation, etc... 
+\usepackage{pst-node}
+%\usepackage{pstricks-add}
+
+\usepackage{pstcol,pst-osci} % oscilloscope
+
+
+%\usepackage{pst-optic} % Optique
+
+
+\usepackage{psfrag} % remplacement de texte dans fichier eps
+
+\psfrag{$I$}{$I$}
+\psfrag{$I_1$}{$I_1$}
+\psfrag{$I_2$}{$I_2$}
+\psfrag{$I_3$}{$I_3$}
+\psfrag{$I_4$}{$I_4$}
+\psfrag{$I_5$}{$I_5$}
+
+\psfrag{$U$}{$U$}
+\psfrag{$U_1$}{$U_1$}
+\psfrag{$U_2$}{$U_2$}
+\psfrag{$U_3$}{$U_3$}
+\psfrag{$U_4$}{$U_4$}
+\psfrag{$U_5$}{$U_5$}
+
+\psfrag{I}{$I$}
+\psfrag{I_1}{$I_1$}
+\psfrag{I_2}{$I_2$}
+\psfrag{I_3}{$I_3$}
+
+%\psfrag{R}{$R$}
+\psfrag{R_1}{$R_1$}
+\psfrag{R_2}{$R_2$}
+
+%\psfrag{L}{$L$}
+%\psfrag{C}{$C$}
+
+%\psfrag{D}{$D$}
+%\psfrag{D_1}{$D_1$}
+%\psfrag{D_2}{$D_2$}
+
+%\psfrag{K}{$K$}
+
+
+
+% Calcul numérique
+\usepackage{fp-basic,fp-eval,fp-snap}
+
+
+% Boucle "for"
+\usepackage{multido}
+
+
+% Symbole Euro
+%http://www.ac-poitiers.fr/math/tex/pratique/euro/
+%\usepackage{textcomp}
+%\texteuro
+\usepackage{eurosym}
+%\euro{}, \geneuro{}, \geneuronarrow{} et \geneurowide
+\newcommand{\eurom}{\mbox{\euro{}}}
+
+
+% gestion des images (jpg, png, eps, etc...)
+\usepackage{graphicx}
+
+\usepackage{here} % insertion d'une figure à un endroit précis
+%\begin{figure}
+%\end{figure}
+
+% Insertion code source
+%\usepackage{verbatim}
+
+%\usepackage{mathptmx} % times par exemple
+
+
+
+
+
+
+%  --------------
+% | Papier milli |
+%  --------------
+
+ \edef\PstAtCode{\the\catcode`\@}
+ \catcode`\@=11\relax
+
+
+%\newrgbcolor{color}{.75 .50 .30}
+\newrgbcolor{color}{0 0 0}
+%\definecolor{color}{rgb}{0,0,0}
+
+\def\psmillidef{%
+  \begingroup%
+  \psset{linecolor=color}%
+  \def\pst@par{}%
+  \begin@SpecialObj%
+    \pssetxlength\pst@dimg{1cm}
+    \pssetylength\pst@dimh{1cm}
+    \addto@pscode{%
+      /x0 \pst@number\pst@dima \pst@number\pst@dimg div round \pst@number\pst@dimg mul def%
+      /y0 \pst@number\pst@dimb \pst@number\pst@dimh div round \pst@number\pst@dimh mul def%
+      /x1 \pst@number\pst@dimc \pst@number\pst@dimg div round \pst@number\pst@dimg mul def%
+      /y1 \pst@number\pst@dimd \pst@number\pst@dimh div round \pst@number\pst@dimh mul def}%
+    \addto@pscode{.75 SLW x0 \pst@number\pst@dimg x1 {dup y0 moveto y1 lineto} for stroke}%
+    \addto@pscode{.75 SLW newpath y0 \pst@number\pst@dimg y1 {dup x0 exch moveto x1 exch lineto} for stroke}%
+    \addto@pscode{.3 SLW newpath x0 \pst@number\pst@dimg 2 div x1 {dup y0 moveto y1 lineto} for stroke}%
+    \addto@pscode{.3 SLW newpath y0 \pst@number\pst@dimh 2 div y1 {dup x0 exch moveto x1 exch lineto} for stroke}%
+    \addto@pscode{.15 SLW newpath x0 \pst@number\pst@dimh 10 div x1 {dup y0 moveto y1 lineto} for stroke}%
+    \addto@pscode{.15 SLW newpath y0 \pst@number\pst@dimh 10 div y1 {dup x0 exch moveto x1 exch lineto} for stroke}%
+  \end@SpecialObj%
+  \endgroup}%     
+
+\newcommand{\psmilli}{%
+%  \psmilliblack
+%  \psmillicolor
+  \psmilligray{0.5}
+}
+
+
+\newcommand{\psmilliblack}{%
+  \newrgbcolor{color}{0 0 0}
+  \psmillidef
+}
+
+\newcommand{\psmillicolor}{%
+  \newrgbcolor{color}{.75 .50 .30}
+  \psmillidef
+}
+
+\newcommand{\psmilligray}[1]{%
+  \newrgbcolor{color}{#1 #1 #1}
+  \psmillidef
+}
+%\psmilligray{0.25} % gris foncé
+%\psmilligray{0.75} % gris clair
+
+
+% \begin{pspicture}(-4,-4)(4,4)
+%   \psmilli % papier milli noir
+% %  \psmilliblack % papier milli noir
+% %  \psmillicolor % papier milli couleur (bistre)
+% \end{pspicture}
+
+
+\newcommand{\pagepapiermilli}{%
+% \thispagestyle{empty}
+\newpage
+\begin{changemargin}{-2cm}{-2cm} % augmente localement les marges
+ \begin{center}
+  \scalebox{1.414}{
+   \begin{pspicture}(0,0)(13,19)
+    \psmilli
+   \end{pspicture}
+  }
+ \end{center}
+\end{changemargin}
+%\enlargethispage{2cm} % permet d'augmenter la capacité d'une page (mais uniquement vers le bas)
+}
+
+% Astuce pour qu'après avoir fait 2 pages en 1, 1 carreau reste égal à 1 cm (rapport de racine de 2 = 1.414)
+\newcommand{\papiermilli}[2]{%
+\begin{center}
+\scalebox{1.414}{
+\begin{pspicture}(0,0)(#1,#2)
+%\psmilli
+\psmilligray{0.5}
+\end{pspicture}
+}
+\end{center}
+}
+
+% \newcommand{\papiermilli2}[2]{%
+%  \begin{center}
+%   \scalebox{1.414}{
+%   \begin{pspicture}(0,0)(#1,#2)
+%    \psmilli
+%   \end{pspicture}
+%   }
+%  \end{center}
+% }
+
+\newcommand{\reproduire}{} % permet de reproduire une partie de cours
+% il faut utiliser \renewcommand
+
+
+
+% Lettrine
+\usepackage{lettrine}
+
+
+% watermarking, filigrane
+% \usepackage{lmodern}
+% \usepackage{eso-pic}
+% \usepackage{color}
+% \usepackage{graphicx}
+% %\definecolor{mywatermarkcolor}{cmyk}{0.07,0.3,0.14,0}
+% \definecolor{mywatermarkcolor}{gray}{0.95}
+% 
+% \AddToShipoutPicture{%
+% \unitlength=1cm
+% %\put(2.5,2.5){\rotatebox{60}{\textcolor{mypink}{
+% \put(2.5,2.5){\rotatebox{60}{\textcolor{mywatermarkcolor}{
+% \begin{otherlanguage}{french}\fontsize{100}{100}\sffamily\bfseries CONFIDENTIEL\end{otherlanguage}}}}
+% }
+
+% couleur de fond de page
+%\definecolor{mybgcolor}{cmyk}{0.07,0.3,0.14,0.25}
+%\definecolor{mybgcolor}{gray}{0.95}
+%\pagecolor{mybgcolor}
+
+
+% Mettre du texte en couleur
+%\textcolor{red}{le texte}
+
+% Surligner en couleur du texte
+
+
+%\usepackage{hyperref}
+%\usepackage[a4paper=true,ps2pdf=true,pagebackref=true]{hyperref} % liens cliquables
+%\hypersetup{colorlinks, linkcolor=black} % les liens ne sont plus encadrés
+% \hypersetup{ % Information sur le document
+%    pdfauthor = {CELLES Sébastien},
+%    pdftitle = {Sciences Physiques},
+%    pdfsubject = {Cours, TD, TP et documents divers},
+%    pdfcreator = {tetex and Emacs or Kile},
+%    pdfproducer = {CELLES Sébastien},
+%    colorlinks=false, % Couleur des liens
+%    pdfborder={0 0 0} % Bordure autour des liens
+%  } 
+
+
+\usepackage{url} % url en verbatim
+
+
+\usepackage{tabularx}
+
+%\renewcommand\tabularxcolumn[1]{>{\centering}m{#1}} % centré
+                                % verticalement (absolu)
+
+% Pour un centrage au niveau de la ligne de base
+\renewcommand\tabularxcolumn[1]{>{\centering}p{#1}} 
+
+% exemple
+% \begin{tabularx}{\linewidth}{|X|X|X|X|X|X|}
+ % \linewidth ou \textwidth
+%\begin{tabularx}{\linewidth}{|*{6}{X}|}
+% \hline
+% Pile & \'Electrode $+$ & \'Electrode $-$ & fem ($V$) & demis-équations
+% & \'Equation \tbnl
+%         &       &       &       &       & \tbnl
+%         &       &       &       &       & \tbnl
+%         &       &       &       &       & \tbnl
+% \end{tabularx}
+
+\newcommand*\ecartement{2} % écartement lignes de tableau
+
+\newcommand*\mystrut{%
+\rule[(-0.5\ht\@arstrutbox-0.5\dp\@arstrutbox)*\ecartement+\dp\@arstrutbox]
+       {0cm}{(\ht\@arstrutbox+\dp\@arstrutbox)*\ecartement}%
+} 
+
+% \begin{tabularx}{\linewidth}{|>{\mystrut}X|X|X|X|X|}
+% \hline
+% % multicolumn pour faire disparaître le \mystrut
+% \multicolumn{1}{|X|}{\emph{nom}} & \emph{symbole}  &
+% \emph{protons} & \emph{neutrons} & \emph{nucléons} \tbnl
+% carbone   & \noyau{C}{6}{14}   &   &   &    \tbnl
+% fluor     & \noyau{F}{9}{19}   &   &   &    \tbnl
+% sodium    & \noyau{Na}{11}{23} &   &   &    \tbnl
+% oxygène   & \noyau{O}{8}{16}   &   &   &    \tbnl
+% hydrogène &                    &   & 0 &    \tbnl
+%           & \noyau{Cl}{17}{35} &   &   &    \tbnl
+%           &                    & 8 &   & 16 \tbnl
+% \end{tabularx}
+
+ 
+
+\usepackage{array}
+
+
+% Abréviation pour \tabularnewline \hline (saut de ligne dans tableau
+% avec ligne horizontale
+\newcommand*{\tbnl}{\tabularnewline\hline}
+
+\usepackage{slashbox} % diagonale dans un tableau
+
+
+% Style des formules mathématiques en lignes et hors-ligne
+%\everymath{\displaystyle} % \displaystyle pour toutes les formules
+%\everymath{\textstyle}
+
+%\usepackage{mathabx} % \widecheck{} grand accent circonflexe à l'envers
+
+
+% Multi colonne
+%http://www.ac-poitiers.fr/math/tex/pratique/colonnes/colonnes.htm
+\usepackage{multicol}
+%\begin{multicols}{2}
+%taper ici votre texte
+%\end{multicols}
+% \columnbreak permet de changer de colonne
+
+
+
+%\usepackage{picins} % Figure insérée dans le texte
+% cf LaTeX par la pratique p248
+%\parpic{...}
+%\usepackage{picinpar}
+
+
+
+
+% Packages pour la Chimie
+% Comment mettre en forme des équations chimiques ?
+% http://www.grappa.univ-lille3.fr/FAQ-LaTeX/6.45.html
+% Chemsym
+
+% PPCHTeX
+
+% Xymtex
+%\usepackage{xymtex} 
+
+%\usepackage{ifmtarg} % Teste si un argument est nul
+%\makeatletter
+%\newcommand*{\IfEmpty}{\@ifmtarg}
+%\makeatother
+%\IfEmpty{#1}{si vide}{sinon}
+
+
+% --->
+%\[H^+ + HO^- \longrightarrow H_2O\]
+
+
+% <---
+%\longleftarrow
+
+
+%   \
+% ---
+%  ---
+% \
+%\rightleftharpoons ou \leftrightharpoons
+
+% --->
+% <---
+%\rightleftarrows ou \leftrightarrows
+%\[H^+ + HO^- \underset{\small K_2}{\overset{\small K_1}{\rightleftarrows}} H_2O\]
+
+%  K
+% --->
+%\[H^+ + HO^- \overset{\small K_1}{\longrightarrow} H_2O\]
+% \underset{}{} et \overset{}{} nécessitent amsmath
+
+
+
+% *----------------------------------*
+% *---- Ressorts de mise en page ----*
+% *----------------------------------*
+
+\newcommand{\vressort}[1]{%
+\vspace*{\stretch{#1}}
+}
+
+\newcommand{\hressort}[1]{%
+\hspace*{\stretch{#1}}
+}
+
+
+
+
+
+% *----------------------------------------------*
+% *---- Gestion de la numérotation des pages ----*
+% *----------------------------------------------*
+
+\usepackage{calc} % Simple arithmetic operations
+
+\newcounter{refpage}  % Reference page (when page  refpage, newpage  1)
+\newcounter{newpage}  % Faked page number
+
+% page     11  12  13 ...
+% newpage   1   2   3 ...
+
+%\setcounter{refpage}{11}
+
+% Before using newpage, compute its value
+\newcommand*{\getnewpagevalue}{%
+ \setcounter{newpage}{\value{page} - \value{refpage} + 1}%
+ \thenewpage
+}
+
+%[...]
+%  \getnewpagevalue 
+
+
+\newcommand{\razpage}{%
+%  \setcounter{page}{1}
+\setcounter{refpage}{\thepage}
+%\thispagestyle{fancy}
+%\cfoot{\getnewpagevalue}
+}
+
+
+
+
+%\usepackage{answers} % http://www.ctan.org/tex-archive/macros/latex209/contrib/answers/
+
+
+% *---------------------------*
+% *---- Compteur exercice ----*
+% *---------------------------*
+\newcounter{numexercice}
+%\renewcommand{\thenum}{\Roman{num}}    % chiffres romains
+
+\renewcommand{\thenumexercice}{\arabic{numexercice}}    % chiffres arabes
+%\renewcommand{\thenum}{\Alph{num}}     % lettre majuscule
+%\renewcommand{\thenum}{\alph{num}}     % lettre minuscule
+
+\newcommand{\exo}{%
+ \addtocounter{numexercice}{1}{\noindent \textbf{Exercice~\thenumexercice~:~}}
+}
+
+\newenvironment{exercice}[0]{\exo}{\vskip 0.5cm}
+%\newenvironment{exercice}[1]{\exo#1\\}{\vskip 0.5cm}
+
+%\newenvironment{exercice}[1]{\IfEmpty{#1}{\exo}{\exo \emph{#1}\\}}{\vskip 0.5cm}
+
+\newenvironment{exercice*}[0]{\noindent \textbf{Exercice~:~}}{\vskip
+  0.5cm} % exercice sans numéro
+
+
+
+
+
+
+
+
+% numérotation compteur figure
+\renewcommand*\thefigure{\arabic{figure}}
+% la mise à zéro est faites dans les chapter (cours, TP, TD)
+
+% numérotation compteur table
+\renewcommand*\thetable{\arabic{table}}
+% la mise à zéro est faites dans les chapter (cours, TP, TD)
+
+
+
+% mise à zéro de compteur automatique
+% \@addtoreset{compteur}{dépendance}
+\@addtoreset{chapter}{part} % met chapter à 0 quand on change de part
+\@addtoreset{figure}{chapter}
+\@addtoreset{table}{chapter}
+
+
+
+\newcommand{\dsthemes}[1]{%
+\begin{center}
+\begingroup
+\small
+%\begin{itemize}
+#1
+%\end{itemize}
+\endgroup
+\end{center}
+}
+
+\newcommand{\ds}[2]{%
+\chapter{#1}
+\vspace{-1cm}
+\dsthemes{#2}
+%\vspace{-0.5cm}
+%\nomprenomclasse
+}
+
+% \newcommand{\cours}[2][\DefaultOpt]{%
+%   \def\DefaultOpt{#2}%
+%   \chapter[#1]{#2}
+% }
+
+
+\newcommand{\doc}[2][\DefaultOpt]{%
+  \def\DefaultOpt{#2}%
+   %\newpage
+   %\section*{#1}
+  \chapter[#1]{#2}
+%  \setcounter{page}{1} % page ou pagelocal
+  \razpage
+  \setcounter{section}{0}
+%  \addcontentsline{toc}{chapter}{#1}
+}
+
+\newcommand{\docsuite}[1]{%
+\begin{center}
+\newpage
+\textbf{\Huge #1}
+\end{center}
+}
+
+\newcommand{\titredoc}[1]{%
+\begin{center}
+\begin{Huge}
+\textbf{#1}
+\end{Huge}
+\end{center}
+}
+
+
+\newcommand{\docsanstitre}[1]{%
+  \chapter[#1]{\null}  % \chapter[#1]*{} pour ajouter dans la table des matières
+  \vspace*{-3.6cm}
+%  \setcounter{page}{1} % page ou pagelocal
+  \razpage
+  \setcounter{section}{0}
+  \thispagestyle{empty}
+%  \addcontentsline{toc}{chapter}{#1}
+}
+
+\newcommand{\docsuitesanstitre}{%
+\newpage
+\vspace*{-0.5cm}
+\setcounter{section}{0}
+\thispagestyle{empty}
+}
+
+
+% un cours, un td, un tp, un ds doit faire partie d'un chapitre
+
+
+% Objectifs
+\newcommand{\objectifs}[1]{%
+\section*{Objectifs}
+%\vspace{-0.5cm}
+\begingroup
+\small
+\begin{itemize}
+#1
+\end{itemize}
+\endgroup
+}
+% \objectifs{
+% \item être capable de
+% }
+
+
+% Matériel
+\newcommand{\materiel}[1]{%
+%\vspace{-0.5cm}
+\section*{Matériel}
+\begingroup
+\small
+\begin{itemize}
+#1
+\end{itemize}
+\endgroup
+}
+% \materiel{
+% \item générateur
+% }
+
+
+\newcommand{\bureau}[1]{%
+%\vspace{-0.5cm}
+\section*{Bureau}
+\begingroup
+\small
+\begin{itemize}
+#1
+\end{itemize}
+\endgroup
+}
+
+
+\newcommand{\produits}[1]{%
+%\vspace{-0.5cm}
+\section*{Produits}
+\begingroup
+\small
+\begin{itemize}
+#1
+\end{itemize}
+\endgroup
+}
+
+
+\newcommand{\exemple}[1]{%
+  \emph{Exemple : }#1
+}
+
+\newcommand{\remarque}[1]{%
+  \emph{Remarque : }#1
+}
+
+\newcommand{\remarques}[1]{%
+  \emph{Remarques : }
+  \begin{itemize}
+    #1
+  \end{itemize}
+}
+
+
+\newcommand{\donnees}[1]{%
+\emph{Données :}
+\normalsize
+%\small
+\begin{itemize}
+#1
+\end{itemize}
+}
+
+\newcommand{\bigdonnees}[1]{%
+\section*{Données}
+\normalsize
+%\small
+\begin{itemize}
+#1
+\end{itemize}
+}
+
+
+
+
+% Unités Physique
+%\usepackage{enumitem}
+\newenvironment{unites}{%
+\begin{changemargin}{2cm}{0cm}
+\noindent
+\begin{itemize}
+}{%
+\end{itemize}
+\end{changemargin}
+}%
+
+
+% \newenvironment*{unites}{%
+%     \ifnum \@itemdepth >\thr@@\@toodeep\else
+%       \advance\@itemdepth\@ne
+%       \edef\@itemitem{labelitem\romannumeral\the\@itemdepth}%
+%       \expandafter
+%       \list \expandafter {\csname\@itemitem\endcsname}{%
+%         \setlength{\leftmargin}{2cm}%
+%         \def\makelabel##1{\hss\llap{##1}}%
+%       }%
+%     \fi
+%   }{%
+%     \endlist
+%   }
+
+
+
+
+% Examen, Concours
+% ================
+\newcommand{\aveccalculatrice}{%
+L'emploi de toutes les calculatrices programmables, alphanumériques ou
+à écran graphique est autorisé à condition que leur fonctionnement
+ausoit autonome et qu'il ne soit pas fait usage d'imprimante
+(circulaire n°99018 du 1/02/1999 - BOEN n° 6-1999)
+(NDR : le texte est BOEN (n°42 du 25/11/99) CIRCULAIRE N°99-186 DU 16-11-1999)
+}
+
+\newcommand{\sanscalculatrice}{%
+L'usage de la calculatrice est \emph{interdit}.
+}
+
+
+\newcommand{\qualiteredaction}{%
+Il est rappelé aux candidats que la qualité de la rédaction, la clarté
+et la précision des raisonnements entreront pour une part importante
+dans l'appréciation des copies.
+}
+
+
+
+
+% *-----------------*
+% *---- Optique ----*
+% *-----------------*
+\newcommand{\ma}[1]{% mesure algébrique
+\overline{#1}
+}
+
+
+\newcommand{\rapportma}[2]{% rapport mesures algébriques
+\frac{\overline{#1}}{\overline{#2}}
+}
+
+
+\newcommand{\optconvorient}{% convention d'orientation
+\psline{->}(0,0)(0.5,0)
+\psline{->}(0,0)(0,0.5)
+\rput{0}(0.25,-0.25){$+$}
+\rput{0}(-0.25,0.25){$+$}
+}
+
+\newcommand{\optobjab}{% objet AB
+\psline{->}(0,0)(0,1)
+\rput{0}(-0.25,-0.25){$A$}
+\rput{0}(-0.25,1.25){$B$}
+}
+
+\newcommand{\optlcvdv}[4]{
+\begin{pspicture}(-10,-2)(7,2)
+%\psgrid[subgriddiv=1,griddots=10]
+
+\rput(-9,2){\textbf{#1}}
+\rput(-8,1.5){#3}
+\rput(-8,1){#4}
+
+% \psline{->}(-.5,1.5)(0,1.5)
+% \rput(-0.25,1.25){$+$}
+% \psline{->}(-0.5,1.5)(-0.5,2)
+% \rput(-0.75,1.75){$+$}
+
+% \pnode(-5,0){A}
+% \pnode(-5,1){B}
+
+% \psline{->}(A)(B)
+% \rput(-5.25,0){$A$}
+% \rput(-5.25,1){$B$}
+
+\psline{#2}(0,-1.5)(0,1.5)
+\rput(-0.25,-0.25){$O$}
+
+\psline(2,-0.1)(2,+0.1)
+%\rput(2,-0.25){$F'$}
+
+\psline(-2,-0.1)(-2,+0.1)
+%\rput(-2,-0.25){$F$}
+
+\psline{->}(-10,0)(7,0)
+\end{pspicture}
+}
+
+\newcommand{\optbiglcvdv}[4]{
+\begin{pspicture}(-10,-2.5)(7,2.5)
+%\psgrid[subgriddiv=1,griddots=10]
+
+\rput(-9,4){\textbf{#1}}
+\rput(-8,3.5){#3} % cas x
+\rput(-8,3){#4}
+
+\psline{#2}(0,-2.5)(0,2.5)
+\rput(-0.25,-0.25){$O$}
+
+\psline(2,-0.1)(2,+0.1)
+%\rput(2,-0.25){$F'$}
+
+\psline(-2,-0.1)(-2,+0.1)
+%\rput(-2,-0.25){$F$}
+
+\psline{->}(-10,0)(7,0)
+\end{pspicture}
+}
+
+
+\newcommand{\optaxe}[1]{%
+ \psline{->}(-#1,0)(#1,0)
+}
+
+\newcommand{\optobj}[2]{%
+ \psline{->}(#1)(#2)
+ \uput{0.1}[180](#1){$A$}
+ \uput{0.1}[180](#2){$B$}
+}
+
+\newcommand{\optlentcv}[1]{%
+% \psline{<->}(#1
+}
+
+\def\oeil{\psarc[linewidth=2pt](0,2.5){2.5}{215}{270}%
+\psarc[linewidth=2pt](0,-2.5){2.5}{90}{140}%
+\psarc(-2.5,0){1}{-30}{30}%
+\psarc(0,0){1.75}{160}{200}
+\psclip{%
+\pscircle[linestyle=none](0,0){1.75}}
+\pscircle[fillstyle=solid,fillcolor=lightgray](-2.5,0){0.9}
+\endpsclip}%
+
+
+\newcommand{\optsyst}[1]{% 
+\ $\overset{\small #1}{\longrightarrow}$
+}
+% $AB$ \optsyst{M_1} $A_1B_1$
+%     M1
+% AB ---> A1B1
+
+ 
+\newcommand{\optminilcv}{%
+\begin{center}
+\begin{pspicture}(-3,-2)(3,2)
+\psline(-3,0)(3,0)
+\psline{<->}(0,2)(0,-2)
+\end{pspicture}
+\end{center}
+}
+
+\newcommand{\optminildv}{%
+\begin{center}
+\begin{pspicture}(-3,-2)(3,2)
+\psline(-3,0)(3,0)
+\psline{>-<}(0,2)(0,-2)
+\end{pspicture}
+\end{center}
+}
+
+
+\newcommand{\optaxemillideux}{%
+\begin{changemargin}{-1cm}{1cm}
+\begin{center}
+ \scalebox{1.414}{
+  \begin{pspicture}(0,-3)(13,3)
+   \psmilli
+   \psline{->}(0,0)(13,0)
+  \end{pspicture}
+ }
+\end{center}
+\end{changemargin}
+}
+
+\newcommand{\optaxemilliun}{%
+\begin{changemargin}{-2cm}{2cm}
+\begin{center}
+  \begin{pspicture}(0,-3)(20,3)
+   \psmilli
+   \psline{->}(0,0)(20,0)
+  \end{pspicture}
+\end{center}
+\end{changemargin}
+}
+
+\newcommand{\optaxemilli}{%
+\optaxemilliun
+%\optaxemillideux
+}
+
+
+\usepackage{framed} % encadre des paragraphes entiers
+
+
+\newcommand{\seconde}{$\mbox{2}^{\mbox{nde}}$\ }
+
+\newcommand{\premiere}{$\mbox{1}^{\mbox{\`ere}}$\ }
+
+\newcommand{\terminale}{$\mbox{T}^{\mbox{erm}}$\ }
+
+
+
+
+\newcommand{\nomprenomclasse}{%
+\noindent
+\begin{framed}
+\textsc{\textbf{NOM :}} \dotfill \hspace*{\stretch{0}} \textbf{Prénom :} \dotfill \hspace*{\stretch{0}} \textbf{Classe :} \dotfill
+\end{framed}
+}
+
+\newcommand{\notationfinale}[2]{%
+\noindent
+\begin{tabularx}{\linewidth}{|m{3cm}|X|}
+\hline
+\Huge \[\frac{\hspace{1cm}\vspace{3cm}}{#1}\] & \tabularnewline \hline
+\end{tabularx}
+}
+
+\newcommand{\binomenomprenom}{%
+\noindent
+\begin{framed}
+\textsc{\textbf{Binôme :}} \hspace*{\stretch{3}} \textbf{NOM :}
+\dotfill \hspace*{\stretch{1}} \textbf{Prénom :} \dotfill \hspace*{\stretch{1}}
+\end{framed}
+}
+
+
+% Tableau de mesures
+%\newcommand{\tableaumesures}[3]{%
+%\def\ligne{}
+%\multido{\n=1+1}{#3}{\global\edef\ligne{\ligne &}}
+%\begin{tabularx}{\linewidth}{|c||*{#3}{X|}}
+%\hline
+%\rule{0cm}{1cm} \textbf{#1} \rule{0cm}{1cm} \ligne \\
+%\textbf{#1} \ligne \tabularnewline[0.7cm]
+%\hline
+%\textbf{#2} \ligne \\
+%\rule{0cm}{1cm} \textbf{#2} \rule{0cm}{1cm} \ligne \\
+%\textbf{#2} \ligne \tabularnewline[0.7cm]
+%\hline
+%\end{tabularx}
+%}
+%  \tableaumesures{$U$ ($V$)}{$I$ ($A$)}{10}
+
+% \newcommand{\tableaumesures}[3]{%
+% \def\ligne{}
+% \multido{\n=1+1}{#3}{\global\edef\ligne{\ligne &}}
+% \begin{tabularx}{\linewidth}{|c|*{#3}{X|}}
+% \hline
+% #1 \ligne \\
+% \hline
+% #2 \ligne \\
+% \hline
+% \end{tabularx}
+% }
+
+
+
+% tableau de mesure (2)
+% http://latex.perseguers.ch/tableaux/
+
+%\def\arraydata#1{%
+%   \tabularx{\linewidth}{|c||*{#1}{>{\centering\arraybackslash$}X<{$}|}}
+%}
+%\def\endarraydata{\endtabularx} 
+
+% \begin{arraydata}{4}
+% \hline
+% eau   & 25         & 33            & \alpha & \beta \\ \hline
+% verre & \sqrt{1+2} & \frac{t}{x^2} & 1      & 4 \\ \hline
+% \end{arraydata}
+
+
+\newenvironment{arraydata}[1]{%
+  \tabularx{\linewidth}{|c||*{#1}{>{\centering\arraybackslash$}X<{$}|}}}
+  {\endtabularx}
+
+% \begin{arraydata}{4}
+% \hline
+% \rule[-0.7cm]{0cm}{1.5cm} % pour expacer les lignes
+% eau   & 25         & 33            & \alpha & \beta \\ \hline
+% \rule[-0.7cm]{0cm}{1.5cm} % pour expacer les lignes
+% verre & \sqrt{1+2} & \frac{t}{x^2} & 1      & 4 \\ \hline
+% \end{arraydata}
+
+
+
+
+%\fbox{%
+%\hbox to \hsize{%
+%\textbf{NOM : \dotfill \hspace*{\stretch{0}} Prénom : \dotfill
+%\hspace*{\stretch{0}} Classe : \dotfill}
+%}}
+
+%\fbox boite encadrée
+%\hrulefill % filet horizontal
+
+
+
+
+% *************************
+% * ---- 2 pages en 1 ----*
+% *************************
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[a4paper,landscape,border shrink=5mm]
+
+
+
+% ************************
+% *---- Sujet à trou ----*
+% ************************
+%\usepackage{graphicx}
+\newif\ifmontre
+
+
+% \newcommand\rapporth{1.5}
+% \newcommand\rapportv{1.25}
+
+% \newcommand\aspect{\bfseries} %\uppercase}
+% \newcommand\trou[1]{%
+%   \setbox0=\hbox{\scalebox{\rapporth}[\rapportv]{\aspect{#1}}}%
+%   \ifmontre
+%     \leavevmode
+%     \box0
+%   \else
+%     \leavevmode
+%     \hbox to\wd0{\vphantom{\box0}\dotfill}%
+%   \fi
+% }
+
+\newcommand\trou[1]{%
+  \setbox0=\hbox{\huge #1}%
+  \ifmontre
+    \leavevmode
+    \box0
+  \else
+    \leavevmode
+    \hbox to\wd0{\vphantom{\box0}\dotfill}%
+  \fi
+}
+
+% \newcommand\trouligne[1]{%
+%   \setbox0=\hbox{\scalebox{\rapporth}[\rapportv]{\aspect{#1}}}%
+%   \ifmontre
+%     \leavevmode
+%     \box0\dotfill
+%   \else
+%     \leavevmode
+%     \vphantom{\box0}\dotfill%
+%   \fi
+% }
+
+\newcommand\trouligne[1]{%
+  \setbox0=\hbox{\huge #1}%
+  \ifmontre
+    \leavevmode
+    \box0\dotfill\\
+  \else
+    \leavevmode
+    \vphantom{\box0}\dotfill\\%
+  \fi
+} 
+
+
+\newcommand{\trouformule}[1]{%
+\begin{center}
+  \trou{$\displaystyle #1$}
+\end{center}
+}
+
+% trou (points de suspension) d'une longueur donnée
+\newcommand{\troufixe}[1]{%
+  \makebox[#1][l]{\dotfill}
+}
+%\troufixe{1cm}
+
+
+% cacher un élément dans une figure pstricks par exemple (pas testé)
+\newcommand{\cacher}[1]{%
+  \ifmontre
+    \null
+  \else
+    #1
+  \fi
+}
+
+
+%\montretrue : montre le mot
+%\montrefalse : cache le mot par des pointillés
+%\trou{Le ou les mots à cacher} : permet de sélectionner le ou les mots qui doivent être remplacés par des pointillés
+
+%\montretrue
+\montrefalse
+
+
+% --------------
+
+
+%Insère l'ensemble des réels
+\newcommand{\R}{\mathbb{R}}  	
+%\R
+
+%Insère l'ensemble des complexes
+\newcommand{\C}{\mathbb{C}} 	
+%\C
+
+%Insère un vecteur
+\newcommand{\V}{\overrightarrow}
+%$\V{AB}$
+%$\vec{AB}$
+
+%Insère le repère Oij
+\newcommand{\Oij}{(O ; $\vec{i}$, $\vec{j}$ )}
+%\Oij
+
+%Insère le repère Oijk
+\newcommand{\Oijk}{(O ; $\vec{i}$, $\vec{j}$, $\vec{k}$ )}
+%\Oijk
+
+%Remonte la flèche d'un vecteur, ce qui permet de mieux voir les primes.
+\def\vect#1{\overrightarrow{\strut#1}} 	
+%\vect{AB}
+
+%Une autre macro qui remonte aussi la flèche d'un vecteur. Vous avez le choix....
+%\newcommand{\V}[1]{\overrightarrow{\strut#1}} 	
+%\V{AB} 
+
+
+%\newcommand{\anglevec}[2]{%
+%($\widehat{\vec{#1} \mbox{\ ; } \vec{#2}}$)
+%}
+\newcommand{\anglevec}[2]{%
+\ensuremath{(\overrightarrow{#1},\overrightarrow{#2})}
+}
+%\anglevec{OM_0}{OM_{10}}
+
+
+% \ensuremath pour provoquer automatiquement l'entrée en mode mathématiques
+
+%\usepackage{yhmath}
+% \newcommand{\arc}[1]{
+% \wideparen{#1}
+% }
+
+%Arc de cercle
+\newlength{\longarc}
+\newcommand{\arc}[1]{\settowidth{\longarc}{$#1$}%
+        \addtolength{\longarc}{-0.5em}%
+\unitlength \longarc%
+\ensuremath{%
+        \stackrel{\begin{picture}(1,0.2)
+                \qbezier(0,0)(0.5,0.2)(1,0)
+        \end{picture}}
+        {#1}
+}}
+
+
+\newcommand{\segment}[1]{%
+  [#1]
+}
+
+\newcommand{\vvectplan}[2]{% Vecteur 2 lignes 1 colonne
+\left(
+ \begin{array}{c}
+  #1 \\
+  #2 \\
+ \end{array}
+\right)
+}
+
+\newcommand{\vvectesp}[3]{% Vecteur 3 lignes 1 colonne
+\left(
+ \begin{array}{c}
+  #1 \\
+  #2 \\
+  #3 \\
+ \end{array}
+\right)
+}
+
+\newcommand{\hvectplan}[2]{% Vecteur 1 ligne 2 colonnes
+( #1 ; #2 )
+}
+
+
+\newcommand{\hvectesp}[3]{% Vecteur 1 ligne 3 colonnes
+( #1 ; #2 ; #3)
+}
+
+
+\newcommand{\equivalent}{\ensuremath{\Longleftrightarrow}} % symbole
+                                % équivalent <=>
+
+\newcommand{\correspond}{\ensuremath{\Longleftrightarrow}} % symbole
+                                % équivalent <=>
+
+
+\newcommand{\donc}{\ensuremath{\Longrightarrow}\ } % symbole =>
+
+
+\newcommand{\norme}[1]{\|#1\|} % norme d'un vecteur \norme{\vect{E}}
+
+\newcommand{\abs}[1]{\left|#1\right|} % valeur absolue d'un nombre \abs{a}
+
+
+\newcommand{\dx}{ % dx correct d droit x italique
+\ensuremath{\mbox{d} x}
+}
+
+\newcommand{\dy}{ % dy correct d droit y italique
+\ensuremath{\mbox{d} y}
+}
+
+\newcommand{\dz}{ % dz correct d droit z italique
+\ensuremath{\mbox{d} z}
+}
+
+\newcommand{\dt}{ % dt correct d droit t italique
+\ensuremath{\mbox{d} t}
+}
+
+\newcommand{\diff}[1]{ % df correct d droit f italique
+\ensuremath{\mbox{d} #1}
+}
+% \diff{f}
+
+\newcommand{\dotp}[2]{ % produit scalaire (dot product)
+#1 \cdot #2
+}
+
+\newcommand{\crossp}[2]{ % produit vectoriel (cross product)
+#1 \wedge #2
+}
+
+
+\newcommand\Frac[2]{% fraction en ligne
+  \leavevmode
+  \kern.1em
+  \raise.5ex\hbox{\scriptsize #1}%
+  \kern-.1em
+  /%
+  \kern-.15em
+  \lower.25ex\hbox{\scriptsize #2}%
+}
+%\Frac{1}{3}
+
+
+% Tenseur
+%$\overline{\raisebox{0pt}[2.2ex]{$\overline{\raisebox{0pt}[1.8ex]{$M$}}$}}$
+
+
+% Physique
+% ========
+
+
+
+\newcommand{\npn}{\ensuremath{\vec{n}_{PN}}} % vecteur unitaire de P vers N
+\newcommand{\upn}{\ensuremath{\vec{u}_{PN}}} % idem
+
+
+% Mécanique
+% =========
+
+
+\newcommand{\referentiel}[1]{\ensuremath{\mathcal{R}_{\mbox{\small #1}}}} % référentiel terrestre
+% \referentiel{T} : référentiel terrestre
+
+
+\newcommand{\W}[3]{W_{#1 \rightarrow #2}(#3)}
+
+
+% Radioac (isotopes, nucleide)
+% 12
+%   C
+%  6
+%\noyau{C}{6}{12}
+% {}_{6}^{12} C
+
+\newcommand{\noyau}[3]{%
+$\displaystyle {}_{#2}^{#3} \mbox{#1}$
+}
+
+
+% \quad {}_{\phantom{1}6}^{12} C
+%\newcommand[3]{\nucleide}{%
+% \quad {}_{\phantom{1}#2}^{#3} #1
+%}
+
+
+
+% Texte important => Encadré
+\newcommand{\important}[1]{%
+\indent
+\fbox{
+\begin{minipage}{14.5cm}
+\noindent
+#1
+\end{minipage}
+\\\medskip
+}
+}
+
+\newcommand{\attention}[1]{%
+\begin{framed}
+#1
+\end{framed}
+}
+
+
+%\newenvironment{attention}%
+%{\begin{framed}}%
+%{\end{framed}}
+
+%\begin{attention}
+%message
+%\end{attention}
+
+\newcommand{\danger}[1]{%
+\begin{framed}
+#1
+\end{framed}
+}
+
+%\danger{message}
+
+%\newenvironment{danger}%
+%{\begin{framed}}%
+%{\end{framed}}
+
+% Formule importante
+\newcommand{\formule}[1]{%
+\begin{center}
+\fbox{$\displaystyle #1$}
+\end{center}
+}
+
+
+% \newcommand{\important}[1]{%
+% \fbox{#1}
+% }
+
+
+% Cadre pour figure tracée à la main
+% \newcommand{\fig}[3]{
+% \indent
+% \fbox{
+% \begin{minipage}{#1}
+% %\noindent
+% \vspace{#2}
+% \hspace{#1}
+% \end{minipage}
+% }
+% \\
+% \medskip
+% }
+
+% \newcommand{\fig}[3]{
+% \fbox{
+% \rule{#1}{0cm}
+% \rule{0cm}{#2}
+% }
+% }
+
+\newcommand{\fig}[3]{
+\begin{pspicture}(0,0)(#1,#2)
+\psline(0,0)(0,#2)
+\psline(0,0)(#1,0)
+\psline(#1,#2)(0,#2)
+\psline(#1,#2)(#1,0)
+\end{pspicture}
+%\medskip
+}
+
+\newcommand{\cadre}[1]{
+\begin{framed}
+\rule{0cm}{#1}
+\end{framed}
+}
+%\cadre{5cm}
+
+% \newcommand{\fig}[3]{
+%   \begin{center}
+%     \framebox[#1]{\rule{0cm}{#2}\null}
+%   \end{center}
+% }
+%\fig{largeur}{hauteur}{titre}
+%\fig{6cm}{4cm}{titre}
+
+% \newcommand{\fig}[3]{
+% \begin{figure}
+%   \caption{#3}
+%   \begin{center}
+%     \framebox[#1]{\rule{0cm}{#2}\null}
+%   \end{center}
+% \end{figure}
+% }
+
+\newcommand{\numero}{n°\ }
+
+
+\author{S. \textsc{CELLES}}
+%\author{\null}
+%\title{}
+%\date{\today}
+\date{\null}
+
+% Astuces diverses
+
+% Etirement vertical du texte sur une page (05/09/2005)
+% \parskip=0pt plus100cm\rela
+
+% \begin{center}
+% \begin{pspicture}(0,0)(8,6)
+% \psgrid[subgriddiv=1,griddots=10]
+% \pnode(6,0){A}
+% \end{pspicture}
+% \end{center}
+
+% voir aussi les ressorts verticals
+% \vspace*{\stretch{1}}
+
+% \begin{center}
+% \begin{pspicture}(0,0)(6,3)
+% %\psgrid[subgriddiv=1,griddots=10]
+% \pnode(0,2.5){B}
+% \pnode(6,2.5){A}
+% \battery(B)(A){$E$, $r$}
+% \pnode(0,0.5){C}
+% \pnode(6,0.5){D}
+% %\wire(A)(D)
+% \switch[intensitylabel=$I_3$](D)(A){$K$}
+% \wire(C)(B)
+% \pnode(3,0.5){CD1}
+% \resistor[intensitylabel=$I_1$](C)(CD1){$R$}
+% \lamp[intensitylabel=$I_2$](CD1)(D){$\mathcal L$}
+% \end{pspicture}
+% \end{center}
+
+
+% Astuces PSTricks
+
+\def\pspoint(#1){%
+\psdots[dotstyle=x](#1) % TO DO changer en + (mais il faut que ça
+			% reste visible avec du papier millimétré
+}
+
+%  Une coordonnée que l'on construit avec deux coordonnées. (A|B) a pour abscisse l'abscisse de A et a pour ordonnée l'ordonnée de B. Cerise sur le gâteau, les coordonnées A et B peuvent être de n'importe quel type et pas forcément les mêmes (cartésien, polaire, code postscript, noeud).
+%   Bien entendu, cela ne fonctionne qu'avec \SpecialCoor.
+
+
+% Translation
+% \rput(2,3){Tout ce que l'on veut bien mettre à l'intérieur} 
+
+%Mettre un node B à la position (a,b) en partant de A.
+%\rput(A){\pnode(a,b){B}}
+
+
+% fr.comp.text.tex 03.10.2005 20:26 Optique et lentilles minces
+% Rotation
+% \documentclass{article}
+% \usepackage{pst-node}
+% \begin{document}
+% \SpecialCoor
+% \begin{pspicture}(0,0)(5,5)
+%  \pnode(1,1){a}
+%  \pnode([angle=0,nodesep=1]a){a0}
+%  \pnode([angle=30,nodesep=2]a){a1}
+%  \pnode([angle=60,nodesep=3]a){a2}
+%  \pnode([angle=90,nodesep=4]a){a3}
+%  \pnode([angle=120,nodesep=5]a){a4}
+%  \ncline{->}{a}{a0}
+%  \ncline{->}{a}{a1}
+%  \ncline{->}{a}{a2}
+%  \ncline{->}{a}{a3}
+%  \ncline{->}{a}{a4}
+% \end{pspicture}
+% \end{document}
+
+
+% translation multiple
+% / / / /
+% -------
+% \psline(-0.5,0)(0.5,0)
+%\multiput(0,0)(0.25,0){5}{\psline(-0.5,0)(-0.25,0.25)}
+% voir aussi \multirput et \rmultiput
+
+
+
+% rotation
+% \rotatebox{45}{\fbox{Rotation}}
+
+% rotation multiple
+%\multirput[refpoint]{angle}(x,y)(x+,y+){repet}{objet}
+%variante :
+%\multips{angle}(x,y)(x+,y+){repet}{objet graphique} 
+
+%\multido{\i=10+10}{36}{\psline(2.6;\i)(3;\i)} % grandes graduations(10°)
+
+
+% \documentclass[a4paper]{article}
+% \usepackage{pstricks}
+% \begin{document}
+% \def\Rotation(#1,#2)#3#4{%
+% % (#1,#2) = centre de la rotation
+% % #3 = angle de la rotation
+% % #4 = objet (quelconque)
+%   \rput(#1,#2){%
+%     \rput{#3}(0,0){%
+%       \rput(-#1,-#2){#4}%
+%     }%
+%   }%
+% }
+% \begin{pspicture}(-3,-3)(5,5)
+% \psdots[dotstyle=+,dotangle=45](2,-2) % centre de la rotation
+% \psframe(-1,-3)(5,5) % objet de base
+% \Rotation(2,-2){15}{%
+%   \psframe[linecolor=red](-1,-3)(5,5)
+% }
+% \Rotation(2,-2){30}{%
+%   \psframe[linecolor=green](-1,-3)(5,5)
+% }
+% \Rotation(2,-2){45}{%
+%   \psframe[linecolor=blue](-1,-3)(5,5)
+% }
+% \end{pspicture}
+% \end{document} 
+
+\def\Rotation(#1,#2)#3#4{%
+  \rput(#1,#2){%
+    \rput{#3}(0,0){%
+      \rput(-#1,-#2){#4}%
+    }%
+  }%
+}
+%(#1,#2) = centre de la rotation
+%#3 = angle de la rotation
+%#4 = objet (quelconque)
+
+% modification d'échelle, transformation
+% \resizebox{8cm}{0,3cm}{Hummmmmmmphh !!!}
+% ou
+%   \scalebox{1.414}{
+%    \begin{pspicture}(0,0)(13,19)
+%     \psmilli
+%    \end{pspicture}
+%   }
+
+% Lire la doc de pst-node, de pstricks-add et pst-eucl. En particulier, pst-eucl permet les translations.
+% http://www.tug.org/tex-archive/graphics/pstricks/contrib/pstricks-add/
+% http://ftp.gnu.org/savannah/files/geocaml/doc/pst-eucl/html/ (pas de pdf ?)
+
+
+
+
+
+
+
+
+\newcommand{\todo}[1]{%
+\begin{center}
+\fbox{\emph{\`A faire !!!} #1}
+\end{center}
+}

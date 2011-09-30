@@ -1,0 +1,22 @@
+#all:
+#  propel:
+#    class:          sfPropelDatabase
+#    param:
+#      dsn:          mysql://root@localhost/dbname
+
+
+# Pour obtenir un modele depuis une table existante
+#propel.database.url = mysql://scls:00000@localhost/votes
+#propel.database.url = mysql://scls:00000@localhost/votes_symfony
+propel.database.url = mysql://scls:00000@localhost/askeet
+
+all:
+  propel:
+    class:      sfPropelDatabase
+    param:
+      phptype:  mysql
+      host:     localhost
+      database: askeet
+      username: scls
+      password: 00000
+

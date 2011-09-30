@@ -1,0 +1,131 @@
+\tp{Mesure de l'impédance et du déphasage des dipôles élémentaires}
+
+
+\Section{Protocole expérimental}
+
+
+On considère le montage suivant pour étudier le dipôle $\mathcal{D}$ :
+
+
+
+% montage
+
+
+$r = 1~\Ohm$ : boîte de résistance $\times~1~\Ohm$
+
+
+$u_G = \hat{u_G} \sin{\omega t}$ avec $\hat{u_G} = 8~V$ et $f = 100~Hz$.
+
+
+
+
+Régler la tension $u_G$ délivrée par le générateur.
+
+
+Représenter sur le schéma les connexions avec l'oscilloscope pour visualiser $u_G$ et la tension $r i$.
+
+
+Comme $r = 1~\Ohm$, la tension $r i$ est l'image directe du courant $i$ et on considère que $u_G = u$.
+
+
+La tension $u$ aux bornes du dipôle $\mathcal{D}$ et l'intensité qui le traverse sont déphasés de $\varphi$ : à l'oscilloscope on mesure le décalage horaire $\tau$.
+
+
+
+Pour effectuer un mesure précise, il faut :
+
+\begin{itemize}
+\item Vérifier que les deux tensions soient bien centrées (réglage du zéro) et se mettre en AC.
+
+\item On mesure $\tau$ entre deux même fronts consécutifs (montants ou descendants).
+
+\item Diminuer la base de temps pour avoir $\tau$ le plus grand possible à l'écran.
+
+\item Augmenter les sensibilités des deux voies pour que les fronts soient les plus droits possibles.
+
+\end{itemize}
+
+
+
+On rappelle l'expression du déphasage $\varphi$ :
+
+\[
+\varphi = 360 \frac{\tau}{T}
+\]
+
+\begin{unites}
+\item $\varphi$ déphasage ($°$)
+\item $\tau$ décalage temporel ($s$)
+\item $T$ période ($s$)
+\end{unites}
+
+
+
+L'impédance $Z$ d'un dipôle se mesure à l'oscilloscope à l'aide de :
+
+\[
+Z = \frac{\hat{u}}{\hat{i}}
+\]
+
+\begin{unites}
+\item $Z$ impédance ($\Ohm$)
+\item $\hat{u}$ ($V$)
+\item $\hat{i}$ ($A$)
+\end{unites}
+
+
+
+\newpage
+
+
+
+
+\Section{Travail expérimental}
+
+On effectuera les mesures pour les 3 cas suivants :
+
+
+
+\Subsection{$\mathcal{D}$ = $R$ = boîte de résistances $\times~10~\Ohm$}
+
+\begin{enumerate}
+
+\item Pour $R = 10~\Ohm$ et $f = 100~Hz$, représenter les allures de $u$ et $i$ pour une période sur le $1\ier$ écran d'oscillogramme en indiquant les calibres utilisés.
+
+\item $f = 100~Hz$ : faire varier $R$ de $10~\Ohm$ à $100~\Ohm$ et mesurer $\hat{u}$ et $\hat{i}$. En déduire $Z$ et présenter les résultats sous forme de tableau. Conclusion.
+
+\item $R = 50~\Ohm$ : faire varier $f$ de $100~Hz$ à $1~kHz$ et mesurer $\varphi$, $\hat{u}$ et $\hat{i}$. En déduire $Z$ et présenter les résultats sous forme de tableau. Conclusion.
+
+
+\end{enumerate}
+
+
+
+\Subsection{$\mathcal{D}$ = $C$ = boîte de condensateurs $\times~1~\mu F$}
+\begin{enumerate}
+
+\item Pour $C = 1~\mu F$ et $f = 1~kHz$, représenter les allures de $u$ et $i$ pour une période sur le $2\ieme$ écran d'oscillogramme en indiquant les calibres utilisés.
+
+\item $f = 1~kHz$ : faire varier $C$ de $1~\mu F$ à $10~\mu F$ et mesurer $\varphi$ (préciser son signe), $\hat{u}$ et $\hat{i}$. En déduire $Z$ et présenter sous forme de tableau. Conclusion : comment évoluent $Z$ et $\varphi$ avec $C$ ?
+
+\item $C = 10~\mu F$ : faire varier $f$ de $100~Hz$ à $1~kHz$ et mesurer $\varphi$ (préciser son signe), $\hat{u}$ et $\hat{i}$. En déduire $Z$ et présenter les résultats sous forme de tableau. Conclusion : comment évoluent $Z$ et $\varphi$ avec $f$ ?
+
+\end{enumerate}
+
+
+
+\Subsection{$\mathcal{D}$ = $L$ = bobine à noyau variable : \emph{attention on prendra $r = 10~\Ohm$}}
+
+\begin{enumerate}
+
+\item Pour $L = 0,2~H$ et $f = 100~Hz$, représenter les allures de $u$ et $i$ pour une période sur le $3\ieme$ écran d'oscillogramme en indiquant les calibres utilisés.
+
+\item $f = 100~Hz$ : faire varier $L$ de $0,2~H$ à $1,2~H$ et mesurer $\varphi$ (préciser son signe), $\hat{u}$ et $\hat{i}$. En déduire $Z$ et présenter sous forme de tableau. Conclusion : comment évoluent $Z$ et $\varphi$ avec $L$ ?
+
+\item $L = 0,2~H$ : faire varier $f$ de $100~Hz$ à $1~kHz$ et mesurer $\varphi$ (préciser son signe), $\hat{u}$ et $\hat{i}$. En déduire $Z$ et présenter les résultats sous forme de tableau. Conclusion : comment évoluent $Z$ et $\varphi$ avec $f$ ?
+
+\end{enumerate}
+
+
+
+

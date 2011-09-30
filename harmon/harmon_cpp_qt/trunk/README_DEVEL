@@ -1,0 +1,13 @@
+Ce projet a été développé avec :
+* Debian GNU/Linux
+* C++ (g++)
+* QT-Designer (designer-qt3)
+* GNU/Emacs
+
+Générer le Makefile
+===================
+qmake -o Makefile *.pro
+
+Compiler
+========
+make

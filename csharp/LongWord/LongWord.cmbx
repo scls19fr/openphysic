@@ -1,0 +1,16 @@
+<Combine fileversion="1.0" name="LongWord" description="">
+  <StartMode startupentry="LongWord" single="True">
+    <Execute entry="LongWord" type="None" />
+  </StartMode>
+  <Entries>
+    <Entry filename=".\.\LongWord.prjx" />
+  </Entries>
+  <Configurations active="Debug">
+    <Configuration name="Release">
+      <Entry name="LongWord" configurationname="Debug" build="False" />
+    </Configuration>
+    <Configuration name="Debug">
+      <Entry name="LongWord" configurationname="Debug" build="False" />
+    </Configuration>
+  </Configurations>
+</Combine>

@@ -1,0 +1,7 @@
+_lcd_puts: CODE, 1869 0 32
+_main: CODE, 1836 0 33
+_lcd_clear: CODE, 1929 0 19
+_lcd_goto: CODE, 1780 0 12
+_lcd_write: CODE, 1901 0 28
+_lcd_init: CODE, 1958 0 90
+Total: 214

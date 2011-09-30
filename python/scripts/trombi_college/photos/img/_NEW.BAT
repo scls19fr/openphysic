@@ -1,0 +1,8 @@
+@echo off
+
+REM SEBASTIEN CELLES
+REM http://www.celles.net/
+
+ECHO 'CREATION COPIE POUR TEST'
+
+copy IM000592.JPG TEST.JPG

@@ -1,0 +1,30 @@
+%Filename: t1ugq.fd
+%Created by: tex Fam_6898
+%Created using fontinst v1.800
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{t1ugq.fd}
+   [1998/11/05 Fontinst v1.800 font definitions for T1/ugq.]
+
+\DeclareFontFamily{T1}{ugq}{}
+
+\DeclareFontShape{T1}{ugq}{b}{n}{
+   <-> ugqb8t
+}{}
+
+\DeclareFontShape{T1}{ugq}{b}{sc}{
+   <-> ugqbc8t
+}{}
+
+\DeclareFontShape{T1}{ugq}{b}{sl}{
+   <-> ugqbo8t
+}{}
+
+\DeclareFontShape{T1}{ugq}{bx}{n}{<->ssub * ugq/b/n}{}
+\DeclareFontShape{T1}{ugq}{bx}{sc}{<->ssub * ugq/b/sc}{}
+\DeclareFontShape{T1}{ugq}{bx}{sl}{<->ssub * ugq/b/sl}{}
+\DeclareFontShape{T1}{ugq}{b}{it}{<->ssub * ugq/b/sl}{}
+\DeclareFontShape{T1}{ugq}{bx}{it}{<->ssub * ugq/b/it}{}
+
+\endinput

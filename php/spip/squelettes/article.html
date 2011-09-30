@@ -1,0 +1,34 @@
+<html>
+
+	<head>
+
+	</head>
+
+	<body>
+	#CACHE{0}
+
+
+[(#REM) Ceci est un commentaire. ]
+
+
+	<BOUCLE_article(ARTICLES){id_article}>
+
+		Vous &ecirc;tes ici : 
+		<BOUCLE_fil_d_ariane(HIERARCHIE){id_article}>
+			<a href="#URL_RUBRIQUE">#TITRE</a> &gt; 
+		</BOUCLE_fil_d_ariane>	
+		#TITRE
+
+		<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+		<h1>#TITRE</h1>
+		</BOUCLE_rubrique>
+
+		<h2>#TITRE</h2>
+		<b>#CHAPO</b>
+		<div align="center">#TEXTE</div>
+	</BOUCLE_article>
+
+
+	</body>
+
+</html>

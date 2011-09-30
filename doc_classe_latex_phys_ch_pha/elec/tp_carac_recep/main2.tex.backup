@@ -1,0 +1,86 @@
+\tp{\'Etude d'un électrolyseur}
+\begin{center}
+\begin{Large}
+Caractéristique d'un récepteur électrique
+\end{Large}
+\end{center}
+
+\nomprenomclasse
+
+\begin{multicols}{2}
+
+
+\objectifs{
+\item Tracer la caractéristique $U = f(I)$ d'un récepteur électrique (un électrolyseur par exemple).
+\item Déterminer sa force contre électromotrice $E'$ et sa résistance interne $r$
+}
+
+\materiel{
+\item 1 générateur de tension continue variable $0$-$30~V$ limiteur de courant $0,5~A$
+\item 1 électrolyseur
+\item 1 solution d'acide sulfurique $2 H^+ + {SO_4}^{2-}$ à $0,1~mol.L^{-1}$
+\item 2 tubes à essai
+\item des gants de protection
+}
+
+\section{Montage}
+
+\begin{center}
+\begin{pspicture}(0,0)(6,5)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(0,4){B}
+\pnode(6,4){A}
+\battery[variable](B)(A){}
+\pnode(0,0.5){C}
+\pnode(6,0.5){D}
+\pnode(2,0.5){CD1}
+\pnode(4,0.5){CD2}
+\ammeter{B}{C}
+\circledipole[tensionoffset=-1cm,tensionlabeloffset=-1.5cm,tensionlabel=$U$,intensitylabel=$I$](C)(D){} % electrolyseur
+\psline(2.75,0.25)(2.75,0.75)
+\psline(3.25,0.25)(3.25,0.75)
+\psline(2,0.5)(2.75,0.5)
+\psline(4,0.5)(3.25,0.5)
+\circledipole[parallel,labeloffset=0](1.5,0.5)(4.5,0.5){\large \textbf{V}}
+\wire(D)(A)
+
+\end{pspicture}
+\end{center}
+
+
+\end{multicols}
+
+\small
+
+\section{Manipulations}
+\begin{enumerate}
+\item Réaliser le circuit électrique.
+\item Mettre les gants et remplir \emph{avec précaution } la cuve de l'électrolyseur avec la solution électrolytique \emph{légèrement} au dessus de niveau des électrodes.
+\item Remplir 2 tubes à essai et les retourner au dessus des 2 électrodes.
+\item Appliquer une tension $U$ proche de $0~V$ et relever la valeur $I$ de l'intensité du courant électrique traversant l'électrolyseur.
+\item Renouveler la mesure pour $U$ variant de $0~V$ jusqu'à $U = 9~V$ par pas de $1~V$ et compléter le tableau ci-dessous.
+\end{enumerate}
+
+\section{Mesures}
+%\tableaumesures{$U$ ($V$)}{$I$ ($A$)}{10}
+\begin{arraydata}{10}
+\hline
+$U$ ($V$) & & & & & & & & & & \\ \hline
+$I$ ($A$) & & & & & & & & & & \\ \hline
+\end{arraydata}
+
+
+\section{Représentation graphique et conclusions}
+\begin{enumerate}
+\item Tracer la caractéristique $U = f(I)$.
+\item Modéliser la partie linéaire de la caractéristique de l'électrolyseur.
+\item Déduire la résistance interne $r'$ de l'électrolyseur ainsi que sa force contre électromotrice $E'$.
+\item Donner le schéma équivalent de l'électrolyseur.
+\item L'électrode reliée à la borne \textbf{+} est appelée l'anode. L'électrode reliée à la borne \textbf{-} est appelée la cathode.\\
+Au dessus d'une des électrodes le gaz occupe 2 fois plus de volume qu'au dessus de l'autre. Indiquer sur quelle électrode le dégagement gazeux est le plus important. De quel gaz s'agit-il ? Comment le mettre en évidence ?
+\item Indiquer quel gaz est recueilli au dessus de l'autre électrode. Comment le mettre en évidence ?
+\end{enumerate}
+
+\pagepapiermilli
+
+\normalsize

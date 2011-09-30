@@ -1,0 +1,15 @@
+;; Object texte/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "texte/"
+  :tables (list 
+   (semanticdb-table "hello.py"
+    :major-mode 'python-mode
+    :tags '(("print" code nil nil [100 121]))
+    :file "hello.py"
+    :pointmax 122
+    )
+   )
+  :file "semantic.cache"
+  :semantic-tag-version "2.0beta3"
+  :semanticdb-version "2.0beta3"
+  )

@@ -1,0 +1,13 @@
+false	false	S36: 05 sept. 11 sept.	Z2PT013A	Vendredi 09/09/2011	TD	02h00	15h15	Anglais		TD1	GUESDON VIVIANE
+false	false	S36: 05 sept. 11 sept.	Z2PT012A	Vendredi 09/09/2011	TD	02h00	15h15	Communication	BC-138	TD2	JOURNEAUX CLAIRE
+false	false	S36: 05 sept. 11 sept.	Z2PT010A	Vendredi 09/09/2011	TD	02h00	15h15	Mathématiques	GT-B2	TD3	BARITEAU CHRISTINE
+false	false	S36: 05 sept. 11 sept.	Z2PT011A	Vendredi 09/09/2011	CM	01h30	13h30	Mécanique des fluides	AMPHI1	S3	TARTARIN JACKY
+false	false	S36: 05 sept. 11 sept.	Z2PT015A	Vendredi 09/09/2011	CM	01h30	10h30	Transfert thermique	AMPHI2	S3	DORIGNAC EVA
+false	false	S36: 05 sept. 11 sept.	Z2PT016A	Vendredi 09/09/2011	CM	01h30	08h45	Régulation	AMPHI1	S3	LEGRAND STEPHANE
+false	false	S36: 05 sept. 11 sept.	Z2PT013A	Jeudi 08/09/2011	TD	02h00	15h30	Anglais		TD2	GUESDON VIVIANE
+false	false	S36: 05 sept. 11 sept.	Z2PT012A	Jeudi 08/09/2011	TD	02h00	15h30	Communication	BC-138	TD3	JOURNEAUX CLAIRE
+false	false	S36: 05 sept. 11 sept.	Z2PT013A	Jeudi 08/09/2011	TD	02h00	13h30	Anglais		TD3	GUESDON VIVIANE
+false	false	S36: 05 sept. 11 sept.	Z2PT010A	Jeudi 08/09/2011	TD	02h00	13h30	Mathématiques	GT-B1	TD2	SYMESAK FREDERIC
+false	false	S36: 05 sept. 11 sept.	Z2PT010A	Jeudi 08/09/2011	TD	02h00	13h30	Mathématiques	GT-B2	TD1	BARITEAU CHRISTINE
+false	false	S36: 05 sept. 11 sept.	Z2PT010A	Jeudi 08/09/2011	CM	01h30	10h30	Mathématiques	AMPHI1	S3	BARITEAU CHRISTINE
+false	false	S36: 05 sept. 11 sept.	_Z1PT11_REUNION	Jeudi 08/09/2011	Réunion	01h15	09h00	Réunion Rentrée S3	BC-01	S3	BARITEAU CHRISTINE

@@ -1,0 +1,1 @@
+http://www.rexx.com/~dkuhlman/pyxmlfaq.html#how-do-i-walk-a-dom-tree-and-access-the-information-in-it

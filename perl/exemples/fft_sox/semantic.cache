@@ -1,0 +1,15 @@
+;; Object fft_sox/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "fft_sox/"
+  :tables (list 
+   (semanticdb-table "Makefile"
+    :major-mode 'makefile-mode
+    :tags '(("DATA" variable (:default-value ("main.dat")) nil [1 15]) ("WAVE" variable (:default-value ("main.wav")) nil [15 29]) ("all" function nil nil [30 101]))
+    :file "Makefile"
+    :pointmax 101
+    )
+   )
+  :file "semantic.cache"
+  :semantic-tag-version "2.0beta3"
+  :semanticdb-version "2.0beta3"
+  )

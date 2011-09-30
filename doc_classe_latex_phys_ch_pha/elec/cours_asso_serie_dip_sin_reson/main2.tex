@@ -1,0 +1,294 @@
+\cours[Association série de dipôles en régime sinusoïdal - Résonance]{Association série de dipôles\\ en régime sinusoïdal \\Résonance}
+
+
+Dans tout ce chapitre on considèrera des dipôles (RC série, RL série, RLC série) alimentés par une source de tension sinusoïdale.
+
+\section{\'Etude d'un dipôle RC série}
+
+\subsection{Montage}
+
+\begin{pspicture}(0,-1)(6,4)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(6,0){A}
+\pnode(0,0){B}
+\pnode(0,3){C}
+\pnode(3,3){D}
+\pnode(6,3){E}
+\pnode(6,-0.75){B2}
+\pnode(0,-0.75){A2}
+%\Ucc[labeloffset=1](B)(C){$e(t)$}
+%\rput{0}(-0.75,2){$\simeq$}
+\resistor[intensitylabel=$i(t)$,tensionlabel=$u_R(t)$,dipoleconvention=receptor](C)(D){$R$}
+\capacitor[tensionlabel=$u_C(t)$,dipoleconvention=receptor](D)(E){$C$}
+\wire(E)(A)
+\wire(B)(C)
+%\Ucc[labeloffset=1](A)(B){$u(t)$}
+\circledipole[labeloffset=0cm](A)(B){$\sim$}
+\tension(B2)(A2){$u(t)$}
+\end{pspicture}
+
+
+\subsection{Diagramme de Fresnel}
+Donnez le relation qui lie $u(t)$, $u_R(t)$ et $u_C(t)$.
+
+Que devient cette relation avec les vecteurs de Fresnel ?
+
+Tracez dans le diagramme de Fresnel, les vecteurs $\vec{U}$, $\vec{U_R}$ et $\vec{U_C}$.
+
+On choisit le courant $i$ comme axe de référence des phases car le courant est commun aux deux dipôles.
+
+% diagramme de fresnel
+\begin{pspicture}(-4,-4)(12,2)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(0,0){O}
+\pnode(5,0){X}
+\psline{->}(O)(X)
+\rput{0}(-0.5,-0.25){$O$}
+\rput{0}(5.5,-0.25){$X$}
+\psarc{->}(O){4.5}{10}{20}
+\rput{0}(4.5,1.5){$+$}
+\end{pspicture}
+
+
+\subsection{Oscillogrammes}
+
+
+%\begin{center}
+%\rule{5cm}{5cm}
+%\end{center}
+% FIXED % il faut changer multido ou mettre multido après le package fp
+\Oscillo[amplitude1=5.2,phase1=0,period1=8,sensivity1=2,amplitude2=3.6,phase2=-45,period2=8,sensivity2=2,timediv=1]
+
+
+
+Voie A : $u(t)$ \hspace{5cm} Voie B : $u_R(t)$
+
+
+
+En utilisant l'oscillogramme ci-dessus, tracez le diagramme de Fresnel à l'échelle ($1~V \leftrightarrow .....~cm$).
+
+
+% diagramme de fresnel
+\begin{pspicture}(-4,-6)(12,6)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(0,0){O}
+\pnode(5,0){X}
+\psline{->}(O)(X)
+\rput{0}(-0.5,-0.25){$O$}
+\rput{0}(5.5,-0.25){$X$}
+\psarc{->}(O){4.5}{10}{20}
+\rput{0}(4.5,1.5){$+$}
+\end{pspicture}
+
+
+
+\newpage
+\section{\'Etude d'un dipôle RL série}
+
+\subsection{Montage}
+\begin{pspicture}(0,-1)(6,4)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(6,0){A}
+\pnode(0,0){B}
+\pnode(0,3){C}
+\pnode(3,3){D}
+\pnode(6,3){E}
+\pnode(6,-0.75){B2}
+\pnode(0,-0.75){A2}
+%\Ucc[labeloffset=1](B)(C){$e(t)$}
+%\rput{0}(-0.75,2){$\simeq$}
+\resistor[intensitylabel=$i(t)$,tensionlabel=$u_R(t)$,dipoleconvention=receptor](C)(D){$R$}
+\coil[tensionlabel=$u_L(t)$,dipoleconvention=receptor](D)(E){$L$}
+\wire(E)(A)
+\wire(B)(C)
+%\Ucc[labeloffset=1](A)(B){$u(t)$}
+\circledipole[labeloffset=0cm](A)(B){$\sim$}
+\tension(B2)(A2){$u(t)$}
+\end{pspicture}
+
+
+\subsection{Diagramme de Fresnel}
+Donnez le relation qui lie $u(t)$, $u_R(t)$ et $u_L(t)$.
+
+Que devient cette relation avec les vecteurs de Fresnel ?
+
+Tracez dans le diagramme de Fresnel, les vecteurs $\vec{U}$, $\vec{U_R}$ et $\vec{U_L}$.
+
+On choisit le courant $i$ comme axe de référence des phases car le courant est commun aux deux dipôles.
+
+\vspace{7cm}
+
+% diagramme de fresnel
+\begin{pspicture}(-4,-1)(12,2)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(0,0){O}
+\pnode(5,0){X}
+\psline{->}(O)(X)
+\rput{0}(-0.5,-0.25){$O$}
+\rput{0}(5.5,-0.25){$X$}
+\psarc{->}(O){4.5}{10}{20}
+\rput{0}(4.5,1.5){$+$}
+\end{pspicture}
+
+
+\newpage
+
+\subsection{Oscillogrammes}
+
+%\begin{center}
+%\rule{5cm}{5cm}
+%\end{center}
+% FIXED
+\Oscillo[amplitude1=5.2,phase1=0,period1=8,sensivity1=2,amplitude2=3.6,phase2=45,period2=8,sensivity2=2,timediv=1]
+
+
+Voie A : $u(t)$ \hspace{5cm} Voie B : $u_R(t)$
+
+En utilisant l'oscillogramme ci-dessus, tracez le diagramme de Fresnel à l'échelle ($1~V \leftrightarrow .....~cm$).
+
+\vspace{1cm}
+
+% diagramme de fresnel
+\begin{pspicture}(-4,-6)(12,6)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(0,0){O}
+\pnode(5,0){X}
+\psline{->}(O)(X)
+\rput{0}(-0.5,-0.25){$O$}
+\rput{0}(5.5,-0.25){$X$}
+\psarc{->}(O){4.5}{10}{20}
+\rput{0}(4.5,1.5){$+$}
+\end{pspicture}
+
+
+
+\newpage
+
+\section{\'Etude d'un dipôle RLC série}
+
+\subsection{Montage}
+
+\begin{pspicture}(0,-1.5)(9,4)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(9,0){A}
+\pnode(0,0){B}
+\pnode(0,3){C}
+\pnode(3,3){D}
+\pnode(6,3){E}
+\pnode(9,3){F}
+\pnode(9,-0.75){B2}
+\pnode(0,-0.75){A2}
+%\Ucc[labeloffset=1](B)(C){$e(t)$}
+%\rput{0}(-0.75,2){$\simeq$}
+\resistor[intensitylabel=$i(t)$,tensionlabel=$u_R(t)$,dipoleconvention=receptor](C)(D){$R$}
+\coil[tensionlabel=$u_L(t)$,dipoleconvention=receptor](D)(E){$L$}
+\capacitor[tensionlabel=$u_C(t)$,dipoleconvention=receptor](E)(F){$C$}
+\wire(F)(A)
+\wire(B)(C)
+%\Ucc[labeloffset=1](A)(B){$u(t)$}
+\circledipole[labeloffset=0cm](A)(B){$\sim$}
+\tension(B2)(A2){$u(t)$}
+\end{pspicture}
+
+
+On donne les valeurs numériques suivantes : $R = 100\Omega$, $L = 2,2~mH$ et $C = 1 \mu F$.
+
+
+\subsection{Impédance du dipôle RLC}
+Soit le dipôle $R$, $L$, $C$ donné ci-dessus.
+
+\begin{enumerate}
+\item Donnez l'expression de son impédance complexe. \vspace{1cm} \dotfill
+\item Donnez l'expression du module de l'impédance complexe. \vspace{1cm} \dotfill
+\item Donnez l'expression de son argument (déphasage de $i$ par rapport à $u$). \vspace{1cm} \dotfill
+
+\dotfill
+\end{enumerate}
+
+
+\subsection{Variation de la fréquence}
+\subsubsection{$f=1~kHz$}
+\begin{enumerate}
+\item Calculez l'impédance complexe $\underline{Z_L}$, donnez son module et son argument.
+\item Calculez l'impédance complexe $\underline{Z_C}$, donnez son module et son argument.
+\item Calculez l'impédance complexe $\underline{Z}$ de l'association en série de $R$, $L$ et $C$.
+\end{enumerate}
+
+\subsubsection{$f=10~kHz$}
+\begin{enumerate}
+\item Calculez l'impédance complexe $\underline{Z_L}$, donnez son module et son argument.
+\item Calculez l'impédance complexe $\underline{Z_C}$, donnez son module et son argument.
+\item Calculez l'impédance complexe $\underline{Z}$ de l'association en série de $R$, $L$ et $C$.
+\end{enumerate}
+
+
+
+\subsubsection{$f=3,4~kHz$}
+\begin{enumerate}
+\item Calculez l'impédance complexe $\underline{Z_L}$, donnez son module et son argument.
+\item Calculez l'impédance complexe $\underline{Z_C}$, donnez son module et son argument.
+\item Calculez l'impédance complexe $\underline{Z}$ de l'association en série de $R$, $L$ et $C$.
+\end{enumerate}
+
+\subsubsection{Conclusion}
+Comment varie le module de l'impédance lorsque la fréquence augmente ?
+
+
+%\trouligne{}
+\vspace{0.5cm} \dotfill
+
+Comment varie l'intensité efficace du courant dans le circuit lorsque la fréquence augmente ?
+
+\vspace{0.5cm} \dotfill
+
+Comment appelle-t'on ce phénomène ?
+
+\vspace{0.5cm} \dotfill
+
+
+Que vaut alors l'impédance ?
+
+\vspace{0.5cm} \dotfill
+
+A quelle fréquence ce phénomène se produit-il ?
+
+\vspace{0.5cm} \dotfill
+
+
+\subsection{Diagramme de Fresnel}
+Donnez le relation qui lie $u(t)$, $u_R(t)$, $u_L(t)$ et $u_C(t)$.
+
+Que devient cette relation avec les vecteurs de Fresnel ?
+
+Tracez dans le diagramme de Fresnel, les vecteurs $\vec{U}$, $\vec{U_R}$, $\vec{U_L}$ et $\vec{U_C}$.
+
+On choisit le courant $i$ comme axe de référence des phases car le courant est commun aux deux dipôles.
+
+
+\subsubsection{$f>f_0$}
+% diagramme de fresnel
+\begin{pspicture}(-4,-3)(12,3)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(0,0){O}
+\pnode(5,0){X}
+\psline{->}(O)(X)
+\rput{0}(-0.5,-0.25){$O$}
+\rput{0}(5.5,-0.25){$X$}
+\psarc{->}(O){4.5}{10}{20}
+\rput{0}(4.5,1.5){$+$}
+\end{pspicture}
+
+
+\subsubsection{$f<f_0$}
+% diagramme de fresnel
+\begin{pspicture}(-4,-3)(12,3)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(0,0){O}
+\pnode(5,0){X}
+\psline{->}(O)(X)
+\rput{0}(-0.5,-0.25){$O$}
+\rput{0}(5.5,-0.25){$X$}
+\psarc{->}(O){4.5}{10}{20}
+\rput{0}(4.5,1.5){$+$}
+\end{pspicture}
+

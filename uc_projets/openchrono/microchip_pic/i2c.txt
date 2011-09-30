@@ -1,0 +1,245 @@
+The i2c functions and macros to implement the i squared c,
+7-bit, standard-mode, master-mode protcol.
+
+For a description of i squared c, see "The i2c bus -
+and how to use it" by Philips Semiconductors.
+
+CONTENTS
+########
+
+1 Setting Up
+2 High-level Function and Macro Definitions
+3 Lower-level Function and Macro Definitions
+4 Examples
+
+
+1) Setting Up
+#############
+
+The file i2c.h should be #included into your source
+files. This file contains several macros which specify
+which port bits are to be used for the clock (SCL) and
+the data line (SDA). These should be adjusted to suit
+your application. The bus time-out macro I2C_TM_SCL_TMO
+in i2c.h may need adjusting to suit the devices used.
+Some devices require relatively long time to process
+data. A delay may be required in your code before
+attempting further access to these devices. If your
+PIC crystal frequency is not 4MHz, you will have to
+redefined _XTAL_FREQ accordingly for the delays to be
+accurate.
+
+
+2) High-level Function and Macro Definitions
+############################################
+
+unsigned char
+i2c_WriteTo(unsigned char address)
+~~~~~~~~~~~
+
+This function is used to commence writing to a device
+on the bus. Specify the 7-bit address to which data is
+to be sent. The least significant bit of the argument
+is ignored. The function generates a (re)start condition
+and reads an acknowledge from the slave. The function
+returns TRUE if the slave did not acknowledge the address
+transfer or FALSE otherwise.
+
+unsigned char
+i2c_ReadFrom(unsigned char address)
+~~~~~~~~~~~~
+
+This function is used to commence reading from a
+device on the bus. Specify the 7-bit address from which
+data is to be read. The least significant bit of the
+argument is ignored. The function generates a (re)start
+condition and reads an acknowledge from the slave. The
+function returns TRUE if the slave did not acknowledge
+the address transfer or FALSE otherwise.
+
+signed char
+i2c_PutByte(unsigned char byte)
+~~~~~~~~~~~~
+
+This function is used to send a byte of data to the
+device which has been activated by i2c_WriteTo().
+The function checks the acknowledge bit returned
+by the slave. The function returns I2C_ERROR if during
+the transfer a bus error occured, TRUE if the data
+was not acknowledged, or FALSE if the transfer took
+place without error and was acknowledged.
+
+int
+i2c_GetByte(unsigned char more)
+~~~~~~~~~~~
+
+This function is used to read a byte of data from
+the device which has been activated by i2c_ReadFrom().
+The argument to this function is used to determine if
+more data is to be read from the activated device. If
+more is I2C_LAST, or false, no acknowledge is sent, and
+no more data can be read from the activated device
+unless another i2c_ReadFrom() command is issued.
+If more is I2C_MORE, or any true value, an acknowledge is
+sent and more data can be read from the activated
+device. The function returns the unsigned byte read
+from the activated device or I2C_ERROR if a bus error
+occured during the read operation.
+
+
+signed int
+i2c_PutString(const unsigned char *string,
+~~~~~~~~~~~~~       unsigned char str_len)
+
+This function is used to send a sequence of bytes to
+the device which has been activated by i2c_WriteTo().
+The function attempts to send str_len bytes which
+are read from string. If a bus error occures during
+the transfer, the function returns a negative int.
+The magnitude of this number is the number of bytes
+which were not successfully transmitted. If the
+slaves fails to acknowledge a transfer, the
+transmission is terminated and the function
+returns a positive number. The magnitude of this
+number is the number of bytes which were not
+successfully transmitted. The function returns FALSE
+if the all the bytes were transmitted without error
+and they were all acknowledged by the slave.
+
+unsigned char
+i2c_GetString(unsigned char *string,
+~~~~~~~~~~~~~ unsigned char str_len)
+
+This function is used to obtain a sequence of bytes
+from the device which has been activated by
+i2c_ReadFrom(). The function attempts to read str_len
+bytes which will be stored at string. If a bus error
+occurs during the transfer, the function terminates
+and returns the number of bytes not successfully read.
+The function returns FALSE if all the data requested
+was read without error. This function indicates to
+the slave that no more data is to be read after
+successfully reading the last byte. To read more data
+after using this function, activate the source device
+by using i2c_ReadFrom().
+
+
+I2C_MORE and I2C_LAST
+~~~~~~~~     ~~~~~~~~
+
+These macros may be used with i2c_GetByte() to
+indicate that more data is to be read or that this
+is the last byte to be read, respectively.
+
+I2C_ERROR
+~~~~~~~~~
+
+This macro may be used with i2c_GetByte() and
+i2c_PutByte() to check for a bus error.
+
+
+3) Lower-level Function and Macro Definitions
+#############################################
+
+void
+i2c_Stop(void)
+~~~~~~~~
+
+Sends a stop condition.
+
+void
+i2c_Restart(void)
+~~~~~~~~~~~
+
+Sends a start condition.
+
+void
+i2c_Start(void)
+~~~~~~~~~~~
+
+Sends a start condition. Functionally the same
+as i2c_Restart().
+
+unsigned char
+i2c_SendByte(unsigned char byte)
+~~~~~~~~~~~~
+
+Sends an 8-bit number to the active device. The
+acknowledge bit is not checked. Returns TRUE if
+a bus error occured; FALSE otherwise.
+
+usigned char
+i2c_SendAddress(unsigned char address,
+~~~~~~~~~~~~~~~      unsigned char rw)
+
+Sends an 8-bit quantity representing a 7-bit
+address and a 1-bit read/write mode bit. Returns
+TRUE if a bus error occurred; FALSE otherwise.
+
+signed char
+i2c_ReadAcknowledge(void)
+~~~~~~~~~~~~~~~~~~~
+
+Reads the acknowledge bit from the slave.
+Returns I2C_ERROR if a bus error occurs, TRUE if
+the device did not acknowledge, or FALSE
+otherwise.
+
+int
+i2c_ReadByte(void)
+~~~~~~~~~~~~
+
+Reads an 8-bit quantity from the slave. The
+acknowledge is not generated. Returns the byte or
+I2C_ERROR if a bus error occurred.
+
+void
+i2c_SendAcknowledge(unsigned char status)
+~~~~~~~~~~~~~~~~~~~
+
+Sends an acknowledge if status is TRUE; sends
+a ~acknowledge otherwise. A ~acknowledge is used
+to indicate to the slave that no more data is to
+be read and that it should release the bus so that
+the master can issue the next command.
+
+unsigned char
+i2c_Open(unsigned char address, unsigned char mode)
+~~~~~~~~
+
+Sends a 7-bit address and 1-bit read/write mode bit.
+Returns TRUE if the device did not acknowledge.
+
+unsigned char
+i2c_WaitForSCL(void)
+~~~~~~~~~~~~~~
+
+Waits for the clock line to be released by the slave.
+If the line is not released after I2C_TM_SCL_TMO micro
+seconds, the function times out and a bus error is
+assumed. In this case, the function returns TRUE;
+FALSE otherwise.
+
+
+4) Examples
+###########
+
+i2c_WriteTo(0xAE);	/* talk to device 1010111w */
+i2c_PutByte(0x00);	/* send data 0x00 */
+
+i2c_ReadFrom(0xAE);	/* talk to device 1010111r */
+data1 = i2c_GetByte(I2C_MORE);	/* read one byte */
+data2 = i2c_GetByte(I2C_MORE);	/* read another */
+i2c_GetString(my_string, 10);	/* read 10 bytes */
+
+/* i2c_GetString() terminates reading, if more data
+ * is required, re-address the device
+ */
+
+i2c_ReadFrom(0xAE);
+data3 = i2c_GetByte(I2C_LAST);	/* last byte read */
+
+/* check for errors */
+if(i2c_PutByte(0xff))
+  my_error_routine();	/* bus error or ~ack */
+

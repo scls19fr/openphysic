@@ -1,0 +1,17 @@
+===== Prise de contrôle à distance =====
+[[VNC Virtual Network Computing ou VNC]]
+
+Contacter le PC de chez soi
+ Problème : l'adresse IP change toutes les 24h
+ Solution : DynDNS ; c'est un DNS gratuit on a alors une adresse du type toto.dyndns.org qui pointe sur l'adresse IP actuelle
+ Technique : nécessite l'utilisation d'un logiciel permettant de mettre à jour l'inscription sur DynDNS : DirectUpdate http://www.directupdate.net/
+ Autre solution : passer en IP statique (pas bien... car on garde cette adresse tout le temps => risques de repérage par des pirates, attaques...)
+ - VNC
+ - Serveur FTP (Wz-FTP ou Filezilla Server)
+ - SSH et SecureCopy
+  côté serveur
+   SSH-Windows ou OpenSSH sous Linux
+  côté client
+   putty, ##ssh user@adresse_ip##
+   WinSCP, gFTP, Filezilla(?)
+Attention : routage / ports fermés côté client ou côté serveur, firewall...

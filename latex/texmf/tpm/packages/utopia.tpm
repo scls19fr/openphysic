@@ -1,0 +1,25 @@
+<!DOCTYPE rdf:RDF SYSTEM "../tpm.dtd">
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/">
+  <rdf:Description about="http://texlive.dante.de/texlive/utopia.zip">
+    <TPM:Name>utopia</TPM:Name>
+    <TPM:Date>2002/05/11 18:46:34</TPM:Date>
+    <TPM:Version>1.0</TPM:Version>
+    <TPM:Creator>rahtz</TPM:Creator>
+    <TPM:Title/>
+    <TPM:Description/>
+    <TPM:Flags/>
+    <TPM:RunFiles size="149780">
+texmf/dvips/utopia/utopia.map
+texmf/fonts/type1/adobe/utopia/putb8a.pfb
+texmf/fonts/type1/adobe/utopia/putbi8a.pfb
+texmf/fonts/type1/adobe/utopia/putr8a.pfb
+texmf/fonts/type1/adobe/utopia/putri8a.pfb
+texmf/tpm/packages/utopia.tpm
+    </TPM:RunFiles>
+    <TPM:Provides>utopia</TPM:Provides>
+    <TPM:Requires/>
+    <TPM:Installation>
+      <TPM:Execute function="addMap" parameter="utopia.map"/>
+    </TPM:Installation>
+  </rdf:Description>
+</rdf:RDF>

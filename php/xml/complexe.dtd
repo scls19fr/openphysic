@@ -1,0 +1,4 @@
+<!ELEMENT complexe (reel, imag) >
+<!ELEMENT reel ( #PCDATA ) >
+<!ELEMENT imag ( #PCDATA ) >
+

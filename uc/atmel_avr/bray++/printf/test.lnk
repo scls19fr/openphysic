@@ -1,0 +1,69 @@
+Running:
+  C:/Work/Avr/Avrgcc/bin/ava.exe C:/Work/Avr/Avrgcc/lib/crt1-8515.o C:/Work/Avr/Avrgcc/lib/libgcc.o lcd.o test.o -v -ltest.lnk --multiple-output-files --motorola -IC:/Work/Avr/Avrgcc/include -o test 
+
+Starting linker on Sat Aug 28 23:01:33 1999
+
+
+SEGMENT TREE:                         ABS       SIZE    FLAGS
+  + eeprom                         $00000000      .     
+  + flash                          $00000000      .     
+    * crt1                         $00000000  $0000008a 
+    * code                         $0000008a      .     
+      * modhi3                         -      $00000018 *REMOVED*
+      * modqi3                         -      $00000006 *REMOVED*
+      * modsi3                         -      $0000002c *REMOVED*
+      * umodqi3                        -      $00000006 *REMOVED*
+      * umodsi3                        -      $0000000c *REMOVED*
+      * prologue_saves                 -      $0000003c *REMOVED*
+      * epilogue_restores              -      $00000038 *REMOVED*
+      * f_print10                  $0000008a  $0000027a 
+      * f_printf                   $00000304  $00000158 
+      * f_print5                   $0000045c  $000000c0 
+      * f_print3                   $0000051c  $00000088 
+      * divsi3                     $000005a4  $0000007e Removable 
+      * f_lcd_init                 $00000622  $00000074 
+      * f_print2                   $00000696  $00000054 
+      * divhi3                     $000006ea  $0000004a Removable 
+      * f_main                     $00000734  $00000046 
+      * udivsi3                    $0000077a  $0000003a Removable 
+      * mulsi3                     $000007b4  $0000003a Removable 
+      * f_lcd_control              $000007ee  $00000038 
+      * divqi3                     $00000826  $0000002e Removable 
+      * f_printhex                 $00000854  $00000026 
+      * udivhi3                    $0000087a  $00000026 Removable 
+      * f_printbin                 $000008a0  $00000022 
+      * f_lcd_putch                $000008c2  $00000022 
+      * mulhi3                     $000008e4  $00000022 Removable 
+      * f_delay                    $00000906  $0000001e 
+      * f_lcd_goto                 $00000924  $0000001e 
+      * f_lcd_delay                $00000942  $0000001e 
+      * udivqi3                    $00000960  $0000001e Removable 
+      * f_lcd_putstr               $0000097e  $0000001a 
+      * mulqi3                     $00000998  $00000016 Removable 
+      * f_lcd_home                 $000009ae  $00000014 
+      * f_lcd_cls                  $000009c2  $00000014 
+      * f_toggle_E                 $000009d6  $0000000e 
+      * umodhi3                    $000009e4  $00000008 Removable 
+    * gcc_data_section             $000009ec  $00000050 
+      * T                          $00000a3c  $00000001 
+  + eram                           $00000000      .     Abstract 
+    * registers                    $00000000      .     Abstract 
+    * io_space                     $00000020      .     Abstract 
+    * gcc_data_section             $00000060  $00000050 Abstract 
+      * T                          $000000b0  $00000001 Abstract 
+    * gcc_bss_section              $000000b1      .     Abstract 
+      * T                          $000000b1  $00000001 Abstract 
+
+OVERALL SEGMENT INFO:              SUM SIZE   MAX SIZE  USAGE [%]
+  + eeprom                         $00000000  $00000200   0.0
+  + flash                          $00000a3d  $00002000   32.0
+  + eram                           $000000b2  $00000260   29.3
+
+Linking:
+ * C:/Work/Avr/Avrgcc/lib/crt1-8515.o
+ * C:/Work/Avr/Avrgcc/lib/libgcc.o
+ * lcd.o
+ * test.o
+
+Completed.
+

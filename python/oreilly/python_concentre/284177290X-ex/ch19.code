@@ -1,0 +1,50 @@
+import BaseHTTPServer
+
+class TrivialHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
+"""Gestionnaire simpliste de requête HTTP, répond 'not found' à chaque requête"""
+
+    server_version = "TrivialHTTP/1.0"
+
+    def do_GET(self):
+        """Sert une requête GET."""
+        self.send_error(404, "File not found")
+
+    do_HEAD = do_POST = do_GET
+
+----------
+
+import SimpleXMLRPCServer
+class avec_dispatch:
+    def _dispatch(self, *args):
+        print '_dispatch', args
+        return args
+serveur = SimpleXMLRPCServer.SimpleXMLRPCServer(('localhost', 8888))
+serveur.register_instance(avec_dispatch( ))
+serveur.serve_forever( )
+
+----------
+
+import xmlrpclib
+proxy = xmlrpclib.ServerProxy('http://localhost:8888')
+print proxy.une.methode('quelconque', 'params')
+
+----------
+
+d.create_socket(socket.AF_INET, socket.SOCK_STREAM)
+
+----------
+
+import socket
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.connect(('localhost', 8881))
+print "Connecté au serveur"
+donnees = """Quelques lignes de données
+pour tester le fonctionnement
+du serveur et du client."""
+for ligne in donnees.splitlines( ):
+    sock.sendall(ligne + '\n')
+    print "Envoi de:", ligne
+    reponse = sock.recv(8192)
+    print "Reçu :", reponse
+sock.close( )
+

@@ -1,0 +1,271 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[french]{babel}     % specification francaise
+\usepackage[latin1]{inputenc}   % entree clavier latin1
+\usepackage[T1]{fontenc}        % sortie
+
+\usepackage{geometry}
+\geometry{ hmargin=2.5cm, vmargin=1.6cm }
+
+\title{Calcul numérique en \LaTeX{} avec PHP}
+\author{Sébastien \textsc{CELLES}}
+\date{\today}
+%\date{\null}
+
+\begin{document}
+
+\maketitle
+
+
+\section*{Introduction}
+Cet exemple a pour objectif d'appréhender l'utilisation de \LaTeX{}
+couplé avec PHP pour réaliser des documents <<dynamiques>>, c'est à
+dire créer des documents compilés avec \LaTeX{}, comportants du calcul
+numérique et dont les valeurs numériques sont recalculées à la volée par le
+langage de script PHP.
+
+L'intérêt d'un tel système est de réaliser un exercice (de
+Mathématiques, de Physique, de Chimie, de Sciences et Vie de la Terre, \ldots) avec des données différentes et
+de créer \emph{automatiquement} une correction différente selon les données.
+
+\section{Installation}
+Pour réaliser l'exemple présenté ici il faut :
+
+\begin{itemize}
+\item une distribution de \LaTeX{} (teTeX, MikTeX, \ldots)
+\item un éditeur de texte (Emacs, VIM, Kile, \ldots)
+\item le langage de script PHP (en version ligne de commande = Command
+  Line Interface CLI et pas en version langage de script pour serveur
+  web Common Gateway Interface = CGI)
+
+  Sous Windows, on peut trouver une version de PHP dans WAMP Server ou
+  bien EasyPHP.
+
+  Sous Linux, cela fait partie de toutes les distributions classiques
+  et c'est simplement installable via votre gestionnaire de paquets.
+
+  Sous Mac OS X, c'est (probablement) disponible via Fink.
+\end{itemize}
+
+Testez le bon fonctionnement de ces outils.
+\begin{itemize}
+
+\item \verb+emacs+ doit lancer l'éditeur de texte.
+
+\item \verb+latex+ doit afficher
+\verb+This is TeX, Version 3.14159 (Web2C 7.4.5)+.
+
+Tapez \verb+CTRL-c+ pour quitter.
+
+\item \verb+xdvi+ doit lancer le visualiseur de fichier dvi.
+
+\item \verb+php+ doit afficher l'interpréteur.
+\end{itemize}
+
+Si une des commandes indiquée plus haut ne se lance pas pensez à
+vérifiez que l'exécutable est bien dans la variable d'environnement
+\verb+PATH+ de votre système d'exploitation.
+
+
+\section{Compilation}
+Pour réaliser un document \LaTeX{} classique nous utilisons
+un éditeur de texte (Emacs, VIM, Kile, \ldots).
+
+\subsection{Compilation avec \LaTeX{} seul}
+Pour compiler le fichier \verb+main.tex+ on tape :
+\begin{verbatim}
+latex main.tex
+\end{verbatim}
+
+Si le document a été compilé sans la moindre erreur, il ne reste plus qu'à le
+visualiser via :
+\begin{verbatim}
+xdvi main.dvi
+\end{verbatim}
+
+Le problème d'un tel procédé est que lorsque notre document comporte du
+calcul numérique, il faut le réaliser une fois pour toute et donner
+les résultats dans le fichier \verb+main.tex+. Ceci n'est pas
+convenable car cela nécessite de refaire les même calculs plusieurs
+fois pour des valeurs initiales différentes. Un langage de script
+comme PHP nous permet d'automatiser les calculs et les intégrer dans
+notre document.
+
+\subsection{Compilation avec \LaTeX{} et PHP}
+Nous allons utiliser PHP comme langage de script afin d'interpréter
+les calculs numériques inclus dans le document. C'est la première
+chose à réaliser avant même la compilation du document via \LaTeX{}.
+
+On interprète le document original (dynamique) \verb+main_in.tex+ avec
+PHP via :
+\begin{verbatim}
+php main_in.tex > main_out.tex
+\end{verbatim}
+Un nouveau document (statique) est créé : \verb+main_out.tex+.
+
+On compile avec \LaTeX{} le fichier \verb+main_out.tex+ obtenu après le passage de
+PHP en tapant :
+\begin{verbatim}
+latex main_out.tex
+\end{verbatim}
+
+On peut alors visualiser le document via la commande :
+\begin{verbatim}
+xdvi main_out.dvi
+\end{verbatim}
+
+Si l'on souhaite changer une valeur numérique initiale on peut changer
+une variable dans le document \verb+main_in.tex+ puis relancer le
+processus de création de document (\verb+php+ suivi de \verb+latex+,
+puis \verb+xdvi+).
+
+Attention lorsqu'on soouhaite modifier le document, il faut bien penser à
+modifier \verb+main_in.tex+, car le fichier \verb+main_out.tex+ est un
+fichier \emph{temporaire} obtenu après passage de PHP sur
+\verb+main_in.tex+.
+
+Pour des raisons de simplicité un fichier \verb+Makefile+ a été créé.
+Il est nécessaire d'avoir \emph{GNU Make} installé (voir Cygwin ou
+MinGW sous Windows, sous Linux c'est normalement installé d'origine)
+
+Il suffit de taper \verb+make+ ou \verb+make dynamic+ pour obtenir le
+résultat.
+Pour avoir une vision du document non interprété, il faut taper
+\verb+make static+.
+
+
+
+
+
+\section{Quelques exemples}
+Afin de mieux comprendre le mécanisme de création de documents
+comportants du calcul numérique dynamique, voici quelques exemples.
+
+Je vous suggère de regarder le code source de ce document pour mieux
+comprendre.
+
+
+\subsection{Texte dynamique}
+Ceci est un texte statique en \LaTeX{}.
+
+<?php print "Ceci est un texte dynamique en PHP."; ?>
+
+\vspace{0.5cm}
+
+Pour obtenir ce texte dynamique nous avons tapé dans \verb+main_in.tex+
+
+
+\begin{verbatim}
+print "Ceci est un texte dynamique en PHP.";
+\end{verbatim}
+
+Ceci doit être tapé entre les balises de PHP.
+
+\input{print_string.php}
+
+Toutes les commandes PHP doivent finir par un point virgule.
+
+\subsection{Définition de variables}
+Nous allons maintenant définir une variable $x$ avec PHP.
+
+<?php $x=1.2; ?>
+
+Pour affecter une valeur ($1.2$ par exemple) à une variable ($x$ par exemple) en PHP on tape :
+
+\input{affect_var.php}
+
+Cette variable $x$ contient la valeur numérique $<?php print $x; ?>$.
+
+Pour afficher la valeur contenue dans une variable on tape :
+
+\input{print_var.php}
+
+Nous allons maintenant définir une variable $y$ avec PHP.
+
+<?php $y=2.3; ?>
+
+Cette variable $y$ contient la valeur numérique $<?php print $y; ?>$.
+
+\subsection{Utilisation de variables}
+Nous pouvons désormais calculer à l'aide de PHP la valeur numérique de
+la variable $z = x + y$.
+
+<?php $z=$x+$y; ?>
+
+Cette variable $z$ contient la valeur numérique $<?php print $z; ?>$.
+
+Pour faire automatiquement le calcul, nous avons utilisé la commande PHP suivante :
+
+\input{utilisation_var.php}
+
+\subsection{Fonctions trigonométriques simples}
+TO DO
+
+
+\subsection{Fonctions trigonométriques inverses}
+TO DO
+
+
+\subsection{Fonctions trigonométriques hyperboliques et hyperboliques inverses}
+TO DO
+
+
+\subsection{Quelques autres fonctions mathématiques}
+
+\subsubsection{Valeur absolue}
+TO DO
+
+\subsubsection{Logarithme népérien}
+TO DO
+
+\subsubsection{Logarithme décimal}
+TO DO
+
+\subsubsection{Exponentielle $e$}
+TO DO
+
+\subsubsection{$10^{\cdots}$}
+TO DO
+
+\subsection{Nombres complexes}
+TO DO
+\subsubsection{Définition d'un nombre complexe}
+\subsubsection{Partie réelle}
+\subsubsection{Partie imaginaire}
+\subsubsection{Module}
+\subsubsection{Argument}
+
+
+
+
+\section{En savoir plus...}
+Si vous souhaitez en savoir plus sur PHP (et notamment ces
+possibilités en terme de calcul numérique), le mieux est d'aller
+consulter le manuel de référence sur \verb+http://www./+
+
+Une traduction française du manuel de référence est disponible sur
+\verb+http://www./+
+
+Il est, je pense, possible de réaliser le même genre de chose avec
+d'autres langages de script tels que Perl, Python, \ldots mais j'ai
+choisi de le faire avec PHP car il est relativement répandu dans un
+usage assez proche de celui-ci : la gérération de pages web dynamique.
+
+Dans tous les cas le processus de création du document reposera sur le
+même principe :
+
+\begin{itemize}
+\item édition du document
+\item interprétation du document via le langage de script
+\item compilation via \LaTeX{}
+\end{itemize}
+
+\vspace{2cm}
+
+
+\begin{flushright}
+S. \textsc{CELLES}
+\end{flushright}
+
+
+\end{document}

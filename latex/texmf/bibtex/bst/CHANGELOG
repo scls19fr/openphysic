@@ -1,0 +1,21 @@
+v1.0	2002/08/01	First release
+v1.1	2002/11/24	month names should begin 
+			  with a lowercase letter
+v1.2	2003/05/25	you can now configure the
+			  punctuation following 
+			  the authors
+v1.3	2003/07/09	no comma before fr.and ("et")
+			  in author/editor lists.
+			"\string:" instead of ":" in
+			  journal references.			
+			fix a bug with fr.add.period
+v1.4	2004/03/06	no comma before fr.and ("et")
+			  (easier method ;-))
+			"\string:" made configurable
+			fix several minor mistakes.
+			added 	apalike-fr.bst
+				ieeetr-fr.bst
+				siam-fr.bst
+				{abbrv,plain,unsrt}nat-fr.bst
+v1.5	2005/10/16	corrected a bug in *-nat-fr styles.
+			(thanks to François Druel).

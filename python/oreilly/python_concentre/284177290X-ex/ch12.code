@@ -1,0 +1,3 @@
+if d.seconds >= 0.0: return d.strftime(fmt)
+else: return '-' + d.strftime(fmt)
+

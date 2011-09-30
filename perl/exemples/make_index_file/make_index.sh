@@ -1,0 +1,1 @@
+perl -le 'BEGIN {print "<ul>"} END {print "</ul>"} print "<li><a href=\"$_\">$_</a><li>" while(<*>)' > index.html

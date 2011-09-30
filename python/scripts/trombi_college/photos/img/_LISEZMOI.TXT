@@ -1,0 +1,2 @@
+Conserver une copie des fichiers photos avant de lancer les scripts Batch (rotation, recadrage...)
+dans le répertoire "classe - origin"

@@ -1,0 +1,256 @@
+\usepackage[frenchb]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{lscape}
+
+\usepackage{pstricks}
+\usepackage{multido}
+
+\usepackage{geometry}
+\geometry{hmargin=2cm, vmargin=2cm}
+
+\pagestyle{empty}
+
+
+\newcounter{cntadmin}
+\newcounter{cntpedago}
+\newcounter{cnttotale}
+
+
+\newcommand{\grillenotationadmin}[1]{%
+  \noindent
+  \begin{pspicture}(60,-0.5)(80,0.5)
+    % \psgrid[subgriddiv=1,griddots=10]
+    \psset{xunit=2}
+    \psset{yunit=1}
+    \psline(30,0)(40,0)
+    \multido{\n=30+1}{11}{%
+      \rput(\n,0.25){$\n$}
+      \psline(\n,-0.1)(\n,0.1)
+    }
+    \multido{\n=30+1}{10}{%
+      \psline[linewidth=0.1pt](\n,0)(\n,-16)
+      \rput(0.5,0){\psline[linewidth=0.1pt,linestyle=dashed](\n,0)(\n,-16)}
+    }
+    \psline[linewidth=0.1pt](40,0)(40,-16)
+    #1
+  \end{pspicture}
+}
+
+\def\note(#1){%
+  \pscircle*(#1,0){0.1}
+  \rput(#1,0.25){$#1$}
+}
+
+\def\noteproposee(#1){%
+  \pscircle(#1,0){0.1}
+  \rput(#1,0.25){$#1$}
+}
+
+\def\noteperequee(#1){%
+  \pscircle*(#1,0){0.1}
+  \rput(#1,0.25){$#1$}
+}
+
+\newcommand{\grillereference}[3]{%
+  % echelle
+  \psline[linewidth=0.5pt](#1,0)(#3,0)
+  % borne inf
+  \psline[linewidth=1pt](#1,-0.1)(#1,0.1) 
+  \rput(#1,-0.25){$#1$}
+  % borne mediane
+  \psline[linewidth=1pt](#2,-0.1)(#2,0.1) 
+  \rput(#2,-0.25){$#2$}
+  % borne sup
+  \psline[linewidth=1pt](#3,-0.1)(#3,0.1)
+  \rput(#3,-0.25){$#3$}
+}
+
+\newcommand{\noteadmin}[9]{%
+  % % #1 : Année 1 - Année 2
+  % % #2 : Corps (professeur agrégé)
+  % % #3 : Echelon
+  % % #4 : Classe
+  % % #5 : Note proposée
+  % % #6 : Note péréquée
+  % % #7 : Grille 1
+  % % #8 : Grille 2
+  % % #9 : Grille 3
+  \addtocounter{cntadmin}{1}
+  \rput(0,-\value{cntadmin}){%
+    \grillereference{#7}{#8}{#9}
+    \noteproposee(#5)
+    \noteperequee(#6)
+    % affichage (année, corps, classe, échelon)
+    \rput(29,0.25){\tiny #1}
+    \rput(29,0){\tiny #2 #3\ieme echelon}
+    \rput(29,-0.25){\tiny #4}
+  }
+}
+
+\newcommand{\legendenotationadmin}{%
+  \begin{center}
+    \begin{pspicture}(-1,-1)(4,1)
+      % \psgrid[subgriddiv=1,griddots=10]
+      \pscircle(0,0.5){0.1} \rput(2,0.5){Note proposée}
+      \pscircle*(0,-0.5){0.1} \rput(2,-0.5){Note péréquée}
+    \end{pspicture}
+  \end{center}
+}
+
+
+\newcommand{\grillenotationpedago}[1]{%
+  \noindent
+  \begin{pspicture}(15,-0.5)(30,0.5)
+    % \psgrid[subgriddiv=1,griddots=10]
+    \psset{xunit=0.5}
+    \psset{yunit=1}
+    \psline(30,0)(60,0)
+    \multido{\n=30+1}{31}{%
+      \psline(\n,-0.1)(\n,0.1)
+    }
+    \multido{\n=30+2}{16}{%
+      \rput(\n,0.25){$\n$}
+    }
+    \multido{\n=30+2}{15}{%
+      \psline[linewidth=0.1pt](\n,0)(\n,-16)
+      \rput(1,0){\psline[linewidth=0.1pt,linestyle=dashed](\n,0)(\n,-16)}
+    }
+    \psline[linewidth=0.1pt](60,0)(60,-16)
+    #1
+  \end{pspicture}
+}
+
+\newcommand{\grillenotationtotale}[1]{%
+  \noindent
+  \begin{pspicture}(30,-0.5)(50,0.5)
+    % \psgrid[subgriddiv=1,griddots=10]
+    \psset{xunit=0.5}
+    \psset{yunit=1}
+    \psline(60,0)(100,0)
+    \multido{\n=60+1}{41}{%
+      \psline(\n,-0.1)(\n,0.1)
+    }
+    \multido{\n=60+2}{21}{%
+      \rput(\n,0.25){$\n$}
+    }
+    \multido{\n=60+2}{20}{%
+      \psline[linewidth=0.1pt](\n,0)(\n,-16)
+      \rput(1,0){\psline[linewidth=0.1pt,linestyle=dashed](\n,0)(\n,-16)}
+    }
+    \psline[linewidth=0.1pt](100,0)(100,-16)
+    #1
+  \end{pspicture}
+}
+
+
+\newcommand{\notepedago}[8]{%
+  \addtocounter{cntpedago}{1}
+  % #1 : Date
+  % #2 : Corps (professeur agrégé)
+  % #3 : Echelon
+  % #4 : Classe
+  % #5 : Note
+  % #6 : Grille 1
+  % #7 : Grille 2
+  % #8 : Grille 3
+  % note
+  \rput(0,-\value{cntpedago}){%
+    \pscircle(#5,0){0.1}
+    \rput(#5,0.25){$#5$}
+    \grillereference{#6}{#7}{#8}
+    % affichage (année, corps, classe, échelon)
+    \rput(28,0.25){\tiny #1}
+    \rput(28,0){\tiny #2 #3\ieme echelon}
+    \rput(28,-0.25){\tiny #4}
+  }
+}
+
+
+\newcommand{\noteinspection}[8]{%
+  \addtocounter{cntpedago}{1}
+  % #1 : Date
+  % #2 : Corps (professeur agrégé)
+  % #3 : Echelon
+  % #4 : Classe
+  % #5 : Note
+  % #6 : Grille 1
+  % #7 : Grille 2
+  % #8 : Grille 3
+  \rput(0,-\value{cntpedago}){%
+    \pscircle*(#5,0){0.1}
+    \rput(#5,0.25){$#5$}
+    % affichage (année, corps, classe, échelon)
+    \rput(28,0.25){\tiny #1}
+    \rput(28,0){\tiny #2 #3\ieme echelon}
+    \rput(28,-0.25){\tiny #4}
+    \grillereference{#6}{#7}{#8}
+  }
+}
+
+
+\newcommand{\notationadmin}[2]{
+  \setcounter{cntadmin}{0}
+  \begin{landscape}
+    \section*{Notation administrative\\\small #1}
+    \thispagestyle{empty}
+    \vspace*{-2cm}
+    \legendenotationadmin
+    \begin{center}
+      \grillenotationadmin{#2}
+    \end{center}
+  \end{landscape}
+}
+
+
+\newcommand{\notationpedago}[2]{%
+  \setcounter{cntpedago}{0}
+  \begin{landscape}
+    \section*{Notation pédagogique\\\small #1}
+    \thispagestyle{empty}
+    \vspace*{-2cm}
+    \begin{center}
+      \begin{pspicture}(-1,-1)(4,1)
+        % \psgrid[subgriddiv=1,griddots=10]
+        \pscircle(0,0.5){0.1} \rput(2,0.5){Note pédagogique}
+        \pscircle*(0,-0.5){0.1} \rput(2,-0.5){Note d'inspection}
+      \end{pspicture}
+    \end{center}
+    \begin{center}
+      \grillenotationpedago{#2}
+    \end{center}
+  \end{landscape}
+}
+
+
+\newcommand{\notationtotale}[2]{%
+  \setcounter{cnttotale}{0}
+  \begin{landscape}
+    \section*{Notation totale\\\small #1}
+    \thispagestyle{empty}
+    %\vspace*{-2cm}
+    \begin{center}
+      \grillenotationtotale{#2}
+    \end{center}
+  \end{landscape}
+}
+
+\newcommand{\notetotale}[7]{%
+  % % #1 : Année 1 - Année 2
+  % % #2 : Corps (professeur agrégé)
+  % % #3 : Echelon
+  % % #4 : Classe
+  % % #5 : Note
+  % % #6 : Grille min
+  % % #7 : Grille max
+  \addtocounter{cnttotale}{1}
+  \rput(0,-\value{cnttotale}){%
+    \grillereference{#6}{#6}{#7}
+    \note(#5)
+    % affichage (année, corps, classe, échelon)
+    \rput(55,0.25){\tiny #1}
+    \rput(55,0){\tiny #2 #3\ieme echelon}
+    \rput(55,-0.25){\tiny #4}
+  }
+}

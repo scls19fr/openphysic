@@ -1,0 +1,355 @@
+\tp{Focométrie des lentilles minces convergentes}
+
+
+
+
+\nomprenomclasse
+
+\begin{multicols}{2}
+
+
+\objectifs{
+ \item Déterminer la distance focale d'une lentille mince convergente
+}
+
+\medskip
+
+\materiel{
+ \item Banc optique avec objet (lanterne) et écran millimétré.
+ \item Lentilles minces
+}
+
+\end{multicols}
+%\section{Focométrie des lentilles minces convergentes}
+
+\section{Autocollimation}
+
+%\begin{multicols}{2}
+
+\begin{itemize}
+\item Placer sur un banc d'optique un objet lumineux et la lentille à étudier.
+\item Placer dans un plan parallèle à celui de la lentille un miroir plan (la distance entre le miroir et la lentille n'a pas d'influence).
+\item Déplacer l'ensemble \{ miroir + lentille \} de telle sorte qu'à la distance $d$ entre la lentille et l'objet on ai une image nette de l'objet sur lui-même (image nette mais inversée).
+
+
+On a alors :
+
+\formule{d = f'}
+
+\end{itemize}
+
+
+
+
+\begin{center}
+\begin{pspicture}(-4,-2)(4,2)
+%\psgrid[subgriddiv=1,griddots=10]
+\optaxe{4}
+
+\optobj{-3,0}{-3,1}
+
+% lentille
+\psline{<->}(0,-1.5)(0,1.5)
+\uput{0.1}[225](0,0){$O$}
+
+
+% miroir
+\psline(1,-1.5)(1,1.5)
+
+\psline(1,0)(1.25,0.25)
+\psline(1,0.25)(1.25,0.5)
+\psline(1,0.5)(1.25,0.75)
+\psline(1,0.75)(1.25,1)
+\psline(1,1)(1.25,1.25)
+\psline(1,1.25)(1.25,1.5)
+
+\psline(1,-0.25)(1.25,0)
+\psline(1,-0.5)(1.25,-0.25)
+\psline(1,-0.75)(1.25,-0.5)
+\psline(1,-1)(1.25,-0.75)
+\psline(1,-1.25)(1.25,-1)
+\psline(1,-1.5)(1.25,-1.25)
+
+% légende
+\psline{<->}(-3,-1.75)(0,-1.75) \rput(-1.5,-2){$d$}
+
+\end{pspicture}
+\end{center}
+
+%\end{multicols}
+
+
+\section{Utilisation de la relation de Descartes}
+
+%\begin{multicols}{2}
+
+D'après la relation de Descartes, on a :
+
+\formule{\frac{1}{p'} - \frac{1}{p} = \frac{1}{f'}}
+
+\begin{itemize}
+\item Faire pour plusieurs positions de l'objet, l'image nette sur l'écran.
+\item Mesurer pour ces différentes positions $p$ et $p'$.
+\item Tracer $\frac{1}{p'}$ en fonction de $\frac{1}{p}$.
+\item Déduire de ce tracé la distance focale image $f'$.
+\end{itemize}
+
+
+\begin{center}
+\begin{pspicture}(-4,-2)(4,2)
+%\psgrid[subgriddiv=1,griddots=10]
+
+
+\optaxe{4}
+
+\optobj{-3,0}{-3,1}
+
+% lentille
+\psline{<->}(0,-1.5)(0,1.5)
+\uput{0.1}[225](0,0){$O$}
+
+% ecran
+\psline(2,2)(2,-2)
+
+% légende
+\psline{|->}(0,-1.75)(-3,-1.75) \rput(-1.5,-2){$p$}
+\psline{|->}(0,-1.75)(2,-1.75) \rput(1,-2){$p'$}
+
+\end{pspicture}
+\end{center}
+
+%\end{multicols}
+
+
+\section{Méthode de Bessel}
+
+%\begin{multicols}{2}
+
+
+Cette méthode ne s'applique qu'aux lentilles convergentes. 
+
+\begin{itemize}
+\item Placer sur un banc d'optique un objet lumineux et un écran situé à la distance $D$ de la source.
+\item Vérifier qu'il existe deux positions de la lentille qui permettent d'obtenir une image nette de l'objet sur l'écran. Ces deux positions sont séparées par la distance $d$.
+\end{itemize}
+
+\begin{center}
+\begin{pspicture}(-4,-2)(4,2)
+%\psgrid[subgriddiv=1,griddots=10]
+
+
+\optaxe{4}
+
+\optobj{-3,0}{-3,1}
+
+% lentille pos 1
+\psline{<->}(-1,-1.5)(-1,1.5)
+\uput{0.1}[225](-1,0){$O$}
+\uput{0.1}[135](-1,1,5){$(1)$}
+
+% lentille pos 2
+\psline{<->}(1,-1.5)(1,1.5)
+\uput{0.1}[225](1,0){$O$}
+\uput{0.1}[45](1,1,5){$(2)$}
+
+% ecran
+\psline(3,2)(3,-2)
+
+% légende distance
+\psline{<->}(-3,-1.75)(3,-1.75) \rput(0,-2){$D$} % D
+\psline{<->}(-1,1.75)(1,1.75) \rput(0,2){$d$} % d
+
+\end{pspicture}
+\end{center}
+
+\begin{itemize}
+\item Notations :
+ \begin{itemize}
+  \item $D$ : distance objet-image
+  \item $d$ : distance entre les deux positions de lentille donnant une image nette sur l'écran
+ \end{itemize}
+
+
+\item Démontrez en utilisant les formules de conjugaison que la distance focale de la lentille est égale à :
+
+
+\formule{f' = \frac{D^2 - d^2}{4 D}}
+
+
+Attention, il faut impérativement $D > 4 f'$.
+
+
+\end{itemize}
+
+
+
+
+%\end{multicols}
+
+
+
+\vressort{1}
+
+
+
+\section{Méthode de Silbermann}
+
+%\begin{multicols}{2}
+
+Cette méthode dérivée de la méthode de Bessel ne s'applique qu'aux lentilles convergentes.
+
+
+\begin{itemize}
+\item Placer sur un banc d'optique un objet lumineux et un écran situé à la distance $D$ de la source.
+\item Vérifier qu'il existe deux positions de la lentille qui permettent d'obtenir une image nette de l'objet sur l'écran. Ces deux positions sont séparées par la distance $d$.
+\item Vérifier que lorsque l'on rapproche l'objet de l'écran (on diminue la valeur de $D$), l'écart $d$ entre les deux positions de lentille donnant une image nette sur l'écran diminue.
+\item Diminuer encore la valeur de $D$, jusqu'à ce que ces deux positions soient confondues ($d = 0$). On peut remarquer qu'à ce moment le grandissement $\gamma$ est égal à $-1$.
+\item Mesurer alors sur le banc d'optique la distance $D$ objet-image et déduire la distance focale image de la lentille à l'aide de la relation :
+
+
+\formule{f' = \frac{D}{4}}
+
+\end{itemize}
+
+\begin{center}
+\begin{pspicture}(-4,-2)(4,2)
+%\psgrid[subgriddiv=1,griddots=10]
+
+
+\optaxe{4}
+
+\optobj{-3,0}{-3,1}
+
+% lentille
+\psline{<->}(0,-1.5)(0,1.5)
+\uput{0.1}[225](0,0){$O$}
+
+% foyers
+\uput{0.1}[-90](1.5,0){$F'$} \psline(1.5,-0.1)(1.5,0.1)
+\uput{0.1}[-90](-1.5,0){$F$} \psline(-1.5,-0.1)(-1.5,0.1)
+
+
+% ecran
+\psline(3,2)(3,-2)
+
+% légende distance
+\psline{<->}(-3,-1.75)(3,-1.75) \rput(0,-2){$D$} % D
+\psline{>-<}(-0.1,1.75)(0.1,1.75) \rput(0,2){$d = 0$} % d
+
+\end{pspicture}
+\end{center}
+
+
+\vressort{1}
+
+\section{Vergence de deux lentilles accolées}
+On dispose de deux lentilles $L_1$ et $L_2$. On souhaite
+connaitre la vergence de ces deux lentilles lorsqu'elle sont accolées.
+Il faut utiliser une des méthodes exposées plus haut pour effectuer
+les trois mesures suivantes :
+
+\begin{enumerate}
+\item Mesurer la distance focale $f'_1$ et déduire la vergence $V_1$
+  de la lentille $L_1$.
+\item Mesurer la distance focale $f'_2$ et déduire la vergence $V_2$
+  de la lentille $L_2$.
+\item Mesurer la distance focale $f'$ et déduire la vergence $V$
+  de l'ensemble des lentilles $L_1$ et $L_2$ accolées.
+\item \`A l'aide des trois mesures précédentes, déduire la relation
+  entre $V_1$, $V_2$ et $V$.
+\end{enumerate}
+
+
+%\end{multicols}
+
+
+\newpage
+
+\section{TO DO}
+
+pas pour les élèves
+
+
+\subsection{Méthode de Badal}
+
+%\begin{multicols}{2}
+
+\begin{itemize}
+
+\item Choisir deux lentilles convergentes $L_1$ et $L_2$ de vergences connues.
+\item Réaliser l'image à l'infini de l'objet $A$ placé sur le banc, par la première lentille.
+\item Placer la deuxième lentille au-delà de la première, à une distance supérieure à sa propre distance focale.
+\item Observer l'image de l'objet par l'ensemble se former dans le plan focal image de la deuxième lentille : $A'$ en $F'2$.
+\item Placer la lentille de vergence $V_x$ inconnue au foyer objet de la deuxième lentille, et chercher l'image réelle $A"$ de l'objet dans le système optique ainsi constitué.
+\item Mesurer le déplacement $x = A'A"$ de l image.
+\end{itemize}
+
+
+% Faire les constructions correspondantes et montrer, en utilisant les relations de conjugaison, que f  = - f x '2 2 . .
+
+
+
+%Un objet source est placé au foyer d'une lentille convergente $L_1$ qui donne une image à l'infini. Une seconde lentille convergente $L_0$ de distance focale $f_0$ connue donne de cette image une image réelle située dans son plan focal image. On note, sur le banc d'optique, l'abscisse $x_0$ de ce plan.
+%On place le sommet de la lentille $L_x$ dont on désire déterminer la distance focale au foyer objet de la lentille $L_0$. $L_x$ donne de l'objet initial (pour elle situé à l'infini) une image située dans son plan focal image. $L_0$ donne de cette image une image finale dans un plan situé à l'abscisse $x_1$.
+
+On montre que :
+
+\formule{{f'}_x = -\frac{{{f'}_2}^2}{x}}
+
+
+\emph{Remarque :} $x$ est positif pour une lentille divergente et négatif pour une lentille convergente.
+
+
+
+On démontre cette relation en appliquant la relation de Newton $\overline{FA} . \overline{FA'} = \overline{OF} . \overline{OF'} = - \overline{OF}^2$.
+
+
+\begin{center}
+\begin{pspicture}(-4,-2)(4,2)
+\psgrid[subgriddiv=1,griddots=10]
+\end{pspicture}
+\end{center}
+
+%\end{multicols}
+
+
+
+\newpage
+
+\section{Focométrie des lentilles minces divergentes}
+
+\subsection{Formation d'un doublet accolé}
+
+%\begin{multicols}{2}
+
+\begin{enumerate}
+\item Accoler à la lentille divergente de vergence $V_1$ inconnue une lentille mince convergente de vergence $V_2$ connue.
+
+\emph{Remarque :} on a choisit la lentille convergente à accoler de telle sorte que le système accolé de lentilles soit convergent.
+
+La vergence de l'ensemble est :
+
+\formule{V_{1+2} = V_1 + V_2}
+
+\item Utiliser une des méthodes vues précédemment pour déduire la vergence $V_{1+2}$ de l'ensemble et, connaissant la vergence $V_2$ de la lentille convergente, déduire la vergence $V_1$ de la  lentille divergente.
+
+\end{enumerate}
+
+
+\begin{center}
+\begin{pspicture}(-4,-2)(4,2)
+\psgrid[subgriddiv=1,griddots=10]
+\end{pspicture}
+\end{center}
+
+%\end{multicols}
+
+
+\subsection{Méthode de Badal}
+La méthode de Badal est applicable aux lentilles divergentes dans ce cas $x$ est positif.
+
+\begin{center}
+\begin{pspicture}(-4,-2)(4,2)
+\psgrid[subgriddiv=1,griddots=10]
+\end{pspicture}
+\end{center}

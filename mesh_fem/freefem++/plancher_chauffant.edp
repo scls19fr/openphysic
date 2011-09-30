@@ -1,0 +1,25 @@
+// Plancher chauffant
+
+real e = 18; // epaisseur
+real l = 18; // longueur/2
+real r = 1; // rayon
+real p = 4; // profondeur
+
+real lambda = 1;
+
+border S(t=0,1){ x=l*2*t-l; y=0; };
+border E(t=0,1){ x=l; y=e*t; };
+border N(t=0,1){ x=l*(1-2*t); y=e; };
+border W(t=0,1){ x=-l; y=e*(1-t); };
+border cercle(t=0,2*pi){ x=r*cos(t); y=r*sin(t)+e-p;}
+
+mesh Th = buildmesh (S(100) + E(50) + N(100) + W(50) + cercle(-30));
+
+fespace Vh(Th,P2);
+Vh u,v;
+
+solve Laplace(u,v)=int2d(Th)(lambda*(dx(u)*dx(v) + dy(u)*dy(v))) + on(cercle,u=50) + on(S,u=20) + on(N,u=20);
+
+//plot(Th,wait=true);
+//plot(u,wait=true);
+plot(u,value=true,wait=true);

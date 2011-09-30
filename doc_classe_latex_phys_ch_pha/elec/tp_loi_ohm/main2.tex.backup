@@ -1,0 +1,134 @@
+\tp{Détermination de la caractéristique $U=f(I)$ aux bornes d'un résistor}
+
+\nomprenomclasse
+
+\medskip
+
+%\begin{center}
+%\includegraphics[width=10cm]{montage.eps}
+%\end{center}
+
+
+\begin{center}
+\begin{pspicture}(0,-1)(6,5)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(0,4.5){B}
+\pnode(6,4.5){A}
+\battery(B)(A){$E$, $r$}
+\psline{->}(2.5,4)(3.5,5)
+\pnode(0,0.5){C}
+\pnode(6,0.5){D}
+\wire(D)(A)
+%\switch(D)(A){$K$}
+\resistor(C)(D){$R$}
+%\ammeter[intensitylabel=$I$]{B}{C}
+\ammeter{B}{C}
+\circledipole[parallel,parallelarm=-1,parallelsep=0,labeloffset=0](C)(D){\large \textbf{V}}
+\end{pspicture}
+\end{center}
+
+
+\begin{enumerate}
+\item Observer le schéma de montage et nommer le matériel nécessaire ainsi que les éventuels réglages.
+\item Compléter le schéma de montage en précisant la flèche de tension ($U$) aux bornes de $R$ et celle de courant ($I$).
+\item Compléter le schéma de montage en précisant les bornes des appareils de mesure.
+\item Réaliser ce montage en suivant les consignes de la fiche méthode \og Réalisation de montages électriques \fg
+
+\begin{framed}
+\textbf{Rappel :} Il faut toujours attendre que le professeur vienne vérifier le montage avant de le mettre sous tension !
+\end{framed}
+
+\item Faire varier la tension du générateur réglable $U$.
+Mesurer la tension $U$ et l'intensité du courant électrique $I$.
+On commencera les $20$ mesures à $U = 0~V$ et on les terminera à $U = 10~V$.
+
+% \begin{tabularx}{15cm}{|c||c|c|c|c|c|c|c|c|c|c|c|}
+% \hline
+% \textbf{$U$ ($V$)} & & & & & & & & & & & \\ \hline
+% \textbf{$I$ ($A$)} & & & & & & & & & & & \\ \hline
+% \end{tabularx}
+
+% tabular*
+% tabularx
+% tabulary
+% array
+
+
+%\begin{tabularx}{\linewidth}{*{10}{|X}|}
+%\hline
+%$U$ ($V$) & & & & & & & & & \tabularnewline \hline
+%$I$ ($A$) & & & & & & & & & \tabularnewline \hline
+%\end{tabularx}
+
+\begin{arraydata}{10}
+\hline
+$U$ ($V$) & & & & & & & & & & \\[1.5cm] \hline
+$I$ ($A$) & & & & & & & & & & \\[1.5cm] \hline
+\end{arraydata}
+
+
+\begin{arraydata}{10}
+\hline
+$U$ ($V$) & & & & & & & & & & \\[1.5cm] \hline
+$I$ ($A$) & & & & & & & & & & \\[1.5cm] \hline
+\end{arraydata}
+
+%\tableaumesures{$U$ ($V$)}{$I$ ($A$)}{10}
+
+%\tableaumesures{$U$ ($V$)}{$I$ ($A$)}{10}
+
+% \newcommand{\espacemesure}{\mbox{\hspace{0.9cm}}}
+% \noindent
+% \begin{tabular}{|c||c|c|c|c|c|c|c|c|c|c|c|}
+% \hline
+% \textbf{$U$ ($V$)} & \espacemesure & \espacemesure & \espacemesure & \espacemesure & \espacemesure & \espacemesure & \espacemesure & \espacemesure & \espacemesure & \espacemesure \\ \hline
+% \textbf{$I$ ($A$)} & & & & & & & & & & \\ \hline
+% \end{tabular}
+% 
+% \begin{tabular}{|c||c|c|c|c|c|c|c|c|c|c|c|}
+% \hline
+% \textbf{$U$ ($V$)} & \espacemesure & \espacemesure & \espacemesure & \espacemesure & \espacemesure & \espacemesure & \espacemesure & \espacemesure & \espacemesure & \espacemesure \\ \hline
+% \textbf{$I$ ($A$)} & & & & & & & & & & \\ \hline
+% \end{tabular}
+
+\pagebreak[4]
+
+\item Choisir une échelle convenable et tracer les points de mesure ainsi que la caractéristique du résistor.
+
+\par\noindent
+%\psset{unit=1.4142}
+\scalebox{1.414}{
+\begin{pspicture}(0,0)(10,8)
+%
+   \psmilli % papier milli noir
+%  \psmilliblack % papier milli noir
+%  \psmillicolor % papier milli couleur (bistre)
+\end{pspicture}
+}
+\item Déterminer la pente (ou coefficient directeur) $\alpha$ de la droite. Préciser son unité.
+
+\item Comparer $\alpha$ avec la valeur de la résistance $R$ lue grâce au code des couleurs ou grâce à l'indication numérique inscrite dessus.
+
+\item Énoncer en conclusion la loi qui relie les trois grandeurs physiques : intensité ($I$), tension ($U$) et résistance ($R$) en français sur les pointillés et sous une forme mathématique dans l'encadré.
+
+\medskip \dotfill
+
+\medskip \dotfill
+
+\medskip \dotfill
+
+\medskip \dotfill
+
+\bigskip
+
+\textbf{\huge Loi d'Ohm}
+\normalsize
+
+\begin{framed}
+\noindent
+\hfill
+\vspace*{3cm}
+\end{framed}
+
+Cette loi est à connaître par coeur.
+\end{enumerate}

@@ -1,0 +1,60 @@
+\newcommand{\poste}{%
+  Poste 1416\\
+  PRAG\\
+  IUT de Saint-Dié\\
+  Université Nancy I
+}
+
+\newcommand{\presposte}{%
+\section{Présentation du poste}
+
+\frame{
+  \frametitle{\insertsectionhead}
+  % \pause
+
+
+  \begin{tabularx}{\linewidth}{XX} %{p{13cm}X}
+
+    \begin{center} % flushright
+      \poste
+    \end{center}
+
+    &
+
+    \vspace*{\stretch{1}}
+
+    \begin{center}
+%      \includegraphics[width=3cm]{logo.gif} % avec pdflatex
+      \includegraphics[width=3cm]{logo.eps} % avec latex
+    \end{center}
+
+    \vspace*{\stretch{1}}
+
+  \end{tabularx}
+
+
+  \begin{itemize}
+  \item DUT Services et Réseaux de Communication
+  \item DUT Informatique
+  \item Licence professionnelle Communication et Média
+  \end{itemize}
+}
+}
+
+\newcommand{\conclusion}{%
+\section{Conclusion}
+\frame{
+  \frametitle{\insertsectionhead}
+
+  \vspace{\stretch{5}}
+
+  \begin{center}
+    \begin{Huge}
+      En conclusion...
+    \end{Huge}
+  \end{center}
+  
+
+  \vspace{\stretch{5}}
+}
+}

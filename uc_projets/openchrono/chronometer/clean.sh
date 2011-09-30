@@ -1,0 +1,1 @@
+rm ui_*.h moc_*.cpp

@@ -1,0 +1,19 @@
+epiphany-extensions
+liferea
+gnome-office
+ubuntu-restricted-extra
+gstreamer
+ffmpeg
+gstreamer bad
+gstreamer bad-multiverse
+bluez-gnome
+gnome-bluetooth
+xchat-gnome
+gshare
+avahi howl
+avahi dnssd
+gnomescan
+seahorse
+revelation
+gnome-compiz-settings
+ntfs-config

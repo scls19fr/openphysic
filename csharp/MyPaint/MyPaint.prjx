@@ -1,0 +1,32 @@
+<Project name="MyPaint" standardNamespace="NewProject" description="" newfilesearch="None" enableviewstate="True" version="1.1" projecttype="C#">
+  <Contents>
+    <File name=".\Stroke.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\AssemblyInfo.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\MainForm.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\NewDlgForm.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Paint.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\PictureForm.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\FormProp.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Paint_.NET.Form1.resources" subtype="Code" buildaction="EmbedAsResource" dependson="" data="" />
+    <File name=".\Paint_.NET.Form2.resources" subtype="Code" buildaction="EmbedAsResource" dependson="" data="" />
+  </Contents>
+  <References />
+  <DeploymentInformation target="" script="" strategy="File" />
+  <Configuration runwithwarnings="False" name="Debug">
+    <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="" warninglevel="4" nowarn="" includedebuginformation="True" optimize="True" unsafecodeallowed="False" generateoverflowchecks="True" mainclass="" target="WinExe" definesymbols="" generatexmldocumentation="False" win32Icon="" />
+    <Execution commandlineparameters="" consolepause="False" />
+    <Output directory=".\bin\Debug" assembly="MyPaint" executeScript="" executeBeforeBuild="" executeAfterBuild="" />
+  </Configuration>
+  <Configurations active="Debug">
+    <Configuration runwithwarnings="False" name="Debug">
+      <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="" warninglevel="4" nowarn="" includedebuginformation="True" optimize="True" unsafecodeallowed="False" generateoverflowchecks="True" mainclass="" target="WinExe" definesymbols="" generatexmldocumentation="False" win32Icon="" />
+      <Execution commandlineparameters="" consolepause="False" />
+      <Output directory=".\bin\Debug" assembly="MyPaint" executeScript="" executeBeforeBuild="" executeAfterBuild="" />
+    </Configuration>
+    <Configuration runwithwarnings="False" name="Release">
+      <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="" warninglevel="4" nowarn="" includedebuginformation="True" optimize="True" unsafecodeallowed="False" generateoverflowchecks="True" mainclass="" target="WinExe" definesymbols="" generatexmldocumentation="False" win32Icon="" />
+      <Execution commandlineparameters="" consolepause="False" />
+      <Output directory=".\bin\Release" assembly="MyPaint" executeScript="" executeBeforeBuild="" executeAfterBuild="" />
+    </Configuration>
+  </Configurations>
+</Project>

@@ -1,0 +1,49 @@
+; ************************************************************
+; PROJECT:
+; AUTHOR:
+; ************************************************************
+
+; Micro + software running
+; ------------------------------------------------------------
+.MICRO "AT90S8535"
+.TOOLCHAIN "GCC"
+.GCCPATH   "C:\WinAVR"
+.GCCMAKE   AUTO
+.TARGET    "test.hex"
+.SOURCE    "test.c"
+
+.TRACE              ; Activate micro trace
+
+; Following lines are optional; if not included
+; exactly these values are taken by default
+; ------------------------------------------------------------
+.POWER VDD=5 VSS=0  ; Power nodes
+.CLOCK 1meg         ; Micro clock
+.STORE 250m         ; Trace (micro+signals) storage time
+
+; Micro nodes: RESET, AREF, PA0-PA7, PB0-PB7, PC0-PC7, PD0-PD7, ACO, TIM1OVF
+; Define here the hardware around the micro
+; ------------------------------------------------------------
+
+;Kx node1 node2 [type(delay)] ; x: Buttons 0 - F. Optional type: MONOSTABLE(t_delay), LATCHED
+K0 VSS PC0 LATCHED
+K1 VSS PC1 LATCHED
+
+
+XNAND2 ND2 PC0 PC1 OUT_NAND2
+
+
+XINV1 _inv1 PC0 OUT_INV1
+XAND2 _and2 PC0 PC1 OUT_AND2
+XOR2 _or2 PC0 PC1 OUT_OR2
+XXOR2 _xor2 PC0 PC1 OUT_XOR2
+; nand2
+XNOR2 _nor2 PC0 PC1 OUT_NOR2
+
+;Xuser1 _nand8 PC0 PC1 PC2 PC3 PC4 PC5 PC6 PC7 NODEINT0 ; see keypad sample code for test
+
+
+
+.PLOT V(PC0) P(PC1) V(OUT_INV1) V(OUT_AND2) V(OUT_OR2) V(OUT_XOR2) V(OUT_NAND2) V(OUT_NOR2)
+
+

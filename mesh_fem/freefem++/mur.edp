@@ -1,0 +1,27 @@
+// Mur
+
+real e = 3; // epaisseur
+real d = 10; // longueur
+
+real lambda = 1.6;
+real h = 10;
+
+real l1 = e;
+real l2 = l1 * lambda / (h * e);
+
+border S(t=0,1){x=e*t;y=0;};
+border E(t=0,1){x=e;y=d*t;};
+border N(t=0,1){x=e*(1-t);y=d;};
+border W(t=0,1){x=0;y=d*(1-t);};
+
+mesh Th = buildmesh (W(50) + N(50) + E(50) + S(50));
+
+
+fespace Vh(Th,P2); // P2 conforming triangular FEM
+Vh u,v;
+Vh kappa=1+2*(x<-1)*(x>-2)*(y<3)*(y>-3);
+
+solve Laplace(u,v)=int2d(Th)(lambda*(dx(u)*dx(v) + dy(u)*dy(v))) + on(E,u=10) + on(W,u=80);
+
+//plot(Th,wait=true);
+plot(u,wait=true);

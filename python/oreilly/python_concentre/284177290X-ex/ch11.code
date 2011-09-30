@@ -1,0 +1,201 @@
+import fileinput, marshal, anydbm
+positionMot = {}
+for ligne in fileinput.input():
+    position = fileinput.filename(), fileinput.filelineno()
+    for mot in ligne.split():
+        positionMot.setdefault(mot, []).append(position)
+dbmOut = anydbm.open('indexmots', 'n')
+for mot in positionMot:
+    dbmOut[mot] = marshal.dumps(positionMot[mot])
+dbmOut.close()
+
+----------
+
+import sys, marshal, anydbm, linecache
+dbmIn = anydbm.open('indexmots')
+for mot in sys.argv[1:]:
+    if not dbmIn.has_key(mot):
+         sys.stderr.write('Le mot %r est absent du fichier index\n' % mot)
+         continue
+    emplacements = marshal.loads(dbmIn[mot])
+    for nomfic, numlig in emplacements:
+        print "Le mot %r apparaît à la ligne %s du fichier %s:" % (mot, numlig, nomfic)
+        print linecache.getline(nomfic, numlig),
+
+----------
+
+def additionneur(augend):
+    def interne(addend, augend = augend): return addend + augend
+    return interne
+plus5 = additionneur(5)
+
+----------
+
+import fileinput, cPickle, anydbm
+positionMot = {}
+for ligne in fileinput.input():
+    position = fileinput.filename(), fileinput.filelineno()
+    for mot in ligne.split():
+        positionMot.setdefault(mot, []).append(position)
+dbmOut = anydbm.open('indexmots', 'n')
+for mot in positionMot:
+    dbmOut[mot] = cPickle.dumps(positionMot[mot], 1)
+dbmOut.close()
+
+----------
+
+import sys, cPickle, anydbm, linecache
+dbmIn = anydbm.open('indexmots')
+for mot in sys.argv[1:]:
+    if not dbmIn.has_key(mot):
+         sys.stderr.write('Le mot %r est absent du fichier index\n' % mot)
+         continue
+    emplacements = cPickle.loads(dbmIn[mot])
+    for nomfic, numlig in emplacements:
+        print "Le mot %r apparaît à la ligne %s du fichier %s:" % (mot, numlig, nomfic)
+        print linecache.getline(nomfic, numlig),
+
+----------
+
+import shelve
+s = shelve.open('donnees')
+s['une_cle'] = range(4)
+print s['une_cle']                 # Affiche : [0, 1, 2, 3]
+s['une_cle'].append('encore')      # Tentative de modification directe
+print s['une_cle']                 # Ne marche pas ; affiche : [0, 1, 2, 3]
+
+x = s['une_cle']           # récupération de l'objet
+x.append('encore')         # Modification
+s['akey'] = x              # Réaffectation de l'objet
+print s['akey']            # Fonctionne ; affiche : [0, 1, 2, 3, 'encore']
+
+----------
+
+import fileinput, shelve
+positionMot = {}
+for ligne in fileinput.input():
+    position = fileinput.filename(), fileinput.filelineno()
+    for mot in ligne.split():
+        positionMot.setdefault(mot, []).append(position)
+shOut = shelve.open('indexmots','n')
+for mot in positionMot:
+    shOut[mot] = positionMot[mot]
+shOut.close()
+
+----------
+
+import sys, shelve, linecache
+shIn = shelve.open('indexmots')
+
+for mot in sys.argv[1:]:
+    if not shIn.has_key(mot):
+         sys.stderr.write('Le mot %r est absent du fichier index\n' % mot)
+         continue
+    emplacements = shIn[mot]
+    for nomfic, numlig in emplacements:
+        print "Le mot %r apparaît à la ligne %s du fichier %s:" % (mot, numlig, nomfic)
+        print linecache.getline(nomfic, numlig),
+
+----------
+
+import fileinput, os, anydbm
+positionMot = {}
+sep = os.pathsep
+for ligne in fileinput.input():
+    position = '%s%s%s'%(fileinput.filename(), sep, fileinput.filelineno())
+    for mot in ligne.split():
+        positionMot.setdefault(mot, []).append(position)
+dbmOut = anydbm.open('indexmots', 'n')
+sep2 = sep * 2
+for mot in positionMot:
+    dbmOut[mot] = sep2.join(positionMot[mot])
+dbmOut.close()
+
+----------
+
+import sys, os, anydbm, linecache
+dbmIn = anydbm.open('indexmots')
+sep = os.pathsep
+sep2 = sep * 2
+for mot in sys.argv[1:]:
+    if not dbmIn.has_key(mot):
+         sys.stderr.write('Le mot %r est absent du fichier index\n' % mot)
+         continue
+    emplacements = dbmIn[mot].split(sep2)
+    for place in emplacements:
+        nomfic, numlig = place.split(sep)
+        print "Le mot %r apparaît à la ligne %s du fichier %s:" % (mot, numlig, nomfic)
+        print linecache.getline(nomfic, int(numlig)),
+
+----------
+
+import fileinput, os, bsddb
+positionMot = {}
+sep = os.pathsep
+for ligne in fileinput.input():
+    position = '%s%s%s'%(fileinput.filename(), sep, fileinput.filelineno())
+    for mot in ligne.split():
+        positionMot.setdefault(mot, []).append(position)
+btOut = bsddb.btopen('btindex','n')
+sep2 = sep * 2
+for mot in positionMot:
+    btOut[mot] = sep2.join(positionMot[mot])
+btOut.close()
+
+----------
+
+import sys, os, bsddb, linecache
+btIn = bsddb.btopen('btindex')
+sep = os.pathsep
+sep2 = sep * 2
+
+for mot in sys.argv[1:]:
+    cle, position = btIn.set_location(mot)
+    if not cle.startswith(mot):
+         sys.stderr.write("Aucun mot ne commençant par %r ne se trouve dans l'index\n" % mot)
+    while cle.startswith(mot):
+        emplacements = position.split(sep2)
+        for place in emplacements:
+            nomfic, numlig = place.split(sep)
+            print "%r apparaît à la ligne %s du fichier %s :" % (mot, numlig, nomfic)
+            print linecache.getline(nomfic, int(numlig)),
+        try: cle, position = btIn.next( )
+        except IndexError: break
+
+----------
+
+c.execute('SELECT * FROM TABLE WHERE CHAMP = %r' % x)
+
+----------
+
+c.execute('SELECT * FROM TABLE WHERE CHAMP = ?', [x])
+
+----------
+
+c.execute('SELECT * FROM TABLE WHERE CHAMP = %s', [x])
+
+----------
+
+c.execute('SELECT * FROM TABLE WHERE CHAMP = :x', {'x':x})
+
+----------
+
+c.execute('SELECT * FROM TABLE WHERE CHAMP = :1', [x])
+
+----------
+
+c.execute('SELECT * FROM TABLE WHERE CHAMP = %(x)s', {'x':x})
+
+----------
+
+c.execute('SELECT * FROM TABLE WHERE CHAMP = ?', [x])
+
+----------
+
+c.executemany('UPDATE table SET x = ? WHERE y = ?', (12, 23), (23, 34))
+
+----------
+
+c.execute('UPDATE table SET x = 12 WHERE y = 23')
+c.execute('UPDATE table SET x  =23 WHERE y = 34')
+

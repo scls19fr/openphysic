@@ -1,0 +1,14 @@
+<Combine fileversion="1.0" name="PlaySound" description="Converted Visual Studio.NET Solution">
+<Entries>
+	<Entry filename=".\PlaySound.prjx" />
+</Entries>
+<StartMode startupentry="PlaySound" single="True"/>
+<Configurations active="Debug">
+<Configuration name="Debug">
+	<Entry name="PlaySound" configurationname="Debug" build="False" />
+</Configuration>
+<Configuration name="Release">
+	<Entry name="PlaySound" configurationname="Release" build="False" />
+</Configuration>
+</Configurations>
+</Combine>

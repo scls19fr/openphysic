@@ -1,0 +1,363 @@
+\cours{Systèmes triphasés équilibrés}
+
+
+\newcommand{\systtri}[3]{%
+\[
+\begin{array}{l}
+#1\\
+#2\\
+#3\\
+\end{array}
+\]
+}
+\section{Définitions}
+
+\subsection{Système triphasé de tensions}
+Trois tensions sinusoïdales, de même fréquence, forment un \emph{système
+triphasé de tensions} si elles sont déphasées les unes par rapport aux
+autres de $\frac{2 \pi}{3}$ soit $120° = \frac{360°}{3}$.
+
+
+\subsection{Système triphasé de tensions, \emph{équilibré}}
+Un système triphasé de tensions est \emph{équilibré} lorsque les trois
+tensions ont la même valeur efficace.
+
+
+\systtri
+{u_1(t) = U \sqrt(2) \sin(\omega t)}
+{u_2(t) = U \sqrt(2) \sin(\omega t - \frac{2 \pi}{3})}
+{u_3(t) = U \sqrt(2) \sin(\omega t - \frac{4 \pi}{3})}
+
+
+% \[
+% (S):\ \left { 2x  + 3y + 2z = 0 \\ 6x - 50y + 2z = 0 \\ 32x - 5y + 59z =
+% 1 \right
+% \]
+
+% \[
+% \left\{
+% u_1(t) = U \sqrt(2) \sin(\omega t)\\
+% u_2(t) = U \sqrt(2) \sin(\omega t - \frac{2 \pi}{3})\\
+% u_3(t) = U \sqrt(2) \sin(\omega t - \frac{4 \pi}{3})
+% \right
+% \]
+
+
+% Représentation temporelle d'un système triphasé équilibré direct
+% de tensions
+
+% Représentation de Fresnel d'un système triphasé équilibré direct
+% de tensions
+
+
+
+\subsection{Système triphasé de tensions \emph{direct} et
+\emph{inverse}}
+
+\subsubsection{Système triphasé équilibré direct de tensions}
+
+L'exemple du paragraphe précédent :
+
+\systtri
+{v_1(t) = V \sqrt(2) \sin(\omega t)}
+{v_2(t) = V \sqrt(2) \sin(\omega t - \frac{2 \pi}{3})}
+{v_3(t) = V \sqrt(2) \sin(\omega t - \frac{4 \pi}{3})}
+
+est un système de tensions triphasées \emph{direct} car un observateur
+qui regarde tourner les vecteurs de Fresnel $\vect{V_1}$, $\vect{V_2}$
+et $\vect{V_3}$, à la vitesse angulaire $\omega$, les voit couper
+l'axe Ox dans l'ordre 1, 2, 3.
+
+
+\subsubsection{Système triphasé équilibré indirect de tensions}
+
+\systtri
+{v'_1(t) = V \sqrt(2) \sin(\omega t)}
+{v'_2(t) = V \sqrt(2) \sin(\omega t + \frac{2 \pi}{3})}
+{v'_3(t) = V \sqrt(2) \sin(\omega t + \frac{4 \pi}{3})}
+
+est un système de tensions triphasées \emph{indirect} car un observateur
+qui regarde tourner les vecteurs de Fresnel $\vect{V_1}$, $\vect{V_2}$
+et $\vect{V_3}$, à la vitesse angulaire $\omega$, les voit couper
+l'axe Ox dans l'ordre 1, 3, 2.
+
+
+% Représentation temporelle d'un système triphasé équilibré indirect
+% de tensions
+
+% Représentation de Fresnel d'un système triphasé équilibré indirect
+% de tensions
+
+
+On remarque que $v_1 = v'_1$, $v_2 = v'_3$ et $v_3 = v'_2$
+
+
+\remarque{
+On passe d'un système triphasé de tensions direct à un système
+triphasé de tensions inverse en permuttant deux des tensions}
+
+
+\subsection{Système triphasé de courants}
+
+On définit, de façon analogue, un système triphasé de courants
+équilibré direct.
+
+\systtri
+{i_1(t) = I \sqrt(2) \sin(\omega t)}
+{i_2(t) = I \sqrt(2) \sin(\omega t - \frac{2 \pi}{3})}
+{i_3(t) = I \sqrt(2) \sin(\omega t - \frac{4 \pi}{3})}
+
+
+\section{Installation triphasée quatre fils}
+
+
+\subsection{Générateur triphasé}
+% installation triphasée
+
+\subsection{Récepteur triphasé}
+% prise
+
+\subsection{Ligne : fils de \emph{phases} et \emph{neutre}}
+% ligne
+
+\section{Tensions simples, tensions composées}
+\subsection{Tensions simples}
+On appelle \emph{tensions simples} les tensions qui existent entre
+chaque phase et le neutre. On les notes $v_1$, $v_2$ et $v_3$.
+
+
+
+\subsection{Tensions composées}
+On appelle \emph{tensions composées}, les tensions qui existent entre
+deux phases. On les note $u_{12}$, $u_{23}$ et $u_{31}$.
+
+
+\subsection{Représentation de Fresnel}
+
+\subsubsection{Tracez le vecteur de Fresnel $\vec{U_{12}}$}
+
+Le diagramme de Fresnel suivant représente les tensions simples $v_1$,
+$v_2$ et $v_3$ par les vecteurs $\vect{V_1}$, $\vect{V_2}$ et
+$\vect{V_3}$. Nous allons trouver graphiquement la tension composée
+$u_{12}$ en traçant le vecteur de Fresnel $\vect{U_{12}}$.
+
+
+
+
+% schéma à construire
+
+
+$u_{12}(t) = v_1(t) - v_2(t)$
+donc avec les vecteurs de Fresnel
+$\vect{U_{12}} = \vect{V_1} - \vect{V_2}$
+soit $\vect{V_1} = \vect{V_2} + \vect{U_{12}}$
+
+
+On obtient le vecteur $\vect{V_1}$ en ajoutant le vecteur
+$\vect{U_{12}}$ au vecteur $\vect{V_2}$. Tracez le vecteur
+$\vect{U_{12}}$.
+
+On peut alors translater le vecteur $\vect{U_{12}}$ pour que son
+origine soit au point $O$.
+
+
+\medskip
+
+Mesurez $U_{12}$ la valeur efficace de la tension composée $u_{12}$.
+
+$U_{12} = \troufixe{1.5cm}$
+
+
+Mesurez $V_{1}$ la valeur efficace de la tension simple $v_1$.
+
+$V_1 = \troufixe{1.5cm}$
+
+
+Calculez numériquement le rapport $\frac{U_{12}}{V_1}$.
+
+$\frac{U_{12}}{V_1} = $\trou{$1.732 = \sqrt{3}$}
+
+
+\emph{Conclusion :}
+
+\trouformule{
+U = \sqrt{3} V
+}
+
+\emph{Application numérique :} Aux bornes d'une prise du secteur EDF la
+tension entre la phase et le neutre (tension simple) est de
+$230~V$. Quelle est la valeur de la tension entre deux phases ?
+
+\trou{$V = 230~V ; U = \sqrt{3} V = \sqrt{3} \cdot 230 = 400~V$}
+
+
+
+\subsubsection{Tracez les vecteurs de Fresnel $\vec{U_{12}}$,
+$\vec{U_{23}}$ et $\vec{U_{31}}$}
+
+
+Procédez de la même manière pour tracer sur le même diagramme les
+vecteurs de Fresnel $\vect{U_{12}}$, $\vect{U_{23}}$ et
+$\vect{U_{31}}$
+
+% schéma supplémentaire pour construire les autres tensions composées
+
+
+
+
+\section{Montages en étoile et en triangle}
+\subsection{Montage en étoile}
+Trois dipôles récepteurs sont couplés en \emph{étoile} si chacun d'eux est
+branché entre le neutre N et un phase.
+
+% schéma étoile (sans neutre)
+
+% schéma étoile (avec neutre)
+
+Chaque dipôle est soumis à la tension efficace (simple) $V =
+\frac{U}{\sqrt{3}}$.
+
+
+\subsection{Montage en triangle}
+Trois dipôles récepteurs sont couplés en \emph{triangle} si chacun
+d'eux est branché entre deux fils de phases.
+
+
+Chaque dipôle est soumis à la tension efficace (composée) $U =
+\sqrt{3} V$.
+
+
+
+\section{Puissances en régime triphasé équilibré}
+Un récepteur triphasé peut-être considéré comme étant l'association de
+trois récepteurs monophasés identiques. On peut donc lui appliquer le
+théorême de Boucherot : la puissance active consommée par un récepteur
+triphasée est égale à la somme des puissances actives consommées
+par chaque récepteur monophasé et la puissance réactive consommée par un récepteur
+triphasée est égale à la somme des puissances réactives consommées
+par chaque récepteur monophasé.
+
+
+
+\subsection{Montage en étoile}
+\subsubsection{Puissance active}
+
+La puissance active consommée par un récepteur monophasé est :
+\[
+P_1 = V I \cos(\varphi)
+\]
+
+La puissance active consommée par un récepteur triphasé est donc :
+
+\[
+P = 3 P_1
+ = 3 V I \cos(\varphi)
+ = 3 \frac{U}{\sqrt{3}} I \cos{\varphi}
+\]
+
+soit
+
+\[
+P = \sqrt{3} U I \cos(\varphi)
+\]
+
+
+\subsubsection{Puissance réactive}
+
+La puissance réactive consommée par un récepteur monophasé est :
+\[
+Q_1 = V I \sin(\varphi)
+\]
+
+La puissance réactive consommée par un récepteur triphasé est donc :
+
+\[
+Q = 3 Q_1
+ = 3 V I \sin(\varphi)
+ = 3 \frac{U}{\sqrt{3}} I \sin{\varphi}
+\]
+
+soit
+
+\[
+Q = \sqrt{3} U I \sin(\varphi)
+\]
+
+\subsubsection{Puissance apparente}
+
+La puissance apparente consommée par un récepteur triphasé est :
+
+\[
+S = \sqrt{P^2 + Q^2} = 3 V I
+\]
+
+soit : 
+
+\[
+S = \sqrt{3} U I
+\]
+
+soit
+
+\[
+S = \sqrt{3} U I
+\]
+
+\subsection{Montage en triangle}
+\subsubsection{Puissance active}
+\[
+P = \sqrt{3} U I \cos(\varphi)
+\]
+
+\subsubsection{Puissance réactive}
+\[
+Q = \sqrt{3} U I \sin(\varphi)
+\]
+
+\subsubsection{Puissance apparente}
+\[
+S = \sqrt{3} U I
+\]
+
+
+\subsection{Généralisation}
+\subsubsection{Puissance active}
+\[
+P = \sqrt{3} U I \cos(\varphi)
+\]
+
+\subsubsection{Puissance réactive}
+\[
+Q = \sqrt{3} U I \sin(\varphi)
+\]
+
+\subsubsection{Puissance apparente}
+\[
+S = \sqrt{3} U I
+\]
+
+\subsection{Facteur de puissance}
+\[
+k = \cos(\varphi) = \frac{P}{S}
+\]
+
+
+\subsection{Mesure de puissance}
+\subsubsection{Méthode avec trois wattmètres}
+$P = P_a + P_b + P_c$
+
+
+\subsubsection{Méthode avec un wattmètre}
+$P = 3 P_a$ car $P_a = P_b = P_c$
+
+
+\subsubsection{Méthode des deux wattmètres}
+
+$P = P_a + P_b$
+
+$Q = \sqrt{3} (P_a - P_b)$
+
+
+
+
+\section{Champ tournant}

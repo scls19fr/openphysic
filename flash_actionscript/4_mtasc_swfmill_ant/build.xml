@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="monProjet" default="compile" basedir=".">
+	
+        <!-- importation des propriétés -->
+	<property file="build.properties"/>		
+	
+        <!-- le seul et unique target du fichier, il procède à la compilation -->
+	<target name="compile">
+		
+		<!-- compilation de la librairie -->
+		<exec executable="${swfmill.home}swfmill">		
+			<arg line="simple" />
+			<arg line="${project.library}" />
+			<arg line="${project.swf}" />			
+		</exec>		
+		
+		<!-- on vérifie si le mode strict est activé -->  
+		<condition property="strict" value="-strict" else="">			
+			<istrue value="${mtasc.strict}" />
+		</condition>
+		
+                <!-- on vérifie si le mode verbose est activé -->
+		<condition property="verbose" value="-v" else="">			
+			<istrue value="${mtasc.verbose}" />
+		</condition>	
+		
+		<!-- compilation du code source -->
+		<exec executable="${mtasc.home}mtasc">
+		
+			<!-- définition du classpath -->
+			<arg line="-cp ${project.classpath}"/>
+			<arg line="-cp ${system.classpath}"/>
+			
+			<!-- définition de la classe principale -->
+			<arg line="-main ${project.mainclass}"/>
+			
+			<!-- définition du SWF de sortie -->
+			<arg line="-swf ${project.swf}"/>
+			
+			<!-- définition des arguments optionels -->
+			<arg line="${strict}"/>
+			<arg line="${verbose}"/>
+		</exec>
+	</target>	
+</project>

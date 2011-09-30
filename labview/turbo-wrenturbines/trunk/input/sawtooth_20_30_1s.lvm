@@ -1,0 +1,24 @@
+LabVIEW Measurement	
+Writer_Version	0.92
+Reader_Version	1
+Separator	Tab
+Multi_Headings	Yes
+X_Columns	No
+Time_Pref	Relative
+Operator	scls
+Date	2008/04/11
+Time	10:51:32,383664
+***End_of_Header***	
+	
+Channels	2		
+Samples	2	2	
+Date	2008/04/11	2008/04/11	
+Time	10:51:32,383664	10:51:32,383664	
+X_Dimension	Time	Time	
+X0	0.0000000000000000E+0	0.0000000000000000E+0	
+Delta_X	1.000000	1.000000	
+***End_of_Header***			
+X_Value	X Array	Y Array	Comment
+	0.000000	20.000000
+	4.000000	30.000000
+

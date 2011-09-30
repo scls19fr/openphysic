@@ -1,0 +1,1 @@
+<?php header("Location: http://s.cls.free.fr/wikini/wakka.php?wiki=ProjetOpenPhysic"); exit; ?>

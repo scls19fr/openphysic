@@ -1,0 +1,58 @@
+% «~Simplifiez-vous la bibliographie sous LateX~»
+% D'après GNU/Linux Magazine France Mai 2006 n°83 
+% Cyril Buttay et Florent Morel
+% voir aussi
+% http://www.lsv.ens-cachan.fr/~markey/bibla.php
+
+%% Bibliographie incorporée avec l'environnement thebibliography
+
+% \section{Essai de bibliographie incorporée}
+
+% L'utilisation de l'environnement \texttt{thebibliography} est décrite
+% dans \cite{livre_de_chevet}. Quand nous serons passés à la postérité,
+% le présent article sera cité comme suit \cite{cyril_et_florent}.
+
+
+% \begin{thebibliography}{9}
+% \bibitem[Lamport-86]{livre_de_chevet} Lamport, L,
+%  {\it \LaTeX: A Document Preparation System},
+%  Addison-Wesley, 1986.
+
+% \bibitem{cyril_et_florent} Buttay, C. \& Morel, F.,
+%  {\it Linux Pratique}, n°1457, décembre 2051.
+% \end{thebibliography}
+
+
+
+%% Bibliographie externe avec BibTeX
+
+% Voir GNU/Linux Magazine France Mai 2006 (N°83)
+% latex fichier.tex
+% bibtex fichier     (utilise fichier.aux et donne fichier.bbl avec
+%                     fichier = main ou only)
+% latex fichier.tex
+% latex fichier.tex
+
+\section{Essai d'utilisation de BibTeX}
+L'utilisation de BibTeX est décrite dans \cite{lamport86}.
+Quand nous serons passés à la postérité, le présent article sera cité
+comme suit \cite{cyril_et_florent}.
+
+
+
+% voir les styles de biblio BibTeX dans
+% /usr/share/texmf/bibtex/bst
+% http://www.ctan.org/tex-archive/biblio/bibtex/contrib/bib-fr
+% Il faut ajouter les styles de biblio français (*-fr.bst) à tetex
+
+\bibliographystyle{plain-fr}
+% plain : classique, alphabétique, étiquette numérique
+% alpha : idem mais étiquette 3 lettres auteur et 2 chiffre
+% unsrt : étiquette numérique pas de classement (ordre de la biblio)
+% apalike : étiquette auteur-date
+
+
+
+
+\bibliography{bibliographie/bibliographie}
+

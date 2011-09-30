@@ -1,0 +1,365 @@
+\cours{Régimes sinusoïdaux}
+
+\section{Introduction}
+\lettrine{N}{ous} nous interessons dans ce chapitre aux circuits électriques
+fonctionnant en régime sinusoïdal établi. Dans un tel circuit, toutes
+les tensions et les intensités sont des fonctions sinusoïdales du
+temps et de même fréquence $f$.
+
+\begin{pspicture}(0,0)(8,4.5)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(6,0){A}
+\pnode(0,0){B}
+\pnode(0,3){C}
+\pnode(3,3){D}
+\pnode(6,3){E}
+\Ucc[labeloffset=1](B)(C){$e(t)$}
+\rput{0}(-0.75,2){$\sim$} %$\simeq$}
+\coil[intensitylabel=$i(t)$,tensionlabel=$u_L(t)$,dipoleconvention=receptor](C)(D){$L$}
+\capacitor[intensitylabel=$i(t)$,tensionlabel=$u_C(t)$,dipoleconvention=receptor](D)(E){$C$}
+\resistor[intensitylabel=$i(t)$,tensionlabel=$u_R(t)$,tensionlabeloffset=1.5,dipoleconvention=receptor](E)(A){$R$}
+\wire(A)(B)
+\end{pspicture}
+
+
+\section{Expression d'une grandeur sinusoïdale}
+Une tension $u$ est dite sinusoïdale si elle peut s'écrire :
+\[u(t)=\hat U cos(\omega t + \varphi)\] % TO_DO
+
+
+
+\begin{pspicture}(-6,-3)(6,3)
+%\psgrid[subgriddiv=1,griddots=10,gridlabels=0pt]
+\psset{xunit=0.025} % 180° / 9 carreaux = 20 ; 20^-1=0.05
+\psset{yunit=1}
+\psline{->}(0,-3)(0,3) % Axe des y
+\psline{->}(-220,0)(220,0) % Axe des x
+\rput{0}(220,-0.5){$t$}
+\rput{0}(20,3){$u$}
+\psplot[linecolor=black,linewidth=2pt]{-220}{220}{x 120 add cos 2 mul}
+\psline[linestyle=dashed]{-}(-120,2)(0,2)
+\psline[linestyle=dashed]{-}(0,-2)(60,-2)
+\rput{0}(20,2){$\hat U$}
+\rput{0}(-20,-2){$-\hat U$}
+\psline[linestyle=dashed]{<->}(-210,-0.25)(150,-0.25)
+\rput{0}(-30,-0.5){$T$}
+\end{pspicture}
+
+
+\emph{Remarque :} on peut également écrire une grandeur sinusoïdale
+avec la fonction $sin$, cela n'a que pour effet de décaler $\varphi$
+de $\pi/2$.
+
+
+\subsection{Amplitude d'une grandeur sinusoïdale}
+L'amplitude d'une grandeur sinusoïdale est la plus grande valeur qu'elle peut atteindre.\\
+$\hat U$ est donc l'amplitude de $u$
+
+\subsection{Pulsation d'une grandeur sinusoïdale}
+$\omega$ est la pulsation de la grandeur sinusoïdale $u$.
+\[\omega = 2 \pi f = \frac{2 \pi}{T}\]
+\begin{itemize}
+\item $\omega$ : pulsation en radian par seconde ($rad \cdot s^{-1}$)
+\item $f$ : fréquence en hertz ($Hz$)
+\item $T$ : période en secondes ($s$)
+\end{itemize}
+
+\subsection{Phase à l'origine}
+La phase à l'origine (des temps) $\varphi$ dépend de l'instant choisi
+comme origine. En pratique on choisit une tension ou un courant du
+circuit comme <<origine des phases>> et pour lequel la phase à
+l'origine des temps est nulle.
+
+\subsection{Valeur moyenne}
+La valeur moyenne d'une grandeur sinusoïdale est nulle car quelque
+soit l'instant $t_1$ considéré, si la valeur prise à cet instant vaut
+$u(t_1)$, il existe toujours un instant  $t_2=t_1+\frac{T}{2}$ tel que
+la valeur prise à cet instant $t_2$ est exactement l'opposé
+($u(t_2)=-u(t_1)$).
+
+\[U_{moy}=\overline{u}=0\]
+
+\subsection{Valeur efficace}
+Calculons la valeur efficace de $u(t)=\hat U cos(\omega t +
+\varphi)$.
+
+Pour faire ce calcul il faut d'abord élever $u(t)$ au carré $u^2(t)=\hat U^2 cos^2(\omega t + \varphi)$: 
+
+
+Ensuite il faut calculer $\overline{u^2(t)}$ la valeur moyenne de
+$u^2(t)$.
+
+Pour calculer $\overline{u^2}$ développons $u^2(t)=\hat U^2
+cos^2(\omega t + \varphi)$ en utilisant $cos^2{a}=\frac{1+cos(2a)}{2}$
+
+On a alors $u^2(t)=\hat U^2 \frac{1 + cos(2 \omega t + 2
+  \varphi)}{2} = \frac{\hat U^2}{2} + \frac{\hat U^2}{2} cos(2 \omega t + 2 \varphi)$.
+
+Cette expression se décompose en un terme constant
+$\frac{\hat U^2}{2}$ et un terme sinusoïdal
+$\frac{\hat U^2}{2} cos(2 \omega t + 2 \varphi)$ ; ce dernier
+terme a donc une valeur moyenne nulle, on en déduit donc $\overline{u^2}=\frac{\hat U^2}{2}$
+
+Il suffit alors de prendre la racine carré de $\overline{u^2}$ et
+on obtient $U$ la valeur efficace de $u(t)$.
+
+\[U_{eff}=U=\sqrt{\overline{u^2}}=\frac{\hat U}{\sqrt{2}}\]
+
+
+\section{Représentation d'une grandeur sinusoïdale}
+On impose avec un GBF une tension u(t) aux bornes de trois dipôles
+inconnus.
+
+\begin{pspicture}(0,0)(8,4.5)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(6,0){A}
+\pnode(0,0){B}
+\pnode(0,3){C}
+\pnode(3,3){D}
+\pnode(6,3){E}
+\pnode(3,0){F}
+\Ucc[labeloffset=1](B)(C){$e(t)$}
+\rput{0}(-0.75,2){$\simeq$}
+\resistor(C)(D){$D_0$}
+\resistor[tensionlabel=$u_1(t)$,dipoleconvention=receptor](D)(E){$D_1$}
+\resistor[tensionlabel=$u_2(t)$,tensionlabeloffset=1.5,dipoleconvention=receptor](E)(A){$D_2$}
+\wire(A)(B)
+\tension(F)(D){$u(t)$}
+\end{pspicture}
+
+On visualise aux bornes de deux dipôles inconnus les tensions
+$u_1(t)$ et $u_2(t)$.
+
+On écrit alors leur représentation temporelle.
+
+
+
+\begin{enumerate}
+  \item $u_1(t) = 3 \sqrt{2} cos{\omega t}$ et
+    $u_2(t) = 4 \sqrt{2} cos{\omega t}$
+  \item $u_1(t) = 5 \sqrt{2} cos{\omega t}$ et
+    $u_2(t) = 2 \sqrt{2} cos(\omega t + \pi)$
+  \item $u_1(t) = 2 \sqrt{2} cos{\omega t}$ et
+    $u_2(t) = 5 \sqrt{2} cos(\omega t + \frac{\pi}{3})$
+\end{enumerate}
+
+On veut calculer la tension résultante $u(t)$ aux bornes de
+l'association des deux dipôles $D_1$ et $D_2$.
+
+\subsection{Calcul direct}
+En utilisant les formules de trigonométrie, nous allons montrer que
+l'on est capable de déterminer l'expression de la tension $u(t)$.
+
+D'après la loi des tensions on a $u(t)=u_1(t)+u_2(t)$.
+
+\begin{enumerate}
+  \item $u(t)= 3 \sqrt{2} cos{\omega t} + 4\sqrt{2} cos{\omega t} = 7
+  \sqrt{2} cos{\omega t}$
+
+  $u(t)$ est une tension sinusoïdale de pulsation $\omega$, de valeur
+  efficace $U=7V$ et de phase à l'origine $\varphi=0$.
+
+  \item  $u(t) = 5 \sqrt{2} cos{\omega t} + 2\sqrt{2} cos(\omega t +
+ \pi) = 5 \sqrt{2} cos{\omega t} - 2\sqrt{2} cos{\omega t} = 3 \sqrt{2} cos{\omega t}$
+
+  $u(t)$ est une tension sinusoïdale de pulsation $\omega$, de valeur
+  efficace $U=3V$ et de phase à l'origine $\varphi=0$.
+
+  Remarque : on ne peut pas appliquer la loi des mailles aux valeurs
+  efficaces, si on l'avait fait on aurait trouvé $7~V$ ce qui est faux.
+
+  \item $u(t) = 3 \sqrt{2} cos{\omega t} + 5\sqrt{2} cos(\omega t + \frac{\pi}{3})$
+    
+    En utilisant la formule de trigonométrie $cos(a+b)=cos(a) cos(b) -
+    sin(a) sin(b)$ on trouve :
+
+    $u(t)= 3 \sqrt{2} cos{\omega t} + 5\sqrt{2} cos{\omega t}
+    cos{\pi/3} - 5\sqrt{2} sin{\omega t} sin{\pi/3}$
+
+    $u(t)= 3 \sqrt{2} cos{\omega t} + \frac{5\sqrt{2}}{2} cos{\omega t}
+    - 5\sqrt{2} \frac{\sqrt{3}}{2} sin{\omega t}$
+    
+    soit $u(t)= \frac{11 \sqrt{2}}{2} cos{\omega t} - \frac{5\sqrt{6}}{2}
+    sin{\omega t}$ que l'on peut mettre sous la forme $u(t)=
+    \hat U cos(\omega t + \varphi)$
+
+    avec $\hat U=\sqrt{(\frac{11
+    \sqrt{2}}{2})^2+(\frac{5\sqrt{6}}{2})^2} = 7 \sqrt{2}$ et $tan
+    \varphi = \frac{\frac{5\sqrt{6}}{2}}{\frac{11 \sqrt{2}}{2}} =
+    \frac{5 \sqrt{3}}{11}$
+
+  $u(t)$ est une tension sinusoïdale de pulsation $\omega$, de valeur
+  efficace $U=7~V$ et de phase à l'origine $\varphi$ telle que $tan
+  \varphi = \frac{5 \sqrt{3}}{11}$ soit $\varphi \simeq 38°$.
+
+  \vspace{0.5cm}
+  Nous voyons avec ces trois calculs qu'il est difficile de continuer
+  d'utiliser le calcul direct lorsque nous manipulons des grandeurs
+  sinusoïdales. Nous allons voir deux <<outils>> permettant de faire
+  le même travail de manière plus simple : les vecteurs de Fresnel et
+  les nombres complexes.
+
+\end{enumerate}
+
+\subsection{Vecteur de Fresnel}
+Soit la tension $u(t) = U \sqrt{2} cos(\omega t + \varphi)$.
+
+On peut associer à cette tension $u$ un vecteur $\vec{U}$ appelé
+vecteur de Fresnel.
+
+On oriente le plan selon le sens trigonomètrique.
+
+On choisit un point origine O.
+
+On choisit un axe Ox origine des phases (généralement horizontal et
+vers la droite)
+
+Le vecteur de Fresnel $\vec{U}$ a alors les propriétés suivantes :
+
+\begin{itemize}
+\item origine au point O
+\item direction et sens tel que l'angle $(\vec{Ox},\vec{U})=\varphi$
+\item norme proportionnelle à $U$ la valeur efficace de $u$
+\end{itemize}
+
+
+\begin{pspicture}(-1,-1)(5,5) % Vecteurs de Fresnel
+%\psgrid[subgriddiv=1,griddots=10,gridlabels=0pt]
+\psset{xunit=1}
+\psset{yunit=1}
+
+\psline[linestyle=dashed]{->}(0,0)(5,0) %Ox
+\rput{0}(-0.25,-0.25){O}
+\rput{0}(5,-0.25){x}
+
+\rput{0}(0.5,-0.75){$U_{\mbox{eff}} : 1~cm = 1~V$} % Echelle tension
+
+%orientation du plan
+\psarc{->}(0,0){5}{30}{35}
+\rput{0}(4.5,2.75){$+$}
+
+\psline{->}(0,0)(3,0) %U_1
+\rput{0}(3,-0.25){$\vec{U_1}$}
+
+\psline{->}(0,0)(2.5,4.33) %U_2 % (5~V ; 60°)
+\rput{0}(2,4.5){$\vec{U_2}$}
+
+\psarc{->}(0,0){0.75}{0}{60}
+\rput{0}(1.5,0.5){$\varphi_2=+\frac{\pi}{3}$}
+
+\end{pspicture}
+
+
+
+\vspace{0.5cm}
+Exercice d'application :
+
+Reprenons le cas 3 : $u_1(t) = 3 \sqrt{2} cos{\omega t}$ et $u_2(t) = 5\sqrt{2} cos(\omega
+t + \frac{\pi}{3})$.
+
+On considèrera que la tension $u_1$ est prise comme origine des
+phases.
+
+\begin{enumerate}
+\item Représentez les vecteurs de Fresnel $\vec{U_1}$ et $\vec{U_2}$.
+\item Déduisez le vecteur de Fresnel $\vec{U}$ représentatif de u(t).
+\item Déduisez la valeur efficace $U$ de $u$ et sa phase à l'origine $\varphi$.
+\item Exprimez u(t).
+\end{enumerate}
+
+\subsection{Représentation complexe}
+
+Soit la tension $u(t) = U \sqrt{2} cos(\omega t + \varphi)$.
+
+On peut associer à cette tension $u$ un nombre complexe
+$\underline{U}$.
+
+Ce nombre complexe a pour module $U$, la valeur efficace de $u$ et
+pour argument $\varphi$ la phase à l'origine de u.
+
+\begin{center}
+$\underline{U}=(U,\varphi)=U e^{j \varphi}=U cos{\varphi} + j U
+sin{\varphi}$ avec $j^2=-1$
+\end{center}
+
+\vspace{0.5cm}
+Exercice d'application :
+
+Reprenons le cas 3 : $u_1(t) = 3 \sqrt{2} cos{\omega t}$ et $u_2(t) = 5\sqrt{2} cos(\omega
+t + \frac{\pi}{3})$.
+
+On considèrera que la tension $u_1$ est prise comme origine des
+phases.
+
+\begin{enumerate}
+\item Donnez la représentation complexe $\underline{U_1}$ de $u_1$.
+\item Donnez la représentation complexe $\underline{U_2}$ de $u_2$.
+\item Déduisez la représentation complexe $\underline{U}$ représentatif de $u$.
+\item Déterminez la valeur efficace $U$ de $u$ et sa phase à l'origine $\varphi$.
+\item Exprimez u(t).
+\end{enumerate}
+
+\section{Déphasage entre deux grandeurs sinusoïdales de même
+  fréquence}
+
+\subsection{Définitions et vocabulaire}
+
+Considérons les deux grandeurs tension et intensité d'un même circuit
+électrique fonctionnant en régime sinusoïdal.
+
+\[u(t) = U \sqrt{2} cos(\omega t + \varphi_u)\]
+\[i(t) = I \sqrt{2} cos(\omega t + \varphi_i)\]
+
+On appelle déphasage de i par rapport à u la différence de phase à
+l'origine $\varphi_{i/u} = \varphi_u - \varphi_i$.
+
+Ce déphasage $\varphi = \varphi_{i/u}$ est l'angle que font entre eux les deux
+vecteurs de Fresnel associés aux grandeurs u et i.
+
+\begin{itemize}
+  \item $\varphi_{i/u} < 0$ : le courant $i$ est en avance sur la tension $u$.
+  \item $\varphi_{i/u} > 0$ : le courant $i$ est en retard par rapport à la tension $u$.
+  \item $\varphi_{i/u} = 0~rad$ : u et i sont en phase.
+  \item $\varphi_{i/u} = \pi~rad$ : u et i sont en opposition de phase.
+  \item $\varphi_{i/u} = \frac{\pi}{2}~rad$ : i est en quadrature retard par rapport à u.
+  \item $\varphi_{i/u} = -\frac{\pi}{2}~rad$ : i est en quadrature
+  avance par rapport à u.
+\end{itemize}
+
+\subsection{Mesurer un déphasage à l'oscilloscope : <<méthode des neuf carreaux>>}
+
+On observe à l'oscilloscope deux tensions $u_1$ et $u_2$ sinusoïdales
+de même fréquence.
+
+On veut mesurer le déphasage $\varphi_{{u_1}/{u_2}}$ de $u_1$ par rapport à
+$u_2$.
+
+\begin{itemize}
+\item On règle le zero des voies $Y_1$ et $Y_2$ au même niveau.
+\item On utilise la touche \emph{VAR X} pour décalibrer la base de
+temps afin de visualiser une demi-période de $u_1$ (et de $u_2$) sur
+\emph{neuf} carreaux.
+\item On repère les passages par zéro en croissant de $u_1$ et $u_2$.
+\item On mesure le nombre de carreaux séparant le passage par zéro en
+  croissant de $u_1$ et celui de $u_2$.
+\item 9 carreaux représentent une demi-période donc $180°$ donc 1
+  carreau représente $\frac{180}{9}=20°$
+\item On déduit alors le déphasage de $u_1$ par rapport à $u_2$.
+\end{itemize}
+
+\begin{pspicture}(-5,-2)(5,3)
+\psgrid[subgriddiv=1,griddots=10,gridlabels=0pt]
+\psset{xunit=0.05} % 180° / 9 carreaux = 20 ; 20^-1=0.05
+\psset{yunit=1}
+%\psline{->}(0,-0.25)(0,1.75) % Axe des y
+%\rput{0}(4,-0.25){$t$}
+%\psline{->}(-0.25,0)(4,0) % Axe des x
+\rput{0}(0,2.75){$u_2$}
+\rput{0}(50,2.25){$u_1$}
+\psline{-}(-100,0)(100,0) % GND
+\psplot[linecolor=red,linewidth=2pt]{-100}{100}{x 10 add cos 2.5 mul}
+\psplot[linecolor=green,linewidth=2pt]{-100}{100}{x 50 sub 10 add cos
+  2 mul}
+\psline{<->}(-100,-0.25)(80,-0.25)
+\rput{0}(-10,-0.5){$\frac{T}{2}$}
+\end{pspicture}

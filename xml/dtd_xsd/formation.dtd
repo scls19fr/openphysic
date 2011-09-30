@@ -1,0 +1,14 @@
+<!-- 
+		DTD document formation
+-->
+
+<!ELEMENT formation (session+)>
+<!ELEMENT session (apprenants)>
+<!ELEMENT apprenants (apprenant*)>
+<!ELEMENT apprenant (nom, prenom, groupes)>
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT prenom (#PCDATA)>
+<!ELEMENT groupes (#PCDATA)>
+<!ATTLIST session nom CDATA #REQUIRED>
+<!ATTLIST apprenant identifiant CDATA #REQUIRED>
+<!ATTLIST apprenant password CDATA #REQUIRED>

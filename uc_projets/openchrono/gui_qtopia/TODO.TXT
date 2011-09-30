@@ -1,0 +1,3 @@
+Lancer le script 
+~/qtopia-opensource-4.2.2/scripts/runqtopia
+

@@ -1,0 +1,591 @@
+HI-TECH Software C Compiler 
+
+Linker command line:
+
+--edf=C:\Program Files\HI-TECH Software\PICC\9.70\dat\en_msgs.txt -cs \
+  -h+lcd.sym -z -Q16F877A -ol.obj -Mlcd.map -E1 -ACODE=00h-07FFhx4 \
+  -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 -ASTRING=00h-0FFhx32 \
+  -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh -ABANK2=0110h-016Fh \
+  -ABANK3=0190h-01EFh -ARAM=020h-06Fh,0A0h-0EFh,0110h-016Fh,0190h-01EFh \
+  -AABS1=020h-07Fh,0A0h-0EFh,0110h-016Fh,0190h-01EFh -ACOMMON=070h-07Fh \
+  -ASFR0=00h-01Fh -ASFR1=080h-09Fh -ASFR2=0100h-010Fh -ASFR3=0180h-018Fh \
+  -preset_vec=00h,intentry,init,end_init -ppowerup=CODE \
+  -ACONFIG=02007h-02007h -pconfig=CONFIG -DCONFIG=2 -AIDLOC=02000h-02003h \
+  -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA \
+  -DEEDATA=2 -DCODE=2 -k startup.obj lcd.obj 
+
+Object code version is 3.10
+
+Machine type is 16F877A
+
+
+
+                Name          Link     Load   Length Selector   Space       Scale
+startup.obj     end_init         0        0        3       0     0
+lcd.obj         text64         6A8      6A8       18     D50     0
+                text65         7A6      7A6       5A     F4C     0
+                maintext       6C0      6C0       20     D80     0
+                text63         759      759       31       E     0
+                text66         678      678        C     CF0     0
+                text69         78A      78A       1C       E     0
+                text67         6E0      6E0       20     DC0     0
+                text68         695      695       13     D2A     0
+                strings        700      700       59       E     0
+                cinit          684      684       11     D08     0
+                bssCOMMON       75       75        4      70     1
+                cstackCOM       70       70        5      70     1
+                cstackBAN       20       20        5      20     1
+                bssBANK3       190      190       51     190     1
+                clrtext        670      670        8     CE0     0
+
+TOTAL           Name          Link     Load   Length     Space
+        CLASS   CODE           
+                end_init         0        0        3     0
+                text64         6A8      6A8       18     0
+                text65         7A6      7A6       5A     0
+                maintext       6C0      6C0       20     0
+                text63         759      759       31     0
+                text66         678      678        C     0
+                text69         78A      78A       1C     0
+                text67         6E0      6E0       20     0
+                text68         695      695       13     0
+                strings        700      700       59     0
+                cinit          684      684       11     0
+                clrtext        670      670        8     0
+
+        CLASS   CONST          
+
+        CLASS   ENTRY          
+
+        CLASS   STRING         
+
+        CLASS   BANK0          
+                cstackBAN       20       20        5     1
+
+        CLASS   BANK1          
+
+        CLASS   BANK2          
+
+        CLASS   BANK3          
+                bssBANK3       190      190       51     1
+
+        CLASS   RAM            
+
+        CLASS   ABS1           
+                abs_s1          7E       7E        2     1
+
+        CLASS   COMMON         
+                bssCOMMON       75       75        4     1
+                cstackCOM       70       70        5     1
+
+        CLASS   SFR0           
+
+        CLASS   SFR1           
+
+        CLASS   SFR2           
+
+        CLASS   SFR3           
+
+        CLASS   CONFIG         
+
+        CLASS   IDLOC          
+
+        CLASS   EEDATA         
+
+
+
+SEGMENTS        Name            Load    Length   Top    Selector   Space  Class     Delta
+
+                reset_vec       000000  000003  000003         0       0  CODE        2
+                cstackBANK0     000020  000005  000025        20       1  BANK0       1
+                cstackCOMMON    000070  000009  000079        70       1  COMMON      1
+                bssBANK3        000190  000051  0001E1       190       1  BANK3       1
+                clrtext         000670  000008  000678       CE0       0  CODE        2
+                text66          000678  00000C  000684       CF0       0  CODE        2
+                cinit           000684  000011  000695       D08       0  CODE        2
+                text68          000695  000013  0006A8       D2A       0  CODE        2
+                text64          0006A8  000018  0006C0       D50       0  CODE        2
+                maintext        0006C0  000020  0006E0       D80       0  CODE        2
+                text67          0006E0  000020  000700       DC0       0  CODE        2
+                strings         000700  0000A6  0007A6         E       0  CODE        2
+                text65          0007A6  00005A  000800       F4C       0  CODE        2
+
+
+UNUSED ADDRESS RANGES
+
+        Name                Unused          Largest block    Delta
+        BANK0            00025-0006F              4B           1
+        BANK1            000A0-000EF              50           1
+        BANK2            00110-0016F              60           1
+        BANK3            001E1-001EF               F           1
+        CODE             00003-0066F             66D           2
+                         00800-01FFF             800
+        COMMON           00079-0007D               5           1
+        CONFIG           02007-02007               1           2
+        CONST            00006-00CDF             100           1
+                         01000-01FFF             100
+        EEDATA           02100-021FF             100           2
+        ENTRY            00006-00CDF             100           1
+                         01000-01FFF             100
+        IDLOC            02000-02003               4           2
+        RAM              00025-0006F              4B           1
+                         000A0-000EF              50
+                         00110-0016F              60
+                         001E1-001EF               F
+        SFR0             00000-0001F              20           1
+        SFR1             00080-0009F              20           1
+        SFR2             00100-0010F              10           1
+        SFR3             00180-0018F              10           1
+        STRING           00006-00CDF             100           1
+                         01000-01FFF             100
+
+                                  Symbol Table
+
+??_DelayMs            cstackCOMMON 00070
+??__delay             cstackCOMMON 00070
+??_lcd_clear          cstackCOMMON 00071
+??_lcd_goto           cstackCOMMON 00071
+??_lcd_init           cstackCOMMON 00073
+??_lcd_puts           cstackCOMMON 00071
+??_lcd_write          cstackCOMMON 00070
+??_main               cstackCOMMON 00075
+??_test_lcd           cstackCOMMON 00072
+?_DelayMs             cstackCOMMON 00073
+?__delay              cstackBANK0  00020
+?_lcd_clear           cstackCOMMON 00073
+?_lcd_goto            cstackCOMMON 00072
+?_lcd_init            cstackCOMMON 00075
+?_lcd_puts            cstackCOMMON 00073
+?_lcd_write           cstackCOMMON 00071
+?_main                cstackCOMMON 00075
+?_test_lcd            cstackCOMMON 00073
+DelayMs@_dcnt         cstackCOMMON 00071
+DelayMs@cnt           cstackCOMMON 00070
+DelayMs@i             cstackCOMMON 00072
+_ACKDT                (abs)        0048D
+_ACKEN                (abs)        0048C
+_ACKSTAT              (abs)        0048E
+_ADCON0               (abs)        0001F
+_ADCON1               (abs)        0009F
+_ADCS0                (abs)        000FE
+_ADCS1                (abs)        000FF
+_ADCS2                (abs)        004FE
+_ADDEN                (abs)        000C3
+_ADFM                 (abs)        004FF
+_ADGO                 (abs)        000FA
+_ADIE                 (abs)        00466
+_ADIF                 (abs)        00066
+_ADON                 (abs)        000F8
+_ADRESH               (abs)        0001E
+_ADRESL               (abs)        0009E
+_BCLIE                (abs)        0046B
+_BCLIF                (abs)        0006B
+_BF                   (abs)        004A0
+_BOR                  (abs)        00470
+_BRGH                 (abs)        004C2
+_C1INV                (abs)        004E4
+_C1OUT                (abs)        004E6
+_C2INV                (abs)        004E5
+_C2OUT                (abs)        004E7
+_CARRY                (abs)        00018
+_CCP1CON              (abs)        00017
+_CCP1IE               (abs)        00462
+_CCP1IF               (abs)        00062
+_CCP1M0               (abs)        000B8
+_CCP1M1               (abs)        000B9
+_CCP1M2               (abs)        000BA
+_CCP1M3               (abs)        000BB
+_CCP1X                (abs)        000BD
+_CCP1Y                (abs)        000BC
+_CCP2CON              (abs)        0001D
+_CCP2IE               (abs)        00468
+_CCP2IF               (abs)        00068
+_CCP2M0               (abs)        000E8
+_CCP2M1               (abs)        000E9
+_CCP2M2               (abs)        000EA
+_CCP2M3               (abs)        000EB
+_CCP2X                (abs)        000ED
+_CCP2Y                (abs)        000EC
+_CCPR1H               (abs)        00016
+_CCPR1L               (abs)        00015
+_CCPR2H               (abs)        0001C
+_CCPR2L               (abs)        0001B
+_CHS0                 (abs)        000FB
+_CHS1                 (abs)        000FC
+_CHS2                 (abs)        000FD
+_CIS                  (abs)        004E3
+_CKE                  (abs)        004A6
+_CKP                  (abs)        000A4
+_CM0                  (abs)        004E0
+_CM1                  (abs)        004E1
+_CM2                  (abs)        004E2
+_CMCON                (abs)        0009C
+_CMIE                 (abs)        0046E
+_CMIF                 (abs)        0006E
+_CREN                 (abs)        000C4
+_CSRC                 (abs)        004C7
+_CVR0                 (abs)        004E8
+_CVR1                 (abs)        004E9
+_CVR2                 (abs)        004EA
+_CVR3                 (abs)        004EB
+_CVRCON               (abs)        0009D
+_CVREN                (abs)        004EF
+_CVROE                (abs)        004EE
+_CVRR                 (abs)        004ED
+_DA                   (abs)        004A5
+_DC                   (abs)        00019
+_DelayMs              text64       006A8
+_EEADR                (abs)        0010D
+_EEADRH               (abs)        0010F
+_EEADRL               (abs)        0010D
+_EECON1               (abs)        0018C
+_EECON2               (abs)        0018D
+_EEDATA               (abs)        0010C
+_EEDATH               (abs)        0010E
+_EEIE                 (abs)        0046C
+_EEIF                 (abs)        0006C
+_EEPGD                (abs)        00C67
+_FERR                 (abs)        000C2
+_FSR                  (abs)        00004
+_GCEN                 (abs)        0048F
+_GIE                  (abs)        0005F
+_GODONE               (abs)        000FA
+_IBF                  (abs)        0044F
+_IBOV                 (abs)        0044D
+_INDF                 (abs)        00000
+_INTCON               (abs)        0000B
+_INTE                 (abs)        0005C
+_INTEDG               (abs)        0040E
+_INTF                 (abs)        00059
+_IRP                  (abs)        0001F
+_OBF                  (abs)        0044E
+_OERR                 (abs)        000C1
+_OPTION               (abs)        00081
+_PCFG0                (abs)        004F8
+_PCFG1                (abs)        004F9
+_PCFG2                (abs)        004FA
+_PCFG3                (abs)        004FB
+_PCL                  (abs)        00002
+_PCLATH               (abs)        0000A
+_PCON                 (abs)        0008E
+_PD                   (abs)        0001B
+_PEIE                 (abs)        0005E
+_PEN                  (abs)        0048A
+_PIE1                 (abs)        0008C
+_PIE2                 (abs)        0008D
+_PIR1                 (abs)        0000C
+_PIR2                 (abs)        0000D
+_POR                  (abs)        00471
+_PORTA                (abs)        00005
+_PORTB                (abs)        00006
+_PORTC                (abs)        00007
+_PORTD                (abs)        00008
+_PORTE                (abs)        00009
+_PR2                  (abs)        00092
+_PS0                  (abs)        00408
+_PS1                  (abs)        00409
+_PS2                  (abs)        0040A
+_PSA                  (abs)        0040B
+_PSPIE                (abs)        00467
+_PSPIF                (abs)        00067
+_PSPMODE              (abs)        0044C
+_RA0                  (abs)        00028
+_RA1                  (abs)        00029
+_RA2                  (abs)        0002A
+_RA3                  (abs)        0002B
+_RA4                  (abs)        0002C
+_RA5                  (abs)        0002D
+_RB0                  (abs)        00030
+_RB1                  (abs)        00031
+_RB2                  (abs)        00032
+_RB3                  (abs)        00033
+_RB4                  (abs)        00034
+_RB5                  (abs)        00035
+_RB6                  (abs)        00036
+_RB7                  (abs)        00037
+_RBIE                 (abs)        0005B
+_RBIF                 (abs)        00058
+_RBPU                 (abs)        0040F
+_RC0                  (abs)        00038
+_RC1                  (abs)        00039
+_RC2                  (abs)        0003A
+_RC3                  (abs)        0003B
+_RC4                  (abs)        0003C
+_RC5                  (abs)        0003D
+_RC6                  (abs)        0003E
+_RC7                  (abs)        0003F
+_RCEN                 (abs)        0048B
+_RCIE                 (abs)        00465
+_RCIF                 (abs)        00065
+_RCREG                (abs)        0001A
+_RCSTA                (abs)        00018
+_RD                   (abs)        00C60
+_RD0                  (abs)        00040
+_RD1                  (abs)        00041
+_RD2                  (abs)        00042
+_RD3                  (abs)        00043
+_RD4                  (abs)        00044
+_RD5                  (abs)        00045
+_RD6                  (abs)        00046
+_RD7                  (abs)        00047
+_RE0                  (abs)        00048
+_RE1                  (abs)        00049
+_RE2                  (abs)        0004A
+_RP0                  (abs)        0001D
+_RP1                  (abs)        0001E
+_RSEN                 (abs)        00489
+_RW                   (abs)        004A2
+_RX9                  (abs)        000C6
+_RX9D                 (abs)        000C0
+_SEN                  (abs)        00488
+_SMP                  (abs)        004A7
+_SPBRG                (abs)        00099
+_SPEN                 (abs)        000C7
+_SREN                 (abs)        000C5
+_SSPADD               (abs)        00093
+_SSPBUF               (abs)        00013
+_SSPCON               (abs)        00014
+_SSPCON2              (abs)        00091
+_SSPEN                (abs)        000A5
+_SSPIE                (abs)        00463
+_SSPIF                (abs)        00063
+_SSPM0                (abs)        000A0
+_SSPM1                (abs)        000A1
+_SSPM2                (abs)        000A2
+_SSPM3                (abs)        000A3
+_SSPOV                (abs)        000A6
+_SSPSTAT              (abs)        00094
+_START                (abs)        004A3
+_STATUS               (abs)        00003
+_STOP                 (abs)        004A4
+_SYNC                 (abs)        004C4
+_T0CS                 (abs)        0040D
+_T0IE                 (abs)        0005D
+_T0IF                 (abs)        0005A
+_T0SE                 (abs)        0040C
+_T1CKPS0              (abs)        00084
+_T1CKPS1              (abs)        00085
+_T1CON                (abs)        00010
+_T1OSCEN              (abs)        00083
+_T1SYNC               (abs)        00082
+_T2CKPS0              (abs)        00090
+_T2CKPS1              (abs)        00091
+_T2CON                (abs)        00012
+_TMR0                 (abs)        00001
+_TMR0IE               (abs)        0005D
+_TMR0IF               (abs)        0005A
+_TMR1CS               (abs)        00081
+_TMR1H                (abs)        0000F
+_TMR1IE               (abs)        00460
+_TMR1IF               (abs)        00060
+_TMR1L                (abs)        0000E
+_TMR1ON               (abs)        00080
+_TMR2                 (abs)        00011
+_TMR2IE               (abs)        00461
+_TMR2IF               (abs)        00061
+_TMR2ON               (abs)        00092
+_TO                   (abs)        0001C
+_TOUTPS0              (abs)        00093
+_TOUTPS1              (abs)        00094
+_TOUTPS2              (abs)        00095
+_TOUTPS3              (abs)        00096
+_TRISA                (abs)        00085
+_TRISA0               (abs)        00428
+_TRISA1               (abs)        00429
+_TRISA2               (abs)        0042A
+_TRISA3               (abs)        0042B
+_TRISA4               (abs)        0042C
+_TRISA5               (abs)        0042D
+_TRISB                (abs)        00086
+_TRISB0               (abs)        00430
+_TRISB1               (abs)        00431
+_TRISB2               (abs)        00432
+_TRISB3               (abs)        00433
+_TRISB4               (abs)        00434
+_TRISB5               (abs)        00435
+_TRISB6               (abs)        00436
+_TRISB7               (abs)        00437
+_TRISC                (abs)        00087
+_TRISC0               (abs)        00438
+_TRISC1               (abs)        00439
+_TRISC2               (abs)        0043A
+_TRISC3               (abs)        0043B
+_TRISC4               (abs)        0043C
+_TRISC5               (abs)        0043D
+_TRISC6               (abs)        0043E
+_TRISC7               (abs)        0043F
+_TRISD                (abs)        00088
+_TRISD0               (abs)        00440
+_TRISD1               (abs)        00441
+_TRISD2               (abs)        00442
+_TRISD3               (abs)        00443
+_TRISD4               (abs)        00444
+_TRISD5               (abs)        00445
+_TRISD6               (abs)        00446
+_TRISD7               (abs)        00447
+_TRISE                (abs)        00089
+_TRISE0               (abs)        00448
+_TRISE1               (abs)        00449
+_TRISE2               (abs)        0044A
+_TRMT                 (abs)        004C1
+_TX9                  (abs)        004C6
+_TX9D                 (abs)        004C0
+_TXEN                 (abs)        004C5
+_TXIE                 (abs)        00464
+_TXIF                 (abs)        00064
+_TXREG                (abs)        00019
+_TXSTA                (abs)        00098
+_UA                   (abs)        004A1
+_WCOL                 (abs)        000A7
+_WR                   (abs)        00C61
+_WREN                 (abs)        00C62
+_WRERR                (abs)        00C63
+_ZERO                 (abs)        0001A
+__Babs1               abs1         04200
+__Bbank0              bank0        04200
+__Bbank1              bank1        04200
+__Bbank2              bank2        04200
+__Bbank3              bank3        04200
+__Bclrtext            clrtext      04200
+__Bcode               code         04200
+__Bcommon             common       04200
+__Beeprom_data        eeprom_data  02100
+__Bptbit_0            ptbit_0      04200
+__Bram                ram          04200
+__Bsfr0               sfr0         04200
+__Bsfr1               sfr1         04200
+__Bsfr2               sfr2         04200
+__Bsfr3               sfr3         04200
+__Bstrings            strings      04200
+__Btext               text         04200
+__Habs1               abs1         00000
+__Hbank0              bank0        00000
+__Hbank1              bank1        00000
+__Hbank2              bank2        00000
+__Hbank3              bank3        00000
+__HbssBANK3           bssBANK3     04200
+__HbssCOMMON          bssCOMMON    04200
+__Hcinit              cinit        04200
+__Hclrtext            clrtext      00000
+__Hcode               code         00000
+__Hcommon             common       00000
+__Hconfig             config       02007
+__HcstackBANK0        cstackBANK0  04200
+__HcstackCOMMON       cstackCOMMON 04200
+__Heeprom_data        eeprom_data  00000
+__Hend_init           end_init     00003
+__Hidloc              idloc        02000
+__Hinit               init         00000
+__Hintentry           intentry     00000
+__Hintsave            intsave      04200
+__Hmaintext           maintext     04200
+__Hpowerup            powerup      00003
+__Hptbit_0            ptbit_0      21000
+__Hram                ram          00000
+__Hreset_vec          reset_vec    00000
+__Hsfr0               sfr0         00000
+__Hsfr1               sfr1         00000
+__Hsfr2               sfr2         00000
+__Hsfr3               sfr3         00000
+__Hstrings            strings      00000
+__Hstruct             struct       00025
+__Htemp               temp         00025
+__Htext               text         00000
+__Labs1               abs1         00000
+__Lbank0              bank0        00000
+__Lbank1              bank1        00000
+__Lbank2              bank2        00000
+__Lbank3              bank3        00000
+__LbssBANK3           bssBANK3     04200
+__LbssCOMMON          bssCOMMON    04200
+__Lcinit              cinit        04200
+__Lclrtext            clrtext      00000
+__Lcode               code         00000
+__Lcommon             common       00000
+__Lconfig             config       02007
+__LcstackBANK0        cstackBANK0  04200
+__LcstackCOMMON       cstackCOMMON 04200
+__Leeprom_data        eeprom_data  00000
+__Lend_init           end_init     00000
+__Lidloc              idloc        02000
+__Linit               init         00000
+__Lintentry           intentry     00000
+__Lintsave            intsave      04200
+__Lmaintext           maintext     04200
+__Lpowerup            powerup      00003
+__Lptbit_0            ptbit_0      21000
+__Lram                ram          00000
+__Lreset_vec          reset_vec    00000
+__Lsfr0               sfr0         00000
+__Lsfr1               sfr1         00000
+__Lsfr2               sfr2         00000
+__Lsfr3               sfr3         00000
+__Lstrings            strings      00000
+__Lstruct             struct       00025
+__Ltemp               temp         00025
+__Ltext               text         00000
+__S0                  (abs)        02007
+__S1                  (abs)        001E1
+__S2                  (abs)        02100
+__delay$0             cstackBANK0  00020
+__end_of_DelayMs      text64       006C0
+__end_of_lcd_clear    text68       006A8
+__end_of_lcd_goto     text66       00684
+__end_of_lcd_init     text65       00800
+__end_of_lcd_puts     text67       00700
+__end_of_lcd_write    text69       007A6
+__end_of_main         maintext     006E0
+__end_of_test_lcd     text63       0078A
+__pbssBANK3           bssBANK3     00190
+__pbssCOMMON          bssCOMMON    00075
+__pcstackBANK0        cstackBANK0  00020
+__pcstackCOMMON       cstackCOMMON 00070
+__pmaintext           maintext     006C0
+__pstrings            strings      00700
+__ptext62             text62       0078A
+__ptext63             text63       00759
+__ptext64             text64       006A8
+__ptext65             text65       007A6
+__ptext66             text66       00678
+__ptext67             text67       006E0
+__ptext68             text68       00695
+__ptext69             text69       0078A
+__ptext70             text70       0078A
+__size_of_DelayMs     (abs)        00000
+__size_of_lcd_clear   (abs)        00000
+__size_of_lcd_goto    (abs)        00000
+__size_of_lcd_init    (abs)        00000
+__size_of_lcd_puts    (abs)        00000
+__size_of_lcd_write   (abs)        00000
+__size_of_main        (abs)        00000
+__size_of_test_lcd    (abs)        00000
+__stringbase          strings      0070E
+_buffer               bssBANK3     00190
+_exit                 init         00000
+_i                    bssCOMMON    00075
+_lcd_clear            text68       00695
+_lcd_goto             text66       00678
+_lcd_init             text65       007A6
+_lcd_puts             text67       006E0
+_lcd_write            text69       0078A
+_main                 maintext     006C0
+_nbc                  bssCOMMON    00077
+_test_lcd             text63       00759
+btemp                 (abs)        0007E
+clear_ram             clrtext      00670
+end_of_initialization cinit        00691
+intlevel0             intentry     00000
+intlevel1             intentry     00000
+intlevel2             intentry     00000
+intlevel3             intentry     00000
+intlevel4             intentry     00000
+intlevel5             intentry     00000
+lcd_goto@pos          cstackCOMMON 00071
+lcd_puts@s            cstackCOMMON 00072
+lcd_write@c           cstackBANK0  00024
+reset_vec             reset_vec    00000
+start                 init         00000
+start_initialization  cinit        00684
+stringdir             strings      00709
+stringjmp             strings      0070D
+stringtab             strings      00700

@@ -1,0 +1,14 @@
+ServerName 127.0.0.1
+NameVirtualHost *:80
+
+<VirtualHost *:80>
+  ServerName askeet
+  DocumentRoot "/var/www/php/votes/votes_symfony/web"
+  DirectoryIndex index.php
+  Alias /sf /usr/share/php/data/symfony/web/sf
+
+  <Directory "/var/www/php/votes/votes_symfony/web">
+   AllowOverride All
+  </Directory>
+</VirtualHost>
+

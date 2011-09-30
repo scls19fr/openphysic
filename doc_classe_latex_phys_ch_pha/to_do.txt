@@ -1,0 +1,51 @@
+TO DO LIST
+==========
+
+Liste des choses à faire (ou à corriger)
+
+
+Créer dans le Makefile la possibilité de compiler un seul document
+make this-ps file=lumiere/cours_intro/main2.tex
+make this-pdf file=lumiere/cours_intro/main2.tex
+make this-ps2 file=lumiere/cours_intro/main2.tex
+make this-pdf2 file=lumiere/cours_intro/main2.tex
+
+
+
+
+
+Corriger dans s-celles.sty
+\arc
+\pspoint
+
+
+
+
+Quelques conseils pour bien travailler
+
+Rédiger un compte-rendu de TP (ajouter un paragraphe sur les échelles)
+
+
+Faire un document sur 
+ - le code des couleurs des résistances
+ - les phrases RS
+ - la verrerie (cf doc de Thierry d'après sciences-en-ligne.com)
+ - liste des ions à connaître
+ - conductivités molaires ioniques
+ - cours champ E->
+
+A inclure
+ - fiche élève
+
+
+
+elec/cours_asso_serie_dip_sin_reson : 2005/10/05
+   il y a un problème de compilation avec \Oscillo
+   Problème réglé : il faut mettre à jour le package multido car il rentre en confli avec fp (calcul numérique)
+
+
+elec/doc_oscillogrammes : 2005/10/05
+   il faut modifier localement les marges pour que les oscillogrammes rentrent
+   http://www.grappa.univ-lille3.fr/FAQ-LaTeX/6.7.html (changemargin pour gauche droite)
+   voir aussi \enlargethispage{2cm} pour le bas...
+   pour le haut ça n'est à priori pas possible une fois que l'on a défini les marges pour l'ensemble avec geometry

@@ -1,0 +1,40 @@
+%
+% Rohit Grover's punk.sty for LaTeX 2e
+% Modified from Sebastian Rahtz's punk.sty
+%
+% poweretcher@hotmail.com
+%
+% January 2003
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%  Punk font shapes for special stuff
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%
+%
+\DeclareFontFamily{T1}{punk}{}
+
+% m : series selected for main font
+% n : shape selected for main font
+
+\DeclareFontShape{T1}{punk}{m}{n}{<-11> punk10 <12-15> punk12 <16-25> punk20}{}
+\DeclareFontShape{T1}{punk}{m}{sl}{<-11> <11-15> <16-25> punksl20}{}
+\DeclareFontShape{T1}{punk}{m}{it}{<-25> punksl20}{}
+
+\DeclareFontShape{T1}{punk}{b}{n}{<-25> punkbx20}{}
+\DeclareFontShape{T1}{punk}{b}{sl}{<-25> punkbx20}{}
+\DeclareFontShape{T1}{punk}{b}{it}{<-25> punkbx20}{}
+
+
+\DeclareFontShape{T1}{punk}{bx}{n}{<->ssub * punk/b/n}{}
+\DeclareFontShape{T1}{punk}{bx}{sl}{<->ssub * punk/b/sl}{}
+\DeclareFontShape{T1}{punk}{bx}{it}{<->punk/b/it}{}
+
+\renewcommand{\encodingdefault}{T1}
+\renewcommand{\rmdefault}{punk}
+
+
+\endinput

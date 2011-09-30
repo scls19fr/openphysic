@@ -1,0 +1,200 @@
+% Ce fichier permet d'ajouter les commandes LaTeX
+% lors de la compilation d'une présentation Beamer
+%
+% $ make presentation file=repertoire/vers/la/presentation
+% 
+%
+
+
+
+
+%\documentclass[h, xcolor=pst, dvips]{beamer} % presentation normale avec du PSTricks (dvi->ps->pdf)
+%\documentclass[trans, xcolor=pst, dvips]{beamer} % transparents (1 page par frame)
+
+%\documentclass[class=article,a4paper]{beamer}
+%\documentclass[10pt, green, handout]{beamer}
+%\documentclass[ slidestop, xcolor=pst, dvips]{beamer} % slidestop doit être remplacé par h
+
+%\usepackage{beamerthemesplit}
+
+
+%\colorlet{structure}{green!50!black}
+
+
+\mode<article> % pour la version 'article'
+{
+  \usepackage{fullpage}
+  \usepackage{hyperref}
+}
+
+
+
+
+\mode<presentation> % pour la version 'presentation'
+{
+  %\setbeamertemplate{background canvas}[vertical shading][bottom=red!10,top=blue!10]
+  % définir un fond personnalisé pour Beamer (fichier.pdf)
+  % \setbeamertemplate{background}{\includegraphics[width=15cm]{fichier}} 
+
+% W/o navigation bar:
+    \usetheme{default}
+%    \usetheme{boxes}
+%    \usetheme{Bergen}
+%    \usetheme{Madrid}
+%    \usetheme{Pittsburgh}
+%    \usetheme{Rochester}
+% With a treelike navigation bar
+%    \usetheme{Antibes}
+%    \usetheme{JuanLesPins}
+%    \usetheme{Montpellier}
+% With a TOC sidebar
+%    \usetheme{Berkeley}
+%    \usetheme{PaloAlto}
+%    \usetheme{Goettingen}
+%    \usetheme{Marburg}
+%    \usetheme{Hannover}
+% With a mini frame navigation:
+%    \usetheme{Berlin}
+%    \usetheme{Ilmenau}
+%    \usetheme{Dresden}
+%    \usetheme{Darmstadt}
+%    \usetheme{Frankfurt}
+%    \usetheme{Singapore}
+%    \usetheme{Szeged}
+% With section and subsection titles:
+%    \usetheme{Copenhagen}
+%    \usetheme{Luebeck}
+%    \usetheme{Malmoe}
+%    \usetheme{Warsaw}
+
+
+%\usetheme{Warsaw}
+%\usetheme{Frankfurt}
+%\usetheme{Dresden}
+%\usetheme{Darmstadt}
+
+
+  %\usefonttheme[onlysmall]{structurebold}
+  %\usecolortheme{rose} % seahorse rose
+}
+
+% handout
+% handout + notes
+
+
+
+%\setbeamercolor{math text}{fg=green!50!black}
+%\setbeamercolor{normal text in math text}{parent=math text}
+
+
+% \mode<handout> % pour la version 'handout'
+% {
+%   \usepackage{pgfpages}
+%   \pgfpagelayout{resize}[a4paper,border shrink=5mm,landscape]
+%   %\pgfpagelayout{2 on 1}[a4paper,border shrink=5mm]
+% }
+
+
+%\mode<handout>{\setbeamercolor{background canvas}{bg=black!5}}
+
+
+\newcommand{\pageintro}[1]{
+  \title{#1}
+  \frame{
+    % \maketitle
+    \titlepage
+  }
+
+  \frame{
+    \tableofcontents
+  }
+
+}
+
+\newcommand{\cours}[1]{%
+ \pageintro{#1}
+}
+
+\newcommand{\td}[1]{%
+ \pageintro{TD : #1}
+}
+
+\newcommand{\tp}[1]{%
+ \pageintro{TP : #1}
+}
+
+
+
+% *************************************
+% * ---- Numérotation personnelle ----*
+% *************************************
+
+\makeatletter 
+
+
+%\renewcommand*\section{\@ifstar{\starSection}{\nonstarSection}}
+\newcommand*\Section{\@ifstar{\starSection}{\nonstarSection}}
+\newcommand*{\nonstarSection}[1]{%  version non étoilée de Section (avec numérotation)
+  \section{\thesection. #1}%
+}%
+\newcommand*{\starSection}[1]{%  version étoilée de Section (pas de numérotation)
+  \section*{#1}%
+  %\addtocounter{section}{-1}
+  \setcounter{section}{0}
+}%
+
+
+\newcommand*\Subsection{\@ifstar{\starSubsection}{\nonstarSubsection}}
+\newcommand*{\starSubsection}[1]{%  version étoilée de Subection (pas de numérotation)
+  \subsection*{#1}%
+  %\addtocounter{subsection}{-1}
+  \setcounter{subsection}{0}
+}%
+
+\newcommand*{\nonstarSubsection}[1]{% version non étoilée de Subsection (avec numérotation)
+     \subsection{\thesubsection. #1}%
+   }%
+
+
+
+
+\renewcommand{\thesection}{\Roman{section}} % I II III ...
+\renewcommand{\thesubsection}{\Alph{subsection}} % A B C ...
+%\renewcommand{\thesubsection}{\arabic{subsection}}
+% \Roman \Alph \arabic \alph
+
+
+
+
+
+
+\makeatother
+
+
+
+\institute{Lycée Raoul Dautry - LIMOGES (87)}
+
+
+
+%\renewcommand{\emph}[1]{\textcolor{red}{\underline{\textit{\textcolor{black}{#1}}}}}
+
+\renewcommand{\emph}[1]{\textcolor{red}{\colorbox{yellow}{\textit{\textcolor{black}{#1}}}}}
+
+
+
+
+\newenvironment{changemargin}[2]{%
+  \begin{list}{}{%
+    \setlength{\topsep}{0pt}%
+    \setlength{\leftmargin}{#1}%
+    \setlength{\rightmargin}{#2}%
+    \setlength{\listparindent}{\parindent}%
+    \setlength{\itemindent}{\parindent}%
+    \setlength{\parsep}{\parskip}%
+  }%
+   \item[]}{\end{list}}
+
+
+% affiche le texte passé en paramètre
+\newcommand{\diaporama}[1]{#1}  % version diaporama
+\newcommand{\papier}[1]{}  % version papier

@@ -1,0 +1,22 @@
+\documentclass{article}
+
+%\usepackage{perlmacros}
+\usepackage{perltex}
+
+\perlnewcommand{\affect}[2]{${$_[0]} = eval($_[1]); return "";}
+\perlnewcommand{\print}[1]{return ${$_[0]};}
+
+
+\begin{document}
+
+\affect{x}{1.1}
+\affect{y}{2.2}
+\affect{z}{$x+$y}
+
+La valeur de $x$ est : \print{x}.
+
+La valeur de $y$ est : \print{y}.
+
+La valeur de $z$ est : \print{z}.
+
+\end{document}

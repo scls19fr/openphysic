@@ -1,0 +1,103 @@
+﻿/* Fixes of screen.css */
+.wrapper { /*background: url("bg-container-content.png") repeat-y scroll 0 0 transparent;*/ width: 1028px; }
+.left-sidebar .lang img { filter: none; }
+.two-col .tabs.three h2 { height: 34px; }
+ul.accountBenefits { margin-left: 15px; }
+
+/* New css for alpari-ru template */
+body { margin-top: 0px; margin-bottom: 0px; background: black; }
+.Formindiv { text-align: left; padding-left: 10px; }
+.Formindiv input { border: 1px solid #DBDBDB; color: #3A3A3A; padding: 4px; margin-bottom: 5px; }
+.system-in { background: url(http://static.alpari.ru/interface/img/bg-subnav-main-on.gif) no-repeat scroll 0 0 #97CC1B; color: #FFFFFF; font-size: 14px; font-weight: bold; margin: 14px -16px; padding: 9px 0; text-align: center; }
+.Formintypetext input { margin-right: 5px; }
+div.school-block { width: 99%; }
+.school-block a { display: block; padding: 5px 0; line-height: 20px; }
+div.footer { padding: 0; margin: 0 0 -15px 0; width: 1028px; }
+.left-sidebar .forgot-password { margin-top: 10px; }
+.left-sidebar .number-account { margin: 0 -6px; padding: 10px 0; text-align: center; }
+#left-side-flash { margin-left: -6px; }
+
+/* Bottom disclaimers -- Copied from alpari-ru site */
+div.footer #footerSeo p { background: none repeat scroll 0 0 transparent; font-family: Georgia,Times New Roman,Times,serif; font-size: 11px; margin: 0 14px; padding: 12px 0 0; text-align: center; }
+#footerSeo { border-bottom: 1px solid #CCCCCC; margin: 0 0 10px 0; padding: 0 0 12px; width: 100%; }
+div.footer p { color: #666666; padding: 24px 0 60px; text-align: center; }
+/*header*/
+.main-nav { width: 790px; }
+
+/* Fixes the widths of the zulutrade css to fit in the alpari-ru template */
+.left-sidebar { padding-right: 25px; }
+.two-col .main { width: 794px; background-color: #ffffff; }
+.content_box_top, .content_box_bottom { display: none; }
+.content_box_back { border: 0; }
+.content_box_inner { padding: 5px 0; position: relative; }
+div.content_box_inner2 { padding: 5px 0; }
+#user-details, div.user-tabs-container, div.content_box_back { width: 100%; }
+#user-details table.user-details-statistics { width: 279px; }
+#user-details ul.user-details-icons { width: 135px; margin-left: 0; }
+table.open-trade-rates { width: 30%; }
+#tabs-top { width: 230px !important; }
+#content-box { margin: 0; }
+
+/* New style for the user.aspx menu to match the alparu-ru theme */
+div.user-tabs-container { background: rgb(245, 245, 245) none; border-bottom: 1px solid rgb(225, 225, 225); }
+ul.user-tabs { border-bottom: 0; margin-bottom: 0; }
+ul.user-tabs li a { background: transparent none; border-bottom: 1px solid rgb(156, 206, 38); color: rgb(156, 206, 38); }
+ul.user-tabs li a:hover { background: transparent none; color: #F96604; }
+ul.user-tabs li a.active { background: transparent none; border-bottom: 3px solid rgb(156, 206, 38); color: #F96604; }
+ul.user-tabs li a.last { border-right: 0; }
+ul.user-subtabs, ul.user-subtabs li { margin: 0; padding-top: 0; }
+
+/* Tables style fixes */
+table.grid th, table.grid th.sort-desc, table.grid th.sort-asc, table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp { background-image: url(table_header.png); background-color: rgb(156, 206, 38); color: rgb(50, 50, 50); }
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp { color: White; }
+table.grid th a { color: rgb(50, 50, 50) !important; }
+
+/* Other style fixes */
+textarea, select { padding: 4px; margin: 1px; }
+
+/* Index.aspx */
+table.provider-statistics tr th { font-weight: bold; border-bottom: 1px solid #DBDBDB; padding: 5px 10px; }
+table.provider-statistics tr td { vertical-align: middle; }
+table.provider-statistics td.provider-statistics-photo { vertical-align: top; }
+table.provider-statistics td.provider-statistics-photo img, table.provider-statistics td.provider-statistics-graph img { height: 25px; }
+#tab-highrisk-providers, #tab-worst-providers { display: none; }
+span.label-error { color: Red; display: block; padding-bottom: 5px; }
+.login-error { color: Red; display: block; text-align: left; }
+
+/*performance.aspx*/
+.performance a.performance-more { color: #ffffff; }
+.trade-wall-filters a.submit { color: #ffffff; }
+.trade-wall-filters h3 { color: #ffffff; margin: 12px 0 10px 0; }
+.trade-wall-filters span.label { margin: 4px 0 0 0; }
+div.performance-middle-bg, div.performance-top-bg, div.performance-top-bg-max, div.performance-bottom-bg { background-image: url(performance_bg.png?1); }
+div.performance-search-simple a { color: #d8e2bd; }
+a.performance-banner strong, table.performance thead th.sort-asc a, table.performance a.name, table.performance td.profit-pips, table.performance thead th a { color: #618b03; }
+a.performance-banner:hover { text-decoration: none; }
+table.numerous-criteria td { border-bottom: 0 none; }
+div.performance-top-bg-max a.performance-tab { background-image: url(performance_buttons.png); }
+.content a.follow-provider, .content a.follow-provider:hover { color: White; }
+div.performance-header { margin: 5px; }
+
+/* thi.aspx */
+div.provider-messages table { width: auto; }
+div.provider-messages td { border: 0; padding: 0; vertical-align: middle; }
+.ui-tabs .ui-tabs-panel { padding: 0; }
+div.thi-content-wrapper { margin: 0; }
+input[type=radio], input[type=checkbox] { margin: 0 3px; }
+table.grid tr.pager table { width: auto; }
+table.information td { border: 0; }
+div.gmap-info h3 { font-family: Verdana, Helvetica, Sans-Serif; }
+
+/* user.aspx */
+div.container-loading-overlay { background-color: Transparent; }
+#signal_box_id { z-index: 5000; }
+#signal_box_id table tr td { padding: 0; border: 0; }
+
+/* zmessages */
+.main ul li.zmessage { background-position: 20px center; background-repeat: no-repeat; margin: 0; }
+.main ul li.zmessage-error { background-image: url( ../../../Assets/Css/jQuery/zmessage/jquery.zmessage-error.png ); background-color: rgb(255, 240, 240); }
+.main ul li.zmessage-warning { background-image: url( ../../../Assets/Css/jQuery/zmessage/jquery.zmessage-warning.png ); background-color: rgb(255, 245, 235); }
+.main ul li.zmessage-success { background-image: url( ../../../Assets/Css/jQuery/zmessage/jquery.zmessage-success.png ); background-color: rgb(240, 255, 240); }
+.main ul li.zmessage-info, .main ul li.zmessage-progress { background-image: url( ../../../Assets/Css/jQuery/zmessage/jquery.zmessage-info.png ); background-color: rgb(240, 240, 255); }
+.main ul li.zmessage-debug { background-image: url( ../../../Assets/Css/jQuery/zmessage/jquery.zmessage-debug.png ); background-color: rgb(240, 240, 240); }
+.main ul li.zmessage-progress { background-image: url( ../../../Images2/progress.gif ); }

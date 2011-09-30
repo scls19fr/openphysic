@@ -1,0 +1,2 @@
+set polar
+plot t

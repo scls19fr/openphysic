@@ -1,0 +1,60 @@
+\documentclass[a4paper]{article}
+
+\usepackage[frenchb]{babel}	% specification francaise
+\usepackage[latin1]{inputenc}	% entree clavier latin1
+\usepackage[T1]{fontenc}	% sortie
+
+\usepackage{pstricks}
+\usepackage{pst-plot} % tracé de fonctions
+
+% Réglage marges via le package geometry
+\usepackage{geometry}
+%\geometry{ hmargin=2.5cm, vmargin=1.6cm }
+%\geometry{ hmargin=2.5cm, vmargin=1.5cm } % default
+%\geometry{ hmargin=2.5cm, vmargin=1.6cm,lmargin=.5cm }
+\geometry{ hmargin=0cm, vmargin=0cm,lmargin=0cm }
+
+
+\begin{document}
+
+\title{Papier}
+
+\author{S. \textsc{CELLES}}
+%\author{\null}
+
+%\date{\today}
+\date{\null}
+
+%thanks{Merci}
+
+\pagestyle{empty}
+
+
+\begin{center}
+
+\vspace*{\stretch{1}}
+
+\newcommand{\xsize}{11}
+\newcommand{\ysize}{15}
+\newcommand{\numx}{22}
+\newcommand{\numy}{30}
+
+
+\begin{pspicture}(-5,-5)(5,5)
+\psgrid[subgriddiv=1,griddots=5,gridlabels=0pt]
+%\psset{xunit=1}
+%\psset{yunit=1}
+
+
+% Axe des y
+\multido{\n=-\ysize+1}{\numy}{ \psline(-\xsize,\n)(\xsize,\n) }
+
+% Axe des x
+\multido{\n=-\xsize+1}{\numx}{ \psline(\n,-\ysize)(\n,\ysize) }
+\end{pspicture}
+
+\end{center}
+
+\vspace*{\stretch{1}}
+
+\end{document}

@@ -1,0 +1,7 @@
+heat on
+heat off
+get heat
+set temperature 22
+get temperature
+set temperature 20.6
+get temperature

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.0"
+   width="432pt"
+   height="648pt"
+   viewBox="0 0 432 648"
+   preserveAspectRatio="xMidYMid meet"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="unknown.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs15">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 405 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="540 : 405 : 1"
+       inkscape:persp3d-origin="270 : 270 : 1"
+       id="perspective17" />
+  </defs>
+  <sodipodi:namedview
+     inkscape:window-height="725"
+     inkscape:window-width="1279"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     guidetolerance="10.0"
+     gridtolerance="10.0"
+     objecttolerance="10.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     showgrid="false"
+     inkscape:zoom="0.60987654"
+     inkscape:cx="465.81837"
+     inkscape:cy="482.61138"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:current-layer="svg2" />
+  <metadata
+     id="metadata4">
+Created by potrace 1.8, written by Peter Selinger 2001-2007
+<rdf:RDF>
+  <cc:Work
+     rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type
+       rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+  </cc:Work>
+</rdf:RDF>
+</metadata>
+  <g
+     transform="translate(0,648) scale(0.540000,-0.540000)"
+     id="g6"
+     stroke="none"
+     fill="#000000">
+    <path
+       d="M 0,765 C 0,416 -0.036437252,340.62753 -0.056680183,330 C 17.336032,330 139,358 173,371 C 213,387 208,423 153,527 C 153,527 123.91558,588.32609 116.93117,617.42915 C 106.14777,662.36208 109,769 109,769 C 112,940 119,965 185,1039 C 264,1126 405,1164 507,1125 C 564,1103 628,1041 657,979 C 676,939 679,911 682,789 C 685,649 684,644 657,588 C 633,540 631,527 641,508 C 659,474 741,390 772,374 L 800,359 L 800,780 L 800,1200 L 400,1200 L 0,1200 L 0,765 z"
+       id="path8"
+       sodipodi:nodetypes="ccccscccccccccccccc" />
+    <path
+       d="M328 894 c-31 -16 -62 -69 -54 -90 8 -20 96 -20 96 1 0 18 34 37 54 29 27 -10 18 -35 -29 -78 -32 -30 -45 -50 -45 -69 0 -25 3 -27 45 -27 25 0 45 5 45 10 0 6 23 33 50 61 63 63 66 95 16 145 -31 31 -39 34 -92 34 -33 -1 -71 -7 -86 -16z"
+       id="path10" />
+    <path
+       d="M350 596 l0 -46 51 0 50 0 -3 43 -3 42 -47 3 -48 3 0 -45z"
+       id="path12" />
+  </g>
+</svg>

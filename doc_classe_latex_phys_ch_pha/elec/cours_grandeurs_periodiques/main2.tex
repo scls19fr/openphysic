@@ -1,0 +1,534 @@
+\cours{Grandeurs périodiques}
+
+
+\section{Valeur instantanée}
+Observons à l'aide d'un oscilloscope la tension délivrée par un
+Générateur Basse Fréquence (GBF) réglé sur le mode triangle. On note
+\emph{u(t)} cette tension, avec u en \emph{minuscule} car la grandeur que
+nous observons évolue au fil du \emph{temps}.
+
+{\centering
+\begin{pspicture}(-1,-1.75)(7,1.75)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-1.75)(0,1.75) % Axe des y
+\rput{0}(7,-0.25){$t$}
+\psline{->}(-0.25,0)(7,0) % Axe des x
+\rput{0}(-0.25,1.75){$u$}
+\psline[linecolor=red,linewidth=2pt](0,0)(0.5,1)
+\psline[linecolor=red,linewidth=2pt](0.5,1)(1.5,-1)
+\psline[linecolor=red,linewidth=2pt](1.5,-1)(2.5,1)
+\psline[linecolor=red,linewidth=2pt](2.5,1)(3.5,-1)
+\psline[linecolor=red,linewidth=2pt](3.5,-1)(4.5,1)
+\psline[linecolor=red,linewidth=2pt](4.5,1)(5.5,-1)
+\psline[linecolor=red,linewidth=2pt](5.5,-1)(6.5,1)
+\psline(2,0)(2,-1.75)
+\rput{0}(1,-1.25){1 motif}
+%\psline[linecolor=red,linewidth=2pt](6.28,1)(6.5,0.9)
+\psline{<->}(0,-1.5)(2,-1.5)
+\psline[linestyle=dashed](0,0.6)(4.5,0.6)
+\psline[linestyle=dashed](0.3,0)(0.3,0.6)
+\rput{0}(0.3,-0.25){$t_1$}
+\psline[linestyle=dashed](2.3,0)(2.3,0.6)
+\rput{0}(2.5,-0.25){$t_1+T$}
+\psline[linestyle=dashed](4.3,0)(4.3,0.6)
+\rput{0}(4.5,-0.25){$t_1+2T$}
+\rput{0}(1.75,0.25){$T$}
+%\psline{-}(-0.1,1)(0.1,1)
+%\rput{0}(-0.5,-1){$-E$}
+%\psline{-}(-0.1,-1)(0.1,-1)
+\end{pspicture}
+\caption{Signal triangulaire}
+}
+
+
+\section{Grandeur périodique}
+En observant l'oscilogramme de u, nous remarquons l'existence d'une
+suite de <<motifs>> identiques. Le plus petit motif a une durée T.
+Nous avons alors l'égalité suivante (avec k entier relatif) :
+\[u(t)=u(t+T)=u(t+2T)=\ldots=u(t+kT)\]
+
+\section{Fréquence d'une grandeur périodique}
+La fréquence d'une grandeur périodique est le nombre de motifs que la
+grandeur décrit en une seconde ; elle est définie par :
+\[f=\frac{1}{T}\]
+\begin{itemize}
+\item f : fréquence en hertz (Hz)
+\item $T$ : période en secondes (s)
+\end{itemize}
+
+\vspace{1cm}
+
+On définit également la pulsation d'une grandeur péridoque $\omega$
+par :
+\[\omega = 2 \pi f = \frac{2 \pi}{T}\]
+\begin{itemize}
+\item $\omega$ : pulsation en radian par seconde ($rad \cdot s^{-1}$)
+\item $f$ : fréquence en hertz ($Hz$)
+\item $T$ : période en secondes ($s$)
+\end{itemize}
+
+\section{Valeur moyenne d'une grandeur périodique}
+
+
+\subsection{Quantité d'électricité transportée par un courant continu}
+
+
+{\centering
+\begin{pspicture}(-1,-0.75)(7,1.75)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-0.25)(0,1.75) % Axe des y
+\rput{0}(7,-0.25){$t$}
+\psline{->}(-0.25,0)(7,0) % Axe des x
+\rput{0}(-0.75,1.75){$i=I_0$}
+\psline[linecolor=red,linewidth=2pt](-0.25,1)(6,1)
+\rput{0}(-0.5,1){$I_0$}
+\psframe[linecolor=red,fillstyle=vlines,fillcolor=red](1,0)(4,1) % \psframe* pour une version pleine
+\rput{0}(2.5,0.5){$\mathcal{A}$}
+\rput{0}(0.75,-0.25){A}
+\rput{0}(0.75,1.25){B}
+\rput{0}(4.25,1.25){C}
+\rput{0}(4.25,-0.25){D}
+
+\rput{0}(1.25,-0.25){$t_1$}
+\rput{0}(3.75,-0.25){$t_2$}
+\end{pspicture}
+\caption{Courant continu}
+}
+
+La quantité d'électricité transportée par un courant continu
+d'intensité $I_0$ entre deux instants $t_1$ et $t_2$ est
+$Q_{12}=I_0(t_2-t_1)$.
+$Q_{12}$ est l'aire $\mathcal{A}$ du rectangle ABCD.
+\[I_0=\frac{Q_{12}}{t_2-t_1} = \frac{\mathcal{A}}{t_2-t_1}\]
+
+\subsection{Quantité d'électricité transportée par un courant en créneaux}
+Soit le signal $i(t)$ de période $T=t_2-t_1$.
+
+{\centering
+\begin{pspicture}(-1,-0.75)(7,1.75)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-0.25)(0,1.75) % Axe des y
+\rput{0}(7,-0.25){$t$}
+\psline{->}(-0.25,0)(7,0) % Axe des x
+\rput{0}(-0.25,1.75){$i$}
+
+\psline[linecolor=red,linewidth=2pt](-0.25,0.75)(1,0.75)
+\psline[linecolor=red,linewidth=2pt](1,0.75)(1,1.25)
+\psline[linecolor=red,linewidth=2pt](1,1.25)(1.5,1.25)
+\psline[linecolor=red,linewidth=2pt](1.5,1.25)(1.5,0.75)
+\psline[linecolor=red,linewidth=2pt](1.5,0.75)(2.5,0.75)
+\psline[linecolor=red,linewidth=2pt](2.5,0.75)(2.5,1.25)
+\psline[linecolor=red,linewidth=2pt](2.5,1.25)(3,1.25)
+\psline[linecolor=red,linewidth=2pt](3,1.25)(3,0.75)
+\psline[linecolor=red,linewidth=2pt](3,0.75)(4,0.75)
+\psline[linecolor=red,linewidth=2pt](4,0.75)(4,1.25)
+\psline[linecolor=red,linewidth=2pt](4,1.25)(4.5,1.25)
+\psline[linecolor=red,linewidth=2pt](4.5,1.25)(4.5,0.75)
+\psline[linecolor=red,linewidth=2pt](4.5,0.75)(5.5,0.75)
+
+\rput{0}(-0.5,1.25){$I_1$}
+\rput{0}(-0.5,0.75){$I_2$}
+
+\psframe[linecolor=red,fillstyle=vlines,fillcolor=red,linestyle=dashed](1,0)(1.5,1.25)
+\rput{0}(1.25,0.75){$\mathcal{A}_1$}
+
+\psframe[linecolor=red,fillstyle=hlines,fillcolor=red,linestyle=dashed](1.5,0)(2.5,0.75)
+\rput{0}(2,0.25){$\mathcal{A}_2$}
+
+%\rput{0}(2.5,0.5){$\mathcal{A}$}
+
+\rput{0}(1,-0.25){$t_1$}
+\rput{0}(1.5,-0.25){$t'_1$}
+\rput{0}(3,-0.25){$t_2=t_1+T$}
+\end{pspicture}
+\caption{Courant en crénaux}
+}
+
+
+La quantité d'électricité transportée par ce courant entre $t_1$ et $t_2$ est :
+\[Q_{12}=I_1(t'_1-t_1)+I_2(t_2-t'_1)\]
+\[Q_{12}=\mathcal{A}_1+\mathcal{A}_2\]
+Nous en déduisons $\overline{i}$ la valeur moyenne de $i(t)$ :
+\[\overline{i}=\frac{Q_{12}}{T}=\frac{\mathcal{A}_1+\mathcal{A}_2}{T}\]
+
+\emph{Attention :} Si la courbe représentative de i(t) se situe en
+dessous de l'axe des abscisses on doit affecter à l'aire calculée un
+signe moins (<<aire algébrique négative>>) et on somme les aires en prenant bien
+soin de prendre en compte leur signe.
+
+On peut aussi (c'est équivalent), choisir de ne considérer que des
+aires positives (<<aire géométrique>>) ; dans ce cas il faut ajouter ou soustraire les aires
+selon que la courbe se situe au dessus ou au dessous de l'axe des abscisses.
+
+\subsection{Calcul d'une valeur moyenne}
+\[U_{moy}=\overline{u}=\frac{1}{T}\int_0^T{u(t) \mbox{d}t}\]
+
+$\int_0^T{u(t) \mbox{d}t}$ désigne l'aire (algébrique) entre la courbe
+représentative de u(t) et l'axe des abscisses entre $t=0$ et $t=T$.
+
+\subsection{Mesure d'une valeur moyenne}
+Pour mesurer une tension moyenne on peut utiliser :
+\begin{itemize}
+\item un voltmètre numérique en position DC
+\item un voltmètre magnétoélectrique % TO_DO symbole
+\item un oscilloscope\\
+En position DC on observe le signal complet c'est à dire la composante
+continue et la composante alternative.\\
+En position AC on n'observe que la composante alternative.
+Lors du passage de DC vers AC sur l'oscillocope, l'oscillogramme subit
+une translation verticale de $U_{moy}$.
+\end{itemize}
+
+
+\subsection{Exercices d'applications}
+Calculez la valeur moyenne des signaux suivants :
+
+\newpage
+
+\section{Valeur efficace d'une grandeur périodique}
+\subsection{Définition d'une valeur efficace}
+Soit 2 montages :
+\begin{itemize}
+\item dans le premier montage, on alimente une lampe avec un générateur de
+tension continu sous une tension $U_1$.
+\item dans le second montage, on alimente la même lampe avec un
+  générateur basse fréquence sous une tension variable $u_2(t)$.
+\end{itemize}
+On suppose que la lampe est modélisable par une résistance $R$.
+On souhaite que dans les 2 cas la lampe brille de la même manière
+c'est à dire qu'elle dissipe en moyenne la même puissance moyenne $P=P_1=P_2$.
+\begin{itemize}
+\item Dans le premier cas la puissance moyenne disspée est $P_1=\frac{{U_1}^2}{R}$
+\item Dans le deuxième cas,
+  \begin{itemize}
+  \item la puissance instantanée dissipée par la lampe vaut $p_2(t)=\frac{{u_2}^2}{R}$
+  \item la puissance moyenne dissipée par la lampe vaut $P_2=\overline{p_2(t)}=\frac{\overline{{u_2}^2}}{R}$
+  \end{itemize}
+\end{itemize}
+En égalant $P_1$ et $P_2$ on peut ainsi définir la valeur efficace $U$
+ou $U_{eff}$ de u(t) $U^2=U_{eff}^2=\overline{u^2}$ soit :
+\[U=U_{eff}=\sqrt{\overline{u^2}}\]
+
+
+
+\subsection{Calcul d'une valeur efficace}
+\[U_{eff}=U=\sqrt{\frac{1}{T}\int_0^T{u^2(t) \mbox{d}t}}\]
+
+Pour calculer la valeur efficace $U$ de la tension u(t), il faut :
+\begin{itemize}
+\item Représenter la tension $u(t)$ élevée au carré ($u^2(t)$).
+\item Calculer la valeur moyenne $U^2$ de $u^2(t)$.
+\item Prendre la racine carré du résultat précédent
+\end{itemize}
+
+\subsection{Mesure d'une valeur efficace}
+Pour mesurer une tension efficace, on peut utiliser :
+\begin{itemize}
+\item un voltmètre numérique Root Mean Square (RMS) en position AC+DC,
+  un tel appareil prélève la tension sur une période puis l'élève au
+  carré (Square), puis calcule la valeur moyenne (Mean) et prend la
+  racine carré de cette valeur moyenne (Root)
+\item un voltmètre ferromagnétique (uniquement pour des mesures en
+  basse fréquence) % TO_DO symbole
+\end{itemize}
+
+\section{Valeur efficace, valeur moyenne, composante alternative}
+\subsection{Décomposition d'un signal quelconque en composante alternative et valeur moyenne}
+Un signal quelconque $u(t)$ est toujours décomposable ainsi :
+\[u(t) = \overline{u} + u_a(t)\]
+\begin{itemize}
+\item $u(t)$ : signal quelconque
+\item $\overline{u}$ : valeur moyenne de u(t)
+\item $u_a(t)$ : composante alternative (de valeur moyenne nulle) de $u(t)$
+\end{itemize}
+
+\subsection{Relation entre valeur efficace et valeur moyenne}
+Entre valeurs efficaces et valeurs moyennes, nous avous la relation : $U = \sqrt{{\overline{u}}^2 + {U_a}^2}$
+
+\begin{itemize}
+\item $U$ : valeur efficace de u(t) (mesurée avec un voltmètre alternatif RMS en position AC+DC)
+\item $\overline{u}$ : valeur moyenne de u(t) (mesurée avec
+  un voltmètre continu en position DC ou =)
+\item $U_a$ : valeur efficace de la composante alternative
+\end{itemize}
+
+\subsection{Exercice d'application}
+Soit un signal $u(t)$ rectangulaire de période $T$ compris entre $5~V$ et
+$1~V$. Ce signal a un rapport cyclique $\alpha$ de 1/2 c'est à dire qu'il est
+égal à $5~V$ de $t=0$ à $t=\alpha T$ et égal $1~V$ de $t=\alpha T$ à $t=T$.
+\begin{enumerate}
+\item Représentez ce signal $u(t)$.
+\item Représentez la composante alternative $u_a(t)$ de ce signal.
+\item Calculez la valeur moyenne $\overline{u}$ de $u(t)$.
+\item Calculez directement la valeur efficace $U$ de $u(t)$ (à l'aide
+  de la représentation de $u(t)$ élevé au carré).
+\item Calculez la valeur efficace $U_a$ de la composante alternative
+  $u_a(t)$ (à l'aide de la représentation de $u_a(t)$ élevé au carré).
+\item Vérifiez numériquement la relation : $U = \sqrt{{\overline{u}}^2 + {U_a}^2}$.
+\end{enumerate}
+
+Mêmes questions avec :
+\begin{itemize}
+\item un signal compris entre $1~V$ et $-1~V$ de rapport cyclique $\alpha=0.5$
+\item un signal compris entre $1~V$ et $-3~V$ de rapport cyclique $\alpha=0.5$
+\item un signal compris entre $5~V$ et $0~V$ de rapport cyclique $\alpha=0.7$
+\end{itemize}
+
+
+\newpage
+
+\section{Décomposition/recomposition d'un signal périodique à l'aide de signaux sinusoïdaux}
+
+\subsection{Décomposition en signaux sinusoïdaux}
+Tout signal alternatif de fréquence $f$ est décomposable en une somme de
+signaux sinusoïdaux de fréquences multiples de $f$.
+
+Une telle décomposition fait appel à la notion mathématique de \emph{série de Fourier}.
+
+\[u(t) = \overline{u}+\sum_{n=1}^{\infty}{u_n cos(n \omega t + \varphi_n)}\] % TO_DO remplacer u_n
+
+\subsection{Exemple d'un signal rectangulaire}
+
+
+
+\begin{figure}[H]
+\caption{Représentation d'un signal rectangulaire}
+\begin{pspicture}(-1,-1.75)(7,1.75)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-1.75)(0,1.75) % Axe des y
+\rput{0}(7,-0.25){$t$}
+\psline{->}(-0.25,0)(7,0) % Axe des x
+\rput{0}(-0.25,1.75){$u$}
+\psline[linecolor=red,linewidth=2pt](-0.25,-1)(0,-1)
+\psline[linecolor=red,linewidth=2pt](0,-1)(0,1)
+\psline[linecolor=red,linewidth=2pt](0,1)(3.14,1)
+\psline[linecolor=red,linewidth=2pt](3.14,1)(3.14,-1)
+\psline[linecolor=red,linewidth=2pt](3.14,-1)(6.28,-1)
+\psline[linecolor=red,linewidth=2pt](6.28,-1)(6.28,1)
+\psline[linecolor=red,linewidth=2pt](6.28,1)(6.58,1)
+\rput{0}(-0.5,1){$E$}
+\psline{-}(-0.1,1)(0.1,1)
+\rput{0}(-0.5,-1){$-E$}
+\psline{-}(-0.1,-1)(0.1,-1)
+\end{pspicture}
+\end{figure}
+
+Ce signal est décomposable ainsi :
+
+\[u(t)=\frac{4E}{\pi}sin{\omega t}
+ + \frac{4E}{3\pi}sin{3 \omega t}
+ + \frac{4E}{5 \pi}sin{5 \omega t}
+ + \frac{4E}{7 \pi}sin{7 \omega t}
+ + \frac{4E}{9 \pi}sin{9 \omega t} + \ldots
+=\frac{4E}{\pi}\sum_{n_{impair}=1}^{\infty}{\frac{1}{n}sin{n \omega t}}\]
+
+Une recomposition avec un nombre limité d'harmoniques ne permet pas de
+reconstituer correctement un signal rectangulaire (notamment à cause
+des fronts raides). On arrive à un résultat proche du signal d'origine
+en augmentant le nombre d'harmoniques.
+
+On remarque que seul les harmoniques impaires interviennent et leurs
+amplitudes diminuent comme $\frac{1}{n}$.
+
+
+
+
+\begin{figure}[H]
+\caption{Représentation temporelle du fondamental $u_1(t)$ et des harmoniques
+3 $u_3(t)$ et 5 $u_5(t)$}
+\begin{pspicture}(-1,-1.75)(7,1.75)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-1.75)(0,1.75) % Axe des y
+\rput{0}(7,-0.25){$t$}
+\psline{->}(-0.25,0)(7,0) % Axe des x
+\rput{0}(-0.25,1.75){$u$}
+% 4 / pi = 1.273
+\psplot[linecolor=red,linewidth=2pt]{0}{6.28}{x 57.2958 mul sin 1.273 mul}
+\psplot[linecolor=green,linewidth=2pt]{0}{6.28}{x 3 mul 57.2958 mul sin 3 div 1.273 mul}
+\psplot[linecolor=blue,linewidth=2pt]{0}{6.28}{x 5 mul 57.2958 mul sin 5 div 1.273 mul}
+\rput{0}(-0.5,1){$E$}
+\psline{-}(-0.1,1)(0.1,1)
+\end{pspicture}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\caption{Représentation temporelle de $u_1(t)+u_3(t)$}
+\begin{pspicture}(-1,-1.75)(7,1.75)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-1.75)(0,1.75) % Axe des y
+\rput{0}(7,-0.25){$t$}
+\psline{->}(-0.25,0)(7,0) % Axe des x
+\rput{0}(-0.25,1.75){$u$}
+% 4 / pi = 1.273
+\psplot[linecolor=red,linewidth=2pt]{0}{6.28}{
+x 57.2958 mul sin 1.273 mul
+x 3 mul 57.2958 mul sin 3 div 1.273 mul add}
+\rput{0}(-0.5,1){$E$}
+\psline{-}(-0.1,1)(0.1,1)
+\end{pspicture}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\caption{Représentation temporelle de $u_1(t)+u_3(t)+u_5(t)$}
+\begin{pspicture}(-1,-1.75)(7,1.75)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-1.75)(0,1.75) % Axe des y
+\rput{0}(7,-0.25){$t$}
+\psline{->}(-0.25,0)(7,0) % Axe des x
+\rput{0}(-0.25,1.75){$u$}
+% 4 / pi = 1.273
+\psplot[linecolor=red,linewidth=2pt]{0}{6.28}{
+x 57.2958 mul sin 1.273 mul
+x 3 mul 57.2958 mul sin 3 div 1.273 mul add
+x 5 mul 57.2958 mul sin 5 div 1.273 mul add}
+\rput{0}(-0.5,1){$E$}
+\psline{-}(-0.1,1)(0.1,1)
+\end{pspicture}
+\end{figure}
+
+%\begin{pspicture}(-1,-1.75)(7,1.75)
+%\psgrid[subgriddiv=1,griddots=10]
+%\psset{xunit=1}
+%\psset{yunit=1}
+%\psline{->}(0,-1.75)(0,1.75) % Axe des y
+%\rput{0}(7,-0.25){$t$}
+%\psline{->}(-0.25,0)(7,0) % Axe des x
+%\rput{0}(-0.25,1.75){$u$}
+% 4 / pi = 1.273
+%\psplot[linecolor=red,linewidth=2pt]{0}{6.28}{
+%x 57.2958 mul sin 1.273 mul
+%x 3 mul 57.2958 mul sin 3 div 1.273 mul add
+%x 5 mul 57.2958 mul sin 5 div 1.273 mul add
+%x 7 mul 57.2958 mul sin 7 div 1.273 mul add}
+%\rput{0}(-0.5,1){$E$}
+%\psline{-}(-0.1,1)(0.1,1)
+%\end{pspicture}
+
+
+%\newpage
+
+\subsection{Exemple d'un signal triangulaire}
+
+
+
+\begin{figure}[H]
+\caption{Représentation d'un signal triangulaire}
+\begin{pspicture}(-1,-1.75)(7,1.75)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-1.75)(0,1.75) % Axe des y
+\rput{0}(7,-0.25){$t$}
+\psline{->}(-0.25,0)(7,0) % Axe des x
+\rput{0}(-0.25,1.75){$u$}
+\psline[linecolor=red,linewidth=2pt](-0.25,0.9)(0,1)
+\psline[linecolor=red,linewidth=2pt](0,1)(3.14,-1)
+\psline[linecolor=red,linewidth=2pt](3.14,-1)(6.28,1)
+\psline[linecolor=red,linewidth=2pt](6.28,1)(6.5,0.9)
+\rput{0}(-0.5,1){$E$}
+\psline{-}(-0.1,1)(0.1,1)
+\rput{0}(-0.5,-1){$-E$}
+\psline{-}(-0.1,-1)(0.1,-1)
+\end{pspicture}
+\end{figure}
+
+Ce signal est décomposable ainsi :
+
+\[u(t)=\frac{8E}{\pi^2}cos{\omega t}
+ + \frac{8E}{3^2 \pi^2}cos{3 \omega t}
+ + \frac{8E}{5^2 \pi^2}cos{5 \omega t}
+ + \frac{8E}{7^2 \pi^2}cos{7 \omega t}
+ + \frac{8E}{9^2 \pi^2}cos{9 \omega t} + \ldots\]
+
+\[u(t)=\frac{8E}{\pi^2}\sum_{n_{impair}=1}^{\infty}{\frac{1}{n^2} cos{n \omega t}}\]
+
+\begin{figure}[H]
+\caption{Représentation temporelle du fondamental $u_1(t)$ et des
+  harmoniques 3 $u_3(t)$ et 5 $u_5(t)$}
+\begin{pspicture}(-1,-1.75)(7,1.75)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-1.75)(0,1.75) % Axe des y
+\rput{0}(7,-0.25){$t$}
+\psline{->}(-0.25,0)(7,0) % Axe des x
+\rput{0}(-0.25,1.75){$u$}
+% 8 / pi^2 = 0.811
+\psplot[linecolor=red,linewidth=2pt]{0}{6.28}{x 57.2958 mul cos 0.811 mul}
+\psplot[linecolor=green,linewidth=2pt]{0}{6.28}{x 3 mul 57.2958 mul cos 3 div 3 div 0.811 mul}
+\psplot[linecolor=blue,linewidth=2pt]{0}{6.28}{x 5 mul 57.2958 mul cos 5 div 5 div 0.811 mul}
+%\psplot[linecolor=red,linewidth=2pt]{0}{6.28}{x 7 mul 57.2958 mul cos 7 div 7 div 0.811 mul}
+\rput{0}(-0.5,1){$E$}
+\psline{-}(-0.1,1)(0.1,1)
+\end{pspicture}
+\end{figure}
+
+
+\begin{figure}[H]
+\caption{Représentation temporelle de $u_1(t)+u_3(t)$}
+\begin{pspicture}(-1,-1.75)(7,1.75)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-1.75)(0,1.75) % Axe des y
+\rput{0}(7,-0.25){$t$}
+\psline{->}(-0.25,0)(7,0) % Axe des x
+\rput{0}(-0.25,1.75){$u$}
+% 8 / pi^2 = 0.811
+\psplot[linecolor=red,linewidth=2pt]{0}{6.28}{
+x 57.2958 mul cos 0.811 mul
+x 3 mul 57.2958 mul cos 3 div 3 div 0.811 mul add
+%x 5 mul 57.2958 mul cos 5 div 5 div 0.811 mul add
+%x 7 mul 57.2958 mul cos 7 div 7 div 0.811 mul add
+}
+\rput{0}(-0.5,1){$E$}
+\psline{-}(-0.1,1)(0.1,1)
+\end{pspicture}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Représentation temporelle de $u_1(t)+u_3(t)+u_5(t)$}
+\begin{pspicture}(-1,-1.75)(7,1.75)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-1.75)(0,1.75) % Axe des y
+\rput{0}(7,-0.25){$t$}
+\psline{->}(-0.25,0)(7,0) % Axe des x
+\rput{0}(-0.25,1.75){$u$}
+% 8 / pi^2 = 0.811
+\psplot[linecolor=red,linewidth=2pt]{0}{6.28}{
+x 57.2958 mul cos 0.811 mul
+x 3 mul 57.2958 mul cos 3 div 3 div 0.811 mul add
+x 5 mul 57.2958 mul cos 5 div 5 div 0.811 mul add
+%x 7 mul 57.2958 mul cos 7 div 7 div 0.811 mul add
+}
+\rput{0}(-0.5,1){$E$}
+\psline{-}(-0.1,1)(0.1,1)
+\end{pspicture}
+\end{figure}
+
+
+On remarque que seules les harmoniques impaires interviennent et leurs
+amplitudes diminuent comme $\frac{1}{n^2}$ c'est à dire plus
+rapidement que précédemment, ce qui est compréhensible car un signal
+triangulaire est plus <<proche>> d'une sinusoïde qu'un signal rectangulaire.
+

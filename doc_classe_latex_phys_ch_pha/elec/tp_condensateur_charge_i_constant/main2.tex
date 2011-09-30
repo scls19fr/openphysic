@@ -1,0 +1,106 @@
+\tp[Caractéristique d'un condensateur chargé à courant constant -
+Capacité]{Caractéristique d'un condensateur chargé à courant
+  constant\\Capacité}
+
+% Philippe DUTHOIT
+
+
+\objectifs{
+\item Déterminer la capacité $C$ d'un condensateur à partir de sa caractéristique de charge $U_{AB}(t) = f(t)$.
+}
+
+\Section{Principe}
+\Subsection{Tracé}
+On fixe l'intensité $I$ du courant qui traverse le condensateur.\\
+En faisant des mesures de la tension $U_{AB}$ à intervalles de temps réguliers, on construit alors $U_{AB} = f(t)$.
+
+
+%\begin{}
+%$t$ ($s$)     & & & & & & & & & &\tbnl
+%$U_{AB}$ ($V$) & & & & & & & & & &\tbnl
+%\end{}
+
+
+
+% droite
+
+C'est une droite passant par l'origine (si on a pris précaution de décharger le condensateur à $t = 0$.
+
+\Subsection{Capacité}
+
+La pente $K$ de la droite dépend de la capacité $C$. \`A un instant $t$ quelconque la charge $q$ stockée dans le condensateur et la tension $U_{AB}$ à ses bornes sont telles que :
+
+
+\[
+U_{AB} = \frac{q}{C}
+\]
+
+\[
+q = I \cdot t
+\]
+
+
+\`A l'aide des deux relations précédentes, on a :
+
+\[
+U_{AB} = \frac{I \cdot t}{C}
+\]
+
+
+On peut donc déduire par identification l'expression littérale de la pente :
+
+\[
+K = \frac{I}{C}
+\]
+
+ce qui équivaut à :
+
+\[
+C = \frac{I}{K}
+\]
+
+\newpage
+
+\Section{Montage}
+
+Le montage proposé ici est un montage «~source de courant~». Il s'agit donc d'un montage garantissant que l'intensité du courant traversant le condensateur reste constante durant toute la charge.
+
+
+
+
+
+
+\Section{Protocole}
+
+\begin{enumerate}
+\item \emph{Réaliser le montage.}
+
+\item $R$ est une résistance ajustable et le générateur est une alimentation stabilisée. \emph{Fixer la valeur de $R$} de manière à ce que la valeur de $I$ donne une vitesse de variatiopn de $U_{AB}$ qui entraine une durée totale de charge suffisamment longue pour qu'on puisse avoir un ensemble de mesures raiso,,able. Mesurer ou calculer $I$ à partir de la mesure de la tension $U_{PM}$ aux bornes de l'alimentation.
+
+\item \emph{Effectuer les mesures de tension pour des durées qui soient multiples de 2 ou 3 secondes environ} avec déchargement total du condensateur entre deux mesures consécutives. Le déchargement se fait avec $K_1$ ouvert et $K_2$ fermé.
+
+\end{enumerate}
+
+%\begin{}
+%$t$ ($s$)     & & & & & & & & & &\tbnl
+%$U_{AB}$ ($V$) & & & & & & & & & &\tbnl
+%\end{}
+
+
+\attention{
+Le montage proposé ici comporte un amplificateur opérationnel. Or un amplificateur opérationnel est alimenté sous une tension symétrique $-15~V$ / $+15~V$. La tension $U_{AB}$ atteindra donc un tension maximale proche de $15~V$ : c'est la phase de saturation. Ce n'est pas génant. On se contentera ici de modéliser la phase linéaire sans la phase de saturation.
+}
+
+
+\Section{Exploitation}
+\begin{enumerate}
+\item Tracer sous REGRESSI $U_{AB} = f(t)$ et modéliser \emph{uniquement} la partie linéaire.
+
+\item Trouver dans les résultats de l'ajustement du modèle le coefficient directeur $K$ (ou pente) du graphe.
+
+\item Déduire de $K$ la valeur numérique de la capacité $C$ du condensateur.
+
+\item Sachant que l'indication de capacité figurant sur ces condensateurs n'est donné qu'à $20~\%$ près, votre mesure est-elle satisfaisante ?
+
+\end{enumerate}
+

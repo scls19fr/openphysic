@@ -1,0 +1,341 @@
+\cours{Générateurs et récepteurs}
+
+%\montrefalse % affiche les pointillés
+%\montretrue % affiche la solution
+
+\section{Conventions}
+Dessinez un générateur (dipôle $D_1$) alimentant une résistance $R$ (dipôle $D_2$).
+
+\fbox{
+\rule{15cm}{0cm}
+\rule{0cm}{5cm}
+}
+
+Fléchez le courant sortant du générateur ainsi que la tension à ses bornes.
+
+Que remarquez-vous sur l'orientation des flèches de tension et de courant ?
+
+Pour le générateur la flèche tension est \trou{ dans le même sens} que la flèche courant : c'est la \emph{convention générateur}.
+
+Pour la résistance la flèche courant et la flèche tension sont \trou{ dans le sens opposé } : c'est la \emph{convention récepteur}.
+
+\section{Les récepteurs}
+Les récepteurs les plus usuels sont :
+\begin{itemize}
+\item \trouligne{les conducteurs ohmiques (ou résistor)}
+\item \trouligne{les moteurs}
+\item \trouligne{les electrolyseurs}
+\item \ldots
+\end{itemize}
+
+Donnez le symbole de ces 3 récepteurs.
+
+\fbox{
+\rule{15cm}{0cm}
+\rule{0cm}{2.5cm}
+}
+
+\subsection{Résistor}
+\subsubsection{Loi d'Ohm}
+D'après la loi d'Ohm on a : \trou{$U = R I$}.
+
+Dans quelle convention obtient-t'on cette relation ?
+
+\trouligne{en convention récepteur}
+
+Rappelez le symbole d'un résistor et fléchez la tension et le courant dans cette convention.
+
+Tracez la caractéristique $U=f(I)$ ($U$ en fonction de $I$ c'est à dire $U$ en ordonnées et $I$ en abscisses)
+
+\fbox{
+\rule{15cm}{0cm}
+\rule{0cm}{5cm}
+}
+
+\medskip
+
+Que devient la loi d'Ohm si on change de convention ?
+
+
+\trouligne{En convention générateur $U = - R I$.}
+
+
+\medskip
+
+$R$ est la résistance du conducteur ohmique.
+
+On définit aussi la conductance $G$: \trou{$G = \frac{1}{R}$}.
+
+La conductance s'exprime en siemens ($S$) ou en mho ($\mho$).
+
+
+\subsubsection{\'Etude d'un rhéostat}
+Donnez le schéma d'un rhéostat.
+
+\fbox{
+\rule{15cm}{0cm}
+\rule{0cm}{2.5cm}
+}
+
+La borne $C$ est appelée le curseur du rhéostat.
+
+On veut obtenir à l'aide d'un rhéostat une résistance variable. Quelles bornes doit-on brancher ?
+
+\trouligne{ (A et C) ou  (B et C) }
+
+Comment varie la résistance entre ces deux bornes lorsque l'on éloigne le curseur ?
+
+\trouligne{elle augmente car $R$ est proportionnelle}
+\trouligne{à la longueur de conducteur}
+
+Remarque : si on augmente la section du fil la résistance diminue ($R$ est proportionnelle à $\frac{1}{S}$)
+
+\medskip
+
+\`A partir de ces remarques donnez une relation entre
+\begin{itemize}
+\item la résistivité $\rho$ du fil (en $\Omega.m$)
+\item la longueur $l$ du fil (en $m$)
+\item la section $S$ du fil (en $m^2$)
+\end{itemize}
+
+\trouligne{$R = \rho \frac{l}{S}$}
+
+\subsection{Association de conducteur ohmiques}
+\subsubsection{En série}
+
+\fbox{
+\rule{15cm}{0cm}
+\rule{0cm}{2.5cm}
+}
+
+\[R_{\mbox{\tiny série}} = R_1 + R_2 + \ldots + R_n\]
+
+Démontrez ceci au dos.
+
+\subsubsection{En dérivation}
+
+\fbox{
+\rule{15cm}{0cm}
+\rule{0cm}{2.5cm}
+}
+
+\[\frac{1}{R_{\mbox{\tiny parallèle}}} = \frac{1}{R_1} +  \frac{1}{R_2} + \ldots +  \frac{1}{R_n}\]
+
+Démontrez ceci au dos.
+
+
+\subsection{Autres récepteurs linéaires}
+
+On étudie en convention récepteur un électrolyseur (ou un moteur).
+
+
+\fbox{
+\rule{15cm}{0cm}
+\rule{0cm}{5cm}
+}
+
+La relation entre $U$ et $I$ est donnée par la loi d'Ohm qui dans ce cas s'énonce :
+
+\[U = E' + r' I\]
+
+\begin{itemize}
+\item $U$ est la tension aux bornes du récepteur (en $V$)
+\item $I$ est le courant traversant le récepteur (en $A$)
+\item $E'$ est la force contre électromotrice (fcem) (en $V$)
+\item $r'$ est la résistance interne (en $\Omega$)
+\end{itemize}
+
+\medskip
+
+Tracez sa caractéristique $I - U$ ($U$ en fonction de $I$)
+
+
+\fig{15cm}{5cm}
+
+
+
+On réalisera cette expérience en séance de travaux pratiques.
+
+\section{Les générateurs}
+Il existe deux types de générateurs :
+\begin{itemize}
+\item \trouligne{les générateurs idéaux de tension}
+\item \trouligne{les générateurs idéaux de courant}
+\item \trouligne{les générateurs réels}
+\end{itemize}
+
+\subsection{Générateurs idéaux de tension}
+Un générateur idéal de tension fournit à ses bornes une tension constante quelque soit le courant qu'il doit fournir.
+
+Dessinez son symbole et tracez sa caractéristique.
+
+
+\fig{15cm}{5cm}
+
+
+Un tel générateur à une résistance interne nulle (ce qui justifie d'ailleurs son symbole avec un fil connecté au reste du circuit).
+
+
+\subsection{Générateurs idéaux de courant}
+Un générateur idéal de courant délivre un courant constant quelque soit la tension qu'il doit fournir.
+
+Dessinez son symbole et tracez sa caractéristique.
+
+
+\fig{15cm}{5cm}
+
+
+Un tel générateur à une résistance interne infini (ce qui justifie d'ailleurs son symbole avec un fil déconnecté du reste du circuit).
+
+
+\subsection{Générateurs réels}
+
+Un générateur réel comporte des fils dont la résistance entraîne des chutes de tension non négligeable.
+
+La tension aux bornes d'un générateur est donc de la forme :
+\[U = E - r I\]
+
+\begin{itemize}
+\item $U$ est la tension aux bornes du générateur (en $V$)
+\item $I$ est le courant délivré par le générateur (en $A$)
+\item $E$ est la force électromotrice ou tension à vide du générateur (en $V$)
+\item $r$ est la résistance interne (en $\Omega$)
+\end{itemize}
+
+Dessinez son (ses) symbole(s) et tracez sa caractéristique.
+
+
+\fig{15cm}{5cm}
+
+\section{Puissance et énergie}
+\subsection{Puissance et convention}
+\`A chaque instant la puissance instantanée $p(t)$ fournit par un générateur (étudié en convention générateur) délivrant un courant $i(t)$ sous une tension $u(t)$ vaut :
+
+\[p(t) = u(t) \cdot i(t)\]
+
+\begin{itemize}
+\item p : puissance instantanée en watt ($W$)
+\item u : tension ($V$)
+\item i : courant ($A$)
+\end{itemize}
+
+\emph{Remarque :} notez qu'une grandeur dépendant du temps est en minuscule.
+
+\medskip
+
+En courant continu $u(t) = U = \mbox{constante}$ et $i(t) = I = \mbox{constante}$ donc $P = U \cdot I$
+
+\emph{Remarque :} en majuscule car c'est indépendant du temps
+
+\medskip
+
+Avec la convention générateur,
+\begin{itemize}
+\item si $u i > 0$, le dipôle est \trouligne{générateur}
+\item si $u i < 0$, le dipôle est \trouligne{récepteur}
+\end{itemize}
+
+\medskip
+
+Avec la convention générateur,
+\begin{itemize}
+\item si $u i > 0$, le dipôle est \trouligne{récepteur}
+\item si $u i < 0$, le dipôle est \trouligne{générateur}
+\end{itemize}
+
+\subsection{Puissance et énergie}
+Un générateur délivre un courant $I$ sous une tension $U$,\\
+ il fournit donc une puissance \trou{$P = U I$}
+
+Remarque : le watt ($W$) est l'unité légale de puissance mais on exprime au la puissance en cheval $1~ch = 736~W$)
+
+\medskip
+
+Lorsqu'il fonctionne pendant un temps $\Delta t$,\\
+ il fournit une énergie \trou{$E = P \cdot \Delta t = U I \Delta t$}
+
+\subsection{Puissance dissipée dans un conducteur ohmique}
+Dans un résistor, la puissance dissipée vaut :
+
+\trouligne{$P = U \cdot I = R I \cdot I = R I^2$}
+
+ou
+
+\trouligne{$P = U \cdot I = U \cdot \frac{U}{R} = \frac{U^2}{R}$}
+
+Cette dissipation de puissance porte le nom d'\trou{effet Joule}
+
+\subsection{Rendement d'un générateur}
+Pour un générateur (une pile par exemple) on a $U = E - r I$.
+
+En multipliant par $I$ on a : \trou{$U \cdot I = (E - r I) \cdot I = E I - r I^2$}
+
+Soit \trou{$E I = U I + r I^2$}
+
+Le générateur fournit au circuit la puissance \trou{$P_{elec} = U I$} : c'est la puissance utile.
+
+Le générateur fournit à l'environnement sous forme de pertes thermiques la puissance \trou{$P_J = r I^2$}.
+
+Ces puissances résultent de la puissance chimique stockée par la pile \trou{$P_{chim} = E I$}.
+
+
+Dessinez l'arbre de puissance du générateur.
+
+
+\fig{15cm}{4cm}
+
+
+\important{On appelle rendement et on note $\eta$ le rapport de la puissance utile sur la puissance absorbée par un convertisseur
+
+\[\eta = \frac{\mbox{puissance utile}}{\mbox{puissance absorbée}} \]
+}
+
+
+Pour un générateur
+
+ la puissance utile c'est : \trou{$U I$}
+
+ la puissance absorbée vaut : \trou{$E I$}
+
+
+donc le rendement vaut : \trou{$\eta = \frac{U I}{E I} = \frac{U}{E}$}
+
+
+
+\subsection{Rendement d'un récepteur linéaire }
+Pour un récepteur linéaire (moteur ou électrolyseur) on a $U = E' + r' I$.
+
+En multipliant par $I$ on a : \trou{$U \cdot I = (E' + r' I) \cdot I$}
+
+Soit \trou{$U I = E' I + r' I^2$}
+
+Le récepteur reçoit la puissance \trou{$P_{elec} = U I$} : c'est la puissance \trou{absorbée}.
+
+Il fournit à l'environnement sous forme de pertes thermiques la puissance \trou{$P_J = r' I^2$}.
+
+
+Il transforme la puissance absorbée en puissance \trou{utile}.
+
+\subsubsection{\'Electrolyseur}
+
+Dans le cas d'un électrolyseur, la puissance électrique reçue est transformée en puissance chimique qui permet l'obtention aux électrodes de dioxygène ($O_2$) et de dihydrogène ($H_2$)
+
+Dessinez l'arbre de puissance de l'électrolyseur.
+
+
+\fig{15cm}{4cm}
+
+
+Le rendement de l'électrolyseur est donc : \trou{$\eta = \frac{E' I}{U I}$}
+
+\subsubsection{Moteur}
+
+Dans le cas d'un moteur la puissance $E' I$ est la somme de la puissance mécanique utile et de la puissance perdue par d'autres phénomènes que l'effet Joule (frottements mécaniques par exemple)
+
+
+Dessinez l'arbre de puissance du moteur.
+
+
+%\fig{15cm}{4cm}
+

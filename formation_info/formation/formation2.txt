@@ -1,0 +1,47 @@
+===== Système d'exploitation : Windows  =====
+Identification d'un poste
+ Nom de poste
+ Nom du groupe de travail ou du domaine
+Authentification
+ Locale
+ Domaine
+Utilisation des comptes élèves / administrateur
+Avantage : sécurité, comptes limité
+Les problèmes que cela peut poser et comment les résoudre ?
+ - autorisations (écriture dans un répertoire non autorisé)
+ - les profils (menu, raccourcis Bureau)
+Rem : dans Windows Vista le compte par défaut sera un compte limité (et pas un compte administrateur)
+
+Sécurité :
+ - mise à jour Windows Update http://windowsupdate.microsoft.com/
+ - antivirus http://fr.wikipedia.org/wiki/Virus_informatique
+ - firewall (logiciel / ou routeur-firewall matériel) http://fr.wikipedia.org/wiki/Firewall
+ - anty-spyware http://fr.wikipedia.org/wiki/Spyware
+ - utilisateur/administrateur responsable !
+Partage de fichier
+Partage d'imprimante
+
+Que faire lorsqu'on doit changer un ordinateur du réseau ?
+ Regarder et noter adresse IP / Masque / DNS / Passerelle
+ Lister les logiciels installés (et les besoins des enseignants)
+ Présence de carte d'acquisition (interface spécifique ?)
+ ...
+
+Administration avancée : Utilisation des consoles MMC ##.msc##
+[[Windows]]
+[[WindowsAstuces]]
+http://www3.ac-nancy-metz.fr/assistance/index.php
+
+
+===== Prise de contrôle à distance =====
+[[VNC Virtual Network Computing ou VNC]]
+
+Contacter le PC de chez soi (DynDNS)
+ Serveur FTP (Wz-FTP ou Filezilla Server)
+ SSH et SecureCopy
+ côté serveur
+  SSH-Windows ou OpenSSH sous Linux
+ côté client
+  putty, ##ssh user@adresse_ip##
+  WinSCP, gFTP, Filezilla(?)
+Attention : routage / ports fermés côté client ou côté serveur, firewall...

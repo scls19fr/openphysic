@@ -1,0 +1,24 @@
+#!/bin/bash
+
+tar -zcvf saves.tar.gz mpinputs manual trials;
+
+for file in manual/*.tex manual/*.mp mpinputs/*.mp trials/*.mp;
+do
+sed "s/last modification:.*$/last modification: january 11, 2006/1" $file > tmp; mv tmp $file;
+done;
+
+cd manual; mpost m3Dmanual; tex m3Dmanual;
+dvips m3Dmanual -o -Ppdf; ps2pdf m3Dmanual.ps; rm -f m3Dmanual.ps; 
+
+for picture in m3Dmanual.[0-9]*; do
+convert -density 288 -geometry 200x200 $image $image.jpg;
+done
+
+mv *.jpg ../gallery
+
+rm -f m3Dmanual.[1-9]; rm *.log; rm *.dvi; rm *~; cd ..;
+
+tar -cvf m3D.tar README @distrib mpinputs manual trials gallery;
+
+gzip m3D.tar
+

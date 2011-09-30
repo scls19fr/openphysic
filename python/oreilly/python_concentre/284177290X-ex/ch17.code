@@ -1,0 +1,132 @@
+if __name__ =  = '__main__':
+    import doctest, sys
+    doctest.testmod(sys.modules[__name__])
+
+----------
+
+def f(x = 23): return inspect.currentframe()
+print inspect.formatargvalues(inspect.getargvalues(f()))  # Affiche : (x = 23)
+
+----------
+
+try: x.f()
+except AttributeError:
+    import sys, inspect
+    sys.stderr.write('x est de type %s(%r)\n' % (x, type(x)))
+    sys.stderr.write("Les méthodes de x sont : ")
+    for n, v in inspect.getmembers(x, callable):
+       sys.stderr.write('%s ' % n)
+    sys.stderr.write('\n')
+    raise
+
+----------
+
+import sys, inspect
+def aff_methodes_obj(obj, nom, aff = sys.stderr.write):
+    show('%s est de type %s(%r)\n' % (nom, obj, type(obj)))
+    show("Les méthodes de %s sont : " % nom)
+    for n, v in inspect.getmembers(obj, callable):
+       show('%s ' % n)
+    show('\n')
+
+----------
+
+try: x.f()
+except AttributeError:
+    aff_methodes_obj(x, 'x')
+    raise
+
+----------
+
+def versUnicode(uneChaine):
+    try: 
+        return unicode(uneChaine)
+    except UnicodeError:
+        warnings.warn("Caractères incorrects dans (%s)" % uneChaine, 
+                      stacklevel = 2)
+        return unicode(uneChaine, errors = 'ignore')
+
+----------
+
+def lent(it):
+    resultat = []
+    for element in it: resultat.insert(0, element)
+    return resultat
+
+def rapide(it):
+    resultat = []
+    for element in it: resultat.append(element)
+    resultat.reverse()
+    return resultat
+
+----------
+
+import profile
+profile.Profile.bias = ...le surcoût que vous avez mesuré...
+profile.run('main()', 'unfichier')
+
+----------
+
+longueChaine = ''.join(listeTemp)
+
+----------
+
+unMoyen = str(x) + ' oeufs et ' + str(y) + ' tranches de ' + k + ' lard'
+unAutre = '%s oeufs et %s tranches de %s lard' % (x, y, k)
+
+----------
+
+A = [ (s.split()[1], s) for s in L ]
+A.sort()
+L[:] = [ t[1] for t in A ]
+
+----------
+
+def comp2ndmot(a, b): return cmp(a.split()[1], b.split()[1])
+L.sort(comp2ndmot)
+
+----------
+
+def lente(unObjet, unGrandNombre):
+    for i in xrange(unGrandNombre): unObjet.uneMethode(i)
+def rapide(unObjet, unGrandNombre):
+    laMethode = unObjet.uneMethode
+    for i in xrange(unGrandNombre): laMethode(i)
+
+----------
+
+def unPeuPlusLente(uneSequence, unDict):
+    for x in uneSequence: unDict[x] = hex(x)
+def unPeuPlusRapide(uneSequence, unDict):
+    monHex = hex
+    for x in uneSequence: unDict[x] = monHex(x)
+
+----------
+
+import time
+
+def lente(uneSequence):
+    resultat = []
+    for x in uneSequence: resultat.append(-x)
+    return resultat
+
+def moyenne(uneSequence):
+    return [ -x for x in uneSequence ]
+
+def rapide(uneSequence):
+    result = [None] * len(uneSequence)
+    for i in xrange(len(uneSequence)): resultat[i] = -uneSequence[i]
+    return resultat
+
+tresGros = xrange(500*1000)
+dixFois = [None] * 10
+
+def mesurer(uneFction):
+    lobi = tresGros
+    debut = time.clock()
+    for x in dixFois: uneFction(lobi)
+    fin = time.clock()
+    return "%-10s: %.2f" % (uneFction.__name__, fin - debut)
+
+for f in lente, moyenne, rapide, rapide, moyenne, lente:
+    print mesurer(f)

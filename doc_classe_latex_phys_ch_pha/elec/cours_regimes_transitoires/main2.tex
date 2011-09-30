@@ -1,0 +1,463 @@
+\cours{Régimes transitoires}
+
+
+\section{\'Etude d'un circuit RC}
+
+\subsection{Montage}
+Soit le montage suivant :
+
+\begin{pspicture}(0,0)(8,4.5)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(1,3){A}
+\pnode(6,3){B}
+\resistor[intensitylabel=$i(t)$,tensionlabel=$u_R(t)$,dipoleconvention=receptor](A)(B){$R$}
+\pnode(6,0){C}
+\pnode(1,0){D}
+\capacitor[intensitylabel=$i(t)$,tensionlabel=$u_C(t)$,dipoleconvention=receptor,tensionlabeloffset=1.5cm](B)(C){$C$}
+\Ucc(D)(A){$e(t)$}
+\wire(D)(C)
+\end{pspicture}
+
+
+\subsection{Mise en \'equation}
+D'après la loi des mailles on a : $e(t)-u_R(t)-u_C(t)=0$.
+
+En convention récepteur sur le résistor, on a d'après la loi d'Ohm $u_R=R i(t)$.
+
+En convension récepteur, le condensateur parcouru par un courant $i(t)$ a à ses bornes la tension $u_C(t)$ telle que :
+
+\[i(t)=C \frac{du_C(t)}{dt}\]
+
+On en déduit ainsi l'équation différentielle suivante :
+\[R C \frac{du_C(t)}{dt} + u_C(t) = e(t)\]
+
+La solution de cette équation est une \emph{fonction exponentielle}.
+
+\subsection{\'Etude de la charge du condensateur}
+On impose le signal d'entrée e(t) suivant :
+
+\begin{pspicture}(-1,-1)(3.5,3.5)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(-1,0){A}
+\pnode(0,0){O}
+\pnode(0,2){B}
+\pnode(4,2){C}
+\rput[B]{0}(-0.25,2){$E$}
+\rput[B]{0}(-0.25,-0.5){$0$}
+\rput[B]{0}(4,-0.5){$t$}
+\rput[B]{0}(-0.5,3){$e(t)$}
+\psline{->}(0,-0.25)(0,3)
+\psline{->}(-0.25,0)(4,0)
+\psline[linecolor=red,linewidth=2pt](A)(O)
+\psline[linecolor=red,linewidth=2pt](O)(B)
+\psline[linecolor=red,linewidth=2pt](B)(C)
+\end{pspicture}
+
+Lors de la charge du condensateur on impose au circuit RC une tension constante E.
+L'équation qui régit la tension aux bornes du condensateur est :
+\[R C \frac{du_C(t)}{dt} + u_C(t) = E\]
+
+
+\subsubsection{Allure de la tension aux bornes du condensateur}
+
+%\begin{pspicture}(0,-1)(4,1)
+%\psgrid[subgriddiv=1,griddots=10]
+%\psset{xunit=0.04}
+%\psline{->}(0,-1)(0,1)
+%\psline{->}(100,0)
+%\psplot[plotpoints=100,
+%        linecolor=red]{0}{89}%
+%{x sin x 2 div 2 exp cos mul}
+%\end{pspicture}
+
+\begin{pspicture}(-1,-1)(4,1.75)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-0.25)(0,1.75) % Axe des y
+\rput{0}(4,-0.25){$t$}
+\psline{->}(-0.25,0)(4,0) % Axe des x
+\rput{0}(-0.25,1.75){$u_C$}
+%\psplot{0}{2}{x 1 sub} % y=x-1 (add(1+2) div(1/2) mul(1*2) sub(1-2) exp(1^2) neg abs sin cos ln log
+%\psplot{0}{4}{2.71828 x neg exp } % exp(-x)
+\psline[linecolor=red,linewidth=2pt](-1,0)(0,0)
+\psplot[linecolor=red,linewidth=2pt]{0}{4}{2.71828 x neg exp neg 1 add} % 1-exp(-x)
+\rput{0}(-0.25,1){$E$}
+\end{pspicture}
+
+On peut mesurer la constante de temps $\tau$ (tau) en traçant l'asymptote horizontale ainsi que la tangente à l'origine.
+Pour un ciruit RC, cette contante de temps vaut :
+\[\tau = R C\]
+
+Au bout d'un temps $t = 3 \tau$ le condensateur est quasiment complètement chargé (en fait il est chargé à 95\%) : $u_C(t=3\tau) = 0,95 E$.
+
+Au bout d'un temps $t = \tau$ le condensateur est chargé à 63\% : $u_C(t=\tau) = 0,63 E$.
+
+\subsubsection{Allure du courant dans le circuit}
+
+\begin{pspicture}(-1,-0.5)(4,1.75)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-0.25)(0,1.75) % Axe des y
+\rput{0}(4,-0.25){$t$}
+\psline{->}(-0.25,0)(4,0) % Axe des x
+\rput{0}(-0.25,1.75){$i$}
+%\psplot{0}{2}{x 1 sub} % y=x-1 (add(1+2) div(1/2) mul(1*2) sub(1-2) exp(1^2) neg abs sin cos ln log
+\psline[linecolor=red,linewidth=2pt](-1,0)(0,0)
+\psplot[linecolor=red,linewidth=2pt]{0}{4}{2.71828 x neg exp } % exp(-x)
+%\psplot{0}{4}{2.71828 x neg exp neg 1 add} % 1-exp(-x)
+\rput{0}(-0.25,1){$\frac{E}{R}$}
+\end{pspicture}
+
+On peut mesurer également la constante de temps pour l'évolution du courant dans le circuit et remarquer que c'est bien la même que pour l'évolution de la tension aux bornes du condensateur.
+
+
+\subsection{\'Etude de la décharge du condensateur}
+
+On impose le signal d'entrée e(t) suivant :
+
+\begin{pspicture}(-1,-0.5)(3.5,3.5)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(-1,2){A}
+\pnode(0,0){O}
+\pnode(0,2){B}
+\pnode(4,0){C}
+\rput[B]{0}(0.25,2){$E$}
+\rput[B]{0}(-0.25,-0.5){$0$}
+\rput[B]{0}(4,-0.5){$t$}
+\rput[B]{0}(-0.5,3){$e(t)$}
+\psline{->}(0,-0.25)(0,3)
+\psline{->}(-0.25,0)(4,0)
+\psline[linecolor=red,linewidth=2pt](A)(B)
+\psline[linecolor=red,linewidth=2pt](B)(O)
+\psline[linecolor=red,linewidth=2pt](O)(C)
+\end{pspicture}
+
+
+Lors de la charge du condensateur on impose au circuit RC une tension constante de 0V.
+\[R C \frac{du_C(t)}{dt} + u_C(t) = 0\]
+
+
+\subsubsection{Allure de la tension aux bornes du condensateur}
+\begin{pspicture}(-1,-0.5)(4,1.75)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-0.25)(0,1.75) % Axe des y
+\rput{0}(4,-0.25){$t$}
+\psline{->}(-0.25,0)(4,0) % Axe des x
+\rput{0}(-0.25,1.75){$u_C$}
+%\psplot{0}{2}{x 1 sub} % y=x-1 (add(1+2) div(1/2) mul(1*2) sub(1-2) exp(1^2) neg abs sin cos ln log
+\psline[linecolor=red,linewidth=2pt](-1,1)(0,1)
+\psplot[linecolor=red,linewidth=2pt]{0}{4}{2.71828 x neg exp } % exp(-x)
+%\psplot{0}{4}{2.71828 x neg exp neg 1 add} % 1-exp(-x)
+\rput{0}(0.25,1){$E$}
+\end{pspicture}
+
+Au bout d'un temps $t = 3 \tau$ le condensateur est quasiment déchargé (en fait il n'est chargé plus qu'à 5\%) : $u_C(t=3\tau) = 0,05 E$.
+
+Au bout d'un temps $t = \tau$ le condensateur est chargé à 100\%-63\%=37\% : $u_C(t=\tau) = 0,37 E$.
+
+\subsubsection{Allure du courant dans le circuit}
+\begin{pspicture}(-1,-1.75)(4,0.25)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-1.75)(0,0.25) % Axe des y
+\rput{0}(4,-0.25){$t$}
+\psline{->}(-0.25,0)(4,0) % Axe des x
+\rput{0}(-0.25,0.25){$i$}
+%\psplot{0}{2}{x 1 sub} % y=x-1 (add(1+2) div(1/2) mul(1*2) sub(1-2) exp(1^2) neg abs sin cos ln log
+\psline[linecolor=red,linewidth=2pt](-1,0)(0,0)
+\psplot[linecolor=red,linewidth=2pt]{0}{4}{2.71828 x neg exp neg} % -exp(-x)
+\rput{0}(-0.25,-1){-$\frac{E}{R}$}
+\end{pspicture}
+
+\subsection{Continuité ou discontinuité des grandeurs étudiées}
+
+\subsubsection{Continuité de la tension aux bornes du condensateur}
+\'A l'aide des oscillogrammes ci-dessus on peut vérifier qu'à l'instant $t=0$ (un peu avant et un peu après) il y a \emph{continuité de la tension} aux bornes du condensateur.
+
+Ceci se résume en écrivant : $u_C(t=0^-) = u_C(t=0^+)$.
+
+\subsubsection{Discontinuité du courant dans le circuit}
+\'A l'aide des oscillogrammes ci-dessus on peut vérifier qu'à l'instant $t=0$ (un peu avant et un peu après) il y a \emph{discontinuité du courant} dans le circuit. Ceci se résume en écrivant : $i_L(t=0^-) \ne i_L(t=0^+)$.
+
+\newpage
+
+
+\section{\'Etude d'un circuit RL}
+
+\subsection{Montage}
+Soit le montage suivant :
+
+\begin{pspicture}(-1,0)(8,4.5)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(1,3){A}
+\pnode(6,3){B}
+\resistor[intensitylabel=$i(t)$,tensionlabel=$u_R(t)$,dipoleconvention=receptor](A)(B){$R$}
+\pnode(6,0){C}
+\pnode(1,0){D}
+\coil[intensitylabel=$i(t)$,tensionlabel=$u_L(t)$,dipoleconvention=receptor,tensionlabeloffset=1.5cm](B)(C){$C$}
+\Ucc(D)(A){$e(t)$}
+\wire(D)(C)
+\end{pspicture}
+
+
+\subsection{Mise en \'equation}
+D'après la loi des mailles on a : $e(t)-u_R(t)-u_L(t)=0$.
+
+En convention récepteur sur le résistor, on a d'après la loi d'Ohm $u_R=R i(t)$.
+
+En convension récepteur, la bobine parcourue par un courant $i(t)$ a à ses bornes la tension $u_L(t)$ telle que :
+\[u_L(t)=L \frac{di(t)}{dt}\]
+
+On a ainsi $L \frac{di(t)}{dt} + R i(t)= e(t)$. Ce qui s'ecrit encore :
+
+\[\frac{di(t)}{dt} + \frac{R}{L} i(t)= \frac{e(t)}{L}\]
+
+En regardant l'équation aux dimensions (vérification des unités) de cette dernière relation on peut déduire que la grandeur $\frac{R}{L}$ est l'inverse d'un temps donc on peut, pour un circuit RL définir la constante de temps $\tau$ :
+\[\tau = \frac{L}{R}\]
+
+\subsection{\'Etablissement du courant dans la bobine}
+
+On impose le signal d'entrée e(t) suivant :
+
+\begin{pspicture}(-1,-1)(3.5,3.5)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(-1,0){A}
+\pnode(0,0){O}
+\pnode(0,2){B}
+\pnode(3,2){C}
+\rput[B]{0}(-0.25,2){$E$}
+\rput[B]{0}(-0.25,-0.5){$0$}
+\rput[B]{0}(4,-0.5){$t$}
+\rput[B]{0}(-0.5,3){$e(t)$}
+\psline{->}(0,-0.25)(0,3)
+\psline{->}(-0.25,0)(4,0)
+\psline[linecolor=red,linewidth=2pt](A)(O)
+\psline[linecolor=red,linewidth=2pt](O)(B)
+\psline[linecolor=red,linewidth=2pt](B)(C)
+\end{pspicture}
+
+\subsubsection{Allure du courant traversant la bobine}
+\begin{pspicture}(-1,-0.25)(4,1.75)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-0.25)(0,1.75) % Axe des y
+\rput{0}(4,-0.25){$t$}
+\psline{->}(-0.25,0)(4,0) % Axe des x
+\rput{0}(-0.25,1.75){$i$}
+%\psplot{0}{2}{x 1 sub} % y=x-1 (add(1+2) div(1/2) mul(1*2) sub(1-2) exp(1^2) neg abs sin cos ln log
+%\psplot{0}{4}{2.71828 x neg exp } % exp(-x)
+\psline[linecolor=red,linewidth=2pt](-1,0)(0,0)
+\psplot[linecolor=red,linewidth=2pt]{0}{4}{2.71828 x neg exp neg 1 add} % 1-exp(-x)
+\rput{0}(-0.25,1){$\frac{E}{R}$}
+\end{pspicture}
+
+\subsubsection{Allure de la tension aux bornes de la bobine}
+\begin{pspicture}(-1,-0.25)(4,1.75)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-0.25)(0,1.75) % Axe des y
+\rput{0}(4,-0.25){$t$}
+\psline{->}(-0.25,0)(4,0) % Axe des x
+\rput{0}(-0.25,1.75){$u_L$}
+%\psplot{0}{2}{x 1 sub} % y=x-1 (add(1+2) div(1/2) mul(1*2) sub(1-2) exp(1^2) neg abs sin cos ln log
+\psline[linecolor=red,linewidth=2pt](-1,0)(0,0)
+\psplot[linecolor=red,linewidth=2pt]{0}{4}{2.71828 x neg exp } % exp(-x)
+%\psplot{0}{4}{2.71828 x neg exp neg 1 add} % 1-exp(-x)
+\rput{0}(-0.25,1){$E$}
+\end{pspicture}
+
+
+\subsection{Annulation du courant dans la bobine}
+
+
+On impose le signal d'entrée e(t) suivant :
+
+\begin{pspicture}(-1,-1)(3.5,3.5)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(-1,2){A}
+\pnode(0,0){O}
+\pnode(0,2){B}
+\pnode(3,0){C}
+\rput[B]{0}(0.25,2){$E$}
+\rput[B]{0}(-0.25,-0.5){$0$}
+\rput[B]{0}(4,-0.5){$t$}
+\rput[B]{0}(-0.5,3){$e(t)$}
+\psline{->}(0,-0.25)(0,3)
+\psline{->}(-0.25,0)(4,0)
+\psline[linecolor=red,linewidth=2pt](A)(B)
+\psline[linecolor=red,linewidth=2pt](B)(O)
+\psline[linecolor=red,linewidth=2pt](O)(C)
+\end{pspicture}
+
+
+\subsubsection{Allure du courant traversant la bobine}
+\begin{pspicture}(-1,-0.25)(4,1.75)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-0.25)(0,1.75) % Axe des y
+\rput{0}(4,-0.25){$t$}
+\psline{->}(-0.25,0)(4,0) % Axe des x
+\rput{0}(-0.25,1.75){$i$}
+%\psplot{0}{2}{x 1 sub} % y=x-1 (add(1+2) div(1/2) mul(1*2) sub(1-2) exp(1^2) neg abs sin cos ln log
+\psline[linecolor=red,linewidth=2pt](-1,1)(0,1)
+\psplot[linecolor=red,linewidth=2pt]{0}{4}{2.71828 x neg exp } % exp(-x)
+%\psplot{0}{4}{2.71828 x neg exp neg 1 add} % 1-exp(-x)
+\rput{0}(0.25,1){$\frac{E}{R}$}
+\end{pspicture}
+
+\subsubsection{Allure de la tension aux bornes de la bobine}
+
+\begin{pspicture}(-1,-1.75)(4,0.25)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-1.75)(0,0.25) % Axe des y
+\rput{0}(4,-0.25){$t$}
+\psline{->}(-0.25,0)(4,0) % Axe des x
+\rput{0}(-0.25,0.25){$u_L$}
+%\psplot{0}{2}{x 1 sub} % y=x-1 (add(1+2) div(1/2) mul(1*2) sub(1-2) exp(1^2) neg abs sin cos ln log
+\psline[linecolor=red,linewidth=2pt](-1,0)(0,0)
+\psplot[linecolor=red,linewidth=2pt]{0}{4}{2.71828 x neg exp neg} % -exp(-x)
+\rput{0}(-0.25,-1){-$E$}
+\end{pspicture}
+
+
+
+\subsection{Continuité ou discontinuité des grandeurs étudiées}
+\subsubsection{Continuité  du courant dans la bobine}
+\'A l'aide des oscillogrammes ci-dessus on peut vérifier qu'à l'instant $t=0$ (un peu avant et un peu après) il y a \emph{continuité du courant} dans le circuit. Ceci se résume en écrivant :
+
+\[i_L(t=0^-) = i_L(t=0^+)\]
+
+\subsubsection{Discontinuité de la tension aux bornes de la bobine}
+\'A l'aide des oscillogrammes ci-dessus on peut vérifier qu'à l'instant $t=0$ (un peu avant et un peu après) il y a \emph{discontinuité de la tension} aux bornes de la bobine. Ceci se résume en écrivant :
+
+\[u_L(t=0^-) \ne u_L(t=0^+)\]
+
+
+
+\newpage
+
+\section{\'Etude d'un circuit RLC}
+\subsection{Montage}
+
+\begin{pspicture}(0,0)(8,7.5)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(1,6){A}
+\pnode(6,6){B}
+\resistor[intensitylabel=$i(t)$,tensionlabel=$u_R(t)$,dipoleconvention=receptor](A)(B){$R$}
+\pnode(6,3){C}
+\pnode(6,0){D}
+\pnode(1,0){E}
+\coil[intensitylabel=$i(t)$,tensionlabel=$u_L(t)$,dipoleconvention=receptor,tensionlabeloffset=1.5cm](B)(C){$C$}
+\capacitor[intensitylabel=$i(t)$,tensionlabel=$u_C(t)$,dipoleconvention=receptor,tensionlabeloffset=1.5cm](C)(D){$C$}
+\Ucc(E)(A){$e(t)$}
+\wire(E)(D)
+\end{pspicture}
+
+
+On impose le signal d'entrée e(t) suivant :
+
+\begin{pspicture}(-1,-1)(3.5,3.5)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(-1,0){A}
+\pnode(0,0){O}
+\pnode(0,2){B}
+\pnode(3,2){C}
+\rput[B]{0}(-0.25,2){$E$}
+\rput[B]{0}(-0.25,-0.5){$0$}
+\rput[B]{0}(4,-0.5){$t$}
+\rput[B]{0}(-0.5,3){$e(t)$}
+\psline{->}(0,-0.25)(0,3)
+\psline{->}(-0.25,0)(4,0)
+\psline[linecolor=red,linewidth=2pt](A)(O)
+\psline[linecolor=red,linewidth=2pt](O)(B)
+\psline[linecolor=red,linewidth=2pt](B)(C)
+\end{pspicture}
+
+
+\subsection{Mise en \'equation}
+D'après la loi des mailles on a : $e(t)-u_R(t)-u_L(t)-u_C(t)=0$.
+
+En appliquant la loi d'Ohm sur le résistor, on a $u_R(t)=R i(t)$.
+
+Pour la bobine, on a $u_L(t)=L \frac{di(t)}{dt}$ et pour le condensateur $i(t)=C \frac{du_C(t)}{dt}$.
+
+On obtient ainsi : $R i(t) + L \frac{di(t)}{dt} + u_C(t) = e(t)$
+
+On en déduit ainsi $RC \frac{du_c(t)}{dt} + LC \frac{d^2u_C(t)}{dt^2} + u_C = e(t)$.
+
+Il s'agit d'une équation différentielle du second ordre que l'on peut réécrire :
+\[\frac{d^2u_C(t)}{dt^2} + \frac{R}{L} \frac{du_c(t)}{dt} + \frac{u_C}{LC} = \frac{e(t)}{LC}\]
+
+\newpage
+
+\subsection{3 r\'egimes transitoires possibles}
+
+En faisant varier la résistance R on peut observer trois régimes de fonctionnement. La résistance $R$ joue sur l'amortisssment du système.
+
+% w0=4
+% pseudo-pérido : l=1/2 < w0 : 1-exp(-x/2)*cos(4x)
+% critique : exp(-4x)*(x-1)+1
+% apériod : l=6 > w0 : 
+
+\subsubsection{Régime pseudo-périodique}
+On obtient ce règime lorsqu'on diminue la résistance $R$. Il y a des oscillations qui sont plus ou moins amorties selon la résistance.\\
+
+\begin{pspicture}(-1,-0.25)(4.5,1.75)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-0.25)(0,1.75) % Axe des y
+\rput{0}(4,-0.25){$t$}
+\psline{->}(-0.25,0)(4,0) % Axe des x
+\rput{0}(-0.25,1.75){$u_C$}
+% add(1+2) div(1/2) mul(1*2) sub(1-2) exp(1^2) neg abs sin cos ln log
+% 1 radian = 57.296 degrees
+\psline[linecolor=red,linewidth=2pt](-1,0)(0,0)
+\psplot[linecolor=red,linewidth=2pt]{0}{4}{4 x mul 57.296 mul cos 2.71828 x 2 div neg exp mul neg 1 add} % 1-exp(-x/2)*cos(4*x)
+\rput{0}(-0.25,1){$E$}
+\end{pspicture}
+
+
+\subsubsection{Régime apériodique}
+Plus $R$ est importante plus l'amortissement du système est important car l'énergie du système est dissipée par effet Joule dans cette résistance. S'il n'y a pas d'oscillations, le régime est dit apériodique.\\
+
+\begin{pspicture}(-1,-0.25)(4.5,1.75)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-0.25)(0,1.75) % Axe des y
+\rput{0}(4,-0.25){$t$}
+\psline{->}(-0.25,0)(4,0) % Axe des x
+\rput{0}(-0.25,1.75){$u_C$}
+%\psplot{0}{4}{2.71828 x 4 mul neg exp x 1 sub mul 1 add} % exp(-4x)*(x-1)+1
+\psline[linecolor=red,linewidth=2pt](-1,0)(0,0)
+\psplot[linecolor=red,linewidth=2pt]{0}{4}{2.71818 6 x mul neg exp 2.71828 4.78 x mul exp 2.71828 4.78 x mul neg exp 0.000130 mul add mul neg 1 add}
+\rput{0}(-0.25,1){$E$}
+\end{pspicture}
+
+\subsubsection{Régime critique}
+C'est le régime limite entre les deux précédents. On peut montrer que l'on a ce régime pour une résistance critique $R_C = 2 \sqrt{\frac{L}{C}}$.\\
+
+\begin{pspicture}(-1,-0.25)(4.5,1.75)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-0.25)(0,1.75) % Axe des y
+\rput{0}(4,-0.25){$t$}
+\psline{->}(-0.25,0)(4,0) % Axe des x
+\rput{0}(-0.25,1.75){$u_C$}
+\psline[linecolor=red,linewidth=2pt](-1,0)(0,0)
+\psplot[linecolor=red,linewidth=2pt]{0}{4}{2.71828 x 4 mul neg exp x 1 sub mul 1 add} % exp(-4x)*(x-1)+1
+\rput{0}(-0.25,1){$E$}
+\end{pspicture}
+

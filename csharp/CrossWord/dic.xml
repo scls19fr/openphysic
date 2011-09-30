@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<Dictionnaries xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Dictionnary>
+    <name>OpenOffice fr_FR dictionnary</name>
+    <filename>fr_FR.dic</filename>
+  </Dictionnary>
+  <Dictionnary>
+    <name>Custom dictionnary</name>
+    <filename>perso.txt</filename>
+  </Dictionnary>
+</Dictionnaries>

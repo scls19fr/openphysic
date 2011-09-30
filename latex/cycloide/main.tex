@@ -1,0 +1,42 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[frenchb]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{pstricks}
+\usepackage{pst-plot} % \parametricplot
+
+\usepackage{lscape} % paysage
+
+\begin{document}
+
+\title{Mouvement de la valve d'une roue de vélo}
+\author{S. \textsc{CELLES}}
+\date{\null}
+
+\begin{landscape}
+
+\maketitle
+
+\thispagestyle{empty}
+
+\vspace{\stretch{1}}
+
+\begin{center}
+
+\begin{pspicture}(0,-1)(16,4)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=1.5}
+\psset{yunit=1.5}
+\parametricplot[plotpoints=20,linecolor=black,plotstyle=dots]{0}{2}{t 5 mul 2}
+\parametricplot[plotpoints=20,linecolor=black,plotstyle=dots]{0}{2}{57.26  t mul 12.5 mul neg cos 0.4 mul t 5 mul add 57.26 t mul 12.5 mul neg sin 0.4 mul}
+\end{pspicture}
+
+\end{center}
+
+\vspace{\stretch{1}}
+
+\end{landscape}
+
+\end{document}

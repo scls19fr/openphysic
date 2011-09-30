@@ -1,0 +1,220 @@
+\cours{Induction électromagnétique}
+
+\section{Mise en évidence expérimentale}
+
+\subsection{Expérience}
+\begin{itemize}
+\item L'aiguille dévie pendant la durée de l'approche de l'aimant.
+\item L'aiguille revient à zéro lorsque l'aimant devient immobile à l'intérieur de la bobine.
+\item Si on retire l'aimant l'aiguille dévie en sens opposé.
+\item Si on retourne l'aimant nous constatons la production d'un courant dans la bobine lorsque l'aimant se déplace mais le courant est en sens inverse de la 1ère expérience.
+\end{itemize}
+
+\subsection{Conclusion}
+\begin{itemize}
+\item Le courant qui parcourt la bobine à chaque fois que l'on fait varier le champ magnétique (déplacement de l'aimant dans la bobine) s'appelle courant induit.
+\item Le courant induit n'existe que pendant la variation du champ magnétique.
+\item On appelle induit la bobine parcourue le courant induit.
+\item L'aimant qui crée le champ magnétique est appelé l'inducteur.
+\item Le phénomène qui donne naissance au courant induit est l'induction électromagnétique.
+\item A chaque fois qu'on fait varier le flux magnétique à travers un circuit fermé, il apparait un courant induit.
+\end{itemize}
+
+
+\section{Flux magnétique}
+
+\subsection{Flux à travers une surface $S$}
+
+\subsubsection{Définition}
+
+\begin{itemize}
+\item La surface $S$ est entièrement plongée dans le champ magnétique.
+\item On a orienté arbitrairement le contour de la surface.
+\item Soit $\vect{n}$ la normale (perpendiculaire) à la surface $S$. Le sens est défini par la règle du tire-bouchon de Maxwell.
+\item On définit le vecteur $\vect{S} = S \vect{n}$
+\end{itemize}
+
+\[
+\Phi = \dotp{\vect{B}}{\vect{S}}
+\]
+
+\[
+\Phi = B \cdot S \cdot \cos{\alpha}
+\]
+
+\begin{unites}
+\item $B$ : champ magnétique en Tesla ($T$)
+\item $S$ : surface ($m^2$) 
+\item $\Phi$ : flux en Weber ($Wb$)
+\end{unites}
+
+
+\subsubsection{Cas particuliers}
+
+\begin{itemize}
+\item $\vect{B}$ est parallèle à $\vect{n}$\\
+  $\alpha = 0$ donc $\cos{\alpha} = 1$ donc $\Phi = B S$
+  
+\item $\vect{B}$ et $\vect{n}$ ont des sens opposés\\
+  $\alpha = \pi$ donc $\cos{\alpha} = -1$ donc $\Phi = - B S$
+  
+  
+\item $\vect{B}$ est perpendiculaire à $\vect{n}$\\
+  $\alpha = \frac{\pi}{2}$ donc $\cos{\alpha} = 0$ donc $\Phi = 0$\\
+  Aucune ligne dechamp ne traverse $S$.
+  
+  
+\end{itemize}
+
+\subsection{Flux dans une bobine}
+
+\subsubsection{Flux à travers une bobine}
+Soit une bobine avec $N$ spires de section $S$ plongée dans un champ magnétique $\vect{B}$ parallèle à l'axe.
+
+
+$\alpha = 0$ donc $\cos{\alpha} = 1$
+
+\[
+\Phi = B \cdot S \cdot N
+\]
+
+\subsubsection{Flux propre d'une bobine - Inductance}
+Une bobine parcourue par un courant $I$ produit un champ magnétique $\vect{B}$ parallèle à l'axe perpendiculaire aux spires de la bobine.
+
+Le flux à travers la bobine vaut :
+
+\[
+\Phi = B \cdot S \cdot N
+\]
+
+Or le champ magnétique au centre d'un solénoïde vaut :
+
+\[
+B = \mu_0 \frac{N \cdot I}{l}
+\]
+
+On déduit alors :
+
+\[
+\Phi = \mu_0 \frac{N \cdot I}{l} \cdot S \cdot N
+\]
+
+soit :
+
+\[
+\Phi = \mu_0 \frac{N^2 S}{l} \cdot I
+\]
+
+On pose la grandeur $L$ appelée inductance de la bobine :
+
+\[
+L = \mu_0 \frac{N^2 S}{l}
+\]
+
+On a ainsi :
+
+\[
+\Phi = L \cdot I
+\]
+
+\begin{unites}
+\item $L$ : inductance de la bobine en Henry ($H$)
+\item $\Phi$ : flux de la bobine à travers elle-même (flux propre) en Weber ($Wb$)
+\item $I$ : intensité ($A$)
+\end{unites}
+
+\section{Les lois de l'induction électromagnétique}
+
+\subsection{f.e.m. (force électromotrice) d'induction}
+Dans tout circuit où circule un courant, il doit existe un générateur qui se manifeste par une f.e.m.
+
+
+Dans notre cas, aucun générateur n'était présent mais il faut admettre qu'une force électromotrice a pris naissance et qu'il en résulte un courant induit. Cette force électromotrice porte le nom de f.e.m. d'induction (ou f.e.m. induite). Elle s'exprime en $V$.
+
+
+\subsection{Loi de Faraday}
+\begin{itemize}
+\item Toute variation de flux à travers un circuit électrique crée une f.e.m. induite.
+  
+\item Elle se manifeste par un courant induit lorsque le circuit est fermé.
+  
+\item Les phénomènes d'induction se produisent pendant que le flux varie. Il cessent dès que le flux reste constant.
+\end{itemize}
+
+\subsection{Loi de Lenz}
+\subsubsection{1\iere expression}
+\begin{itemize}
+\item Lorsqu'on approche l'aimant de la bobine, le champ inducteur (créé par l'aimant) augmente dans la bobine. Le champ magnétique créé par le courant induit est de sens opposé au champ inducteur.
+  
+  
+\item Lorsqu'on éloigne l'aimant de la bobine le champ inducteur (créé par l'aimant) diminue dans la bobine. Le champ magnétique créé par le courant induit est de même sens que celui du champ inducteur.\\
+  Le sens du courant induit est tel les forces électromagnétiques qu'il crée s'opposent au déplacement qui lui donne naissance.
+  
+\end{itemize}
+
+\subsubsection{2\ieme expression}
+Le sens du courant induit est tel que le flux magnétique qu'il crée à travers l'induit (bobine) s'oppose à la variation du flux qui lui donne naissance.
+
+
+\subsection{Loi de Lenz-Faraday}
+
+La f.e.m. induite dans un circuit ou le flux magnétique $\Phi$ varie en fonction du temps $t$ est donné par la relation :
+
+\[
+e = -\frac{\mbox{d}\Phi}{\mbox{d}t}
+\]
+
+\begin{unites}
+\item $e$ : f.e.m. induite ($V$) 
+\item $\Phi$ : flux ($Wb$)
+\item $t$ : temps ($s$)
+\end{unites}
+
+\section{Applications de l'induction}
+\subsection{Les alternateurs}
+\subsubsection{Principe}
+On obtient une f.e.m. sinusoïdale en faisant tourner un aimant devant une bobine fixe.
+
+\exemple{
+  la dynamo d'un vélo
+}
+
+\subsubsection{Constitution}
+Un alternateur comprend deux partie principales :
+
+\begin{itemize}
+\item une partie tournante : le rotor\\
+  C'est l'inducteur (il remplace l'aimant). Il est formé de bobines à noyau de fer doux parcouru par un courant continu.
+  
+\item une partie fixe : le stator\\
+  C'est un ensemble de bobines associéesen série afin que les f.e.m. induite s'ajoutent pour obtenir une f.e.m. sinusoïdale. C'est l'induit.
+\end{itemize}
+
+% Attention : inducteur/induit stator/rotor inversé par rapport à une MCC
+
+
+Lorsque l'inducteur (rotor) est parcouru par un courant continu, il produit un champ magnétique.
+
+
+Comme le rotor tourne autour d'un axe $\Delta$ à l'intérieur du stator, le flux à travers les bobines du stator varie et il apparait une f.e.m. alternative sinusoïdale aux bornes de l'induit (stator).
+
+\subsection{Freinage par courants de Foucault}
+
+Les courants induits dans les masses métalliques soumises à des variations de flux sont appelés les courants de Foucault.
+
+On les trouve dans :
+\begin{itemize}
+\item le circuit magnétique d'un transformateur
+\item les noyaux de fer autour desquels sont enroulées les bobines d'induit des alternateurs.
+\end{itemize}
+
+Ces courants produisent des pertes d'énergie par effet Joule. Ils obéissent à la loi de Lentz en s'opposant à la cause qui leur donne naissance.
+
+On les utilise notamment pour freiner des masses métalliques en mouvement.
+
+\begin{itemize}
+\item freinages de machines, ralentisseurs de camions
+\item amortissement des appareils de mesure à aiguille
+\end{itemize}
+
+Ils sont à la base du fonctionnement des moteurs asynchrones.

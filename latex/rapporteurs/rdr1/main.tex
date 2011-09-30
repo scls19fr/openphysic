@@ -1,0 +1,27 @@
+\documentclass{article}
+\usepackage{pstricks,multido}
+\usepackage[latin1]{inputenc}%
+\usepackage[a4paper]{geometry}
+% \author{Dominique Rodriguez}
+% \title{Rapporteurs}
+\pagestyle{empty}
+\begin{document}
+% \maketitle
+% \begin{itemize}
+% \item un demi-cercle ;
+% \item un cercle ;
+% \item un rapporteur équerre (plus facile à découper pour les élèves).
+% \end{itemize}
+\sffamily
+\psset{unit=1.3, dimen=middle}
+\SpecialCoor
+%%demi-cercle
+\begin{pspicture}(-6,-1)(6,6)
+  \pswedge{5}{0}{180}
+  \multido{\n=1+1}{179}{\psline[linewidth=.25\pslinewidth](4.8;\n)(5;\n)}
+  \multido{\n=5+10}{17}{\psline[linewidth=.5\pslinewidth](4.6;\n)(5;\n)}
+  \multido{\n=10+10}{17}{%
+    \psline[linewidth=.4pt, linecolor=gray](0;\n)(5;\n)
+    \rput*{U}(4;\n){\n}}
+\end{pspicture}
+\end{document}

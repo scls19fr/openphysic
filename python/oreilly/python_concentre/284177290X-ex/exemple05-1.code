@@ -1,0 +1,70 @@
+import warnings
+class MetaMetaBunch(type):
+    """
+    Métaclasse pour améliorer la classe "Bunch": définit
+    implicitement __slots__, __init__ et __repr__ à partir des
+    variables liées dans la portée de la classe.
+    Une instruction de classe pour une instance de MetaMetaBunch
+    (c.-à-d. pour une classe dont la métaclasse est MetaMetaBunch) ne
+    doit définir que des attributs ayant une portée de classe (et
+    éventuellement des méthodes spéciales, mais PAS __init__ ni 
+    __repr__ !). MetaMetaBunch supprime les attributs de la portée de
+    classe, et les place comme éléments d'un dictionnaire __defauts__,
+    ayant une portée de classe, met dans la classe un __slots__ avec
+    ces noms d'attributs, une méthode __init__ qui prend en paramètres
+    optionnels chacun d'entre eux (en utilisant les valeurs de
+    __defauts__ comme valeurs par défaut pour ceux qui manquent), et une
+    méthode __repr__ qui produit la représentation de chaque attribut
+    différent de sa valeur par défaut (le résultat de  __repr__ peut
+    être passé à  __eval__ pour créer une instance identique, comme
+    c'est la convention si chaque attribut n'ayant pas la valeur par
+    défaut respecte également cette convention) 
+    """
+    def __new__(classe, nomClasse, bases, dictClasse):
+        """ Tout doit être fait dans __new__, car c'est dans
+        type.__new__ que les __slots__ sont pris en compte.
+        """
+        # Définit __init__ et __repr__ comme fonctions locales, que
+        # nous utiliserons dans la nouvelle classe
+        def __init__(self, **mots):
+            """ __init__ simplissime : on initialise d'abord tous les
+            attributs avec leurs valeurs par défaut, puis on surcharge
+            ceux que l'on a passé dans le paramètre mots.
+            """
+            for k in self.__defauts__: setattr(self, k, self.__defauts__[k])
+            for k in mots: setattr(self, k, mots[k])
+        def __repr__(self):
+            """ __repr__ astucieux : ne montre que les attributs qui
+            n'ont pas leur valeur par défaut, par souci de compacité.
+            """
+            rep = ['%s = %r' % (k, getattr(self, k)) for k in self.__defauts__
+                    if getattr(self, k) != self.__defauts__[k]
+                  ]
+            return '%s(%s)' % (nomClasse, ', '.join(rep))
+        # Construit nouveauDict que nous utiliserons comme
+        # dictionnaire de classe pour la nouvelle classe
+        nouveauDict = { '__slots__':[], '__defauts__':{},
+            '__init__':__init__, '__repr__':__repr__, }
+        for k in dictClasse:
+            if k.startswith('__') and k.endswith('__'):
+                # méthodes spéciales : copie vers nouveauDict, avertit
+                # des conflits
+                if k in nouveauDict:
+                    warnings.warn("Impossible d'initialiser l'attribut %r \
+                        dans la classe %r" % (k, nomClasse))
+                else:
+                    nouveauDict[k] = dictClasse[k]
+            else:
+                # Variables de classe, stocke les noms dans __slots__,
+                # et le nom et la valeur comme élément de  __defauts__
+                nouveauDict['__slots__'].append(k)
+                nouveauDict['__defauts__'][k] = dictClasse[k]
+        # Enfin, délègue le reste du travail à type.__new__
+        return type.__new__(classe, nomClasse, bases, nouveauDict)
+class MetaBunch(object):
+    """ Par commodité : on peut hériter de MetaBunch pour avoir la
+    nouvelle méta-classe (c'est comme définir __metaclass__
+    vous-même).
+    """
+    __metaclass__ = MetaMetaBunch
+

@@ -1,0 +1,49 @@
+%Filename: t1nnt.fd
+%Created by: tex Fam_2488
+%Created using fontinst v1.800
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{t1nnt.fd}
+   [1998/11/05 Fontinst v1.800 font definitions for T1/nnt.]
+
+\DeclareFontFamily{T1}{nnt}{}
+
+\DeclareFontShape{T1}{nnt}{m}{n}{
+   <-> nntr8t
+}{}
+
+\DeclareFontShape{T1}{nnt}{m}{sc}{
+   <-> nntrc8t
+}{}
+
+\DeclareFontShape{T1}{nnt}{m}{sl}{
+   <-> nntro8t
+}{}
+
+\DeclareFontShape{T1}{nnt}{m}{it}{
+   <-> nntri8t
+}{}
+
+\DeclareFontShape{T1}{nnt}{b}{n}{
+   <-> nntb8t
+}{}
+
+\DeclareFontShape{T1}{nnt}{b}{sc}{
+   <-> nntbc8t
+}{}
+
+\DeclareFontShape{T1}{nnt}{b}{sl}{
+   <-> nntbo8t
+}{}
+
+\DeclareFontShape{T1}{nnt}{b}{it}{
+   <-> nntbi8t
+}{}
+
+\DeclareFontShape{T1}{nnt}{bx}{n}{<->ssub * nnt/b/n}{}
+\DeclareFontShape{T1}{nnt}{bx}{sc}{<->ssub * nnt/b/sc}{}
+\DeclareFontShape{T1}{nnt}{bx}{sl}{<->ssub * nnt/b/sl}{}
+\DeclareFontShape{T1}{nnt}{bx}{it}{<->ssub * nnt/b/it}{}
+
+\endinput

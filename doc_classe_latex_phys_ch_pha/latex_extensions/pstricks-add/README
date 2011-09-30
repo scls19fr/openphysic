@@ -1,0 +1,50 @@
+pstricks-add redefines a lot of the pstricks macros and uses the extended 
+version of the keyval package. So be sure that you 
+- pstricks-add depends on the pstricks.pro Version 1.00, 2005/09/18
+  you can get it from http://perce.de/LaTeX/pstricks/ or CTAN
+- load pstricks-add at last pstricks related package
+- have installed xkeyval with the special pst-xkey
+  (CTAN: tex-archive/macros/latex/contrib/xkeyval/)
+- do not load another package after pstricks-add, which loads
+  the old keyval.sty or pst-key.tex
+
+pstricks-add collects a lot of the code which was posted
+to the pstricks mailing list and has some more new features:
+
+- pstricks
+   o define and calculate colors on PS side
+   o Gouraud shading
+   o braces as node connection/linestyle
+   o line style bar
+   o arrows, arrows, arrows, ...
+
+- pst-plot
+   o new environment psgraph
+   o new macro pstScalePoints
+   o new option for logarithmic axes
+   o new macro and options for ticklines
+   o new plot option bar and option barwidth
+   o new options step, start end for plotting data files
+   o new options xLabel, yLabel
+   o new option plotNo for multiple data files x y1 y2 y3 ...
+   o new macro psplotTangent
+   o new macro psplotDiffEqn
+   o new option algebraic for infix notation
+   o new option changeOrder 
+
+- pst-node
+   o new macro nclineII for a two-colored line
+   o new option lineAngle for ncdiag
+   o new macros for interpolation nodes
+     and linear combination of two vectors
+   o new macro ncbarr (line with 5 segments)
+
+
+pstricks-add.pro    : the prolog file for pstricks-add
+pstricks-add-doc.ltx: the main doc file
+pstricks-add-doc.tex: the included doc file
+
+Save the files pstricks-add.sty|tex|pro in the TeX tree, 
+where the pstricks-add.pro file should go in texmf/dvips/pstricks/, then 
+run texhash or mktexlsr to update the TeX file base.
+The document needs the data files in example/.

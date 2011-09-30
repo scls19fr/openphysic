@@ -1,0 +1,162 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[francais]{babel}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pst-plot}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+
+\usepackage{geometry}
+\geometry{ hmargin=0cm, vmargin=0cm,lmargin=0cm }
+
+ \edef\PstAtCode{\the\catcode`\@}
+ \catcode`\@=11\relax
+
+
+\newrgbcolor{color}{0 0 0} % black
+
+\def\psmillidef{%
+  \begingroup%
+  \psset{linecolor=color}%
+  \def\pst@par{}%
+  \begin@SpecialObj%
+    \pssetxlength\pst@dimg{1cm}
+    \pssetylength\pst@dimh{1cm}
+    \addto@pscode{%
+      /x0 \pst@number\pst@dima \pst@number\pst@dimg div round \pst@number\pst@dimg mul def%
+      /y0 \pst@number\pst@dimb \pst@number\pst@dimh div round \pst@number\pst@dimh mul def%
+      /x1 \pst@number\pst@dimc \pst@number\pst@dimg div round \pst@number\pst@dimg mul def%
+      /y1 \pst@number\pst@dimd \pst@number\pst@dimh div round \pst@number\pst@dimh mul def}%
+    \addto@pscode{.75 SLW x0 \pst@number\pst@dimg x1 {dup y0 moveto y1 lineto} for stroke}%
+    \addto@pscode{.75 SLW newpath y0 \pst@number\pst@dimg y1 {dup x0 exch moveto x1 exch lineto} for stroke}%
+    \addto@pscode{.3 SLW newpath x0 \pst@number\pst@dimg 2 div x1 {dup y0 moveto y1 lineto} for stroke}%
+    \addto@pscode{.3 SLW newpath y0 \pst@number\pst@dimh 2 div y1 {dup x0 exch moveto x1 exch lineto} for stroke}%
+    \addto@pscode{.15 SLW newpath x0 \pst@number\pst@dimh 10 div x1 {dup y0 moveto y1 lineto} for stroke}%
+    \addto@pscode{.15 SLW newpath y0 \pst@number\pst@dimh 10 div y1 {dup x0 exch moveto x1 exch lineto} for stroke}%
+  \end@SpecialObj%
+  \endgroup}%
+     
+
+\newcommand{\psmilli}{%
+%  \psmilliblack
+%  \psmillicolor
+  \psmilligray{0.5}
+}
+
+
+\newcommand{\psmilliblack}{%
+  \newrgbcolor{color}{0 0 0}
+  \psmillidef
+}
+
+\newcommand{\psmillicolor}{%
+  \newrgbcolor{color}{.75 .50 .30} % bistre
+  \psmillidef
+}
+
+\newcommand{\psmilligray}[1]{%
+  \newrgbcolor{color}{#1 #1 #1}
+  \psmillidef
+}
+%\psmilligray{0.25} % gris foncé
+%\psmilligray{0.75} % gris clair
+
+
+
+\begin{document}
+
+%\vspace*{\stretch{1}}
+\vspace*{1.2cm} \hspace{1cm}
+
+\begin{center}
+
+\begin{pspicture}(-10,-13)(10,14)
+%  \psmilli
+%  \psmilliblack
+%  \psmillicolor
+  \psmilligray{0.5}
+\end{pspicture}
+
+\end{center}
+
+%\vspace*{\stretch{1}}
+
+\newpage
+
+\vspace*{1.2cm} \hspace{1cm}
+
+\begin{center}
+
+\begin{pspicture}(-10,-13)(10,14)
+%  \psmilli
+%  \psmilliblack
+  \psmillicolor
+%  \psmilligray{0.5}
+\end{pspicture}
+
+\end{center}
+
+\newpage
+
+\vspace*{1.2cm} \hspace{1cm}
+
+\begin{center}
+
+\begin{pspicture}(-10,-13)(10,14)
+%  \psmilli
+  \psmilliblack
+%  \psmillicolor
+%  \psmilligray{0.5}
+\end{pspicture}
+
+\end{center}
+
+\newpage
+
+\vspace*{1.2cm} \hspace{1cm}
+
+\begin{center}
+
+\begin{pspicture}(-10,-13)(10,14)
+%  \psmilli
+%  \psmilliblack
+%  \psmillicolor
+  \psmilligray{0.25}
+\end{pspicture}
+
+\end{center}
+
+\newpage
+
+\vspace*{1.2cm} \hspace{1cm}
+
+\begin{center}
+
+\begin{pspicture}(-10,-13)(10,14)
+%  \psmilli
+%  \psmilliblack
+%  \psmillicolor
+  \psmilligray{0.5}
+\end{pspicture}
+
+\end{center}
+
+\newpage
+
+\vspace*{1.2cm} \hspace{1cm}
+
+\begin{center}
+
+\begin{pspicture}(-10,-13)(10,14)
+%  \psmilli
+%  \psmilliblack
+%  \psmillicolor
+  \psmilligray{0.75}
+\end{pspicture}
+
+\end{center}
+
+
+\end{document}

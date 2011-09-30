@@ -1,0 +1,57 @@
+; ************************************************************
+; PROJECT:
+; AUTHOR:
+; ************************************************************
+
+; Micro + software running
+; ------------------------------------------------------------
+.MICRO "ATmega8535"
+.TOOLCHAIN "GCC"
+.GCCPATH   "C:\WinAVR"
+.GCCMAKE   AUTO
+.TARGET    "timer.hex"
+.SOURCE    "timer.c"
+
+.TRACE              ; Activate micro trace
+
+; Following lines are optional; if not included
+; exactly these values are taken by default
+; ------------------------------------------------------------
+.POWER VDD=5 VSS=0  ; Power nodes
+.CLOCK 1meg         ; Micro clock
+.STORE 250m         ; Trace (micro+signals) storage time
+
+; Micro nodes: RESET, PB0-PB7, PD0-PD7, PE0-PE2, ACO, TIM1OVF
+; Define here the hardware around the micro
+; ------------------------------------------------------------
+
+;;;;;;;;
+; LEDs ;  Port C
+;;;;;;;;
+; R1 et D1 en serie entre masse et PC0
+D1 VDD D1_NODE
+R1 D1_NODE PC0 0.62K
+; R2 et D2 en serie entre masse et PC1
+D2 VDD D2_NODE
+R2 D2_NODE PC1 0.62K
+;
+D3 VDD D3_NODE
+R3 D3_NODE PC2 0.62K
+;
+D4 VDD D4_NODE
+R4 D4_NODE PC3 0.62K
+;
+D5 VDD D5_NODE
+R5 D5_NODE PC4 0.62K
+;
+D6 VDD D6_NODE
+R6 D6_NODE PC5 0.62K
+;
+D7 VDD D7_NODE
+R7 D7_NODE PC6 0.62K
+;
+D8 VDD D8_NODE
+R8 D8_NODE PC7 0.62K
+
+.PLOT V(PC1)
+

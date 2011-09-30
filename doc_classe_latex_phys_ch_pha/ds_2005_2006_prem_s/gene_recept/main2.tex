@@ -1,0 +1,117 @@
+%\doc{}
+
+
+\renewcommand{\reproduire}{%
+%\doc{\'Electricité en courant continu}
+
+
+\titredoc{\'Electricité en courant continu}
+
+
+
+\vressort{1}
+
+\nomprenomclasse
+
+\vressort{1}
+
+%\setcounter{numexercice}{0}
+\begin{exercice}{\'Etude d'un électrolyseur}\\
+Une pile de force électromotrice $E = 6~V$ et de résistance $r =
+2~\Ohm$ est associée en série avec un électrolyseur de force contre
+électromotrice $E' = 2~V$ et de résistance $r' = 0,1~\Ohm$.
+
+\begin{enumerate}
+\item Faire le schéma du montage.
+
+\item Simplifier le schéma du montage en remplaçant la pile et
+  l'électrolyseur par deux générateurs idéaux de tension ($E$ et $E'$)
+  et deux résistances ($r$ et $r'$).
+
+\item Calculer l'intensité du courant dans ce circuit.
+
+\item Exprimer littéralement puis calculer :
+
+  \begin{enumerate}
+  \item la puissance chimique stockée par la pile
+  \item la puissance électrique disponible aux bornes de la pile
+  \item la puissance électrique reçue par l'électrolyseur
+  \item la puissance électrique utile, utilisée pour réaliser des
+    transformations chimiques
+
+  \end{enumerate}
+
+\item Définir et calculer le rendement de l'électrolyseur.
+
+\item Définir et calculer le rendement du montage dans son ensemble.
+\end{enumerate}
+\end{exercice}
+
+\vressort{1}
+
+\begin{exercice}{Association de résistances}\\
+
+\begin{center}
+\begin{pspicture}(0,-2)(10,3)
+\wire[intensitylabel=$I$](-1,0)(A)
+
+\pnode(0,0){A}
+\pnode(4,0){B}
+\pnode(6,0){C}
+\pnode(10,0){D}
+
+\wire(D)(11,0)
+
+\resistor[parallel,parallelarm=1.5,intensitylabel=$I_1$](A)(B){$R_1$}
+\resistor[parallel,parallelarm=-1.5,intensitylabel=$I_2$](A)(B){$R_2$}
+
+\wire(B)(C)
+
+\resistor[parallel,parallelarm=1.5,intensitylabel=$I_3$](C)(D){$R_3$}
+\resistor[parallel,parallelarm=-1.5,intensitylabel=$I_4$](C)(D){$R_4$}
+
+\psline{<-}(-1,3)(11,3) \rput{0}(5,3.25){$U$}
+\end{pspicture}
+\end{center}
+
+\donnees{
+\item $U = 12~V$
+\item $R_1 = 8~\Ohm$
+\item $R_2 = 2~\Ohm$
+\item $R_3 = 8~\Ohm$
+\item $R_4 = 12~\Ohm$
+}
+
+\begin{enumerate}
+\item Déterminer $R_{\mbox{\'eq1}}$ association de $R_1$ et $R_2$.
+\item Déterminer $R_{\mbox{\'eq2}}$ association de $R_3$ et $R_4$ . 
+\item Calculer l'intensité $I$ du courant dans la branche principale.
+\item Déterminer la tension $U_1$ aux bornes de  $R_{\mbox{\'eq1}}$.
+\item Déterminer la tension $U_2$ aux bornes de  $R_{\mbox{\'eq2}}$.
+\item Déterminer les intensités des courants $I_1$, $I_2$, $I_3$ et $I_4$.
+\item Calculer la puissance dissipée par effet Joule dans chaque
+  résistance et indiquer dans laquelle elle est la plus grande.
+\end{enumerate}
+\end{exercice}
+\setcounter{numexercice}{0}
+}
+
+%\setcouter{exo}{0}
+
+\thispagestyle{empty}
+
+\reproduire
+
+%\vressort{1}
+
+%\reproduire
+
+\newpage
+\thispagestyle{empty}
+
+\reproduire
+
+%\vressort{1}
+
+%\reproduire
+

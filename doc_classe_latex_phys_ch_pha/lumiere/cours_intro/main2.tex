@@ -1,0 +1,362 @@
+\cours{La lumière}
+
+\Section*{Introduction : Qu'est-ce que la lumière ?}
+
+\frame{
+\frametitle{\insertsectionhead}
+\pause
+Il existe \textbf{deux modèles} pour décrire la lumière.
+}
+
+\Subsection{Modèle ondulatoire}
+\frame{
+\frametitle{\insertsubsectionhead}
+\pause
+La lumière est assimilée à une onde électromagnétique.
+}
+
+\Subsection{Modèle corpusculaire}
+\frame{
+\frametitle{\insertsubsectionhead}
+\pause
+La lumière est assimilée à des grains d'énergie qui se propagent.
+}
+
+\Section{La lumière est une onde}
+
+\frame{
+\frametitle{\insertsectionhead}
+\pause
+
+La lumière est une onde électromagnétique à laquelle notre oeil est sensible.
+
+\pause
+
+L'émission de lumière est due à la vibration des électrons périphériques des atomes qui constituent la source.
+}
+
+
+\frame{
+
+\begin{center}
+  \begin{figure}[H]
+    \includegraphics[width=7cm]{lumiere/cours_intro/Image3.gif.eps}
+    \caption{Propagation d'une onde électromagnétique}
+  \end{figure}
+\end{center}
+
+}
+
+\frame{
+
+\`A toute onde électromagnétique correspond :
+\pause
+    \begin{itemize}
+    \item dans le temps : une période T (période temporelle)
+\pause
+    \item dans l'espace : une longueur d'onde $\lambda$ (période spatiale)
+      \begin{itemize}
+\pause
+      \item[] $\lambda$ est la distance parcourue par l'onde pendant la période temporelle $T$
+      \end{itemize}
+    \end{itemize}
+}
+
+
+\frame{
+
+Sur le schéma suivant on représente l'évolution de champ électrique
+$E$ en un point donné au fil du temps ($t$).
+
+\pause
+
+\begin{center}
+  \begin{figure}[H]
+    \begin{pspicture}(-1,-1.5)(7,1.5)
+      % \psgrid[subgriddiv=1,griddots=10]
+      \psset{xunit=1}
+      \psset{yunit=1}
+      \psline{->}(0,-1.5)(0,1.4) % Axe des y
+      \psline{->}(-0.25,0)(7,0) % Axe des x
+%\pause
+      \rput{0}(-0.25,1.5){$E$}
+%\pause
+      \rput{0}(7,-0.25){\textcolor{red}{$t$}}
+\pause
+      \psplot[linecolor=red,linewidth=2pt]{0}{6.28}{x 57.3 mul 4 mul
+        sin}
+\pause
+      \rput{0}(1.57,-0.25){$T$}
+\pause
+      \rput{0}(3.14,-0.25){$2T$}
+    \end{pspicture}
+  \end{figure}
+\end{center}
+
+\pause
+
+  On note sur ce graphique la période temporelle $T$ (en $s$) 
+  
+\pause
+
+  et un de ses multiples $2T$.
+
+}
+
+\pagebreak
+
+\frame{
+
+Sur le schéma suivant on représente l'évolution de champ électrique
+$E$ à un instant donné selon la position d'observation ($x$).
+
+\pause
+
+\begin{center}
+  \begin{figure}[H]
+    \begin{pspicture}(-1,-1.5)(7,1.5)
+      % \psgrid[subgriddiv=1,griddots=10]
+      \psset{xunit=1}
+      \psset{yunit=1}
+      \psline{->}(0,-1.5)(0,1.4) % Axe des y
+      \psline{->}(-0.25,0)(7,0) % Axe des x
+%\pause
+      \rput{0}(-0.25,1.5){$E$}
+%\pause
+      \rput{0}(7,-0.25){\textcolor{red}{$x$}}
+\pause
+      \psplot[linecolor=red,linewidth=2pt]{0}{6.28}{x 57.3 mul 4 mul
+        sin}
+\pause
+      \rput{0}(1.57,-0.25){$\lambda$}
+\pause
+      \rput{0}(3.14,-0.25){$2\lambda$}
+\pause
+      \rput{0}(-0.25,0.25){$O$}
+\pause
+      \rput{0}(1.57,0.25){$O'$}
+\pause
+      \rput{0}(1.18,-1.25){$A$}
+\pause
+      \rput{0}(2.74,-1.25){$B$}
+    \end{pspicture}
+  \end{figure}
+\end{center}
+
+\pause
+
+  On note sur ce graphique la période spatiale $\lambda$ (en m)
+  
+\pause
+
+  On remarque que les points O et O' sont dans le même état vibratoire : on dit qu'ils sont en phase.
+ 
+\pause
+
+  Les points A et B sont également en phase.
+}
+
+\frame{
+  \begin{itemize}
+  \item Une lumière monochromatique correspond à une vibration à une
+    fréquence unique.
+    \pause
+  \item En général, la lumière est la superposition de différentes
+    longueur d'onde.
+    \pause
+  \item La lumière blanche peut être décomposée par un prisme pour
+    former un spectre.
+    \pause
+  \item Le spectre visible est le domaine de radiation pouvant être
+    captées par notre oeil.\\
+    \pause
+La longueur d'onde dans le vide $\lambda_0$ doit être comprise entre
+$400~nm$ (violet) et $800~nm$ (rouge) pour être visible par l'oeil
+humain.\\
+\pause
+Au dessus de $800~nm$ c'est le domaine de l'infra-rouge.\\
+\pause
+En dessous de $400~nm$ c'est le domaine de l'ultra-violet.
+  \end{itemize} 
+}
+
+\frame{
+\begin{center}
+  \begin{figure}[H]
+    \includegraphics[width=9cm]{lumiere/cours_intro/image003.gif.eps}
+    \caption{Spectre de la lumière blanche}
+  \end{figure}
+\end{center}
+}
+
+\frame{
+\begin{center}
+  \begin{figure}[H]
+    \includegraphics[width=9cm]{lumiere/cours_intro/623_1533_spectre_complet.jpg.eps}
+    \caption{Spectre électromagnétique}
+  \end{figure}
+\end{center}
+}
+
+\frame{
+\begin{center}
+  \begin{figure}[H]
+    \includegraphics[width=11cm]{lumiere/cours_intro/Spectre_onde_electromagnetique.png.eps}
+    \caption{Spectre électromagnétique (résumé)}
+  \end{figure}
+\end{center}
+}
+
+\pagebreak
+
+\frame{
+
+  La vitesse de propagation dépend du milieu traversée.\\
+
+\pause
+
+  Celui-ci est caractérisé par son indice de réfraction noté $n$.
+
+\pause
+
+  \[n=\frac{c_0}{c}\]
+
+\pause
+
+\begin{unites}
+\item  $c_0$ : vitesse de propagation (célérité) de la lumière dans le vide
+  ($c_0 \approx 3.10^8~m/s$)
+
+\pause
+
+\item $c$ : vitesse de propagation de la lumière dans le milieu de
+  propagation (en $m/s$)
+\end{unites}
+
+\pause
+
+  \emph{Remarque :} $n$ est toujours supérieur à $1$ car la vitesse de propagation dans un milieu quelconque est toujours inférieure à la vitesse de propagation dans le vide.
+
+}
+
+
+\frame{
+
+  La longueur d'onde de la lumière $\lambda$ (dans un milieu donné) est définie par :
+
+\pause
+
+  \[\lambda = c T = \frac{c}{\nu}\]
+
+\pause
+
+\begin{unites}
+\item  $c$ : vitesse de propagation de la lumière dans le milieu de
+  propagation (en $m/s$)
+\pause
+\item  $T$ : période temporelle $T$ (en $s$)
+\pause
+\item  $\nu$ : fréquence de l'onde (en $Hz$)
+\end{unites}
+
+\pause
+
+\[\nu = \frac{1}{T}\]
+
+}
+
+
+\Section{Caractère corpusculaire de la lumière}
+
+\frame{
+\frametitle{\insertsectionhead}
+%\pause
+}
+
+\Subsection{Expérience}
+
+\frame{
+\frametitle{\insertsubsectionhead}
+\pause
+
+
+    On éclaire une plaque de zinc avec une lumière violette.
+
+\pause
+  
+    Des électrons sont arrachés à la plaque grâce à l'énergie cédée par la lumière.
+
+\pause
+
+    Ces électrons échappent à l'emprise des atomes de zinc.
+
+\pause
+
+
+    La même expérience avec une lumière rouge ne produit aucun effet
+    (même si on prolonge l'éclairage ou si l'on éclaire plus
+    intensément)
+
+
+}
+
+\Subsection{Interprétations}
+
+\frame{
+\frametitle{\insertsubsectionhead}
+\pause
+    
+    La lumière ne lâche pas son énergie de manière continue mais par paquets.
+  
+\pause
+
+    Ces paquets d'énergie sont plus au moins importants selon les couleurs.
+    
+\pause
+    
+    L'atome ne laisse partir un électron que si le paquet reçu possède
+    une certaine valeur minimale.
+
+\pause
+    
+    La lumière rouge ne possède pas cette valeur minimale d'énergie
+    (alors que la lumière violette la possède)
+
+\pause
+    
+    On peut dire que la lumière se comporte comme un flux de
+    particules infiniment petites, sans masse ni charge appelées
+    \emph{photons}.
+
+}
+
+
+\frame{
+  \`A une lumière monochromatique de fréquence $\nu$ et de longueur
+  d'onde $\lambda = \frac{c}{\nu}$,
+
+\pause
+
+  on associe des photons d'énergie $E$ telle que :
+
+\pause
+
+  \[E = h \nu\]
+
+\pause
+
+\begin{unites}
+\item  $h$ : constante de Planck $h=6,626.10^{-34}J.s$
+
+\pause
+
+\item  $E$ : énergie en Joule ($J$) ou parfois en électron-volt\\
+ $1~eV = 1,6.10^{-19}~J$
+\end{unites}
+
+}
+
+\newpage
+
+\null
+

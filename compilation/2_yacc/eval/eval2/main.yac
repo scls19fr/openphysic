@@ -1,0 +1,44 @@
+    /* -- evalv2.yac --
+       Evaluation d'une expression
+       Partie analyseur grammatical.
+    */
+
+%token  Tnb
+%start  EXPR_CALCS
+
+%%
+EXPR_CALCS : EXPR_CALC              
+           | EXPR_CALCS EXPR_CALC   
+           ;
+
+EXPR_CALC : EXPR_NUM '='            {printf ("%d\n", $1);}
+          ;
+
+EXPR_NUM : FACTEUR                  
+         | EXPR_NUM '+' FACTEUR     {$$ = $1 + $3;}
+         | EXPR_NUM '-' FACTEUR     {$$ = $1 - $3;}
+         ;
+
+FACTEUR  : TERME                    
+         | FACTEUR '*' TERME        {$$ = $1 * $3;}
+         | FACTEUR '/' TERME        {$$ = $1 / $3;}
+         ;
+
+TERME    : Tnb                      {$$ = $1;}
+         | '(' EXPR_NUM ')'         {$$ = $2;}
+         ;
+
+%%
+
+#include <stdio.h>
+#include "lex.yy.c"
+
+yyerror (char * error) {}
+
+int main()
+{
+ if ( yyparse() != 0 )
+    { fprintf(stderr,"Syntaxe incorrecte\n"); return 1; }
+ else
+    return 0;
+}

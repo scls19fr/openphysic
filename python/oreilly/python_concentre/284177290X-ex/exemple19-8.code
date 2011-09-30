@@ -1,0 +1,31 @@
+import asyncore, asynchat, socket
+
+class SocketServeurPrincipale(asyncore.dispatcher):
+    def __init__(self, port):
+        print 'Début SSP'
+        asyncore.dispatcher.__init__(self)
+        self.create_socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.bind(('', port))
+        self.listen(5)
+    def handle_accept(self):
+        newSocket, adresse = self.accept()
+        print "Connexion de", adresse
+        SocketServeurSecondaire(newSocket)
+
+class SocketServeurSecondaire(asynchat.async_chat):
+    def __init__(self, *args):
+        print 'Début SSS'
+        asynchat.async_chat.__init__(self, *args)
+        self.set_terminator('\n')
+        self.data = []
+    def collect_incoming_data(self, donnees):
+        self.data.append(donnees)
+    def found_terminator(self):
+        self.push(''.join(self.data))
+        self.data = []
+    def handle_close(self):
+        print "Déconnexion de", self.getpeername()
+        self.close()
+
+SocketServeurPrincipale(8881)
+asyncore.loop()

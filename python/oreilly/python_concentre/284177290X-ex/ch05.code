@@ -1,0 +1,403 @@
+class C1:
+    x = 23
+print C1.x                        # Affiche : 23
+
+----------
+
+class C2: pass
+C2.x = 23
+print C2.x                        # Affiche : 23
+
+----------
+
+C1.y = 45
+C1.__dict__['z'] = 67
+print C1.x, C1.y, C1.z            # Affiche : 23 45 67
+
+----------
+
+class C3:
+    x = 23
+    y = x + 22                    # On doit utiliser uniquement x, pas C3.x
+
+----------
+
+class C4:
+    x = 23
+    def uneMethode(self):
+        print C4.x                # On doit utiliser C4.x, pas uniquement x
+
+----------
+
+class C5:
+    def hello(self):
+        print "Hello"
+
+----------
+
+uneInstance = C5( )
+
+----------
+
+class C6:
+    def __init__(self, n):
+        self.x = n
+
+----------
+
+uneAutreInstance = C6(42)
+
+----------
+
+uneInstance.hello()                # Affiche : Hello
+print uneAutreInstance.x           # Affiche : 42
+
+----------
+
+class C7: pass
+z = C7()
+z.x = 23
+print z.x                          # Affiche : 23
+
+----------
+
+print z.__class__.__name__, z.__dict__     # Affiche : C7 {'x': 23}
+
+---------
+
+z.y = 45
+z.__dict__['z'] = 67
+print z.x, z.y, z.z                # Affiche : 23 45 67
+
+----------
+
+class CasSpecial:
+    def uneMethode(self): print "spécial"
+class CasNormal:
+    def uneMethode(self): print "normal"
+def casQuiConvient(estNormal = True):
+    if estNormal: return CasNormal()
+    else: return CasSpecial()
+uneInstance = casQuiConvient(estNormal = False)
+uneInstance.uneMethode()          # Affiche "spécial", comme on s'y attend
+
+----------
+
+class B:
+    a = 23
+    b = 45
+    def f(self): print "Méthode f de la classe B"
+    def g(self): print "Méthode g de la classe B"
+class C(B):
+    b = 67
+    c = 89
+    d = 123
+    def g(self): print "Méthode g de la classe C"
+    def h(self): print "Méthode h de la classe C"
+x = C()
+x.d = 77
+x.e = 88
+
+----------
+
+print x.e, x.d, x.c, x.b. x.a      # Affiche : 88 77 89 67 23 
+
+----------
+
+print x.h, x.g, x.f, C.h, C.g, C.f
+
+----------
+
+x.h( )                            # Affiche : Méthode h de la classe C
+
+----------
+
+C.h(x)                            # Affiche : Méthode h de la classe C
+
+----------
+
+def additionneur_comme_fermeture(augend):
+    def ajouter(addend, _augend = augend): return addend + _augend
+    return ajouter
+
+----------
+
+def additionneur_comme_methode_liee(augend):
+    class Additionneur:
+        def __init__(self, augend): self.augend = augend
+        def ajouter(self, addend): return addend + self.augend
+    return Additionneur(augend).ajouter
+
+----------
+
+def additionneur_comme_instance_appelable(augend):
+    class Additionneur:
+        def __init__(self, augend): self.augend = augend
+        def __call__(self, addend): return addend + self.augend
+    return Additionneur(augend)
+
+----------
+
+class Base1:
+    def uneMethode(self): print "Base1"
+class Base2(Base1): pass
+class Base3:
+    def uneMethode(self): print "Base3"
+class Derivee(Base2, Base3): pass
+uneInstance = Derivee()
+uneInstance.uneMethode()                    # Affiche : "Base1"
+
+----------
+
+class B:
+    a = 23
+    b = 45
+    def f(self): print "Méthode f de la classe B"
+    def g(self): print "Méthode g de la classe B"
+class C(B):
+    b = 67
+    c = 89
+    d = 123
+    def g(self): print "Méthode g de la classe C"
+    def h(self): print "Méthode h de la classe C"
+
+----------
+class Base:
+    def bienvenue(self, nom): print "Bienvenue,", nom
+class Sub(Base):
+    def bienvenue(self, nom):
+        print "Heureux de te rencontrer et",
+        Base.bienvenue(self, nom)
+x = Sub()
+x.bienvenue('Alex')     # Affiche : Heureux de te rencontrer et Bienvenue, Alex
+
+----------
+
+class Base:
+    def __init__(self):
+        self.unAttribut = 23
+class Derivee(Base):
+    def __init__(self):
+        Base.__init__(self)
+        self.unAutreAttribut = 45
+
+----------
+
+class UneClasse(object):
+    def uneMethodeStatique(): print 'Méthode statique'
+    uneMethodeStatique = staticmethod(uneMethodeStatique)
+uneInstance = UneClasse()
+UneClasse.uneMethodeStatique()                # Affiche : Méthode statique
+uneInstance.uneMethodeStatique()              # Affiche : Méthode statique
+
+----------
+
+class UneBase(object):
+    def uneMethodeDeClasse(cls): 
+        print 'Méthode de classe pour ', cls.__name__
+    uneMethodeDeClasse = classmethod(uneMethodeDeClasse)
+class UneDerivee(UneBase): pass
+instanceB = UneBase()
+instanceD = UneDerivee()
+UneBase.uneMethodeDeClasse()    # Affiche : Méthode de classe pour UneBase
+instanceB.uneMethodeDeClasse()  # Affiche : Méthode de classe pour UneBase
+UneDerivee.uneMethodeDeClasse() # Affiche : Méthode de classe pour UneDerivee
+instanceD.uneMethodeDeClasse()  # Affiche : Méthode de classe pour UneDerivee
+
+----------
+
+class C(object):
+    def __init__(self): pass
+    # Le reste de la classe est omis
+
+----------
+
+x = C.__new__(C, 23)
+if isinstance(x, C): C.__init__(x, 23)
+
+----------
+
+class Singleton(object):
+    _singletons = {}
+    def __new__(cls, *params, **mcles):
+        if not cls._singletons.has_key(cls):
+            cls._singletons[cls] = object.__new__(cls)
+        return cls._singletons[cls]
+
+----------
+
+class Rectangle(object):
+    def __init__(self, largeur, hauteur):
+        self.largeur = largeur
+        self.hauteur = hauteur
+    def getSurface(self):
+        return self.largeur * self.hauteur
+    surface = property(getSurface, doc='Surface du rectangle')
+
+----------
+
+attrib = property(fget = None, fset = None, fdel = None, doc = None)
+
+----------
+
+class Rectangle:
+    def __init__(self, largeur, hauteur):
+        self.largeur = largeur
+        self.hauteur = hauteur
+    def getSurface(self):
+        return self.largeur * self.hauteur
+    def __getattr__(self, nom):
+        if nom == 'surface': return self.getSurface()
+        raise AttributeError, nom
+    def __setattr__(self, nom, valeur):
+        if nom == 'surface':
+            raise AttributeError, "Impossible de lier l'attribut"
+        self.__dict__[nom] = valeur
+
+----------
+
+class RectangleOptimise(Rectangle):
+    __slots__ = 'largeur', 'hauteur'
+
+----------
+
+class ListeSansAppend(list):
+    def __getattribute__(self, nom):
+        if nom == 'append': raise AttributeError, nom
+        return list.__getattribute__(self, nom)
+
+----------
+
+class VisionneurAttribut:
+    def __init__(self):
+        # Notez que l'on évite de lancer __setattr__, et remarquez
+        # l'émulation du traitement des noms par Python pour un
+        # attribut privé
+        self.__dict__['_VisionneurAttribut__monDict'] = {}
+    def __getattr__(self, nom):
+        # On trace chaque appel et, pour les besoins de la
+        # démonstration, on simule également la "possession" de
+        # l'attribut demandé, SAUF pour les méthodes spéciales
+        # (__getattr__ est également invoquée pour les consulter :
+        # vérifiez-le en appliquant quelques opérations sur une
+        # instance de VisionneurAttribut).
+        print "getattr", nom
+        try: return self.__monDict[nom]
+        except KeyError:
+            if nom.startswith('__') and nom.endswith('__'):
+                raise AttributeError, nom
+            else: return 'faux_' + nom
+    def __setattr__(self, nom, valeur):
+        print "setattr", nom, valeur
+        self.__monDict[nom] = valeur
+    def __delattr__(self, nom):
+        print "delattr", nom
+        try: del self.__monDict[nom]
+        except KeyError: pass
+
+----------
+
+def fauxGetElement(indice): return indice
+class Classique: pass
+c = Classique()
+c.__getitem__ = fauxGetElement
+print c[23]                       # Affiche : 23
+class NouveauStyle(object): pass
+n = NouveauStyle()
+n.__getitem__ = fauxGetElement
+print n[23]                       # Produit :
+                                  # Traceback (most recent call last):
+                                  #   File "<stdin>", line 1, in ?
+                                  # TypeError: unindexable object
+
+----------
+
+class A(object):
+    def methode(self): 
+        print 'A.methode'
+class B(A):
+    def methode(self): 
+        print 'B.methode'
+        A.methode(self)
+class C(A):
+    def methode(self): 
+        print 'C.methode'
+        A.methode(self)
+class D(B, C):
+    def methode(self): 
+        print 'D.methode'
+        B.methode(self)
+        C.methode(self)
+
+----------
+
+class A(object):
+    def methode(self): 
+        print 'A.methode'
+class B(A):
+    def methode(self): 
+        print 'B.methode'
+        super(B, self).methode()
+class C(A):
+    def methode(self): 
+        print 'C.methode'
+        super(C, self).methode()
+class D(B, C):
+    def met(self): 
+        print 'D.methode'
+        super(D, self).methode()
+
+----------
+
+class C:
+    def __getslice__(self, i, j): print 'getslice', i, j
+    def __getitem__(self, indice): print 'getitem', indice
+x = C()
+x[12:34]
+x[56:78:9]
+
+----------
+
+for z in x:
+    if y == z : return True
+return False
+
+----------
+
+class Classique: pass
+class NewStyle(object): pass
+print type(Classique)                  # Affiche : <type 'classobj'>
+print type(NewStyle)               # Affiche : <type 'type'>
+
+----------
+
+class MaMeta(type):
+    def __str__(classe): return "Jolie classe '%s'"%classe.__name__
+class MaClasse:
+    __metaclass__ = MaMeta
+x = MaClasse()
+print type(x)                         # Affiche : Jolie classe 'MaClasse'
+
+----------
+
+class Bunch(object):
+    def __init__(self, **champs): self.__dict__ = champs
+p = Bunch(x = 2.3, y = 4.5)
+print p                     # Affiche : <__main__.Bunch object at 0x00AE8B10>
+
+----------
+
+class Point(MetaBunch):
+    """ Un point a des coordonnées x et y, valant 0.0 par défaut et
+    une couleur, 'grise' par défaut -- rien de plus, sauf ce que
+    Python et la métaclasse lui ajouteront, comme  __init__ et __repr__
+    """
+    x = 0.0
+    y = 0.0
+    couleur = 'grise'
+# Exemple d'utilisation de la classe Point
+q = Point()
+print q                     # Affiche : Point()
+p = Point(x = 1.2, y = 3.4)
+print p                     # Affiche : Point(y = 3.399999999, x = 1.2)
+

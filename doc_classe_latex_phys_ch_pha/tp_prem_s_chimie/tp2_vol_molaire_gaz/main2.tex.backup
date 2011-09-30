@@ -1,0 +1,77 @@
+\tp{Détermination du\\volume molaire gazeux}
+
+\begin{multicols}{2}
+
+
+\materiel{
+\item lunettes
+\item blouse
+\item gants
+\item solution d'acide chlorhydrique à $1~mol.L-1$
+\item solution de soude à $1~mol.L-1$
+\item Ruban de magnésium
+\item fil de cuivre
+\item erlenmeyer et bouchon ou flacon et bouchon
+\item tube à dégagement
+\item éprouvette de $50~mL$
+\item support, pince, noix
+\item bécher
+\item pipette et propipette
+\item cristallisoir ou bassine
+\item tube à essais
+\item allumettes
+\item balance de précision 1/10~000ième de gramme
+\item thermomètre et baromètre pour la salle de classe.
+}
+
+\bigskip
+
+\objectifs{
+\item Déterminer à température et pression données, le volume molaire $V_m$ d'un gaz produit par une réaction chimique.
+}
+
+
+
+\section{Principe de l'étude}
+Au cours de la réaction d'une solution d'acide chlorhydrique avec certains métaux, il se produit un dégagement gazeux. La connaissance de la quantité de matière $n$ ou du volume de gaz produit $V$ permet de déterminer le volume molaire gazeux $V_m$ dans les conditions de température et de pression de l'expérience.
+
+\end{multicols}
+
+\section{Protocole expérimental}
+
+\subsection{\'Etude de la réaction}
+
+\begin{enumerate}
+\item Dans un tube à essai, verser $2~mL$ de solution d'acide chlorhydrique $H^+_{aq}$ + $Cl^-$. Introduire un petit morceau de ruban de magnésium et boucher le tube. Observer. Si un dégagement gazeux se produit, approcher une allumette enflammée. Conclure.
+\item Tester les ions qui se sont formés en solution. Verser goutte après goutte de la soude $NaOH$. Observer, décrire et conclure quant à la nature des ions formés ? Proposer l'équation de la réaction entre l'acide et le magnésium (les ions $Cl^-$ sont restés spectateurs).
+\item Recommencer l'expérience en remplaçant le morceau de magnésium par un morceau de tournure de cuivre. Conclure.
+\end{enumerate}
+
+
+\subsection{Réalisation de l'expérience}
+
+\begin{center}
+\includegraphics[width=15cm]{montage_vol_molaire_gaz.gif.eps}
+\end{center}
+% FIG
+
+\begin{enumerate}
+\item Peser la masse d'un morceau de magnésium de longueur $l = 4~cm$ environ, préalablement décapé $m = \troufixe{1.5cm}~g.$
+\item Réaliser le montage expérimental correspondant au schéma ci-dessus. On remplacera le cas échéant le flacon par un erlenmeyer. Prendre soin de ne pas enfermer d'air dans l'éprouvette.
+\item Introduire dans l'erlenmeyer 20 mL d'acide chlorhydrique.
+\item Laisser tomber dedans, le ruban de magnésium et fermer immédiatement le bouchon pour ne pas perdre de gaz.
+\item Laisser la réaction chimique se produire jusqu'à sa fin.
+\item Laisser le système refroidir. Le gaz est alors à la température de la pièce $\theta = \troufixe{1.5cm}~°C$. La pression au sommet de l'éprouvette peut être légèrement différente de la pression atmosphérique. Si possible, déplacer l'éprouvette jusqu'à ce que le niveau d'eau dans celle-ci coïncide avec celui de l'eau du cristallisoir. La pression du gaz est alors égale à patmosphérique du jour : $p_{atm} = \troufixe{1.5cm}~Pa$.
+\item Lire le volume occupé par le gaz produit, au sommet de l'éprouvette : $V = \troufixe{2cm}$.
+\end{enumerate}
+
+\section{Exploitation des résultats}
+
+\begin{enumerate}
+\item Réécrire l'équation de la réaction.
+\item Déterminer les quantités de matière des réactifs réagissants. ($M_{Mg} = 24,3 g.mol^{-1}$ ; $M_H = 1,0 g.mol^{-1}$).
+\item Faire le tableau d'avancement de la réaction. Déterminer l'avancement maximal $x_{max}$, en déduire le réactif limitant.
+\item \'Etablir le bilan de matière.
+\item \`A partir du bilan de matière et de l'équation d'état des gaz parfaits, calculer $V_{H_2}$ produit à $P_{\mbox{atmosphérique}}$. Comparer à $V_{H_2}$ mesuré.
+\item En déduire le volume molaire gazeux dans les conditions de l'expérience.
+\end{enumerate}

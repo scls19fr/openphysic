@@ -1,0 +1,642 @@
+This is MetaPost, Version 0.641 (Web2C 7.3.7x) (mem=mpost 2005.12.17)  17 DEC 2005 14:40
+**m3Danim.mp
+(m3Danim.mp (/usr/texmf-local/metapost/m3d/mpinputs/m3Dplain.mp
+m3D now!
+(/usr/texmf-local/metapost/m3d/mpinputs/m3Dsty01.mp))
+(/usr/texmf-local/metapost/m3d/mpinputs/m3Dlib01.mp
+m3Dlib01: basic mathematical objects.
+)
+>> fineplot
+>> true
+! Equation cannot be performed (numeric=boolean).
+<to be read again> 
+                   ;
+l.42 fineplot:=true;
+                    
+I'm sorry, but I don't know how to make such things equal.
+(See the two expressions just above the error message.)
+
+>> Object_plotThreeD
+! Isolated expression.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(0)> ...lpha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(0)> ...lpha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+[100]
+>> Object_plotThreeD
+! Isolated expression.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(1)> ...lpha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(1)> ...lpha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+[101]
+>> Object_plotThreeD
+! Isolated expression.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(2)> ...lpha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(2)> ...lpha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+[102]
+>> Object_plotThreeD
+! Isolated expression.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(3)> ...lpha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(3)> ...lpha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+[103]
+>> Object_plotThreeD
+! Isolated expression.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(4)> ...lpha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(4)> ...lpha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+[104]
+>> Object_plotThreeD
+! Isolated expression.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(5)> ...lpha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(5)> ...lpha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+[105]
+>> Object_plotThreeD
+! Isolated expression.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(6)> ...lpha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(6)> ...lpha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+[106]
+>> Object_plotThreeD
+! Isolated expression.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(7)> ...lpha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(7)> ...lpha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+[107]
+>> Object_plotThreeD
+! Isolated expression.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(8)> ...lpha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(8)> ...lpha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+[108]
+>> Object_plotThreeD
+! Isolated expression.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(9)> ...lpha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(9)> ...lpha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+[109]
+>> Object_plotThreeD
+! Isolated expression.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(10)> ...pha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(10)> ...pha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+[110]
+>> Object_plotThreeD
+! Isolated expression.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(11)> ...pha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(11)> ...pha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+[111]
+>> Object_plotThreeD
+! Isolated expression.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(12)> ...pha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(12)> ...pha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+[112]
+>> Object_plotThreeD
+! Isolated expression.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(13)> ...pha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(13)> ...pha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+[113]
+>> Object_plotThreeD
+! Isolated expression.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(14)> ...pha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(14)> ...pha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+[114]
+>> Object_plotThreeD
+! Isolated expression.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(15)> ...pha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(15)> ...pha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+[115]
+>> Object_plotThreeD
+! Isolated expression.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(16)> ...pha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(16)> ...pha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+[116]
+>> Object_plotThreeD
+! Isolated expression.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(17)> ...pha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(17)> ...pha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+[117]
+>> Object_plotThreeD
+! Isolated expression.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(18)> ...pha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(18)> ...pha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+[118]
+>> Object_plotThreeD
+! Isolated expression.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(19)> ...pha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+UseObject->....scantokens("Object_"&str(SUFFIX0))(
+                                                  (TEXT3));endgroup;Oo:=Oo-C...
+<for(19)> ...pha)*mexp(-(x++y)*50)",-15,15,-10,10)
+                                                  ;endfig; ENDFOR
+l.59 endfor
+           
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+[119]
+write0 = `animate-script'.
+
+ )
+20 output files written: m3Danim.100 .. m3Danim.119

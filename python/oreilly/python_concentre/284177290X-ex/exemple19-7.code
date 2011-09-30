@@ -1,0 +1,24 @@
+import asyncore
+import socket
+
+class SocketServeurPrincipale(asyncore.dispatcher):
+    def __init__(self, port):
+        asyncore.dispatcher.__init__(self)
+        self.create_socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.bind(('', port))
+        self.listen(5)
+    def handle_accept(self):
+        newSocket, adresse = self.accept()
+        print "Connexion de", adresse
+        SocketServeurSecondaire(newSocket)
+
+class SocketServeurSecondaire(asyncore.dispatcher_with_send):
+    def handle_read(self):
+        donneesRecues = self.recv(8192)
+        if donneesRecues: self.send(donneesRecues)
+        else: self.close()
+    def handle_close(self):
+        print "Déconnexion de", self.getpeername()
+
+SocketServeurPrincipale(8881)
+asyncore.loop( )

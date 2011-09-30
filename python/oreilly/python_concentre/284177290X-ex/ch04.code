@@ -1,0 +1,279 @@
+lettre = 'c'
+print "Entrez la lettre", lettre, "..."   # affiche : Entrez la lettre c ...
+reponse = 42
+print "La réponse est :", reponse         # affiche : La réponse est 42
+
+----------
+
+if x < 0: print "x est négatif"
+elif x % 2: print "x est positif et impair"
+else: print "x n'est pas négatif et est pair"
+
+----------
+
+if x < 0:
+    print "x est négatif"
+elif x % 2:
+    print "x est positif et impair"
+else:
+    print "x n'est pas négatif et est pair"
+
+----------
+
+cpteur = 0
+while x > 0:
+    x = x // 2            # division avec troncature
+    cpteur += 1
+print "L'approximation de log2 est", cpteur
+
+----------
+
+for lettre in "ciao":
+    print "Entrez un", lettre, "..."
+
+----------
+
+for cle, valeur in d.items():
+    if not cle or not valeur: del d[cle]    # ne garde que les clés et les valeurs vraies
+
+----------
+
+for x in une_seq:
+    traiter(x)
+print "Le dernier élément traité était", x
+
+----------
+
+result1 = [x + 1 for x in une_seq]
+
+----------
+
+result2 = []
+for x in une_seq:
+    result2.append(x + 1)
+
+----------
+
+result3 = [x + 1 for x in une_seq if x > 23]
+
+----------
+
+result4 = []
+for x in une_seq:
+    if x > 23:
+        result4.append(x + 1)
+
+----------
+
+result5 = [x + y for x in une_liste for y in une_autre]
+
+----------
+
+result6 = []
+for x in une_liste:
+    for y in une_autre:
+        result6.append(x + y)
+
+----------
+
+while True:                     # Cette boucle ne se terminera jamais seule
+    x = suivant()
+    y = pre_traiter(x)
+    if not continuer_boucle(x, y): break
+    traiter(x, y)
+
+----------
+
+for x in un_conteneur:
+    if not semble_ok(x): continue
+    limite_inf, limite_sup = limites_a_tester()
+    if x < limite_inf or x >= limite_sup: continue
+    if test_final(x):
+        traiter(x)
+
+----------
+
+for x in un_conteneur:
+    if semble_ok(x):
+        limite_inf, limite_sup = limites_a_tester()
+        if limite_inf <= x < limite_sup:
+            if test_final(x):
+                traiter(x)
+
+----------
+
+for x in un_conteneur:
+    if est_ok(x): break       # L'élément x convient, fin de la boucle
+else:
+    print "Attention : aucun élément correct n'a été trouvé dans le conteneur"
+    x = None
+
+----------
+
+if condition1(x):
+    traiter1(x)
+elif x > 23 or condition2(x) and x < 5:
+    pass                      # Il n'y a rien à faire en ce cas
+elif condition3(x):
+    traiter3(x)
+else:
+    traiter_defaut(x)
+
+----------
+
+inverse = {sin:asin, cos:acos, tan:atan, log:exp}
+for f in inverse.keys(): inverse[inverse[f]] = f
+
+----------
+
+def double(x):
+    return x * 2
+
+----------
+
+def f(x, y = []):
+    y.append(x)
+    return y
+print f(23)                # Affiche : [23]
+prinf f(42)                # Affiche : [23, 42]
+
+----------
+
+def f(x, y = None):
+    if y is None: y = []
+    y.append(x)
+    return y
+print f(23)                # Affiche : [23]
+prinf f(42)                # Affiche : [42]
+
+----------
+
+def somme(*nombres):
+    resultat = 0
+    for nombre in nombres: resultat += nombre
+    return resultat
+print somme(23,42)         # Affiche : 65
+
+----------
+
+def un_dict(**mots): return mots 
+print un_dict(a = 23, b = 42)     # Affiche : {'a': 23, 'b': 42}
+
+----------
+
+def un_dict(**mots):
+    return mots
+
+----------
+
+def somme(*nombres):
+    '''Prend un nombre quelconque, éventuellement nul,  de paramètres
+    numériques et renvoie leur somme.
+
+    Le résultat est la somme de ces nombres.'''
+
+    resultat = 0
+    for nombre in nombres: resultat += nombre
+    return resultat
+
+----------
+
+def compteur():
+    compteur.compte += 1
+    return compteur.compte
+compteur.compte = 0                 
+
+----------
+
+def f(x, y):
+    x = 23
+    y.append(42)
+a = 77
+b = [99]
+f(a, b)
+print a, b                # Affiche : 77 [99, 42]
+
+----------
+
+def diviser(diviseur, dividende): return dividende // diviseur
+print diviser(12, 94)                         # Affiche : 7
+print diviser(dividende= 94, diviseur = 12)       # Affiche : 7
+
+----------
+
+def f(milieu, debut = 'init', fin = 'finis'): return debut + milieu + fin
+print f('tini', fin = '')                     # Affiche : inittini
+
+----------
+
+def somme(*nombres):
+    resultat = 0
+    for nombre in nombres: resultat += nombre
+    return resultat
+print somme(*d.values())
+
+----------
+
+_compte = 0
+def compteur():
+    global _compte
+    _compte += 1
+    return _compte
+
+----------
+
+def pourcent1(a, b, c):               # Fonctionne quelle que soit la version
+    def pc(x, total = a + b + c): return (x * 100.0) / total
+    print "Les pourcentages sont ", pc(a), pc(b), pc(c)
+
+----------
+
+def pourcent2(a, b, c):               # Exige 2.2 ou "from __future__ import"
+    def pc(x): return (x * 100.0) / (a + b + c)
+    print "Les pourcentages sont ", pc(a), pc(b), pc(c)
+
+----------
+
+def additionneur_1(augend):           # Fonctionne quelle que soit la version
+    def additionner(addend, _augend = augend): return addend + _augend
+    return additionner
+
+----------
+
+def additionneur_2(augend):           # Exige 2.2 ou "from __future__ import"
+    def additionner(addend): return addend + augend
+    return add
+
+----------
+
+uneListe = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+bas = 3
+haut = 7
+filtrer(lambda x, min = bas, max = haut: max > x > min, uneListe)     
+                                      # Renvoie : [4, 5, 6]
+
+----------
+
+uneListe = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+bas = 3
+haut = 7
+def test(valeur, min = bas, max = haut):
+    return max > valeur > min
+filtrer(test, uneListe)              # Renvoie : [4, 5, 6]
+
+----------
+
+def monter_descendre(N):
+    for x in xrange(1, N): yield x
+    for x in xrange(N, 0, -1): yield x
+for i in monter_descendre(3): print i   # Affiche : 1 2 3 2 1
+
+----------
+
+def frange(debut, fin, pas = 1.0):
+    while debut < fin:
+        yield debut
+        debut += pas
+
+
+

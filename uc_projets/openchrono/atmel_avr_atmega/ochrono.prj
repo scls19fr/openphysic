@@ -1,0 +1,215 @@
+; ************************************************************
+; PROJECT: OpenChrono
+; AUTHOR: Sebastien CELLES
+; ************************************************************
+
+;***************************************************************************
+;*   Copyright (C) 2006 by Sebastien CELLES                                *
+;*   s.cls@laposte.net                                                     *
+;*                                                                         *
+;*   This program is free software; you can redistribute it and/or modify  *
+;*   it under the terms of the GNU General Public License as published by  *
+;*   the Free Software Foundation; either version 2 of the License, or     *
+;*   (at your option) any later version.                                   *
+;*                                                                         *
+;*   This program is distributed in the hope that it will be useful,       *
+;*   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+;*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+;*   GNU General Public License for more details.                          *
+;*                                                                         *
+;*   You should have received a copy of the GNU General Public License     *
+;*   along with this program; if not, write to the                         *
+;*   Free Software Foundation, Inc.,                                       *
+;*   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+;***************************************************************************
+
+; Micro + software running
+; ------------------------------------------------------------
+.MICRO "ATmega128" ;"ATmega8535"
+.TOOLCHAIN "GCC"
+.GCCPATH   "C:\WinAVR"
+.GCCMAKE   AUTO
+.TARGET    "ochrono.hex"
+.SOURCE    "ochrono.c"
+
+.TRACE              ; Activate micro trace
+
+; Following lines are optional; if not included
+; exactly these values are taken by default
+; ------------------------------------------------------------
+.POWER VDD=5 VSS=0  ; Power nodes
+;.CLOCK 8meg         ; Micro clock
+.CLOCK 8meg
+;.CLOCK 128K ; for ADC
+.STORE 250m         ; Trace (micro+signals) storage time
+;.STORE 500m
+
+; Micro nodes: RESET, PB0-PB7, PD0-PD7, PE0-PE2, ACO, TIM1OVF
+; Define here the hardware around the micro
+; ------------------------------------------------------------
+
+
+;;;;;;;;
+; LEDs ;  Port C
+;;;;;;;;
+; R1 et D1 en serie entre VDD=+5V et PC0
+D1 VDD D1_NODE
+R1 D1_NODE PC0 0.62K
+; R2 et D2 en serie entre VDD=+5V et PC1
+D2 VDD D2_NODE
+R2 D2_NODE PC1 0.62K
+;
+D3 VDD D3_NODE
+R3 D3_NODE PC2 0.62K
+;
+D4 VDD D4_NODE
+R4 D4_NODE PC3 0.62K
+;
+D5 VDD D5_NODE
+R5 D5_NODE PC4 0.62K
+;
+D6 VDD D6_NODE
+R6 D6_NODE PC5 0.62K
+;
+D7 VDD D7_NODE
+R7 D7_NODE PC6 0.62K
+;
+D8 VDD D8_NODE
+R8 D8_NODE PC7 0.62K
+
+; VSS : masse(neg)
+; VDD : +5V
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Passage de barrière (sonde à effet Hall, barrière optique...) ;
+; Hall probe
+; NMI = entrée d'interruption externe non masquable             ;
+; INT0 = PD2 sur ATmega8535                                     ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; Slider direct
+;Vslider NMI VSS SLIDER_1(0 5)
+
+; Slider + comparateur hysteresis
+;Vslider SGEN VSS SLIDER_1(0 5)   ;
+;R12 SGEN PLUS 10K              ; Input resistor
+;R13 NMI PLUS 30K               ; Feeback resistor  (30K)
+;Xop OPAMP PLUS MINUS NMI      ; OPAMP instance, with plus, minus and out nodes
+;R14 VDD MINUS 10K
+;R15 MINUS VSS 10K
+
+; Slider + comparateur simple
+VsliderSS PLUS VSS SLIDER_1(0 5)
+Xop OPAMP PLUS MINUS PD0 ; INT0=PD2(ATmega8535)=PD0(ATmega128)
+R14 VDD MINUS 10K
+R15 MINUS VSS 10K
+
+;;;;;;;;;;;;;;;;;;;;;;;
+; ADC  (Port A)       ;
+;;;;;;;;;;;;;;;;;;;;;;;
+;R16 VDD AREF 10K
+;R17 AREF VSS 10K
+;;R16 VDD AREF 1
+
+;R18 GND VSS 10K
+;AVCC
+
+;;;;;;;;;;;;;;;;;;;;;;;
+; Régime moteur       ;  INT2 (PD2 sur mega128)
+;;;;;;;;;;;;;;;;;;;;;;;
+;VsliderMotor PA0 VSS SLIDER_2(0 5) ;(0 5) 2.56 = internal adc  (AREF)
+;V[inst_name]  node VSS PULSE(v_initial v_final t_delay t_rise t_fall t_width t_period)
+;V1 PD2 VSS PULSE(0 5 0.0005 0.00001 0.00001 0.0005 0.020) ; 50 Hz
+;V1 PD2 VSS PULSE(0 5 0.0005 0.00001 0.00001 0.0005 0.030) ; 33 Hz
+
+; régime mini maxi
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.0044444) ; 13500 RPM
+
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.003)    ; 20000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.004)    ; 15000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.0042857); 14000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.0046154); 13000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.005)    ; 12000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.0054545); 11000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.006)    ; 10000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.006667) ;  9000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.0075)   ;  8000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.00857)  ;  7000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.01)     ;  6000 RPM
+V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.012)    ;  5000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.015)    ;  4000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.02)     ;  3000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.03)     ;  2000 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.06)     ;  1000 RPM
+
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.06667)  ;   900 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.075)    ;   800 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.0857)   ;   700 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.1)      ;   600 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.12)     ;   500 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.15)     ;   400 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.2)      ;   300 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.3)      ;   200 RPM
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.6)      ;   100 RPM (too low)
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.9)      ;   <100 RPM (stop)
+
+; précision régime
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.047837353) ; 1254.25 RPM = 20.9041666 Hz
+;V1 PD2 VSS PULSE(0 5 0.0002 0.00001 0.00001 0.0002 0.047799243) ; 1255.25 RPM = 20.9208333 Hz
+
+;;;;;;;;;;;;;;;;;;;;;
+; Température (ADC) ; Port A
+;;;;;;;;;;;;;;;;;;;;;
+;VsliderTemp1 PA1 VSS SLIDER_3(0 5)
+
+;;;;;;;;;;
+; Keypad ;  Port B for buttons and PD3 (INT1) for interrupt
+;;;;;;;;;;
+;Kx node1 node2 [type(delay)] ; x: Buttons 0 - F. Optional type: MONOSTABLE(t_delay), LATCHED
+; LATCHED=conserve la position (on ou off)
+;
+KC VSS PB0 ; ok     C  (bouton poussoir)
+KE VSS PB1 ; cancel E  (bouton poussoir)
+K4 VSS PB2 ; left   4  (interrupteur joystick)
+K6 VSS PB3 ; right  6  ..
+K1 VSS PB4 ; up     1  ..
+K9 VSS PB5 ; down   9  ..
+
+
+; OR is needed to send to INT1(PD3 pour 8535, PD1 pour mega128)
+;VsliderINT1 PLUS1 VSS SLIDER_3(0 5)
+;Xop2 OPAMP PLUS1 MINUS1 PD1 ; INT1=PD3(ATmega8535)=PD1(ATmega128)
+;R24 VDD MINUS1 10K
+;R25 MINUS1 VSS 10K
+
+; user defined component (userlib nand8.dll)
+; see http://svn.berlios.de/wsvn/openphysic/uc/atmel_avr_gcc/vmlab_userlib
+XNAND8 _nand8 PB0 PB1 PB2 PB3 PB4 PB5 VDD VDD INTKEY;PD1
+RINTKEY INTKEY PD1 1k
+CINTKEY INTKEY VSS 1u
+
+
+;;;;;;;
+; LCD ;
+;;;;;;;
+;X[inst_name]  LCD(chars lines oscil_freq) RS RW E D7 D6 D5 D4 D3 D2 D1 D0
+;X[inst_name]  TTY(baud_rate [n_bits] [parity] [odd_parity] [n_stop_bits] [rx_display_as]) node_tx node_rx
+X2 LCD(20 4 250K) PF5 PF6 PF7 PE7 PE6 PE5 PE4 PE3 PE2 PE1 PE0
+;X2 LCD(20 2 250K) PF5 PF6 PF7 PE7 PE6 PE5 PE4 PE3 PE2 PE1 PE0
+
+; scope (PD0 et PD7)
+.PLOT V(PD0) V(PD1) V(PB0) V(PA0) V(PA1) V(PD5) V(PD2)
+;.PLOT V(PD0) V(PD1) V(PD2) V(PD3) V(PD4) V(PD5) V(PD6) V(PD7)
+
+
+
+
+
+
+
+
+
+
+
+
+

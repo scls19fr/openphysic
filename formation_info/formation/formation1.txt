@@ -1,0 +1,160 @@
+===== Utilisation d'un réseau =====
+Qu'est-ce qu'un réseau ?
+ http://fr.wikipedia.org/wiki/Cat%C3%A9gorie:R%C3%A9seau_informatique
+ http://fr.wikipedia.org/wiki/Cat%C3%A9gorie:Protocole_r%C3%A9seau
+ http://fr.wikipedia.org/wiki/Topologie_de_r%C3%A9seau
+ http://www.themanualpage.org/reseau/reseau_topo.php
+
+Comment ça marche ? 
+ - Adresse IP
+  http://fr.wikipedia.org/wiki/Adresse_ip
+  http://fr.wikipedia.org/wiki/Protocole_Internet
+  http://fr.wikibooks.org/wiki/Reseaux_TCP/IP_:_adressage_IP_v4
+  http://fr.wikipedia.org/wiki/Adresse_IPv4
+  http://fr.wikipedia.org/wiki/Adresse_IPv6
+
+  ##ipconfig## (Win NT/XP)
+
+ - Adresse MAC
+  http://fr.wikipedia.org/wiki/Adresse_MAC
+  ##ipconfig /all## (Win NT/XP)
+  ##ifconfig -a## (Linux/Unix)
+
+ - Ethernet
+  http://fr.wikipedia.org/wiki/Ethernet
+
+ - DNS 
+   http://fr.wikipedia.org/wiki/DNS
+   http://fr.wikipedia.org/wiki/R%C3%A9solution_de_noms
+
+ - Masque réseau
+
+ - Adresse IP statique
+   A la maison
+    Adresse IP ##192.168.0.1##
+    ##128.64.32.16.8.4.2.1 . 128.64.32.16.8.4.2.1 . 128.64.32.16.8.4.2.1 . 128.64.32.16.8.4.2.1##
+    ##11000000 . 1010100 . 00000000 . 00000001##
+
+    Classe A : IP ##0...## MASQUE ##255.0.0.0##
+     IP locale allant de ##10.0.0.0## à ##10.255.255.255## (##10/8##) http://fr.wikipedia.org/wiki/Adresse_IP#Principe_du_CIDR
+    Classe B : IP ##10..## MASQUE ##255.255.0.0##
+     IP locale allant de ##172.16.0.0## à ##172.31.255.255## (##172.16/12##)
+    Classe C : IP ##11...## MASQUE ##255.255.255.0##
+     IP locale allant de ##192.168.0.0## à ##192.168.255.255## (##192.168/16##)
+
+   Autre adresse IP réservée : ##127.0.0.1## ou ##localhost## = hôte local http://fr.wikipedia.org/wiki/Localhost
+
+    C'est un réseau de classe C
+    Masque ##255.255.255.0##
+    ##11111111 . 1111111 . 11111111 . 00000000##
+    IP "ET LOGIQUE" MASQUE :     ##11000000 . 1010100 . 00000000 . 00000000##
+
+
+   Au lycée Dautry
+    Exemple poste labo physique :
+    IP ##10.187.102.114##
+    MASQUE : ##255.255.254.0##
+    DNS : ##10.187.103.245##
+    Passerelle : ##10.187.103.245##
+
+    Réseau de classe A avec Subnetting http://www.linux-france.org/prj/inetdoc/articles/adressage.ip/adressage.ip.subnet.html
+
+   Quelle autres adresses IP :
+    - OpenIntranet : 
+    - Serveur Debian : ##10.187.102.27##
+
+   Remarque : importance du respect de la table d'adresse IP actuellement définie
+    Réservation de bloc d'adresse par département / par salle / pour les serveurs
+
+
+
+ - Adresse IP obtenue dynamiquement par un [[http://fr.wikipedia.org/wiki/DHCP DHCP]]
+  On peut alors faire de la réservation d'adresse IP par [[http://fr.wikipedia.org/wiki/Adresse_MAC adresse MAC]]
+
+ - Les différents types de câble / connecteur RJ45 :
+http://fr.wikipedia.org/wiki/RJ45
+  - câble droit (entre un PC et un commutateur)
+  - câble croisé (entre 2 PC relié directement)
+  - les switchs et leur action (peuvent "décroiser" le câble)
+
+ - Commutateur Ethernet / Concentrateur : Switch / Hub
+  http://fr.wikipedia.org/wiki/Commutateur_Ethernet
+  http://fr.wikipedia.org/wiki/Concentrateur
+  Différence au niveau de l'utilisation de la bande passante
+   Un hub est un équipement permettant de connecter plusieurs postes sur une seule prise réseau, selon une typologie en étoile, tout comme un switch.
+   Ces équipements se présentent sous la forme d'une boîte qui contient plusieurs prises de type RJ45. Une de ces prises est la prise principale que l'on raccorde au réseau. Les autres prises vont servir à connecter les machines.
+   La différence fondamentale entre un hub et un switch est que le hub n'est pas un équipement "intelligent". Tout ce qu'il reçoit sur une prise, il le transmet à toutes les autres prises du hub et la machine destinataire sait quand les données lui sont destinées. Ainsi, toutes les données sont envoyées sur toutes les prises, ce qui pose évidemment un problème de sécurité. Il est facile d'écouter (de sniffer) ce qui se passe sur un réseau si les machines sont connectées par un hub.
+   Un switch, lui, va transmettre les données uniquement sur la prise réseau destinataire. Les autres machines connectées au switch ne "verront" pas les données qui ne leur sont pas destinées respectivement.
+   Un switch améliore donc les performances réseau mais également la sécurité des données transmises. Il est plus difficile d'écouter le réseau avec des machines connectées par un switch que par un hub.
+   Toutefois, cela n'est pas impossible si le switch présente des failles de sécurité (via son interface web d'administration par exemple).
+
+ - Passerelle / routeur
+  http://fr.wikipedia.org/wiki/Passerelle_%28informatique%29
+  http://fr.wikipedia.org/wiki/Routeur
+  http://fr.wikipedia.org/wiki/DMZ
+
+ - Serveur
+  http://fr.wikipedia.org/wiki/Serveur
+  - Serveur web http://fr.wikipedia.org/wiki/Serveur_web
+  - Serveur FTP http://fr.wikipedia.org/wiki/Serveur_FTP
+  - Serveur de courrier
+     http://fr.wikipedia.org/wiki/Mail_Transfer_Agent 
+     http://fr.wikipedia.org/wiki/SMTP
+     http://fr.wikipedia.org/wiki/POP
+     http://fr.wikipedia.org/wiki/IMAP
+  - Autres protocoles / Modèle OSI
+     http://fr.wikipedia.org/wiki/Mod%C3%A8le_OSI
+
+
+
+ - Pare-feu
+  http://fr.wikipedia.org/wiki/Cat%C3%A9gorie:Pare-feu
+  http://fr.wikipedia.org/wiki/Pare-feu
+
+  http://www.funix.org/fr/reseau/main-reseau.php3?ref=main&page=menu
+  http://www.reseaucerta.org/docs/cotecours/reseauSTG.pdf
+
+ - Outils de diagnostic
+ouvrir une console DOS en cliquant Démarrer>Exécuter
+puis en tapant : ##cmd## (WIndows 2000/XP)
+ou en tapant : ##command.com## (WIndows 95/98)
+
+ ##ipconfig## (Windows NT/XP) ##winipconfig## (Win 95/98) ##ifconfig## (Linux) 
+IPv4
+ ##ping## http://fr.wikipedia.org/wiki/Ping
+ ##traceroute## ou ##tracert## http://fr.wikipedia.org/wiki/Traceroute
+IPv6
+ ##ping6## 
+ ##traceroute6##
+
+Autres outils (plus technique)
+ - ##netstat## http://www.google.fr/search?q=netstat
+ - ##tcpdump## http://fr.wikipedia.org/wiki/tcpdump
+ - ##ethereal## http://fr.wikipedia.org/wiki/ethereal
+ - ##nmap## http://fr.wikipedia.org/wiki/nmap
+ - ##nessus## http://fr.wikipedia.org/wiki/nessus_(logiciel)
+ - ##telnet## http://fr.wikipedia.org/wiki/telnet
+ - ##minicom## http://fr.wikipedia.org/wiki/minicom
+ - HyperTerminal http://www.google.fr/search?q=HyperTerminal
+ - ##nslookup## http://www.google.fr/search?q=nslookup (DNS)
+ - ##nbtstat## Diagnostic noms NetBios
+ - ##whois##  http://fr.wikipedia.org/wiki/whois
+http://fr.wikipedia.org/wiki/Cat%C3%A9gorie:Logiciel_de_s%C3%A9curit%C3%A9_informatique
+
+Les ports de communication
+  http://fr.wikipedia.org/wiki/Port_%28logiciel%29
+  http://fr.wikipedia.org/wiki/Liste_des_ports_logiciels
+ ##80## : consultation d'un serveur HTTP par le biais d'un navigateur web (Microsoft Internet Explorer, Mozilla Firefox)
+ ##21## : consultation d'un serveur FTP par le biais d'un client FTP (Filezilla, gftp)
+ ##25## : envoi d'un courrier électronique en direction d'un serveur via SMTP
+ ##110## : récupération de son courrier électronique via POP
+ ##22## : connexion à un shell de manière sécurisé Secure Shell SSH
+ ##443## : connexion à un serveur Web sécurisé HTTPS
+Voir aussi la liste des ports dans ##/etc/services## sous Linux/Unix.
+http://fr.wikipedia.org/wiki/TCP
+http://fr.wikipedia.org/wiki/UDP
+
+
+
+Quelques "astuces" pour résoudre des problèmes de réseau (TCP/IP)
+http://ftp.traduc.org/doc-vf/gazette-linux/html/2003/096/lg96-D.html#LG96D-2.FR

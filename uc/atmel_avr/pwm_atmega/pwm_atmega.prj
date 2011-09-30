@@ -1,0 +1,42 @@
+; ************************************************************
+; PROJECT:
+; AUTHOR:
+; ************************************************************
+
+; Micro + software running
+; ------------------------------------------------------------
+.MICRO "ATmega8" ; "ATmega8" or "ATmega16" or "ATmega32"
+.TOOLCHAIN "GCC"
+.GCCPATH   "C:\WinAVR"
+.GCCMAKE   AUTO
+.TARGET    "pwm_atmega.hex"
+.SOURCE    "pwm.c"
+
+.TRACE              ; Activate micro trace
+
+; Following lines are optional; if not included
+; exactly these values are taken by default
+; ------------------------------------------------------------
+.POWER VDD=5 VSS=0  ; Power nodes
+.CLOCK 1meg
+;.CLOCK 4meg         ; Micro clock
+;.CLOCK 8meg
+.STORE 250m         ; Trace (micro+signals) storage time
+
+; Micro nodes: RESET, AREF, PA0-PA7, PB0-PB7, PC0-PC7, PD0-PD7, ACO, TIM1OVF
+; Define here the hardware around the micro
+; ------------------------------------------------------------
+
+
+
+.PLOT V(PD5) ; ATmega16 or 32
+.PLOT V(PB1) ; ATmega8
+.PLOT V(PB2)
+.PLOT V(PB3) V(PB4)
+
+;V[inst_name]  node VSS PULSE(v_initial v_final t_delay t_rise t_fall t_width t_period)
+
+
+
+
+

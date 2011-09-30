@@ -1,0 +1,265 @@
+% Fichier de style LaTeX de Sebastien CELLES
+% Application : Cours, TD, TP
+% \usepackage{scls}	% Definition style perso
+
+
+\documentclass[a4paper]{article}
+%\documentclass{report}
+%\documentclass{book}
+%\documentclass{slides}
+
+\usepackage[frenchb]{babel}	% specification francaise
+\usepackage[latin1]{inputenc}	% entree clavier latin1
+\usepackage[T1]{fontenc}	% sortie
+
+% aeguil ?
+
+%\usepackage{amsmath}		% package ams-math
+%\usepackage{amsfonts}		% package ams-fonts
+%\usepackage{amssymb}		% package ams-symb
+
+% pstricks ou pdftricks
+\usepackage{pstricks}
+%\usepackage{pst-circ} % circuit en elec
+\usepackage{pst-plot} % tracé de fonctions
+
+% gestion des images (jpg, png, eps, etc...)
+%\usepackage{graphicx}
+
+% Insertion code source
+%\usepackage{verbatim}
+
+% *----------------*
+% *---- Marges ----*
+% *----------------*
+
+% Réglage manuel
+%%%%%%%%%%%%%%%%
+
+\setlength{\voffset}{-1in}              % annulation décalage vertical (default=-1in) % fait planter \layout
+\setlength{\hoffset}{-1in}              % annulation décalage horizontal (default=-1in) % fait planter \layout
+\setlength{\textwidth}{17.5cm}          % largeur de la zone de texte (default=16.5cm)
+\setlength{\textheight}{26cm}           % hauteur de la zone de texte (default=24cm)
+\setlength{\marginparwidth}{40pt}       % largeur marge (default=40pt)
+\setlength{\topmargin}{1cm}           % hauteur de la marge supérieure (default=2cm)
+\setlength{\evensidemargin}{2cm}      % marge de gauche pour les pages paires (default=2cm)
+\setlength{\oddsidemargin}{2cm}       % marge de gauche pour les pages impaires (default=2.5cm)
+%\setlength{\parskip}{\smallskipamount}  % espacement entre les paragraphes (default=\smallskipamount)
+\setlength{\skip\footins}{0.6cm}        % espacement entre le corps de texte et les notes de bas de page (default=0.6cm)
+
+
+% Réglage automatique via le package geometry
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{geometry}
+%\geometry{ hmargin=2.5cm, vmargin=1.6cm }
+%\geometry{ hmargin=2.5cm, vmargin=1.5cm } % default
+
+
+% Tester les marges
+\usepackage[francais]{layout}
+%\usepackage{fullpage}
+
+% *-----------------*
+% *---- En-tête ----*
+% *-----------------*
+\usepackage{fancyhdr}
+% à placer après \begin{document}....
+%\pagestyle{fancy}  	 
+%\lhead{haut de page gauche} % haut de page gauche
+%\chead{haut de page centre} % haut de page centre
+%\rhead{haut de page droite} % haut de page droite
+%\lfoot{pied de page gauche} % pied de page gauche
+%\cfoot{pied de page centré} % pied de page centré
+%\rfoot{pied de page droit}  % pied de page droit
+%\renewcommand{\headrulewidth}{0.4pt} % Trace un trait de séparation de largeur 0,4 point. Mettre 0pt pour supprimer le trait.
+%\renewcommand{\footrulewidth}{0.4pt}
+
+
+
+% *---------------------------*
+% *---- Compteur exercice ----*
+% *---------------------------*
+\newcounter{num}
+%\renewcommand{\thenum}{\Roman{num}}	% chiffres romains
+\renewcommand{\thenum}{\arabic{num}}	% chiffres arabes
+%\renewcommand{\thenum}{\Alph{num}}	% lettre majuscule
+%\renewcommand{\thenum}{\alph{num}}	% lettre minuscule
+\newcommand{\exo}{\addtocounter{num}{1}{\noindent \textbf{Exercice~\thenum~:~}}}
+\newenvironment{exercice}{\exo}{\vskip 0.5cm}
+
+
+
+% *************************************
+% * ---- Numérotation personnelle ----*
+% *************************************
+\usepackage{titlesec}
+\titlelabel{\thetitle.~} % ajoute un point et une espace insécable après un numéro de titre
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\Alph{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+\renewcommand{\theparagraph}{\alph{paragraph}}
+\setcounter{secnumdepth}{4}
+\titleformat{\paragraph}%
+    {\normalfont \normalsize \itshape}%
+    {\theparagraph}{1em}{}
+  \titlespacing*{\paragraph}{0pt}{1ex plus 0.2ex}{0.5ex plus .2ex}
+
+\begin{document}
+
+
+\title{Systèmes triphasés}
+\author{S. Celles}
+%\author{\null}
+
+%\date{\today}
+\date{\null}
+
+%thanks{Merci à eux !}
+
+
+% En-tête et pied de page
+% \usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{S. Celles} % haut de page gauche
+\chead{Physique} % haut de page centre
+\rhead{Systèmes triphasés} % haut de page droite
+%\lfoot{pied de page gauche} % pied de page gauche
+\cfoot{} % pied de page centré (pas de numér de page)
+%\rfoot{pied de page droit}  % pied de page droit
+\renewcommand{\headrulewidth}{0.4pt} % Trace un trait de séparation de largeur 0,4 point. Mettre 0pt pour supprimer le trait.
+%\renewcommand{\footrulewidth}{0.4pt} % Trace un trait de séparation de largeur 0,4 point. Mettre 0pt pour supprimer le trait.
+
+
+\maketitle % affichage du titre du document, de l'auteur, de la date
+
+%\tableofcontent % table des matières
+
+
+%\layout % Tester les marges nécessite \usepackage[francais]{layout}
+
+%\newpage % nouvelle page
+% \\ % saut de ligne
+%\footnote{Note de bas de page}
+
+
+
+
+%\newpage
+
+%\chapter{Chapitre} % classe book ou report mais pas article
+
+%\section{}
+%Voici la première section.
+
+%\subsection{SubSection}
+%Voici une subsection.
+
+%\subsubsection{SubSubSection}
+%Voici une subsubsection.
+
+%\paragraph{Paragraph}
+%Voici un paragraph.
+
+
+
+\section{Tensions simples}
+
+\begin{pspicture}(-1,-2.5)(13,2.5)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=2}
+\psset{yunit=2}
+\psline{->}(0,-1)(0,1.5) % Axe des y
+%\rput{0}(6,-0.25){$t$}
+\psline{->}(-0.25,0)(6.75,0) % Axe des x
+%\rput{0}(-0.25,1.75){$u_C$}
+\psplot[linecolor=red,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul cos} % sin(x)
+\psplot[linecolor=green,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul 120 sub cos} % sin(x-2pi/3)
+\psplot[linecolor=blue,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul 240 sub cos} % sin(x-4pi/3)=sin(x+2pi/3)
+\rput{0}(-0.25,1.25){$v_1$}
+\rput{0}(2,1.25){$v_2$}
+\rput{0}(4,1.25){$v_3$}
+\rput{0}(6,1.25){$v_1$}
+\end{pspicture}
+
+\section{Tensions simples et tensions composées}
+
+\begin{pspicture}(-1,-2.5)(13,2.5)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=2}
+\psset{yunit=1}
+\psline{->}(0,-2)(0,3) % Axe des y
+%\rput{0}(6,-0.25){$t$}
+\psline{->}(-0.25,0)(6.75,0) % Axe des x
+%\rput{0}(-0.25,1.75){$u_C$}
+\psplot[linecolor=red,linewidth=1pt]{-0.5}{6.5}{x 57.296 mul cos} % sin(x)
+\psplot[linecolor=green,linewidth=1pt]{-0.5}{6.5}{x 57.296 mul 120 sub cos} % sin(x-2pi/3)
+\psplot[linecolor=blue,linewidth=1pt]{-0.5}{6.5}{x 57.296 mul 240 sub cos} % sin(x-4pi/3)=sin(x+2pi/3)
+% 1.732 = sqrt(3) 1rad=57.296°
+\psplot[linecolor=red,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul cos x 57.296 mul 120 sub cos sub} % u12
+\psplot[linecolor=green,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul cos x 57.296 mul 240 sub cos sub} % u13
+\psplot[linecolor=blue,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul 120 sub cos x 57.296 mul 240 sub cos sub} % u23
+\psplot[linecolor=red,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul cos x 57.296 mul 120 sub cos sub neg} % -u12
+\psplot[linecolor=green,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul cos x 57.296 mul 240 sub cos sub neg} % -u13
+\psplot[linecolor=blue,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul 120 sub cos x 57.296 mul 240 sub cos sub neg} % -u2
+%\rput{0}(-0.25,1.25){$v_1$}
+%\rput{0}(2,1.25){$v_2$}
+%\rput{0}(4,1.25){$v_3$}
+
+\rput{0}(-0.5,2.5){$u_{12}$}
+\rput{0}(0.5,2.5){$u_{13}$}
+\rput{0}(1.5,2.5){$u_{23}$}
+
+\rput{0}(2.5,2.5){$u_{21}$}
+\rput{0}(3.5,2.5){$u_{31}$}
+\rput{0}(4.5,2.5){$u_{23}$}
+
+\rput{0}(5.5,2.5){$u_{12}$}
+\end{pspicture}
+
+\section{Tensions composées}
+
+\begin{pspicture}(-1,-2.5)(13,2.5)
+%\psgrid[subgriddiv=1,griddots=10]
+\psset{xunit=2}
+\psset{yunit=2}
+\psline{->}(0,-1)(0,1.5) % Axe des y
+%\rput{0}(6,-0.25){$t$}
+\psline{->}(-0.25,0)(6.75,0) % Axe des x
+%\rput{0}(-0.25,1.75){$u_C$}
+%\psplot[linecolor=red,linewidth=1pt]{-0.5}{6}{x 57.296 mul cos} % sin(x)
+%\psplot[linecolor=green,linewidth=1pt]{-0.5}{6}{x 57.296 mul 120 sub cos} % sin(x-2pi/3)
+%\psplot[linecolor=blue,linewidth=1pt]{-0.5}{6}{x 57.296 mul 240 sub cos} % sin(x-4pi/3)=sin(x+2pi/3)
+% 1.732 = sqrt(3) 1rad=57.296°
+\psplot[linecolor=red,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul cos x 57.296 mul 120 sub cos sub 1.732 div} % u12
+\psplot[linecolor=green,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul cos x 57.296 mul 240 sub cos sub 1.732 div} % u13
+\psplot[linecolor=blue,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul 120 sub cos x 57.296 mul 240 sub cos sub 1.732 div} % u23
+\psplot[linecolor=red,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul cos x 57.296 mul 120 sub cos sub neg 1.732 div} % -u12
+\psplot[linecolor=green,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul cos x 57.296 mul 240 sub cos sub neg 1.732 div} % -u13
+\psplot[linecolor=blue,linewidth=1pt,linestyle=dotted]{-0.5}{6.5}{x 57.296 mul 120 sub cos x 57.296 mul 240 sub cos sub neg 1.732 div} % -u2
+
+\rput{0}(-0.5,1.25){$u_{12}$}
+\rput{0}(0.5,1.25){$u_{13}$}
+\rput{0}(1.5,1.25){$u_{23}$}
+
+\rput{0}(2.5,1.25){$u_{21}$}
+\rput{0}(3.5,1.25){$u_{31}$}
+\rput{0}(4.5,1.25){$u_{23}$}
+
+\rput{0}(5.5,1.25){$u_{12}$}
+
+\end{pspicture}
+
+
+
+%\section*{Exercices}
+
+%\setcounter{num}{0}
+%\begin{exercice} Titre de l'exercice \\
+%Soit ce premier exercice
+%\end{exercice}
+
+%\begin{exercice} \\
+%Ce deuxième exercice
+%\end{exercice}
+
+\end{document}

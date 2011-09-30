@@ -1,0 +1,22 @@
+%Filename: 8runm.fd
+%Created by: tex Fam_6959
+%Created using fontinst v1.800
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{8runm.fd}
+   [1998/11/05 Fontinst v1.800 font definitions for 8r/unm.]
+
+\DeclareFontFamily{8r}{unm}{}
+
+\DeclareFontShape{8r}{unm}{m}{n}{
+   <-> unmr8r
+}{}
+
+\DeclareFontShape{8r}{unm}{m}{sl}{
+   <-> unmro8r
+}{}
+
+\DeclareFontShape{8r}{unm}{m}{it}{<->ssub * unm/m/sl}{}
+
+\endinput

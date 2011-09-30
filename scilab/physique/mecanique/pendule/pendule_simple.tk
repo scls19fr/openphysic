@@ -1,0 +1,106 @@
+encoding system iso8859-1;
+global ok wait but;set ok 0;set wait 0;set but release;
+set sourcedir "/Users/scls/openphysic/scilab/physique/mecanique/pendule"
+if {[file exists pendule_simple.mod]} {source pendule_simple.mod}
+if {[file exists pendule_simple.sci]} {ScilabEval "exec(\"pendule_simple.sci\",-1)"}
+tk appname pendule_simple
+package require -exact Tktable 2.8
+# 
+# Cette simulation a été générée par XMLlab 1.53-1
+# 
+# Copyright Stéphane Mottelet, André Pauss, Université de Technologie de Compiègne
+# stephane.mottelet@utc.fr, andre.pauss@utc.fr
+# 
+set toplevelWindow {.xmllab}
+set web {no}
+if [catch {toplevel .xmllab}] {destroy .xmllab;toplevel .xmllab};
+set id57872menu {{Fichier} {} {} 0 {{ command {Exécuter} {} {Exécuter la simulation} {} -command {
+runScilab {}} } { command {Sauver la session} {} {Sauve les valeurs actuelles des paramètres} {} -command {set savefile [tk_getSaveFile -initialdir $SESSIONDIR];save_session $savefile;} } { command {Charger une session} {} {Charger des valeurs de paramètres} {} -command {set sessionFile [tk_getOpenFile -initialdir $SESSIONDIR];source $sessionFile;runScilab {}} } { command {Quitter} {} {Quitter l'application} {} -command {set keep no} } } }
+MainFrame .xmllab.id57872 -menu $id57872menu -textvariable status -separator both -menubarfont menuFont -menuentryfont menuFont -statusbarfont menuFont
+NoteBook .xmllab.id57940 -font mainFont -tabpady {5 10} 
+.xmllab.id57940 insert 1 id66216 -text "Parametres du pendule"
+frame .xmllab.id57953
+Label .xmllab.id57962 -font mainFont  -text {Longueur du pendule (m)}
+LabelEntry .xmllab.id57970 -font mainFont -entrybg white -disabledforeground black -textvariable L -width 7 -state normal -command {runScilab {}}
+pack .xmllab.id57962 -in .xmllab.id57953 -side left -anchor w -padx 1 -pady 1 -expand true
+pack .xmllab.id57970 -in .xmllab.id57953 -side left -anchor e -padx 1 -pady 1
+frame .xmllab.id57984
+Label .xmllab.id57993 -font mainFont  -text {Angle initial}
+scale .xmllab.id58001 -font mainFont -variable theta_0_deg -width 8 -state normal -from 1 -to 179 -resolution 1 -bigincrement 10 -orient horizontal -width 8 -command {runScilab}
+bind .xmllab.id58001 <ButtonRelease-1> {set but release;runScilab {}}
+bind .xmllab.id58001 <ButtonPress-1> {set but press}
+pack .xmllab.id57993 -in .xmllab.id57984 -side left -anchor w -padx 1 -pady 1 -expand true
+pack .xmllab.id58001 -in .xmllab.id57984 -side left -anchor e -padx 1 -pady 1
+frame .xmllab.id58021
+Label .xmllab.id58030 -font mainFont  -text {Acceleration de la pesanteur (N/kg)}
+LabelEntry .xmllab.id58038 -font mainFont -entrybg white -disabledforeground black -textvariable g0 -width 7 -state normal -command {runScilab {}}
+pack .xmllab.id58030 -in .xmllab.id58021 -side left -anchor w -padx 1 -pady 1 -expand true
+pack .xmllab.id58038 -in .xmllab.id58021 -side left -anchor e -padx 1 -pady 1
+pack .xmllab.id57953 -in .xmllab.id57940.fid66216 -padx 1 -pady 1 -expand true -fill x
+pack .xmllab.id57984 -in .xmllab.id57940.fid66216 -padx 1 -pady 1 -expand true -fill x
+pack .xmllab.id58021 -in .xmllab.id57940.fid66216 -padx 1 -pady 1 -expand true -fill x
+.xmllab.id57940 insert 2 id66313 -text "Animation"
+frame .xmllab.id58060
+Label .xmllab.id58069 -font mainFont  -text {Instant de visualisation}
+frame .xmllab.id58076 -relief groove -bd 2
+scale .xmllab.id58084 -font mainFont -variable iv -width 8 -state normal -from 1 -to 500 -resolution 1 -bigincrement 10 -orient horizontal -width 8 -command {runScilab}
+bind .xmllab.id58084 <ButtonRelease-1> {set but release;runScilab {}}
+bind .xmllab.id58084 <ButtonPress-1> {set but press}
+unset -nocomplain iv
+jog {.xmllab.id58104} {iv} {1} {500} {1} {runScilab {}} {40}
+pack .xmllab.id58084 -in .xmllab.id58076 -side left -anchor e -padx 1 -pady 1
+pack .xmllab.id58104 -in .xmllab.id58076 -side left -padx 1 -pady 1
+pack .xmllab.id58069 -in .xmllab.id58060 -side left -anchor w -padx 1 -pady 1 -expand true
+pack .xmllab.id58076 -in .xmllab.id58060 -side left -padx 1 -pady 1
+pack .xmllab.id58060 -in .xmllab.id57940.fid66313 -padx 1 -pady 1 -expand true -fill x
+.xmllab.id57940 insert 3 id66353 -text "Parametres de resolution"
+frame .xmllab.id58124
+Label .xmllab.id58133 -font mainFont  -text {Temps final}
+LabelEntry .xmllab.id58140 -font mainFont -entrybg white -disabledforeground black -textvariable tf -width 7 -state normal -command {runScilab {}}
+pack .xmllab.id58133 -in .xmllab.id58124 -side left -anchor w -padx 1 -pady 1 -expand true
+pack .xmllab.id58140 -in .xmllab.id58124 -side left -anchor e -padx 1 -pady 1
+pack .xmllab.id58124 -in .xmllab.id57940.fid66353 -padx 1 -pady 1 -expand true -fill x
+.xmllab.id57940 insert 4 credits -text "XMLlab"
+frame .xmllab.id58159
+Label .xmllab.id58166 -font boldFont -text {Cette Simulation a été réalisée avec XMLlab version 1.53-1}
+Label .xmllab.id58174 -font mainFont -text {Copyright Stéphane Mottelet, André Pauss,
+Université de Technologie de Compiègne
+stephane.mottelet@utc.fr, andre.pauss@utc.fr}
+pack .xmllab.id58166 -in .xmllab.id58159 -side top -padx 1 -pady 1
+pack .xmllab.id58174 -in .xmllab.id58159 -side top -padx 1 -pady 1
+pack .xmllab.id58159 -in .xmllab.id57940.fcredits -anchor n -padx 1 -pady 1
+.xmllab.id57940 insert 5 notes -text "Notes"
+frame .xmllab.id58194
+Label .xmllab.id58201 -font boldFont -text {Periode d'un pendule simple (avec animation)}
+Label .xmllab.id58207 -font mainFont -text {Auteur : Sebastien CELLES, Wed Feb 14 09:00:00 CEST 2006}
+Label .xmllab.id58213 -font mainFont -wraplength 300 -justify left -text {Il s'agit d'une simulation d'un pendule simple. On visualise une animation representant un pendule simple et on mesure la periode du mouvement de ce pendule.}
+pack .xmllab.id58201 -in .xmllab.id58194 -side top -padx 1 -pady 1
+pack .xmllab.id58207 -in .xmllab.id58194 -side top -padx 1 -pady 1
+pack .xmllab.id58213 -in .xmllab.id58194 -side top -padx 1 -pady 1
+pack .xmllab.id58194 -in .xmllab.id57940.fnotes -anchor n -padx 1 -pady 1
+.xmllab.id57940 compute_size
+.xmllab.id57940 raise id66216
+pack .xmllab.id57940 -in .xmllab.id57872.frame -padx 1 -pady 1
+pack .xmllab.id57872 -in .xmllab -padx 1 -pady 1
+wm resizable .xmllab 0 0;
+wm title .xmllab "Periode d'un pendule simple (avec animation)"
+bind .xmllab <Destroy> {set keep no}
+unset -nocomplain L
+set L {1}
+unset -nocomplain theta_0_deg
+set theta_0_deg {20}
+unset -nocomplain g0
+set g0 {9.81}
+unset -nocomplain iv
+set iv {1}
+unset -nocomplain tf
+set tf {20}
+set display_pph1 {on}
+set display_theta {on}
+set display_pendule_nonlin {on}
+set display_circ1 {on}
+proc save_session {savefile} {set fp [open $savefile w];puts $fp "set L \"$::L\"";puts $fp "set theta_0_deg \"$::theta_0_deg\"";puts $fp "set g0 \"$::g0\"";puts $fp "set iv \"$::iv\"";puts $fp "set tf \"$::tf\"";close $fp}
+
+catch {wm state . withdrawn};
+bind Table <Return> {runScilab {}; ::tk::table::MoveCell %W 1 0};
+DynamicHelp::configure -bg white -font mainFont -delay 200

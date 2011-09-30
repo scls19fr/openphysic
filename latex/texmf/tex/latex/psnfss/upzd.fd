@@ -1,0 +1,5 @@
+\ProvidesFile{upzd.fd}
+  [2000/01/12 PSNFSS-v8.1 font definitions for U/pzd.]
+\DeclareFontFamily{U}{pzd}{}
+\DeclareFontShape{U}{pzd}{m}{n}{<->pzdr}{}
+\endinput

@@ -1,0 +1,98 @@
+Chap 13 ? :				     FORCES ELECTROMAGNETIQUES				1ère S
+
+I]	La force de Laplace.
+
+1)	L'expérience des rails de Laplace.
+
+Un conducteur parcouru par un I, placé dans un B, est soumis à une F ? au conducteur et à B. Le sens de la force dépend de celui de I et de celui de B.
+
+2)	Force de Laplace appliquée à un conducteur.
+
+Si on considère un conducteur rectiligne de longueur ? parcouru par un courant I, placé dans un champ magnétique B :
+
+(i, B, F) est un trièdre direct - règle des doigts de la main droite. 	F = I ? B sin ?	avec F en N, I en A, B en T, ? en m.
+
+
+ ?, angle mesuré entre B et le conducteur. 		NB : sin ? = sin (? - ?).
+
+
+II]	Circuits dans un champ magnétique.
+
+1)	Action d'un aimant droit sur une bobine.
+
+La force électromagnétique exercée sur la spire est la résultante des forces subies par chacun des petits ? conducteurs qui la constitue.
+
+
+
+2)	Circuit rectangulaire dans un champ magnétique uniforme. 
+
+Les forces F1 et F2 qui s'exercent sur les côtés DA et BC sont égales et opposées, mais ne sont pas directement opposées. On dit que ces 2 forces constituent un couple de forces. Appliqué à un système, un couple de forces tend à provoquer une rotation.
+
+Au cours de la rotation du cadre, les droites d'action des forces F1 et F2 se rapprochent l'une de l'autre jusqu'à devenir superposées.
+
+
+
+3)	Interaction entre courants électriques.
+
+Deux conducteurs, parcourus par des courants et voisins l'un de l'autre, sont en interaction électromagnétique. Chacun d'eux est une source de champ électromagnétique et est à l'origine de forces de Laplace s'exerçant sur le voisin.
+
+III]	Applications.
+1)Moteur à courant continu.
+Un moteur électrique est constitué d'une partie mobile, rotor et d'une partie fixe, stator.
+Le stator contient des aimants permanents. Le rotor contient des bobines conductrices enroulées autour d'une armature de fer doux. Les lignes de champ sont pratiquement radiales (pénétrantes). Chaque spire du rotor subit des forces de Laplace.
+
+
+
+
+
+
+Deux collecteurs solidaires du rotor assurent le changement de sens du courant dans les spires.
+
+2)	HP électrodynamique.
+
+Les sons ont pour origine une vibration (mouvement périodique d'un objet).
+
+Le son est + fort lorsque l'amplitude de la vibration est  + grande.
+Le son est + aigu (hauteur du son) lorsque la fréquence de la vibration est + importante.
+
+Dans un HP électrodynamique, la vibration est créée par des forces de Laplace.
+
+
+
+Les lignes de champ sont radiales et B est ? au conducteur en tout point. La force de Laplace résultante est // à l'axe de la bobine. La bobine et la membrane qui lui est liée se déplacent ainsi.
+
+Un courant alternatif, càd changeant périodiquement de sens, provoque la vibration de la membrane : le HP produit un son.
+
+IV]	Couplage électromécanique.
+1)	Bilan énergétique.
+
+Le moteur, le HP, la roue de Barlow, les rails de Laplace sont des récepteurs électromécaniques. Le rendement de la conversion électrique - mécanique est le suivant :
+
+? = ?m / ?e = Em / Ee
+
+?m puissance mécanique, ?e puissance électrique en W, Em, Ee énergies mécanique et électrique fournies durant ?t en J.
+
+2)	Rôle des forces de Laplace.
+
+C'est le travail moteur des forces de Laplace qui permet la conversion de l'énergie électrique en énergie mécanique dans les récepteurs électromécaniques.
+
+3)	Réversibilité des récepteurs électromécaniques : phénomène d'induction.
+
+Connectons 1 microphone et 1 HP aux bornes d'un oscillo et émettons 1 son à  leur proximité. On observe des courbes similaires.
+
+Conclusion : 1 HP peut être utilisé comme 1 microphone pour transformer 1 énergie mécanique en énergie électrique.
+
+Mais encore, si l'on fait tourner le rotor d'un moteur électrique, 1 U apparaît entre ses bornes. Il se comporte comme 1 générateur.
+
+Les récepteurs électromécaniques sont réversibles : ils peuvent être utilisés comme générateurs, pour convertir une énergie mécanique en énergie électrique.
+
+La conversion mécanique ? électrique s'effectue dans les bobines du HP ou du moteur lorsqu'elles se déplacent dans le champ magnétique. La U ou l'I  qui apparaissent sont dits induits : on parle de phénomène d'induction électromagnétique.
+
+Le phénomène d'induction électromagnétique apparaît lorsqu'on déplace un conducteur dans un champ magnétique.
+Si le conducteur déplacé appartient à un circuit ouvert, une tension induite apparaît aux bornes du circuit.
+Si le conducteur déplacé appartient à un circuit fermé, un courant induit apparaît dans le circuit.
+Le phénomène d'induction permet de convertir l'énergie mécanique en énergie électrique.
+
+
+
+

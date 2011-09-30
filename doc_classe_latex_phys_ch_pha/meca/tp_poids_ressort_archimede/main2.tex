@@ -1,0 +1,409 @@
+\tp[\'Etude du poids d'un corps, de la tension d'un ressort et de la
+poussée d'Archimède]{\'Etude du poids d'un corps\\
+\'Etude de la tension d'un ressort\\
+\'Etude de la poussée d'Archimède
+}
+
+%\begin{multicols}{2}
+
+\vressort{2}
+
+\objectifs{
+\item faire le lien entre l'intensité du poids et la masse d'un corps
+\item relier la tension qu'exerce un ressort avec son allongement
+\item retrouver les caractéristiques de la poussée d'Archimède
+}
+
+\materiel{
+\item dynamomètre
+\item masselottes
+\item ressort
+\item éprouvette graduée remplie d'eau (puis d'huile)
+}
+
+%\bigskip
+
+%\end{multicols}
+
+\vressort{2}
+
+
+\section{\'Etude du poids d'un corps}
+
+\subsection{Montage}
+
+Le poids, comme toutes les forces se mesure avec un dynamomètre. Il en existe en spirale et des longitudinaux.
+
+
+Chaque masse au repos exerce une force sur le corps qui la retient (elle est en équilibre). Ce corps peut être un support, une ficelle... La force qu'exerce la masse est son \emph{poids}.
+
+\vressort{2}
+
+\subsection{Mesures}
+Mesurer les poids de quelques masselottes et compléter le tableau suivant :
+
+\begin{arraydata}{9}
+\hline
+\rule[-0.4cm]{0cm}{1cm}%
+$m$ ($kg$) & & & & & & & & & \\ \hline
+\rule[-0.4cm]{0cm}{1cm}%
+$P$ ($N$)  & & & & & & & & & \\ \hline
+\end{arraydata}
+
+
+\vressort{2}
+
+\subsection{Exploitation, conclusion}
+\begin{enumerate}
+
+\item Construire une courbe où figureront en abscisse la masse $m$ (en $kg$) et en ordonnée le poids $P$ (en $N$).
+
+\vressort{1}
+
+\item Exploiter les paramètres de la courbe (Est-ce une droite ? Passe-t-elle par l'origine ? Quel est son coefficient directeur ? Quelle est l'unité de ce coefficient directeur ?).
+
+\vressort{1}
+
+\item Conclure sur la relation liant l'intensité $P$ du poids et la masse $m$.
+\end{enumerate}
+
+% \begin{center}
+% \begin{pspicture}(-7,-4)(7,4)
+%    \psmilli % papier milli noir
+% \end{pspicture}
+% \end{center}
+
+
+%\noindent
+%\papiermilli{11}{6}
+
+% \begin{center}
+% \scalebox{1.414}{
+% \begin{pspicture}(0,0)(11,6)
+%    \psmilli % papier milli noir
+% \end{pspicture}
+% }
+% \end{center}
+
+\newpage
+\section{\'Etude de la tension d'un ressort}
+
+\subsection{Montage}
+
+On dispose d'un ressort à spires non jointives, d'une potence comportant une règle graduée verticale et d'une boites de masses marquées à crochets.
+
+\begin{multicols}{2}
+
+%\begin{tabularx}{\textwidth}{XX}
+
+%\begin{center}
+
+\begin{figure}[H]
+\begin{pspicture}(-1,-5)(7,0)
+%\psgrid[subgriddiv=1,griddots=10]
+% http://tex.loria.fr/graph-pack/pstricks/pst-usr4.pdf
+%\pscoil(0,2)(0,-1)
+
+% ----- 
+% ////
+%\psline(-0.5,0)(0.5,0)
+%\multiput(0,0)(0.25,0){5}{\psline(-0.5,0)(-0.25,0.25)}
+
+% potence
+\psline[linewidth=0.1](0,0)(-1,0)
+\psline[linewidth=0.1](-1,0)(-1,-5)
+\psline[linewidth=0.1](-2,-5)(0,-5)
+\multiput(0,0)(0.25,0){8}{\psline(-1.75,-5)(-2,-5.25)}
+
+%\pszigzag[coilarm=.1]{-}(0,0)(0,-2.5) % linearc=0.1
+\pszigzag[coilarm=.1,coilheight=0.5,coilwidth=0.5]{-}(0,0)(0,-2.5) % linearc=0.1
+
+% \pszigzag[coilarm=.1,coilheight=1.4]{-}(0,0)(0,-3.5)
+% The distance along the axes for each period is equal to colheight x coilwidth
+% 1.4 = 3.5/2.5
+
+
+\psline{|->}(1,0)(1,-2.5)
+\rput(1.5,-1.25){$l_0$}
+\psline{|->}(1,-2.5)(1,-3.5)
+\rput(1.5,-3){$\Delta l$}
+
+\rput(0.5,-4.25){Ressort à vide}
+
+\rput(4,0){% Translation
+%\psline(-0.5,0)(0.5,0)
+%\multiput(0,0)(0.25,0){5}{\psline(-0.5,0)(-0.25,0.25)}
+
+% potence
+\psline[linewidth=0.1](0,0)(-1,0)
+\psline[linewidth=0.1](-1,0)(-1,-5)
+\psline[linewidth=0.1](-2,-5)(0,-5)
+\multiput(0,0)(0.25,0){8}{\psline(-1.75,-5)(-2,-5.25)}
+
+\pszigzag[coilarm=.1,coilheight=0.7,coilwidth=0.5]{-}(0,0)(0,-3.5)
+% coilheight=0.7  =   0.5 (gauche) * 3.5 / 2.5
+\psline{|->}(1,0)(1,-3.5)
+\rput(1.5,-1.75){$l$}
+
+\psframe*(-0.25,-3.5)(0.25,-4) % [fillstyle=vlines]
+
+\rput(0.5,-4.25){Ressort en charge}
+}
+\end{pspicture}
+\caption{Ressort à vide et en charge}
+\end{figure}
+
+%\end{center}
+
+%&
+
+%\begin{center}
+% \begin{pspicture}(-1,-2)(2,2)
+% \psgrid[subgriddiv=1,griddots=10]
+% %   \psmilli % papier milli noir
+% \pszigzag[coilarm=.1]{|-}(0,2)(0,-1.5)
+% \end{pspicture}
+%\end{center}
+
+%\end{tabular}
+
+
+%&
+
+\rule{-1cm}{1.5cm}
+
+\begin{itemize}
+\item $l_0$ : longueur à vide du ressort.
+\item $l$ : longueur du ressort en charge.
+\item $\Delta l = l - l_0$ : allongement du ressort.
+\end{itemize}
+
+\end{multicols}
+
+%\end{tabularx}
+
+
+\vressort{2}
+
+\subsection{\'Etude}
+
+Le système mécanique étudié est la masse $m$.
+\begin{enumerate}
+\item Faire le bilan des forces (extérieures) agissant sur la masse $m$.
+
+\vressort{1}
+
+\item Représenter les forces sur un schéma.
+
+\vressort{1}
+
+\item \'Enoncer la loi d'équilibre de la masse $m$. En déduire une relation liant l'intensité $P$ du poids et la tension $T$ du ressort.
+
+\end{enumerate}
+
+
+\vressort{2}
+
+
+\subsection{Mesures}
+
+\begin{enumerate}
+\item Mesurer la longueur $l_0$ du ressort à vide.
+
+\vressort{1}
+
+\item Poser différentes masses $m$ à l'extrémité du ressort, mesurer la longueur du ressort en charge, déduire l'allongement $\Delta l = l - l_0$ de celui-ci.
+
+\vressort{1}
+
+\item Noter les résultats expérimentaux dans le tableau suivant :
+
+
+\begin{arraydata}{9}
+\hline
+\rule[-0.4cm]{0cm}{1cm}%
+$m$ ($kg$) & & & & & & & & & \\ \hline
+\rule[-0.4cm]{0cm}{1cm}%
+$P$ ($N$)  & & & & & & & & & \\ \hline
+\rule[-0.4cm]{0cm}{1cm}%
+$T$ ($N$)  & & & & & & & & & \\ \hline
+\rule[-0.4cm]{0cm}{1cm}%
+$\Delta l$ ($m$)  & & & & & & & & & \\ \hline
+\end{arraydata}
+
+
+\vressort{1}
+
+\item Tracer la courbe $T = f(\Delta l)$.
+
+\vressort{1}
+
+\item Exploiter les paramètres de la courbe (Est-ce une droite ? Passe-t-elle par l'origine ? Quel est son coefficient directeur ? Quelle est l'unité de ce coefficient directeur ?).
+
+\vressort{1}
+
+\item En déduire la relation (vectorielle) liant la tension $\vect{T}$ du ressort avec l'allongement de celui-ci.
+
+\end{enumerate}
+
+
+%\noindent
+%\papiermilli{11}{5}
+
+% \begin{center}
+% \scalebox{1.414}{
+% \begin{pspicture}(0,0)(11,5)
+%    \psmilli % papier milli noir
+% \end{pspicture}
+% }
+% \end{center}
+
+
+%\newcommand{\tppousseearchi}{%
+
+\renewcommand{\reproduire}{%
+
+\newpage
+
+\section{\'Etude de la poussée d'Archimède}
+
+\vressort{2}
+
+
+
+\subsection{Montage}
+
+\begin{multicols}{2}
+
+
+
+\begin{center}
+\begin{figure}[H]
+\begin{pspicture}(-4,-6)(1,0)
+%\psline(-0.5,0)(0.5,0)
+%\multiput(0,0)(0.25,0){5}{\psline(-0.5,0)(-0.25,0.25)}
+
+% potence
+\psline[linewidth=0.1](0,0)(-3,0)
+\psline[linewidth=0.1](-3,0)(-3,-6)
+\psline[linewidth=0.1](-4,-6)(2,-6)
+\multiput(0,0)(0.25,0){24}{\psline(-3.75,-6)(-4,-6.25)}
+
+\pszigzag[coilarm=.1,coilheight=0.7,coilwidth=0.5]{-}(0,0)(0,-3.5)
+\psline(0,-3.5)(0,-5)
+\rput(0,-1){%
+\psframe*(-0.25,-3.5)(0.25,-4) % [fillstyle=vlines] % masse
+}
+% éprouvette
+\rput(0,-5.95){%translation de l'éprouvette
+\psline(-0.5,0)(-0.5,5) % gauche
+\psline(0.5,0)(0.5,5) % droite
+\psline[linewidth=0.2](-0.75,0)(0.75,0) % pied
+\psline(0.5,4.75)(0.75,5) % bec
+\psline(-0.5,5)(0.75,5) % haut
+\psline(-0.5,2)(0.5,2) % ménisque
+}
+\end{pspicture}
+\caption{Vérification expérimentale de la poussée d'Archimède}
+\end{figure}
+\end{center}
+
+
+\vressort{1}
+
+\begin{enumerate}
+\item Suspendre la masse marquée $m = \trou{100~g}$ au \emph{même}
+ressort que celui étudié précédemment.
+
+\vressort{1}
+
+\item Noter le volume d'eau dans l'éprouvette à votre disposition.
+
+\vressort{1}
+
+\item Introduire la masse marquée dans l'éprouvette.
+
+\vressort{1}
+
+\item Réaliser les mesures nécessaires pour déterminer la valeur de la
+force de tension du ressort.
+
+\vressort{1}
+
+\item Noter le nouveau volume dans l'éprouvette.
+\end{enumerate}
+
+\end{multicols}
+
+\vressort{2}
+
+
+\subsection{Mesures}
+\begin{enumerate}
+\item Faire le bilan des interactions subies par la masse marquée. Nommer et représenter les forces correspondantes dans chaque cas.
+
+\vressort{1}
+
+\item Quelle est la condition de repos de la masse marquée dans l'éprouvette.
+
+\vressort{1}
+
+\item Réaliser les mesures nécessaires pour déterminer la valeur de la force de tension du ressort.
+
+\vressort{1}
+
+\item Noter le nouveau volume dans l'éprouvette.
+\end{enumerate}
+
+
+\vressort{2}
+
+
+\subsection{Exploitation des mesures}
+\begin{enumerate}
+\item Faire le bilan des interactions subies par la masse marquée. Nommer et représenter les forces correspondantes dans chaque cas.
+
+\vressort{1}
+
+\item Quelle est la condition de repos de la masse marquée dans le référentiel terrestre ?
+
+\vressort{1}
+
+\item En déduire l'intensité $\Pi_A$ de la poussée d'Archimède $\vect{\Pi_A}$, c'est à dire l'action de l'eau sur la masse.
+
+\vressort{1}
+
+\item Comparer cette valeur au poids du volume d'eau déplacé.
+
+
+\end{enumerate}
+
+
+\vressort{2}
+
+\subsection{Généralisation et énoncé du théorème d'Archimède}
+
+\begin{enumerate}
+
+\item Si le temps le permet, recommencer toute la démarche en remplissant l'éprouvette graduée avec de l'huile à la place de l'eau.
+
+\vressort{1}
+
+\item Retrouver l'énoncé du théorème d'Archimède sachant qu'il donne les caractéristiques de la force qu'exerce un fluide sur un objet immergé (utiliser la masse volumique du fluide pour donner l'expression de cette force)
+
+
+\end{enumerate}
+
+}
+
+\setcounter{figure}{1}
+%\tppousseearchi
+\reproduire
+
+\addtocounter{section}{-1}
+% même numéro de section pour la deuxième page
+% 1 feuille pour 2 élèves
+
+\setcounter{figure}{1}
+%\tppousseearchi
+\reproduire

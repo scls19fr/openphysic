@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<Ligne>
+<z1>
+<Complexe>
+<Re>1</Re>
+<Im>2</Im>
+</Complexe>
+</z1>
+<z2>
+<Complexe>
+<Re>3</Re>
+<Im>4</Im>
+</Complexe>
+</z2>
+</Ligne>

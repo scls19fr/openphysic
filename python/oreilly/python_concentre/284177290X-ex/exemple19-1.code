@@ -1,0 +1,19 @@
+import socket
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.bind(('', 8881))
+sock.listen(5)
+
+# Boucle d'attente des connexions 
+# Terminer avec Ctrl-Break sur Win32, Ctrl-C sur Unix
+try:
+    while True:
+        newSocket, adresse = sock.accept( )
+        print "Connexion de", adresse
+        while True:
+            donneesRecues = newSocket.recv(8192)
+            if not donneesRecues: break
+            newSocket.sendall(donneesRecues)
+        newSocket.close( )
+        print "Déconnexion de", adresse
+finally:
+    sock.close( )

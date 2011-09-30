@@ -1,0 +1,243 @@
+\documentclass[a4paper,10pt]{book}
+
+\usepackage[frenchb]{babel}     % specification francaise
+\usepackage[latin1]{inputenc}   % entree clavier latin1
+\usepackage[T1]{fontenc}        % sortie
+
+
+\usepackage[french]{minitoc}
+
+
+\title{Utilisation de Xcas - Giac\\ en Sciences Physiques}
+\author{Sébastien Celles}
+\date{\today} 
+
+
+\begin{document}
+
+% Titre
+\maketitle
+
+
+
+% Sommaire
+\dominitoc % table des matières locales 
+\tableofcontents
+
+
+% références biblio
+% La physique avec Maple 1ère et 2ème année
+%   MP PC PSI PT
+%   Vincent BOURGES
+%   Ed. Ellipse
+
+
+% Maple cours et applications (2ème édition)
+%   MPSI PCSI PTSI
+%   MP PSI PC PT
+%   Lionel PORCHERON
+%   Ed. DUNOD
+
+% MATLAB pour l'ingénieur
+%   Adrian BIRAN et Moshe BREINER
+%   Ed. PEARSON Education
+
+
+%\part{Part1}
+
+
+
+
+
+
+\newcommand{\chapitre}[1]{%
+\chapter{#1}
+\vspace*{\stretch{1}}
+\minitoc
+\vspace*{\stretch{3}}
+\newpage
+}
+
+
+
+
+\chapitre{Mécanique}
+
+\section{Chute libre}
+\section{Mouvement d'un satellite}
+% portrait de phase
+% points singuliers points fixes points critique diagramme de
+% bifurcation
+
+\section{Oscillateurs mécaniques}
+
+\subsection{Oscillateur harmonique libre non amorti}
+
+\subsection{Oscillateur harmonique libre amorti}
+
+\subsection{Portrait de phase d'un oscillateur mécanique}
+
+\subsection{Oscillateur harmonique amorti en régime forcé}
+
+\subsection{Oscillateurs couplés}
+
+
+
+
+%\part{Part2}
+
+
+\chapitre{\'Electronique}
+
+\section{Diagramme de Bode}
+
+\section{Comparateur}
+
+\section{Oscillateurs}
+
+
+
+
+
+\chapitre{\'Electrostatique}
+\section{Spectre du champ électrique}
+
+\section{Mouvement d'une particule dans un champ électrique}
+
+
+
+
+
+\chapitre{Magnétostatique}
+\section{Spectre du champ magnétique}
+\section{Mouvement d'une particule dans un champ magnétique}
+
+
+
+
+
+\chapitre{Optique}
+\section{Optique géométrique}
+\section{Interférences}
+\section{Diffraction}
+\section{Réseau}
+
+
+
+
+
+\chapitre{Physique ondulatoire}
+\section{\'Etude d'une onde à une dimension}
+\section{Ondes stationnaires}
+%\section{\'Etude d'une onde à deux dimensions}
+%\subsection{d
+
+
+
+
+\chapitre{Analyse vectorielle}
+\section{Gradient}
+\section{Divergence}
+\section{Rotationnel}
+\section{Laplacien}
+
+
+
+\chapitre{Mécanique des fluides}
+\section{\'Etude d'un écoulement laminaire autour d'une spéhère}
+\section{\'Ecoulement}
+% voir la simu Scilab de Biansan (Optgéo)
+
+
+
+\chapitre{Traitement du signal}
+\section{Analyse de Fourier}
+\subsection{Transformée de Fourier à l'aide du calcul formel}
+\subsection{Transformée de Fourier Rapide (FFT)}
+
+
+\section{Transformation de Laplace}
+
+
+
+
+\chapitre{Thermodynamique}
+\section{Diffusion}
+
+
+
+
+
+\chapitre{Physique non linéaire}
+\section{Espace de phase}
+\section{Trajectoire de phase}
+
+
+
+\chapitre{Chimie}
+\section{Orbitales de l'atome d'hydogène}
+\section{Réaction acido-basiques}
+\section{Cinétique chimique}
+\section{Diagramme potentiel-pH}
+
+
+
+
+
+\chapitre{Fractales}
+\section{Ensemble de Cantor}
+\section{Courbe de Koch}
+\section{Courbe de Péano}
+\section{Tamis de Siepinski}
+% sapin/arbre de noel
+% fougère
+
+\section{Arbres de Pythagore}
+% arbre à broccoli
+
+\section{Conway : le jeu de la vie}
+% -> automate
+
+\section{Courbe du crabe}
+
+\section{Courbe de Hilbert}
+
+\section{Ensemble de Julia}
+
+\section{Ensemble de Mendelbrot}
+
+\section{Gaussienne}
+
+\section{Profil brownien d'une montagne}
+
+
+
+
+
+
+
+\chapitre{Chaos}
+
+\section{Scénario de Feigenbaum}
+
+\section{Attracteur de Hénon}
+
+\section{Attracteur de Rössler}
+
+\section{Attracteur de Lorentz}
+
+
+
+
+%\section{Pendule}
+
+% accrochage d'une machine synchrone sur le réseau ?
+
+
+
+
+
+
+\end{document}
+
+

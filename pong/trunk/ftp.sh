@@ -1,0 +1,1 @@
+ncftpput -u s.cls ftpperso.free.fr realisations/pong *.zip src/screenshot*.* bin/win/pong_win.exe

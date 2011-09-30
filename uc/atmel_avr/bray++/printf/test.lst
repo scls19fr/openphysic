@@ -1,0 +1,128 @@
+           ;	/* START ASM
+           ;	   MCU: AT90S8515
+           ;	*/
+           ;	#arch AT90S8515
+           ;	#define __SREG__ 0x3f
+           ;	#define __SP_H__ 0x3e
+           ;	#define __SP_L__ 0x3d
+           ;	#define low(x) ((x)&0xff)
+           ;	#define high(x) (((x)>>8)&0xff)
+           ;	#define hlow(x) (((x)>>16)&0xff)
+           ;	#define hhigh(x) (((x)>>24)&0xff)
+           ;	#define __tmp_reg__ r0
+           ;	#define __zero_reg__ r1
+           ;	#define __pc_rel__(x) ((x)*2)
+           ;	
+           ;	extern __prologue_saves__
+           ;	extern __epilogue_restores__
+           ;	extern _send_byte
+           ;		seg flash.code.f_delay
+           ;	public _delay:
+           ;	;prologue: frame size=0
+           ;	;prologue end (size=0)
+0906: 6627 ;		clr r22
+0908: 7727 ;		clr r23
+090A: 6817 ;		cp r22,r24
+090C: 7907 ;		cpc r23,r25
+090E: 48F4 ;		brsh L18
+           ;	L20:
+0910: 5527 ;		clr r21
+           ;	L23:
+0912: 5F5F ;		subi r21,low(-(1))
+0914: 5436 ;		cpi r21,low(100)
+0916: E8F3 ;		brlo L23
+0918: 6F5F ;		subi r22,low(-(1))
+091A: 7F4F ;		sbci r23,high(-(1))
+091C: 6817 ;		cp r22,r24
+091E: 7907 ;		cpc r23,r25
+0920: B8F3 ;		brlo L20
+           ;	L18:
+           ;	;epilogue: frame size=0
+0922: 0895 ;		ret
+           ;	;epilogue end (size=1)
+           ;	; function delay size 15 (14)
+           ;	extern _lcd_init
+           ;	extern _lcd_control
+           ;	extern _printf
+           ;	 ; aligning segment
+           ;		seg eram.gcc_data_section
+           ;	LC0:
+0091: 20   ;		dc.b 0x20
+0092: 48   ;		dc.b 0x48
+0093: 65   ;		dc.b 0x65
+0094: 6C   ;		dc.b 0x6c
+0095: 6C   ;		dc.b 0x6c
+0096: 6F   ;		dc.b 0x6f
+0097: 20   ;		dc.b 0x20
+0098: 66   ;		dc.b 0x66
+0099: 72   ;		dc.b 0x72
+009A: 6F   ;		dc.b 0x6f
+009B: 6D   ;		dc.b 0x6d
+009C: 20   ;		dc.b 0x20
+009D: 41   ;		dc.b 0x41
+009E: 56   ;		dc.b 0x56
+009F: 52   ;		dc.b 0x52
+00A0: 20   ;		dc.b 0x20
+00A1: 00   ;		dc.b 0x0
+           ;	extern _lcd_goto
+           ;	LC1:
+00A2: 54   ;		dc.b 0x54
+00A3: 65   ;		dc.b 0x65
+00A4: 6D   ;		dc.b 0x6d
+00A5: 70   ;		dc.b 0x70
+00A6: 3D   ;		dc.b 0x3d
+00A7: 25   ;		dc.b 0x25
+00A8: 64   ;		dc.b 0x64
+00A9: 25   ;		dc.b 0x25
+00AA: 63   ;		dc.b 0x63
+00AB: 43   ;		dc.b 0x43
+00AC: 20   ;		dc.b 0x20
+00AD: 25   ;		dc.b 0x25
+00AE: 78   ;		dc.b 0x78
+00AF: 00   ;		dc.b 0x0
+           ;		seg flash.code.f_main
+           ;	public _main:
+           ;	;prologue: frame size=0
+0734: CFE5 ;		ldi r28,low (0x25f - 0)
+0736: D2E0 ;		ldi r29,high (0x25f - 0)
+0738: CDBF ;		out __SP_L__,r28
+073A: DEBF ;		out __SP_H__,r29
+           ;	;prologue end (size=4)
+073C: C0EE ;		ldi r28,low(-32)
+073E: DFEF ;		ldi r29,high(-32)
+0740: 70DF ;		rcall _lcd_init
+0742: 7727 ;		clr r23
+0744: 872F ;		mov r24,r23
+0746: 91E0 ;		ldi r25,low(1)
+0748: 52D0 ;		rcall _lcd_control
+074A: 81E9 ;		ldi r24,low(LC0)
+074C: 90E0 ;		ldi r25,high(LC0)
+074E: 9F93 ;		push r25
+0750: 8F93 ;		push r24
+0752: D8DD ;		rcall _printf
+0754: 90E4 ;		ldi r25,low(64)
+0756: E6D0 ;		rcall _lcd_goto
+0758: 8AEA ;		ldi r24,low(170)
+075A: 90E0 ;		ldi r25,high(170)
+075C: 9F93 ;		push r25
+075E: 8F93 ;		push r24
+0760: 8FED ;		ldi r24,low(223)
+0762: 90E0 ;		ldi r25,high(223)
+0764: 9F93 ;		push r25
+0766: 8F93 ;		push r24
+0768: DF93 ;		push r29
+076A: CF93 ;		push r28
+076C: 82EA ;		ldi r24,low(LC1)
+076E: 90E0 ;		ldi r25,high(LC1)
+0770: 9F93 ;		push r25
+0772: 8F93 ;		push r24
+0774: C7DD ;		rcall _printf
+           ;	L30:
+0776: FFCF ;		rjmp L30
+           ;	;epilogue: frame size=0
+           ;	__stop_progIi__:
+0778: FFCF ;		rjmp __stop_progIi__
+           ;	;epilogue end (size=1)
+           ;	; function main size 35 (30)
+           ;	; File 'test.c' sizes: code   50 (  44), prologues   4, epilogues   2
+

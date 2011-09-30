@@ -1,0 +1,17 @@
+import twisted.internet.protocol
+import twisted.internet.reactor
+
+class ProtocoleEcho(twisted.internet.protocol.Protocol):
+    def connectionMade(self):
+        self.peer = self.transport.getPeer()[1:]
+        print "Connexion de", self.peer
+    def dataReceived(self, data):
+        self.transport.write(data)
+    def connectionLost(self, reason):
+        print "Déconnexion de", self.peer, reason.value
+
+fabrique = twisted.internet.protocol.Factory()
+fabrique.protocol = ProtocoleEcho
+
+twisted.internet.reactor.listenTCP(8881, fabrique)
+twisted.internet.reactor.run()

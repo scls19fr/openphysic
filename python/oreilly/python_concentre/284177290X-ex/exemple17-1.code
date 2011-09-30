@@ -1,0 +1,42 @@
+"""
+Ce module fournit une unique fonction inverseMots qui inverse
+les mots d'une chaîne.
+
+>>> inverseMots('quatre ans et sept mois')
+'mois sept et ans quatre'
+>>> inverseMots('unseulmot')
+'unseulmot'
+>>> inverseMots('')
+''
+
+Vous devez appeler inverseMots avec un seul paramètre, qui doit être une chaîne :
+
+>>> inverseMots()
+Traceback (most recent call last):
+    ...
+TypeError: inverseMots() takes exactly 1 argument (0 given)
+>>> inverseMots('un', 'deux')
+Traceback (most recent call last):
+    ...
+TypeError: inverseMots() takes exactly 1 argument (2 given)
+>>> inverseMots(1)
+Traceback (most recent call last):
+    ...
+AttributeError: 'int' object has no attribute 'split'
+>>> inverseMots(u'Cependant, Unicode est aussi correct')
+u'correct aussi est Unicode Cependant,'
+
+Un effet de bord est que inverseMots élimine les espaces redondants :
+
+>>> inverseMots('avec   des espaces   redondants')
+'redondants espaces des avec'
+
+"""
+def inverseMots(chaine):
+    mots = chaine.split()
+    mots.reverse()
+    return ' '.join(mots)
+
+if __name__ == '__main__':
+    import doctest, sys
+    doctest.testmod(sys.modules[__name__])

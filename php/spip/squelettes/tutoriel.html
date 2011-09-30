@@ -1,0 +1,24 @@
+<html>
+
+	<head>
+
+	</head>
+
+	<body>
+	#CACHE{0}
+
+
+
+
+[(#REM)	http://127.0.0.1/stagespip/spip.php?page=tutoriel&id_rubrique=1 ]
+
+	<BOUCLE_rubriques(RUBRIQUES){id_rubrique}>
+	<h1>#TITRE</h1>
+		<BOUCLE_article(ARTICLES){id_rubrique}{par date}{inverse}{0,10}>
+		<a href="#URL_ARTICLE">#TITRE</a><br/>
+		</BOUCLE_article>			
+	</BOUCLE_rubriques>
+
+	</body>
+
+</html>

@@ -1,0 +1,107 @@
+\tp{Association de conducteurs ohmiques}
+
+\nomprenomclasse
+
+
+\objectifs{
+\item Vérifier les relations d'association de conducteurs ohmiques en série et en parallèle.
+}
+
+%\section*{Matériel}
+%2 conducteurs ohmique de résistance inconnue
+
+\section{Association série}
+On réalise l'association en série de deux conducteurs ohmiques $R_1$ et $R_2$.\\
+On alimente cette association par un générateur de tension réglable $U$.\\
+On mesure la tension $U_1$ aux bornes de $R_1$, $U_2$ aux bornes de $R_2$ ainsi que la tension $U$ aux bornes du générateur et le courant $I$ dans le circuit.
+
+\begin{enumerate}
+
+\item Faire le schéma du montage en faisant apparaître les tensions et les courants avec les conventions habituelles, ainsi qu'en précisant les bornes des appareils de mesure.
+
+\cadre{5cm}
+
+\item Réaliser le montage et le montrer au professeur avant mise sous tension. Mesurer les grandeurs indiquées plus haut.
+
+
+\begin{arraydata}{11}
+\hline
+$U$ ($V$)       & & & & & & & & & & & \\ \hline
+$I$ ($A$)       & & & & & & & & & & & \\ \hline
+$U_1$ ($V$)     & & & & & & & & & & & \\ \hline
+$U_2$ ($V$)     & & & & & & & & & & & \\ \hline
+\hline
+$U_1+U_2$       & & & & & & & & & & & \\ \hline
+%$\frac{U_1}{I}$ & & & \\ \hline
+%$\frac{U_2}{I}$ & & & \\ \hline
+%$\frac{U}{I}$   & & & \\ \hline
+\end{arraydata}
+
+
+\item Calculer $U_1+U_2$. Comparer à $U$. Conclure.
+%\item Calculer $\frac{U_1}{I}$, $\frac{U_2}{I}$ et $\frac{U}{I}$.
+\item Tracer $U_1$, $U_2$, $U$ et $U_1 + U_2$ en fonction de $I$.
+\item Donner la valeur de :
+ \begin{itemize}
+ \item $R_1 = ............$ 
+ \item $R_2 = ............$
+ \item $R = ............$
+ \end{itemize}
+%\item Quelle est la valeur de la résistance équivalente à l'association en série des deux conducteurs ohmiques ?
+\item Calculer $R_1 + R_2$. Conclure.
+\end{enumerate}
+
+
+\newpage
+
+\section{Association parallèle}
+On réalise l'association en parallèle de deux conducteurs ohmiques $R_1$ et $R_2$.\\
+On alimente cette association par un générateur de tension réglable $U$.\\
+On mesure le courant $I_1$ traversant le conducteur ohmique de résistance $R_1$, $I_2$ celui traversant $R_2$ ainsi que la tension $U$ aux bornes du générateur et le courant $I$ qu'il débite.
+
+\begin{enumerate}
+
+\item Faire le schéma du montage en faisant apparaître les tensions et les courants avec les conventions habituelles, ainsi qu'en précisant les bornes des appareils de mesure.
+
+\cadre{5cm}
+
+\item Réaliser le montage et le montrer au professeur avant mise sous tension. Mesurer les grandeurs indiquées plus haut.
+
+
+\begin{arraydata}{11}
+\hline
+$U$ ($V$)       & & & & & & & & & & & \\ \hline
+$I$ ($A$)       & & & & & & & & & & & \\ \hline
+$I_1$ ($A$)     & & & & & & & & & & & \\ \hline
+$I_2$ ($A$)     & & & & & & & & & & & \\ \hline
+\hline
+$I_1+I_2$       & & & & & & & & & & & \\ \hline
+%$\frac{U}{I_1}$ & & & \\ \hline
+%$\frac{U}{I_2}$ & & & \\ \hline
+%$\frac{U}{I}$   & & & \\ \hline
+\end{arraydata}
+
+
+\item Calculer $I_1+I_2$, comparer à I. Conclure.
+
+\item Tracer $U$ en fonction de $I$, $U$ en fonction de $I_1$, $U$ en fonction de $I_2$ et $U$ en fonction de $I_1 + I_2$.
+
+%\item Calculer $\frac{U}{I_1}$, $\frac{U}{I_2}$ et $\frac{U}{I}$.
+\item Donner la valeur de :
+ \begin{itemize}
+ \item $R_1 = ............$ 
+ \item $R_2 = ............$
+ \item $R = ............$
+ \end{itemize}
+%\item Quelle est la valeur de la résistance équivalente à l'association en parallèle des deux conducteurs ohmiques ?
+\item Calculer $\frac{1}{R_1} + \frac{1}{R_2}$. Conclure.
+\end{enumerate}
+
+
+\section*{Résumé : association série ou parallèle de conducteurs ohmiques}
+%\begin{tabularx}{\linewidth}{|c|c|}
+%\hline
+%Association série & Association parallèle \\ \hline
+%\end{tabularx}
+
+\cadre{5cm}

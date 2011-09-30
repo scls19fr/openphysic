@@ -1,0 +1,46 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource>
+<!-- Here are translations files
+        <file>translations/</file>
+-->
+        <file>translations/openchrono_fr_FR.qm</file>
+
+
+
+<!-- Here are icons files
+        <file>icons/</file>
+
+$ ls icons/
+cancel.png     gohome.png     identity.png         left.png        README.TXT~
+configure.png  help.png       laptop_battery.png   ok.png          right.png
+down.png       highscore.png  laptop_battery.svg   openchrono.png  up.png
+eraser.png     home.png       laptop_battery.svgz  README.TXT
+
+-->
+
+        <file>icons/openchrono.png</file>
+
+<!-- To test SVG features
+        <file>icons/laptop_battery.png</file>
+        <file>icons/laptop_battery.svg</file>
+        <file>icons/laptop_battery.svgz</file>
+-->
+
+        <file>icons/home.png</file>
+        <file>icons/eraser.png</file>
+
+        <file>icons/up.png</file>
+        <file>icons/right.png</file>
+        <file>icons/down.png</file>
+        <file>icons/left.png</file>
+
+        <file>icons/ok.png</file>
+        <file>icons/cancel.png</file>
+
+        <file>icons/clock.svg</file>
+        <file>icons/pilot.png</file>
+
+        <file>icons/best_lap.png</file>
+        <file>icons/best_etap.svg</file>
+    </qresource>
+</RCC>

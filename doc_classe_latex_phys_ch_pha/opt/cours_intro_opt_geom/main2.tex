@@ -1,0 +1,417 @@
+\cours{Les bases de l'optique géométrique}
+
+
+
+\vressort{1}
+
+%\vspace{-0.75cm}
+
+
+\section{La propagation de la lumière}
+
+\subsection{Notion de rayon lumineux}
+
+
+On considère qu'un faisceau lumineux est constitué d'un ensemble de
+rayons lumineux indépendants les uns des autres.
+
+
+
+Dans un milieu transparent homogène (indice de réfraction identique en
+tout point du milieu considéré), la lumière se propage en ligne
+droite.
+
+
+\begin{multicols}{3}
+%\begin{tabularx}{\linewidth}{*{3}{X}}
+
+\begin{pspicture}(-2,-1)(2,1)
+%\psgrid[subgriddiv=1,griddots=10]
+\psline(-1.5,0.5)(1.5,0.5)   \psline{->}(-1.5,0.5)(0,0.5)
+
+% pstricks-add
+%\psline[ArrowInside=->,ArrowInsidePos=.5](-1.5,0.5)(1.5,0.5)
+
+\psline(-1.5,-0.5)(1.5,-0.5) \psline{->}(-1.5,-0.5)(0,-0.5)
+\end{pspicture}
+\caption{Faisceau parallèle}
+
+%                   &
+
+\begin{pspicture}(-2,-1)(2,1)
+%\psgrid[subgriddiv=1,griddots=10]
+\psline(-1.5,0.5)(1.5,1)   \psline{->}(-1.5,0.5)(0,0.75)
+\psline(-1.5,-0.5)(1.5,-1) \psline{->}(-1.5,-0.5)(0,-0.75)
+\end{pspicture}
+\caption{Faisceau divergent}
+
+%                   &
+
+\begin{pspicture}(-2,-1)(2,1)
+%\psgrid[subgriddiv=1,griddots=10]
+\psline(-1.5,0.5)(1.5,0.25)   \psline{->}(-1.5,0.5)(0,0.375)
+\psline(-1.5,-0.5)(1.5,-0.25) \psline{->}(-1.5,-0.5)(0,-0.375)
+\end{pspicture}
+\caption{Faisceau convergent}
+
+%                     \tabularnewline
+%faisceau parallèle & faisceau divergent & faisceau convergent \tabularnewline
+%\end{tabularx}
+
+\end{multicols}
+
+\emph{Remarque :} On a représenté ici que les 2 rayons lumineux
+limitant le faisceau ; c'est ce qui est généralement fait.
+
+\emph{Question :} Peut-on voir un rayon lumineux ?
+
+
+\vressort{1}
+
+
+\subsection{Réfraction}
+
+La réfraction se produit lorsque la lumière aborde la surface de
+séparation (appelée \trou{dioptre}) de 2 milieux transparents
+homogènes.
+
+
+\begin{multicols}{2}
+
+\begin{figure}[H]
+\begin{pspicture}(-3,-2)(3,2)
+%\psgrid[subgriddiv=1,griddots=10]
+\psline(-3,0)(3,0)
+
+% rayon incident
+%\rput(-5.5,-2){rayon incident}
+\psline(-3,1.5)(0,0) \psline{->}(-3,1.5)(-2,1)
+\rput(-1,1){$i_1$}
+\pswedge(0,0){0.75}{90}{153.4}
+
+% indice milieu
+\rput(2,1){$n_1$}
+\rput(-2,-1){$n_2$}
+
+% rayon réfracté
+%\rput(5.5,1){rayon réfracté}
+\psline(0,0)(3,-0.75) \psline{>-}(2,-0.5)(3,-0.75)
+\rput(1,-1){$i_2$}
+%\pswedge(0,0){1}{-14}{0}
+\pswedge(0,0){0.75}{-90}{-14}
+
+
+% normale
+\psline[linestyle=dashed](0,-1.5)(0,1.5)
+\rput(-0.25,-0.25){$I$}
+
+% légende milieu
+\rput(0,2){milieu transparent d'indice de réfraction $n_1$}
+\rput(0,-2){milieu transparent d'indice de réfraction $n_2$}
+%\psline{->}(2,1.75)(0.25,0.25)
+
+%\rput(1,0.5){surface de séparation polie}
+
+
+\end{pspicture}
+\caption{Surface de séparation polie entre deux milieux d'indice différent}
+\end{figure}
+
+
+\subsubsection{1\iere\ loi de Snell-Descartes sur la réfraction}
+Le rayon réfracté est contenu dans le plan d'incidence (plan contenant
+le rayon incident et la normale à la surface de séparation en $I$).
+
+
+\subsubsection{2\ieme\ loi de Snell-Descartes sur la réfraction}
+L'angle d'incidence $i_1$ et l'angle de réfraction $i_2$ vérifient la
+relation :
+\[n_1 \sin{i_1} = n_2 \sin{i_2}\]
+
+\end{multicols}
+
+
+\emph{Remarque 1 :} il y a une réflexion partielle à la surface de
+séparation.
+
+\emph{Remarque 2 :} si $n_2 > n_1$ (exemple $n_{verre} = 1,5$ et
+$n_{air} = 1$ alors $\sin{i_2} < \sin{i_1}$ soit $i_2 < i_1$.
+
+
+\newpage
+
+\section{Les objets visibles par l'oeil}
+
+\subsection{Les objets lumineux}
+
+
+\begin{multicols}{2}
+
+\begin{center}
+\begin{pspicture}(-2,-2)(5,2)
+%\psgrid[subgriddiv=1,griddots=10]
+
+%\multirput{30}(0,0)(0,0){12}{\psline(0,0)(0,2) \psline{->}(0,0)(0,1)}
+%\multips{30}(0,0)(0,0){12}{\psline(0,0)(0,2) \psline{->}(0,0)(0,1)} 
+
+
+%\psline(0,0)(0,1.5) \psline{->}(0,0)(0,0.75)
+\multido{\i=0+15}{24}{\psline(0;\i)(1.5;\i) \psline{->}(0;\i)(0.75;\i)}
+
+
+%\multips{30}(0,0)(0,0){5}{\psline(0,0)(0,1.5) \psline{->}(0,0)(0,0.75)}
+
+
+
+% faisceau pénétrant dans la pupille de l'oeil
+\psline(0,0)(4,0.25)  \psline{->}(0,0)(2,0.125)
+\psline(0,0)(4,-0.25) \psline{->}(0,0)(2,-0.125)
+
+
+\rput{0}(5.75,0){\oeil}
+
+
+\end{pspicture}
+\caption{Objet lumineux ponctuel}
+\end{center}
+
+
+Les objets lumineux \trou{produisent} de la lumière.
+
+% fig
+
+
+On ne voit l'objet que si de la lumière émise par l'objet pénètre par
+la pupille de l'oeil.
+
+
+Si l'objet lumineux ponctuel est très éloigné (on dit à l'infini), le
+faisceau pénétrant dans la pupille est parallèle.
+
+
+Un objet lumineux étendu est considéré comme la juxtaposition d'objets
+lumineux ponctuels.
+
+
+\end{multicols}
+
+\vressort{1}
+
+\subsection{Les objets éclairés}
+
+
+\begin{multicols}{2}
+
+
+\begin{center}
+
+\begin{pspicture}(-3,-2)(3,2)
+%\psgrid[subgriddiv=1,griddots=10]
+\multido{\i=105+15}{11}{\psline(0;\i)(1.5;\i)
+  \psline{->}(0;\i)(0.75;\i)}
+
+\psline[linewidth=0.05](0,2)(0,-2) % surface
+
+\psline[linewidth=0.05](-3,2)(0,0) \psline[linewidth=0.05]{>-}(-1.5,1)(0,0)
+
+\end{pspicture}
+\caption{Surface opaque non polie}
+
+
+
+\begin{pspicture}(-3,-2)(3,2)
+%\psgrid[subgriddiv=1,griddots=10]
+\psline[linewidth=0.05](0,2)(0,-2)
+\multido{\i=105+15}{11}{\psline(0;\i)(1.5;\i) \psline{->}(0;\i)(0.75;\i)}
+\multido{\i=285+15}{11}{\psline(0;\i)(1.5;\i)
+  \psline{->}(0;\i)(0.75;\i)}
+
+\psline[linewidth=0.05](0,2)(0,-2) % surface
+
+\psline[linewidth=0.05](-3,2)(0,0) \psline[linewidth=0.05]{>-}(-1.5,1)(0,0)
+
+\end{pspicture}
+\caption{Surface translucide}
+
+
+
+
+\end{center}
+
+\end{multicols}
+
+
+Les objets éclairés \trou{diffusent} la lumière qu'ils reçoivent.
+
+
+
+Chaque point de la surface se comporte comme un objet lumineux
+ponctuel.
+
+
+La surface se comporte comme un objet lumineux étendu.
+
+
+\vressort{3}
+
+\section{La vision de l'oeil}
+
+\subsection{Exemple}
+
+
+\begin{center}
+
+\begin{pspicture}(0,-2)(15,2)
+%\psgrid[subgriddiv=1,griddots=10]
+
+
+\rput{0}(6.75,0){\oeil}
+\rput{0}(0,-0.5){$A$}
+\rput{0}(4.75,-0.5){$M$}
+
+\psline(0,0)(5,0) \psline{->}(0,0)(2.5,0) 
+
+
+\rput{0}(10,-1){%
+\psline(0,0)(3,0)
+\psline(0,0)(0,2.5)
+\psline(3,0)(3,2.5)
+\psline(0,2)(3,2)
+
+\psline[linestyle=dashed](2,2)(3,1) %\psline{->}[linestyle=dashed](2,2)(2.5,1.5) 
+\psline(3,1)(4,0) \psline{->}(3,1)(3.5,0.5)
+\psline(3,1)(1,2) \psline{->}(1,2)(2,1.5)
+\psline[linestyle=dashed](2,1)(4,1) % normale
+\rput{0}(4.5,0){$M$}
+\rput{0}(1,2.25){$A$}
+\rput{0}(2,2.25){$A'$}
+}
+
+
+\end{pspicture}
+\caption{Objet ponctuel situé dans l'air puis dans l'eau}
+
+\end{center}
+
+
+La pupille de l'oeil est considérée comme réduite au point $M$.
+
+
+
+
+\subsection{Interprétation}
+
+Le cerveau est conditionné par la propagation rectiligne de la lumière
+et localise un objet dans la direction du rayon qui pénètre par la
+pupille.
+
+
+On ne peut voir le point objet $A$ que si la lumière ne change pas de
+direction ; sinon, on voit $A'$, appelé le point image de $A$ (ceci
+constitue une illusion d'optique).
+
+
+%\newpage
+
+% \section{Le miroir plan}
+
+% \subsection{Structure d'un miroir}
+
+% Un miroir est une surface opaque polie ; contrairement à une surface
+% opaque non polie, elle réfléchit la lumière au lieu de la diffuser.
+
+
+
+
+% \subsection{Lois de Snell-Descartes}
+
+% %\begin{multicols}{2}
+
+
+% \begin{center}
+% \begin{pspicture}(-3,-1)(3,2)
+% %\psgrid[subgriddiv=1,griddots=10]
+% \psline(-3,0)(3,0)
+% \multiput(0,0)(0.25,0){25}{\psline(-3,0)(-3.25,-0.25)}
+
+% \psline[linestyle=dashed](0,2)(0,-1)
+
+% \psline(-2,2)(0,0) \psline{->}(-2,2)(-1,1)
+% \psline(2,2)(0,0) \psline{->}(0,0)(1,1)
+
+% \pswedge(0,0){0.75}{90}{135}
+% \rput{0}(-0.5,1){$i$}
+
+% \pswedge(0,0){0.75}{45}{90}
+% \rput{0}(0.5,1){$i'$}
+
+
+% \end{pspicture}
+% \caption{Réflexion d'un rayon lumineux sur un miroir plan}
+% \end{center}
+
+
+% \subsubsection{1\iere\ loi de Snell-Descartes sur la réflexion}
+
+% Le rayon réfléchi est dans le plan d'incidence.
+
+
+% \subsubsection{2\ieme\ loi de Snell-Descartes sur la réflexion}
+
+% L'angle de réflexion est égal à l'angle d'incidence.
+
+% \[
+% i = i'
+% \]
+
+% %\end{multicols}
+
+
+
+% \subsection{Formation de l'image}
+
+% % \begin{center}
+% % \begin{pspicture}(-3,-2)(3,2)
+% % \psgrid[subgriddiv=1,griddots=10]
+% % \end{pspicture}
+% % \caption{Formation de l'image $A'$ de l'objet $A$ au travers un
+% %   miroir plan}
+% % \end{center}
+
+% $A'$ est l'image de l'objet $A$ au travers le miroir plan.
+
+
+% Tracez 3 rayons lumineux issus de $A$ et se réfléchissant sur le miroir.
+
+
+% $A'$ est le symétrique de $A$ par rapport au plan du miroir.
+
+
+% L'oeil ne verra $A'$ que s'il est contenu dans le faisceau réfléchi.
+
+% \newpage
+
+% \vressort{3}
+
+% \begin{center}
+% \begin{pspicture}(-8,-12)(8,12)
+% %\psgrid[subgriddiv=1,griddots=10]
+
+% \psline[linewidth=0.05](0,12)(0,-12)
+
+% \multiput(0,0)(0,1){13}{\psline[linewidth=0.05](0,0)(1,-1)}
+% \multiput(0,0)(0,-1){12}{\psline[linewidth=0.05](0,0)(1,-1)}
+
+% \rput{0}(-5,-9){%
+% \psline(-0.125,-0.125)(0.125,0.125)
+% \psline(-0.125,0.125)(0.125,-0.125)
+% \rput{0}(0,-0.5){$A$}
+% }
+
+
+% \end{pspicture}
+% \caption{Formation de l'image $A'$ de l'objet $A$ au travers un
+%   miroir plan}
+% \end{center}
+
+% \vressort{3}

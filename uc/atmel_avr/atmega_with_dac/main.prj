@@ -1,0 +1,77 @@
+; ************************************************************
+; PROJECT:
+; AUTHOR:
+; ************************************************************
+
+; Micro + software running
+; ------------------------------------------------------------
+.MICRO "ATmega8"
+.TOOLCHAIN "GCC"
+.GCCPATH   "C:\WinAVR"
+.GCCMAKE   AUTO
+.TARGET    "main.hex"
+.SOURCE    "main.c"
+
+.TRACE              ; Activate micro trace
+
+; Following lines are optional; if not included
+; exactly these values are taken by default
+; ------------------------------------------------------------
+.POWER VDD=5 VSS=0  ; Power nodes
+.CLOCK 1meg         ; Micro clock
+.STORE 250m         ; Trace (micro+signals) storage time
+
+; Micro nodes: RESET, AREF, PB0-PB7, PC0-PC6, PD0-PD7, ACO, TIM1OVF, ADC6, ADC7
+; Define here the hardware around the micro
+; ------------------------------------------------------------
+
+
+;Kx node1 node2 [type(delay)] ; x: Buttons 0 - F. Optional type: MONOSTABLE(t_delay), LATCHED
+
+X1 D2A8 PB7 PB6 PB5 PB4 PB3 PB2 PB1 PB0 Vout
+
+XINV1 _inv1 PB0 PB0i
+XINV2 _inv1 PB1 PB1i
+XINV3 _inv1 PB2 PB2i
+XINV4 _inv1 PB3 PB3i
+XINV5 _inv1 PB4 PB4i
+XINV6 _inv1 PB5 PB5i
+XINV7 _inv1 PB6 PB6i
+XINV8 _inv1 PB7 PB7i
+
+D1 VDD NODE0
+R1 NODE0 PB0i 1k
+
+D2 VDD NODE1
+R2 NODE1 PB1i 1k
+
+D3 VDD NODE2
+R3 NODE2 PB2i 1k
+
+D4 VDD NODE3
+R4 NODE3 PB3i 1k
+
+D5 VDD NODE4
+R5 NODE4 PB4i 1k
+
+D6 VDD NODE5
+R6 NODE5 PB5i 1k
+
+D7 VDD NODE6
+R7 NODE6 PB6i 1k
+
+D8 VDD NODE7
+R8 NODE7 PB7i 1k
+
+.PLOT V(Vout) V(PB0i) V(PB1i) V(PB2i) V(PB3i) V(PB4i) V(PB5i) V(PB6i) V(PB7i)
+
+
+K0 PD0 VDD LATCHED ;[type(delay)] ; x: Buttons 0 - F. Optional type: MONOSTABLE(t_delay), LATCHED
+K1 PD1 VDD LATCHED
+K2 PD2 VDD LATCHED
+K3 PD3 VDD LATCHED
+K4 PD4 VDD LATCHED
+K5 PD5 VDD LATCHED
+K6 PD6 VDD LATCHED
+K7 PD7 VDD LATCHED
+

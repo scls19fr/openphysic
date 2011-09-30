@@ -1,0 +1,29 @@
+import MonModule
+a = MonModule.f( )
+
+----------
+
+import MonModule as Alias
+a = Alias.f( )
+
+----------
+
+# reload prend un objet module ; faisons-le prendre aussi une chaîne
+import __builtin__
+_reload = __builtin__.reload                 # sauve l'attribut prédéfini original
+def reload(mod_ou_nom):
+    if isinstance(mod_ou_nom, str):          # si le paramètre est une chaîne
+        mod_ou_nom = __import__(mod_ou_nom)  # on récupère le module à la place
+    return _reload(mod_ou_nom)               # appelle le vrai attribut prédéfini
+__builtin__.reload = reload                  # redéfinit l'original avec l'enveloppe
+----------
+
+if __name__=  ='__main__':
+
+----------
+
+class TT:
+    def __getattr__(self, nom): return 23
+import sys
+sys.modules[__name__] = TT()
+

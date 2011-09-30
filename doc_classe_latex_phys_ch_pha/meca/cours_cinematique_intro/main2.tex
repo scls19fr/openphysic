@@ -1,0 +1,370 @@
+\cours{Vitesse et mouvement}
+
+\section{Rappels}
+
+\subsection{Référentiels et repères}
+Le corps \emph{solide}, par rapport auquel on étudie le mouvement
+ d'autres corps, est appelé \emph{référentiel} \referentiel.
+
+
+On peut, par exemple, considérer les référentiels suivants :
+
+\begin{itemize}
+\item référentiel terrestre : \referentiel{T}
+\item référentiel géocentrique : \referentiel{G}
+\item référentiel héliocentrique (ou de Copernic) \referentiel{H}
+\end{itemize}
+
+
+
+Pour repérer plus facilement la position d'un objet dans un
+référentiel, on définit un \emph{repère} : c'est un système d'axes lié
+au référentiel c'est à dire immobile par rapport au référentiel.
+
+
+
+% A mettre ??
+
+\begin{itemize}
+\item Un repère du référentiel héliocentrique a pour origine le centre
+  du Soleil et ses axes sont dirigés vers 3 étoiles fixes. Dans ce
+  repère, le centre de la Terre décrit presque un cercle.
+
+\item Un repère du référentiel de Copernic a pour origine le centre
+d'inertie du système solaire, ses axes sont dirigés vers 3 étoiles
+fixes. Référentiel de Copernic et référentiel héliocentrique sont
+assimilables.
+
+
+\item Un repère du référentiel géocentrique a pour origine le centre de la
+Terre, ses axes restent parallèles à ceux d'un repère du référentiel
+héliocentrique. Dans ce référentiel, la Terre est animée d'un
+mouvement de rotation uniforme autour d'un axe fixe Nord-Sud.
+
+%\item référentiel terrestre
+\end{itemize}
+
+
+
+\subsection{Trajectoire}
+La trajectoire d'un point mobile dans un référentiel est la ligne
+constituée par l'ensemble des positions successives qu'il occupe au
+cours du temps. Elle dépend du référentiel d'étude.
+
+
+\subsection{Repérage d'un point}
+Un point M dans un plan est repéré à tout instant par ses coordonnées
+$(x,y)$.
+
+
+\subsection{Solides et systèmes matériels}
+Un système matériel est un objet (ou groupe d'objets) que l'on sépare
+arbitrairement de son environnement pour l'étudier.
+
+
+\subsection{Point matériel}
+Un objet peut être assimilé à un point matériel si ses dimensions sont
+négligeables à l'échelle du problème à résoudre.
+
+
+\section{Centre d'inertie d'un solide}
+
+\begin{framed}
+Il existe toujours un point du solide dont le mouvement est plus
+simple que les autres. Ce point est le centre d'inertie $G$ du solide.
+\end{framed}
+
+\begin{center}
+\includegraphics{mvt_cdi.png.eps}
+\caption{Mouvement de 3 points d'un mobile}
+\end{center}
+
+
+Lorsque le solide est homogène et de forme géométrique simple, $G$ est
+confondu avec le centre géométrique.
+
+
+
+\section{Vitesse d'un point mobile}
+
+\subsection{Vitesse moyenne}
+
+\begin{framed}
+\[V_{\mbox{moyenne}} = \frac{l}{\tau}\]
+\end{framed}
+
+%Pour un point mobile
+
+\begin{itemize}
+\item $l$ longueur parcourue en $m$
+\item $\tau$ durée du trajet en $s$
+\item $V$ en $m.s^{-1}$
+\end{itemize}
+
+
+\subsection{Vitesse instantanée}
+
+\begin{framed}
+La vitesse instantanée $v(t_2)$ d'un point mobile à l'instant $t_2$ est
+égale à sa vitesse moyenne calculée entre deux dates $t_1$ et $t_3$
+aussi rapprochées que possible de la date $t_2$ :
+
+
+\[v(t_2) = \frac{\arc{M_1 M_3}}{t_3 - t_1}\]
+\end{framed}
+
+On peut confondre la longueur de l'arc $\arc{M_1 M_3}$ avec celle du segment
+$\segment{M_1 M_3}$ si l'intervalle de temps $t_3 - t_1$ est très
+petit.
+
+
+Si $v_{instantan\'ee} = constante$, le mouvement est dit
+\emph{uniforme}, sinon il est \emph{varié}.
+
+
+
+\subsection{Vecteur vitesse}
+
+La connaissance de la vitesse instantanée d'un mobile ne suffit pas à
+savoir où il se trouvera l'instant d'après. Il est nécessaire de
+définir un vecteur vitesse :
+
+\begin{framed}
+\`A l'instant $t$, le vecteur vitesse $\vect{v(t)}$ d'un point mobile
+$M$ a pour caractéristiques :
+
+
+\begin{itemize}
+\item \emph{Point d'application : }la position $M$ qu'occupait le
+  mobile à l'instant $t$.
+
+
+\item \emph{Direction : }celle de la tangente à la trajectoire au
+point occupé par M mobile à l'instant t (voir schéma précédent)
+
+\item \emph{Sens : }celui du mouvement à l'instant t
+
+\item \emph{Norme : }valeur de la vitesse instantanée à l'instant t
+
+\end{itemize}
+\end{framed}
+
+%\subsection{Coordonnées et composantes du vecteur vitesse}
+\subsection{Composantes du vecteur vitesse}
+
+La connaissance d'un vecteur passe souvent par celle de ses
+coordonnées dans le repère choisi. 
+
+
+\[
+\vect{v(t)}
+ = \vect{v_x(t)} + \vect{v_y(t)}
+ = v_x(t) \vect{i} + v_y(t) \vect{j}
+\]
+
+
+Par projection orthogonale du vecteur vitesse sur les 2 axes du
+repère, on obtient ses composantes $v_x$ et $v_y$ (qui sont
+\emph{algébriques} c'est à dire qui peuvent être positive ou
+négative).
+
+
+
+Si on définit un angle $\alpha$ :
+ $v_x(t) = v(t) \cdot cos{~\alpha}$ et $v_y(t) = v(t) \cdot sin{~\alpha}$
+
+\begin{center}
+\includegraphics{compo_vect_vitesse.png.eps}
+\caption{Composantes $v_x$ et $v_y$ du vecteur vitesse}
+\end{center}
+
+\section{\'Etude de quelques mouvements d'un \emph{point} mobile}
+
+\subsection{Mouvement rectiligne uniforme}
+
+Les positions successives du point $M$ sont \emph{alignées} : le
+mouvement est \emph{rectiligne} (différent de circulaire ou
+curviligne). Schéma.
+
+
+
+Elles sont régulièrement espacées et le mobile va toujours dans le
+même sens: le mouvement est \emph{uniforme} (opposé de varié).
+
+\begin{framed}
+Si le mouvement est rectiligne uniforme, le \emph{vecteur} vitesse est
+constant (même direction, sens et norme).
+\end{framed}
+
+
+
+\subsection{Mouvement circulaire}
+
+
+\begin{framed}
+Lorsque le mouvement est \emph{circulaire et uniforme}, la direction
+du vecteur vitesse est portée par la tangente au cercle au point
+considéré. Cette direction change lorsque M se déplace sur sa
+trajectoire. Le vecteur vitesse n'est donc pas constant, seule son
+intensité l'est.
+\end{framed}
+
+\begin{center}
+\includegraphics{mvt_circulaire.png.eps}
+\caption{Mouvement circulaire}
+\end{center}
+
+
+
+
+Comment déterminer la valeur de la vitesse instantanée ?
+
+\[
+v(t_9) =
+ \frac{\arc{M_8 M_{10}}}{\Delta t}
+\]
+
+On note $\alpha$ l'angle entre $OM_8$ et $OM_9$ (c'est d'ailleurs le
+même qu'entre $OM_9$ et $OM_10$.
+
+\[
+v(t_9) =
+ \frac{R \cdot 2 \alpha}{2 \tau}
+\]
+
+
+\[
+v(t_9) = R \cdot \frac{\alpha}{\tau}
+\]
+
+
+\section{\'Etude de quelques mouvements d'un \emph{solide non ponctuel}}
+
+\subsection{Mouvement de translation rectiligne}
+
+Tous les points d'un solide en translation ont, à chaque instant, le
+ même vecteur vitesse $\vect{v(t)}$ et chaque segment du solide reste
+ parallèle à lui-même au cours du déplacement.
+
+
+On distingue 2 cas :
+
+\begin{itemize}
+
+\item Les trajectoires des différents points du solide sont des droites : le
+solide est animé d'un mouvement de \emph{translation rectiligne}
+
+\item Les trajectoires des différents points du solide sont des courbes
+superposables : il est animé d'un mouvement de \emph{translation curviligne}
+
+\end{itemize}
+
+\subsection{Mouvement de rotation autour d'un axe fixe $\Delta$}
+
+Au cours de la rotation d'un disque, deux rayons de ce disque tournent
+du même angle $\alpha$ durant le même intervalle de temps. On dit
+qu'ils tournent avec la même \emph{vitesse angulaire} $\omega$.
+
+
+La vitesse angulaire $\omega$ d'un solide mobile autour d'un axe fixe est
+donnée par la relation :
+
+\[\omega = \frac{\alpha}{\tau}\]
+
+\begin{itemize}
+\item $\alpha$ en $rad$
+\item $\tau$ en $s$
+\item $\omega$ en $rad.s^{-1}$
+\end{itemize}
+
+
+\begin{tabularx}{\linewidth}{XX}
+
+\begin{center}
+\includegraphics{mvt_rotation_1.png.eps}
+%\caption{Mouvement circulaire}
+\end{center}
+
+&
+
+\begin{center}
+\includegraphics{mvt_rotation_2.png.eps}
+%\caption{Mouvement circulaire}
+\end{center}
+
+\end{tabularx}
+
+
+\subsubsection{Relation entre $v$ et $\Omega$}
+
+Un point $M$ situé à la distance $R$ de l'axe de rotation $\Delta$
+décrit durant l'intervalle de temps $\tau$ un arc de cercle de
+longueur $l = R \cdot \alpha$
+
+\[
+v = \frac{l}{\tau}
+ = \frac{R \alpha}{\tau}
+ = R \frac{\alpha}{\tau}
+ = R\cdot \omega
+\]
+
+
+
+\subsubsection{Mouvement de rotation uniforme}
+
+Il s'agit d'un mouvement périodique. La période $T$ du mouvement est
+égale à la durée d'un tour :
+
+
+\[T = \frac{2 \pi}{\omega}\]
+
+
+\begin{itemize}
+\item $T$ en $s$
+\item $\omega$ en $rad.s^{-1}$
+\end{itemize}
+
+
+
+\medskip
+
+
+
+La fréquence $f$ du mouvement est égale à l'inverse de la période.
+
+\[f = \frac{1}{T}\]
+
+\begin{itemize}
+\item $f$ en $Hz$
+\item $T$ en $s$
+\end{itemize}
+
+
+
+
+\medskip
+
+
+
+On peut aussi écrire 
+
+\[\omega = 2 \pi f\]
+
+
+
+\subsubsection{Mouvement de translation circulaire}
+\exemple{%
+Mouvement d'une navelle d'une grande roue dans le référentiel terrestre
+}
+
+Le vecteur $\vect{AB}$ ne change pas de direction ou de sens.
+
+
+\attention{%
+Il ne faut pas confondre :
+\begin{itemize}
+\item mouvement de rotation
+\item mouvement de translation circulaire
+\end{itemize}
+}
+

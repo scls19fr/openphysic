@@ -1,0 +1,15 @@
+\ProvidesFile{8rpzc.fd}
+   [2000/01/12 PSNFSS-v8.1 font definitions for 8r/pzc.]
+
+\DeclareFontFamily{8r}{pzc}{}
+
+\DeclareFontShape{8r}{pzc}{mb}{it}{
+   <-> pzcmi8r
+}{}
+
+\DeclareFontShape{8r}{pzc}{m}{it}{<->ssub * pzc/mb/it}{}
+\DeclareFontShape{8r}{pzc}{mb}{sl}{<->ssub * pzc/mb/it}{}
+\DeclareFontShape{8r}{pzc}{m}{sl}{<->ssub * pzc/mb/sl}{}
+\DeclareFontShape{8r}{pzc}{m}{n}{<->ssub * pzc/mb/it}{}
+
+\endinput

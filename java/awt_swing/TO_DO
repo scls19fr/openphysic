@@ -1,0 +1,14 @@
+Fix the following warnings
+
+javac *.java -Xlint
+main.java:13: warning: [deprecation] show() in java.awt.Window has been deprecated
+        fenetre.show();
+               ^
+main.java:18: warning: [serial] serializable class FenetreSimple has no definition of serialVersionUID
+class FenetreSimple extends JFrame
+^
+main.java:38: warning: [serial] serializable class Contenu has no definition of serialVersionUID
+class Contenu extends JPanel
+^
+3 warnings
+java FenetreSimpleExec

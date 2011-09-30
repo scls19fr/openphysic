@@ -1,0 +1,129 @@
+\ds{Devoir Surveillé}{ % \numero}
+\item \'Electrochimie
+\item Réactions nucléaires spontanées
+}
+
+%\nomprenomclasse
+%\notationfinale{20}{5cm}
+
+\vressort{3}
+
+\Large
+
+\begin{exercice}{\'Electrolyseur}
+
+Le cadmium est obtenu par électrolyse d'une solution acqueuse de sulfate de cadmium ($Cd^{2+} + SO_4^{2-}$)
+ et d'acide sulfurique ($2H^{+} + SO_4^{2-}$). La tension aux bornes de la cuve à électrolyse vaut $U = 3~V$ et l'intensité du courant vaut $I = 20~kA$.
+
+\begin{enumerate}
+\item Faire le schéma électrique et placer les appareils de mesure de la tension et de l'intensité.
+
+\item Quel est le sens de déplacement des électrons ?
+
+\item Sur quelle électrode le cadmium se dépose-t-il ? \'Ecrire la demi-équation correspondante. 
+Préciser s'il s'agit d'une réduction ou d'une oxydation.
+
+\item Calculer la quantité de matière formée pendant la durée $t$. En déduire sa masse $m_{Cd}$.
+
+\item Il se produit un dégagement gazeux à l'autre électrode, il s'agit du dioxygène suivant la demi-équation suivante :
+
+\[2H_2O \longrightarrow 4 H^{+} + O_2 + 4e^{-}\]
+
+Calculer la quantité de matière de dioxygène formée. En déduire son volume.
+
+\item Calculer la puissance nécessaire pour préparer la masse $m_{Cd}$.
+
+\item Calculer la puissance dissipée par effet Joule $P_d$ à l'intérieur de l'électrolyseur sachant que sa résistance interne vaut $r' = 2.10^{-6}~\Omega$.
+
+\item Calculer sa puissance utile $P_u$, en déduire sa f.c.e.m. $E'$.
+
+\item Calculer le rendement $\eta$ de cet électrolyseur.
+
+\end{enumerate}
+
+\vressort{1}
+
+\donnees{
+\item $t = 965~s$
+\item $1~\mathcal{F} = 96500~C.mol^{-1}$
+\item $M_{Cd} = 112,4~g.mol^{-1}$
+\item $V_m = 22,4~L.mol^{-1}$
+}
+
+
+\end{exercice}
+
+
+\vressort{1}
+
+\newpage
+
+\begin{exercice}{Désintégration de l'iode $128$}
+
+
+Exploiter la courbe de désintégration ci-dessous pour répondre aux
+questions.
+
+\vressort{1}
+
+\begin{center}
+
+\begin{pspicture}(-0.5,-0.5)(13,12)
+%\psgrid[subgriddiv=1,griddots=10]
+
+\psset{xunit=0.1}
+\psset{yunit=0.010} % 1/125
+
+% voir doc pstricks-add-doc
+\psaxes[Dx=25,Dy=250]{->}(0,0)(0,0)(124,1125) % TO DO
+ %[labels=none]
+ %[Dx=25,Dy=125]
+ % TODO compléter pour avoir une grille
+ % voir xticksize et autre tick
+
+
+%\psline[linecolor=black,linewidth=2pt]{->}(0,-62.5)(0,1125) % Axe des y
+\rput{0}(0,1150){$n$ ($10^{-6}~mol$)}
+
+%\psaxes{->}(0,130)
+
+%\psline[linecolor=black,linewidth=2pt]{->}(0,0)(130,0) % Axe des x
+\rput{0}(125,-62.5){$t$ ($min$)}
+
+
+\psplot[linecolor=black,linewidth=2pt]{0}{120}{1000 2.71828 0.0277 x mul neg exp mul}
+ % 1000 * exp(-lambda * t) 
+ % lambda = 0.0277 min^-1
+ % t
+
+\end{pspicture}
+
+\bigskip
+
+\caption{Courbe de désintégration radioactive d'un échantillon d'iode $128$}
+\end{center}
+
+\vressort{1}
+
+\begin{enumerate}
+\item Quelle quantité de matière constituait l'échantillon d'iode $128$
+  à l'instant $t = 0$ ?
+
+\item Sachant qu'un noyau d'iode $128$ a pour numéro atomique $53$,
+  indiquez combien de protons, de neutrons et de nucléons il contient.
+
+\item Déterminer la période radioactive de l'iode $128$.
+
+\item Déduire la constante radioactive de l'iode $128$.
+
+\item Quelle quantité de matière reste-il au bout de $50~min$ ?
+
+\item Comment calculer la quantité de matière restante au bout de
+  $30~min$ ?
+
+\end{enumerate}
+
+\end{exercice}
+
+\normalsize
+

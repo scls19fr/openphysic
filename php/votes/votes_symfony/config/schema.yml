@@ -1,0 +1,41 @@
+propel:
+  _attributes:   { noXsd: false, defaultIdMethod: none, package: lib.model }
+ 
+  ask_question:
+    _attributes: { phpName: Question, idMethod: native }
+    id:          { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    user_id:     { type: integer, foreignTable: ask_user, foreignReference: id }
+    title:       { type: longvarchar }
+    body:        { type: longvarchar }
+    created_at:  ~
+    updated_at:  ~
+ 
+  ask_answer:
+    _attributes: { phpName: Answer, idMethod: native }
+    id:          { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    question_id: { type: integer, foreignTable: ask_question, foreignReference: id }
+    user_id:     { type: integer, foreignTable: ask_user, foreignReference: id }
+    body:        { type: longvarchar }
+    created_at:  ~
+ 
+  ask_user:
+    _attributes: { phpName: User, idMethod: native }
+    id:          { type: integer, required: true, primaryKey: true, autoIncrement: true }
+    nickname:    { type: varchar(50), required: true, index: true }
+    first_name:  varchar(100)
+    last_name:   varchar(100)
+    created_at:  ~
+ 
+  ask_interest:
+    _attributes: { phpName: Interest, idMethod: native }
+    question_id: { type: integer, foreignTable: ask_question, foreignReference: id, primaryKey: true }
+    user_id:     { type: integer, foreignTable: ask_user, foreignReference: id, primaryKey: true }
+    created_at:  ~
+ 
+  ask_relevancy:
+    _attributes: { phpName: Relevancy, idMethod: native }
+    answer_id:   { type: integer, foreignTable: ask_answer, foreignReference: id, primaryKey: true }
+    user_id:     { type: integer, foreignTable: ask_user, foreignReference: id, primaryKey: true }
+    score:       { type: integer }
+    created_at:  ~
+

@@ -1,0 +1,103 @@
+def exec_with_data(chaine_code_utilisateur):
+    code_utilisateur = compile(chaine_code_utilisateur, '<code utilisateur>', 'exec')
+    dico_donnees = { }
+    for nom in code_utilisateur.co_names:
+        if nom.startswith('data_'):
+            fic_donnees = open('data/%s' % nom[5:], 'rb')
+            dico_donnees[nom] = fic_donnees.read()
+            fic_donnees.close( )
+    exec code_utilisateur in dico_donnees
+    for nom in dico_donnees:
+         if nom.startswith('result_'):
+            fic_donnees = open('data/%s' % nom[7:], 'wb')
+            fic_donnees.write(dico_donnees[nom])
+            fic_donnees.close( )
+
+----------
+
+import rexec
+rex = rexec.RExec( )
+def rexinput(prompt):
+    expr = raw_input(prompt)
+    return rex.r_eval(expr)
+
+----------
+
+import rexec, math
+rex = rexec.RExec()
+burex = rex.add_module('__builtins__')
+for fonction in dir(math):
+    if fonction[0] != '_':
+        setattr(burex, fonction, getattr(math, fonction))
+def rich_input(prompt):
+    expr = raw_input(prompt)
+    return rex.r_eval(expr)
+
+----------
+
+if filter('attr'): return obj.attr
+else: raise AttributeError, 'attr'
+
+----------
+
+import rexec, Bastion
+rex = rexec.RExec()
+burex = rex.add_module('__builtins__')
+def SafeMaClasseFactory(*args, **kwds):
+    return Bastion.Bastion(MaClasse(*args, **kwds))
+burex.MaClasse = SafeMaClasseFactory
+
+----------
+
+m = MaClasse(1, 2, 3)
+m.unemethode(4, 5)
+
+----------
+
+import rexec, Bastion
+rex = rexec.RExec()
+burex = rex.add_module('__builtins__')
+def SafeMaClasseFactory(*args, **kwds):
+    def is_safe(n): n == '__getitem__' or n[0]!='_'
+    return Bastion.Bastion(MaClasse(*args, **kwds), is_safe)
+burex.MaClasse = SafeMaClasseFactory
+
+----------
+
+import gc
+gc_was_enabled = gc.isenabled( )
+if gc_was_enabled:
+    gc.collect( )
+    gc.disable( )
+# Insérer ici le code où le temps est un facteur essentiel
+if gc_was_enabled:
+    gc.enable( )
+
+----------
+
+import weakref
+class Trace:
+    _dict_instances = weakref.WeakValueDictionary()
+    _nb_produites = 0
+    def __init__(self):
+        Trace._nb_produites += 1
+        Trace._dict_instances[Trace._nb_produites] = self
+    def instances(): return _dict_instances_dict.values()
+    instances = staticmethod(instances)
+
+----------
+
+import sys                               # Importe le module sys
+reload(sys)                              # Restaure le module sys à partir du disque
+sys.setdefaultencoding('iso-8859-15')    # ou l'encodage de votre choix...
+del sys.setdefaultencoding               # Garantie contre les accidents ultérieurs
+
+----------
+
+import os
+rep_perso = os.environ.get('HOME')
+if rep_perso is not None:
+    script_perso = os.path.join(rep_perso, '.monapprc.py')
+    if os.path.isfile(script_perso):
+        execfile(script_perso)
+

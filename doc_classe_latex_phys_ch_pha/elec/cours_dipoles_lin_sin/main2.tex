@@ -1,0 +1,344 @@
+\cours[Dipôles linéaires élémentaires en régime sinusoïdal]{Dipôles linéaires élémentaires\\en régime sinusoïdal}
+
+\section*{Introduction}
+L'objectif de ce chapitre est de comprendre le fonctionnement de trois
+dipôles linéaires élémentaires en régime sinusoïdal.
+\begin{itemize}
+  \item conducteur ohmique (ou résistor)
+  \item bobine parfaite (pas de résistance d'enroulement en série)
+  \item condensateur parfait (pas de résistance de décharge en parallèle)
+\end{itemize}
+
+On impose aux bornes de chacun de ces trois dipôles la tension :
+\[u(t) = \hat U cos {\omega t} = U \sqrt{2} cos {\omega t}\]
+
+L'intensité du courant traversant le dipôle étudié est de la forme :
+\[i(t) = \hat I cos (\omega t - \varphi) = I \sqrt{2} cos (\omega t - \varphi)\]
+
+où $\varphi$ est le déphasage de l'intensité $i$ par rapport à la
+tension $u$ ; $\varphi = (\vec{I} ; \vec{U})$ est donc dans la
+représentation de Fresnel l'angle orienté allant du courant vers la tension.
+
+ $\varphi > 0$ : l'intensité $i$ est en retard par rapport à la
+ tension $u$ (dipôle inductif)
+
+ $\varphi < 0$ : l'intensité $i$ est en avance par rapport à la
+ tension $u$ (dipôle capacitif)
+
+
+\begin{pspicture}(-2,-1)(2,1.5)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(-1.5,0){A}
+\pnode(1.5,0){B}
+\resistor[intensitylabel=$i(t)$,tensionlabel=$u(t)$,dipoleconvention=receptor](A)(B){Dip\^ole}
+\end{pspicture}
+
+Le dipôle sera toujours étudié ici en convention récepteur car les
+trois dipôles indiqués plus haut sont tous passifs.
+
+\subsection*{Montage}
+
+\begin{pspicture}(-2,-1)(7.5,3.5)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(6,0){A}
+\pnode(0,0){B}
+\pnode(0,3){C}
+\pnode(6,3){D}
+\pnode(4,3){V}
+\pnode(4,0){W}
+\Ucc[labeloffset=1](B)(C){$\approx e(t)$}
+\circledipole[labeloffset=0](C)(V){A}
+\circledipole[labeloffset=0](V)(W){V}
+\wire(V)(D)
+\resistor[intensitylabel=$i(t)$,tensionlabel=$u(t)$,dipoleconvention=receptor,labeloffset=0,tensionlabeloffset=1.5](D)(A){Dip\^ole}
+\resistor[tensionlabel=$u_r \approx
+0$,dipoleconvention=receptor](W)(B){$r$}
+\wire(A)(W)
+\ground(B)
+\rput(7.5,3.25){$Y_1$}
+\psline{->}(D)(7.5,3)
+\rput(7.5,-0.25){$Y_2$}
+\psline{->}(A)(7.5,0)
+
+\end{pspicture}
+
+\vspace{1cm}
+
+Le résistor $r$ a une faible résistance (autour d'$1~\Omega$) afin de
+ne pas trop perturber le montage. Il permet de visualiser sur la
+deuxième voie de l'oscilloscope la tension $r i(t)$ et donc obtenir
+<<l'image>> du courant.
+
+L'ampèremetre est réglé en position \emph{AC} afin de mesurer la
+valeur efficace $I$ du courant $i(t)$.
+
+Le voltmètre est réglé en position \emph{AC} afin de mesurer la
+valeur efficace $U$ de la tension $u(t)$.
+
+\newpage
+
+\section{Conducteur ohmique}
+
+\begin{pspicture}(-2,-1)(2,1)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(-1.5,0){A}
+\pnode(1.5,0){B}
+\resistor[intensitylabel=$i_R(t)$,tensionlabel=$u_R(t)$,dipoleconvention=receptor](A)(B){$R$}
+\end{pspicture}
+
+\subsection{Variation de la tension efficace $U$ à fréquence $f$ constante}
+
+\begin{tabular}{cc}
+
+\begin{pspicture}(-0.5,-0.5)(3,3)
+%\psgrid[subgriddiv=1,griddots=10,gridlabels=0pt]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-0.25)(0,3) % Axe des y
+\psline{->}(-0.25,0)(3,0) % Axe des x
+\rput(-0.5,3){$U_{\mbox{eff}}$}
+\rput(3,-0.25){$I_{\mbox{eff}}$}
+\psline[linewidth=2pt]{-}(0,0)(2.75,2)
+\rput(1.5,2.5){$f = \mbox{cste}$}
+\end{pspicture}
+
+&
+
+\begin{pspicture}(0,-3)(10,3)
+\psgrid[subgriddiv=1,griddots=10,gridlabels=0pt]
+\psset{xunit=0.02777} % 180° / 9 carreaux = 20 ; 20^-1=0.05
+\psset{yunit=1}
+\psline{-}(180,-3)(180,3) % Axe des y
+%\rput{0}(4,-0.25){$t$}
+\psline{-}(0,0)(360,0) % Axe des x
+\rput(90,2.75){$u(t)$}
+\rput(90,1){$r i(t)$}
+\psplot[linecolor=red,linewidth=2pt]{0}{360}{x sin 2.5 mul}
+\psplot[linecolor=green,linewidth=2pt]{0}{360}{x 0 sub sin 1.5 mul}
+\end{pspicture}
+
+\end{tabular}
+
+\subsection{Variation de la fréquence $f$ à tension efficace $U$ constante}
+
+\begin{pspicture}(-0.5,-0.5)(3,3)
+%\psgrid[subgriddiv=1,griddots=10,gridlabels=0pt]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-0.25)(0,3) % Axe des y
+\psline{->}(-0.25,0)(3,0) % Axe des x
+\rput(-0.5,3){$\frac{U_{\mbox{eff}}}{I_{\mbox{eff}}}$}
+\rput(3,-0.25){$f$}
+\psline[linewidth=2pt]{-}(0,1.5)(2.75,1.5)
+\rput(1.5,2.5){$U_{\mbox{eff}} = \mbox{cste}$}
+\end{pspicture}
+
+
+\subsection{Résumé}
+
+\[u_R(t) = R i_R(t)\]
+
+\[\underline{U_R} = R \underline{I_R}\]
+
+\[\underline{I_R} = \frac{1}{R} \underline{U_R}\]
+
+\[\underline{Z_R} = R = (R ; 0°)\]
+
+\[Z_R = |\underline{Z_R}| = R\]
+
+\[\Re({\underline{Z_R}}) = R \mbox{ partie réelle}\]
+
+\[\Im({\underline{Z_R}}) = 0 \mbox{ partie imaginaire}\]
+
+\[\underline{Y_R} = \frac{1}{\underline{Z_R}}=\frac{1}{R}\]
+
+\newpage
+
+\section{Bobine parfaite}
+
+\begin{pspicture}(-2,-1)(2,1)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(-1.5,0){A}
+\pnode(1.5,0){B}
+\coil[intensitylabel=$i_L(t)$,tensionlabel=$u_L(t)$,dipoleconvention=receptor](A)(B){$L$}
+\end{pspicture}
+
+\subsection{Variation de la tension efficace $U$ à fréquence $f$ constante}
+
+
+\begin{tabular}{cc}
+
+\begin{pspicture}(-0.5,-0.5)(3,3)
+%\psgrid[subgriddiv=1,griddots=10,gridlabels=0pt]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-0.25)(0,3) % Axe des y
+\psline{->}(-0.25,0)(3,0) % Axe des x
+\rput(-0.5,3){$U_{\mbox{eff}}$}
+\rput(3,-0.25){$I_{\mbox{eff}}$}
+\psline[linewidth=2pt]{-}(0,0)(2.75,2)
+\rput(1.5,2.5){$f = \mbox{cste}$}
+\end{pspicture}
+
+&
+
+\begin{pspicture}(0,-3)(10,3)
+\psgrid[subgriddiv=1,griddots=10,gridlabels=0pt]
+\psset{xunit=0.02777} % 180° / 9 carreaux = 20 ; 20^-1=0.05
+% 360° / 10 carreaux = 36 ; 36^-10.02777
+\psset{yunit=1}
+\psline{-}(180,-3)(180,3) % Axe des y
+%\rput{0}(4,-0.25){$t$}
+\psline{-}(0,0)(360,0) % Axe des x
+\rput(90,2.75){$u(t)$}
+\rput(90,1){$r i(t)$}
+\psplot[linecolor=red,linewidth=2pt]{0}{360}{x sin 2.5 mul}
+\psplot[linecolor=green,linewidth=2pt]{0}{360}{x 90 sub sin 1.5 mul}
+\end{pspicture}
+
+\end{tabular}
+
+
+
+
+\subsection{Variation de la fréquence $f$ à tension efficace $U$ constante}
+
+
+\begin{pspicture}(-0.5,-0.5)(3,3)
+%\psgrid[subgriddiv=1,griddots=10,gridlabels=0pt]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-0.25)(0,3) % Axe des y
+\psline{->}(-0.25,0)(3,0) % Axe des x
+\rput(-0.5,3){$\frac{U_{\mbox{eff}}}{I_{\mbox{eff}}}$}
+\rput(3,-0.25){$f$}
+\psline[linewidth=2pt]{-}(0,0)(2.75,2)
+\rput(1.5,2.5){$U_{\mbox{eff}} = \mbox{cste}$}
+\end{pspicture}
+
+
+\subsection{Résumé}
+
+\[u_L(t)=L\frac{\mbox{d}i_L}{\mbox{d}t}(t)\]
+
+\[\underline{U_L} = j L \omega \underline{I_L}\]
+
+\[\underline{I_L} = \frac{1}{j L \omega} \underline{U_L} = - \frac{j}{L \omega} \underline{U_L}\]
+
+\[\underline{Z_L} = j L \omega = (L \omega ; 90°)\]
+
+\[Z_L = |\underline{Z_L}| = L \omega\]
+
+\[\Re({\underline{Z_L}}) = 0 \mbox{ partie réelle}\]
+
+\[\Im({\underline{Z_L}}) = L \omega \mbox{ partie imaginaire}\]
+
+\[\underline{Y_L} = \frac{1}{\underline{Z_L}}=\frac{1}{j L \omega} = (
+\frac{1}{j L \omega} ; -90°)\]
+
+\[Y_L = |\underline{Y_L}| = \frac{1}{L \omega}\]
+
+\newpage
+
+\section{Condensateur parfait}
+
+\begin{pspicture}(-2,-1)(2,1)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(-1.5,0){A}
+\pnode(1.5,0){B}
+\capacitor[intensitylabel=$i_C(t)$,tensionlabel=$u_C(t)$,dipoleconvention=receptor](A)(B){$C$}
+\end{pspicture}
+
+\subsection{Variation de la tension efficace $U$ à fréquence $f$ constante}
+
+
+\begin{tabular}{cc}
+
+\begin{pspicture}(-0.5,-0.5)(3,3)
+%\psgrid[subgriddiv=1,griddots=10,gridlabels=0pt]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-0.25)(0,3) % Axe des y
+\psline{->}(-0.25,0)(3,0) % Axe des x
+\rput(-0.5,3){$U_{\mbox{eff}}$}
+\rput(3,-0.25){$I_{\mbox{eff}}$}
+\psline[linewidth=2pt]{-}(0,0)(2.75,2)
+\rput(1.5,2.5){$f = \mbox{cste}$}
+\end{pspicture}
+
+&
+
+\begin{pspicture}(0,-3)(10,3)
+\psgrid[subgriddiv=1,griddots=10,gridlabels=0pt]
+\psset{xunit=0.02777} % 180° / 9 carreaux = 20 ; 20^-1=0.05
+\psset{yunit=1}
+\psline{-}(180,-3)(180,3) % Axe des y
+%\rput{0}(4,-0.25){$t$}
+\psline{-}(0,0)(360,0) % Axe des x
+\rput(90,2.75){$u(t)$}
+\rput(90,1){$r i(t)$}
+\psplot[linecolor=red,linewidth=2pt]{0}{360}{x sin 2.5 mul}
+\psplot[linecolor=green,linewidth=2pt]{0}{360}{x 90 add sin 1.5 mul}
+\end{pspicture}
+
+\end{tabular}
+
+\subsection{Variation de la fréquence $f$ à tension efficace $U$ constante}
+
+\begin{pspicture}(-0.5,-0.5)(3,3)
+%\psgrid[subgriddiv=1,griddots=10,gridlabels=0pt]
+\psset{xunit=1}
+\psset{yunit=1}
+\psline{->}(0,-0.25)(0,3) % Axe des y
+\psline{->}(-0.25,0)(3,0) % Axe des x
+\rput(-0.5,3){$\frac{U_{\mbox{eff}}}{I_{\mbox{eff}}}$}
+\rput(3,-0.25){$\frac{1}{f}$}
+\psline[linewidth=2pt]{-}(0,0)(2.75,2)
+\rput(1.5,2.5){$U_{\mbox{eff}} = \mbox{cste}$}
+\end{pspicture}
+
+\subsection{Résumé}
+
+\[i_C(t)=C\frac{\mbox{d}u_C}{\mbox{d}t}(t)\]
+
+\[\underline{I_C} = j C \omega \underline{U_C}\]
+
+\[\underline{U_C} = \frac{1}{j C \omega} \underline{I_L} = - \frac{j}{C \omega} \underline{I_L}\]
+
+\[\underline{Z_C} = \frac{1}{j C \omega} = (\frac{1}{C \omega} ; -90°)\]
+
+\[Z_C = |\underline{Z_C}| = \frac{1}{C \omega}\]
+
+\[\Re({\underline{Z_C}}) = 0 \mbox{ partie réelle}\]
+
+\[\Im({\underline{Z_C}}) =  \frac{1}{C \omega} \mbox{ partie imaginaire}\]
+
+\[\underline{Y_C} = \frac{1}{\underline{Z_C}} = j C \omega = (C \omega ; 90°)\]
+
+\[Y_C = |\underline{Y_C}| = C \omega\]
+
+
+% \newpage
+
+
+% \begin{tabularx}{XXX}
+
+% %\hline
+% Représentation temporelle & Représentation complexe & Vecteurs de \tbnl
+% Fresnel 
+
+% $u(t) = U \sqrt{2} \cos(\omega t + \varphi_u)$ & & \tbnl
+
+% $s(t) = \frac{\mbox{d}u}{\mbox{d}t} = ...$     & & \tbnl
+
+
+% Résistance\\$u(t) = ...$                       & & \tbnl
+
+% Bobine\\$u(t) = ...$                       & & \tbnl
+
+% Condensateur\\$i(t) = ...$                       & & \tbnl
+
+% %\hline
+% \end{tabularx}
+
+% \newpage

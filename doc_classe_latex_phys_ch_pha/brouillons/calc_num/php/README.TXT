@@ -1,0 +1,1 @@
+php main2.php > main2.tex

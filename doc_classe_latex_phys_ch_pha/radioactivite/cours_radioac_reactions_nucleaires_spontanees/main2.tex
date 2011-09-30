@@ -1,0 +1,232 @@
+\cours{Radioactivité \\Réactions nucléaires spontanées}
+
+\Section*{Quelques rappels sur la structure d'un atome}
+
+\frame{
+  \frametitle{\insertsectionhead}
+  %\frametitle{Constituants de l'atome}
+
+  \pause
+
+  Un atome est une entité \emph{électriquement neutre} constituée :
+
+  \pause
+
+  \begin{itemize}
+  \item d'un \emph{noyau} (chargé positivement) 
+  \item et d'\emph{électrons} chargés négativement ($q_e = -e = -1,6.10^{-19}~C$)
+  \end{itemize}
+  
+  \pause
+
+  Le noyau est constitué de \emph{nucléons} (cela a pu être montré expérimentalement grâce au phénomène de radioactivité naturelle et grâce aux réactions nucléaires).
+  
+  \pause
+
+  Les nucléons sont de deux sortes :
+  \begin{itemize}
+    \item \emph{protons} de charge $q_p = +e = +1,6.10^{-19}~C$
+    \item \emph{neutrons} de charge nulle $q_n = 0$
+  \end{itemize}
+
+  Les nucléons ont sensiblement la même masse $m_p \approx m_n$.
+
+  \pause
+
+  \begin{tabular}{|c|c|c|c|}
+    \hline
+    Particule & Masse ($kg$) & Charge ($C$) & Rayon ($m$) \\ \hline \hline
+    proton & $1,673.10^{-27}$ & $1,602.10^{-19}$ & $1,2.10^{-15}$ \\ \hline
+    neutron & $1,675.10^{-27}$ & $0$ & $1,2.10^{-15}$ \\ \hline
+    électron & $9,109.10^{-31}$ & $-1,602.10^{-19}$ & $2,8.10^{-15}$ \\ \hline
+  \end{tabular}
+
+  
+}
+
+
+\frame{
+
+  \frametitle{Notation des atomes et des ions d'un élément}
+
+  % http://www.grappa.univ-lille3.fr/FAQ-LaTeX/12.17.html
+  % ftp://ftp.inria.fr/pub/TeX/CTAN/macros/latex/contrib/chemsym/
+  % \usepackage{chemsys}
+
+
+  $$^{\tiny \mbox{A}}_{\tiny \mbox{Z}}\mbox{X}$$
+
+  \pause
+
+  \begin{itemize}
+  \item $A$ : nombre de masse, c'est le nombre de nucléons dans le noyau\\
+  on l'obtient en faisant l'arrondi de la masse molaire (en $g.mol^{-1}$).
+  \pause
+  \item $Z$ : nombre de protons (protons + neutrons) (numéro atomique)
+  \pause
+  \item $n$ : nombre de neutrons
+    $n = A - Z$
+  \end{itemize}
+}
+
+\frame{
+
+  \frametitle{Exemple de l'atome de plomb : $Pb$}
+
+  \pause
+
+  En regardant sur le tableau périodique des éléments on trouve :
+
+  \pause
+
+  \begin{itemize}
+  \item Numéro atomique : $82$
+  \item Masse molaire atomique : $207,2$
+  \end{itemize}
+
+  \pause
+
+  On écrit donc :
+
+  \pause
+    
+  $$^{\tiny \mbox{207}}_{\tiny \mbox{82}}\mbox{Pb}$$
+
+  \pause
+  
+  Le nombre de protons est : \pause $Z = 82$ (c'est le numéro atomique) \pause
+
+  Le nombre de nucléons est : \pause $A = 207$ (c'est le nombre de masse) \pause
+
+  Le nombre de neutrons est : \pause $n = A - Z = 207 - 82 = 125$ \pause
+
+  Le nombre d'électrons est : \pause $Z = 82$ car c'est un atome (donc de charge nulle donc il y a autant de protons que d'électrons)
+
+}
+
+\frame{
+  \frametitle{Exemple de l'ion cuivre II : $Cu^{2+}$}
+
+  \pause
+
+  En regardant sur le tableau périodique des éléments on trouve :
+
+  \pause
+
+  \begin{itemize}
+  \item Numéro atomique : $29$
+  \item Masse molaire atomique : $63,5$
+  \end{itemize}
+
+  \pause
+
+  On écrit donc :
+
+  \pause
+
+  $$^{\tiny \mbox{63}}_{\tiny \mbox{29}}\mbox{Cu}^{2+}$$
+
+  \pause
+
+  Le nombre de protons est : \pause $Z = 29$ \pause
+
+  Le nombre de nucléons est : \pause $A = 63$ \pause
+
+  Le nombre de neutrons est : \pause $n = A - Z = 207 - 82 = 34$ \pause
+
+  Le nombre d'électrons est : \pause $n_e = Z-2 = 27$ car la charge totale de l'ion est $(Z-n_e).e = +2e$
+}
+
+\frame{
+  \frametitle{Résumé}
+  
+  Un élément chimique est caractérisé par son numéro atomique $Z$.
+
+  \pause
+
+  Tous les représentants (atomes ou ions) de cet élément ont un noyau comportant $Z$ protons.
+
+  \pause
+
+  Tous les atomes de cet élément ont le même cortège électronique formé de $Z$ électrons et des propriétés chimiques identiques.
+
+  \pause
+
+  Au cours des réactions chimiques, les différents éléments se conservent.
+
+  \pause
+
+  Des \emph{isotopes} ont le même nombre de protons, mais des nombres différents de neutrons. Ils ont le même numéro atomique $Z$ et correspondent dont au même élément.
+}
+
+\frame{
+  \frametitle{Structure électronique}
+
+  \pause
+
+  Les électrons d'un atome ou d'un ion se répartissent en couches.
+
+  Chaque couche est caractérisée par son numéro $n$.
+
+  \pause
+
+  \vspace{0.5cm}
+  %\par
+
+  \emph{Principe de Pauli :}
+
+  Chaque couche ne peut contenir qu'un nombre limité d'électrons : la couche numéro $n$ contient au maximum $2n^2$ électrons.
+
+  \pause
+
+  \vspace{0.5cm}
+  %\par
+
+%   \begin{tabular}{|c|c|c|}
+%     \hline
+%     Numéro de la couche ($n$) & Symbole & Nombre maximal d'électrons sur la couche ($2n^2$) \\ \hline \hline
+%     1 & K & 2 \\ \hline
+%     2 & L & 8 \\ \hline
+%     3 & M & 18 \\ \hline
+%   \end{tabular}
+
+\begin{tabular}{|c|c|c|}
+  \hline
+                              &         & Nombre maximal \\
+     Numéro de la couche ($n$)& Symbole & d'électrons \\
+                              &         & sur la couche $2n^2$ \\
+                                               \hline \hline
+     1                        & K       & 2 \\ \hline
+     2                        & L       & 8 \\ \hline
+     3                        & M       & 18 \\ \hline
+\end{tabular} 
+
+
+
+  
+}
+
+\frame{
+  \frametitle{Structure électronique de quelques atomes ou ions}
+
+  \pause
+
+  \begin{tabular}{|c|c|c|c|}
+    \hline
+    Espèce & $Z$ & Nombre d'électrons & Formule électronique \\ \hline \hline
+    hydrogène $H$ & $1$ & $1$ & \textcolor{red}{$K^1$} \\ \hline
+    azote $N$ & $7$ & $7$ & $K^2\textcolor{red}{L^5}$ \\ \hline
+    aluminium $Al$ & $13$ & $13$ & $K^2L^8\textcolor{red}{M^3}$ \\ \hline
+    ion $Al^{3+}$ & $13$ & $10$ & $K^2\textcolor{red}{L^8}$ \\ \hline
+  \end{tabular}
+}
+
+\Section{AA} 
+\frame{
+  \frametitle{\insertsectionhead}
+}
+
+\Section{BB}
+\frame{
+  \frametitle{\insertsectionhead}
+}

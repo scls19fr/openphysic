@@ -1,0 +1,23 @@
+How to :
+========
+
+* compile in C
+gcc main.cpp -o main
+
+* compile in C++
+g++ main.cpp -o main
+
+* compile in C++ with wxWindows
+g++ main.cpp `wx-config --libs` `wx-config --cxxflags` -o main
+
+* compile for debug
+g++ main.cpp -g -o main
+gdb
+(gdb) file main
+// ou gdb main
+(gdb) run
+
+see also "xxgdb"
+
+* compile static
+-static -lm ?

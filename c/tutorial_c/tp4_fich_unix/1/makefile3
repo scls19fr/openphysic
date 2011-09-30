@@ -1,0 +1,5 @@
+copier_fichier.o:	copier_fichier.c
+	gcc -c copier_fichier.c
+
+all:	copier_fichier.o copier.c
+	gcc -o copier copier.c copie_fichier.o

@@ -1,0 +1,190 @@
+\tp{Puissance et énergie consommée\\ par un dipôle électrique}
+
+\nomprenomclasse
+
+\begin{multicols}{2}
+
+\objectifs{
+\item calculer la puissance électrique d'un dipôle fonctionnant en courant continu à partir de la mesure de la tension à ses bornes et de l'intensité qui le traverse
+\item calculer l'énergie électrique consommée par un dipôle électrique
+}
+
+%\materiel{}
+
+%\begin{multicols}{2}
+
+
+\section{Schéma du circuit électrique}
+\begin{enumerate}
+\item Mettre les bornes des appareils de mesure sur le schéma ci-contre.
+\item Réaliser le schéma électrique ci-contre avec trois lampes différentes.
+\end{enumerate}
+
+\begin{center}
+\begin{pspicture}(0,-1)(6,5)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(0,4.5){B}
+\pnode(6,4.5){A}
+\battery[variable,intensitylabel=$I$,dipoleconvention=generator,directconvention=false](B)(A){}
+\pnode(0,0.5){C}
+\pnode(6,0.5){D}
+\wire(D)(A)
+%\switch(D)(A){$K$}
+\lamp[tensionlabel=$U$](C)(D){$\mathcal L$}
+\ammeter{B}{C}
+\circledipole[parallel,parallelarm=-2,parallelsep=0,labeloffset=0](C)(D){\large \textbf{V}}
+\end{pspicture}
+\end{center}
+
+
+\end{multicols}
+
+
+\section{Protocole expérimental}
+\begin{enumerate}
+\item Pour chaque lampe, noter ses caractéristiques dans un tableau.
+\item Relever la valeur expérimentale de la tension $U$ à ses bornes et l'intensité $I$ qui la traverse.
+\item Compléter le tableau suivant.
+
+
+%\tiny
+% \begin{tabular}{|c|c|c|c|c|c|}
+% \hline
+%         & Tension   & Puissance & Tension      & Intensité &  Produit  \\
+% Lampe   & nominale  & nominale  & à ses bornes &           &  $U \cdot I$ \\
+%         & ($V$)     & ($W$)     & ($V$)        & ($A$)     &  ($W$) \\ \hline 
+% \Huge 1 &                        &                           &                             &                  &  \\ \hline 
+% \Huge 2 &                        &                           &                             &                  &  \\ \hline 
+% \Huge 3 &                        &                           &                             &                  &  \\ \hline 
+% \end{tabular}
+% \normalsize
+
+
+%\noindent
+\begin{tabular}{|c*{5}{|>{\centering}m{.15\linewidth}}|}
+\hline
+Lampe & Tension nominale ($V$) & Puissance  nominale ($W$) & Tension \`a ses  bornes ($V$) & Intensit\'e ($A$) & Produit $U \cdot I$ ($W$)\tabularnewline
+\hline
+ 1 &                        &                           &
+                   &                  &  \\[0.5cm] \hline
+ 2 &                        &                           &
+                   &                  &  \\[0.5cm] \hline
+ 3 &                        &                           &
+                   &                  &  \\[0.5cm] \hline
+\end{tabular}
+
+% \huge \strut 1
+
+\normalsize
+
+
+\item Comparer la valeur du produit $U \cdot I$ à la valeur de la puissance nominale de la lampe.
+
+\medskip
+\dotfill
+
+\end{enumerate}
+
+\section{Conclusion}
+
+Ecrire la loi qui régit la \emph{puissance} d'un appareil fonctionnant en courant continu, en français et de façon mathématique avec les unités correspondantes.
+
+\cadre{2.5cm}
+
+
+\emph{Remarque :} cette relation ne s'applique pas rigoureusement si le courant est alternatif et si les appareils branchés comportent des moteurs.
+
+\pagebreak[4]
+
+
+\subsection*{Exercices d'application sur la notion de puissance électrique}
+\setcounter{numexercice}{0}
+
+\begin{exercice}
+Dans le cas où le dipôle branché est une résistance, on peut exprimer la tension à ses bornes en fonction de sa résistance $R$ et de l'intensité $I$ qui la traverse. Donner alors l'expression de la puissance d'une résistance en fonction de sa résistance $R$ et de l'intensité $I$ qui la traverse.
+\end{exercice}
+
+
+%\trouformule{P = U I = R I^2}
+
+
+\begin{exercice}
+Un constructeur donne, pour une résistance, les indications suivantes : ($560~\Omega$ ; $0,5~W$). Expliciter ces indications, puis calculer quelle est la valeur maximale de l'intensité qui peut traverser cette résistance sans l'endommager ? Que se passe t-il si le courant est supérieur à cette valeur maximale ?
+\end{exercice}
+
+\setcounter{numexercice}{0}
+
+\section*{Energie consommée par un dipôle électrique}
+
+\begin{multicols}{2}
+Pour mesurer l'énergie électrique consommée par les dipôles électriques, on utilise un compteur EDF, qui se présente sous la forme d'un boîtier rectangulaire, avec un disque horizontal qui tourne.
+
+
+A chaque fois que le disque fait un tour, une quantité d'énergie bien définie a été consommée.
+
+Pour le compteur utilisé, \dotfill
+
+A des fins de commodité, EDF exprime l'énergie sous forme de Watts-heure (ou de kiloWatts-heure), ce qui correspond à l'énergie consommée par un appareil électrique de $1~W$ fonctionnant pendant une heure.
+
+Plusieurs dipôles fonctionnant en $220~V$ sont branchés à la suite de ce compteur. Un chronomètre est utilisé afin de mesurer le temps écoulé au cours duquel les appareils fonctionnent.
+
+\begin{center}
+  \begin{pspicture}(0,0)(6,7)
+%  \psgrid[subgriddiv=1,griddots=10]
+  \psframe(0,0)(6,7)
+  \rput(3,5){\fbox{$14~135~W.h$}} % \Huge ... TO DO Modifier taille
+  \psframe(1.2,3)(4.8,3.5)
+  \psline[linewidth=0.15](1.5,3.25)(4.5,3.25)
+  \psframe(2,1.5)(4,2.5) % K=
+  %\rput(2.5,2){$\Huge K=$}
+  \rput(2.5,2){$K=$} % \Huge ... TO DO Modifier taille
+  \end{pspicture}
+\end{center}
+
+\end{multicols}
+
+Noter le temps de fonctionnement : \dotfill
+
+Noter le nombre de tours effectués par le disque pendant ce temps : \dotfill
+
+
+Quelle est l'énergie consommée : \dotfill
+
+
+Noter la puissance de chaque dipôle branché : \dotfill
+
+\medskip \dotfill
+
+\medskip \dotfill
+
+\medskip \dotfill
+
+
+La loi qui régit la consommation d'énergie électrique d'un ou plusieurs appareils est :
+
+
+\cadre{3cm}
+
+
+
+
+
+\subsection*{Exercices}
+\setcounter{numexercice}{0}
+\begin{exercice}
+Pierre et Marie ont oublié d'éteindre leur radiateur électrique de $1500~W$ lorsqu'ils sont partis en vacances d'hiver pendant une semaine. A leur retour, hormis un appartement bien chauffé, ils reçoivent la facture d'électricité. Quel montant leur a coûté leur oubli ? (donnée  : $1~kW.h = 0.06~\eurom$ ).
+\end{exercice}
+
+\begin{exercice}
+Pour protéger une ligne électrique alimentant un four ($230~V$ ; $3,5~kW$), peut-on utiliser un fusible de calibre $20~A$ ? Pourquoi ?
+\end{exercice}
+
+%\cadre{3cm}
+
+\begin{exercice}
+Une prise électrique est protégée par un fusible de $10~A$. Peut-on brancher ensemble une lampe halogène de $300~W$, un barbecue électrique de $1800~W$ et une chaîne hi-fi de $200~W$ ?
+\end{exercice}
+
+
+\setcounter{numexercice}{0}
+%\cadre{3cm}

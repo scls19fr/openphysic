@@ -1,0 +1,140 @@
+
+\doc{L'électroscope}
+
+%\nomprenomclasse
+
+D'après \url{http://www.sciences.univ-nantes.fr/physique/perso/maussion/elecstat}
+
+\subsection*{Fonctionnement de l'électroscope}
+L'écartement des feuilles augmente avec la quantité de charges.
+Lorsqu'il est déja chargé, cet écartement varie selon le signe des nouvelles charges.
+
+Pour faire les expériences suivantes vous devez en entreprendre la construction. Ce n'est pas le plus rapide à réaliser, mais il vous étonnera par son extrême sensibilité.
+
+Par comparaison vous pourrez très facilement sélectionner les pailles qui s'électrisent le mieux.
+
+\includegraphics{Cope01.jpg.eps}
+
+Approcher un objet chargé du plateau de l'électroscope a pour effet d'y attirer des charges de signe opposé au détriment des feuilles. On peut dire que cela revient à repousser vers les feuilles des charges de même signe que celles de l'objet.
+
+Les feuilles prenant toutes deux la même charge, il y a répulsion et elles s'écartent.
+
+\includegraphics{Fig03.gif.eps}
+
+Le premier électroscope à feuilles d'or est dû à Charles de Cisternay du Fay. Il lui a permis de :
+
+\begin{itemize}
+\item distinguer les électricités résineuses et vitrées (1728).
+\item montrer que les substances que Gilbert pensait ne pas s'électriser le pouvaient si on les tenait par l'intermédiaire d'un isolant. C'était la conduction du corps de l'opérateur qui les déchargeaient.
+\item établir la conduction des charges par une corde de chanvre humide de 400 m (1733).
+\item établir la conductivité des flammes.
+\end{itemize}
+
+
+\subsection*{Charge par contact}
+\subsubsection*{Méthode directe}
+Tapotez plusieurs fois le plateau de l'électroscope avec une paille électrisée.
+
+\includegraphics{Act1.jpg.eps}
+
+En éloignant la paille les feuilles restent écartées.
+
+\includegraphics{Act2.jpg.eps}
+
+La difficulté vient aussi du fait que dès que l'électroscope commence à se charger, le nouveau point de la paille en contact doit être encore plus chargé pour que le transfert soit efficace.
+
+L'opération est un peu laborieuse car seules les charges du point de contact
+peuvent passer dans l'électroscope et se répartir sur le plateau, la tige et les feuilles.
+
+Il est plus facile d'y arriver indirectement de manière indirecte.
+
+
+\subsubsection*{Méthode indirecte}
+Approchez une paille électrisée en interposant un carré d'aluminium.
+
+\includegraphics{Act3.jpg.eps}
+
+Faites contact avec le plateau.
+
+\includegraphics{Act4.jpg.eps}
+
+La paille négative attire des charges positives sur la face du métal en regard et comme celui-ci est neutre la face tournée vers le plateau devient négative. Lors du contact une partie de ces charges se répartit sur l'électroscope et y reste si on enlève simultanément la paille et le métal. 
+
+\includegraphics[width=15cm]{Contact.gif.eps}
+
+Lors du contact de deux conducteurs la somme (algébrique) des charges qu'ils portent est conservée. Elle se répartit entre les deux corps grossièrement en proportion de leur surface et un peu en fontion de leur forme. Si les deux conducteurs ont la même dimension et la même forme ils portent après le contact la même charge.
+
+Donc si on met en contact une sphère chargée avec une sphère identique mais neutre elles emportent chacune la moitié de la charge initiale. C'est en utilisant ce procédé que Charles Coulomb a pu montrer que la force entre deux charges est proportionnelle à la valeur de chacune des charges donc à leur produit.
+
+
+Avant de découvrir les conducteurs Stephen Gray s'apercoit (1727) que les corps ne s'électrisent pas seulement par frottement mais qu'il peuvent aussi acquérir la propriété d'attirer des petits objets si on les met en contact avec un corps déjà électrisé.
+
+\subsection*{Décharge de l'électroscope}
+
+\includegraphics{Charge.jpg.eps}
+
+Électroscope chargé
+
+\includegraphics{Decharge.jpg.eps}
+
+Touchez du doigt le plateau : les feuilles retombent.
+
+À l'instant du contact, l'électroscope ( plateau + tige + feuilles ) et le corps de l'opérateur ne forment plus qu'un seul conducteur à la surface duquel les charges initialement sur l'électroscope se répartissent. La surface de l'électroscope étant très petite par rapport à celle du corps, il ne reste quasiment plus de charges sur l'électroscope. Cela est d'autant plus vrai que, à moins que l'opérateur ne soit isolé du sol, le conducteur en contact avec l'électroscope est en fait la terre, dont la surface est immense ! 
+
+\subsection*{Processus de la charge par influence}
+
+\includegraphics{Ence1.jpg.eps}
+
+Approchez une paille électrisée d'un côté du plateau de l'électroscope. 	
+
+\includegraphics{Ence2.jpg.eps}
+
+Touchez du doigt l'autre côté : les feuilles retombent.
+
+\includegraphics{Ence3.jpg.eps}
+
+Retirez le doigt : rien ne change
+
+\includegraphics{Ence4.jpg.eps}
+
+Retirez la paille : l'électroscope reste chargé.
+
+
+\includegraphics[width=15cm]{Fig04.gif.eps}
+
+La première étape (fig. 3) correspond à l'expérience intitulée "électroscope" : les feuilles sont négatives comme la paille.
+
+En touchant le plateau du doigt (fig. 7), l'électroscope se décharge (voir l'expérience sur la charge et décharge par contact). Ici, il y a une différence essentielle : l'influence de la paille. Le plateau reste positif et seules les charges négatives des feuilles, qui sont loin de cette influence, s'écoulent dans le sol, à travers le corps de l'opérateur. L'électroscope est devenu positif.
+
+En retirant le doigt (fig. 8), on l'isole et il conservera sa nouvelle charge.
+
+En retirant la paille (fig. 9), on supprime son influence et les charges positives se répartissent librement entre le plateau et les feuilles.
+
+L'électrisation par influence a été découverte en 1754 par John Canton.
+
+\subsection*{Le pouvoir des pointes}
+
+\includegraphics{Tes1.jpg.eps}
+
+Placez une paille chargée à proximité des pointes.
+
+\includegraphics{Tes2.jpg.eps}
+
+Éloignez-la : l'électroscope reste chargé.
+
+
+
+La répartition des charges à la surface d'un conducteur dépend des influences et de sa forme.
+
+Plus le rayon de courbure est faible, plus il y a concentration ( fig. 10).
+
+\includegraphics{Pointes1.gif.eps}
+
+
+Lorsque la paille passe tout près, l'accumulation des charges positives apparues par influence à l'extrémité de la pointe est si grande qu'elles vont être expulsées et neutraliser localement les charges négatives de la paille (fig. 11).
+
+La pointe a perdue autant de charges positives que la paille de charges négatives.
+
+Finalement c'est comme si l'électroscope avait pris des charges négatives à la paille.
+
+\includegraphics{Pointes2.gif.eps}

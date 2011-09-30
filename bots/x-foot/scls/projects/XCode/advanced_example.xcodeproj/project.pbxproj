@@ -1,0 +1,363 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5E8594840C1E7566009EBE58 /* libGuLL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E8593A20C1E23F9009EBE58 /* libGuLL.a */; };
+		5E90A27C0AF360AA00784E87 /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E90A27B0AF360AA00784E87 /* SDL.framework */; };
+		5E90A2D80AF3623900784E87 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E90A2D70AF3623900784E87 /* Cocoa.framework */; };
+		5E90A4280AF36A1600784E87 /* SDL_net.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E90A4260AF36A1600784E87 /* SDL_net.framework */; };
+		5E90A50E0AF377BD00784E87 /* ai.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E90A50C0AF377BD00784E87 /* ai.cpp */; };
+		5E90A53D0AF37A8300784E87 /* libaisdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E90A52D0AF3791700784E87 /* libaisdk.a */; };
+		5E90A6E10AF390F900784E87 /* advanced_example-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E90A6E00AF390F900784E87 /* advanced_example-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5E8593A10C1E23F9009EBE58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E85939D0C1E23F9009EBE58 /* GuLL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC06F0554671400DB518D;
+			remoteInfo = GuLL;
+		};
+		5E8593A50C1E24AE009EBE58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E85939D0C1E23F9009EBE58 /* GuLL.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC06E0554671400DB518D;
+			remoteInfo = GuLL;
+		};
+		5E90A52C0AF3791700784E87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E90A5260AF3791700784E87 /* aisdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5EC69EC609D139B200D33BBD;
+			remoteInfo = aisdk;
+		};
+		5E90A5980AF37E4000784E87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E90A5260AF3791700784E87 /* aisdk.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5EC69EC509D139B200D33BBD;
+			remoteInfo = aisdk;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5E85939D0C1E23F9009EBE58 /* GuLL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GuLL.xcodeproj; path = ../../../../externals/GuLL/projects/XCode/GuLL.xcodeproj; sourceTree = SOURCE_ROOT; };
+		5E90A21A0AF35CEC00784E87 /* advanced_example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = advanced_example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E90A27B0AF360AA00784E87 /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = /Library/Frameworks/SDL.framework; sourceTree = "<absolute>"; };
+		5E90A2D70AF3623900784E87 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		5E90A4260AF36A1600784E87 /* SDL_net.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_net.framework; path = /Library/Frameworks/SDL_net.framework; sourceTree = "<absolute>"; };
+		5E90A50C0AF377BD00784E87 /* ai.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = ai.cpp; path = ../../sources/ai.cpp; sourceTree = SOURCE_ROOT; };
+		5E90A50D0AF377BD00784E87 /* ai.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ai.h; path = ../../sources/ai.h; sourceTree = SOURCE_ROOT; };
+		5E90A5260AF3791700784E87 /* aisdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = aisdk.xcodeproj; path = "../../../../aisdk/c++/projects/XCode/aisdk.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		5E90A6E00AF390F900784E87 /* advanced_example-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = "advanced_example-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5E90A2180AF35CEC00784E87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E90A53D0AF37A8300784E87 /* libaisdk.a in Frameworks */,
+				5E8594840C1E7566009EBE58 /* libGuLL.a in Frameworks */,
+				5E90A27C0AF360AA00784E87 /* SDL.framework in Frameworks */,
+				5E90A4280AF36A1600784E87 /* SDL_net.framework in Frameworks */,
+				5E90A2D80AF3623900784E87 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5E85939E0C1E23F9009EBE58 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5E8593A20C1E23F9009EBE58 /* libGuLL.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5E90A1FB0AF35C4900784E87 = {
+			isa = PBXGroup;
+			children = (
+				5E90A2130AF35C9100784E87 /* Sources */,
+				5E90A2210AF35D0800784E87 /* Resources */,
+				5E90A2140AF35C9C00784E87 /* Dependencies */,
+				5E90A2150AF35CA600784E87 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5E90A2130AF35C9100784E87 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				5E90A50D0AF377BD00784E87 /* ai.h */,
+				5E90A50C0AF377BD00784E87 /* ai.cpp */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		5E90A2140AF35C9C00784E87 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				5E85939D0C1E23F9009EBE58 /* GuLL.xcodeproj */,
+				5E90A5260AF3791700784E87 /* aisdk.xcodeproj */,
+				5E90A2770AF3608A00784E87 /* Frameworks */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		5E90A2150AF35CA600784E87 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5E90A21A0AF35CEC00784E87 /* advanced_example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5E90A2210AF35D0800784E87 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5E90A6E00AF390F900784E87 /* advanced_example-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		5E90A2770AF3608A00784E87 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E90A27B0AF360AA00784E87 /* SDL.framework */,
+				5E90A4260AF36A1600784E87 /* SDL_net.framework */,
+				5E90A2D70AF3623900784E87 /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5E90A5270AF3791700784E87 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5E90A52D0AF3791700784E87 /* libaisdk.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5E90A2190AF35CEC00784E87 /* advanced_example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E90A21D0AF35CEE00784E87 /* Build configuration list for PBXNativeTarget "advanced_example" */;
+			buildPhases = (
+				5E90A2160AF35CEC00784E87 /* Resources */,
+				5E90A2170AF35CEC00784E87 /* Sources */,
+				5E90A2180AF35CEC00784E87 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E90A5990AF37E4000784E87 /* PBXTargetDependency */,
+				5E8593A60C1E24AE009EBE58 /* PBXTargetDependency */,
+			);
+			name = advanced_example;
+			productName = file_brwoser;
+			productReference = 5E90A21A0AF35CEC00784E87 /* advanced_example.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5E90A1FD0AF35C4900784E87 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 5E90A1FE0AF35C4900784E87 /* Build configuration list for PBXProject "advanced_example" */;
+			hasScannedForEncodings = 0;
+			mainGroup = 5E90A1FB0AF35C4900784E87;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 5E90A5270AF3791700784E87 /* Products */;
+					ProjectRef = 5E90A5260AF3791700784E87 /* aisdk.xcodeproj */;
+				},
+				{
+					ProductGroup = 5E85939E0C1E23F9009EBE58 /* Products */;
+					ProjectRef = 5E85939D0C1E23F9009EBE58 /* GuLL.xcodeproj */;
+				},
+			);
+			targets = (
+				5E90A2190AF35CEC00784E87 /* advanced_example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		5E8593A20C1E23F9009EBE58 /* libGuLL.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGuLL.a;
+			remoteRef = 5E8593A10C1E23F9009EBE58 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5E90A52D0AF3791700784E87 /* libaisdk.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libaisdk.a;
+			remoteRef = 5E90A52C0AF3791700784E87 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5E90A2160AF35CEC00784E87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E90A6E10AF390F900784E87 /* advanced_example-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5E90A2170AF35CEC00784E87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E90A50E0AF377BD00784E87 /* ai.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5E8593A60C1E24AE009EBE58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GuLL;
+			targetProxy = 5E8593A50C1E24AE009EBE58 /* PBXContainerItemProxy */;
+		};
+		5E90A5990AF37E4000784E87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = aisdk;
+			targetProxy = 5E90A5980AF37E4000784E87 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5E90A1FF0AF35C4900784E87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		5E90A2000AF35C4900784E87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+			};
+			name = Release;
+		};
+		5E90A21E0AF35CEE00784E87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = ppc;
+				CONFIGURATION_BUILD_DIR = ../..;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Headers/Carbon.h";
+				HEADER_SEARCH_PATHS = (
+					"$(BUILD_DIR)/../../externals/GuLL/sources",
+					"$(BUILD_DIR)/../../sources/common",
+					"$(BUILD_DIR)/../../sources/client",
+					/Library/Frameworks/SDL.framework/Headers,
+					/Library/Frameworks/SDL_net.framework/Headers,
+				);
+				INFOPLIST_FILE = "advanced_example-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(BUILD_DIR)/../../externals/GuLL",
+					"$(BUILD_DIR)/../../aisdk/c++/",
+				);
+				OBJROOT = "$(PROJECT_DIR)/build";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Carbon,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = advanced_example;
+				SYMROOT = ../..;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
+		5E90A21F0AF35CEE00784E87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = ppc;
+				CONFIGURATION_BUILD_DIR = ../..;
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Headers/Carbon.h";
+				HEADER_SEARCH_PATHS = (
+					"$(BUILD_DIR)/../../externals/GuLL/sources",
+					"$(BUILD_DIR)/../../sources/common",
+					"$(BUILD_DIR)/../../sources/client",
+					/Library/Frameworks/SDL.framework/Headers,
+					/Library/Frameworks/SDL_net.framework/Headers,
+				);
+				INFOPLIST_FILE = "advanced_example-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(BUILD_DIR)/../../externals/GuLL",
+					"$(BUILD_DIR)/../../aisdk/c++/",
+				);
+				OBJROOT = "$(PROJECT_DIR)/build";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Carbon,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = advanced_example;
+				SYMROOT = ../..;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5E90A1FE0AF35C4900784E87 /* Build configuration list for PBXProject "advanced_example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E90A1FF0AF35C4900784E87 /* Debug */,
+				5E90A2000AF35C4900784E87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E90A21D0AF35CEE00784E87 /* Build configuration list for PBXNativeTarget "advanced_example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E90A21E0AF35CEE00784E87 /* Debug */,
+				5E90A21F0AF35CEE00784E87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5E90A1FD0AF35C4900784E87 /* Project object */;
+}

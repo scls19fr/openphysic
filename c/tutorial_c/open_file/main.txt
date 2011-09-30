@@ -1,0 +1,7 @@
+Ceci est
+un fichier
+texte
+que je vais
+lire avec
+le programme
+main.c

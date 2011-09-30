@@ -1,0 +1,104 @@
+; ************************************************************
+; PROJECT:
+; AUTHOR:
+; ************************************************************
+; http://wiki.jelectronique.com/les_rebonds
+;http://forums.jelectronique.com/ftopic3760.php
+
+; Micro + software running
+; ------------------------------------------------------------
+.MICRO "ATmega8535" ;"ATmega8"
+.TOOLCHAIN "GCC"
+.GCCPATH   "C:\WinAVR"
+.GCCMAKE   AUTO
+.TARGET    "keypad.hex"
+.SOURCE    "keypad.c"
+
+.TRACE              ; Activate micro trace
+
+; Following lines are optional; if not included
+; exactly these values are taken by default
+; ------------------------------------------------------------
+.POWER VDD=5 VSS=0  ; Power nodes
+.CLOCK 8meg         ; Micro clock
+.STORE 250m         ; Trace (micro+signals) storage time
+
+; Micro nodes: RESET, AREF, PB0-PB7, PC0-PC6, PD0-PD7, ACO, TIM1OVF, ADC6, ADC7
+; Define here the hardware around the micro
+; ------------------------------------------------------------
+
+; Keypad
+;;;;;;;;
+;Kx node1 node2 [type(delay)] ; x: Buttons 0 - F. Optional type: MONOSTABLE(t_delay), LATCHED
+K0 VSS PC0
+K1 VSS PC1
+;K0 VSS NODEK0
+;K1 VSS NODEK1
+K2 VSS PC2
+K3 VSS PC3
+K4 VSS PC4
+K5 VSS PC5
+K6 VSS PC6
+K7 VSS PC7
+
+
+;RK0 NODEK0 PC0 1k
+;CK0 PC0 VSS 1u
+
+;RK1 NODEK1 PC1 1k
+;CK1 PC1 VSS 1u
+
+
+;X1  ND2 PC0 PC1 PD2
+
+;X01  ND2 PC0 PC1 NODEINT0 ; NODEKEY01
+;X23  ND2 PC2 PC3 NODEKEY23
+
+;X0123 ND2 NODEKEY01 NODEKEY23 NODEINT0
+
+Xuser1 _nand8 PC0 PC1 PC2 PC3 PC4 PC5 PC6 PC7 NODEINT0
+;Xuser1 _nand8 PC0 PC1 PC2 PC3 PC4 PC5 VDD VDD NODEINT0
+   ; Attention pour n'activer que 6 entrées
+   ; Il faut mettre à VSS (+5V) les 2 autres (et pas 0V)
+
+;NODEINT0
+RINT0  NODEINT0 PD2 1k
+CINT0  NODEINT0 VSS 1u
+
+;X1  ND2 NODEK0 NODEK1 PD2
+
+;KA VSS PD2
+
+; LED (OUTPUT)
+;;;;;;;;;;;;;;
+D1 VDD NODE1  ; x: Panel LEDs 1 - 8
+R1 NODE1 PB0 1k
+
+D2 VDD NODE2  ; x: Panel LEDs 1 - 8
+R2 NODE2 PB1 1k
+
+D3 VDD NODE3  ; x: Panel LEDs 1 - 8
+R3 NODE3 PB2 1k
+
+D4 VDD NODE4  ; x: Panel LEDs 1 - 8
+R4 NODE4 PB3 1k
+
+D5 VDD NODE5  ; x: Panel LEDs 1 - 8
+R5 NODE5 PB4 1k
+
+D6 VDD NODE6  ; x: Panel LEDs 1 - 8
+R6 NODE6 PB5 1k
+
+D7 VDD NODE7  ; x: Panel LEDs 1 - 8
+R7 NODE7 PB6 1k
+
+D8 VDD NODE8  ; x: Panel LEDs 1 - 8
+R8 NODE8 PB7 1k
+
+.PLOT V(PD2) V(PC0) V(PC1) V(PC2) V(PC3) V(PC4) V(PC5) V(PC6) V(PC7)
+
+
+
+
+
+

@@ -1,0 +1,36 @@
+/**
+ * CSS for print layout
+ *
+ * Licensed under GNU General Public License v3 and above
+ *
+ * @copyright     Copyright 2009, Sebastien Celles
+ * @link          http://www.celles.net
+ * @license       http://www.gnu.org/copyleft/gpl.html
+ */
+
+/*
+div.breakafter {
+	page-break-after: always;
+}
+
+hr {
+	page-break-after: always;
+}
+*/
+
+a {
+	/* background:#fff; */
+	/* color: #003d4c; */
+	text-decoration: none;
+	font-weight: normal;
+}
+
+/*
+h1 {
+	page-break-before:always;
+}
+*/
+
+h2 {
+	page-break-before:always;
+}

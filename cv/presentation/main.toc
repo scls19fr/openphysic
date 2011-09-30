@@ -1,0 +1,13 @@
+\beamer@endinputifotherversion {3.01pt}
+\select@language {french}
+\beamer@sectionintoc {1}{Pr\'esentation du poste}{3}{0}{1}
+\beamer@sectionintoc {2}{En quoi mon parcours est-il adapt\'e \`a ce poste ?}{5}{0}{2}
+\beamer@subsectionintoc {2}{1}{Informatique g\'en\'erale (langage C)}{6}{0}{2}
+\beamer@subsectionintoc {2}{2}{Informatique industrielle (microcontr\^oleurs)}{7}{0}{2}
+\beamer@subsectionintoc {2}{3}{R\'eseaux locaux}{8}{0}{2}
+\beamer@subsectionintoc {2}{4}{Serveurs (web, base de donn\'ees)}{9}{0}{2}
+\beamer@subsectionintoc {2}{5}{T\'el\'ecommunications}{10}{0}{2}
+\beamer@subsectionintoc {2}{6}{Unix - Linux}{11}{0}{2}
+\beamer@subsectionintoc {2}{7}{Logiciels libres}{12}{0}{2}
+\beamer@subsectionintoc {2}{8}{Informatique}{13}{0}{2}
+\beamer@sectionintoc {3}{Conclusion}{14}{0}{3}

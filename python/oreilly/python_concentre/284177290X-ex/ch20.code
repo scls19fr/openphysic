@@ -1,0 +1,105 @@
+print "Content-Type: text/plain"
+print
+print "Hello, CGI World !"
+
+----------
+
+print "Content-Type: text/html"
+print
+print "<html><head><title>Hello, HTML</title></head>"
+print "<body><p>Hello, CGI et HTML ensembles !</p></body></html>"
+
+----------
+
+import msvcrt, os
+msvcrt.setmode(1, os.OS_BINARY)
+
+----------
+
+print "Content-Type: text/plain"
+print
+import sys
+sys.stderr = sys.stdout
+def uneErreur():
+    return 1/0
+print "Hello, CGI avec une erreur !"
+print "Tenter une division par 0 donne :", uneErreur()
+print "Le script n'atteint pas cette ligne..."
+
+----------
+
+import sys
+sys.stderr = sys.stdout
+import traceback
+print "Content-Type: text/html"
+print
+try:
+    def uneErreur():
+        return 1/0
+    print "<html><head><title>Hello, trace</title></head><body>"
+    print "<p>Hello, CGI avec une trace d'erreur !"
+    print "<p>Tenter une division par 0 donne :", uneErreur()
+    print "<p>Le script n'atteint pas cette ligne..."
+except:
+    print "<br><strong>ERREUR détectée :</strong><br><pre>"
+    traceback.print_exc()
+    sys.stderr = sys.__stderr__
+    traceback.print_exc()
+
+----------
+
+import cgitb
+cgitb.enable()
+
+----------
+
+import Cookie, time, os, sys, traceback
+
+sys.stderr = sys.stdout
+
+try:
+    # D'abord, le script émet les entêtes HTTP
+    c = Cookie.SimpleCookie()
+    c["dernierevisite"]=str(time.time())
+    print c.output()
+    print "Content-Type: text/html"
+    print
+    # Ensuite, il émet le corps de la réponse
+    print "<html><head><title>Hello, visiteur !</title></head><body>"
+    # Pour le reste de la réponse, le script récupère et décode le cookie
+    c = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE"))
+    quand = c.get("dernierevisite")
+    if quand is None:
+        print "<p>Bienvenue pour votre première visite de ce site !</p>"
+        print "<p>Cliquez sur le bouton 'Rafraîchir' pour continuer</p>"
+    else:
+        try: dernierevisite = float(quand.value)
+        except:
+            print "<p>Désolé, impossible de décoder le cookie (%s)</p>" % quand.value
+            print "</br><pre>"
+            traceback.print_exc()
+        else:
+            formquand = time.asctime(time.localtime(dernierevisite))
+            print "<p>Bienvenue à nouveau sur ce site !</p>"
+            print "<p>Votre dernière visite était le %s</p>" % formquand
+    print "</body></html>"
+except:
+    print "Content-Type: text/html"
+    print
+    print "</br><pre>"
+    traceback.print_exc()
+
+----------
+
+template hw():
+    'hello'
+    'world'
+
+----------
+
+def hw():
+    _resultat = []
+    _resultat.append('hello')
+    _resultat.append('world')
+    return ''.join(_resultat)
+

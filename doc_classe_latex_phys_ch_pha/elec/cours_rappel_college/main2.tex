@@ -1,0 +1,270 @@
+\cours{Quelques rappels d'\'Electricité en courant continu}
+
+
+\vressort{3}
+
+% Test version papier / version presentation
+% \frame{%
+% \papier{Ceci est la version papier du cours.}
+% \diaporama{Ceci est la version présentation du cours.}
+% }
+
+\Section{Intensité dans un circuit en dérivation}
+
+
+\frame{
+\frametitle{\insertsectionhead}
+\pause
+
+D'après la \emph{loi des n\oe uds} aussi appelée \emph{loi de
+  l'additivité de l'intensité} dans une portion de circuit en
+dérivation, on a :
+
+
+\pause
+
+
+\begin{framed}
+\begin{center}
+La somme des intensités des courants arrivant à un n\oe ud\\
+est égale à\\
+la somme des intensités des courants sortant du n\oe ud.
+\end{center}
+\end{framed}
+
+
+\pause
+
+\[I_1 + I_2 + I_3 = I_4 + I_5\]
+}
+
+\vressort{3}
+
+
+\Section{Tension dans un circuit dérivation}
+\frame{
+\frametitle{\insertsectionhead}
+\pause
+
+\[U_{AB} = U_1 = U_2 = \ldots = U_n\]
+}
+\vressort{3}
+
+
+\Section{Intensité dans un circuit série}
+\frame{
+\frametitle{\insertsectionhead}
+\pause
+
+\[I_G = I_R = I_L = I_M = \ldots\]
+}
+
+\vressort{3}
+
+
+\Section{Tension dans un circuit série}
+\frame{
+\frametitle{\insertsectionhead}
+\pause
+
+La tension totale entre deux points d'un circuit est égale à la somme
+des tensions partielles.
+
+\pause
+
+\[U_G = U_1 + U_2 + U_3 + \ldots\]
+}
+
+\Section{Loi des mailles}
+\frame{
+\frametitle{\insertsectionhead}
+\pause
+
+La \emph{loi des mailles} est un énoncé dérivé de la propriété
+d'additivité des tensions. Elle s'énonce ainsi :
+
+\pause
+\begin{framed}
+\begin{itemize}
+\item On choisit un point de départ et un sens de parcours arbitraire de la
+maille. 
+\pause
+\item On affecte le signe + aux tensions dont la flèche est dans le
+  même sens que le sens de parcours de la maille.
+\pause
+\item On affecte le signe - aux tensions dont la flèche est dans le
+  sens contraire du sens de parcours de la maille.
+\pause
+\item La somme algébrique des tensions rencontrées dans une maille est nulle.
+\end{itemize}
+\end{framed}
+}
+
+\vressort{3}
+
+
+\Section{Conducteurs ohmiques (résistor)}
+\frame{
+\frametitle{\insertsectionhead}
+\pause
+
+D'après la \emph{loi d'Ohm} appliquée aux bornes d'un résistor on a (dans la
+convention récepteur) :
+
+\[U = R.I\]
+
+\begin{unites}
+\item $U$ en $V$
+\item $R$ en $\Ohm$
+\item $I$ en $A$
+\end{unites}
+
+}
+
+\vressort{1}
+
+\frame{
+\frametitle{\insertsectionhead}
+%\pause
+
+\remarque{Si on flèche la tension et le courant dans la convention générateur
+(les deux flèches dans le même sens) la loi d'Ohm devient alors :
+
+\[U = \emph{-} R.I\]
+}
+}
+
+\vressort{1}
+
+\frame{
+\frametitle{\insertsectionhead}
+%\pause
+
+La \emph{résistance} électrique d'un fil est proportionnelle à sa longueur et
+vaut :
+\pause
+\[R = \rho \frac{l}{S}\]
+\pause
+\begin{unites}
+\item $R$ en $\Ohm$
+\item $l$ en $m$
+\item $S$ en $m^2$
+\item $\rho$ en $\Ohm.m$
+\end{unites}
+}
+
+\vressort{1}
+
+\frame{
+\frametitle{\insertsectionhead}
+%\pause
+
+La \emph{conductance} d'un fil vaut :
+\pause
+\[G = \frac{1}{R} = \sigma \frac{S}{l}\]
+\pause
+\begin{unites}
+\item $G$ en $S$
+\item $R$ en $\Ohm$
+\item $l$ en $m$
+\item $S$ en $m^2$
+\item $\sigma$ en $S.m^{-1}$
+\end{unites}
+}
+
+\vressort{1}
+
+\frame{
+\frametitle{\insertsectionhead}
+%\pause
+
+La résistance électrique dépend :
+\pause
+\begin{itemize}
+\item du matériau utilisé
+\pause
+\item de la température
+\end{itemize}
+}
+
+
+\vressort{3}
+
+\Section{Puissance en courant continu}
+\frame{
+\frametitle{\insertsectionhead}
+\pause
+
+La \emph{puissance} $P$ reçue par un appareil fonctionnant en courant continu
+est égale au produit de la tension U entre ses bornes par l'intensité
+$I$ du courant qui la traverse.
+\pause
+\[P = U \cdot I\]
+\pause
+\begin{unites}
+\item $P$ en $W$
+\item $U$ en $V$
+\item $I$ en $A$
+\end{unites}
+}
+
+
+\frame{
+\frametitle{\insertsectionhead}
+\pause
+
+La \emph{puissance} $P$ reçue par une installation électrique est égale à la
+somme des puissances reçues par chacun des appareils pris séparement.
+\pause
+\[P = P_1 + P_2 + \ldots + P_n\]
+}
+
+\vressort{3}
+
+
+\Section{\'Energie électrique}
+\frame{
+\frametitle{\insertsectionhead}
+\pause
+
+L'\emph{énergie} électrique $E$ consommée par un appareil de puissance $P$
+pendant une durée $\Delta t$ est donnée par la relation :
+\pause
+\[E = P \cdot \Delta t\]
+\pause
+\begin{unites}
+\item $E$ en $J$
+\item $P$ en $W$
+\item $\Delta t$ en $s$
+\end{unites}
+
+}
+
+\Section{Branchement d'un multimètre}
+\frame{
+\frametitle{\insertsectionhead}
+\pause
+
+\begin{itemize}
+\item Un voltmètre se branche en parallèle avec le dipôle. Il permet de
+déterminer la tension $U$ entre ses bornes ($V$ et $COM$).
+
+\pause
+
+\item Un ampèremètre se branche en série avec le dipôle. Il permet de
+  déterminer l'intensité $I$ du courant qui le traverse (de la borne
+  $A$ vers la borne $COM$).
+
+\pause
+
+\item Un ohmmètre se branche aux bornes du dipôle dont on veut
+  déterminer la résistance électrique $R$. Il n'y a pas besoin de
+  placer le dipôle dans un circuit électrique comportant un générateur
+  pour déterminer la valeur de sa résistance ; il suffit de brancher
+  le dipôle aux bornes $\Ohm$ et $COM$.
+\end{itemize}
+}
+
+
+%\vressort{3}
+

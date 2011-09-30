@@ -1,0 +1,67 @@
+; ************************************************************
+; PROJECT:
+; AUTHOR:
+; ************************************************************
+
+; Micro + software running
+; ------------------------------------------------------------
+.MICRO "ATmega16"
+.TOOLCHAIN "GCC"
+.GCCPATH   "C:\WinAVR"
+.GCCMAKE   "makefile"
+.TARGET    "main.hex"
+.SOURCE    "main.c"
+
+.TRACE              ; Activate micro trace
+
+; Following lines are optional; if not included
+; exactly these values are taken by default
+; ------------------------------------------------------------
+.POWER VDD=5 VSS=0  ; Power nodes
+.CLOCK 8meg         ; Micro clock
+.STORE 250m         ; Trace (micro+signals) storage time
+
+; Micro nodes: RESET, AREF, PA0-PA7, PB0-PB7, PC0-PC7, PD0-PD7, ACO, TIM1OVF
+; Define here the hardware around the micro
+; ------------------------------------------------------------
+.PLOT V(PA0) V(PA1) V(PA2) V(PA3) V(PC0) V(PC1) V(PC2) V(PC3) V(PD0) V(PD1)
+
+;X[inst_name]  TTY(baud_rate [n_bits] [parity] [odd_parity] [n_stop_bits] [rx_display_as]) node_tx node_rx
+X1  TTY(9600) PD0 PD1
+
+D1 VDD D1_NODE
+R1 D1_NODE PC0 0.62K
+
+D2 VDD D2_NODE
+R2 D2_NODE PC1 0.62K
+
+D3 VDD D3_NODE
+R3 D3_NODE PC2 0.62K
+
+D4 VDD D4_NODE
+R4 D4_NODE PC3 0.62K
+
+D5 VDD D5_NODE
+R5 D5_NODE PC4 0.62K
+
+D6 VDD D6_NODE
+R6 D6_NODE PC5 0.62K
+
+D7 VDD D7_NODE
+R7 D7_NODE PC6 0.62K
+
+D8 VDD D8_NODE
+R8 D8_NODE PC7 0.62K
+
+
+K0 VSS PA0
+K1 VSS PA1
+K2 VSS PA2
+K3 VSS PA3
+K4 VSS PA4
+K5 VSS PA5
+K6 VSS PA6
+K7 VSS PA7
+
+
+

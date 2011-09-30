@@ -1,0 +1,1184 @@
+           ;	/* START ASM
+           ;	   MCU: AT90S8515
+           ;	*/
+           ;	#arch AT90S8515
+           ;	#define __SREG__ 0x3f
+           ;	#define __SP_H__ 0x3e
+           ;	#define __SP_L__ 0x3d
+           ;	#define low(x) ((x)&0xff)
+           ;	#define high(x) (((x)>>8)&0xff)
+           ;	#define hlow(x) (((x)>>16)&0xff)
+           ;	#define hhigh(x) (((x)>>24)&0xff)
+           ;	#define __tmp_reg__ r0
+           ;	#define __zero_reg__ r1
+           ;	#define __pc_rel__(x) ((x)*2)
+           ;	
+           ;	extern __prologue_saves__
+           ;	extern __epilogue_restores__
+           ;	extern _send_byte
+           ;		seg flash.code.f_lcd_delay
+           ;	public _lcd_delay:
+           ;	;prologue: frame size=0
+           ;	;prologue end (size=0)
+0942: 6627 ;		clr r22
+0944: 7727 ;		clr r23
+0946: 6817 ;		cp r22,r24
+0948: 7907 ;		cpc r23,r25
+094A: 48F4 ;		brsh L18
+           ;	L20:
+094C: 5527 ;		clr r21
+           ;	L23:
+094E: 5F5F ;		subi r21,low(-(1))
+0950: 5A30 ;		cpi r21,low(10)
+0952: E8F3 ;		brlo L23
+0954: 6F5F ;		subi r22,low(-(1))
+0956: 7F4F ;		sbci r23,high(-(1))
+0958: 6817 ;		cp r22,r24
+095A: 7907 ;		cpc r23,r25
+095C: B8F3 ;		brlo L20
+           ;	L18:
+           ;	;epilogue: frame size=0
+095E: 0895 ;		ret
+           ;	;epilogue end (size=1)
+           ;	; function lcd_delay size 15 (14)
+           ;	 ; aligning segment
+           ;		seg flash.code.f_toggle_E
+           ;	public _toggle_E:
+           ;	;prologue: frame size=0
+           ;	;prologue end (size=0)
+           ;	;#APP
+09D6: 9BB3 ;		in r25,27
+           ;	;#NOAPP
+09D8: 9062 ;		ori r25,low(32)
+           ;	;#APP
+09DA: 9BBB ;		out 27,r25
+09DC: 9BB3 ;		in r25,27
+           ;	;#NOAPP
+09DE: 9F7D ;		andi r25,low(-33)
+           ;	;#APP
+09E0: 9BBB ;		out 27,r25
+           ;	;#NOAPP
+           ;	;epilogue: frame size=0
+09E2: 0895 ;		ret
+           ;	;epilogue end (size=1)
+           ;	; function toggle_E size 11 (10)
+           ;	 ; aligning segment
+           ;		seg flash.code.f_lcd_cls
+           ;	public _lcd_cls:
+           ;	;prologue: frame size=0
+           ;	;prologue end (size=0)
+09C2: 9927 ;		clr r25
+           ;	;#APP
+09C4: 9BBB ;		out 27,r25
+           ;	;#NOAPP
+09C6: 07D0 ;		rcall _toggle_E
+09C8: 91E0 ;		ldi r25,low(1)
+           ;	;#APP
+09CA: 9BBB ;		out 27,r25
+           ;	;#NOAPP
+09CC: 04D0 ;		rcall _toggle_E
+09CE: 88EE ;		ldi r24,low(1000)
+09D0: 93E0 ;		ldi r25,high(1000)
+09D2: B7DF ;		rcall _lcd_delay
+           ;	;epilogue: frame size=0
+09D4: 0895 ;		ret
+           ;	;epilogue end (size=1)
+           ;	; function lcd_cls size 12 (11)
+           ;	 ; aligning segment
+           ;		seg flash.code.f_lcd_home
+           ;	public _lcd_home:
+           ;	;prologue: frame size=0
+           ;	;prologue end (size=0)
+09AE: 9927 ;		clr r25
+           ;	;#APP
+09B0: 9BBB ;		out 27,r25
+           ;	;#NOAPP
+09B2: 11D0 ;		rcall _toggle_E
+09B4: 92E0 ;		ldi r25,low(2)
+           ;	;#APP
+09B6: 9BBB ;		out 27,r25
+           ;	;#NOAPP
+09B8: 0ED0 ;		rcall _toggle_E
+09BA: 88EE ;		ldi r24,low(1000)
+09BC: 93E0 ;		ldi r25,high(1000)
+09BE: C1DF ;		rcall _lcd_delay
+           ;	;epilogue: frame size=0
+09C0: 0895 ;		ret
+           ;	;epilogue end (size=1)
+           ;	; function lcd_home size 12 (11)
+           ;	 ; aligning segment
+           ;		seg flash.code.f_lcd_control
+           ;	public _lcd_control:
+           ;	;prologue: frame size=0
+07EE: 1F93 ;		push r17
+07F0: CF93 ;		push r28
+07F2: DF93 ;		push r29
+           ;	;prologue end (size=3)
+07F4: D92F ;		mov r29,r25
+07F6: C82F ;		mov r28,r24
+07F8: 172F ;		mov r17,r23
+07FA: 9927 ;		clr r25
+           ;	;#APP
+07FC: 9BBB ;		out 27,r25
+           ;	;#NOAPP
+07FE: EBD0 ;		rcall _toggle_E
+0800: 98E0 ;		ldi r25,low(8)
+0802: D130 ;		cpi r29,low(1)
+0804: 09F4 ;		brne L31
+0806: 9CE0 ;		ldi r25,low(12)
+           ;	L31:
+0808: C130 ;		cpi r28,low(1)
+080A: 09F4 ;		brne L32
+080C: 9260 ;		ori r25,low(2)
+           ;	L32:
+080E: 1130 ;		cpi r17,low(1)
+0810: 09F4 ;		brne L33
+0812: 9160 ;		ori r25,low(1)
+           ;	L33:
+           ;	;#APP
+0814: 9BBB ;		out 27,r25
+           ;	;#NOAPP
+0816: DFD0 ;		rcall _toggle_E
+0818: 84E6 ;		ldi r24,low(100)
+081A: 90E0 ;		ldi r25,high(100)
+081C: 92D0 ;		rcall _lcd_delay
+           ;	;epilogue: frame size=0
+081E: DF91 ;		pop r29
+0820: CF91 ;		pop r28
+0822: 1F91 ;		pop r17
+0824: 0895 ;		ret
+           ;	;epilogue end (size=4)
+           ;	; function lcd_control size 30 (23)
+           ;	 ; aligning segment
+           ;		seg flash.code.f_lcd_goto
+           ;	public _lcd_goto:
+           ;	;prologue: frame size=0
+0924: DF93 ;		push r29
+           ;	;prologue end (size=1)
+0926: D92F ;		mov r29,r25
+0928: 9295 ;		swap r25
+092A: 9F70 ;		andi r25,0x0f
+092C: 9860 ;		ori r25,low(8)
+           ;	;#APP
+092E: 9BBB ;		out 27,r25
+           ;	;#NOAPP
+0930: 52D0 ;		rcall _toggle_E
+0932: DF70 ;		andi r29,low(15)
+           ;	;#APP
+0934: DBBB ;		out 27,r29
+           ;	;#NOAPP
+0936: 4FD0 ;		rcall _toggle_E
+0938: 84E6 ;		ldi r24,low(100)
+093A: 90E0 ;		ldi r25,high(100)
+093C: 02D0 ;		rcall _lcd_delay
+           ;	;epilogue: frame size=0
+093E: DF91 ;		pop r29
+0940: 0895 ;		ret
+           ;	;epilogue end (size=2)
+           ;	; function lcd_goto size 17 (14)
+           ;	 ; aligning segment
+           ;		seg flash.code.f_lcd_putch
+           ;	public _lcd_putch:
+           ;	;prologue: frame size=0
+08C2: DF93 ;		push r29
+           ;	;prologue end (size=1)
+08C4: D92F ;		mov r29,r25
+08C6: 9295 ;		swap r25
+08C8: 9F70 ;		andi r25,0x0f
+08CA: 9061 ;		ori r25,low(16)
+           ;	;#APP
+08CC: 9BBB ;		out 27,r25
+           ;	;#NOAPP
+08CE: 83D0 ;		rcall _toggle_E
+08D0: 9D2F ;		mov r25,r29
+08D2: 9F70 ;		andi r25,low(15)
+08D4: 9061 ;		ori r25,low(16)
+           ;	;#APP
+08D6: 9BBB ;		out 27,r25
+           ;	;#NOAPP
+08D8: 7ED0 ;		rcall _toggle_E
+08DA: 84E6 ;		ldi r24,low(100)
+08DC: 90E0 ;		ldi r25,high(100)
+08DE: 31D0 ;		rcall _lcd_delay
+           ;	;epilogue: frame size=0
+08E0: DF91 ;		pop r29
+08E2: 0895 ;		ret
+           ;	;epilogue end (size=2)
+           ;	; function lcd_putch size 19 (16)
+           ;	 ; aligning segment
+           ;		seg flash.code.f_lcd_putstr
+           ;	public _lcd_putstr:
+           ;	;prologue: frame size=0
+097E: CF93 ;		push r28
+0980: DF93 ;		push r29
+           ;	;prologue end (size=2)
+0982: D92F ;		mov r29,r25
+0984: C82F ;		mov r28,r24
+0986: 02C0 ;		rjmp L41
+           ;	L39:
+0988: 9991 ;		ld r25,Y+
+098A: 9BDF ;		rcall _lcd_putch
+           ;	L41:
+098C: 9881 ;		ld r25,Y
+098E: 9923 ;		tst r25
+0990: D9F7 ;		brne L39
+           ;	;epilogue: frame size=0
+0992: DF91 ;		pop r29
+0994: CF91 ;		pop r28
+0996: 0895 ;		ret
+           ;	;epilogue end (size=3)
+           ;	; function lcd_putstr size 13 (8)
+           ;	 ; aligning segment
+           ;		seg flash.code.f_printbin
+           ;	public _printbin:
+           ;	;prologue: frame size=0
+08A0: CF93 ;		push r28
+08A2: DF93 ;		push r29
+           ;	;prologue end (size=2)
+08A4: C92F ;		mov r28,r25
+08A6: D0E8 ;		ldi r29,low(-128)
+           ;	L46:
+08A8: 9C2F ;		mov r25,r28
+08AA: 9D23 ;		and r25,r29
+08AC: 19F4 ;		brne L47
+08AE: 90E3 ;		ldi r25,low(48)
+08B0: 08D0 ;		rcall _lcd_putch
+08B2: 02C0 ;		rjmp L45
+           ;	L47:
+08B4: 91E3 ;		ldi r25,low(49)
+08B6: 05D0 ;		rcall _lcd_putch
+           ;	L45:
+08B8: D695 ;		lsr r29
+08BA: B1F7 ;		brne L46
+           ;	;epilogue: frame size=0
+08BC: DF91 ;		pop r29
+08BE: CF91 ;		pop r28
+08C0: 0895 ;		ret
+           ;	;epilogue end (size=3)
+           ;	; function printbin size 19 (14)
+           ;	 ; aligning segment
+           ;		seg flash.code.f_printhex
+           ;	public _printhex:
+           ;	;prologue: frame size=0
+0854: DF93 ;		push r29
+           ;	;prologue end (size=1)
+0856: 892F ;		mov r24,r25
+0858: 9295 ;		swap r25
+085A: 9F70 ;		andi r25,0x0f
+085C: 905D ;		subi r25,low(-(48))
+085E: 9A33 ;		cpi r25,low(58)
+0860: 08F0 ;		brlo L51
+0862: 995F ;		subi r25,low(-(7))
+           ;	L51:
+0864: 8F70 ;		andi r24,low(15)
+0866: D82F ;		mov r29,r24
+0868: D05D ;		subi r29,low(-(48))
+086A: DA33 ;		cpi r29,low(58)
+086C: 08F0 ;		brlo L52
+086E: D95F ;		subi r29,low(-(7))
+           ;	L52:
+0870: 28D0 ;		rcall _lcd_putch
+0872: 9D2F ;		mov r25,r29
+0874: 26D0 ;		rcall _lcd_putch
+           ;	;epilogue: frame size=0
+0876: DF91 ;		pop r29
+0878: 0895 ;		ret
+           ;	;epilogue end (size=2)
+           ;	; function printhex size 19 (16)
+           ;	extern __udivhi3
+           ;	 ; aligning segment
+           ;		seg eram.gcc_data_section
+           ;	LC0:
+0060: 45   ;		dc.b 0x45
+0061: 72   ;		dc.b 0x72
+0062: 72   ;		dc.b 0x72
+0063: 00   ;		dc.b 0x0
+           ;		seg flash.code.f_print2
+           ;	public _print2:
+           ;	;prologue: frame size=0
+0696: 0F93 ;		push r16
+0698: 1F93 ;		push r17
+069A: CF93 ;		push r28
+069C: DF93 ;		push r29
+           ;	;prologue end (size=4)
+069E: D92F ;		mov r29,r25
+06A0: C82F ;		mov r28,r24
+06A2: C436 ;		cpi r28,100
+06A4: D105 ;		cpc r29,__zero_reg__
+06A6: C8F4 ;		brsh L54
+06A8: 6AE0 ;		ldi r22,low(10)
+06AA: 70E0 ;		ldi r23,high(10)
+06AC: E6D0 ;		rcall __udivhi3
+06AE: 082F ;		mov r16,r24
+06B0: 192F ;		mov r17,r25
+06B2: 902F ;		mov r25,r16
+06B4: 905D ;		subi r25,low(-(48))
+06B6: 05D1 ;		rcall _lcd_putch
+06B8: 912F ;		mov r25,r17
+06BA: 802F ;		mov r24,r16
+06BC: 73E0 ;		ldi r23,low(3)
+06BE: 880F ;		lsl r24
+06C0: 991F ;		rol r25
+06C2: 7A95 ;		dec r23
+06C4: E1F7 ;		brne __pc_rel__(-4)
+06C6: 800F ;		add r24,r16
+06C8: 911F ;		adc r25,r17
+06CA: 800F ;		add r24,r16
+06CC: 911F ;		adc r25,r17
+06CE: C81B ;		sub r28,r24
+06D0: D90B ;		sbc r29,r25
+06D2: 9C2F ;		mov r25,r28
+06D4: 905D ;		subi r25,low(-(48))
+06D6: F5D0 ;		rcall _lcd_putch
+06D8: 03C0 ;		rjmp L55
+           ;	L54:
+06DA: 80E6 ;		ldi r24,low(LC0)
+06DC: 90E0 ;		ldi r25,high(LC0)
+06DE: 4FD1 ;		rcall _lcd_putstr
+           ;	L55:
+           ;	;epilogue: frame size=0
+06E0: DF91 ;		pop r29
+06E2: CF91 ;		pop r28
+06E4: 1F91 ;		pop r17
+06E6: 0F91 ;		pop r16
+06E8: 0895 ;		ret
+           ;	;epilogue end (size=5)
+           ;	; function print2 size 42 (33)
+           ;	extern __mulhi3
+           ;	 ; aligning segment
+           ;		seg eram.gcc_data_section
+           ;	LC1:
+0064: 6400 ;		dc.w (100) & 0xffff
+           ;		seg flash.code.f_print3
+           ;	public _print3:
+           ;	;prologue: frame size=0
+051C: EF92 ;		push r14
+051E: FF92 ;		push r15
+0520: 0F93 ;		push r16
+0522: 1F93 ;		push r17
+0524: CF93 ;		push r28
+0526: DF93 ;		push r29
+           ;	;prologue end (size=6)
+0528: D92F ;		mov r29,r25
+052A: C82F ;		mov r28,r24
+052C: 73E0 ;		ldi r23,high(1000)
+052E: C83E ;		cpi r28,low(1000)
+0530: D707 ;		cpc r29,r23
+0532: 70F5 ;		brsh L57
+0534: E0906400
+           ;		lds r14,LC1
+0538: F0906500
+           ;		lds r15,(LC1)+1
+053C: 7F2D ;		mov r23,r15
+053E: 6E2D ;		mov r22,r14
+0540: 9CD1 ;		rcall __udivhi3
+0542: 082F ;		mov r16,r24
+0544: 192F ;		mov r17,r25
+0546: 902F ;		mov r25,r16
+0548: 905D ;		subi r25,low(-(48))
+054A: BBD1 ;		rcall _lcd_putch
+054C: 7F2D ;		mov r23,r15
+054E: 6E2D ;		mov r22,r14
+0550: 912F ;		mov r25,r17
+0552: 802F ;		mov r24,r16
+0554: C7D1 ;		rcall __mulhi3
+0556: C81B ;		sub r28,r24
+0558: D90B ;		sbc r29,r25
+055A: 6AE0 ;		ldi r22,low(10)
+055C: 70E0 ;		ldi r23,high(10)
+055E: 8C2F ;		mov r24,r28
+0560: 9D2F ;		mov r25,r29
+0562: 8BD1 ;		rcall __udivhi3
+0564: 082F ;		mov r16,r24
+0566: 192F ;		mov r17,r25
+0568: 902F ;		mov r25,r16
+056A: 905D ;		subi r25,low(-(48))
+056C: AAD1 ;		rcall _lcd_putch
+056E: 912F ;		mov r25,r17
+0570: 802F ;		mov r24,r16
+0572: 73E0 ;		ldi r23,low(3)
+0574: 880F ;		lsl r24
+0576: 991F ;		rol r25
+0578: 7A95 ;		dec r23
+057A: E1F7 ;		brne __pc_rel__(-4)
+057C: 800F ;		add r24,r16
+057E: 911F ;		adc r25,r17
+0580: 800F ;		add r24,r16
+0582: 911F ;		adc r25,r17
+0584: C81B ;		sub r28,r24
+0586: D90B ;		sbc r29,r25
+0588: 9C2F ;		mov r25,r28
+058A: 905D ;		subi r25,low(-(48))
+058C: 9AD1 ;		rcall _lcd_putch
+058E: 03C0 ;		rjmp L58
+           ;	L57:
+0590: 80E6 ;		ldi r24,low(LC0)
+0592: 90E0 ;		ldi r25,high(LC0)
+0594: F4D1 ;		rcall _lcd_putstr
+           ;	L58:
+           ;	;epilogue: frame size=0
+0596: DF91 ;		pop r29
+0598: CF91 ;		pop r28
+059A: 1F91 ;		pop r17
+059C: 0F91 ;		pop r16
+059E: FF90 ;		pop r15
+05A0: EF90 ;		pop r14
+05A2: 0895 ;		ret
+           ;	;epilogue end (size=7)
+           ;	; function print3 size 68 (55)
+           ;	 ; aligning segment
+           ;		seg flash.code.f_print5
+           ;	public _print5:
+           ;	;prologue: frame size=0
+045C: EF92 ;		push r14
+045E: FF92 ;		push r15
+0460: 0F93 ;		push r16
+0462: 1F93 ;		push r17
+0464: CF93 ;		push r28
+0466: DF93 ;		push r29
+           ;	;prologue end (size=6)
+0468: E82E ;		mov r14,r24
+046A: F92E ;		mov r15,r25
+046C: C0E1 ;		ldi r28,low(10000)
+046E: D7E2 ;		ldi r29,high(10000)
+0470: 6C2F ;		mov r22,r28
+0472: 7D2F ;		mov r23,r29
+0474: 02D2 ;		rcall __udivhi3
+0476: 082F ;		mov r16,r24
+0478: 192F ;		mov r17,r25
+047A: 902F ;		mov r25,r16
+047C: 905D ;		subi r25,low(-(48))
+047E: 21D2 ;		rcall _lcd_putch
+0480: 6C2F ;		mov r22,r28
+0482: 7D2F ;		mov r23,r29
+0484: 912F ;		mov r25,r17
+0486: 802F ;		mov r24,r16
+0488: 2DD2 ;		rcall __mulhi3
+048A: E81A ;		sub r14,r24
+048C: F90A ;		sbc r15,r25
+048E: C8EE ;		ldi r28,low(1000)
+0490: D3E0 ;		ldi r29,high(1000)
+0492: 6C2F ;		mov r22,r28
+0494: 7D2F ;		mov r23,r29
+0496: 9F2D ;		mov r25,r15
+0498: 8E2D ;		mov r24,r14
+049A: EFD1 ;		rcall __udivhi3
+049C: 082F ;		mov r16,r24
+049E: 192F ;		mov r17,r25
+04A0: 902F ;		mov r25,r16
+04A2: 905D ;		subi r25,low(-(48))
+04A4: 0ED2 ;		rcall _lcd_putch
+04A6: 6C2F ;		mov r22,r28
+04A8: 7D2F ;		mov r23,r29
+04AA: 912F ;		mov r25,r17
+04AC: 802F ;		mov r24,r16
+04AE: 1AD2 ;		rcall __mulhi3
+04B0: E81A ;		sub r14,r24
+04B2: F90A ;		sbc r15,r25
+04B4: C4E6 ;		ldi r28,low(100)
+04B6: D0E0 ;		ldi r29,high(100)
+04B8: 6C2F ;		mov r22,r28
+04BA: 7D2F ;		mov r23,r29
+04BC: 9F2D ;		mov r25,r15
+04BE: 8E2D ;		mov r24,r14
+04C0: DCD1 ;		rcall __udivhi3
+04C2: 082F ;		mov r16,r24
+04C4: 192F ;		mov r17,r25
+04C6: 902F ;		mov r25,r16
+04C8: 905D ;		subi r25,low(-(48))
+04CA: FBD1 ;		rcall _lcd_putch
+04CC: 6C2F ;		mov r22,r28
+04CE: 7D2F ;		mov r23,r29
+04D0: 912F ;		mov r25,r17
+04D2: 802F ;		mov r24,r16
+04D4: 07D2 ;		rcall __mulhi3
+04D6: E81A ;		sub r14,r24
+04D8: F90A ;		sbc r15,r25
+04DA: 6AE0 ;		ldi r22,low(10)
+04DC: 70E0 ;		ldi r23,high(10)
+04DE: 9F2D ;		mov r25,r15
+04E0: 8E2D ;		mov r24,r14
+04E2: CBD1 ;		rcall __udivhi3
+04E4: 082F ;		mov r16,r24
+04E6: 192F ;		mov r17,r25
+04E8: 902F ;		mov r25,r16
+04EA: 905D ;		subi r25,low(-(48))
+04EC: EAD1 ;		rcall _lcd_putch
+04EE: 912F ;		mov r25,r17
+04F0: 802F ;		mov r24,r16
+04F2: 73E0 ;		ldi r23,low(3)
+04F4: 880F ;		lsl r24
+04F6: 991F ;		rol r25
+04F8: 7A95 ;		dec r23
+04FA: E1F7 ;		brne __pc_rel__(-4)
+04FC: 800F ;		add r24,r16
+04FE: 911F ;		adc r25,r17
+0500: 800F ;		add r24,r16
+0502: 911F ;		adc r25,r17
+0504: E81A ;		sub r14,r24
+0506: F90A ;		sbc r15,r25
+0508: 9E2D ;		mov r25,r14
+050A: 905D ;		subi r25,low(-(48))
+050C: DAD1 ;		rcall _lcd_putch
+           ;	;epilogue: frame size=0
+050E: DF91 ;		pop r29
+0510: CF91 ;		pop r28
+0512: 1F91 ;		pop r17
+0514: 0F91 ;		pop r16
+0516: FF90 ;		pop r15
+0518: EF90 ;		pop r14
+051A: 0895 ;		ret
+           ;	;epilogue end (size=7)
+           ;	; function print5 size 96 (83)
+           ;	extern __udivsi3
+           ;	extern __mulsi3
+           ;	 ; aligning segment
+           ;		seg eram.gcc_data_section
+           ;	LC2:
+0066: 00CA9A3B
+           ;		dc.l 1000000000 ; long
+           ;	LC3:
+006A: 00E1F505
+           ;		dc.l 100000000 ; long
+           ;	LC4:
+006E: 80969800
+           ;		dc.l 10000000 ; long
+           ;	LC5:
+0072: 40420F00
+           ;		dc.l 1000000 ; long
+           ;	LC6:
+0076: A0860100
+           ;		dc.l 100000 ; long
+           ;		seg flash.code.f_print10
+           ;	public _print10:
+           ;	;prologue: frame size=0
+008A: AF92 ;		push r10
+008C: BF92 ;		push r11
+008E: CF92 ;		push r12
+0090: DF92 ;		push r13
+0092: EF92 ;		push r14
+0094: FF92 ;		push r15
+0096: 0F93 ;		push r16
+0098: 1F93 ;		push r17
+009A: CF93 ;		push r28
+009C: DF93 ;		push r29
+           ;	;prologue end (size=10)
+009E: E62E ;		mov r14,r22
+00A0: F72E ;		mov r15,r23
+00A2: 082F ;		mov r16,r24
+00A4: 192F ;		mov r17,r25
+00A6: A0906600
+           ;		lds r10,LC2
+00AA: B0906700
+           ;		lds r11,(LC2)+1
+00AE: C0906800
+           ;		lds r12,(LC2)+2
+00B2: D0906900
+           ;		lds r13,(LC2)+3
+00B6: 5D2D ;		mov r21,r13
+00B8: 4C2D ;		mov r20,r12
+00BA: 3B2D ;		mov r19,r11
+00BC: 2A2D ;		mov r18,r10
+00BE: 5DD3 ;		rcall __udivsi3
+00C0: D72F ;		mov r29,r23
+00C2: C62F ;		mov r28,r22
+00C4: 9C2F ;		mov r25,r28
+00C6: 905D ;		subi r25,low(-(48))
+00C8: FCD3 ;		rcall _lcd_putch
+00CA: 5D2D ;		mov r21,r13
+00CC: 4C2D ;		mov r20,r12
+00CE: 3B2D ;		mov r19,r11
+00D0: 2A2D ;		mov r18,r10
+00D2: 6C2F ;		mov r22,r28
+00D4: 7D2F ;		mov r23,r29
+00D6: 8827 ;		clr r24
+00D8: 9927 ;		clr r25
+00DA: 6CD3 ;		rcall __mulsi3
+00DC: E61A ;		sub r14,r22
+00DE: F70A ;		sbc r15,r23
+00E0: 080B ;		sbc r16,r24
+00E2: 190B ;		sbc r17,r25
+00E4: A0906A00
+           ;		lds r10,LC3
+00E8: B0906B00
+           ;		lds r11,(LC3)+1
+00EC: C0906C00
+           ;		lds r12,(LC3)+2
+00F0: D0906D00
+           ;		lds r13,(LC3)+3
+00F4: 5D2D ;		mov r21,r13
+00F6: 4C2D ;		mov r20,r12
+00F8: 3B2D ;		mov r19,r11
+00FA: 2A2D ;		mov r18,r10
+00FC: 912F ;		mov r25,r17
+00FE: 802F ;		mov r24,r16
+0100: 7F2D ;		mov r23,r15
+0102: 6E2D ;		mov r22,r14
+0104: 3AD3 ;		rcall __udivsi3
+0106: D72F ;		mov r29,r23
+0108: C62F ;		mov r28,r22
+010A: 9C2F ;		mov r25,r28
+010C: 905D ;		subi r25,low(-(48))
+010E: D9D3 ;		rcall _lcd_putch
+0110: 5D2D ;		mov r21,r13
+0112: 4C2D ;		mov r20,r12
+0114: 3B2D ;		mov r19,r11
+0116: 2A2D ;		mov r18,r10
+0118: 6C2F ;		mov r22,r28
+011A: 7D2F ;		mov r23,r29
+011C: 8827 ;		clr r24
+011E: 9927 ;		clr r25
+0120: 49D3 ;		rcall __mulsi3
+0122: E61A ;		sub r14,r22
+0124: F70A ;		sbc r15,r23
+0126: 080B ;		sbc r16,r24
+0128: 190B ;		sbc r17,r25
+012A: A0906E00
+           ;		lds r10,LC4
+012E: B0906F00
+           ;		lds r11,(LC4)+1
+0132: C0907000
+           ;		lds r12,(LC4)+2
+0136: D0907100
+           ;		lds r13,(LC4)+3
+013A: 5D2D ;		mov r21,r13
+013C: 4C2D ;		mov r20,r12
+013E: 3B2D ;		mov r19,r11
+0140: 2A2D ;		mov r18,r10
+0142: 912F ;		mov r25,r17
+0144: 802F ;		mov r24,r16
+0146: 7F2D ;		mov r23,r15
+0148: 6E2D ;		mov r22,r14
+014A: 17D3 ;		rcall __udivsi3
+014C: D72F ;		mov r29,r23
+014E: C62F ;		mov r28,r22
+0150: 9C2F ;		mov r25,r28
+0152: 905D ;		subi r25,low(-(48))
+0154: B6D3 ;		rcall _lcd_putch
+0156: 5D2D ;		mov r21,r13
+0158: 4C2D ;		mov r20,r12
+015A: 3B2D ;		mov r19,r11
+015C: 2A2D ;		mov r18,r10
+015E: 6C2F ;		mov r22,r28
+0160: 7D2F ;		mov r23,r29
+0162: 8827 ;		clr r24
+0164: 9927 ;		clr r25
+0166: 26D3 ;		rcall __mulsi3
+0168: E61A ;		sub r14,r22
+016A: F70A ;		sbc r15,r23
+016C: 080B ;		sbc r16,r24
+016E: 190B ;		sbc r17,r25
+0170: A0907200
+           ;		lds r10,LC5
+0174: B0907300
+           ;		lds r11,(LC5)+1
+0178: C0907400
+           ;		lds r12,(LC5)+2
+017C: D0907500
+           ;		lds r13,(LC5)+3
+0180: 5D2D ;		mov r21,r13
+0182: 4C2D ;		mov r20,r12
+0184: 3B2D ;		mov r19,r11
+0186: 2A2D ;		mov r18,r10
+0188: 912F ;		mov r25,r17
+018A: 802F ;		mov r24,r16
+018C: 7F2D ;		mov r23,r15
+018E: 6E2D ;		mov r22,r14
+0190: F4D2 ;		rcall __udivsi3
+0192: D72F ;		mov r29,r23
+0194: C62F ;		mov r28,r22
+0196: 9C2F ;		mov r25,r28
+0198: 905D ;		subi r25,low(-(48))
+019A: 93D3 ;		rcall _lcd_putch
+019C: 5D2D ;		mov r21,r13
+019E: 4C2D ;		mov r20,r12
+01A0: 3B2D ;		mov r19,r11
+01A2: 2A2D ;		mov r18,r10
+01A4: 6C2F ;		mov r22,r28
+01A6: 7D2F ;		mov r23,r29
+01A8: 8827 ;		clr r24
+01AA: 9927 ;		clr r25
+01AC: 03D3 ;		rcall __mulsi3
+01AE: E61A ;		sub r14,r22
+01B0: F70A ;		sbc r15,r23
+01B2: 080B ;		sbc r16,r24
+01B4: 190B ;		sbc r17,r25
+01B6: A0907600
+           ;		lds r10,LC6
+01BA: B0907700
+           ;		lds r11,(LC6)+1
+01BE: C0907800
+           ;		lds r12,(LC6)+2
+01C2: D0907900
+           ;		lds r13,(LC6)+3
+01C6: 5D2D ;		mov r21,r13
+01C8: 4C2D ;		mov r20,r12
+01CA: 3B2D ;		mov r19,r11
+01CC: 2A2D ;		mov r18,r10
+01CE: 912F ;		mov r25,r17
+01D0: 802F ;		mov r24,r16
+01D2: 7F2D ;		mov r23,r15
+01D4: 6E2D ;		mov r22,r14
+01D6: D1D2 ;		rcall __udivsi3
+01D8: D72F ;		mov r29,r23
+01DA: C62F ;		mov r28,r22
+01DC: 9C2F ;		mov r25,r28
+01DE: 905D ;		subi r25,low(-(48))
+01E0: 70D3 ;		rcall _lcd_putch
+01E2: 5D2D ;		mov r21,r13
+01E4: 4C2D ;		mov r20,r12
+01E6: 3B2D ;		mov r19,r11
+01E8: 2A2D ;		mov r18,r10
+01EA: 6C2F ;		mov r22,r28
+01EC: 7D2F ;		mov r23,r29
+01EE: 8827 ;		clr r24
+01F0: 9927 ;		clr r25
+01F2: E0D2 ;		rcall __mulsi3
+01F4: E61A ;		sub r14,r22
+01F6: F70A ;		sbc r15,r23
+01F8: 080B ;		sbc r16,r24
+01FA: 190B ;		sbc r17,r25
+01FC: 20E1 ;		ldi r18,low(10000)
+01FE: 37E2 ;		ldi r19,high(10000)
+0200: 40E0 ;		ldi r20,hlow(10000)
+0202: 50E0 ;		ldi r21,hhigh(10000)
+0204: 912F ;		mov r25,r17
+0206: 802F ;		mov r24,r16
+0208: 7F2D ;		mov r23,r15
+020A: 6E2D ;		mov r22,r14
+020C: B6D2 ;		rcall __udivsi3
+020E: A62E ;		mov r10,r22
+0210: B72E ;		mov r11,r23
+0212: C82E ;		mov r12,r24
+0214: D92E ;		mov r13,r25
+0216: DB2D ;		mov r29,r11
+0218: CA2D ;		mov r28,r10
+021A: 9C2F ;		mov r25,r28
+021C: 905D ;		subi r25,low(-(48))
+021E: 51D3 ;		rcall _lcd_putch
+0220: 60E1 ;		ldi r22,low(10000)
+0222: 77E2 ;		ldi r23,high(10000)
+0224: 9B2D ;		mov r25,r11
+0226: 8A2D ;		mov r24,r10
+0228: 5DD3 ;		rcall __mulhi3
+022A: AA27 ;		clr r26
+022C: BB27 ;		clr r27
+022E: E81A ;		sub r14,r24
+0230: F90A ;		sbc r15,r25
+0232: 0A0B ;		sbc r16,r26
+0234: 1B0B ;		sbc r17,r27
+0236: 28EE ;		ldi r18,low(1000)
+0238: 33E0 ;		ldi r19,high(1000)
+023A: 40E0 ;		ldi r20,hlow(1000)
+023C: 50E0 ;		ldi r21,hhigh(1000)
+023E: 912F ;		mov r25,r17
+0240: 802F ;		mov r24,r16
+0242: 7F2D ;		mov r23,r15
+0244: 6E2D ;		mov r22,r14
+0246: 99D2 ;		rcall __udivsi3
+0248: A62E ;		mov r10,r22
+024A: B72E ;		mov r11,r23
+024C: C82E ;		mov r12,r24
+024E: D92E ;		mov r13,r25
+0250: DB2D ;		mov r29,r11
+0252: CA2D ;		mov r28,r10
+0254: 9C2F ;		mov r25,r28
+0256: 905D ;		subi r25,low(-(48))
+0258: 34D3 ;		rcall _lcd_putch
+025A: 68EE ;		ldi r22,low(1000)
+025C: 73E0 ;		ldi r23,high(1000)
+025E: 9B2D ;		mov r25,r11
+0260: 8A2D ;		mov r24,r10
+0262: 40D3 ;		rcall __mulhi3
+0264: AA27 ;		clr r26
+0266: BB27 ;		clr r27
+0268: E81A ;		sub r14,r24
+026A: F90A ;		sbc r15,r25
+026C: 0A0B ;		sbc r16,r26
+026E: 1B0B ;		sbc r17,r27
+0270: 24E6 ;		ldi r18,low(100)
+0272: 30E0 ;		ldi r19,high(100)
+0274: 40E0 ;		ldi r20,hlow(100)
+0276: 50E0 ;		ldi r21,hhigh(100)
+0278: 912F ;		mov r25,r17
+027A: 802F ;		mov r24,r16
+027C: 7F2D ;		mov r23,r15
+027E: 6E2D ;		mov r22,r14
+0280: 7CD2 ;		rcall __udivsi3
+0282: A62E ;		mov r10,r22
+0284: B72E ;		mov r11,r23
+0286: C82E ;		mov r12,r24
+0288: D92E ;		mov r13,r25
+028A: DB2D ;		mov r29,r11
+028C: CA2D ;		mov r28,r10
+028E: 9C2F ;		mov r25,r28
+0290: 905D ;		subi r25,low(-(48))
+0292: 17D3 ;		rcall _lcd_putch
+0294: 64E6 ;		ldi r22,low(100)
+0296: 70E0 ;		ldi r23,high(100)
+0298: 9B2D ;		mov r25,r11
+029A: 8A2D ;		mov r24,r10
+029C: 23D3 ;		rcall __mulhi3
+029E: AA27 ;		clr r26
+02A0: BB27 ;		clr r27
+02A2: E81A ;		sub r14,r24
+02A4: F90A ;		sbc r15,r25
+02A6: 0A0B ;		sbc r16,r26
+02A8: 1B0B ;		sbc r17,r27
+02AA: 2AE0 ;		ldi r18,low(10)
+02AC: 30E0 ;		ldi r19,high(10)
+02AE: 40E0 ;		ldi r20,hlow(10)
+02B0: 50E0 ;		ldi r21,hhigh(10)
+02B2: 912F ;		mov r25,r17
+02B4: 802F ;		mov r24,r16
+02B6: 7F2D ;		mov r23,r15
+02B8: 6E2D ;		mov r22,r14
+02BA: 5FD2 ;		rcall __udivsi3
+02BC: D72F ;		mov r29,r23
+02BE: C62F ;		mov r28,r22
+02C0: 9C2F ;		mov r25,r28
+02C2: 905D ;		subi r25,low(-(48))
+02C4: FED2 ;		rcall _lcd_putch
+02C6: 8C2F ;		mov r24,r28
+02C8: 9D2F ;		mov r25,r29
+02CA: 73E0 ;		ldi r23,low(3)
+02CC: 880F ;		lsl r24
+02CE: 991F ;		rol r25
+02D0: 7A95 ;		dec r23
+02D2: E1F7 ;		brne __pc_rel__(-4)
+02D4: 8C0F ;		add r24,r28
+02D6: 9D1F ;		adc r25,r29
+02D8: 8C0F ;		add r24,r28
+02DA: 9D1F ;		adc r25,r29
+02DC: AA27 ;		clr r26
+02DE: BB27 ;		clr r27
+02E0: E81A ;		sub r14,r24
+02E2: F90A ;		sbc r15,r25
+02E4: 0A0B ;		sbc r16,r26
+02E6: 1B0B ;		sbc r17,r27
+02E8: 9E2D ;		mov r25,r14
+02EA: 905D ;		subi r25,low(-(48))
+02EC: EAD2 ;		rcall _lcd_putch
+           ;	;epilogue: frame size=0
+02EE: DF91 ;		pop r29
+02F0: CF91 ;		pop r28
+02F2: 1F91 ;		pop r17
+02F4: 0F91 ;		pop r16
+02F6: FF90 ;		pop r15
+02F8: EF90 ;		pop r14
+02FA: DF90 ;		pop r13
+02FC: CF90 ;		pop r12
+02FE: BF90 ;		pop r11
+0300: AF90 ;		pop r10
+0302: 0895 ;		ret
+           ;	;epilogue end (size=11)
+           ;	; function print10 size 317 (296)
+           ;	 ; aligning segment
+           ;		seg flash.code.f_lcd_init
+           ;	public _lcd_init:
+           ;	;prologue: frame size=0
+           ;	;prologue end (size=0)
+0622: 9FEF ;		ldi r25,low(-1)
+           ;	;#APP
+0624: 9ABB ;		out 26,r25
+           ;	;#NOAPP
+0626: 80E1 ;		ldi r24,low(10000)
+0628: 97E2 ;		ldi r25,high(10000)
+062A: 8BD1 ;		rcall _lcd_delay
+062C: 93E0 ;		ldi r25,low(3)
+           ;	;#APP
+062E: 9BBB ;		out 27,r25
+           ;	;#NOAPP
+0630: D2D1 ;		rcall _toggle_E
+0632: 84EF ;		ldi r24,low(500)
+0634: 91E0 ;		ldi r25,high(500)
+0636: 85D1 ;		rcall _lcd_delay
+0638: 93E0 ;		ldi r25,low(3)
+           ;	;#APP
+063A: 9BBB ;		out 27,r25
+           ;	;#NOAPP
+063C: CCD1 ;		rcall _toggle_E
+063E: 84E6 ;		ldi r24,low(100)
+0640: 90E0 ;		ldi r25,high(100)
+0642: 7FD1 ;		rcall _lcd_delay
+0644: 93E0 ;		ldi r25,low(3)
+           ;	;#APP
+0646: 9BBB ;		out 27,r25
+           ;	;#NOAPP
+0648: C6D1 ;		rcall _toggle_E
+064A: 84E6 ;		ldi r24,low(100)
+064C: 90E0 ;		ldi r25,high(100)
+064E: 79D1 ;		rcall _lcd_delay
+0650: 92E0 ;		ldi r25,low(2)
+           ;	;#APP
+0652: 9BBB ;		out 27,r25
+           ;	;#NOAPP
+0654: C0D1 ;		rcall _toggle_E
+0656: 84E6 ;		ldi r24,low(100)
+0658: 90E0 ;		ldi r25,high(100)
+065A: 73D1 ;		rcall _lcd_delay
+065C: 92E0 ;		ldi r25,low(2)
+           ;	;#APP
+065E: 9BBB ;		out 27,r25
+           ;	;#NOAPP
+0660: BAD1 ;		rcall _toggle_E
+0662: 98E0 ;		ldi r25,low(8)
+           ;	;#APP
+0664: 9BBB ;		out 27,r25
+           ;	;#NOAPP
+0666: B7D1 ;		rcall _toggle_E
+0668: 84E6 ;		ldi r24,low(100)
+066A: 90E0 ;		ldi r25,high(100)
+066C: 6AD1 ;		rcall _lcd_delay
+066E: 9927 ;		clr r25
+           ;	;#APP
+0670: 9BBB ;		out 27,r25
+           ;	;#NOAPP
+0672: B1D1 ;		rcall _toggle_E
+0674: 9FE0 ;		ldi r25,low(15)
+           ;	;#APP
+0676: 9BBB ;		out 27,r25
+           ;	;#NOAPP
+0678: AED1 ;		rcall _toggle_E
+067A: 84E6 ;		ldi r24,low(100)
+067C: 90E0 ;		ldi r25,high(100)
+067E: 61D1 ;		rcall _lcd_delay
+0680: 9927 ;		clr r25
+           ;	;#APP
+0682: 9BBB ;		out 27,r25
+           ;	;#NOAPP
+0684: A8D1 ;		rcall _toggle_E
+0686: 96E0 ;		ldi r25,low(6)
+           ;	;#APP
+0688: 9BBB ;		out 27,r25
+           ;	;#NOAPP
+068A: A5D1 ;		rcall _toggle_E
+068C: 84E6 ;		ldi r24,low(100)
+068E: 90E0 ;		ldi r25,high(100)
+0690: 58D1 ;		rcall _lcd_delay
+0692: 97D1 ;		rcall _lcd_cls
+           ;	;epilogue: frame size=0
+0694: 0895 ;		ret
+           ;	;epilogue end (size=1)
+           ;	; function lcd_init size 69 (68)
+           ;	 ; aligning segment
+           ;		seg eram.gcc_data_section
+           ;	_hex_I_60:
+007A: 30   ;		dc.b 0x30
+007B: 31   ;		dc.b 0x31
+007C: 32   ;		dc.b 0x32
+007D: 33   ;		dc.b 0x33
+007E: 34   ;		dc.b 0x34
+007F: 35   ;		dc.b 0x35
+0080: 36   ;		dc.b 0x36
+0081: 37   ;		dc.b 0x37
+0082: 38   ;		dc.b 0x38
+0083: 39   ;		dc.b 0x39
+0084: 41   ;		dc.b 0x41
+0085: 42   ;		dc.b 0x42
+0086: 43   ;		dc.b 0x43
+0087: 44   ;		dc.b 0x44
+0088: 45   ;		dc.b 0x45
+0089: 46   ;		dc.b 0x46
+008A: 00   ;		dc.b 0x0
+           ;	extern ___builtin_next_arg
+           ;	extern __umodhi3
+           ;	LC7:
+008B: 0A00 ;		dc.w (10) & 0xffff
+           ;	LC8:
+008D: 1027 ;		dc.w (10000) & 0xffff
+           ;	LC9:
+008F: 1000 ;		dc.w (16) & 0xffff
+           ;		seg flash.code.f_printf
+           ;	public _printf:
+           ;	;prologue: frame size=0
+0304: 8F92 ;		push r8
+0306: 9F92 ;		push r9
+0308: AF92 ;		push r10
+030A: BF92 ;		push r11
+030C: CF92 ;		push r12
+030E: DF92 ;		push r13
+0310: EF92 ;		push r14
+0312: FF92 ;		push r15
+0314: 0F93 ;		push r16
+0316: 1F93 ;		push r17
+0318: CF93 ;		push r28
+031A: DF93 ;		push r29
+031C: CDB7 ;		in r28,__SP_L__
+031E: DEB7 ;		in r29,__SP_H__
+           ;	;prologue end (size=14)
+0320: AF84 ;		ldd r10,Y+15
+0322: B888 ;		ldd r11,Y+16
+0324: 71E1 ;		ldi r23,low(17)
+0326: 80E0 ;		ldi r24,high(17)
+0328: 7C0F ;		add r23,r28
+032A: 8D1F ;		adc r24,r29
+032C: C72E ;		mov r12,r23
+032E: D82E ;		mov r13,r24
+0330: 04C0 ;		rjmp L96
+           ;	L72:
+0332: 9923 ;		tst r25
+0334: 09F4 ;		brne __pc_rel__(+1)
+0336: 83C0 ;		rjmp L95
+           ;	L97:
+0338: C4D2 ;		rcall _lcd_putch
+           ;	L96:
+033A: FB2D ;		mov r31,r11
+033C: EA2D ;		mov r30,r10
+033E: 0894 ;		sec
+0340: A11C ;		adc r10,__zero_reg__
+0342: B11C ;		adc r11,__zero_reg__
+0344: 9191 ;		ld r25,Z+
+0346: 9532 ;		cpi r25,low(37)
+0348: A1F7 ;		brne L72
+034A: FB2D ;		mov r31,r11
+034C: EA2D ;		mov r30,r10
+034E: 0894 ;		sec
+0350: A11C ;		adc r10,__zero_reg__
+0352: B11C ;		adc r11,__zero_reg__
+0354: 9191 ;		ld r25,Z+
+0356: 9436 ;		cpi r25,low(100)
+0358: C1F0 ;		breq L78
+035A: 9536 ;		cpi r25,low(101)
+035C: 1CF4 ;		brge L93
+035E: 9336 ;		cpi r25,low(99)
+0360: 21F0 ;		breq L76
+0362: EACF ;		rjmp L97
+           ;	L93:
+0364: 9837 ;		cpi r25,low(120)
+0366: D1F0 ;		breq L80
+0368: E7CF ;		rjmp L97
+           ;	L76:
+036A: 72E0 ;		ldi r23,low(2)
+036C: 80E0 ;		ldi r24,high(2)
+036E: C70E ;		add r12,r23
+0370: D81E ;		adc r13,r24
+0372: 8EEF ;		ldi r24,low(-2)
+0374: 9FEF ;		ldi r25,high(-2)
+0376: C80E ;		add r12,r24
+0378: D91E ;		adc r13,r25
+037A: FD2D ;		mov r31,r13
+037C: EC2D ;		mov r30,r12
+037E: 9081 ;		ld r25,Z
+0380: 72E0 ;		ldi r23,low(2)
+0382: 80E0 ;		ldi r24,high(2)
+0384: C70E ;		add r12,r23
+0386: D81E ;		adc r13,r24
+0388: D7CF ;		rjmp L97
+           ;	L78:
+038A: 80908B00
+           ;		lds r8,LC7
+038E: 90908C00
+           ;		lds r9,(LC7)+1
+0392: E0908D00
+           ;		lds r14,LC8
+0396: F0908E00
+           ;		lds r15,(LC8)+1
+039A: 06C0 ;		rjmp L79
+           ;	L80:
+039C: E0908F00
+           ;		lds r14,LC9
+03A0: F0909000
+           ;		lds r15,(LC9)+1
+03A4: 8E2C ;		mov r8,r14
+03A6: 9F2C ;		mov r9,r15
+           ;	L79:
+03A8: E2E0 ;		ldi r30,low(2)
+03AA: F0E0 ;		ldi r31,high(2)
+03AC: CE0E ;		add r12,r30
+03AE: DF1E ;		adc r13,r31
+03B0: FD2D ;		mov r31,r13
+03B2: EC2D ;		mov r30,r12
+03B4: 3297 ;		sbiw r30,2
+03B6: CE2E ;		mov r12,r30
+03B8: DF2E ;		mov r13,r31
+03BA: 0081 ;		ld r16,Z
+03BC: 1181 ;		ldd r17,Z+1
+03BE: 72E0 ;		ldi r23,low(2)
+03C0: 80E0 ;		ldi r24,high(2)
+03C2: C70E ;		add r12,r23
+03C4: D81E ;		adc r13,r24
+03C6: 9436 ;		cpi r25,low(100)
+03C8: E9F4 ;		brne L91
+03CA: 1123 ;		tst r17
+03CC: 34F4 ;		brge L82
+03CE: 0095 ;		com r16
+03D0: 1095 ;		com r17
+03D2: 0F5F ;		subi r16,low(-1)
+03D4: 1F4F ;		sbci r17,low(-1)
+03D6: 9DE2 ;		ldi r25,low(45)
+03D8: 74D2 ;		rcall _lcd_putch
+           ;	L82:
+03DA: 82E0 ;		ldi r24,low(2)
+03DC: E816 ;		cp r14,r24
+03DE: F104 ;		cpc r15,__zero_reg__
+03E0: 88F0 ;		brlo L91
+03E2: 0E15 ;		cp r16,r14
+03E4: 1F05 ;		cpc r17,r15
+03E6: 70F4 ;		brsh L91
+           ;	L85:
+03E8: 6AE0 ;		ldi r22,low(10)
+03EA: 70E0 ;		ldi r23,high(10)
+03EC: 9F2D ;		mov r25,r15
+03EE: 8E2D ;		mov r24,r14
+03F0: 44D2 ;		rcall __udivhi3
+03F2: E82E ;		mov r14,r24
+03F4: F92E ;		mov r15,r25
+03F6: 92E0 ;		ldi r25,low(2)
+03F8: E916 ;		cp r14,r25
+03FA: F104 ;		cpc r15,__zero_reg__
+03FC: 18F0 ;		brlo L91
+03FE: 0E15 ;		cp r16,r14
+0400: 1F05 ;		cpc r17,r15
+0402: 90F3 ;		brlo L85
+           ;	L91:
+0404: 7F2D ;		mov r23,r15
+0406: 6E2D ;		mov r22,r14
+0408: 912F ;		mov r25,r17
+040A: 802F ;		mov r24,r16
+040C: 36D2 ;		rcall __udivhi3
+040E: F92F ;		mov r31,r25
+0410: E82F ;		mov r30,r24
+0412: E658 ;		subi r30,low(-(_hex_I_60))
+0414: FF4F ;		sbci r31,high(-(_hex_I_60))
+0416: 9081 ;		ld r25,Z
+0418: 54D2 ;		rcall _lcd_putch
+041A: 7F2D ;		mov r23,r15
+041C: 6E2D ;		mov r22,r14
+041E: 912F ;		mov r25,r17
+0420: 802F ;		mov r24,r16
+0422: E0D2 ;		rcall __umodhi3
+0424: 082F ;		mov r16,r24
+0426: 192F ;		mov r17,r25
+0428: 792D ;		mov r23,r9
+042A: 682D ;		mov r22,r8
+042C: 9F2D ;		mov r25,r15
+042E: 8E2D ;		mov r24,r14
+0430: 24D2 ;		rcall __udivhi3
+0432: E82E ;		mov r14,r24
+0434: F92E ;		mov r15,r25
+0436: E114 ;		cp r14,__zero_reg__
+0438: F104 ;		cpc r15,__zero_reg__
+043A: 21F7 ;		brne L91
+043C: 7ECF ;		rjmp L96
+           ;	L95:
+043E: 8827 ;		clr r24
+0440: 9927 ;		clr r25
+           ;	;epilogue: frame size=0
+0442: DF91 ;		pop r29
+0444: CF91 ;		pop r28
+0446: 1F91 ;		pop r17
+0448: 0F91 ;		pop r16
+044A: FF90 ;		pop r15
+044C: EF90 ;		pop r14
+044E: DF90 ;		pop r13
+0450: CF90 ;		pop r12
+0452: BF90 ;		pop r11
+0454: AF90 ;		pop r10
+0456: 9F90 ;		pop r9
+0458: 8F90 ;		pop r8
+045A: 0895 ;		ret
+           ;	;epilogue end (size=13)
+           ;	; function printf size 172 (145)
+           ;	; File 'lcd.c' sizes: code  931 ( 817), prologues  50, epilogues  64
+

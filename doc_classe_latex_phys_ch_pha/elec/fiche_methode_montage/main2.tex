@@ -1,0 +1,162 @@
+\doc{Fiche de procédure pour la réalisation de montages électriques}
+
+% TO DO
+% Mettre un symbole attention (!)
+% Mettre un symbole danger (tête de mort)
+
+\attention{
+\centering 
+\textbf{\`A appliquer tout le temps !}}
+
+\vspace*{\stretch{2}}
+
+\large
+
+\begin{itemize}
+
+
+\item Lire le schéma électrique, prendre connaissance du nombre de dipôles qui le constitue.
+
+\vspace*{\stretch{1}}
+
+\item Utiliser les fils rouges du côté de la borne $+$ du générateur et les fils noirs du côté de la borne $-$.
+
+\vspace*{\stretch{1}}
+
+\item Réaliser le montage en partant de la borne $+$ du générateur en se souciant d'abord de la boucle principale. On doit brancher à ce moment les ampèremètres car ils sont en série avec les autres dipôles. On \emph{ne doit pas encore} brancher les voltmètres car ils sont en dérivation.
+
+\vspace*{\stretch{1}}
+
+\item Si le montage comporte plusieurs dérivations (boucles), réaliser le montage des dérivations autres que la boucle principale.
+
+\vspace*{\stretch{1}}
+
+\item Brancher \emph{maintenant} les voltmètres (car ils sont en dérivation)
+
+\vspace*{\stretch{1}}
+
+\item Souvent, dans le montage, par souci de précaution, on insère un bouton poussoir (ou un interrupteur noté $K$).
+
+\vspace*{\stretch{1}}
+
+\item Les multimètres (en fonction ampèremètre ou en fonction voltmètre) doivent être correctement branchés (bornes) et correctement réglés (fonction, calibre) : voir «~Utilisation du multimètre~».
+
+
+\vspace*{\stretch{2}}
+
+
+\attention{%
+Le multimètre est un appareil coûteux et fragile. Une mauvaise manipulation peut le détériorer. En l'absence de consignes du professeur, on doit toujours utiliser le calibre le plus élevé.
+
+
+Il faudra éventuellement affiner la mesure en basculant vers un calibre inférieur au plus gros initialement choisi afin d'obtenir une mesure plus précise.
+
+\emph{Erreurs de branchements} : ne jamais placer un ampèremètre en dérivation seul (car l'ampèremètre de résistance interne quasi nulle est équivalent à un fil et court-circuite une partie du montage
+}
+
+\vspace*{\stretch{1}}
+
+\item Appeler discrètement le professeur pour vérification du montage.
+
+\vspace*{\stretch{1}}
+
+\item Après vérification par le professeur qui allumera l'alimentation on pourra fermer l'interrupteur (ou appuyer sur le bouton poussoir).
+
+\vspace*{\stretch{1}}
+
+\item Faire la ou les mesures.
+
+\vspace*{\stretch{1}}
+
+\item Ouvrir l'interrupteur $K$ (ou relâcher le bouton poussoir).
+
+\vspace*{\stretch{1}}
+
+\item \'Eteindre le générateur.
+
+\vspace*{\stretch{1}}
+
+\item \'Eteindre les multimètres.
+
+\end{itemize}
+
+
+\vspace*{\stretch{2}}
+
+\danger{Ne jamais brancher le générateur seul dans une boucle (c'est à dire sans résistance électrique pour le protéger) car il est alors en court-circuit et risque d'être détruit.}
+
+\vspace*{\stretch{2}}
+
+\danger{\centering Ne jamais toucher au montage lorsqu'il est sous tension !}
+
+\normalsize
+
+
+\docsuite{Utilisation du multimètre}
+
+
+
+% Insérer  schéma multimètre
+
+\begin{center}
+\includegraphics[width=8cm]{elec/fiche_methode_montage/multimetre.png.eps}
+\end{center}
+
+
+%\vspace{10cm}
+
+\large
+
+\begin{itemize}
+
+\item L'appareil peut être utilisé en \emph{voltmètre} : branchement à la borne $V / \Omega$. Mesure de la \emph{tension électrique} en volts $V$ ou sous-multiples.
+
+\vspace*{\stretch{1}}
+
+\item L'appareil peut être utilisé en \emph{ohmmètre} : branchement à la borne $V / \Omega$. Mesure de la \emph{résistance électrique} en ohms $\Omega$ ou sous-multiples.
+
+\vspace*{\stretch{1}}
+
+\item L'appareil peut être utilisé en \emph{ampèremètre} : branchement à la borne $A$. Mesure de l'\emph{intensité électrique} en ampères $A$.
+
+\vspace*{\stretch{1}}
+
+\item L'appareil peut être utilisé en \emph{milliampèremètre} : branchement à la borne $mA$. Mesure de l'\emph{intensité électrique} en milliampères $mA$ ou en microampères $\mu A$.
+
+\vspace*{\stretch{1}}
+
+\item La borne \emph{$COM$} est la référence. Elle est toujours branchée directement ou indirectement à la borne \emph{-} du générateur.
+
+\vspace*{\stretch{1}}
+
+
+\item L'une des trois autres bornes du multimètre est toujours branchée à la borne \emph{+} du générateur.
+
+\vspace*{\stretch{1}}
+
+\item On place la molette en face du cadran qui correspond :
+ \begin{itemize}
+  \item à la bonne fonction (ampèremère, voltmètre, ...)
+  \item au bon calibre
+ \end{itemize}
+
+\vspace*{\stretch{1}}
+
+\item Par précaution, on commence toujours une mesure en se positionnant sur le calibre le plus grand (possibilité de mesurer les grandes valeurs sans saturer l'appareil ou risquer de le détériorer). Si la lecture est trop peu précise ou indique une valeur presque nulle, on change de calibre et on choisit celui qui est immédiatement plus petit. Et ainsi de suite jusqu'à ce que la valeur lue soit d'une précision suffisante.
+
+\vspace*{\stretch{1}}
+
+\item On se place sur une position correspondant au sigle \emph{DC} ou \dcsymbol si la mesure concerne un courant continu.
+
+\vspace*{\stretch{1}}
+
+\item On se place sur une position correspondant au sigle \emph{AC} ou \acsymbol si la mesure concerne un courant alternatif. %\thicksim
+
+
+
+%\item A Finir
+
+
+\normalsize
+
+\end{itemize}

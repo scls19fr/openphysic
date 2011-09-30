@@ -1,0 +1,18 @@
+HEADER
+COMPND    C2H4 (EXP)
+Gérard Dupuis Lycee Faidherbe Lille
+Valeurs expérimentales 
+d(C-C) = 0,1337 nm
+d(C-H) = 0,109 nm
+angle HCH 118°
+
+ATOM      1  C                   0.000   0.000   0.000                          
+ATOM      2  C                   1.337   0.000   0.000                          
+ATOM      3  H                  -0.561  -0.934   0.000                         
+ATOM      4  H                  -0.561   0.934   0.000                         
+ATOM      5  H                   1.898   0.934   0.000                        
+ATOM      6  H                   1.898  -0.934   0.000                         
+CONECT    1    2    2    3    4
+CONECT    2    5    6
+MASTER        0    0    0    0    0    0    0    0    6    0    0    0
+END

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE formation SYSTEM "formation.dtd">
+<formation>
+	<session nom="01-2006">
+		<apprenants>
+			<apprenant identifiant="jdupond" password="jean">
+				<nom>dupond</nom>
+				<prenom>jean</prenom>
+				<groupes>reseau information</groupes>
+			</apprenant>
+			<apprenant identifiant="mdurant" password="marie">
+				<nom>durant</nom>
+				<prenom>marie</prenom>
+				<groupes>information developpement</groupes>
+			</apprenant>
+			<apprenant identifiant="pdujardin" password="pierre">
+				<nom>dujardin</nom>
+				<prenom>pierre</prenom>
+				<groupes>reseau information</groupes>
+			</apprenant>
+			<apprenant identifiant="elamarche" password="eric">
+				<nom>lamarche</nom>
+				<prenom>eric</prenom>
+				<groupes>developpement sécurité</groupes>
+			</apprenant>
+		</apprenants>
+	</session>
+</formation>

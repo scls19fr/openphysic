@@ -1,0 +1,52 @@
+\ProvidesFile{8rphv.fd}
+   [2000/01/12 PSNFSS-v8.1 font definitions for 8r/phv.]
+
+\expandafter\ifx\csname phv@Scale\endcsname\relax
+ \let\phv@@Scale\@empty
+\else
+ \edef\phv@@Scale{s*[\csname phv@Scale\endcsname]}%
+\fi
+
+\DeclareFontFamily{8r}{phv}{}
+
+\DeclareFontShape{8r}{phv}{m}{n}{
+   <-> \phv@@Scale phvr8r
+}{}
+
+\DeclareFontShape{8r}{phv}{m}{sl}{
+   <-> \phv@@Scale phvro8r
+}{}
+
+\DeclareFontShape{8r}{phv}{mc}{n}{
+   <-> \phv@@Scale phvr8rn
+}{}
+
+\DeclareFontShape{8r}{phv}{mc}{sl}{
+   <-> \phv@@Scale phvro8rn
+}{}
+
+\DeclareFontShape{8r}{phv}{b}{n}{
+   <-> \phv@@Scale phvb8r
+}{}
+
+\DeclareFontShape{8r}{phv}{b}{sl}{
+   <-> \phv@@Scale phvbo8r
+}{}
+
+\DeclareFontShape{8r}{phv}{bc}{n}{
+   <-> \phv@@Scale phvb8rn
+}{}
+
+\DeclareFontShape{8r}{phv}{bc}{sl}{
+   <-> \phv@@Scale phvbo8rn
+}{}
+
+\DeclareFontShape{8r}{phv}{m}{it}{<->ssub * phv/m/sl}{}
+\DeclareFontShape{8r}{phv}{mc}{it}{<->ssub * phv/mc/sl}{}
+\DeclareFontShape{8r}{phv}{bx}{n}{<->ssub * phv/b/n}{}
+\DeclareFontShape{8r}{phv}{bx}{sl}{<->ssub * phv/b/sl}{}
+\DeclareFontShape{8r}{phv}{b}{it}{<->ssub * phv/b/sl}{}
+\DeclareFontShape{8r}{phv}{bx}{it}{<->ssub * phv/b/it}{}
+\DeclareFontShape{8r}{phv}{bc}{it}{<->ssub * phv/bc/sl}{}
+
+\endinput

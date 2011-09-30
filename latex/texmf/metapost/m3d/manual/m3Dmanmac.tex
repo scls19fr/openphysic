@@ -1,0 +1,1378 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% m3Dmanmac.tex.
+% Auteur : Anthony PHAN.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\ifx\typofrmtversion\undefined\else\endinput\fi
+\def\typofrmtversion{October 19, 2004}%
+%
+\catcode`\@=11
+{\obeyspaces\def\@space{\leavevmode\space}\global\let =\@space}%
+\def\claimsep{\ ---\ \ignorespaces}%
+\def\claimbreak{\ifvmode\medbreak\fi}%
+\def\breakupto#1{\vskip\z@ plus#1\penalty-250\vskip\z@ plus-#1}%
+%
+\def\meta#1#2{\expandafter\def\csname meta@#1\endcsname{#2}}%
+\meta{school}{Universit\'e de Poitiers\\
+	D\'epartement de Math\'ematiques}%
+\let\meta@degree=\undefined
+\let\meta@course=\undefined%
+\meta{year}{Ann\'ee \anneescolaire}%
+\meta{head}{\vtop{\let\\=\cr\halign{\strut##\hfil\cr
+		\meta@school\crcr}}\hfill
+		\vtop{\let\\=\cr\halign{\strut\hfil##\cr
+		\ifx\meta@degree\undefined\else\meta@degree\cr\fi
+		\meta@year\crcr}}}%
+\def\anneescolaire{%
+	\ifnum\month<7 {\count0=\year\advance\count0 by -1 
+	\the\count0--\the\year}%
+	\else{\count0=\year\advance\count0 by 1 
+	\the\year--\the\count0}\fi}%
+%
+%\long\def\gobblepar#1{\ifx#1\par\let\@next=\relax
+%	\else\def\@next{{#1}}\fi\@next}%
+\def\setcounter#1#2{\csname c@#1\endcsname=#2\relax}%
+%
+% THE NEXT MACRO MUST BE INCLUDED
+% IN THE \BYE COMMAND. FOR INSTANCE:
+%
+% \catcode`@=11
+% \outer\def\bye{\close@aux
+% 	\par\vfill\supereject\end}%
+% \catcode`@=12
+%
+\def\addto#1#2{{\def\@addto##1\end@addto{\gdef#1{##1}}%
+	\expandafter\@addto#1#2\end@addto}}%
+%
+\def\addtoreset#1#2{%
+	\expandafter\ifx\csname cl@#1\endcsname\relax
+	\expandafter\edef\csname cl@#1\endcsname%
+	{\csname c@#2\endcsname=0\relax}\else
+	\expandafter\@addtoreset\csname cl@#1\endcsname
+	{\csname c@#2\endcsname=0\relax}\fi}%
+\def\@addtoreset#1#2{\edef#1{#1#2}}%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% OPTIONS SYSTEM
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\def\documentclass#1{%
+	\ifx[#1\let\AfterOptions=\documentclass
+	\def\@next{\ProcessOptions[}\else\let\AfterOptions=\relax
+	\def\@next{\expandafter\ifx\csname option@#1\endcsname\relax
+	\message{documentclass "#1" is undefined !}%
+	\option@article\else\csname option@#1\endcsname\fi}\fi\@next}%
+\def\UseOptions#1{\let\AfterOptions=\relax\ProcessOptions[#1]}%
+\def\useoptions{\UseOptions}%
+\def\ProcessOptions[#1]{\@ProcessOptions[#1,\undefined,\undefined]%
+	\AfterOptions}%
+\def\@ProcessOptions[#1,#2]{\ifx#1\undefined\else
+	\expandafter\ifx\csname option@#1\endcsname\relax
+	\message{Option "#1" is  undefined !}%
+	\else\csname option@#1\endcsname\fi
+	\@ProcessOptions[#2]\fi}%	
+\def\DefineOption#1{\expandafter\def\csname option@#1\endcsname}%
+\let\AfterOptions=\relax
+%\newwrite\tmp@out
+%\def\IfFileExists#1#2#3{\immediate\openin\tmp@out=#1
+%	\ifeof\tmp@out\immediate\closein\tmp@out
+%	#3\relax
+%	\else\immediate\closein\tmp@out
+%	#2\relax
+%	\fi}%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% HYPERTEXT
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+{\catcode`\#=12 \catcode`\*=6
+\gdef\@HyperLinkRef*1{\special{html:<a href="#*1">}}%
+\gdef\@HyperLinkName*1{\special{html:<a name="*1">}}%
+\gdef\@endHyperLink{\special{html:</a>}}}%
+\def\HyperLinkRef#1{}%
+\def\HyperLinkName#1{}%
+\let\endHyperLink=\relax
+\DefineOption{hypertext}{%
+	\let\HyperLinkRef=\@HyperLinkRef
+	\let\HyperLinkName=\@HyperLinkName
+	\let\endHyperLink=\@endHyperLink}%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% POINT SIZE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\DefineOption{magstep0}{\voffset=0.12 true cm
+	\hoffset=0.31 true cm
+	\vsize=24.2 true cm
+	\hsize=15.3 true cm
+	}%
+\DefineOption{magstephalf}{\mag=\magstephalf
+	\voffset=0.12 true cm
+	\hoffset=0.31 true cm
+	\vsize=24.2 true cm
+	\hsize=15.3 true cm
+	}%
+\DefineOption{magstep1}{\mag=\magstep1
+	\voffset=0.12 true cm
+	\hoffset=0.31 true cm
+	\vsize=24.2 true cm
+	\hsize=15.3 true cm
+	}%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% LANGUAGE DEPENDENT
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\DefineOption{french}{\language=1
+	\def\authorsep{\bigbreak}% par }%
+	\def\seename{voir}%
+	\def\indexname{Index}%
+	\def\bibname{Bibliographie}%
+	\def\refname{R\'ef\'erences}%
+	\def\chaptername{Chapitre}%
+	\def\chapvarname{Chap.}%
+	\def\contentsname{Table des mati\`eres}%
+	\def\remarkname{Remarque}%
+	\def\remarksname{Remarques}%
+	\def\proofname{D\'emonstration}%
+	\def\figurename{Fig{\rm.}}%
+	\def\theoremname{Th\'eor\`eme}%
+	\def\propositionname{Proposition}%
+	\def\definitionname{D\'efinition}%
+	\def\corollaryname{Corollaire}%
+	\def\lemmaname{Lemme}%
+	\def\examplename{Exemple}%
+	\def\examplesname{Exemples}%
+	\def\exercicename{Exercice}%
+	\def\chapternumeral##1{\ifcase##1 \or premier\else
+		\uppercase\expandafter{\romannumeral##1}\fi}%
+	\def\today{\number\day\space\ifcase\month\or
+		janvier\or f\'evrier\or mars\or avril\or mai\or juin\or
+		juillet\or ao\^ut\or septembre\or octobre\or novembre\or
+		d\'ecembre\fi\space\number\year}%
+	\let\og=\og@french\let\fg=\fg@french
+	\frenchspacing}%
+\DefineOption{english}{\language=0
+	\def\authorsep{\bigbreak}% by }%
+	\def\indexname{Index}%
+	\def\seename{see}%
+	\def\bibname{Bibliography}%
+	\def\refname{References}%
+	\def\chaptername{Chapter}%
+	\def\chapvarname{Chap.}%
+	\def\contentsname{Table of Contents}%
+	\def\remarkname{Remark}%
+	\def\remarksname{Remarks}%
+	\def\proofname{Proof}%
+	\def\figurename{Fig{\rm.}}%
+	\def\theoremname{Theorem}%
+	\def\propositionname{Proposition}%
+	\def\definitionname{Definition}%
+	\def\corollaryname{Corollary}%
+	\def\lemmaname{Lemma}%
+	\def\examplename{Example}%
+	\def\examplesname{Examples}%
+	\def\exercicename{Exercice}%
+	\def\chapternumeral##1{\uppercase\expandafter{\romannumeral##1}}%
+	\let\og=\og@english \let\fg=\fg@english
+	\def\today{\ifcase\month\or
+		January\or February\or March\or April\or May\or June\or
+		July\or August\or September\or October\or November\or
+		December\fi\space\number\day, \number\year}%
+	\frenchspacing}%
+\def\date{\today}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% FONTS' SECTION (typofont.tex)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\def\DeclareMathSymbol#1#2#3#4{%
+	\count@=#2\multiply\count@ by 16
+	\advance\count@ by \csname#3fam\endcsname
+	\multiply\count@ by 256\advance\count@ by #4
+	\ifcat\noexpand#1\relax
+		\mathchardef#1=\count@
+	\else
+		\expandafter\mathcode
+		\expandafter`\csname#1\endcsname=\count@
+	\fi}%
+%
+\def\DeclareFont#1#2#3#4#5{\ifx*#2%
+	\expandafter\def\csname#1\endcsname{\font\current@font=#3%
+		\current@font}\else
+	\expandafter\font\csname#1@t\endcsname=#3
+	\expandafter\font\csname#1@s\endcsname=#4
+	\expandafter\font\csname#1@ss\endcsname=#5
+	\textfont#2=\csname#1@t\endcsname
+	\scriptfont#2=\csname#1@s\endcsname
+	\scriptscriptfont#2=\csname#1@ss\endcsname
+	\expandafter\def\csname#1\endcsname{\font\current@font=#3
+		\fam#2\current@font}%
+	\fi}%
+%
+%%\def\tenbig#1{{\hbox{$\left#1\vbox to8.5pt{}\right.\n@space$}}}%
+%%\def\ninebig#1{{\hbox{$\textfont0=\tenrm\textfont2=\tensy
+%%\left#1\vbox to7.25pt{}\right.\n@space$}}}%
+%%\def\eightbig#1{{\hbox{$\textfont0=\ninerm\textfont2=\ninesy
+%%\left#1\vbox to6.5pt{}\right.\n@space$}}}%
+%
+\font\headroman=cmr10%  headings
+%
+\def\eightpoint{%
+	\DeclareFont{roman}{0}{cmr8}{cmr6}{cmr5}%
+	\DeclareFont{italic}{*}{cmti8}{*}{*}%
+	\DeclareFont{smallcaps}{*}{cmcsc8}{*}{*}%
+	\DeclareFont{boldface}{4}{cmbx8}{cmbx6}{cmbx5}%
+	\DeclareFont{monospace}{*}{cmtt8}{*}{*}%
+	\DeclareFont{mit}{1}{cmmi8}{cmmi6}{cmmi5}%
+	\DeclareFont{cal}{2}{cmsy8}{cmsy6}{cmsy5}%
+	\DeclareFont{mathex}{3}{cmex8}{cmex8}{cmex8}%
+	\ifx\mbbfam\undefined\else
+	\DeclareFont{mbb}{\mbbfam}{mbb8}{mbb6}{mbb5}\fi
+	\ifx\mathafam\undefined\else
+	\DeclareFont{matha}{\mathafam}{matham8}{matham6}{matham5}\fi
+	\ifx\mathbfam\undefined\else
+	\DeclareFont{mathb}{\mathbfam}{mathbm8}{mathbm6}{mathbm5}\fi
+%	\ifx\mathxfam\undefined\else
+%	\DeclareFont{mathx}{\mathxfam}{mathx8}{mathx8}{mathx8}\fi
+	\DeclareFont{timesroman}{*}{ptmr at 8\p@}{*}{*}%
+	\DeclareFont{timesitalic}{*}{ptmri at 8\p@}{*}{*}%
+	\DeclareFont{timesbold}{*}{ptmb at 8\p@}{*}{*}%
+	% espacements
+	\smallskipamount=2\p@ plus 1\p@ minus 1\p@
+	\medskipamount=4\p@ plus 2\p@ minus 1\p@
+	\bigskipamount=9\p@ plus 3\p@ minus 3\p@
+	\abovedisplayskip=5\p@ plus 2.5\p@ minus 1\p@
+	\belowdisplayskip=5\p@ plus 2.5\p@ minus 1\p@
+	\abovedisplayshortskip=0\p@ plus 2.5\p@
+	\belowdisplayshortskip=3\p@ plus 2.5\p@
+	\normalbaselineskip=9\p@
+	\setbox\strutbox=\hbox{\vrule
+		height7\p@ depth2\p@ width0\p@}%
+	\normalbaselines\rm}%
+%
+\def\ninepoint{%
+	\DeclareFont{roman}{0}{cmr9}{cmr6}{cmr5}%
+	\DeclareFont{italic}{*}{cmti9}{*}{*}%
+	\DeclareFont{smallcaps}{*}{cmcsc9}{*}{*}%
+	\DeclareFont{boldface}{4}{cmbx9}{cmbx6}{cmbx5}%
+	\DeclareFont{monospace}{*}{cmtt9}{*}{*}%
+	\DeclareFont{mit}{1}{cmmi9}{cmmi6}{cmmi5}%
+	\DeclareFont{cal}{2}{cmsy9}{cmsy6}{cmsy5}%
+	\DeclareFont{mathex}{3}{cmex9}{cmex9}{cmex9}%
+	\ifx\mbbfam\undefined\else
+	\DeclareFont{mbb}{\mbbfam}{mbb9}{mbb6}{mbb5}\fi
+	\ifx\mathafam\undefined\else
+	\DeclareFont{matham}{\mathafam}{matham9}{matham6}{matham5}\fi
+	\ifx\mathbfam\undefined\else
+	\DeclareFont{mathb}{\mathbfam}{mathbm9}{mathbm6}{mathbm5}\fi
+%	\ifx\mathxfam\undefined\else
+%	\DeclareFont{mathx}{\mathxfam}{mathx9}{mathx9}{mathx9}\fi
+	\DeclareFont{timesroman}{*}{ptmr at 9\p@}{*}{*}%
+	\DeclareFont{timesitalic}{*}{ptmri at 9\p@}{*}{*}%
+	\DeclareFont{timesbold}{*}{ptmb at 9\p@}{*}{*}%
+	% espacements
+	\smallskipamount=2.5\p@ plus 1\p@ minus 1\p@
+	\medskipamount=5\p@ plus 2\p@ minus 1.5\p@
+	\bigskipamount=10.5\p@ plus 3.5\p@ minus 3.5\p@
+	\abovedisplayskip=5.5\p@ plus 2.75\p@ minus 1\p@
+	\belowdisplayskip=5.5\p@ plus 2.75\p@ minus 1\p@
+	\abovedisplayshortskip=0\p@ plus 2.75\p@
+	\belowdisplayshortskip=3.5\p@ plus 2.75\p@
+	\normalbaselineskip=11\p@
+	\setbox\strutbox=\hbox{\vrule
+		height8\p@ depth3\p@ width0\p@}%
+	\normalbaselines\rm}%
+%
+\def\tenpoint{%
+	\DeclareFont{roman}{0}{cmr10}{cmr7}{cmr5}%
+	\DeclareFont{italic}{*}{cmti10}{*}{*}%
+	\DeclareFont{smallcaps}{*}{cmcsc10}{*}{*}%
+	\DeclareFont{boldface}{4}{cmbx10}{cmbx7}{cmbx5}%
+	\DeclareFont{monospace}{*}{cmtt10}{*}{*}%
+	\DeclareFont{mit}{1}{cmmi10}{cmmi7}{cmmi5}%
+	\DeclareFont{cal}{2}{cmsy10}{cmsy7}{cmsy5}%
+	\DeclareFont{mathex}{3}{cmex10}{cmex10}{cmex10}%
+	\ifx\mbbfam\undefined\else
+	\DeclareFont{mbb}{\mbbfam}{mbb10}{mbb7}{mbb5}\fi
+	\ifx\mathafam\undefined\else
+	\DeclareFont{mathma}{\mathafam}{matham10}{matham7}{matham5}\fi
+	\ifx\mathbfam\undefined\else
+	\DeclareFont{mathb}{\mathbfam}{mathbm10}{mathbm7}{mathbm5}\fi
+%	\ifx\mathxfam\undefined\else
+%	\DeclareFont{mathx}{\mathxfam}{mathx10}{mathx10}{mathx10}\fi
+	\DeclareFont{timesroman}{*}{ptmr at 10\p@}{*}{*}%
+	\DeclareFont{timesitalic}{*}{ptmri at 10\p@}{*}{*}%
+	\DeclareFont{timesbold}{*}{ptmb at 10\p@}{*}{*}%
+	% espacements
+	\smallskipamount=3\p@ plus 1\p@ minus 1\p@
+	\medskipamount=6\p@ plus 2\p@ minus 2\p@
+	\bigskipamount=12\p@ plus 4\p@ minus 4\p@
+	\abovedisplayskip=6\p@ plus 3\p@ minus 1\p@
+	\belowdisplayskip=6\p@ plus 3\p@ minus 1\p@
+	\abovedisplayshortskip=0\p@ plus 3\p@
+	\belowdisplayshortskip=4\p@ plus 3\p@
+	\normalbaselineskip=12\p@
+	\setbox\strutbox=\hbox{\vrule
+		height8.5\p@ depth3.5\p@ width0\p@}%
+	\normalbaselines\rm}%
+%
+\def\twelvepoint{%
+	\DeclareFont{roman}{0}{cmr12}{cmr8}{cmr6}%
+	\DeclareFont{italic}{*}{cmti12}{*}{*}%
+	\DeclareFont{smallcaps}{*}{cmcsc10 at 12\p@}{*}{*}%
+	\DeclareFont{boldface}{4}{cmbx10 at 12\p@}{cmbx8}{cmbx6}%
+	\DeclareFont{monospace}{*}{cmtt12}{*}{*}%
+	\DeclareFont{mit}{1}{cmmi10 at 12\p@}{cmmi8}{cmmi6}%
+	\DeclareFont{cal}{2}{cmsy10 at 12\p@}{cmsy8}{cmsy6}%
+	\DeclareFont{mathex}{3}%
+		{cmex10 at 12\p@}{cmex10 at 12\p@}{cmex10 at 12\p@}%
+	\ifx\mbbfam\undefined\else
+	\DeclareFont{mbb}{\mbbfam}{mbb12}{mbb8}{mbb6}\fi
+	\ifx\mathafam\undefined\else
+	\DeclareFont{matha}{\mathafam}{matham10 at 12\p@}{matham8}{matham6}\fi
+	\ifx\mathafam\undefined\else
+	\DeclareFont{mathb}{\mathbfam}{mathbm10 at 12\p@}{mathbm8}{mathbm6}\fi
+%	\ifx\mathxfam\undefined\else
+%	\DeclareFont{mathx}{\mathxfam}%
+%		{mathx10 at 12\p@}{mathx10 at 12\p@}{mathx10 at 12\p@}\fi
+	\DeclareFont{timesroman}{*}{ptmr at 12\p@}{*}{*}%
+	\DeclareFont{timesitalic}{*}{ptmri at 12\p@}{*}{*}%
+	\DeclareFont{timesbold}{*}{ptmb at 12\p@}{*}{*}%
+	% espacements
+	\smallskipamount=3\p@ plus 1\p@ minus 1\p@
+	\medskipamount=6\p@ plus 2\p@ minus 2\p@
+	\bigskipamount=12\p@ plus 4\p@ minus 4\p@
+	\abovedisplayskip=6\p@ plus 3\p@ minus 1\p@
+	\belowdisplayskip=6\p@ plus 3\p@ minus 1\p@
+	\abovedisplayshortskip=0\p@ plus 3\p@
+	\belowdisplayshortskip=4\p@ plus 3\p@
+	\normalbaselineskip=14.4\p@
+	\setbox\strutbox=\hbox{\vrule
+		height9.7\p@ depth4.2\p@ width0\p@}%
+	\normalbaselines\rm}%
+%
+\def\rm{\let\current@face=\roman\roman}%
+\def\it{\let\current@face=\italic\italic}%
+\def\sc{\let\current@face=\smallcaps\smallcaps}%
+\def\bf{\let\current@face=\boldface\boldface}%
+\def\tt{\let\current@face=\monospace\monospace}%
+%
+\def\small{\ninepoint}\let\footnotesize=\small
+\def\tiny{\eightpoint}%
+\def\large{\twelvepoint}%
+\def\normalsize{\tenpoint}%
+%
+\def\ExtraTextFont{\ifx\current@face\roman
+	\timesroman\else\ifx\current@face\italic
+	\timesitalic\else\ifx\current@face\boldface
+	\timesbold\else\timesroman\fi\fi\fi}%
+%
+\def\guillemotleft{{\ExtraTextFont\char"AB}}%
+\def\guillemotright{{\ExtraTextFont\char"BB}}%
+%
+%\def\guillemotleft{\leavevmode\raise.225ex\hbox{%
+%	$\scriptscriptstyle\langle\!\langle$}}%
+%\def\guillemotright{\leavevmode\raise.225ex\hbox{%
+%	$\scriptscriptstyle\rangle\!\rangle$}}%
+%
+\def\em{\ifx\current@face\roman\it\else\rm\fi}%
+%
+\newcount\c@quot
+%
+\def\og@french{\ifnum\c@quot>0``\else\guillemotleft~\ignorespaces\fi
+	\ignorespaces\global\advance\c@quot by 1}%
+%
+\def\fg@french{\global\advance\c@quot by -1\unskip
+	\ifnum\c@quot>0''\else~\guillemotright\fi}%
+%
+\def\og@english{\ifnum\c@quot>0 `\else``\fi
+	\ignorespaces\global\advance\c@quot by 1}%
+\def\fg@english{\global\advance\c@quot by -1\unskip
+	\ifnum\c@quot>0 '\else''\fi}%
+%
+\def\textsuperscript#1{\/\raise.82ex%
+	\hbox{$\current@face\scriptscriptstyle#1$}}%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% MAIN FORMATING COMMANDS (typotex.tex)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\let\stop=\end
+\def\begin#1{\csname #1\endcsname}%
+\def\end#1{\csname end#1\endcsname}%
+%
+% num\'eration
+%
+\def\alphanumeral#1{\ifcase#1 ?\or a\or b\or c\or d%
+	\or e\or f\or g\or h\or i\or j\or k\or l\or m\or n%
+	\or o\or p\or q\or r\or s\or t\or u\or v\or w\or x%
+	\or y\or z\else xx\fi}%
+\def\Alphanumeral#1{\ifcase#1 ?\or A\or B\or C\or D%
+	\or E\or F\or G\or H\or I\or J\or K\or L\or M\or N%
+	\or O\or P\or Q\or R\or S\or T\or U\or V\or W\or X%
+	\or Y\or Z\else XX\fi}%
+%
+% punctuation
+%
+\def\,{\ifmmode\mskip\thinmuskip\else\thinspace\fi}%
+\def\dots{\ifmmode\ldots\else
+	.\kern\fontdimen3\font
+	.\kern\fontdimen3\font
+	.\fi}%
+\def\Bigbreak{\par\ifdim\lastskip<1.5\bigskipamount
+	\removelastskip\penalty-300\vskip1.5\bigskipamount\fi}%
+%
+% equations
+%
+\newcount\c@equation
+\def\everyequationnumber{}%
+\def\eqnum{\global\advance\c@equation by 1
+	\edef\lastref{\everyequationnumber\number\c@equation}%
+	\eqno{(\lastref)}}%
+%
+% sectionnement
+%
+\newcount\c@chapter
+\newcount\c@section
+\newcount\c@subsection
+\newcount\c@subsubsection
+\let\sectionnumber=\number
+\def\lastref{}%
+\def\titlemark{{}{}}%
+%
+\newif\iftitle\titletrue
+\DefineOption{openright}{\def\titlepage{\ifvoid0\else\par\vfill\eject\fi
+	\global\titletrue\gdef\titlemark{{}{}}\ifodd\pageno\else
+	\null\par\vfill\eject\global\titletrue\fi}}%
+\DefineOption{openleft}{\def\titlepage{\ifvoid0\else\par\vfill\eject\fi
+	\global\titletrue\gdef\titlemark{{}{}}\ifodd\pageno
+	\null\par\vfill\eject\global\titletrue\fi}}%
+\DefineOption{openany}{\def\titlepage{\ifvoid0\else\par\vfill\eject\fi
+	\global\titletrue\gdef\titlemark{{}{}}}}%
+% \message{La page \the\pageno\space a ete sautee !}%
+% \advance\pageno by 1\fi}%
+%
+\newif\ifnormalchapter
+\normalchaptertrue
+%
+\let\@author=\undefined
+\def\author#1{\def\@author{#1}}%
+\let\@title=\relax
+\def\title#1{\def\@title{#1}\def\@titlerunning{#1}}%
+\def\institute#1{}%
+\def\titlerunning#1{\def\@titlerunning{#1}}%
+\let\chapterrunning=\titlerunning
+\def\sectionrunning#1{\ifx*#1\let\@next=\@sectionrunning
+	\else\let\@next=\relax\mark{{#1}{\S\ \sectionnumber\c@section}}\fi
+	\@next}%
+\def\@sectionrunning#1{\mark{{#1}{}}}%
+%
+\def\maketitle{\titlepage
+	\normalchapterfalse
+	\let\sectionnumber=\number
+		\let\lastref=\@titlerunning
+		\let\currentchapter=\lastref
+	\edef\titlemark{{\@titlerunning}{}}%
+	\mark{{\@titlerunning}{}}%
+	\def\@tmp{\sectionmark\title}%
+	\expandafter\expandafter\expandafter\@tmp\expandafter{\@title}{}%
+	\@@chapter\@title}%
+\def\chapter#1{\titlepage
+	\ifx*#1
+		\let\@next=\@chapter
+		\normalchapterfalse
+		\let\sectionnumber=\Alphanumeral
+	\else
+		\def\@next{\@chapter{#1}}%
+		\normalchaptertrue
+		\global\advance\c@chapter by 1
+		\let\sectionnumber=\number
+	\fi\@next}%
+%
+\def\@chapter#1{%
+	\def\@titlerunning{#1}%
+	\ifnormalchapter
+		\edef\lastref{\uppercase
+			\expandafter{\romannumeral\c@chapter}}%
+		\edef\currentchapter{\chapvarname~\lastref}%
+		\edef\titlemark{{\@titlerunning}{\currentchapter}}%
+		\mark{{\@titlerunning}{\currentchapter}}%
+		\sectionmark\chapter{#1}{\the\c@chapter}%
+	\else
+		\edef\lastref{#1}%
+		\let\currentchapter=\lastref
+		\edef\titlemark{{\@titlerunning}{}}%
+		\mark{{\@titlerunning}{}}%
+		\sectionmark\chapter{#1}{}%
+	\fi\@@chapter{#1}}%
+\def\@@chapter#1{\titlepagetop
+	\cl@chapter
+	\center
+	{\twelvepoint
+	\ifnormalchapter
+	{\sc\chaptername\unskip~\chapternumeral\c@chapter}%
+	\vskip\bigskipamount\par
+	\fi
+	{\parskip=\smallskipamount
+	\uppercase\expandafter{#1}}\par}%
+	\ifx\@author\undefined
+	\else\rm\authorsep\@author
+	\global\let\@author=\undefined
+	\fi
+	\endcenter\vskip2\bigskipamount}%
+\def\newsection#1#2{\expandafter\def\csname#1\endcsname
+	{\@section{#1}#2}}%
+\def\@section#1#2#3#4#5#6#7#8{#4\csname cl@#1\endcsname
+	\ifx*#8%
+	\def\@next{\@@sectionstar{#1}{#2}{#3}{#5}{#6}{#7}}%
+	\else\def\@next{\@@section{#1}{#2}{#3}{#5}{#6}{#7}{#8}}\fi
+	\@next}%
+\def\@@section#1#2#3#4#5#6#7{%
+	\global\advance\csname c@#2\endcsname by 1
+	\edef\lastref{#3}\def\sectiontext{#7}%
+	\expandafter\sectionmark\csname#1\endcsname{#7}\lastref
+	{#4}#6}%
+\def\@@sectionstar#1#2#3#4#5#6#7{%
+	\def\sectiontext{#7}\def\\{\par\noindent\ignorespaces}%
+	\expandafter\sectionmark\csname#1\endcsname{#7}{}%
+	{#5}\let\\=\endgraf#6}%
+%
+\addtoreset{chapter}{section}%
+\addtoreset{chapter}{equation}%
+\addtoreset{section}{subsection}%
+\addtoreset{subsection}{subsubsection}%
+%
+\DefineOption{defaultsectioning}{%
+	\newsection{section}{{section}%
+		{\sectionnumber\c@section}%
+		{\Bigbreak\breakupto\baselineskip
+		\noindent}%
+		{\rm\lastref.\enspace\bf\sectiontext}%
+		{\bf\sectiontext}%
+		{\nobreak\bigskip}}%
+	\newsection{subsection}{{subsection}%
+		{\sectionnumber\c@section.\number\c@subsection}%
+		{\bigbreak\noindent}%
+		{\rm\lastref.\enspace\sc\sectiontext}%
+		{\sc\sectiontext}%
+		{\nobreak\medskip}}%
+	\newsection{subsubsection}{{subsubsection}%
+		{\number\c@subsubsection\petito}%
+		{\medbreak}%
+		{\noindent\rm\lastref\enspace\it\sectiontext\unskip.}%
+		{\it\sectiontext\unskip.}%
+		{\claimsep}}}%
+\DefineOption{AMSsectioning}{%
+	\newsection{section}{{section}%
+		{\sectionnumber\c@section}%
+		{\Bigbreak\breakupto\baselineskip}%
+		{\center\rm\S\ \lastref.\enspace\sc\sectiontext\endcenter}%
+		{\center\sc\sectiontext\endcenter}%
+		{\nobreak\bigskip}}%
+	\newsection{subsection}{{subsection}%
+		{\sectionnumber\c@section.\number\c@subsection}%
+		{\medbreak}%
+		{\rm\lastref.\enspace\it\sectiontext\unskip.}%
+		{\it\sectiontext\unskip.}%
+		{\claimsep}}%
+	\newsection{subsubsection}{{subsubsection}%
+		{\number\c@subsubsection\petito}%
+		{\medbreak}%
+		{\rm\lastref\enspace\it\sectiontext\unskip.}%
+		{\it\sectiontext\unskip.}%
+		{\claimsep}}}%
+\def\paragraph#1{\claimbreak{\it#1\unskip.}\claimsep}%
+\let\endparagraph=\medbreak
+\def\center{\par\bgroup\centering}%
+\def\endcenter{\par\egroup}%
+\def\centering{\leftskip=0\p@ plus 1fil
+	\rightskip=0\p@ plus 1fil
+	\parfillskip=0\p@
+	\parindent=0\p@}
+%
+% lists
+%
+\newcount\c@item
+\let\if@insidelist\iffalse
+\newdimen\itemindent
+\long\def\startlist#1#2{\c@item=0
+	\expandafter\ifx\csname #1@item\endcsname\relax
+	\roman@item\else\csname #1@item\endcsname\fi
+	\ifx[#2\let\@next=\list@item@fix
+	\else\def\@next{#2}\let\item@box=\relax\fi\@next}%
+%
+\let\item@box=\relax
+\def\list@item@fix#1]{\setbox0=\hbox{#1}\edef\item@box##1{\noexpand\hbox
+	to \the\wd0{\noexpand\hss##1}}}%
+%
+%\long\def\item@all@#1#2{\ifvmode\smallbreak\fi
+%	\ifx#2[\let\@next\item@all@@
+%	\else\def\@next{\advance\c@item by 1
+%		\item@box{#1}\enspace\ignorespaces#2}\fi
+%	\@next}%
+%\long\def\item@all@@#1]{\item@box{#1}\enspace\ignorespaces}%
+\long\def\item@all@#1{\ifvmode\smallbreak\fi
+	\advance\c@item by 1
+	\item@box{#1}\enspace\ignorespaces}%
+%
+\def\roman@item{\let\item=\item@roman}%
+\def\item@roman{\item@all@{\rm(\romannumeral\c@item)}}%
+%
+\def\alpha@item{\let\item=\item@alpha}%
+\def\item@alpha{\item@all@{\it\alphanumeral\c@item\/\rm)}}%
+%
+\def\arabic@item{\let\item=\item@arabic}%
+\def\item@arabic{\item@all@{\rm\number\c@item.}}%
+%
+\def\bullet@item{\advance\leftskip by\itemindent
+	\def\item{\ifvmode\smallbreak\fi
+		\noindent\llap{$\bullet$\enspace}\ignorespaces}}%
+%
+\def\definitions@item{\advance\leftskip by\itemindent
+	\def\item##1{\ifvmode\smallbreak\fi
+		\noindent\leavevmode\hskip-\itemindent
+		\item@box{##1}\enspace\ignorespaces}}%
+\def\list#1{\bgroup\if@insidelist\par
+	\advance\leftskip by\itemindent\fi
+	\let\if@insidelist\iftrue
+	\startlist{#1}}%
+\def\endlist{\smallbreak\egroup}%
+%
+% verbatim
+%
+\newdimen\tabindent\tabindent=4em
+\let\verbatimsep\quad
+{\obeyspaces\gdef {\leavevmode\space}%
+\catcode`\^^I=\active\gdef^^I{\hskip\tabindent\relax}}%
+\def\rawverbatim{%
+	\def\@numberedverbatimpar{\def\par{\ifvmode
+		\endgraf\vskip\baselineskip\advance\count@ by 1
+		\else\endgraf\fi}%
+		\everypar={\advance\count@ by 1\leavevmode
+		\llap{\the\count@\verbatimsep}}}%
+	\def\@verbatimpar{\def\par{\ifvmode
+		\endgraf\vskip\baselineskip\else\endgraf\fi}%
+		\everypar={}}}%
+\def\smartverbatim{%
+	\def\@numberedverbatimpar{%
+		\def\par{\ifvmode\endgraf
+			\ifdim\lastskip<\medskipamount
+			\removelastskip\penalty-100\medskip
+			\@verbatimskiptrue\fi\else\endgraf\fi}%
+		\everypar={\advance\count@ by 1\leavevmode
+			\@ifverbatimskip
+			\llap{\the\count@\verbatimsep}%
+			\@verbatimskipfalse\fi}}%
+	\def\@verbatimpar{%
+		\def\par{\ifvmode\endgraf
+			\ifdim\lastskip<\medskipamount
+			\removelastskip\penalty-100\medskip\fi
+			\else\endgraf\fi}%
+		\everypar={}}}%
+%
+\def\@verbatimskiptrue{\let\@ifverbatimskip\iftrue}%
+\def\@verbatimskipfalse{\let\@ifverbatimskip\iffalse}%
+\smartverbatim
+\def\verb{\bgroup\tt\uncatcodespecials\obeyspaces\@verb}%
+\def\verbatim{\medbreak\bgroup
+	\rightskip=0\p@ minus 1000\p@
+	\tt\uncatcodespecials\obeyspaces
+	\catcode`\^^I=\active\@verbatim}%
+\def\@verbatim#1{\ifx[#1%
+	\@verbatimskiptrue
+	\@numberedverbatimpar\obeylines\let\@next=\@@verbatim
+	\else\@verbatimpar\obeylines\parindent=0\p@
+	\def\@next{\@@@verbatim#1}\fi\@next}%
+\def\@@verbatim#1]{\setbox0=\hbox{#1\verbatimsep}\parindent=\wd0
+	\count@=0\@@@verbatim}%
+\def\verbatimfile#1{\ifx[#1\let\@next\@verbatimfile
+	\else\def\@next{\@@verbatimfile{\input #1}}\fi\@next}%
+\def\@verbatimfile#1]#2{\@@verbatimfile{[#1]\input #2}}%
+{\catcode`\|=0\catcode`\\=12
+|gdef|@verb#1\endverb{#1|egroup}%
+|gdef|@@@verbatim#1\endverbatim{#1|egroup|medbreak}%
+|gdef|@@verbatimfile#1{|verbatim #1|relax\endverbatim}}%
+\def\uncatcodespecials{\def\do##1{\catcode`##1=12 }\dospecials}%
+%
+% Theorems and such
+%
+% o  \theorem<text>    : Theorem 1. --- <text>
+% o  \theorem*[<text>] : Theorem <text>. ---
+% o  \theorem*<text>   : Theorem. --- <text>
+% o  \theorem[<text>]  : Theorem 1 <text>. ---
+%
+\def\everyclaimnumber{}% one can put some chapter number
+%\def\ensurenumbering{\global\let\@numbering=!}%
+\long\def\@claim#1#2#3#4#5{\claimbreak
+	\bgroup\startlist{roman}\sc#1%
+	\ifx*#4%
+		\def\lastref{}%
+		\ifx[#5%
+			\def\@next##1]{\unskip\ ##1\unskip\rm.#3\claimsep}%
+		\else
+			\def\@next{\rm.#3\claimsep#5}%
+		\fi
+	\else\ifx[#4%
+		\def\@next##1]{\unskip\ #5##1\unskip\rm.#3\claimsep}%
+		\global\advance#2 by 1
+		\edef\lastref{\everyclaimnumber\number#2}%
+		\ \lastref
+	\else\global\advance#2 by 1
+		\edef\lastref{\everyclaimnumber\number#2}%
+		\ \lastref\unskip\rm.#3\claimsep\relax
+		\def\@next{#4#5}\fi\fi\@next}%
+\def\end@claim{\par\egroup
+	\ifdim\lastskip<\medskipamount
+	\removelastskip\penalty55\medskip\fi}%
+%
+\newcount\c@theorem \newcount\c@proposition \newcount\c@lemma
+\newcount\c@definition \newcount\c@corollary \newcount\c@figure
+%
+\def\claim#1{\@claim{#1}*\it*}%
+\let\endclaim=\end@claim
+%
+\def\newtheorem#1#2{\expandafter\let\csname end#1\endcsname=\end@claim
+	\expandafter\def\csname#1\endcsname{\@claim#2}}%
+%
+\newtheorem{theorem}{\theoremname\c@theorem\it}%
+\newtheorem{proposition}{\propositionname\c@proposition\it}%
+\newtheorem{definition}{\definitionname\c@definition\relax}%
+\newtheorem{corollary}{\corollaryname\c@corollary\it}%
+\newtheorem{lemma}{\lemmaname\c@lemma\it}%
+\newtheorem{remark}{{\it\remarkname}*{\let\item=\item@alpha}*}%
+\newtheorem{remarks}{{\it\remarksname}*{\let\item=\item@alpha}*}%
+\newtheorem{example}{{\it\examplename}*{\let\item=\item@alpha}*}%
+\newtheorem{examples}{{\it\examplesname}*{\let\item=\item@alpha}*}%
+\newtheorem{exercice}{{\it\exercicename}*{}*}%
+%
+\long\def\proof#1{\claimbreak
+	\ifx[#1%
+	\def\@next##1]{{\it\proofname\ ##1\unskip.}\claimsep}%
+	\else\def\@next{{\it\proofname.}\claimsep#1}\fi\@next}%
+\def\endproof{\medbreak}%
+%\null\hfill$\Box$\medbreak}%
+\def\qed{\relax\ifmmode\Box\else
+	{\unskip\nobreak\hfil\penalty50\hskip1em\null\nobreak\hfil$\Box$%
+	\parfillskip=\z@\finalhyphendemerits=0\endgraf}\fi}%
+%
+\long\def\skiptext#1\endskiptext{\ifx\proofmode\undefined
+	\else
+	\par
+	{\ninepoint\leavevmode\llap{$^*$}\ignorespaces#1\unskip$_*$}%
+	\par
+	\fi}%
+%
+\def\figure{\global\advance\c@figure by 1
+	\edef\lastref{\number\c@figure}%
+	{\sc\figurename\unskip\ \lastref.}}%
+%
+\def\foreword{\skip@=\lastskip\hbox to \hsize\bgroup\hfill
+	$\ifx\lfilet\undefined
+		\vcenter\bgroup\advance\hsize by -2\parindent
+	\else
+		\setbox0=\hbox{$\left\lfilet\right.$}\dimen@=\parindent
+		\advance\dimen@ by -\wd0
+		\left\lfilet\hskip\dimen@
+		\vcenter\bgroup
+			\advance\hsize by -4\parindent\fi
+			\ninepoint}%
+\def\endforeword{\egroup\ifx\lfilet\undefined\else
+	\hskip\dimen@\right\rfilet\fi$\hfill\egroup\par\vskip\skip@}%
+\let\abstract=\foreword
+\let\endabstract=\endforeword
+%
+\newcount\c@footnote
+%
+\def\footnoterule{\kern-3\p@
+  \hrule width 2truein \kern 2.6\p@}% the \hrule is .4pt high
+%
+\def\footnote{%
+	\edef\@sf{\spacefactor\the\spacefactor}%
+	\global\advance\c@footnote by 1
+	$^{\the\c@footnote}$\@sf
+	\insert\footins\bgroup\ninepoint
+	\interlinepenalty100 \let\par=\endgraf
+	\leftskip=\z@skip \rightskip=\z@skip
+	\splittopskip=10\p@ plus 1\p@ minus 1\p@
+	\floatingpenalty=20000
+	\smallskip$\the\c@footnote.$\enspace
+	\bgroup\strut\aftergroup\@foot\let\@next}%
+\skip\footins=12\p@ plus 2\p@ minus 4\p@ % space added when footnote is present
+%\count\footins=1000 % footnote magnification factor (1 to 1)
+\dimen\footins=30pc % maximum footnotes per page
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% BIBLIOGRAPHY SECTION
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% \bibliographym@rk and \bibname must be defined somewhere
+% (see much below).
+% \refsp@ce is the spacing command that appens between multiple
+% references.
+%
+\let\refsp@ce=\
+\def\citeopen{[}%
+\def\citeclose{]}%
+%
+%\let\refsp@ce=\thinspace
+%\def\citeopen{$^\bgroup}%
+%\def\citeclose{\egroup}}%
+%
+% new variables
+%
+\newcount\c@bibitem
+\newif\ifref@changes\ref@changesfalse
+\newif\ifpageref@changes\ref@changesfalse
+\newif\ifbib@changes\bib@changesfalse
+\newif\ifref@undefined\ref@undefinedfalse
+\newif\ifpageref@undefined\ref@undefinedfalse
+\newif\ifbib@undefined\bib@undefinedfalse
+%
+% One can reference anything, just copy the former macro
+% and use it so: \machin \label{truc}%
+% In machin you would have defined \lastref by some number
+% or any text.
+%
+% References macros
+%
+% The next macros are the core of \ref and \cite commands.
+% Its first argument may be ref, pageref or bib.
+%
+% It is too tricky to be explained.
+% (It is a bit recursive.)
+% It allows using \cite or \ref or ...
+% with arbitrary many arguments,
+% for instance:
+% \cite{knuth1,knuth2,ma pomme}%
+%
+% First argument is always ref, pageref or bib.
+%
+% Note that \meaning\@next is there to allow active things
+% or control sequences within the referencing tag.
+%
+\def\re@dreferences#1#2{{%
+	\re@dreferenceslist{#1}#2,\undefined\@@}}%
+\def\re@dreferenceslist#1#2,#3\@@{\def\@next{#2}%
+	\expandafter\ifx\csname#1@@\meaning\@next\endcsname\relax
+	??\immediate\write16
+	{Warning, #1-reference "\@next" on page \folio\space
+	is undefined.}%
+	\global\csname#1@undefinedtrue\endcsname
+	\else\HyperLinkRef{#1@@#2}\csname#1@@\meaning\@next\endcsname
+		\endHyperLink\fi
+	\ifx#3\undefined\relax
+	\else,\refsp@ce\re@dreferenceslist{#1}#3\@@\fi}%
+%
+% notice that the former ``,\refsp@ce'' will separate
+% multiple arguments. But beware of spaces
+% while defining a reference or calling for it!
+%
+% tricky thing: \newlabel has two arguments
+% {labelname}{{\lastref}{\pageref}}%
+% The second argument is read as two arguments
+% by \newl@bel. This was necessary to get
+% a jobname.aux containing the same syntax
+% LaTeX would produce and use.
+%
+\def\newlabel#1#2{{\def\@next{#1}\newl@bel#2}}%
+\def\newl@bel#1#2{%
+	\expandafter\xdef\csname ref@@\meaning\@next\endcsname{#1}%
+	\expandafter\xdef\csname pageref@@\meaning\@next\endcsname{#2}}%
+% \immediate can cause nasty things with \pageref...
+\def\label#1{{\init@aux
+	\toks0={#1}\message{ref(\lastref) \the\toks0,}%
+	\immediate\write\aux@out%
+	{\noexpand\newlabel{\the\toks0}{{\lastref}{\folio}}}%
+	\HyperLinkName{ref@@#1}\endHyperLink\def\@next{#1}%
+	\expandafter\ifx\csname ref@@\meaning\@next\endcsname\lastref
+	\else\message{former label is to be checked,}%
+	\global\ref@changestrue\fi%
+	\newlabel{#1}{{\lastref}{\folio}}}}%
+\def\ref#1{\re@dreferences{ref}{#1}}%
+\def\pageref#1{\re@dreferences{pageref}{#1}}%
+%
+% bibliography macros
+%
+\def\bibcite#1#2{{\def\@next{#1}%
+	\expandafter\xdef\csname bib@@\meaning\@next\endcsname{#2}}}%
+\def\cite#1{\citeopen\re@dreferences{bib}{#1}\citeclose}%
+%
+% The argument of \thebibliography
+% is any sequence of numerals which will represent
+% the maximum \item's length. If you have less than 9
+% \bibitem's, this argument may be {any numeral}.
+% if you have between 100 and 999 \bibitem's
+% this argument may be {any three numerals},
+% and so on.
+%
+\def\thebibliography#1{\bibliographym@rk
+	\setbox0\hbox{\citeopen#1\citeclose\enspace}%
+	\parindent=\wd0
+	\global\c@bibitem=0
+	\def\bibitem##1{\init@aux
+		\global\advance\c@bibitem by 1
+		\edef\lastref{\number\c@bibitem}%
+		{\toks0={##1}%
+		\message{bib[\lastref] \the\toks0,}%
+		\immediate\write\aux@out
+		{\noexpand\bibcite{\the\toks0}{\lastref}}}%
+		\def\@next{##1}%
+		\expandafter\ifx
+		\csname bib@@\meaning\@next\endcsname\lastref
+		\else\global\bib@changestrue\fi%
+		\bibcite{##1}{\lastref}%
+		\medbreak
+		\item{\hfill\citeopen
+			\HyperLinkName{bib@@##1}\lastref
+			\endHyperLink\citeclose}%
+		}%
+	\def\idem{\vrule width 4em height 0.222\p@ depth 0pt\,}%
+	}%
+\def\endthebibliography{\par\egroup\par}%
+%
+\def\extra@end{}%
+%
+% initialization of jobname.aux
+%
+\newwrite\aux@out
+\def\init@aux{%
+	\immediate\openin\aux@out=\jobname.aux
+	\ifeof\aux@out
+		\immediate\write16{Creating file \jobname.aux}%
+		\immediate\closein\aux@out
+		\immediate\openout\aux@out=\jobname.aux
+		\immediate\write\aux@out{\relax}%
+		\immediate\closeout\aux@out
+	\else
+		\immediate\closein\aux@out
+	\fi
+	\gdef\@toc{}%
+	\input\jobname.aux
+	\immediate\openout\aux@out=\jobname.aux
+	\global\let\init@aux=\relax
+	\global\let\sectionmark=\@sectionmark
+	\addto\extra@end{\closeout\aux@out
+		\ifref@changes\immediate\write16%
+		{Warning, changes in references.}\fi
+		\ifpageref@changes\immediate\write16%
+		{Warning, changes in page references.}\fi
+		\ifbib@changes\immediate\write16%
+		{Warning, changes in bibliography.}\fi
+		\ifref@undefined\immediate\write16%
+		{Warning, references undefined.}\fi
+		\ifpageref@undefined\immediate\write16%
+		{Warning, page references undefined.}\fi
+		\ifbib@undefined\immediate\write16%
+		{Warning, citations undefined.}\fi}}%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% LAYOUT COMMANDS
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Table des matieres
+%
+\def\content#1#2#3#4{\addto\@toc{#1{#2}{#3}{#4}}}%
+%
+\def\ignorecontentstitles{\def\contents@title##1##2##3{}}%
+\def\usecontentstitles{\def\contents@title##1##2##3{\chapter{##1}{##2}{##3}}}%
+\ignorecontentstitles
+\def\tableofcontents{%
+	\init@aux
+	\tableofcontentsm@rk
+	\def\\{\par\noindent\ignorespaces}% 
+	\def\smartdot##1{{\def\@arg{##1}%
+		\ifx\@arg\empty\relax\else##1\unskip.\enspace\fi}}%
+	\def\leaderfill{\leaders\hbox to 1em{\hss.\hss}\hfill}%
+%	\let\normalchapterfalse=\relax\let\normalchaptertrue=\relax
+	\let\title=\contents@title
+	\def\chapter##1##2##3{\bigbreak\noindent%\let\endgraf=\relax
+		{\parindent=0\p@
+		\bf\ifx##2\relax\else
+			\chaptername\unskip\
+			\smartdot{\chapternumeral{##2}}\fi##1}%
+		\leaderfill##3\nobreak\medskip}%
+	\def\section##1##2##3{\medbreak\noindent
+		{\rm\smartdot{##2}\sc##1}\leaderfill
+			##3\nobreak\smallskip}%
+	\def\subsection##1##2##3{\smallbreak
+		\hangindent\parindent
+		{\rm\smartdot{##2}\it##1}\leaderfill##3\par}%
+	\def\subsubsection##1##2##3{\par\indent\indent
+		\hangindent3\parindent
+		{\rm##2\enspace##1}\leaderfill##3\par}%
+	\@toc
+	\egroup\endtableofcontents}%
+%
+\def\\{\let\stoken= }\\
+\long\def\unexpandwrite#1#2{\def\writ@{\write#1}%
+	{\aftergroup\writ@\aftergroup{\s@nitize#2\ends@nity}}}%
+\def\s@nitize{\futurelet\@next\s@nswitch}%
+\def\s@nswitch{\ifx\@next\ends@nity
+	\else\ifcat\noexpand\@next\stoken\aftergroup\space\let\@next\e@t
+	\else\ifcat\noexpand\@next\bgroup\aftergroup{\let\@next\e@t
+	\else\ifcat\noexpand\@next\egroup\aftergroup}\let\@next\e@t
+	\else\let\@next\copyt@ken\fi\fi\fi\fi
+	\@next}%
+\def\e@t{\afterassignment\s@nitize\let\@next= }%
+\long\def\copyt@ken#1{\ifcat\noexpand#1\relax\aftergroup\noexpand
+	\else\ifcat\noexpand#1\noexpand~\aftergroup\noexpand\fi\fi
+	\aftergroup#1\s@nitize}%
+\def\ends@nity\ends@nity{}%
+\long\def\semiexpandwrite#1#2#3{%
+	\def\writ@{\write#1}\def\toexp@nd{#3}%
+	% beware, a \gdef may replace the last \def
+	{\aftergroup\writ@\aftergroup{\s@nitize#2\ends@nity
+	\aftergroup\toexp@nd}}}%
+%
+\long\def\unexpandmark#1#2{\def\writ@{\mark}%
+	{\aftergroup\writ@\aftergroup{\s@nitize{#2}{#1}\ends@nity}}}%
+\def\semiexpandmark#1#2{\edef\@next{\noexpand\unexpandmark{#2}}%
+	\@next{#1}}%
+%
+% The next macro must be used in sectionning commands
+% as: \sectionmark\section{name of the section}\lastref.
+% When \jobname.aux is initialized, it becomes \@sectionmark
+% and then writes in \jobname.aux informations for the table
+% of contents (and changes headings as it always should do).
+%
+\def\sectionmark#1#2#3{\ifnum\pageno>-1
+ 	\ifx#1\section\semiexpandmark{#2}{#3}\fi\fi}%
+%
+\def\@sectionmark#1#2#3{\ifnum\pageno>-1
+ 	\ifx#1\section\semiexpandmark{#2}{#3}\fi
+	\edef\@next{\noexpand\@@sectionmark{#3}}% section number is expanded
+	\@next{#1}{#2}\relax\fi}%
+%
+\def\@@sectionmark#1#2#3{%
+	\semiexpandwrite\aux@out{\content#2{#3}{#1}}{{\folio}}}%
+%
+% sections and al. will be marked if and only if
+% the current page number is strictly positive.
+%
+% headings
+%
+\def\righthead#1#2{\if#2\relax\relax\else\rlap{\headroman\S\ #2}\fi
+	\hfil{\ninepoint\it#1}\hfil\llap{\headroman\folio}}%
+\def\lefthead#1#2{\rlap{\headroman\folio}\hfil{\ninepoint\it#1}\hfil
+		\llap{\headroman#2}}%
+\def\mixedmarks{\def\@tmp##1##2##3##4{%
+	% A REVOIR
+	\ifx##2\relax\relax
+		\ifx##4\relax\relax
+			\def\firstbotmark{{##1/##3}{}}%
+		\else
+			\def\firstbotmark{{##1/##3}{##4}}%
+		\fi
+	\else
+		\ifx##4\relax\relax
+			\def\firstbotmark{{##1/##3}{##2}}%
+		\else\def\firstbotmark{{##1/##3}{##2\,--\,##4}}%
+		\fi
+	\fi}%
+	\expandafter\expandafter\expandafter
+	\@tmp\expandafter\firstmark\botmark}%
+%
+% changes in output
+%
+% \documentclass
+%
+\DefineOption{book}{%
+	\def\titlepagetop{\topglue 2\bigskipamount}%
+	\def\tableofcontentsm@rk{\chapter*{\contentsname}\bgroup}%
+	\let\endtableofcontents=\relax%\newpage
+	\def\bibliographym@rk{\chapter*{\bibname}\bgroup}%
+	\def\everyclaimnumber{}%
+	\def\everyequationnumber{\ifnormalchapter\number\c@chapter.\else
+		\sectionnumber\c@section.\fi}%
+	\headline={\iftitle\hfil\global\titlefalse
+		\ifodd\pageno\advance\pageno by 1\fi
+	\else
+		\ifodd\pageno
+			\edef\tmp@a{\firstmark}%
+			\edef\tmp@b{\botmark}%
+			\ifx\tmp@a\tmp@b
+				\expandafter\righthead\botmark
+			\else\mixedmarks
+				\expandafter\righthead\firstbotmark\fi
+		\else\expandafter\lefthead\titlemark
+		\fi
+	\fi}%
+	\footline={\hfil}}%
+%
+\DefineOption{article}{%
+	\def\titlepagetop{\topglue 2\bigskipamount}%
+	\def\tableofcontentsm@rk{\Bigbreak\centerline{\sc\contentsname}%
+%		\sectionmark\section{\contentsname}{}%
+		\bigbreak\bgroup\ninepoint}%
+	\let\endtableofcontents=\Bigbreak
+	\def\bibliographym@rk{\Bigbreak\centerline{\sc\refname}%
+		\sectionmark\section{\refname}{}%
+		\bigbreak\bgroup\ninepoint}%
+	\def\everyclaimnumber{}%
+	\def\everyequationnumber{}%
+	\headline={\hfil}%
+	\footline={\hfil{\headroman\folio}\hfil}}%
+%
+\DefineOption{preprint}{\option@article
+	\headline={\iftitle\hfil\global\titlefalse
+		\else\ifnum\pageno>1\ifodd\pageno
+		\righthead{\today}{}\else
+		\expandafter\lefthead\titlemark\fi
+		\else\hfil\fi\fi}%
+	\footline={\hfil}}%
+%
+\DefineOption{enseignement}{\option@article
+	\mag=\magstep1
+	\hoffset=-0.54truecm\hsize=17truecm
+	\voffset=-0.54truecm\vsize=25.7truecm
+	\headline={\iftitle\hfil\global\titlefalse
+		\else\ifnum\pageno>1\ifodd\pageno
+		\righthead{\ifx\meta@degree\undefined\titlemark
+		\else\meta@degree\fi}{}\else
+		\expandafter\lefthead\titlemark\fi
+		\else\hfil\fi\fi}%
+	\def\titlepagetop{\noindent\leavevmode
+		\meta@head\vskip2\bigskipamount}%
+	\footline={\hfil}}%
+%
+\def\onepageout{\ifodd\pageno \advance\hoffset by \offsetcorrection
+	\else\advance\hoffset by -\offsetcorrection\fi
+	\shipout\vbox{\makeheadline\pagebody\makefootline}%
+	\advancepageno
+	\ifnum\outputpenalty>-\@MM \else\dosupereject\fi}%
+%
+\output={\onepageout}%
+%
+\newdimen\offsetcorrection\offsetcorrection=\z@
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% typoindx.tex. Version : 28 octobre 2002.
+% Auteur : Anthony PHAN.
+%
+% (inspiré de manmac.tex, book.cls)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\def\index#1{\init@aux
+	\semiexpandwrite\aux@out{\indexentry{#1}}{{\folio}}}%
+\def\indexentry#1#2{}%
+%
+\def\theindex{\chapter*{\indexname}%
+	%\vskip-20pt
+	\nobreak\doublecolumns\raggedright
+	\parskip\z@ plus .3\p@
+	\parindent\z@
+	\def\bold##1{{\bf##1}}\def\see##1##2{{\it\seename}\/~##1}%
+	\def\item{\par\hangindent 40\p@}%
+	\def\subitem{\item \vrule width\z@\nobreak
+                \hskip 20\p@\hskip \z@skip}%
+	\def\subsubitem{\item \vrule width\z@\nobreak
+                \hskip 30\p@\hskip \z@skip}%
+	\def\indexspace{\par\vskip10\p@ plus5\p@ minus3\p@\relax}}%
+%	\let\indexspace\medbreak}%
+\def\endtheindex{\enddoublecolumns\par\vfill\eject}%
+\def\printindex{\input\jobname.ind
+	\relax}%
+%
+\newbox\partialpage
+\newdimen\pagewidth
+\newdimen\pageheight
+\pagewidth=\hsize\pageheight=\vsize
+%
+\def\doublecolumns{\pagewidth=\hsize\pageheight=\vsize\begingroup
+%	\tolerance 9999 \emergencystretch 3em%
+%	\hfuzz .5\p@\vfuzz\hfuzz
+	\output={\global\setbox\partialpage=\vbox{\unvbox255}}\eject
+	\output={\doublecolumnout}%
+	\divide\hsize by 2\advance\hsize by -1em
+	\multiply\vsize by 2}
+%
+\def\enddoublecolumns{\output={\balancecolumns}\eject
+	\endgroup \pagegoal=\vsize}%
+%
+\def\doublecolumnout{\splittopskip=\topskip \splitmaxdepth=\maxdepth
+	\dimen@=\pageheight\advance\dimen@ by-\ht\partialpage
+%	\advance\dimen@ by -0.5ex
+	\setbox0=\vsplit255 to\dimen@ \setbox2=\vsplit255 to\dimen@
+	{\setbox255=\vbox{\pagesofar}% compatible avec plain ou presque
+	\hsize=\pagewidth\vsize=\pageheight\onepageout}%
+	\unvbox255\penalty\outputpenalty}%
+%
+\def\pagesofar{\unvbox\partialpage\vskip\z@ plus\z@ minus3\p@
+	\wd0=\hsize \wd2=\hsize \hbox to\pagewidth{\box0\hfil\box2}}%
+%
+\def\balancecolumns{\setbox0=\vbox{\unvbox255} \dimen@=\ht0
+	\advance\dimen@ by\topskip \advance\dimen@ by-\baselineskip
+	\divide\dimen@ by2 \splittopskip=\topskip
+	{\vbadness=10000 \loop \global\setbox3=\copy0
+		\global\setbox1=\vsplit3 to\dimen@
+		\ifdim\ht3>\dimen@ \global\advance\dimen@ by1pt \repeat}%
+	\setbox0=\vbox to\dimen@{\unvbox1}%
+	\setbox2=\vbox to\dimen@{\unvbox3}%
+	\pagesofar}%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% BOXES
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\newdimen\fboxrule\fboxrule0.8pt
+\newdimen\fboxsep\fboxsep2pt
+\long\def\fbox#1{\hbox{\setbox0\hbox{#1}\dimen@\dp0\advance\dimen@\fboxsep
+	\advance\dimen@\fboxrule\lower\dimen@\hbox{\vrule width\fboxrule
+	\vbox{\hrule height\fboxrule\kern\fboxsep
+		\hbox{\kern\fboxsep\box0\kern\fboxsep}%
+		\kern\fboxsep\hrule height\fboxrule}\vrule width\fboxrule}}}%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% PERSONAL STUFF
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\hyphenation{pro-ba-bi-li-ste pro-ba-bi-li-stes
+	sto-chas-tique sto-chas-tiques pro-ces-sus
+	lip-schi-tzien lip-schi-tziens lip-schi-tzien-ne
+	lip-schi-tzien-nes
+	mar-tin-gale mar-tin-gales
+	brow-nien brow-niens brow-nien-ne brow-nien-nes
+	li-mi-te li-mi-tes
+	mar-ko-vien mar-ko-viens mar-ko-vienne mar-ko-viennes
+	ins-tant ins-tants
+	ca-no-nique ca-no-niques}%
+%
+% frenchy stuff
+%
+\def\petito{\textsuperscript o}%
+\def\numero{n\textsuperscript o~\ignorespaces}%
+%
+% extending math commands (LaTeX-like)
+%
+\ifx\mathbb\undefined
+	\def\mathbb#1{{\bf#1}}\fi
+\def\mathcal#1{{\cal#1}}%
+\def\mathbf#1{{\bf#1}}%
+\def\mathrm#1{{\rm#1}}%
+%
+\ifx\euro\undefined
+\def\euro{\leavevmode{% Poor but complex Euro symbol
+		\setbox0=\hbox{$\vcenter{\null}$}\dimen@=-\ht0
+		\setbox0=\hbox{C}\advance\dimen@ by 0.5\ht0
+		\rlap{\raise\dimen@\hbox{=}}%
+		% taking slant into account
+		\dimen@i=1pt\divide\dimen@ by \dimen@i
+		\dimen@i=\fontdimen1\the\font
+		\multiply\dimen@ by -\dimen@i
+		\advance\dimen@ by 0.16em 
+		\kern\dimen@ C}}%
+\fi
+\ifx\Box\undefined
+\def\Box{{\setbox0\hbox{$+$}\dimen0=\ht0
+	\advance\dimen0 by \dp0 \advance\dimen0 by -0.8\p@
+	\vcenter{\hbox to \wd0{\hss\vbox{%
+		\hrule height 0.4pt\hbox{%
+			\vrule width 0.4\p@
+			\vbox to \dimen0{\hbox to \dimen0{\hss}\vss}%
+			\vrule width 0.4\p@}%
+		\hrule height 0.4\p@}\hss}}}}%
+\fi
+\ifx\lbbbrack\undefined\def\lbbbrack{[\![}\def\rbbbrack{]\!]}\fi
+%\def\indic@trice{\mathop{\mathbb 1\null}\mskip-\thinmuskip\mathord{\null}}%
+\def\indic@trice{\mathbb 1}%
+\def\indicatrice#1{\ifx*#1
+	\def\@next{\indic@trice_}\else
+	\let\@next=\relax\indic@trice_{\{#1\}}\fi\@next}%
+\def\dd{\mathop{\rm d\null}\mskip-\thinmuskip\mathord{\null}}%
+\def\ee{\mathop{\rm e\null}\mskip-\thinmuskip\mathord{\null}}%
+\mathchardef\ii="7069% i imaginaire
+\def\Proba{\mathop{\mathbb P\null}\nolimits}%
+\def\Expect{\mathop{\mathbb E\null}\nolimits}%
+\def\Var{\mathop{\rm Var}\nolimits}%
+\def\Bor{\mathop{\rm\mathcal Bor}\nolimits}%
+\def\pBor{\mathop{\rm p\mathcal Bor}\nolimits}%
+\def\bBor{\mathop{\rm b\mathcal Bor}\nolimits}%
+\def\Dom{\mathop{\rm Dom}\nolimits}%
+\def\Id{\mathop{\rm Id}\nolimits}%
+\def\sgn{\mathop{\rm sgn}\nolimits}%
+\def\card{\mathop{\rm Card}\nolimits}\let\Card=\card
+\ifx\complement\undefined\def\complement{c}\fi
+\mathchardef\D="7064% d differentiel
+\mathchardef\E="7065% e exponentiel
+\mathchardef\I="7069% i imaginaire
+\DefineOption{isolatin}{%
+	\def\@tmp##1{\ifx##1\undefined\let\@next=\relax
+		\else\catcode`##1=\active\fi\@next}%
+	\let\@next=\@tmp
+	\@tmp«»áàâäçéèêëìîïñóòôöùûüÿ
+	ÀÂÄÇÉÈÊËÌÎÏÑÒÔÖÙÛÜ¾°‚ƒˆ\undefined}%
+{\option@isolatin
+	\gdef«{``}\gdef»{''}%
+	\gdefá{\'a}\gdefà{\`a}\gdefâ{\^a}\gdefä{\"a}%
+	\gdefç{\c c}%
+	\gdefé{\'e}\gdefè{\`e}\gdefê{\^e}\gdefë{\"e}%
+	\gdefì{\`\i}\gdefî{\^\i}\gdefï{\"\i}%
+	\gdefñ{\~n}%
+	\gdefó{\'o}\gdefò{\`o}\gdefô{\^o}\gdefö{\"o}%
+	\gdefù{\`u}\gdefû{\^u}\gdefü{\"u}%
+	\gdefÿ{\"y}%
+	\gdefÀ{\`A}\gdefÂ{\^A}\gdefÄ{\"A}%
+	\gdefÇ{\c C}%
+	\gdefÉ{\'E}\gdefÈ{\`E}\gdefÊ{\^E}\gdefË{\"E}%
+	\gdefÌ{\`I}\gdefÎ{\^I}\gdefÏ{\"I}%
+	\gdefÑ{\~N}%
+	\gdefÒ{\`O}\gdefÔ{\^O}\gdefÖ{\"O}%
+	\gdefÙ{\`U}\gdefÛ{\^U}\gdefÜ{\"U}%
+	\gdef¾{\"Y}\gdef°{\ifmmode^\circ\else$^\circ$\fi}%
+	\gdef‚{\smash{\hbox to 0.5em{\hss\vrule height\ht\strutbox
+	depth\dp\strutbox width 0.4pt\hss}}}%
+	\gdefƒ{\hbox{\dimen@=-0.5ex\advance\dimen@ by 0.4pt
+	\vrule width0.5em height0.5ex depth\dimen@}}%
+	\gdefˆ{\smash{\rlap{ƒ}‚}}}%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% THAT'S ALL, FOLKS!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\outer\def\bye{\extra@end\par\vfill\supereject\stop}%
+\let\document=\relax
+\let\enddocument=\bye
+\let\\=\endgraf
+\def\newpage{\par\vfil\eject}%
+%
+% initialization of \jobname.aux
+%
+\immediate\openin\aux@out=\jobname.aux
+\ifeof\aux@out\immediate\closein\aux@out
+\else\immediate\closein\aux@out\init@aux
+\fi
+%
+\catcode`\@=12
+%
+\UseOptions{english,article,defaultsectioning,openright}%
+\tenpoint
+\parindent=1.333em
+\itemindent=\parindent
+\endinput

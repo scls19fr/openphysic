@@ -1,0 +1,100 @@
+LCD 20 caractères x 4 lignes
+
+  12345678901234567890
+  ---------------------
+1|                     |
+2|                     |
+3|                     |
+4|                     |
+  ---------------------
+
+Rem : dans le programme les lignes et les colonnes
+sont numérotées à partir de 0
+
+Splash screen
+
+  12345678901234567890
+  --------------------
+1|# # # # # # # # # # |
+2| # # OpenChrono  # #|
+3|# # # S. Celles # # |
+4| # # # # # # # # # #|
+  --------------------
+
+Page normale
+  12345678901234567890
+  --------------------
+1|00000 RPM L00 T 150°|
+2| 0:00:000  B0:00:000|
+3|L0:00:000  B+:00:000|
+4|L+:00:000 1/2:00:000|
+  --------------------
+
+Ligne 1 Gauche	Affichage régime moteur
+Ligne 1 Droite	Numero tour Temperature ?
+
+Ligne 2 Gauche	Temps actuel pour le tour en cours
+Ligne 2 Droite	Meilleur temps au tour B=Best
+
+Ligne 3 Gauche	Dernier temps au tour L=Last
+Ligne 3 Droite	Ecart entre le meilleur temps et le dernier temps
+
+Ligne 4 Gauche	Ecart entre le dernier temps au tour et l'avant dernier temps au tour
+		+ indique que le dernier temps a été plus lent
+		- indique que le dernier temps a été plus rapide
+
+Ligne 4 Droite	Numéro de la dernière étape réalisée (ça n'est pas le numéro de l'étape en cours)
+		et temps cette dernière étape
+
+
+Page passage ligne étape
+(uniquement en cas de nb de secteurs >=2)
+  12345678901234567890      12345678901234567890      12345678901234567890
+  --------------------      --------------------      --------------------
+1|New Etap (RECORD !) |   1|New etap (Better !) |   1|New etap            |
+2|1->2/2 L00 00:00:000|
+3|B+0:00:000 00:00:000|
+4|L+0:00:000 00:00:000|
+  --------------------
+
+
+Page passage ligne fin d'un tour
+  12345678901234567890      12345678901234567890      12345678901234567890
+  --------------------      --------------------      --------------------
+1|NEW LAP (! RECORD !)|   1|NEW LAP (! Better !)|   1|NEW LAP             |
+2|L00 1->2/2 00:00:000|
+3|B+0:00:000 00:00:000|
+4|L+0:00:000 00:00:000|
+  --------------------
+
+
+  12345678901234567890
+  --------------------
+1|RECALL*L00 00:00:000|
+2|1/2 * 00:00:000     |
+3|2/2 * 00:00:000     |
+4|RPM m00000*  M13500*|
+  --------------------
+Ligne 1	numéro tour et temps tour (* si meilleur temps au tour)
+Ligne 2 étape x/y temps étape (* si meilleure temps étape)
+Ligne 3 étape x/y temps étape (* si meilleure temps étape)
+Ligne 4 Régime moteur mini et maxi (* pour le plus grand mini et le plus grand maxi)
+
+
+Caractère 7 px vertical x 5 px hz
+
+#####
+#####
+#####
+#####
+#####
+#####
+#####
+
+Ecartement entre caractères
+horizontal : 1 px
+vertical : 1 px
+
+Table de caractères
+
+

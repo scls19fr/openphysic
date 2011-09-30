@@ -1,0 +1,46 @@
+<html>
+	<head>
+
+	</head>
+
+	<body>
+
+#CACHE{0}
+
+	<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+		<h1>#TITRE</h1>
+		
+		Vous &ecirc;tes ici : 
+		<BOUCLE_fil_d_ariane(HIERARCHIE){id_rubrique}>
+			<a href="#URL_RUBRIQUE">#TITRE</a> &gt; 
+		</BOUCLE_fil_d_ariane>		
+		#TITRE
+		
+<br>		
+		
+
+Les articles
+
+		<BOUCLE_article(ARTICLES){id_rubrique}>
+			<h2><a href="#URL_ARTICLE" >#TITRE</a></h2>
+		</BOUCLE_article>
+
+Les sous-rubriques
+
+		<BOUCLE_sous_rubrique(RUBRIQUES){id_parent}>
+			<h2><a href="#URL_RUBRIQUE" >#TITRE</a></h2>
+
+	             Articles de la sous-rubrique
+
+
+				<BOUCLE_sousarticle(ARTICLES){id_rubrique}>
+					<h2><a href="#URL_ARTICLE" >#TITRE</a></h2>
+				</BOUCLE_sousarticle>
+
+
+		</BOUCLE_sous_rubrique>
+
+
+	</BOUCLE_rubrique>	
+
+</html>

@@ -1,0 +1,28 @@
+;; Object applet_trigo/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "applet_trigo/"
+  :tables (list 
+   (semanticdb-table "CMain.java"
+    :major-mode 'java-mode
+    :tags '(("java.applet.*" include nil nil [1 22]) ("java.awt.*" include nil nil [23 41]) ("java.awt.event.*" include nil nil [42 66]) ("CMain" type (:typemodifiers ("public") :interfaces ("ActionListener") :superclasses "Applet" :members (("sinus" variable (:type "Button") (reparse-symbol class_member_declaration) [131 170]) ("cosinus" variable (:type "Button") (reparse-symbol class_member_declaration) [172 213]) ("tangente" variable (:type "Button") (reparse-symbol class_member_declaration) [215 257]) ("courbeNumber" variable (:type "int") (reparse-symbol class_member_declaration) [262 283]) ("sizeY" variable (:type "int") (reparse-symbol class_member_declaration) [298 304]) ("sizeX" variable (:type "int") (reparse-symbol class_member_declaration) [287 296]) ("yInf" variable (:type "double") (reparse-symbol class_member_declaration) [333 343]) ("xInf" variable (:type "double") (reparse-symbol class_member_declaration) [308 330]) ("ySup" variable (:type "double") (reparse-symbol class_member_declaration) [370 380]) ("xSup" variable (:type "double") (reparse-symbol class_member_declaration) [345 367]) ("init" function (:typemodifiers ("public") :type "void") (reparse-symbol class_member_declaration) [384 720]) ("coordToPixX" function (:typemodifiers ("private") :arguments (("x" variable (:type "double") (reparse-symbol formal_parameters) [749 757])) :type "int") (reparse-symbol class_member_declaration) [725 809]) ("coordToPixY" function (:typemodifiers ("private") :arguments (("y" variable (:type "double") (reparse-symbol formal_parameters) [839 847])) :type "int") (reparse-symbol class_member_declaration) [815 905]) ("paint" function (:typemodifiers ("public") :arguments (("gc" variable (:type "Graphics") (reparse-symbol formal_parameters) [927 938])) :type "void") (reparse-symbol class_member_declaration) [909 1524]) ("actionPerformed" function (:typemodifiers ("public") :arguments (("event" variable (:type "ActionEvent") (reparse-symbol formal_parameters) [1556 1573])) :type "void") (reparse-symbol class_member_declaration) [1528 1791])) :type "class") nil [68 1793]))
+    :file "CMain.java"
+    :pointmax 1794
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "Makefile"
+    :major-mode 'makefile-mode
+    :tags '(("all" function nil nil [1 44]))
+    :file "Makefile"
+    :pointmax 44
+    )
+   (semanticdb-table "index.html"
+    :major-mode 'html-mode
+    :tags 'nil
+    :file "index.html"
+    :pointmax 121
+    )
+   )
+  :file "semantic.cache"
+  :semantic-tag-version "2.0beta3"
+  :semanticdb-version "2.0beta3"
+  )

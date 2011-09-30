@@ -1,0 +1,45 @@
+#!/bin/bash
+
+## Jérôme LELONG
+## CERMICS (ENPC)
+## http://cermics.enpc.fr/~lelong
+## lelong@cermics.enpc.fr
+## Last modified: Sun Nov  7 2004
+
+page_per_layout=1
+acroread=0
+while getopts "n:a" Option
+do
+  case $Option in
+    n) page_per_layout=$OPTARG;;
+    a) acroread=1;;
+    *) echo "illegal option";echo "usage:  lprPDF [-n number_of_layouts_per_page] [-a] file_to_print"; exit 1;;
+    
+  esac
+done
+shift $(($OPTIND - 1))
+
+if [ $# != 1 ]
+then
+  echo "usage:  lprPDF [-n number_of_layouts_per_page] [-a] file_to_print"; exit 1;
+fi
+
+if [ "$page_per_layout" -eq 0 ]
+then
+  echo "wrong value for argument of option -n"; exit 1;
+fi
+if [ "$acroread" -eq 1 ] 
+then
+  acroread -toPostScript $1;
+  input=`basename "$1" .pdf`
+  input=${input}.ps
+  exec psnup -pa4 -nup -d $page_per_layout ${input} | lpr; exit 0; 
+fi
+
+if [ "$page_per_layout" -ge 2 ]
+then
+  exec pdftops -duplex -level3 $1 - | psnup -pa4 -n $page_per_layout -d | lpr ; exit 0;
+fi
+  
+exec pdftops -duplex -level3 -paper A4 $1 - | lpr 
+exit 0

@@ -1,0 +1,22 @@
+;; Object hello/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "hello/"
+  :tables (list 
+   (semanticdb-table "Makefile"
+    :major-mode 'makefile-mode
+    :tags '(("all" function nil nil [1 21]) ("run" function nil nil [21 37]))
+    :file "Makefile"
+    :pointmax 37
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "CMain.java"
+    :major-mode 'jde-mode
+    :tags '(("CMain" type (:members (("main" function (:typemodifiers ("public" "static") :arguments (("args" variable (:type "String[]") (reparse-symbol formal_parameters) [44 57])) :type "void") (reparse-symbol class_member_declaration) [19 105])) :type "class") nil [1 108]))
+    :file "CMain.java"
+    :pointmax 109
+    )
+   )
+  :file "semantic.cache"
+  :semantic-tag-version "2.0beta3"
+  :semanticdb-version "2.0beta3"
+  )

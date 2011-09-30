@@ -1,0 +1,204 @@
+\tp{Théorème de l'énergie cinétique}
+
+
+% TO DO :
+% schéma montage
+% tracé
+% 
+
+\begin{multicols}{2}
+
+\objectifs{
+\item utiliser un tableur-grapheur
+\item retrouver la relation entre le travail de la résultante des forces
+  appliquées à un mobile et l'énergie cinétique
+}
+
+
+\materiel{
+\item table horizontale
+\item mobile autoporteur
+\item fil
+\item poulie
+\item masse
+}
+
+
+
+
+\begin{center}
+\begin{figure}[H]
+%\fig{7cm}{6cm}{}
+\vspace*{1.5cm}
+\includegraphics[width=9cm]{tp_prem_s_phys/tp09_theo_energie_cinetique/table_hz_palet_poulie.eps}
+\caption{Dispositif expérimental}
+\end{figure}
+\end{center}
+
+\vspace*{0.5cm}
+
+
+\end{multicols}
+
+
+\vressort{1}
+
+
+Un mobile auto-porteur, de masse $M$, attaché à un fil auquel est
+suspendue une masse $m$, se déplace sans frottement sur une table
+plane et horizontale. On considère que la poulie qui modifie la
+direction du fil n'est le siège d'aucun frottement.
+
+Un enregistrement du mouvement du centre d'inertie $G$ du mobile est
+réalisé.
+
+\begin{center}
+$M = 756~g$ ; $m = 40~g$ ; $\tau = 40~ms$
+\end{center}
+
+% \begin{center}
+% \begin{figure}[H]
+% %\fig{16cm}{2cm}{}
+% \begin{pspicture}(-0.5,0)(16,0)
+% %\psgrid[subgriddiv=1,griddots=10]
+% \pscircle*(00.00,0){0.05}
+% \pscircle*(00.15,0){0.05}
+% \pscircle*(00.40,0){0.05}
+% \pscircle*(00.75,0){0.05}
+% \pscircle*(01.15,0){0.05}
+% \pscircle*(01.60,0){0.05}
+% \pscircle*(02.20,0){0.05}
+% \pscircle*(02.80,0){0.05}
+% \pscircle*(03.55,0){0.05}
+% \pscircle*(04.30,0){0.05}
+% \pscircle*(05.20,0){0.05}
+% \pscircle*(06.20,0){0.05}
+% \pscircle*(07.20,0){0.05}
+% \pscircle*(08.30,0){0.05}
+% \pscircle*(09.60,0){0.05}
+% \pscircle*(10.80,0){0.05}
+% \pscircle*(12.10,0){0.05}
+% \pscircle*(13.50,0){0.05}
+% \pscircle*(15.00,0){0.05}
+% \end{pspicture}
+% \caption{Enregistrement du mouvement du centre d'inertie $G$ du mobile}
+% \end{figure}
+% \end{center}
+
+
+\vressort{1}
+
+
+
+\begin{enumerate}
+\item Faire le bilan détaillé des forces appliquées au mobile au cours
+  de son mouvement. On admettra que la tension du fil est constante et
+  vaut : $\displaystyle T = \frac{M.m}{M+m} g$.
+  Quelle est la résultante des forces ?
+
+\item Quelle est la nature du mouvement du mobile ? Justifier en
+  utilisant les cours précédents.
+
+\item Construire un repère adapté à l'étude du mouvement et mesurer
+  très précisément les abscisses $x$ des positions du centre d'inertie
+  du mobile.
+
+\item Compléter le tableau suivant dans le tableur Regressi :
+
+\begin{multicols}{2}
+
+ \begin{itemize}
+  \item Fichier ; Nouveau  ; Clavier ; $t$ ... ; $x$ ... entrer les valeurs de
+$t$ et de $x$.
+
+
+
+  \item Créer grandeur (Y+) ; Nom : V ; Unité ... ; Dérivée : $\displaystyle
+\frac{\dx}{\dt}$ ; OK.
+
+
+  \item Créer grandeur ; Grandeur calculée ; Nom : $E_c$ ; Unité : $J$ ;
+Expression : ...
+ \end{itemize}
+
+
+\begin{arraydata}{4}
+\hline
+Date $t$     & 0 & & & \\ \hline
+Abscisse $x$ & 0 & & & \\ \hline
+Vitesse $V$  &   & & & \\ \hline
+$E_c$ en $J$ &   & & & \\ \hline
+\end{arraydata}
+
+\rule{0cm}{0.5cm}
+
+
+\end{multicols}
+
+
+\item Tracer le graphe $x = f(t)$.
+
+\item Tracer le graphe $E_c = f(x)$.
+
+
+ \begin{enumerate}
+
+   \item \`A partir de la modélisation, déterminer le coefficient directeur.
+%   \item A partir de la modélisation, déterminer le coefficient directeur.
+
+   \item En utilisant le théorème de l'énergie cinétique entre les
+     dates $t_0$ et $t_i$, montrer que l'on peut prévoir la valeur du
+     coefficient précédent. Que représente-t-il ?
+
+   \item Vérifier la cohérence de votre résultat en calculant l'écart
+     relatif entre la valeur théorique et la valeur expérimentale.
+
+ \end{enumerate}
+
+
+
+\end{enumerate}
+
+\newpage
+
+
+\vressort{3}
+
+\begin{center}
+\begin{figure}[H]
+%\fig{16cm}{2cm}{}
+%\begin{pspicture}(-0.5,0)(16,0)
+
+\scalebox{1.414}{%
+\fbox{%
+\begin{pspicture}(-5,-1)(5,16)
+%\psgrid[subgriddiv=1,griddots=10]
+\pscircle*(0,00.00){0.05}
+\pscircle*(0,00.15){0.05}
+\pscircle*(0,00.40){0.05}
+\pscircle*(0,00.75){0.05}
+\pscircle*(0,01.15){0.05}
+\pscircle*(0,01.60){0.05}
+\pscircle*(0,02.20){0.05}
+\pscircle*(0,02.80){0.05}
+\pscircle*(0,03.55){0.05}
+\pscircle*(0,04.30){0.05}
+\pscircle*(0,05.20){0.05}
+\pscircle*(0,06.20){0.05}
+\pscircle*(0,07.20){0.05}
+\pscircle*(0,08.30){0.05}
+\pscircle*(0,09.60){0.05}
+\pscircle*(0,10.80){0.05}
+\pscircle*(0,12.10){0.05}
+\pscircle*(0,13.50){0.05}
+\pscircle*(0,15.00){0.05}
+\end{pspicture}
+}
+}
+
+\caption{Enregistrement du mouvement du centre d'inertie $G$ du mobile}
+\end{figure}
+\end{center}
+
+\vressort{3}
+

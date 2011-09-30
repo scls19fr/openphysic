@@ -1,0 +1,28 @@
+%Filename: ot1unm.fd
+%Created by: tex Fam_6959
+%Created using fontinst v1.800
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{ot1unm.fd}
+   [1998/11/05 Fontinst v1.800 font definitions for OT1/unm.]
+
+\DeclareFontFamily{OT1}{unm}{}
+
+\DeclareFontShape{OT1}{unm}{m}{n}{
+   <-> unmr7t
+}{}
+
+\DeclareFontShape{OT1}{unm}{m}{sc}{
+   <-> unmrc7t
+}{}
+
+\DeclareFontShape{OT1}{unm}{m}{sl}{
+   <-> unmro7t
+}{}
+
+\DeclareFontShape{OT1}{unm}{m}{it}{<->ssub * unm/m/sl}{}
+
+\DeclareFontShape{OT1}{unm}{m}{ui}{<->ssub * unm/m/it}{}
+\DeclareFontShape{OT1}{unm}{b}{ui}{<->ssub * unm/b/it}{}
+\endinput

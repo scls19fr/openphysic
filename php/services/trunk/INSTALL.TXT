@@ -1,0 +1,90 @@
+Procédure d'installation
+========================
+
+Copiez sur votre serveur via un client FTP le répertoire
+	/services
+ 		/app
+ 		/cake
+ 		/vendors
+
+ 		
+Ouvrez le fichier
+	/services/
+		/app
+			/config
+				/database.php
+				
+	Editez les lignes marquées d'un ->
+
+		var $default = array(
+			'driver' => 'mysql',
+			'persistent' => false,
+	->		'host' => 'localhost',
+	->		'login' => 'root',
+	->		'password' => 'root',
+	->		'database' => 'services',
+			'prefix' => 'services_',
+		);
+	
+	afin que cela corresponde à votre configuration de serveur de base de données
+
+Editez le fichier webroot/index.php et mettre le lien absolu vers Cake
+
+	if (!defined('CAKE_CORE_INCLUDE_PATH')) {
+		//define('CAKE_CORE_INCLUDE_PATH', ROOT);
+		define('CAKE_CORE_INCLUDE_PATH', '/Applications/MAMP/htdocs/cake');
+	}
+
+
+Ouvrez le fichier
+	/services/
+		/app
+			/config
+				/core.php
+	
+	Assurez-vous d'avoir la ligne suivante
+	
+		Configure::write('debug', 3);
+	
+	lors du premier lancement de l'application afin de visualiser les éventuels messages d'erreur
+	
+
+Envoyez à votre serveur de base de données (via phpMyAdmin par exemple) le dump SQL suivant :
+	/services/
+		/app
+			/config
+				/sql
+					/dump.sql
+
+
+Lancez pour la première fois l'application en tapant dans la barre d'adresse de votre navigateur :
+	http://www.monnomdedomaine.com/repertoire/services
+
+
+Connectez-vous en utilisant le login / mot de passe suivant :
+	nom d'utilisateur : admin
+	mot de passe : admin
+
+
+Ouvrez le fichier
+	/services/
+		/app
+			/config
+				/core.php
+	
+	Modifiez la variable debug aisi :
+	
+	->	Configure::write('debug', 0);
+	
+	afin de ne pas faire apparaître (pour des raisons de sécurité) les messages d'erreur de l'application.
+
+
+Connectez-vous à nouveau dans l'application et changez le mot de passe de l'utilisateur admin.
+
+
+Remarques :
+ - le mod_rewrite du serveur web Apache doit être activé
+ - selon la configuration du serveur web il peut être nécessaire de modifier les fichiers .htaccess
+ - vous pouvez obtenir davantage d'information à propos de l'installation d'applications
+ 	utilisant le framework CakePHP sur http://book.cakephp.org/fr/view/32/Installation
+ 	ou en utilisant les mots clés : "CakePHP installation" dans votre moteur de recherche préféré

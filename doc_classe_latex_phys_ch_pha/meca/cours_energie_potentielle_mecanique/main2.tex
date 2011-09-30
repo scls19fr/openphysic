@@ -1,0 +1,282 @@
+\cours{\'Energie potentielle}
+
+
+
+\section{Définition}
+
+Dans le référentiel terrestre, même au repos, un solide possède du
+fait de sa masse, de sa position par rapport au sol, et de
+l'attraction terrestre une énergie cachée appelée énergie potentielle
+de pesanteur. Cette énergie augmente quand l'altitude augmente.
+
+
+\section{\'Energie potentielle au voisinage de la Terre}
+
+\subsection{Solide en chute libre}
+
+
+\begin{center}
+\includegraphics{chute_libre_v_ini.png.eps}
+\caption{Chute libre d'un solide entre deux positions $A$ et $B$}
+\end{center}
+
+On applique le théorème de l'énergie cinétique au solide entre $A$ et $B$. Seul le poids travaille.
+
+
+\[
+ {E_C}_B - {E_C}_A
+  = \frac{1}{2} M {v_B}^2 - \frac{1}{2} M {v_A}^2
+  = \W{A}{B}{P} = M \cdot g \cdot (z_A - z_B)
+\]
+
+
+\[
+  \frac{1}{2} M {v_B}^2 + M \cdot g \cdot z_B
+= \frac{1}{2} M {v_A}^2 + M \cdot g \cdot z_A
+\]
+
+Dans chacune des positions $A$ et $B$, le solide possède de l'énergie
+cinétique ($E_C$) et de l'énergie potentiel ($E_P$) de pesanteur.
+
+
+${E_P}_A = M \cdot g \cdot z_A$ et ${E_P}_B = M \cdot g \cdot z_B$
+
+
+\begin{framed}
+
+\[
+{E_P} (z_G)= M \cdot g \cdot z_G
+\]
+
+\begin{itemize}
+\item $E_P$ en $J$
+\item $M$ en $kg$
+\item $g$ en $N.kg^{-1}$
+\item $z_G$ en $m$
+\item $Oz$ orienté vers le haut.
+\end{itemize}
+
+\end{framed}
+
+
+
+\remarque{%
+l'énergie potentielle est une grandeur algébrique.\\
+\begin{itemize}
+\item $E_P > 0$ si $z > 0$
+\item $E_P < 0$ si $z < 0$
+\end{itemize}
+}
+
+
+
+\remarque{%
+On ne sait mesurer que des variations d'Ep. L'Ep n'est donc connue
+qu'à une constante près. Le niveau de référence choisi généralement pour $E_p
+= 0$ est l'origine du repère $z = 0$ voire le niveau de la mer : altitude
+nulle.
+}
+
+
+
+
+\subsection{Variation de l'énergie potentielle}
+
+\subsubsection{Chute libre d'un solide}
+
+\[
+\W{A}{B}{\vect{P}} = M g (z_A - z_B) = {E_p}_A - {E_p}_B > 0
+\]
+
+La variation de l'$E_p$ de $A$ à $B$ s'écrit :
+
+\[
+\Delta E_p = {E_p}_B - {E_p}_A = - \W{A}{B}{\vect{P}}
+\]
+
+
+\subsubsection{Solide en translation rectiligne uniforme}
+
+Au contraire de précédemment, un solide soulevé par une grue est animé
+d'un mouvement de translation rectiligne qui fait passer l'altitude de
+son centre d'inertie de $z_A$ à $z_B > z_A$.  Les vitesses en $A$ et
+$B$ sont nulles. Ce solide est soumis à $\vect{P}$ et la tension du
+câble $\vect{T}$.
+
+\[
+\frac{1}{2} M {v_B}^2 - \frac{1}{2} M {v_A}^2
+=  \W{A}{B}{\vect{P}} + \W{A}{B}{\vect{T}}
+= 0 
+\]
+
+
+\[
+\W{A}{B}{\vect{P}} = - \W{A}{B}{\vect{T}}
+\]
+
+
+\[
+{E_p}_B - {E_p}_A
+ = M \cdot g \cdot z_B - M \cdot g \cdot z_A
+ = - \W{A}{B}{\vect{P}}
+ = +\W{A}{B}{\vect{T}}
+\]
+
+
+Le travail positif fourni par la tension $\vect{T}$ explique l'augmentation de
+l'énergie potentielle.
+
+
+
+\subsubsection{Généralisation}
+
+\begin{framed}
+La variation d'$E_p$ est égale à l'opposé du
+ travail de la force de pesanteur.
+
+\[
+ {E_p}_B - {E_p}_A = - \W{A}{B}{\vect{P}}
+\]
+\end{framed}
+
+\section{\'Energie potentielle de gravitation}
+
+Si l'on ne travaille plus dans un espace où le champ de pesanteur est
+$g_0$, on utilise l'expression de l'$E_p$ de gravitation. On choisit comme
+niveau de référence $E_p = 0$ pour une altitude infinie, l'expression de
+$E_p$ pour 1 solide de masse $m$ est : 
+
+\begin{framed}
+\[
+E_p = - G \frac{m M_T}{R_T + z}
+\]
+
+\emph{Rappel : }$g$ s'exprime de la façon suivante :  $g = G \frac{M_T}{(R + z)^2}$.
+
+\begin{itemize}
+\item $M_T$ en $kg$
+\item $R_T$ en $m$
+\item $z$ en $m$
+\item $G = 6,67.10^{-11}~N.kg^{-2}.m^2$.
+\end{itemize}
+
+\end{framed}
+
+
+\begin{center}
+\includegraphics{en_pot_gravitation.png.eps}
+\caption{Variation de l'énérgie potentielle d'un solide en fonction de
+sa distance au centre de la Terre}
+\end{center}
+
+Là encore, ${E_p}_B - {E_p}_A = - \W{A}{B}{\vect{F_{gravitationnelle}}}$.
+
+\section{\'Energie mécanique}
+
+\subsection{Chute libre d'un solide}
+
+On a vu que :
+
+
+\[
+  \frac{1}{2} M {v_B}^2 + M \cdot g \cdot z_B
+= \frac{1}{2} M {v_A}^2 + M \cdot g \cdot z_A
+\]
+
+d'où
+
+\[
+{E_c}_A + {E_p}_A = {E_c}_B + {E_p}_B
+\]
+
+\begin{framed}
+La somme $E_c + E_p$ des énergies cinétique et potentielle reste
+constante. Elle se conserve.
+\end{framed}
+
+
+\subsection{Mobile autoporteur en mouvement sans frottement}
+
+\begin{center}
+\includegraphics{plan_incline_sans_frott.png.eps}
+\caption{Mobile autoporteur en mouvement sans frottement}
+\end{center}
+
+Ici encore, on démontre facilement que $E_c + E_p = cte$ puisque seul
+$\vect{P}$ travaille.
+
+
+Dans un référentiel terrestre, $E_c + E_p = cte$ lorsque seul le poids
+travaille.
+
+
+
+\subsection{\'Echanges d'énergie}
+
+Lorsque seul $\vect{P}$ travaille, $E_c + E_p = cte$ et ne dépend donc
+pas de l'altitude $z$.
+
+
+\begin{center}
+\includegraphics{ec_ep_em.png.eps}
+\caption{Représentation des énergies potentielle et mécanique en
+  fonction de l'altitude}
+\end{center}
+
+
+On note $E_m = E_c + E_p$, l'\emph{énergie mécanique} du solide.
+
+
+\begin{itemize}
+\item Quand le solide monte, $E_p$ augmente et $E_c$ diminue d'autant.
+\item Quand il descend $E_p$ diminue et $E_c$ augmente.
+\end{itemize}
+
+
+
+Il y donc échange entre les formes cinétique et potentielle lorsque zG
+varie.
+
+
+
+Pour une valeur de $E_m$ donnée, le graphe met en évidence l'altitude
+maximale accessible.
+
+
+
+
+
+\subsection{L'énergie mécanique ne se conserve pas dans tous les cas}
+
+\begin{center}
+\includegraphics{mobile_frott.png.eps}
+\caption{Mobile autoporteur soumis à des frottements}
+\end{center}
+
+
+S'il existe des forces de frottement, celles-ci travaillent et
+dissipent de l'énergie sous forme de chaleur.
+
+\[
+{E_c}_B - {E_c}_A =
+   \W{A}{B}{\vect{P}}
+ + \W{A}{B}{\vect{R_n}}
+ + \W{A}{B}{\vect{f}} 
+\]
+
+\[
+{E_c}_B - {E_c}_A =
+   {E_c}_A - {E_c}_B
+ + 0
+ + \W{A}{B}{\vect{f}} 
+\]
+
+\[
+{E_m}_B - {E_m}_A = \W{A}{B}{\vect{f}} < 0.
+\]
+
+Ici, l'énergie mécanique du mobile ne se conserve pas : elle décroît
+au cours du temps.
+
+Il y a \emph{production de chaleur}.
+

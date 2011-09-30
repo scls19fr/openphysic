@@ -1,0 +1,155 @@
+\documentclass[12pt]{article}
+\listfiles
+\usepackage{filecontents}
+\begin{filecontents*}{demo0.dat}
+    0.1414    0.0052
+    0.2828    0.0217
+    0.4243    0.0480
+    0.5657    0.0890
+    0.7071    0.1375
+    0.8485    0.1906
+    0.9899    0.2663
+    1.1314    0.3580
+    1.2728    0.4644
+    1.4142    0.5801
+    1.5556    0.7033
+    1.6971    0.8899
+    1.8385    1.1143
+    1.9799    1.2593
+    2.1213    1.5692
+    2.2627    3.2331
+    2.4042    4.4097
+    2.5456    5.8186
+    2.6870    7.4441
+    2.8284    8.2287
+\end{filecontents*}
+
+\begin{filecontents*}{demo1.dat}
+1 99447169
+2 110351058
+3 123557238
+4 138346129
+5 145050826
+6 160363212
+7 174000394
+8 183856559
+9 189128691
+10 197634845
+11 213257357
+12 216899512
+13 230152738
+14 224144907
+15 247410024
+16 261168438
+17 252920343
+18 326153799
+19 319442110
+20 310351522
+21 381919943
+22 438043888
+23 357527766
+24 603304997
+\end{filecontents*}
+
+\begin{filecontents*}{demo2.dat}
+  1989 3.08
+  1990 3.84
+  1991 4.08
+  1992 3.21
+  1993 5.23
+  1994 2.97
+  1995 2.53
+  1996 2.8
+  1997 2.78
+  1998 3.15
+  1999 2.32
+  2000 2.4
+  2001 2.46
+\end{filecontents*}
+\begin{filecontents*}{demo3.dat}
+  1989 3.08
+  1990 3.1
+  1991 3.08
+  1992 3.21
+  1993 5.0
+  1994 2.27
+  1995 3.53
+  1996 3.8
+  1997 2.8
+  1998 4.15
+  1999 3.32
+  2000 1.4
+  2001 2.46
+\end{filecontents*}
+
+
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{lmodern}
+%\usepackage[scaled]{luximono}
+\usepackage[lmargin=2.5cm]{geometry}
+\usepackage{tabularx}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{pstricks}
+\usepackage{framed}
+\usepackage{pst-eucl}
+\usepackage{pstricks-add}
+\let\pstricksaddFV\fileversion
+\def\PST{\texttt{PSTricks}}
+%
+\usepackage{showexpl}
+\lstset{preset=\raggedright}
+%
+\usepackage{longtable}
+\usepackage{pifont}
+\usepackage{amsmath}
+\def\textat{\protect\makeatletter\texttt{@}\protect\makeatother}
+\makeatletter
+\renewcommand*\l@section{\@dottedtocline{1}{1.5em}{2.5em}}
+\renewcommand*\l@subsection{\@dottedtocline{2}{3.8em}{3.2em}}
+\renewcommand*\l@subsubsection{\@dottedtocline{3}{7.0em}{4.1em}}
+\renewcommand*\l@paragraph{\@dottedtocline{4}{10em}{5em}}
+\renewcommand*\l@subparagraph{\@dottedtocline{5}{12em}{6em}}
+\makeatother
+\let\psEllipticArc\psellipticarc
+\let\psEllipticArcN\psellipticarcn
+\let\psWedgeEllipse\psellipticwedge
+\usepackage[colorlinks,linktocpage]{hyperref}
+%\def\UrlFont{\small\ttfamily}
+\makeatletter
+\def\verbatim@font{\small\normalfont\ttfamily}
+\makeatother
+%\parindent=0pt
+\newcommand\verbI[1]{{\small\texttt{#1}}}
+\newcommand\CMD[1]{{\texttt{\textbackslash#1}}}
+\let\param\texttt
+%
+\newcommand{\pstEllipse}[5][]{%
+  \psset{#1}
+  \parametricplot{#4}{#5}{#2\space t cos mul #3\space t sin mul}%
+}
+%
+\newcommand{\pstEllipseWedge}[5][]{%
+  \psset{#1}
+  \pscustom{%
+    \parametricplot{#4}{#5}{#2\space t cos mul #3\space t sin mul}%
+    \psline(! #2\space #5\space cos mul #3\space #5\space sin mul)%
+       (0,0)%
+       (! #2\space #4\space cos mul #3\space #4\space sin mul)%
+  }%
+}
+%
+\psset{subgriddiv=0,griddots=5,gridlabels=7pt}
+%
+\DeclareRobustCommand\cs[1]{\texttt{\char`\\#1}}
+\def\PS{PostScript}
+%
+%\renewcommand{\ttdefault}{ul9}% Luxi Mono
+
+\parindent=0pt
+\parskip=1ex plus 5pt
+\begin{document}
+\input{pstricks-add-doc}
+\end{document}
+

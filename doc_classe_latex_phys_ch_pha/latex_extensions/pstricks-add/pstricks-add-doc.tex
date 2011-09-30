@@ -1,0 +1,4972 @@
+\title{\texttt{pstricks-add}\\additionals Macros for \texttt{pstricks}%
+%\thanks{%
+%    This document was written with \texttt{Kile: 1.7 (Qt: 3.1.1; KDE: 3.3;}
+%    \url{http://sourceforge.net/projects/kile/}) and the PDF output
+%    was build with VTeX/Free (\url{http://www.micropress-inc.com/linux})}
+\\
+    \small v.\pstricksaddFV}
+\author{Herbert Vo\ss}
+\date{\today}
+
+\maketitle
+
+\begin{abstract}
+This version of \verb+pstricks-add+ needs \verb+pstricks.tex+ version >1.04 from June 2004,
+otherwise the additional macros may not work as espected. The ellipsis
+material and the option \verb+asolid+ (renamed to \verb+eofill+) are 
+now part of the new \verb+pstricks.tex+ package, available at CTAN or at
+\url{http://perce.de/LaTeX/}. \verb+pstricks-add+ will for ever be an experimental and
+dynamical package, try it at your own risk.
+ 
+\begin{itemize}
+\item It is important to load \verb+pstricks-add+ as \textbf{last} PSTricks related package, otherwise
+a lot of the macros won't work in the expected way. 
+\item \verb+pstricks-add+ uses the extended version of the keyval package. So be sure, that
+you have installed \verb+pst-xkey+ which is part of the \verb+xkeyval+-package and that all
+packages, that uses the old keyval interface are loaded \textbf{before} the \verb+xkeyval+.\cite{xkeyval}
+\item the option \verb+tickstyle+ from \verb+pst-plot+is no more supported, use \verb+ticksize+ instead.
+\item the option \verb+xyLabel+ is no more supported, use the macros \verb+\def\pshlabel#1{...}+ and
+    \verb+\def\psvlabel#1{...}+ instead.
+\end{itemize}
+
+\end{abstract}
+
+\clearpage
+\tableofcontents
+
+\clearpage
+%--------------------------------------------------------------------------------------
+\part{\texttt{pstricks}}
+%--------------------------------------------------------------------------------------
+
+
+
+
+%--------------------------------------------------------------------------------------
+\section{Numeric functions}
+%--------------------------------------------------------------------------------------
+
+All macronames contain a \textat{} in their name, because they are only for internal use,
+but it is no problem to use it as the other macros. One can define another name without 
+a \textat{}:
+\begin{verbatim}
+\makeatletter
+\let\pstdivide\pst@divide
+\makeatother
+\end{verbatim}
+
+or put the macro inside of the \verb+\makeatletter+ -- \verb+\makeatother+ sequence.
+
+%--------------------------------------------------------------------------------------
+\subsection{\CMD{pst\textat{}divide}}
+%--------------------------------------------------------------------------------------
+
+\verb+pstricks+ itself has its own divide macro, called \verb+\pst@divide+ which can divide two lengthes and saves the quotient as a floating point number:
+
+\begin{verbatim}
+\pst@divide{<dividend>}{<divisor>}{<result as a macro>}
+\end{verbatim}
+
+\begin{LTXexample}[width=2cm]
+\makeatletter
+\pst@divide{34pt}{6pt}\quotient \quotient\\
+\pst@divide{-6pt}{34pt}\quotient \quotient
+\makeatother
+\end{LTXexample}
+
+\noindent this gives the output $5.66666$. The result is not a length!
+
+%--------------------------------------------------------------------------------------
+\subsection{\CMD{pst\textat{}mod}}
+%--------------------------------------------------------------------------------------
+\verb+pstricks-add+ defines an additional numeric function for the modulus:
+
+\begin{verbatim}
+\pst@mod{<integer>}{<integer>}{<result as a macro>}
+\end{verbatim}
+
+\begin{LTXexample}[width=2cm]
+\makeatletter
+\pst@mod{34}{6}\modulo \modulo\\
+\pst@mod{25}{-6}\modulo \modulo
+\makeatother
+\end{LTXexample}
+
+\noindent this gives the output $4$. Using this internal numeric functions in documents
+requires a setting inside the \verb+makeatletter+ and \verb+makeatother+ environment.
+It makes some sense to define a new macroname in the preamble to use it throughou, e.g.
+\verb+\let\modulo\pst@mod+.
+
+%--------------------------------------------------------------------------------------
+\subsection{\CMD{pst\textat{}max}}
+%--------------------------------------------------------------------------------------
+
+\begin{verbatim}
+\pst@max{<integer>}{<integer>}{<result as count register>}
+\end{verbatim}
+
+\begin{LTXexample}[width=2cm]
+\newcount\maxNo
+\makeatletter
+\pst@max{-34}{-6}\maxNo \the\maxNo\\
+\pst@max{0}{11}\maxNo \the\maxNo
+\makeatother
+\end{LTXexample}
+
+
+%--------------------------------------------------------------------------------------
+\subsection{\CMD{pst\textat{}maxdim}}
+%--------------------------------------------------------------------------------------
+
+\begin{verbatim}
+\pst@maxdim{<dimension>}{<dimension>}{<result as dimension register>}
+\end{verbatim}
+
+\begin{LTXexample}[width=2cm]
+\newdimen\maxDim
+\makeatletter
+\pst@maxdim{34cm}{1234pt}\maxDim \the\maxDim\\
+\pst@maxdim{34cm}{123pt}\maxDim \the\maxDim
+\makeatother
+\end{LTXexample}
+
+%--------------------------------------------------------------------------------------
+\subsection{\CMD{pst\textat{}abs}}
+%--------------------------------------------------------------------------------------
+
+\begin{verbatim}
+\pst@abs{<integer>}{<result as a count register>}
+\end{verbatim}
+
+\begin{LTXexample}[width=2cm]
+\newcount\absNo
+\makeatletter
+\pst@abs{-34}\absNo \the\absNo\\
+\pst@abs{4}\absNo \the\absNo
+\makeatother
+\end{LTXexample}
+
+%--------------------------------------------------------------------------------------
+\subsection{\CMD{pst\textat{}absdim}}
+%--------------------------------------------------------------------------------------
+
+\begin{verbatim}
+\pst@absdim{<dimension>}{<result as a dimension register>}
+\end{verbatim}
+
+\begin{LTXexample}[width=2cm]
+\newdimen\absDim
+\makeatletter
+\pst@absdim{-34cm}\absDim \the\absDim\\
+\pst@absdim{4sp}\absDim \the\absDim
+\makeatother
+\end{LTXexample}
+
+%--------------------------------------------------------------------------------------
+\section{Dashed Lines}
+%--------------------------------------------------------------------------------------
+Tobias N�ring implemented an enhanced feature for dashed lines. The number
+of arguments is no more limited.
+
+\begin{verbatim}
+dash=value1[unit] value2[unit] ...
+\end{verbatim}
+
+\begin{LTXexample}[width=0.4\linewidth]
+\psset{linewidth=2.5pt,unit=0.6}
+\begin{pspicture}(-5,-4)(5,4)
+ \psgrid[subgriddiv=0,griddots=10,gridlabels=0pt]
+  \psset{linestyle=dashed}
+  \pscurve[dash=5mm 1mm 1mm 1mm,linewidth=0.1](-5,4)(-4,3)(-3,4)(-2,3)
+  \psline[dash=5mm 1mm 1mm 1mm 1mm 1mm 1mm 1mm 1mm 1mm](-5,0.9)(5,0.9)
+  \psccurve[linestyle=solid](0,0)(1,0)(1,1)(0,1)
+  \psccurve[linestyle=dashed,dash=5mm 2mm 0.1 0.2,linetype=0](0,0)(-2.5,0)(-2.5,-2.5)(0,-2.5)
+  \pscurve[dash=3mm 3mm 1mm 1mm,linecolor=red,linewidth=2pt](5,-4)(5,2)(4.5,3.5)(3,4)(-5,4)
+\end{pspicture}
+\end{LTXexample}
+
+%--------------------------------------------------------------------------------------
+\section{\CMD{rmultiput}: a multiple \CMD{rput}}
+%--------------------------------------------------------------------------------------
+\verb+PSTricks+ already knows a \verb+multirput+, which puts a box n times with
+a difference of $dx$ and $dy$ relativ to each other. It is not possible to put
+it with a different distance from one point to the next one. This is possible
+with \verb+rmultiput+:
+\begin{verbatim}
+\rmultiput[<options>]{<any material>}(x1,y1)(x2,y2) ... (xn,yn)
+\rmultiput*[<options>]{<any material>}(x1,y1)(x2,y2) ... (xn,yn)
+\end{verbatim}
+
+\begin{LTXexample}[width=6.2cm]
+\psset{unit=0.75}
+\begin{pspicture}(-4,-4)(4,4)
+\rmultiput[rot=45]{\red\psscalebox{3}{\ding{250}}}%
+    (-2,-4)(-2,-3)(-3,-3)(-2,-1)(0,0)(1,2)(1.5,3)(3,3)
+\rmultiput[rot=90,ref=lC]{\blue\psscalebox{2}{\ding{253}}}%
+    (-2,2.5)(-2,2.5)(-3,2.5)(-2,1)(1,-2)(1.5,-3)(3,-3)
+\psgrid[subgriddiv=0,gridcolor=lightgray]
+\end{pspicture}
+\end{LTXexample}
+
+%--------------------------------------------------------------------------------------
+\section{\CMD{psrotate}: Rotating objects}
+%--------------------------------------------------------------------------------------
+\CMD{rput} also has an optional argument for rotating objects, but always
+depending to the \CMD{rput} coordinates. With \CMD{psrotate}  the rotating
+center can be placed anywhere. The rotation is done with \verb+\pscustom+,
+all optional arguments are only valid if they are part of the \verb+\pscustom+
+macro.
+\begin{verbatim}
+\psrotate[options](x,y){rot angle}{<object>}
+\end{verbatim}
+
+\begin{LTXexample}[width=0.4\linewidth]
+\psset{unit=0.75}
+\begin{pspicture}(-0.5,-3.5)(8.5,4.5)
+  \psaxes{->}(0,0)(-0.5,-3)(8.5,4.5)
+  \psdots[linecolor=red,dotscale=1.5](2,1)
+  \psarc[linecolor=red,linewidth=0.4pt,showpoints=true]
+        {->}(2,1){3}{0}{60}
+  \pspolygon[linecolor=green](2,1)(5,1.1)(6,-1)(2,-2)
+  \psrotate[linecolor=blue](2,1){60}{
+    \pspolygon(2,1)(5,1.1)(6,-1)(2,-2)}
+\end{pspicture}
+\end{LTXexample}
+
+
+%--------------------------------------------------------------------------------------
+\section{\CMD{pslineII}: Colored lines}
+%--------------------------------------------------------------------------------------
+The dashed lines are by default black and white lines. The new macro \verb|\pslineII|
+offers two-color lines and has the same syntax as \verb|\psline|.
+
+\begin{LTXexample}[width=8cm]
+\begin{pspicture}(0,-0.5)(7,0.5)
+\pslineII[linewidth=5pt,arrowscale=2]{o-o}(0,0)(7,0)
+\end{pspicture}
+\end{LTXexample}
+
+
+%--------------------------------------------------------------------------------------
+\subsection{The options}
+%--------------------------------------------------------------------------------------
+
+\begin{center}
+\begin{tabular}{l|p{6cm}}
+name & meaning\\\hline
+\verb|dashColorI| & first color, default is \verb|black|\tabularnewline
+\verb|dashColorII| & second color, default is \verb|red|\tabularnewline
+\verb|dashNo| & the difference in per cent of the colored lines, default is $0.2$\tabularnewline
+\verb|linecap| & \parbox[t]{6cm}{how two lines are connected.\\
+	0: no modification\\
+	1: rounded edges\\
+	2: an additional half square at both ends}
+\end{tabular}
+\end{center}
+
+\verb|dashNo| can have values greater than $1$. In this case the value will be taken as an absolute width in the pt unit. Only this unit is possible!
+
+\subsection{Examples}
+
+\begin{LTXexample}[width=3.5cm]
+\psset{linewidth=2pt}
+\begin{pspicture}(3,3)
+  \pslineII{->}(0,0)(3,3)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=3.5cm]
+\psset{linewidth=2pt}
+\begin{pspicture}(3,3)
+  \pslineII[dashColorI=blue]{->}(0,0)(3,3)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=3.5cm]
+\psset{linewidth=2pt}
+\begin{pspicture}(3,3)
+  \pslineII[dashColorI=blue,dashNo=15]{->}(0,0)(3,3)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=3.5cm]
+\psset{linewidth=2pt}
+\begin{pspicture}(3,3)
+  \pslineII[dashColorI=blue,linecap=1,%
+      dashNo=0.3,linewidth=0.5](0,0)(2,3)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}
+\psset{linecolor=red,arrowscale=3}
+\psset{dashColorI=red,dashColorII=blue,dashNo=20,linewidth=2pt}
+\begin{pspicture}(0,0)(7,-5)
+\pslineII{<->}(0,0)(7,0)(7,-5)(0,-5)
+\pslineII[linewidth=5pt,%
+	dashNo=0.1,arrowscale=2]{o-o}(0,-2.5)(7,-2.5)
+\end{pspicture}
+\end{LTXexample}
+
+
+\begin{LTXexample}[pos=t]
+\psset{linewidth=15pt,dashNo=10}
+\begin{pspicture}(0,1)(10,-6)
+  \pslineII[linecap=2](0,0)(5,0)(5,-5)(0,-5)(0,0)
+  \rput{45}(7,-2.5){%
+    \pslineII[linecap=1,dashColorI=yellow,%
+       dashColorII=cyan](0,0)(5,0)(5,-5)(0,-5)(0,0)%
+}
+\end{pspicture}
+\end{LTXexample}
+
+
+%--------------------------------------------------------------------------------------
+\section{\CMD{pslineIII} Variable linewidth}
+%--------------------------------------------------------------------------------------
+By default all lines have a fixed width. \verb|\pslineIII| allows to
+define the start and the end width of a line. It has the same syntax as \verb|\psline|.
+
+\begin{center}
+\begin{pspicture}(0,-0.5)(12,0.5)
+\pslineIII[wBegin=1cm,wEnd=0.3cm,linecolor=cyan](0,0)(12,0)
+\end{pspicture}
+\end{center}
+
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
+\pslineIII[wBegin=1cm,wEnd=0.3cm,linecolor=cyan](0,0)(12,0)
+\end{lstlisting}
+
+
+
+%--------------------------------------------------------------------------------------
+\subsection{The options}
+%--------------------------------------------------------------------------------------
+
+\begin{center}
+\begin{tabular}{l|p{8cm}}
+name & meaning\\\hline
+\verb|wBegin| & first width, default is \verb|\pslinewidth|\tabularnewline
+\verb|wEnd| & last width, default is \verb|\pslinewidth|\tabularnewline
+\end{tabular}
+\end{center}
+
+It is also possible to use \verb|pslineIII| with more than two coordinates, like
+
+\begin{center}
+\begin{pspicture}(0,-0.5)(12,2)
+\pslineIII[wBegin=1cm,wEnd=0.1cm,linecolor=red](0,0)(3,1.5)(9,1.5)(12,0)
+\end{pspicture}
+
+\end{center}
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
+\pslineIII[wBegin=1cm,wEnd=0.1cm,linecolor=cyan](0,0)(0,1.5)(12,1.5)(12,0)
+\end{lstlisting}
+
+\iffalse
+%--------------------------------------------------------------------------------------
+\subsection{Examples}
+%--------------------------------------------------------------------------------------
+
+\begin{LTXexample}
+\begin{pspicture}(-5,-5)(5,5)
+  \psgrid[griddots=10, gridlabels=7pt, subgriddiv=0]
+%
+  \pslineIII[wBegin=1cm,wEnd=0.2cm,linecolor=cyan]%
+       (-4,4)(3,4)(5,2)(2,-5)(-5,-2)(-5,0)
+  \pslineIII[wBegin=0.5cm](-5,-3)(5,3)
+  \pslineIII[wBegin=0.5cm,wEnd=0.1cm,linecolor=red](0,-5)(0,0)(0,5)
+  \pslineIII[wBegin=1cm,wEnd=0.3cm,linecolor=blue](-4,4)(5,-4)
+%
+\end{pspicture}
+\end{LTXexample}
+
+\clearpage
+
+\fi
+
+
+%--------------------------------------------------------------------------------------
+\section{\CMD{psbrace}}
+%--------------------------------------------------------------------------------------
+\subsection{Syntax}
+\begin{verbatim}
+\psbrace[<options>](<A>)(<B>){<text>}
+\end{verbatim}
+
+\begin{LTXexample}[width=4.5cm]
+\begin{pspicture}(4,4)
+\psgrid[subgriddiv=0,griddots=10]
+\pnode(0,0){A}
+\pnode(4,4){B}
+\psbrace[linecolor=red,ref=lC](A)(B){Text I}
+\psbrace[linecolor=blue,ref=lC](3,4)(0,1){Text II}
+\end{pspicture}
+\end{LTXexample}
+
+\bigskip
+The option \verb|\specialCoor| is enabled, so that all types of coordinates are possible, (nodename), ($x,y$), ($nodeA|nodeB$), ...
+
+%--------------------------------------------------------------------------------------
+\subsection{Options}
+%--------------------------------------------------------------------------------------
+
+Additional to all other available options from \verb|pstricks| or the other related packages,  there are two new option, named  \verb|braceWidth| and \verb|bracePos|. All important ones are shown in the following table.
+
+\begin{center}
+\begin{tabular}{l|l}
+name & meaning\\\hline
+\verb|braceWidth| & default is $0.35$\\
+\verb|bracePos| & relative position (default is $0.5$)\\
+\verb|linearc| & absolute value for the arcs (default is $2$mm)\\
+\verb|nodesepA| & x-separation (default is $0pt$)\\
+\verb|nodesepB| & y-separation (default is $0pt$)\\
+\verb|rot| & additional rotating for the text (default is $0$)\\
+\verb|ref| & reference point for the text (default is c)
+\end{tabular}
+\end{center}
+
+By default the text is written perpedicular to the brace line and can be changed with
+the \verb|pstricks| option \verb|rot=...|. The text parameter can take any object and
+may also be empty. The reference point can be any value of the combination of \verb|l| (left) 
+or \verb|r| (right) and \verb|b| (bottom) or \verb|B| (Baseline) or \verb|C| (center) 
+or \verb|t| (top), where the default is \verb|c|, the center of the object.
+
+%--------------------------------------------------------------------------------------
+\subsection{Examples}
+%--------------------------------------------------------------------------------------
+
+\begin{LTXexample}
+\begin{pspicture}(8,2.5)
+\psbrace(0,0)(0,2){\fbox{Text}}%
+\psbrace[nodesepA=20pt](2,0)(2,2){\fbox{Text}}
+\psbrace[ref=lC](4,0)(4,2){\fbox{Text}}
+\psbrace[ref=lt,rot=90,nodesepB=-15pt](6,0)(6,2){\fbox{Text}}
+\psbrace[ref=lt,rot=90,nodesepA=-5pt,nodesepB=15pt](8,2)(8,0){\fbox{Text}}
+\end{pspicture}
+\end{LTXexample}
+
+
+\begin{LTXexample}
+\def\someMath{$\int\limits_1^{\infty}\frac{1}{x^2}\,dx=1$}
+\begin{pspicture}(8,2.5)
+\psbrace(0,0)(0,2){\someMath}%
+\psbrace[nodesepA=30pt](2,0)(2,2){\someMath}
+\psbrace[ref=lC](4,0)(4,2){\someMath}
+\psbrace[ref=lt,rot=90,nodesepB=-30pt](6,0)(6,2){\someMath}
+\psbrace[ref=lt,rot=90,nodesepB=30pt](8,2)(8,0){\someMath}
+\end{pspicture}
+\end{LTXexample}
+
+%$
+
+\begin{LTXexample}
+\begin{pspicture}(\linewidth,5)
+\psbrace(0,0.5)(\linewidth,0.5){\fbox{Text}}%
+\psbrace[bracePos=0.25,nodesepB=-10pt,rot=90](0,2)(\linewidth,2){\fbox{Text}}
+\psbrace[ref=lC,nodesepA=-3.5cm,nodesepB=-15pt,rot=90](0,4)(\linewidth,4){%
+   \fbox{some very, very long wonderful Text}}
+\end{pspicture}
+\end{LTXexample}
+
+
+\begin{LTXexample}
+\def\someMath{$\int\limits_1^{\infty}\frac{1}{x^2}\,dx=1$}
+\begin{pspicture}(12,11)
+\psgrid[subgriddiv=0,griddots=10]
+\pnode(0,0){A}
+\pnode(4,6){B}
+\psbrace[ref=lC](A)(B){One}
+\psbrace[rot=180,nodesepA=-5pt,ref=rb](B)(A){Two}
+\psbrace[linecolor=blue,bracePos=0.25,braceWidth=1,ref=lB](8,1)(1,7){Three}
+\psbrace[braceWidth=-1,rot=180,ref=rB](8,1)(1,7){Four}
+\psbrace[linearc=0.5,linecolor=red,linewidth=3pt,braceWidth=1.5,%
+  bracePos=0.25,ref=lC](8,1)(8,9){\someMath}
+\psbrace(4,9)(6,9){}
+\psbrace(6,9)(6,7){}
+\psbrace(6,7)(4,7){}
+\psbrace(4,7)(4,9){}
+\psset{linecolor=red}
+\psbrace[ref=lb](7,10)(3,10){I}
+\psbrace[ref=lb,bracePos=0.75](3,10)(3,6){II}
+\psbrace[ref=lb](3,6)(7,6){III}
+\psbrace[ref=lb](7,6)(7,10){IV}
+\end{pspicture}
+\end{LTXexample}
+
+%$
+
+\begin{LTXexample}[width=5cm]
+\[
+\begin{pmatrix}
+    \Rnode[vref=2ex]{A}{~1} \\
+    & \ddots \\
+    && \Rnode[href=2]{B}{1} \\
+    &&& \Rnode[vref=2ex]{C}{0} \\
+    &&&& \ddots \\
+    &&&&& \Rnode[href=2]{D}{0}~ \\
+\end{pmatrix}
+\]
+\psbrace[linewidth=0.1pt,rot=-90,nodesep=0.2](B)(A){\small n times}
+\psbrace[linewidth=0.1pt,rot=-90,nodesep=0.2](D)(C){\small n times}
+\end{LTXexample}
+
+
+It is also possible to put a vertical brace around a default paragraph. This works
+with setting two invisible nodes at the beginning and the end of the paragraph.
+Inentation is possible with a minipage.
+
+\begin{framed}
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+
+\noindent\rnode{A}{}
+
+\vspace*{-1ex}
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+
+\vspace*{-2ex}
+\noindent\rnode{B}{}\psbrace[linecolor=red](A)(B){}
+
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+
+\medskip
+\hfill\begin{minipage}{0.95\linewidth}
+\noindent\rnode{A}{}
+
+\vspace*{-1ex}
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+
+\vspace*{-2ex}
+\noindent\rnode{B}{}\psbrace[linecolor=red](A)(B){}
+\end{minipage}
+\end{framed}
+
+\begin{lstlisting}
+\begin{framed}
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+
+\noindent\rnode{A}{}
+
+\vspace*{-1ex}
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+
+\vspace*{-2ex}
+\noindent\rnode{B}{}\psbrace[linecolor=red](A)(B){}
+
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+
+\medskip
+\hfill\begin{minipage}{0.95\linewidth}
+\noindent\rnode{A}{}
+
+\vspace*{-1ex}
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+Some nonsense text, which is nothing more than nonsense.
+
+\vspace*{-2ex}
+\noindent\rnode{B}{}\psbrace[linecolor=red](A)(B){}
+\end{minipage}
+\end{framed}
+\end{lstlisting}
+
+
+%--------------------------------------------------------------------------------------
+\section{Random dots}
+%--------------------------------------------------------------------------------------
+The syntax of the new macro \verb+\psRandom+ is:
+
+\begin{verbatim}
+\psRandom[<option>]{}
+\psRandom[<option>]{<clip path>}
+\psRandom[<option>](<xMax,yMax>){<clip path>}
+\psRandom[<option>](<xMin,yMin>)(<xMax,yMax>){<clip path>}
+\end{verbatim}
+
+If there is no area for the dots defined, then \verb+(0,0)(1,1)+ in the actual
+scale is used for placing the dots. This area should be greater than the clipping
+path to be sure that the dots are placed over the full area. The clipping path can
+be everything. If no clipping path is given, then the frame \verb+(0,0)(1,1)+
+in user coordinates is used.  The new options are:
+ 
+\begin{center}
+\begin{tabular}{l|l|l}
+name & default\\\hline
+\verb|randomPoints| &   \verb|1000| & number of random dots\tabularnewline
+\verb|color| & \verb+false+ & random color\tabularnewline
+\end{tabular}
+\end{center}
+
+
+\begin{LTXexample}[width=0.3\linewidth]
+\psset{unit=5cm}
+\begin{pspicture}(1,1)
+  \psRandom[dotsize=1pt,fillstyle=solid](1,1){\pscircle(0.5,0.5){0.5}}
+\end{pspicture}
+\begin{pspicture}(1,1)
+  \psRandom[dotsize=2pt,randomPoints=5000,color,%
+      fillstyle=solid](1,1){\pscircle(0.5,0.5){0.5}}
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=0.4\linewidth]
+\psset{unit=5cm}
+\begin{pspicture}(1,1)
+  \psRandom[randomPoints=200,dotsize=8pt,dotstyle=+]{}
+\end{pspicture}
+\begin{pspicture}(1.5,1)
+  \psRandom[dotsize=5pt,color](0,0)(1.5,0.8){\psellipse(0.75,0.4)(0.75,0.4)}
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}
+\psset{unit=2.5cm}
+\begin{pspicture}(0,-1)(3,1)
+  \psRandom[dotsize=4pt,dotstyle=o,linecolor=blue,fillcolor=red,%
+     fillstyle=solid,randomPoints=1000]%
+      (0,-1)(3,1){\psplot{0}{3.14}{ x 114 mul sin }}
+\end{pspicture}
+\end{LTXexample}
+
+\psset{unit=1cm}
+
+\clearpage
+%--------------------------------------------------------------------------------------
+\section{Arrows}
+%--------------------------------------------------------------------------------------
+\subsection{Definition}
+%--------------------------------------------------------------------------------------
+\verb|pstricks-add| defines the following ''arrows``:
+
+\begin{center}
+  \bgroup
+  \def\myline#1{\psline[linecolor=red,linewidth=1pt]{#1}(0,1ex)(1.3,1ex)}%
+  \psset{arrowscale=1.5}
+  \begin{tabular}{cp{1.8cm}l}%
+    Value & Example & Name \\[2pt]\hline
+    \verb/-/      & \myline{-}      & None\\
+    \verb/<->/    & \myline{<->}    & Arrowheads.\\
+    \verb/>-</    & \myline{>-<}    & Reverse arrowheads.\\
+    \verb/<<->>/  & \myline{<<->>}  & Double arrowheads.\\
+    \verb/>>-<</  & \myline{>>-<<}  & Double reverse arrowheads.\\
+    \verb/|-|/    & \myline{|-|}    & T-bars, flush to endpoints.\\
+    \verb/|*-|*/  & \myline{|*-|*}  & T-bars, centered on endpoints.\\
+    \verb/[-]/    & \myline{[-]}    & Square brackets.\\
+    \verb/]-[/    & \myline{]-[}    & Reversed square brackets.\\
+    \verb/(-)/    & \myline{(-)}    & Rounded brackets.\\
+    \verb/)-(/    & \myline{)-(}    & Reversed rounded brackets.\\
+    \verb/o-o/    & \myline{o-o}    & Circles, centered on endpoints.\\
+    \verb/*-*/    & \myline{*-*}    & Disks, centered on endpoints.\\
+    \verb/oo-oo/  & \myline{oo-oo}  & Circles, flush to endpoints.\\
+    \verb/**-**/  & \myline{**-**}  & Disks, flush to endpoints.\\
+    \verb/|<->|/  & \myline{|<->|}  & T-bars and arrows.\\
+    \verb/|>-<|/  & \myline{|>-<|}  & T-bars and reverse arrows.\\
+    \verb/h-h|/   & \myline{h-h}    & left/right hook arrows.\\
+    \verb/H-H|/   & \myline{H-H}    & left/right hook arrows.\\
+  \end{tabular}
+  \egroup
+\end{center}
+
+You can also mix and match, e.g., \verb/->/, \verb/*-)/ and \verb/[->/ are all valid values
+of the \verb|arrows| parameter. The parameter can be set with
+\begin{verbatim}
+\psset{arrows=<type>}
+\end{verbatim}
+
+\noindent or for some macros with a special option, like\\[5pt]
+\noindent\verb|\psline[<general options>]{<arrow type>}(A)(B)|\\
+\noindent\verb/\psline[linecolor=red,linewidth=2pt]{|->}(0,0)(0,2)/ \ \psline[linecolor=red,linewidth=2pt]{|->}(0,0)(0,2)
+
+\subsection{Multiple arrows}
+There are two new options which are only valid for the arrow type \verb+<<+ or \verb+>>+.
+\verb+nArrow+ sets both, the \verb+nArrowA+ and the  \verb+nArrowB+ parameter. The meaning 
+is declared in the following tables. Without setting one of these parameters the behaviour
+is like the one described in the old PSTricks manual.
+
+\begin{center}
+  \begin{tabular}{lc}%
+    Value & Meaning \\[2pt]\hline
+    \verb+->>+   & \ -A \\
+    \verb+<<->>+ & A-A\\
+    \verb+<<-+   & A-\ \\
+    \verb+>>-+   & B-\ \\
+    \verb+-<<+   & \ -B\\
+    \verb+>>-<<+ & B-B\\
+    \verb+>>->>+ & B-A\\
+    \verb+<<-<<+ & A-B
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \bgroup
+  \psset{linecolor=red,linewidth=1pt,arrowscale=2}%
+  \begin{tabular}{lp{2.8cm}}%
+    Value & Example \\[2pt]\hline
+    \verb+\psline{->>}(0,1ex)(2.3,1ex)+  & \psline{->>}(0,1ex)(2.3,1ex) \\
+    \verb+\psline[nArrowsA=3]{->>}(0,1ex)(2.3,1ex)+  & \psline[nArrowsA=3]{->>}(0,1ex)(2.3,1ex)\\
+    \verb+\psline[nArrowsA=5]{->>}(0,1ex)(2.3,1ex)+  & \psline[nArrowsA=5]{->>}(0,1ex)(2.3,1ex)\\
+    \verb+\psline{<<-}(0,1ex)(2.3,1ex)+  & \psline{<<-}(0,1ex)(2.3,1ex)\\
+    \verb+\psline[nArrowsA=3]{<<-}(0,1ex)(2.3,1ex)+  & \psline[nArrowsA=3]{<<-}(0,1ex)(2.3,1ex)\\
+    \verb+\psline[nArrowsA=5]{<<-}(0,1ex)(2.3,1ex)+  & \psline[nArrowsA=5]{<<-}(0,1ex)(2.3,1ex)\\
+    \verb+\psline{<<->>}(0,1ex)(2.3,1ex)+  & \psline{<<->>}(0,1ex)(2.3,1ex)\\
+    \verb+\psline[nArrowsA=3]{<<->>}(0,1ex)(2.3,1ex)+  & \psline[nArrowsA=3]{<<->>}(0,1ex)(2.3,1ex)\\
+    \verb+\psline[nArrowsA=5]{<<->>}(0,1ex)(2.3,1ex)+  & \psline[nArrowsA=5]{<<->>}(0,1ex)(2.3,1ex)\\
+    \verb+\psline{<<-|}(0,1ex)(2.3,1ex)+  & \psline{<<-|}(0,1ex)(2.3,1ex)\\
+    \verb+\psline[nArrowsA=3]{<<-<<}(0,1ex)(2.3,1ex)+  & \psline[nArrowsA=3]{<<-<<}(0,1ex)(2.3,1ex)\\
+    \verb+\psline[nArrowsA=5]{<<-o}(0,1ex)(2.3,1ex)+  & \psline[nArrowsA=5]{<<-o}(0,1ex)(2.3,1ex)\\
+    \verb+\psline[nArrowsA=3,nArrowsB=4]{<<-<<}(0,1ex)(2.3,1ex)+  & \psline[nArrowsA=3,nArrowsB=4]{<<-<<}(0,1ex)(2.3,1ex)\\
+    \verb+\psline[nArrowsA=3,nArrowsB=4]{>>->>}(0,1ex)(2.3,1ex)+  & \psline[nArrowsA=3,nArrowsB=4]{>>->>}(0,1ex)(2.3,1ex)\\
+    \verb+\psline[nArrowsA=1,nArrowsB=4]{>>->>}(0,1ex)(2.3,1ex)+  & \psline[nArrowsA=1,nArrowsB=4]{>>->>}(0,1ex)(2.3,1ex)\\
+  \end{tabular}
+  \egroup
+\end{center}
+
+\subsection{\texttt{hookarrow}}
+
+\begin{LTXexample}
+\psset{arrowsize=8pt,arrowlength=1,linewidth=1pt,nodesep=2pt,shortput=tablr}
+\large
+\begin{psmatrix}[colsep=12mm,rowsep=10mm]
+        &   & $R_2$            \\
+        &   &   0   &   & $R_3$\\
+$e_b:S$ & 1 &       & 1 & 0    \\
+        &   &   0              \\
+        &   &   $R_1$          \\
+\end{psmatrix}
+\ncline{h-}{1,3}{2,3}<{$e_{r2}$}>{$f_{r2}$}
+\ncline{-h}{2,3}{3,2}<{$e_1$}
+\ncline{-h}{3,1}{3,2}^{$e_s$}_{$f_{s}$}
+\ncline{-h}{3,2}{4,3}>{$e_3$}<{$f_3$}
+\ncline{-h}{4,3}{3,4}>{$e_4$}<{$f_4$}
+\ncline{-h}{3,4}{2,3}>{$e_2$}<{$f_2$}
+\ncline{-h}{3,4}{3,5}^{$e_5$}
+\ncline{-h}{3,5}{2,5}<{$e_{r3}$}>{$f_{r3}$}
+\ncline{-h}{4,3}{5,3}<{$e_{r1}$}>{$f_{r1}$}
+\end{LTXexample}
+
+
+\subsection{\texttt{hookrightarrow} and \texttt{hookleftarrow}}
+This is another type of an arrow and abbreviated with \verb+H+. The length and width of the hook
+is set by the new options \verb+hooklength+ and \verb+hookwidth+, which are by default set to
+%
+\begin{verbatim}
+\psset{hooklength=3mm,hookwidth=1mm}
+\end{verbatim}
+%
+If the line begins with a right hook then the line ends with a left hook and vice versa:
+
+\begin{LTXexample}[width=3cm]
+\begin{pspicture}(3,4)
+\psline[linewidth=5pt,linecolor=blue,hooklength=5mm,hookwidth=-3mm]{H->}(0,3.5)(3,3.5)
+\psline[linewidth=5pt,linecolor=red,hooklength=5mm,hookwidth=3mm]{H->}(0,2.5)(3,2.5)
+\psline[linewidth=5pt,hooklength=5mm,hookwidth=3mm]{H-H}(0,1.5)(3,1.5)
+\psline[linewidth=1pt]{H-H}(0,0.5)(3,0.5)
+\end{pspicture}
+\end{LTXexample}
+
+
+
+\begin{LTXexample}[width=7.25cm]
+$\begin{psmatrix}
+E&W_i(X)&&Y\\
+&&W_j(X)
+\psset{arrows=->,nodesep=3pt,linewidth=2pt}
+\everypsbox{\scriptstyle}
+\ncline[linecolor=red,arrows=H->,%
+  hooklength=4mm,hookwidth=2mm]{1,1}{1,2}       
+\ncline{1,2}{1,4}^{\tilde{t}}
+\ncline{1,2}{2,3}<{W_{ij}}
+\ncline{2,3}{1,4}>{\tilde{s}}
+\end{psmatrix}$
+\end{LTXexample}
+
+
+%--------------------------------------------------------------------------------------
+\subsection{\texttt{ArrowInside} Option}
+%--------------------------------------------------------------------------------------
+
+It is now possible to have arrows inside the lines and not only at the beginning or
+the end. The new defined options
+
+\psset{arrowscale=2,linecolor=red,unit=1cm,linewidth=1.5pt}
+\begin{longtable}{l|p{9cm}|p{2.2cm}}
+Name & Example & Output\\\hline
+\endfirsthead
+Name & Example & Output\\\hline
+\endhead
+\texttt{ArrowInside} &
+	\texttt{\textbackslash psline[ArrowInside=->](0,0)(2,0)} &
+	\psline[ArrowInside=->](0,0.1)(2,0.1) \\
+\texttt{ArrowInsidePos} & \texttt{\textbackslash psline[ArrowInside=->,\%}
+	\hspace*{20pt}\texttt{ArrowInsidePos=0.25](0,0)(2,0)}
+& \psline[ArrowInside=->, ArrowInsidePos=0.25](0,0.1)(2,0.1) \\
+\texttt{ArrowInsidePos} & \texttt{\textbackslash psline[ArrowInside=->,\%}
+	\hspace*{20pt}\texttt{ArrowInsidePos=10](0,0)(2,0)}
+& \psline[ArrowInside=->, ArrowInsidePos=10](0,0.1)(2,0.1) \\
+\texttt{ArrowInsideNo} & \texttt{\textbackslash psline[ArrowInside=->,\%}
+	\hspace*{20pt}\texttt{ArrowInsideNo=2](0,0)(2,0)}
+& \psline[ArrowInside=->, ArrowInsideNo=2](0,0.1)(2,0.1) \\
+\texttt{ArrowInsideOffset} & \texttt{\textbackslash psline[ArrowInside=->,\%}
+	\hspace*{20pt}\texttt{ArrowInsideNo=2,\%}
+	\hspace*{20pt}\texttt{ArrowInsideOffset=0.1](0,0)(2,0)}
+& \psline[ArrowInside=->, ArrowInsideNo=2,ArrowInsideOffset=0.1](0,0.1)(2,0.1) \\
+%
+\texttt{ArrowInside} & \texttt{\textbackslash psline[ArrowInside=->]\{->\}(0,0)(2,0)} &
+	\psline[ArrowInside=->]{->}(0,0)(2,0)\\
+\texttt{ArrowInsidePos} & \texttt{\textbackslash psline[ArrowInside=->,\%}
+	\hspace*{20pt}\texttt{ArrowInsidePos=0.25]\{->\}(0,0)(2,0)}
+	& \psline[ArrowInside=->, ArrowInsidePos=0.25]{->}(0,0)(2,0) \\
+\texttt{ArrowInsidePos} & \texttt{\textbackslash psline[ArrowInside=->,\%}
+	\hspace*{20pt}\texttt{ArrowInsidePos=10]\{->\}(0,0)(2,0)}
+	& \psline[ArrowInside=->, ArrowInsidePos=10]{->}(0,0)(2,0) \\
+\texttt{ArrowInsideNo} & \texttt{\textbackslash psline[ArrowInside=->,\%}
+	\hspace*{20pt}\texttt{ArrowInsideNo=2]\{->\}(0,0)(2,0)}
+	& \psline[ArrowInside=->, ArrowInsideNo=2]{->}(0,0)(2,0) \\
+\texttt{ArrowInsideOffset} & \texttt{\textbackslash psline[ArrowInside=->,\%}
+	\hspace*{20pt}\texttt{ArrowInsideNo=2,\%}
+	\hspace*{20pt}\texttt{ArrowInsideOffset=0.1]\{->\}(0,0)(2,0)}
+	& \psline[ArrowInside=->, ArrowInsideNo=2,ArrowInsideOffset=0.1]{->}(0,0)(2,0) \\
+%
+\texttt{ArrowFill} & \texttt{\textbackslash psline[ArrowFill=false,\%}
+	\hspace*{20pt}\texttt{arrowinset=0]\{->\}(0,0)(2,0)} &
+	\psline[ArrowFill=false,arrowinset=0]{->}(0,0)(2,0)\\
+\texttt{ArrowFill} & \texttt{\textbackslash psline[ArrowFill=false,\%}
+	\hspace*{20pt}\texttt{arrowinset=0]\{<<->>\}(0,0)(2,0)} &
+	\psline[ArrowFill=false,arrowinset=0]{<<->>}(0,0)(2,0)\\
+\texttt{ArrowFill} & \texttt{\textbackslash psline[ArrowInside=->,\%}
+	\hspace*{20pt}\texttt{arrowinset=0,\%}\hspace{30pt}
+	\hspace*{20pt}\texttt{ArrowFill=false,\%}\hspace{30pt}
+	\hspace*{20pt}\texttt{ArrowInsideNo=2,\%}
+	\hspace*{20pt}\texttt{ArrowInsideOffset=0.1]\{->\}(0,0)(2,0)}
+	& \psline[ArrowInside=->, ArrowFill=false,ArrowInsideNo=2,ArrowInsideOffset=0.1]{->}(0,0)(2,0) \\
+\end{longtable}
+
+\medskip
+Without the default arrow definition there is only the one inside the line, defined
+by the type and
+the position. The position is relative to the length of the whole line. $0.25$ means
+at $25\%$ of the
+line length. The peak of the arrow gets the coordinates which are calculated by the
+macro. If you want arrows with an abolute position difference, then choose a
+value greater than \verb|1|, e.g. \verb|10| which places an arrow every 10 pt. The
+default unit \verb|pt| cannot be changed.
+
+
+%--------------------------------------------------------------------------------------
+\subsection{\texttt{ArrowFill} Option}
+%--------------------------------------------------------------------------------------
+
+By default all arrows are filled polygons. With the option \verb|ArrowFill=false| there
+are ''white``  arrows. Only for the beginning/end arrows they are empty, the inside arrows
+are overpainted with the line.
+
+
+\begin{LTXexample}[width=3.5cm]
+\psset{arrowscale=3}
+\psline[linecolor=red,arrowinset=0]{<->}(0,0)(3,0)
+\end{LTXexample}
+
+\begin{LTXexample}[width=3.5cm]
+\psset{arrowscale=3}
+\psline[linecolor=red,arrowinset=0,ArrowFill=false]{<->}(0,0)(3,0)
+\end{LTXexample}
+
+\begin{LTXexample}[width=3.5cm]
+\psset{arrowscale=3}
+\psline[linecolor=red,arrowinset=0,arrowsize=0.2,ArrowFill=false]{<->}(0,0)(3,0)
+\end{LTXexample}
+
+\begin{LTXexample}[width=3.5cm]
+\psset{arrowscale=3}
+\psline[linecolor=blue,arrowscale=6,ArrowFill=true]{>>->>}(0,0)(3,0)
+\end{LTXexample}
+
+\begin{LTXexample}[width=3.5cm]
+\psset{arrowscale=3}
+\psline[linecolor=blue,arrowscale=6,ArrowFill=false]{>>->>}(0,0)(3,0)
+\rule{3cm}{0pt}\\[30pt]
+\end{LTXexample}
+
+\begin{LTXexample}[width=3.5cm]
+\psset{arrowscale=3}
+\psline[linecolor=blue,arrowscale=6,ArrowFill=true]{>|->|}(0,0)(3,0)
+\end{LTXexample}
+
+\begin{LTXexample}[width=3.5cm]
+\psset{arrowscale=3}
+\psline[linecolor=blue,arrowscale=6,ArrowFill=false]{>|->|}(0,0)(3,0)%
+\end{LTXexample}
+
+
+%--------------------------------------------------------------------------------------
+\subsection{Examples}
+%--------------------------------------------------------------------------------------
+
+All examples are printed with \verb|\psset{arrowscale=2,linecolor=red}|.
+\subsubsection{\CMD{psline}}
+
+\bigskip
+\begin{LTXexample}[width=2.5cm]
+\begin{pspicture}(2,2)
+\psset{arrowscale=2,ArrowFill=true}
+\psline[ArrowInside=->]{|<->|}(2,1)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=2.5cm]
+\begin{pspicture}(2,2)
+\psset{arrowscale=2,ArrowFill=true}
+\psline[ArrowInside=-|]{|-|}(2,1)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=2.5cm]
+\begin{pspicture}(2,2)
+\psset{arrowscale=2,ArrowFill=true}
+\psline[ArrowInside=->,ArrowInsideNo=2]{->}(2,1)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=2.5cm]
+\begin{pspicture}(2,2)
+\psset{arrowscale=2,ArrowFill=true}
+\psline[ArrowInside=->,ArrowInsideNo=2,ArrowInsideOffset=0.1]{->}(2,1)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=6.5cm]
+\begin{pspicture}(6,2)
+\psset{arrowscale=2,ArrowFill=true}
+\psline[ArrowInside=-*]{->}(0,0)(2,1)(3,0)(4,0)(6,2)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=6.5cm]
+\begin{pspicture}(6,2)
+\psset{arrowscale=2,ArrowFill=true}
+\psline[ArrowInside=-*,ArrowInsidePos=0.25]{->}(0,0)(2,1)(3,0)(4,0)(6,2)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=6.5cm]
+\begin{pspicture}(6,2)
+\psset{arrowscale=2,ArrowFill=true}
+\psline[ArrowInside=-*,ArrowInsidePos=0.25,ArrowInsideNo=2]{->}%
+   (0,0)(2,1)(3,0)(4,0)(6,2)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=6.5cm]
+\begin{pspicture}(6,2)
+\psset{arrowscale=2,ArrowFill=true}
+\psline[ArrowInside=->, ArrowInsidePos=0.25]{->}%
+        (0,0)(2,1)(3,0)(4,0)(6,2)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=6.5cm]
+\begin{pspicture}(6,2)
+\psset{arrowscale=2,ArrowFill=true}
+\psline[linestyle=none,ArrowInside=->,ArrowInsidePos=0.25]{->}%
+        (0,0)(2,1)(3,0)(4,0)(6,2)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=6.5cm]
+\begin{pspicture}(6,2)
+\psset{arrowscale=2,ArrowFill=true}
+\psline[ArrowInside=-<, ArrowInsidePos=0.75]{->}%
+     (0,0)(2,1)(3,0)(4,0)(6,2)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=6.5cm]
+\begin{pspicture}(6,2)
+\psset{arrowscale=2,ArrowFill=true,ArrowInside=-*}
+\psline(0,0)(2,1)(3,0)(4,0)(6,2)
+\psset{linestyle=none}
+\psline[ArrowInsidePos=0](0,0)(2,1)(3,0)(4,0)(6,2)
+\psline[ArrowInsidePos=1](0,0)(2,1)(3,0)(4,0)(6,2)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=6.5cm]
+\begin{pspicture}(6,5)
+\psset{arrowscale=2,ArrowFill=true}
+\psline[ArrowInside=->,ArrowInsidePos=20](0,0)(3,0)%
+       (3,3)(1,3)(1,5)(5,5)(5,0)(7,0)(6,3)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=6.5cm]
+\begin{pspicture}(6,2)
+\psset{arrowscale=2,ArrowFill=true}
+\psline[ArrowInside=-|]{<->}(0,2)(2,0)(3,2)(4,0)(6,2)
+\end{pspicture}
+\end{LTXexample}
+
+
+%--------------------------------------------------------------------------------------
+\subsubsection{\CMD{pspolygon}}
+%--------------------------------------------------------------------------------------
+% Polygons (\pspolygon macro)
+
+\begin{LTXexample}[width=6.5cm]
+\begin{pspicture}(6,3)
+\psset{arrowscale=2}
+\pspolygon[ArrowInside=-|](0,0)(3,3)(6,3)(6,1)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=6.5cm]
+\begin{pspicture}(6,3)
+\psset{arrowscale=2}
+\pspolygon[ArrowInside=->,ArrowInsidePos=0.25]%
+     (0,0)(3,3)(6,3)(6,1)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=6.5cm]
+\begin{pspicture}(6,3)
+\psset{arrowscale=2}
+\pspolygon[ArrowInside=->,ArrowInsideNo=4]%
+       (0,0)(3,3)(6,3)(6,1)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=6.5cm]
+\begin{pspicture}(6,3)
+\psset{arrowscale=2}
+\pspolygon[ArrowInside=->,ArrowInsideNo=4,%
+   ArrowInsideOffset=0.1](0,0)(3,3)(6,3)(6,1)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=6.5cm]
+\begin{pspicture}(6,3)
+\psset{arrowscale=2}
+ \pspolygon[ArrowInside=-|](0,0)(3,3)(6,3)(6,1)
+ \psset{linestyle=none,ArrowInside=-*}
+ \pspolygon[ArrowInsidePos=0](0,0)(3,3)(6,3)(6,1)
+ \pspolygon[ArrowInsidePos=1](0,0)(3,3)(6,3)(6,1)
+ \psset{ArrowInside=-o}
+ \pspolygon[ArrowInsidePos=0.25](0,0)(3,3)(6,3)(6,1)
+ \pspolygon[ArrowInsidePos=0.75](0,0)(3,3)(6,3)(6,1)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=6.5cm]
+\begin{pspicture}(6,5)
+\psset{arrowscale=2}
+  \pspolygon[ArrowInside=->,ArrowInsidePos=20]%
+    (0,0)(3,0)(3,3)(1,3)(1,5)(5,5)(5,0)(7,0)(6,3)
+\end{pspicture}
+\end{LTXexample}
+
+
+%--------------------------------------------------------------------------------------
+\subsubsection{\CMD{psbezier}}
+%--------------------------------------------------------------------------------------
+% Bezier curves (\psbezier macro)
+
+\begin{LTXexample}[width=3.5cm]
+\begin{pspicture}(3,3)
+\psset{arrowscale=2}
+  \psbezier[ArrowInside=-|](1,1)(2,2)(3,3)
+  \psset{linestyle=none,ArrowInside=-o}
+  \psbezier[ArrowInsidePos=0.25](1,1)(2,2)(3,3)
+  \psbezier[ArrowInsidePos=0.75](1,1)(2,2)(3,3)
+  \psset{linestyle=none,ArrowInside=-*}
+  \psbezier[ArrowInsidePos=0](1,1)(2,2)(3,3)
+  \psbezier[ArrowInsidePos=1](1,1)(2,2)(3,3)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=4.5cm]
+\begin{pspicture}(4,3)
+\psset{arrowscale=2}
+  \psbezier[ArrowInside=->,showpoints=true]%
+     {*-*}(2,3)(3,0)(4,2)
+\end{pspicture}
+\end{LTXexample}
+
+
+\begin{LTXexample}[width=4.5cm]
+\begin{pspicture}(4,3)
+\psset{arrowscale=2}
+  \psbezier[ArrowInside=->,showpoints=true,%
+      ArrowInsideNo=2](2,3)(3,0)(4,2)
+\end{pspicture}
+\end{LTXexample}
+
+
+\begin{LTXexample}[width=4.5cm]
+\begin{pspicture}(4,3)
+\psset{arrowscale=2}
+  \psbezier[ArrowInside=->,showpoints=true,%
+      ArrowInsideNo=2,ArrowInsideOffset=-0.2]{->}(2,3)(3,0)(4,2)
+\end{pspicture}
+\end{LTXexample}
+
+
+\begin{LTXexample}[width=5.5cm]
+\begin{pspicture}(5,3)
+\psset{arrowscale=2}
+  \psbezier[ArrowInsideNo=9,ArrowInside=-|,%
+    showpoints=true]{*-*}(1,3)(3,0)(5,3)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=4.5cm]
+\begin{pspicture}(4,3)
+\psset{arrowscale=2}
+  \psset{ArrowInside=-|}
+  \psbezier[ArrowInsidePos=0.25,showpoints=true]{*-*}(2,3)(3,0)(4,2)
+  \psset{linestyle=none}
+  \psbezier[ArrowInsidePos=0.75](2,3)(3,0)(4,2)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=5.5cm]
+\begin{pspicture}(5,6)
+\psset{arrowscale=2}
+  \pnode(3,4){A}\pnode(5,6){B}\pnode(5,0){C}
+  \psbezier[ArrowInside=->,%
+     showpoints=true](A)(B)(C)
+  \psset{linestyle=none,ArrowInside=-<}
+  \psbezier[ArrowInsideNo=4](A)(B)(C)
+  \psset{ArrowInside=-o}
+  \psbezier[ArrowInsidePos=0.1](A)(B)(C)
+  \psbezier[ArrowInsidePos=0.9](A)(B)(C)
+  \psset{ArrowInside=-*}
+  \psbezier[ArrowInsidePos=0.3](A)(B)(C)
+  \psbezier[ArrowInsidePos=0.7](A)(B)(C)
+\end{pspicture}
+\end{LTXexample}
+
+
+\begin{LTXexample}[pos=t]
+\begin{pspicture}(-3,-5)(15,5)
+  \psbezier[ArrowInsideNo=19,%
+      ArrowInside=->,ArrowFill=false,%
+      showpoints=true]{->}(-3,0)(5,-5)(8,5)(15,-5)
+\end{pspicture}
+\end{LTXexample}
+
+
+%--------------------------------------------------------------------------------------
+\subsubsection{\CMD{pcline}}
+%--------------------------------------------------------------------------------------
+These examples need the package \verb|pst-node|.
+
+% Lines (\pcline macro)
+\begin{LTXexample}[width=2.5cm]
+\begin{pspicture}(2,1)
+\psset{arrowscale=2}
+\pcline[ArrowInside=->](0,0)(2,1)
+\end{pspicture}
+\end{LTXexample}
+
+
+\begin{LTXexample}[width=2.5cm]
+\begin{pspicture}(2,1)
+\psset{arrowscale=2}
+\pcline[ArrowInside=->]{<->}(0,0)(2,1)
+\end{pspicture}
+\end{LTXexample}
+
+
+\begin{LTXexample}[width=2.5cm]
+\begin{pspicture}(2,1)
+\psset{arrowscale=2}
+\pcline[ArrowInside=-|,ArrowInsidePos=0.75]{|-|}(0,0)(2,1)
+\end{pspicture}
+\end{LTXexample}
+
+
+\begin{LTXexample}[width=2.5cm]
+\psset{arrowscale=2}
+\pcline[ArrowInside=->,ArrowInsidePos=0.65]{*-*}(0,0)(2,0)
+\naput[labelsep=0.3]{\large$g$}
+\end{LTXexample}
+
+
+\begin{LTXexample}[width=2.5cm]
+\psset{arrowscale=2}
+\pcline[ArrowInside=->,ArrowInsidePos=10]{|-|}(0,0)(2,0)
+\naput[labelsep=0.3]{\large$l$}
+\end{LTXexample}
+
+
+
+%--------------------------------------------------------------------------------------
+\subsubsection{\CMD{pccurve}}
+%--------------------------------------------------------------------------------------
+These examples also need the package \verb|pst-node|.
+
+\begin{LTXexample}[width=2.5cm]
+\begin{pspicture}(2,2)
+\psset{arrowscale=2}
+\pccurve[ArrowInside=->,ArrowInsidePos=0.65,showpoints=true]{*-*}(0,0)(2,2)
+\naput[labelsep=0.3]{\large$h$}
+\end{pspicture}
+\end{LTXexample}
+
+
+\begin{LTXexample}[width=2.5cm]
+\begin{pspicture}(2,2)
+\psset{arrowscale=2}
+\pccurve[ArrowInside=->,ArrowInsideNo=3,showpoints=true]{|->}(0,0)(2,2)
+\naput[labelsep=0.3]{\large$i$}
+\end{pspicture}
+\end{LTXexample}
+
+
+\begin{LTXexample}[width=4.5cm]
+\begin{pspicture}(4,4)
+\psset{arrowscale=2}
+\pccurve[ArrowInside=->,ArrowInsidePos=20]{|-|}(0,0)(4,4)
+\naput[labelsep=0.3]{\large$k$}
+\end{pspicture}
+\end{LTXexample}
+
+%--------------------------------------------------------------------------------------
+\section{\CMD{psFormatInt}}
+%--------------------------------------------------------------------------------------
+There exist some packages and a lot of code to format an integer like $1\,000\,000$
+or $1,234,567$ (in Europe $1.234.567$). But all packages expect a real number as
+argument and cannot handle macros as an argument. For this case \verb|pstricks-add|
+has a macro \verb|psFormatInt| which can handle both:
+
+\begin{LTXexample}[width=3cm]
+\psFormatInt{1234567}\\
+\psFormatInt[intSeparator={,}]{1234567}\\
+\psFormatInt[intSeparator=.]{1234567}\\
+\psFormatInt[intSeparator=$\cdot$]{1234567}\\
+\def\temp{965432}
+\psFormatInt{\temp}
+\end{LTXexample}
+
+With the option \verb|intSeparator| the symbol can be changed to any any non-number character.
+
+
+%--------------------------------------------------------------------------------------
+\section{Color}
+%--------------------------------------------------------------------------------------
+
+%--------------------------------------------------------------------------------------
+\subsection{,,Tranparent colors''}
+%--------------------------------------------------------------------------------------
+
+\verb+pstricks-add+ simulates transparency with hatch lines:
+\begin{lstlisting}
+\def\defineTColor{\@ifnextchar[{\defineTColor@i}{\defineTColor@i[]}}
+\def\defineTColor@i[#1]#2#3{%     transparency "Colors"
+  \newpsstyle{#2}{%
+     fillstyle=vlines,hatchwidth=0.1\pslinewidth,
+     hatchsep=1\pslinewidth,hatchcolor=#3,#1%
+  }%
+}
+\defineTColor{TRed}{red}
+\defineTColor{TGreen}{green}
+\defineTColor{TBlue}{blue}
+\end{lstlisting}
+
+There are three predefined "'transparent"` colors \verb+TRed+, \verb+TGreen+, \verb+TBlue+.
+They are used as \PST styles and not as colors:
+
+\resetOptions
+\bgroup
+\begin{LTXexample}[pos=t,preset=\centering]
+\begin{pspicture}(-3,-5)(5,5)
+\psframe(-1,-3)(5,5) % objet de base
+\psrotate(2,-2){15}{%
+  \psframe[style=TRed](-1,-3)(5,5)}
+\psrotate(2,-2){30}{%
+  \psframe[style=TGreen](-1,-3)(5,5)}
+\psrotate(2,-2){45}{%
+  \psframe[style=TBlue](-1,-3)(5,5)}
+\psframe[linewidth=3pt](-1,-3)(5,5)
+\psdots[dotstyle=+,dotangle=45,dotscale=3](2,-2) % centre de la rotation
+\end{pspicture}
+\end{LTXexample}
+\egroup
+
+%--------------------------------------------------------------------------------------
+\subsection{Calculated colors}
+%--------------------------------------------------------------------------------------
+The \verb+xcolor+ package (version 2.6) has a new feature for defining colors:
+\begin{verbatim}
+  \definecolor[ps]{<name>}{<model>}{< PS code >}
+\end{verbatim}
+
+\verb+model+ can be one of the color models, which PostScript will understand, e.g. \verb+rgb+.
+With this definition the color is calculated on PostScript side.
+\begin{LTXexample}[pos=t,preset=\centering]
+\definecolor[ps]{bl}{rgb}{tx@addDict begin  Red Green Blue end}%
+\psset{unit=1bp}
+\begin{pspicture}(0,-30)(400,100)
+\multido{\iLAMBDA=0+1}{400}{%
+  \pstVerb{
+    \iLAMBDA\space 379 add dup /lambda exch def
+    tx@addDict begin  wavelengthToRGB end 
+  }%
+  \psline[linecolor=bl](\iLAMBDA,0)(\iLAMBDA,100)%
+}
+\psaxes[yAxis=false,Ox=350,dx=50bp,Dx=50]{->}(-29,-10)(420,100)
+\uput[-90](420,-10){$\lambda$[\textsf{nm}]}
+\end{pspicture}
+\end{LTXexample}
+
+
+\begin{center}
+\newcommand{\Touch}{%
+\psframe[linestyle=none,fillstyle=solid,fillcolor=bl,dimen=middle](0.1,0.75)}
+\definecolor[ps]{bl}{rgb}{tx@addDict begin Red Green Blue end}%
+% Echelle 1cm <-> 40 nm
+%         1 nm <-> 0.025 cm
+\psframebox[fillstyle=solid,fillcolor=black]{%
+\begin{pspicture}(-1,-0.5)(12,1.5)
+\multido{\iLAMBDA=380+2}{200}{%
+  \pstVerb{
+    /lambda \iLAMBDA\space def
+    lambda
+    tx@addDict begin  wavelengthToRGB end
+  }%
+ \rput(! lambda 0.025 mul 9.5 sub 0){\Touch}
+}
+\multido{\n=0+1,\iDiv=380+40}{11}{%
+    \psline[linecolor=white](\n,0.1)(\n,-0.1)
+    \uput[270](\n,0){\textbf{\white\iDiv}}}
+    \psline[linecolor=white]{->}(11,0)
+    \uput[270](11,0){\textbf{\white$\lambda$(nm)}}
+\end{pspicture}}
+
+\psframebox[fillstyle=solid,fillcolor=black]{%
+\begin{pspicture}(-1,-0.5)(12,1)
+  \pstVerb{
+    /lambda 656 def
+    lambda
+    tx@addDict begin  wavelengthToRGB end
+  }%
+ \rput(! 656 0.025 mul 9.5 sub 0){\Touch}
+  \pstVerb{
+    /lambda 486 def
+    lambda
+    tx@addDict begin  wavelengthToRGB end
+  }%
+ \rput(! 486 0.025 mul 9.5 sub 0){\Touch}
+   \pstVerb{
+    /lambda 434 def
+    lambda
+    tx@addDict begin  wavelengthToRGB end
+  }%
+ \rput(! 434 0.025 mul 9.5 sub 0){\Touch}
+  \pstVerb{
+    /lambda 410 def
+    lambda
+    tx@addDict begin  wavelengthToRGB end
+  }%
+ \rput(! 410 0.025 mul 9.5 sub 0){\Touch}
+\multido{\n=0+1,\iDiv=380+40}{11}{%
+    \psline[linecolor=white](\n,0.1)(\n,-0.1)
+    \uput[270](\n,0){\textbf{\white\iDiv}}}
+    \psline[linecolor=white]{->}(11,0)
+    \uput[270](11,0){\textbf{\white$\lambda$(nm)}}
+\end{pspicture}}
+
+Spectrum of hydrogen emission (Manuel Luque)
+\end{center}
+
+\begin{lstlisting}
+\newcommand{\Touch}{%
+\psframe[linestyle=none,fillstyle=solid,fillcolor=bl,dimen=middle](0.1,0.75)}
+\definecolor[ps]{bl}{rgb}{tx@addDict begin Red Green Blue end}%
+% Echelle 1cm <-> 40 nm
+%         1 nm <-> 0.025 cm
+\psframebox[fillstyle=solid,fillcolor=black]{%
+\begin{pspicture}(-1,-0.5)(12,1.5)
+\multido{\iLAMBDA=380+2}{200}{%
+  \pstVerb{
+    /lambda \iLAMBDA\space def
+    lambda
+    tx@addDict begin  wavelengthToRGB end
+  }%
+ \rput(! lambda 0.025 mul 9.5 sub 0){\Touch}
+}
+\multido{\n=0+1,\iDiv=380+40}{11}{%
+    \psline[linecolor=white](\n,0.1)(\n,-0.1)
+    \uput[270](\n,0){\textbf{\white\iDiv}}}
+    \psline[linecolor=white]{->}(11,0)
+    \uput[270](11,0){\textbf{\white$\lambda$(nm)}}
+\end{pspicture}}
+
+\psframebox[fillstyle=solid,fillcolor=black]{%
+\begin{pspicture}(-1,-0.5)(12,1)
+  \pstVerb{
+    /lambda 656 def
+    lambda
+    tx@addDict begin  wavelengthToRGB end
+  }%
+ \rput(! 656 0.025 mul 9.5 sub 0){\Touch}
+  \pstVerb{
+    /lambda 486 def
+    lambda
+    tx@addDict begin  wavelengthToRGB end
+  }%
+ \rput(! 486 0.025 mul 9.5 sub 0){\Touch}
+   \pstVerb{
+    /lambda 434 def
+    lambda
+    tx@addDict begin  wavelengthToRGB end
+  }%
+ \rput(! 434 0.025 mul 9.5 sub 0){\Touch}
+  \pstVerb{
+    /lambda 410 def
+    lambda
+    tx@addDict begin  wavelengthToRGB end
+  }%
+ \rput(! 410 0.025 mul 9.5 sub 0){\Touch}
+\multido{\n=0+1,\iDiv=380+40}{11}{%
+    \psline[linecolor=white](\n,0.1)(\n,-0.1)
+    \uput[270](\n,0){\textbf{\white\iDiv}}}
+    \psline[linecolor=white]{->}(11,0)
+    \uput[270](11,0){\textbf{\white$\lambda$(nm)}}
+\end{pspicture}}
+
+Spectrum of hydrogen emission (Manuel Luque)
+\end{lstlisting}
+
+
+
+%--------------------------------------------------------------------------------------
+\subsection{Gouraud shading}
+%--------------------------------------------------------------------------------------
+\begin{quotation}
+Gouraud shading is a method used in computer graphics to simulate the differing effects of 
+light and colour across the surface of an object. In practice, Gouraud shading is used to 
+achieve smooth lighting on low-polygon surfaces without the heavy computational requirements 
+of calculating lighting for each pixel. The technique was first presented by Henri Gouraud in 1971.\\
+~\hfill{\small \url{http://www.wikipedia.org}}
+\end{quotation}
+
+PostScript level 3 supports this kind of shading and it could only be seen with Acroread 7
+or younger. Die Syntax ist relativ einfach
+
+\begin{verbatim}
+  \psGTriangle(x1,y1)(x2,y2)(x3,y3){color1}{color2}{color3}
+\end{verbatim}
+
+\psset{unit=0.75cm}
+
+\begin{LTXexample}[pos=t,preset=\centering]
+\begin{pspicture}(0,-.25)(10,10)
+  \psGTriangle(0,0)(5,10)(10,0){red}{green}{blue}
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[pos=t,preset=\centering]
+\begin{pspicture}(0,-.25)(10,10)
+  \psGTriangle*(0,0)(9,10)(10,3){black}{white!50}{red!50!green!95}
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[pos=t,preset=\centering]
+\begin{pspicture}(0,-.25)(10,10)
+  \psGTriangle*(0,0)(5,10)(10,0){-red!100!green!84!blue!86}
+                               {-red!80!green!100!blue!40}
+                               {-red!60!green!30!blue!100}
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[pos=t,preset=\centering]
+\definecolor{rose}{rgb}{1.00, 0.84, 0.88}
+\definecolor{vertpommepasmure}{rgb}{0.80, 1.0, 0.40}
+\definecolor{fushia}{rgb}{0.60, 0.30, 1.0}
+\begin{pspicture}(0,-.25)(10,10)
+  \psGTriangle(0,0)(5,10)(10,0){rose}{vertpommepasmure}{fushia}
+\end{pspicture}
+\end{LTXexample}
+
+\newpage
+%--------------------------------------------------------------------------------------
+\part{\texttt{pst-node}}
+%--------------------------------------------------------------------------------------
+\section{\CMD{nclineII}}
+%--------------------------------------------------------------------------------------
+The dashed lines are black and white by default. The new macro \verb|\nclineII|
+offers two-color lines and has the same syntax as \verb|\ncline|:
+\begin{verbatim}
+\ncline[<options>]{<Node A>}{<Node B>}
+\end{verbatim}
+
+\begin{LTXexample}[width=0.2\linewidth]
+\circlenode[linecolor=blue,linewidth=2pt]{A}{A}%
+\hspace{9cm}\circlenode[linecolor=cyan,linewidth=2pt]{B}{B}
+\nclineII[linewidth=5pt]{A}{B}
+\end{LTXexample}
+
+
+%--------------------------------------------------------------------------------------
+\subsection{The options}
+%--------------------------------------------------------------------------------------
+
+These options are all defined in the package \verb|pstricks-add|.
+
+\medskip
+\begin{tabularx}{\linewidth}{l|X}
+name & meaning\\\hline
+\verb|dashColorI| & first color, default is \verb|black|\tabularnewline
+\verb|dashColorII| & second color, default is \verb|red|\tabularnewline
+\verb|dashNo| & The ratio of dashColorI to dashColorII, the default is $0.2$\tabularnewline
+\end{tabularx}
+\medskip
+
+\verb|dashNo| can have values greater than $1$. In this case the value will be taken as an absolute width in the pt unit. Only this unit is possible!
+
+%--------------------------------------------------------------------------------------
+\subsection{Examples}
+%--------------------------------------------------------------------------------------
+\begin{LTXexample}[width=4.5cm]
+\circlenode{A}{A}\hspace*{3cm}\dianode{B}{B}%
+\nclineII[linewidth=8pt,dashColorI=blue]{A}{B}
+\end{LTXexample}
+
+\begin{LTXexample}[width=4.5cm]
+\circlenode{A}{A}\hspace*{3cm}\circlenode{B}{B}%
+\nclineII[dashColorI=blue,linewidth=3pt,dashNo=15]{->}{A}{B}
+\end{LTXexample}
+
+\begin{LTXexample}[width=4.5cm]
+\dianode{A}{A}\hspace*{3cm}\circlenode{B}{B}%
+\nclineII[dashColorI=blue,linecap=1,dashNo=0.3,linewidth=0.5]{A}{B}
+\end{LTXexample}
+
+\psset{unit=1cm}
+
+%--------------------------------------------------------------------------------------
+\section{\CMD{pclineII}}
+%--------------------------------------------------------------------------------------
+This is nearly the same macro as \verb|\psline| from the main \pnode{C}\verb|pstricks| package.
+\begin{verbatim}
+\pcline[<options>](<Node A>)(<Node B>)
+\end{verbatim}
+
+\begin{LTXexample}
+\circlenode[linecolor=blue,linewidth=2pt]{A}{A}%
+\hspace*{6cm}\circlenode[linecolor=cyan,linewidth=2pt]{B}{B}
+\pclineII[linewidth=5pt](A)(B)
+\end{LTXexample}
+
+
+\begin{LTXexample}
+\raggedright This macro makes only sense when connecting two ''invisible`` nodes, 
+like this connection from here\pnode{D}\pclineII{->}(D)(C){} 
+to the above word \verb|pstricks|.
+\end{LTXexample}
+
+
+
+%--------------------------------------------------------------------------------------
+\section{\CMD{ncdiag} and \CMD{pcdiag}}
+%--------------------------------------------------------------------------------------
+With the new option \verb|lineAngle| the lines drawn by the \verb|ncdiag| macro
+can now have a specified gradient. Without this option one has to define the two
+arms (which maybe zero) and PSTricks draws the connection between them. Now there
+is only a static \verb|armA|, the second one \verb|armB| is calculated when an angle
+\verb|lineAngle| is defined. This angle is the gradient of the intermediate line
+between the two arms. The syntax of \verb|ncdiag| is
+
+\begin{verbatim}
+\ncdiag[<options>]{<Node A>}{<Node B>}
+\pcdiag[<options>](<Node A>)(<Node B>)
+\end{verbatim}
+
+
+\begin{tabularx}{\linewidth}{l|X}
+name & meaning\\\hline
+\verb|lineAngle| & angle of the intermediate line segment. Default is 0, which is the same than using \verb|ncdiag| without the \verb|lineAngle| option.\tabularnewline
+\end{tabularx}
+
+
+\resetOptions
+\begin{LTXexample}[width=5.5cm]
+\begin{pspicture}(5,6)
+  \circlenode{A}{A}\quad\circlenode{C}{C}%
+    \quad\circlenode{E}{E}
+  \rput(0,4){\circlenode{B}{B}}
+  \rput(1,5){\circlenode{D}{D}}
+  \rput(2,6){\circlenode{F}{F}}
+  \psset{arrowscale=2,linearc=0.2,%
+    linecolor=red,armA=0.5, angleA=90,angleB=-90}
+  \ncdiag[lineAngle=20]{->}{A}{B}
+  \ncput*[nrot=:U]{line I}
+  \ncdiag[lineAngle=20]{->}{C}{D}
+  \ncput*[nrot=:U]{line II}
+  \ncdiag[lineAngle=20]{->}{E}{F}
+  \ncput*[nrot=:U]{line III}
+\end{pspicture}
+\end{LTXexample}
+
+
+The \verb|ncdiag| macro sets the \verb|armB| dynamically to the calculated value. Any
+user setting of \verb|armB| is overwritten by the macro. The \verb|armA| could be set to
+a zero length:
+
+
+\begin{LTXexample}[width=4.5cm]
+\begin{pspicture}(4,3)
+  \rput(0.5,0.5){\circlenode{A}{A}}
+  \rput(3.5,3){\circlenode{B}{B}}
+  {\psset{linecolor=red,arrows=<-,arrowscale=2}
+  \ncdiag[lineAngle=60,%
+      armA=0,angleA=0,angleB=180]{A}{B}
+  \ncdiag[lineAngle=60,%
+      armA=0,angleA=90,angleB=180]{A}{B}}
+\end{pspicture}
+\end{LTXexample}
+
+
+\begin{LTXexample}[width=4.5cm]
+\begin{pspicture}(4,3)
+  \rput(1,0.5){\circlenode{A}{A}}
+  \rput(4,3){\circlenode{B}{B}}
+  {\psset{linecolor=red,arrows=<-,arrowscale=2}
+  \ncdiag[lineAngle=60,%
+      armA=0.5,angleA=0,angleB=180]{A}{B}
+  \ncdiag[lineAngle=60,%
+      armA=0,angleA=70,angleB=180]{A}{B}
+  \ncdiag[lineAngle=60,%
+      armA=0.5,angleA=180,angleB=180]{A}{B}}
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=4.5cm]
+\begin{pspicture}(4,5.5)
+  \cnode*(0,0){2pt}{A}%
+  \cnode*(0.25,0){2pt}{C}%
+  \cnode*(0.5,0){2pt}{E}%
+  \cnode*(0.75,0){2pt}{G}%
+  \cnode*(2,4){2pt}{B}%
+  \cnode*(2.5,4.5){2pt}{D}%
+  \cnode*(3,5){2pt}{F}%
+  \cnode*(3.5,5.5){2pt}{H}%
+  {\psset{arrowscale=2,linearc=0.2,%
+    linecolor=red,armA=0.5, angleA=90,angleB=-90}
+  \pcdiag[lineAngle=20]{->}(A)(B)
+  \pcdiag[lineAngle=20]{->}(C)(D)
+  \pcdiag[lineAngle=20]{->}(E)(F)
+  \pcdiag[lineAngle=20]{->}(G)(H)}
+\end{pspicture}
+\end{LTXexample}
+
+
+%--------------------------------------------------------------------------------------
+\section{\CMD{ncdiagg} and \CMD{pcdiagg}}
+%--------------------------------------------------------------------------------------
+This is nearly the same than \verb+\ncdiag+ except that \verb+armB=0+ and the \verb+angleB+
+value is computed by the macro, so that the line ends at the node with an angle
+like a \verb+\pcdiagg+ line. The syntax of \verb|ncdiagg|/\verb+pcdiagg+ is
+
+\begin{verbatim}
+\ncdiag[<options>]{<Node A>}{<Node B>}
+\pcdiag[<options>](<Node A>)(<Node B>)
+\end{verbatim}
+
+\begin{LTXexample}[width=5cm]
+\begin{pspicture}(4,6)
+  \psset{linecolor=black}
+  \circlenode{A}{A}%
+  \quad\circlenode{C}{C}%
+  \quad\circlenode{E}{E}
+  \rput(0,4){\circlenode{B}{B}}
+  \rput(1,5){\circlenode{D}{D}}
+  \rput(2,6){\circlenode{F}{F}}
+  {\psset{arrowscale=2,linearc=0.2,linecolor=red,armA=0.5, angleA=90}
+  \ncdiagg[lineAngle=-160]{->}{A}{B}
+  \ncput*[nrot=:U]{line I}
+  \ncdiagg[lineAngle=-160]{->}{C}{D}
+  \ncput*[nrot=:U]{line II}
+  \ncdiagg[lineAngle=-160]{->}{E}{F}
+  \ncput*[nrot=:U]{line III}}
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=5cm]
+\begin{pspicture}(4,6)
+  \psset{linecolor=black}
+  \cnode*(0,0){2pt}{A}%
+  \cnode*(0.25,0){2pt}{C}%
+  \cnode*(0.5,0){2pt}{E}%
+  \cnode*(0.75,0){2pt}{G}%
+  \cnode*(2,4){2pt}{B}%
+  \cnode*(2.5,4.5){2pt}{D}%
+  \cnode*(3,5){2pt}{F}%
+  \cnode*(3.5,5.5){2pt}{H}%
+  {\psset{arrowscale=2,linearc=0.2,linecolor=red,armA=0.5, angleA=90}
+  \pcdiagg[lineAngle=20]{->}(A)(B)
+  \pcdiagg[lineAngle=20]{->}(C)(D)
+  \pcdiagg[lineAngle=20]{->}(E)(F)
+  \pcdiagg[lineAngle=20]{->}(G)(H)}
+\end{pspicture}
+\end{LTXexample}
+
+The only catch for \verb+\ncdiagg+ is, that you need the right value for \verb+lineAngle+.
+If the node connection is on the wrong side
+of the second node, then choose the corresponding angle, e.g.: if $20$ is wrong then take
+$-160$, the corresponding to $180$.
+
+
+\begin{LTXexample}[width=4cm]
+\begin{pspicture}(4,1.5)
+  \circlenode{a}{A}
+  \rput[l](3,1){\rnode{b}{H}}
+  \ncdiagg[lineAngle=60,angleA=180,armA=.5,nodesepA=3pt,linecolor=blue]{b}{a}
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=4cm]
+\begin{pspicture}(4,1.5)
+  \circlenode{a}{A}
+  \rput[l](3,1){\rnode{b}{H}}
+  \ncdiagg[lineAngle=60,armA=.5,nodesepB=3pt,linecolor=blue]{a}{b}
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=4cm]
+\begin{pspicture}(4,1.5)
+  \circlenode{a}{A}
+  \rput[l](3,1){\rnode{b}{H}}
+  \ncdiagg[lineAngle=-120,armA=.5,nodesepB=3pt,linecolor=blue]{a}{b}
+\end{pspicture}
+\end{LTXexample}
+
+%--------------------------------------------------------------------------------------
+\section{\CMD{ncbarr}}
+%--------------------------------------------------------------------------------------
+This has the same behaviour as \verb+ncbar+, but has 5 segments and all are
+horizontal ones. This is the reason why \verb+angleA+ must be $0$ or alternative $180$.
+All other values are set to $0$ by the macro. The intermediate horizontal line is
+symmetrical to the distance of the two nodes.
+
+
+\begin{LTXexample}[width=3.5cm]
+\psset{arrowscale=2}%
+\circlenode{X}{X}\\[1cm]
+\circlenode{Y}{Y}
+\ncbarr[angleA=0,arrows=->,arrowscale=2]{X}{Y}
+\end{LTXexample}
+
+\begin{LTXexample}[width=3.5cm]
+\psset{arrowscale=2}%
+\ovalnode{X}{Xxxxx}\\[1cm]
+\circlenode{Y}{Yyyy}
+\ncbarr[angleA=180,arrows=->,arrowscale=2,linecolor=red]{X}{Y}
+\end{LTXexample}
+
+\begin{LTXexample}[width=3.5cm]
+\psset{arrowscale=2}%
+\ovalnode{X}{Xxxxx}\\[1cm]
+\circlenode{Y}{Yyyy}
+\ncbarr[angleA=20,arm=1cm,arrows=->,arrowscale=2]{X}{Y}
+\end{LTXexample}
+
+%--------------------------------------------------------------------------------------
+\section{\CMD{psRelNode}}
+%--------------------------------------------------------------------------------------
+With this macro it is possible to put a node relative to a given line. Parameter are
+the angle and the length factor:
+\begin{verbatim}
+\psRelNode(<P0>)(<P1>){<length factor>}{<end node name>}
+\psRelLine[<options>](<P0>)(<P1>){<length factor>}{<end node name>}
+\end{verbatim}
+
+The length factor depends to the distance of $\overline{P_0P_1}$ and the end node name must
+be a valid nodename and shouldn't contain any of the special PostScript characters. There are
+two valid options:
+
+\begin{tabularx}{\linewidth}{l|l|X}
+name & default & meaning\\\hline
+\verb|angle| & $0$ & angle between the given line $\overline{P_0P_1}$ and the new one
+$\overline{P_0P_endNode}$\tabularnewline
+\verb+trueAngle+ & false & defines whether the angle depends to the seen line or to the
+mathematical one, which respect the scaling factors \verb+xunit+ and \verb+yunit+.
+\end{tabularx}
+
+\begin{LTXexample}[width=7cm]
+\begin{pspicture}(7,6)
+  \psgrid[gridwidth=0pt,gridcolor=gray,gridlabels=0pt,subgriddiv=2]
+  \pnode(3,3){A}\pnode(4,2){B}
+  \psline[nodesep=-3,linewidth=0.5pt](A)(B)
+  \multido{\iA=0+30}{12}{%
+    \psRelNode[angle=\iA](A)(B){2}{C}%
+    \qdisk(C){2pt}
+    \uput[0](C){\iA}}  
+\end{pspicture}
+\end{LTXexample}
+
+
+%--------------------------------------------------------------------------------------
+\section{\CMD{psRelLine}}
+%--------------------------------------------------------------------------------------
+With this macro it is possible to plot lines relative to a given one. Parameter are
+the angle and the length factor:
+\begin{verbatim}
+\psRelLine(<P0>)(<P1>){<length factor>}{<end node name>}
+\psRelLine{<arrows>}(<P0>)(<P1>){<length factor>}{<end node name>}
+\psRelLine[<options>](<P0>)(<P1>){<length factor>}{<end node name>}
+\psRelLine[<options>]{<arrows>}(<P0>)(<P1>){<length factor>}{<end node name>}
+\end{verbatim}
+
+The length factor depends to the distance of $\overline{P_0P_1}$ and the end node name must
+be a valid nodename and shouldn't contain any of the special PostScript characters. There are
+two valid options which are described in the forgoing section for \verb+\psRelNode+.
+
+The following two figures show the same, the first one with a scaling different to $1:1$,
+this is the reason why the end points are on an ellipse and not on a circle like in the
+second figure.
+
+\begin{LTXexample}[width=5cm]
+\psset{yunit=2,xunit=1}
+\begin{pspicture}(-2,-2)(3,2)
+\psgrid[subgriddiv=2,subgriddots=10,gridcolor=lightgray]
+\pnode(-1,0){A}\pnode(3,2){B}
+\psline[linecolor=red](A)(B)
+\psRelLine[linecolor=blue,angle=30](-1,0)(B){0.5}{EndNode}
+\qdisk(EndNode){2pt}
+\psRelLine[linecolor=blue,angle=-30](A)(B){0.5}{EndNode}
+\qdisk(EndNode){2pt}
+\psRelLine[linecolor=magenta,angle=90](-1,0)(3,2){0.5}{EndNode}
+\qdisk(EndNode){2pt}
+\psRelLine[linecolor=magenta,angle=-90](A)(B){0.5}{EndNode}
+\qdisk(EndNode){2pt}
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=5cm]
+\begin{pspicture}(-2,-2)(3,2)
+\psgrid[subgriddiv=2,subgriddots=10,gridcolor=lightgray]
+\pnode(-1,0){A}\pnode(3,2){B}
+\psline[linecolor=red](A)(B)
+\psarc[linestyle=dashed](A){2.23}{-90}{135}
+\psRelLine[linecolor=blue,angle=30](-1,0)(B){0.5}{EndNode}
+\qdisk(EndNode){2pt}
+\psRelLine[linecolor=blue,angle=-30](A)(B){0.5}{EndNode}
+\qdisk(EndNode){2pt}
+\psRelLine[linecolor=magenta,angle=90](-1,0)(3,2){0.5}{EndNode}
+\qdisk(EndNode){2pt}
+\psRelLine[linecolor=magenta,angle=-90](A)(B){0.5}{EndNode}
+\qdisk(EndNode){2pt}
+\end{pspicture}
+\end{LTXexample}
+
+\medskip
+The following figure has also a different scaling, but has set the option \verb+trueAngle+,
+all angles depends to what "you see".
+
+\begin{LTXexample}[width=6.5cm]
+\psset{yunit=2,xunit=1}
+\begin{pspicture}(-3,-1)(3,2)\psgrid[subgridcolor=lightgray]
+\pnode(-1,0){A}\pnode(3,2){B}
+\psline[linecolor=red](A)(B)
+\psarc(A){2.83}{-45}{135}
+\psRelLine[linecolor=blue,angle=30,trueAngle](A)(B){0.5}{EndNode}
+\qdisk(EndNode){2pt}
+\psRelLine[linecolor=blue,angle=-30,trueAngle](A)(B){0.5}{EndNode}
+\qdisk(EndNode){2pt}
+\psRelLine[linecolor=magenta,angle=90,trueAngle](A)(B){0.5}{EndNode}
+\qdisk(EndNode){2pt}
+\psRelLine[linecolor=magenta,angle=-90,trueAngle](A)(B){0.5}{EndNode}
+\qdisk(EndNode){2pt}
+\end{pspicture}
+\end{LTXexample}
+
+\medskip
+Two examples with using \verb+\multido+ to show the behaviour of the options \verb+trueAngle+
+and \verb+angle+.
+
+\medskip
+\begin{LTXexample}[width=8cm]
+\psset{yunit=4,xunit=2}
+\begin{pspicture}(-1,0)(3,2)\psgrid[subgridcolor=lightgray]
+\pnode(-1,0){A}\pnode(1,1){B}
+\psline[linecolor=red](A)(3,2)
+\multido{\iA=0+10}{36}{%
+  \psRelLine[linecolor=blue,angle=\iA](B)(A){-0.5}{EndNode}
+  \qdisk(EndNode){2pt}
+}
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=8cm]
+\psset{yunit=4,xunit=2}
+\begin{pspicture}(-1,0)(3,2)\psgrid[subgridcolor=lightgray]
+\pnode(-1,0){A}\pnode(1,1){B}
+\psline[linecolor=red](A)(3,2)
+\multido{\iA=0+10}{36}{%
+  \psRelLine[linecolor=magenta,angle=\iA,trueAngle]{->}(B)(A){-0.5}{EndNode}
+}
+\end{pspicture}
+\end{LTXexample}
+
+\begin{center}
+\bgroup
+\psset{xunit=0.75\linewidth,yunit=0.75\linewidth,trueAngle}%
+\begin{pspicture}(1,0.6)%\psgrid
+  \pnode(.3,.35){Vk} \pnode(.375,.35){D} \pnode(0,.4){DST1} \pnode(1,.18){DST2}
+  \pnode(0,.1){A1}   \pnode(1,.31){A1}
+  { \psset{linewidth=.02,linestyle=dashed,linecolor=gray}%
+    \pcline(DST1)(DST2) % <- Druckseitentangente
+    \pcline(A2)(A1) % <- Anstr"omrichtung
+    \lput*{:U}{\small Anstr"omrichtung $v_{\infty}$} }%
+  \psIntersectionPoint(A1)(A2)(DST1)(DST2){Hk}
+  \pscurve(Hk)(.4,.38)(Vk)(.36,.33)(.5,.32)(Hk)
+  \psParallelLine[linecolor=red!75!green,arrows=->,arrowscale=2](Vk)(Hk)(D){.1}{FtE}
+  \psRelLine[linecolor=red!75!green,arrows=->,arrowscale=2,angle=90](D)(FtE){4}{Fn}% why "4"?
+  \psParallelLine[linestyle=dashed](D)(FtE)(Fn){.1}{Fnr1}
+  \psRelLine[linestyle=dashed,angle=90](FtE)(D){-4}{Fnr2} % why "-4"?
+  \psline[linewidth=1.5pt,arrows=->,arrowscale=2](D)(Fnr2)
+  \psIntersectionPoint(D)([nodesep=2]D)(Fnr1)([offset=-4]Fnr1){Fh}
+  \psIntersectionPoint(D)([offset=2]D)(Fnr1)([nodesep=4]Fnr1){Fv}
+  \psline[linecolor=blue,arrows=->,arrowscale=2](D)(Fh)
+  \psline[linecolor=blue,arrows=->,arrowscale=2](D)(Fv)
+  \psline[linestyle=dotted](Fh)(Fnr1)  \psline[linestyle=dotted](Fv)(Fnr1)
+  \uput{.1}[0](Fh){\blue $F_{H}$}   \uput{.1}[180](Fv){\blue $F_{V}$}
+  \uput{.1}[-45](Fnr1){$F_{R}$}     \uput{.1}[90](Fn){\color{red!75!green}$F_{N}$}
+  \uput{.25}[-90](FtE){\color{red!75!green}$F_{T}$}
+\end{pspicture}
+\egroup
+\end{center}
+\begin{lstlisting}
+\psset{xunit=0.75\linewidth,yunit=0.75\linewidth,trueAngle}%
+\end{center}
+\begin{pspicture}(1,0.6)%\psgrid
+  \pnode(.3,.35){Vk} \pnode(.375,.35){D} \pnode(0,.4){DST1} \pnode(1,.18){DST2}
+  \pnode(0,.1){A1}   \pnode(1,.31){A1}
+  { \psset{linewidth=.02,linestyle=dashed,linecolor=gray}%
+    \pcline(DST1)(DST2) % <- Druckseitentangente
+    \pcline(A2)(A1) % <- Anstr"omrichtung
+    \lput*{:U}{\small Anstr"omrichtung $v_{\infty}$} }%
+  \psIntersectionPoint(A1)(A2)(DST1)(DST2){Hk}
+  \pscurve(Hk)(.4,.38)(Vk)(.36,.33)(.5,.32)(Hk)
+  \psParallelLine[linecolor=red!75!green,arrows=->,arrowscale=2](Vk)(Hk)(D){.1}{FtE}
+  \psRelLine[linecolor=red!75!green,arrows=->,arrowscale=2,angle=90](D)(FtE){4}{Fn}% why "4"?
+  \psParallelLine[linestyle=dashed](D)(FtE)(Fn){.1}{Fnr1}
+  \psRelLine[linestyle=dashed,angle=90](FtE)(D){-4}{Fnr2} % why "-4"?
+  \psline[linewidth=1.5pt,arrows=->,arrowscale=2](D)(Fnr2)
+  \psIntersectionPoint(D)([nodesep=2]D)(Fnr1)([offset=-4]Fnr1){Fh}
+  \psIntersectionPoint(D)([offset=2]D)(Fnr1)([nodesep=4]Fnr1){Fv}
+  \psline[linecolor=blue,arrows=->,arrowscale=2](D)(Fh)
+  \psline[linecolor=blue,arrows=->,arrowscale=2](D)(Fv)
+  \psline[linestyle=dotted](Fh)(Fnr1)  \psline[linestyle=dotted](Fv)(Fnr1)
+  \uput{.1}[0](Fh){\blue $F_{H}$}   \uput{.1}[180](Fv){\blue $F_{V}$}
+  \uput{.1}[-45](Fnr1){$F_{R}$}     \uput{.1}[90](Fn){\color{red!75!green}$F_{N}$}
+  \uput{.25}[-90](FtE){\color{red!75!green}$F_{T}$}
+\end{pspicture}
+\end{lstlisting}
+
+
+%--------------------------------------------------------------------------------------
+\section{\CMD{psParallelLine}}
+%--------------------------------------------------------------------------------------
+With this macro it is possible to plot lines relative to a given one, which is parallel. There is no special parameter here.
+\begin{verbatim}
+\psParallelLine(<P0>)(<P1>)(<P2>){<length>}{<end node name>}
+\psParallelLine{<arrows>}(<P0>)(<P1>)(<P2>){<length>}{<end node name>}
+\psParallelLine[<options>](<P0>)(<P1>)(<P2>){<length>}{<end node name>}
+\psParallelLine[<options>]{<arrows>}(<P0>)(<P1>)(<P2>){<length>}{<end node name>}
+\end{verbatim}
+
+The line starts at $P_2$, is parallel to $\overline{P_0P_1}$ and the length of this
+parallel line depends to the length factor. The end node name must
+be a valid nodename and shouldn't contain any of the special PostScript characters.
+
+\begin{LTXexample}
+\begin{pspicture*}(-5,-4)(5,3.5)
+  \psgrid[subgriddiv=0,griddots=5]
+  \pnode(2,-2){FF}\qdisk(FF){1.5pt}
+  \pnode(-5,5){A}\pnode(0,0){O}
+  \multido{\nCountA=-2.4+0.4}{9}{%
+    \psParallelLine[linecolor=red](O)(A)(0,\nCountA){9}{P1}
+    \psline[linecolor=red](0,\nCountA)(FF)
+    \psRelLine[linecolor=red](0,\nCountA)(FF){9}{P2}
+  }
+  \psline[linecolor=blue](A)(FF)
+  \psRelLine[linecolor=blue](A)(FF){5}{END1}
+  \psline[linewidth=2pt,arrows=->](2,0)(FF)
+\end{pspicture*}
+\end{LTXexample}
+
+
+%--------------------------------------------------------------------------------------
+\section{\CMD{psIntersectionPoint}}
+%--------------------------------------------------------------------------------------
+This macro calculates the intersection point of two lines, given by the four coordinates.
+There is no special parameter here.
+\begin{verbatim}
+\psIntersectionPoint(<P0>)(<P1>)(<P2>)(<P3>){<node name>}
+\end{verbatim}
+
+\begin{LTXexample}[width=5.5cm]
+\psset{unit=0.5cm}
+\begin{pspicture}(-5,-4)(5,5)
+  \psaxes{->}(0,0)(-5,-4)(5,5)
+  \psline[linecolor=red,linewidth=2pt](-5,-1)(5,5)
+  \psline[linecolor=blue,linewidth=2pt](-5,3)(5,-4)
+  \qdisk(-5,-1){3pt}\uput[-90](-5,-1){A}
+  \qdisk(5,5){3pt}\uput[-90](5,5){B}
+  \qdisk(-5,3){3pt}\uput[-90](-5,3){C}
+  \qdisk(5,-4){3pt}\uput[-90](5,-4){D}
+  \psIntersectionPoint(-5,-1)(5,5)(-5,3)(5,-4){IP}
+  \qdisk(IP){5pt}\uput{0.3}[90](IP){IP}
+  \psline[linestyle=dashed](IP|0,0)(IP)(0,0|IP)
+\end{pspicture}
+\end{LTXexample}
+
+%--------------------------------------------------------------------------------------
+\section{\CMD{setLNode} and \CMD{setLCNode}}
+%--------------------------------------------------------------------------------------
+\CMD{setLNode} interpolates the Line $\overline{AB}$ by the given value and sets a node at this
+point. The syntax is
+%
+\begin{verbatim}
+\setLNode(P1)(P2){value}{Node name}
+\end{verbatim}
+
+\begin{LTXexample}[width=5cm]
+\begin{pspicture}(5,5)
+\psgrid[subgriddiv=0,griddots=10]
+\psset{linecolor=red}
+\psline{o-o}(1,1)(5,5)
+\setLNode(1,1)(5,5){0.75}{PI}
+\qdisk(PI){4pt}
+\psset{linecolor=blue}
+\psline{o-o}(4,3)(2,5)
+\setLNode(4,3)(2,5){-0.5}{PII}
+\qdisk(PII){4pt}
+\end{pspicture}
+\end{LTXexample}
+
+
+\bigskip
+The \CMD{psLCNode} macro builds the linear combination of the two given vectors and stores the end of
+the new vector as a node. All vectors start at $(0,0)$, so a \verb+\rput+ maybe appropriate.
+ The syntax is
+%
+\begin{verbatim}
+\setLCNode(P1){value 1}(P2){value 2}{Node name}
+\end{verbatim}
+
+\begin{LTXexample}[width=5cm]
+\begin{pspicture}(5,5)
+\psgrid[subgriddiv=0,griddots=10]
+\psset{linecolor=black}
+\psline[linestyle=dashed]{->}(3,1.5)
+\psline[linestyle=dashed]{->}(0.375,1.5)
+\psset{linecolor=red}
+\psline{->}(2,1)\psline{->}(0.5,2)
+\setLCNode(2,1){1.5}(0.5,2){0.75}{PI}
+\psline[linewidth=2pt]{->}(PI)
+\psset{linecolor=black}
+\psline[linestyle=dashed](3,1.5)(PI)
+\psline[linestyle=dashed](0.375,1.5)(PI)
+\end{pspicture}
+\end{LTXexample}
+
+
+%--------------------------------------------------------------------------------------
+\section{\CMD{nlput}}
+%--------------------------------------------------------------------------------------
+\CMD{ncput} allows to set a label relative to the first node of the last
+node connection. With \CMD{nlput} this can be done absolute to a given
+node. The syntax is different to the other node connection makros.
+
+\begin{verbatim}
+\nlput[options](A)(B){distance}{text}
+\end{verbatim}
+
+
+\begin{LTXexample}[width=5cm]
+\begin{pspicture}(5,2)
+\pnode(0,0){A}
+\pnode(5,2){B}
+\ncline{A}{B}
+\nlput[nrot=:U](A)(B){1cm}{Test}
+\nlput[nrot=:D](A)(B){2cm}{Test}
+\nlput[nrot=:U](A)(B){3cm}{Test}
+\nlput(A)(B){4cm}{Test}
+\end{pspicture}
+\end{LTXexample}
+
+
+
+
+\clearpage
+%--------------------------------------------------------------------------------------
+\part{\texttt{pst-plot}}
+%--------------------------------------------------------------------------------------
+\section{ New options}
+%--------------------------------------------------------------------------------------
+The option \verb+tickstyle=full|top|bottom+ is no more working in the \verb+pstricks-add+
+package, because everything can be set by the \verb+ticksize+ option.
+{
+\ttfamily
+\begin{longtable}{lll}
+\caption{All new parameters for \texttt{pst-plot}}\\[-5pt]
+\textrm{Name}         & \textrm{Type}  & \textrm{Default}\\\hline
+\endfirsthead
+\textrm{Name}         & \textrm{Type}  & \textrm{Default}\\\hline
+\endhead
+algebraic             & false|true & false\\ %ok
+comma                 & false|true & false\\ %ok
+xAxis                 & false|true & true\\%ok
+yAxis                 & false|true & true\\%ok
+xyAxes                & false|true & true\\%ok
+xDecimals            & <number> or empty  & \{\}\\%ok
+yDecimals            & <number> or empty  & \{\}\\%ok
+xyDecimals            & <number> or empty   & \{\}\\%ok
+%xLabel               & <anything> & \{\}\\%ok
+%yLabel               & <anything> & \{\}\\%ok
+%xyLabel               & <anything> & \{\}\\%ok
+%tickstyle            & full|top|bottom & full\\%ok
+ticks                & <all|x|y|none>   & all\\%ok
+labels               & <all|x|y|none>   & all\\%ok
+subticks             & <number>         & 0\\
+xsubticks            & <number>         & 0\\
+ysubticks            & <number>         & 0\\
+ticksize             & <length [length]>         & -4pt 4pt\\
+subticksize          & <number>         & 0.75\\
+tickwidth            & <length>         & 0.5\verb+\pslinewidth+\\
+subtickwidth         & <length>         & 0.25\verb+\pslinewidth+\\
+tickcolor            & <color>          & black\\
+xtickcolor           & <color>          & black\\
+ytickcolor           & <color>          & black\\
+subtickcolor         & <color>          & darkgray\\
+xsubtickcolor        & <color>          & darkgray\\
+ysubtickcolor        & <color>          & darkgray\\
+ticklinestyle        & solid | dashed | dotted | none & solid\\
+subticklinestyle        & solid | dashed | dotted | none & solid\\
+xlabelFactor         & <anything> & \{\textbackslash\@ empty\}\\
+ylabelFactor         & <anything> & \{\textbackslash\@ empty\}\\
+xlogBase              & <number> or empty   & \{\}\\
+ylogBase              & <number> or empty   & \{\}\\
+xylogBase              & <number> or empty   & \{\}\\
+logLines             & <none|x|y|all>   & none\\
+ignoreLines          & <number>          & 0\\
+nStep                & <number>          & 1\\
+nStart               & <number>          & 0\\
+nEnd                 & <number> or empty          & \{\}\\
+xStep                & <number>          & 0\\
+yStep               & <number>          & 0\\
+xStart               & <number> or empty         & \{\}\\
+yStart               & <number> or empty         & \{\}\\
+xEnd               & <number> or empty         & \{\}\\
+yEnd               & <number> or empty         & \{\}\\
+plotNo            & <number>          & 1\\
+plotNoMax         & <number>          & 1\\
+xAxisLabel        & <anything> & \{\textbackslash\@ empty\}\\
+yAxisLabel        & <anything> & \{\textbackslash\@ empty\}\\
+xAxisLabelPos     & <(x,y)> or empty & \{\textbackslash\@ empty\}\\
+yAxisLabelPos     & <(x,y)> or empty & \{\textbackslash\@ empty\}\\
+llx               & <length>  & 0pt\\
+lly               & <length>  & 0pt\\
+urx               & <length>  & 0pt\\
+ury               & <length>  & 0pt\\
+polarplot         & false|true    & false\\
+trigLabels        & false|true    & false\\
+ChangeOrder        & false|true    & false\\
+\end{longtable}
+}
+
+
+\clearpage
+%--------------------------------------------------------------------------------------
+\subsection[\texttt{algebraic}]{\texttt{algebraic}\footnote{This part is adapted from the package \texttt{pst-eqdf}, written by Dominique Rodriguez.}}
+%--------------------------------------------------------------------------------------
+By default the function of \verb+\psplot+ has to be described in Reversed Polish Notation.
+The option \verb+algebraic+ allows to do this in the common algebraic notation. E.g.:
+
+\begin{tabular}{l|l}
+RPN & algebraic\\\hline
+\verb+x ln+ & \verb+ln(x)+\\
+\verb+x cos 2.71 x neg 10 div exp mul+ & \verb+cos(x)*2.71^(-x/10)+\\
+\verb+1 x div cos 4 mul+ & \verb+4*cos(1/x)+\\
+\verb+t cos t sin+ & \verb+cos(t)|sin(t)+
+\end{tabular}
+
+Setting the option \verb$algebraic$ to \verb$true$, allow the user to describe all
+expression to be written in the classical algebraic notation (infix notation). The four arithmetic
+operarions are obviously defined \verb$+-*/$, and also the exponential operator
+\verb$^$. The natural priorities are used : $3+4\times 5^5=3+(4\times (5^5))$, and by default
+the computation is done from left to right. The following functions are defined :
+
+\medskip
+\begin{tabular}{ll}
+\verb$sin$, \verb$cos$, \verb$tan$, \verb$acos$, \verb$asin$ & in radians\\
+\verb$log$, \verb$ln$\\
+\verb$ceiling$, \verb$floor$, \verb$truncate$, \verb$round$\\
+\verb$sqrt$ & square root\\
+\verb$abs$ & absolute value\\
+\verb$fact$ & for the factorial\\
+\verb$SUM$ & for building sums\\
+\verb$IFTE$ & for an easy case structure
+\end{tabular}
+
+\medskip
+These options can be used with \textbf{all} plot macros.
+
+{\bfseries Using the option \verb+algebraic+ implies that all angles have to be used in the
+radian unit! }
+
+For the \verb+\parametricplot+ the two parts must be divided by the \verb+|+ character:
+
+\begin{LTXexample}[width=2cm]
+\begin{pspicture}(-0.5,-0.5)(0.5,0.5)
+\parametricplot[algebraic,linecolor=red]{-3.14}{3.14}{cos(t)|sin(t)}
+\end{pspicture}
+\end{LTXexample}
+
+
+\bigskip
+\begin{LTXexample}[pos=t]
+\psset{lly=-0.5cm}
+\psgraph(-10,-3)(10,2){\linewidth}{6cm}
+  \psset{algebraic=true, plotpoints=101}
+  \psplot[linecolor=yellow, linewidth=4\pslinewidth]{-10}{10}{2*sin(x)}%
+  \psplot[linecolor=red, showpoints=true]{-10}{10}{2*sin(x)}
+\endpsgraph
+\end{LTXexample}
+
+
+\begin{LTXexample}[pos=t]
+\psset{lly=-0.5cm}
+\psgraph(0,-5)(18,3){15cm}{5cm}
+  \psset{algebraic,plotpoints=501}
+  \psplot[linecolor=yellow, linewidth=4\pslinewidth]{0.01}{18}{ln(x)}%
+  \psplot[linecolor=red]{0.01}{18}{ln(x)}
+  \psplot[linecolor=yellow,linewidth=4\pslinewidth]{0}{18}{3*cos(x)*2.71^(-x/10)}
+  \psplot[linecolor=blue,showpoints=true,plotpoints=51]{0}{18}{3*cos(x)*2.71^(-x/10)}
+\endpsgraph
+\end{LTXexample}
+
+\iffalse
+\begin{LTXexample}
+\begin{psgraph}(0,-4)(0.2,4){{15cm}}{5cm}
+  \psset{algebraic=true, plotpoints=501}
+  \psplot[linecolor=yellow, linewidth=4\pslinewidth]{0.02}{.2}{4*cos(1/x)}%
+  \psplot[linecolor=red]{.02}{.2}{4*cos(1/x)}%
+\end{psgraph}
+\end{LTXexample}
+
+\fi
+
+
+%--------------------------------------------------------------------------------------
+\subsubsection{Using the \texttt{SUM} function}
+%--------------------------------------------------------------------------------------
+
+Syntax: \verb+SUM(<index name>,<start>,<step>,<end>,<function>)+
+
+Let's plot the first development of cosine with polynomials:
+$\displaystyle\sum_{n=0}^{+\infty}\frac{(-1)^nx^{2n}}{n!}$.
+
+\begin{center}
+\bgroup
+\psset{algebraic=true,plotpoints=501, yunit=3}
+\def\getColor#1{\ifcase#1 black\or red\or magenta\or yellow\or green\or Orange\or blue\or
+  DarkOrchid\or BrickRed\or Rhodamine\or OliveGreen\fi}
+\begin{pspicture}(-7,-1.5)(7,1.5)
+  \psclip{\psframe(-7,-1.5)(7,1.5)}
+    \psplot{-7}{7}{cos(x)}
+    \multido{\n=1+1}{10}{%
+      \psplot[linecolor=\getColor{\n}]{-7}{7}{%
+         SUM(ijk,0,1,\n,(-1)^ijk*x^(2*ijk)/fact(2*ijk))}}
+   \endpsclip
+  \psaxes(0,0)(-7,-1.5)(7,1.5)
+\end{pspicture}
+\egroup
+\end{center}
+\begin{lstlisting}
+\psset{algebraic=true,plotpoints=501, yunit=3}
+\def\getColor#1{\ifcase#1 black\or red\or magenta\or yellow\or green\or Orange\or blue\or
+  DarkOrchid\or BrickRed\or Rhodamine\or OliveGreen\fi}
+\begin{pspicture}(-7,-1.5)(7,1.5)
+  \psclip{\psframe(-7,-1.5)(7,1.5)}
+    \psplot{-7}{7}{cos(x)}
+    \multido{\n=1+1}{10}{%
+      \psplot[linecolor=\getColor{\n}]{-7}{7}{%
+         SUM(ijk,0,1,\n,(-1)^ijk*x^(2*ijk)/fact(2*ijk))}}
+   \endpsclip
+  \psaxes(0,0)(-7,-1.5)(7,1.5)
+\end{pspicture}
+\end{lstlisting}
+
+
+%--------------------------------------------------------------------------------------
+\subsubsection{Using the \texttt{IFTE} function}
+%--------------------------------------------------------------------------------------
+Syntax: \verb+IFTE(<condition>,<true part>,<false part>)+
+
+Nesting of several \verb+IFTE+ are possible and seen in the following examples.
+A classical example is a piece wise linear function.
+
+\begin{LTXexample}[pos=t]
+\begin{pspicture}(-7.5,-2.5)(7.5,6)\psgrid[subgriddiv=1,gridcolor=lightgray]
+  \psset{algebraic=true, plotpoints=21,linewidth=2pt}
+  \psplot[linecolor=blue]{-7.5}{7.5}{IFTE(x<-6,8+x,IFTE(x<0,-x/3,IFTE(x<3,2*x,9-x)))}
+  \psplot[linecolor=red, plotpoints=101]{-7.5}{7.5}{%
+      IFTE(2*x<-2^2*sqrt(9),7+x,IFTE(x<0,x^2/18-1,IFTE(x<3,2*x^2/3-1,8-x)))}%
+\end{pspicture}
+\end{LTXexample}
+
+
+When you program a piece-wise defined function you must take care that a 
+plotting point must be put on each point where the description changes. Use \verb+showpoints=true+ to
+see what's going on, when there is a problem. You are on the save side, when you choose a
+big number for \verb+plotpoints+.
+
+\newpage
+
+%--------------------------------------------------------------------------------------
+\subsection{\texttt{comma}}
+%--------------------------------------------------------------------------------------
+Syntax:
+\begin{verbatim}
+comma=false|true
+\end{verbatim}
+Setting this option to true gives labels with a comma as a decimal separator instead
+of the dot. \verb|comma| and \verb|comma=true| is the same.
+
+\resetOptions
+\medskip
+\begin{LTXexample}[width=5.5cm]
+\begin{pspicture}(-0.5,-0.5)(5,5.5)
+\psaxes[Dx=1.5,Dy=0.5,comma]{->}(5,5)
+\psplot[linecolor=red,linewidth=3pt]{0}{4.5}%
+   {x 180 mul 1.52 div cos 2 mul 2.5 add}
+\psline[linestyle=dashed](0,2.5)(4.5,2.5)
+\end{pspicture}
+\end{LTXexample}
+
+%--------------------------------------------------------------------------------------
+\subsection{\texttt{xyAxes}, \texttt{xAxis} and \texttt{yAxis}}
+%--------------------------------------------------------------------------------------
+Syntax:
+\begin{verbatim}
+xyAxes=true|false
+xAxis=true|false
+yAxis=true|false
+\end{verbatim}
+
+Sometimes there is only a need for one axis with ticks. In this case you can set one
+of the following options to false. The \verb+xyAxes+ makes only sense, when you want
+to set both, x and y to true with only one command again to the default, because with
+\verb+xyAxes=false+ you get nothing with the \verb+psaxes+ macro.
+
+
+\resetOptions%
+\begin{LTXexample}
+\begin{pspicture}(5,1)
+\psaxes[yAxis=false,linecolor=blue]{->}(0,0.5)(5,0.5)
+\end{pspicture}
+\begin{pspicture}(1,5)
+\psaxes[xAxis=false,linecolor=red]{->}(0.5,0)(0.5,5)
+\end{pspicture}
+\begin{pspicture}(1,5)
+\psaxes[xAxis=false,linecolor=red]{->}(0.5,0)(0.5,5)
+\end{pspicture}\hspace{2em}
+\begin{pspicture}(1,5)
+\psaxes[xAxis=false,linecolor=red,labelsep=-20pt]{->}(0.5,0)(0.5,5)
+\end{pspicture}%
+\begin{pspicture}(1,5)
+\psaxes[xAxis=false,linecolor=red]{->}(0.5,0)(0.501,5)
+\end{pspicture}%
+\end{LTXexample}
+
+As seen in the example, a single y axis gets the labels on the right side. This can be
+changed in two ways, first with the option \verb+labelsep+ and second with a very
+short and therefore invisible x-axis (right example). 
+
+%--------------------------------------------------------------------------------------
+\subsection{\texttt{xyDecimals}, \texttt{xDecimals} and \texttt{yDecimals}}
+%--------------------------------------------------------------------------------------
+Syntax:
+\begin{verbatim}
+xyDecimals=<number>
+xDecimals=<any>
+yDecimals=<any>
+\end{verbatim}
+By default the labels of the axes get numbers with or without decimals, just depending to the
+numbers. With these options \verb|??Decimals| it is possible to determine the decimals,
+where the option \verb|xyDecimals| sets this identical for both axes.
+The default setting \verb|{}| means, that you'll get the standard behaviour.
+
+
+\begin{LTXexample}[width=6cm]
+\begin{pspicture}(-1.5,-0.5)(5,4.75)
+  \psaxes[xyDecimals=2]{->}(0,0)(4.5,4.5)
+\end{pspicture}
+\end{LTXexample}
+
+
+\begin{LTXexample}
+\def\pshlabel#1{\footnotesize$#1$}
+\def\psvlabel#1{\footnotesize$#1$}
+\psset{xunit=10cm, yunit=0.01cm}
+\begin{pspicture}(-0.3,-150)(1.5,550.0)
+  \psaxes[Dx=0.25,Dy=100,ticksize=-4pt 0,comma=true,%
+    xDecimals=3,yDecimals=1]{->}(0,0)(0,-100)(1.4,520)
+\end{pspicture}
+\end{LTXexample}
+
+\resetOptions
+
+%--------------------------------------------------------------------------------------
+\subsection{Changing the label style}
+%--------------------------------------------------------------------------------------
+There are no special keywords to change the \index{labelstyle}labelstyle for the \verb|\psaxes|
+macro. With a redefinition of the two macros \verb+\pshlabel+ and \verb+\psvlabel+
+it is possible to set both axes in any shape. 
+Like the default \verb|pst-plot| package the coordinates are printed in mathmode, changing
+the fontsize to italic needs textmode.
+
+\begin{verbatim}
+\def\pshlabel#1{\scriptsize\itshape #1}
+\def\psvlabel#1{\sffamily\footnotesize #1}
+\end{verbatim}
+
+\resetOptions
+\begin{LTXexample}
+\def\pshlabel#1{\scriptsize\itshape #1}
+\def\psvlabel#1{\sffamily\footnotesize #1}
+\psset{yunit=1cm,xunit=3cm}
+\begin{pspicture}(-0.3,-0.5)(5,4.75)
+\psaxes[Dy=0.5, Dx=0.25]{->}(0,0)(4.5,4.5)
+\end{pspicture}
+\end{LTXexample}
+
+\resetOptions
+
+\iffalse
+
+%--------------------------------------------------------------------------------------
+\subsection{\texttt{tickstyle}}
+%--------------------------------------------------------------------------------------
+Syntax:
+\begin{verbatim}
+tickstyle=full|bottom|top
+\end{verbatim}
+
+This option is already in the \verb+pst-plot+ package and only mentioned here for
+some completness.
+
+\begin{LTXexample}[width=3.5cm]
+\begin{pspicture}(-1,-1)(2,2)
+\psaxes[tickstyle=bottom,subticks=5]{->}(0,0)(-1,-1)(2,2)
+\end{pspicture}\\[0.5cm]
+\begin{pspicture}(-1,-1)(2,2)
+\psaxes[tickstyle=bottom,subticks=5]{->}(0,0)(2,2)(-1,-1)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=3.5cm]
+\begin{pspicture}(-1,-1)(2,2)
+\psaxes[ticksize=0 4pt,subticks=5]{->}(0,0)(-1,-1)(2,2)
+\end{pspicture}\\[0.5cm]
+\begin{pspicture}(-1,-1)(2,2)
+\psaxes[ticksize=0 4pt,subticks=5]{->}(0,0)(2,2)(-1,-1)
+\end{pspicture}
+\end{LTXexample}
+
+
+The \verb+tickstyle+ option changes the position of the labels by default.
+If you want the labels on the other side of an axis, then use the options
+\verb+labelsep+ or set the ticks with \verb+ticksize+.
+
+
+\fi
+
+
+%--------------------------------------------------------------------------------------
+\subsection{\texttt{ticks}}
+%--------------------------------------------------------------------------------------
+Syntax:
+\begin{verbatim}
+ticks=all|x|y|none
+\end{verbatim}
+
+This option is also already in the \verb+pst-plot+ package and only mentioned here for
+some completness.
+
+\begin{LTXexample}[width=3.5cm]
+\psset{ticksize=6pt}
+\begin{pspicture}(-1,-1)(2,2)
+\psaxes[ticks=all,subticks=5]{->}(0,0)(-1,-1)(2,2)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=3.5cm]
+\begin{pspicture}(-1,-1)(2,2)
+\psaxes[ticks=y,subticks=5]{->}(0,0)(-1,-1)(2,2)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=3.5cm]
+\begin{pspicture}(-1,-1)(2,2)
+\psaxes[ticks=x,subticks=5]{->}(0,0)(2,2)(-1,-1)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=3.5cm]
+\begin{pspicture}(-1,-1)(2,2)
+\psaxes[ticks=none,subticks=5]{->}(0,0)(2,2)(-1,-1)
+\end{pspicture}
+\end{LTXexample}
+
+
+%--------------------------------------------------------------------------------------
+\subsection{\texttt{labels}}
+%--------------------------------------------------------------------------------------
+Syntax:
+\begin{verbatim}
+labels=all|x|y|none
+\end{verbatim}
+
+This option is also already in the \verb+pst-plot+ package and only mentioned here for
+some completness.
+
+\begin{LTXexample}[width=3.5cm]
+\psset{ticksize=6pt}
+\begin{pspicture}(-1,-1)(2,2)
+\psaxes[labels=all,subticks=5]{->}(0,0)(-1,-1)(2,2)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=3.5cm]
+\begin{pspicture}(-1,-1)(2,2)
+\psaxes[labels=y,subticks=5]{->}(0,0)(-1,-1)(2,2)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=3.5cm]
+\begin{pspicture}(-1,-1)(2,2)
+\psaxes[labels=x,subticks=5]{->}(0,0)(2,2)(-1,-1)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=3.5cm]
+\begin{pspicture}(-1,-1)(2,2)
+\psaxes[labels=none,subticks=5]{->}(0,0)(2,2)(-1,-1)
+\end{pspicture}
+\end{LTXexample}
+
+
+%--------------------------------------------------------------------------------------
+\subsection{\texttt{ticksize}, \texttt{xticksize}, \texttt{yticksize}}
+%--------------------------------------------------------------------------------------
+
+With this new option the recent \verb+tickstyle+ option of \verb+pst-plot+ is obsolete
+and no more supported by \verb+pstricks-add+.
+
+Syntax:
+\begin{verbatim}
+ticksize=value[unit]
+ticksize=value[unit] value[unit]
+xticksize=value[unit]
+xticksize=value[unit] value[unit]
+yticksize=value[unit]
+yticksize=value[unit] value[unit]
+\end{verbatim}
+
+\verb+ticksize+ sets both values. The first one is left/below and the optional second
+one is right/above of the coordinate axis. The old setting \verb+tickstyle=bottom+ is
+now easy to realize, e.g.: \verb+ticksize=-6pt 0+, or vice versa, if the coordinates
+are set from positive to negative values.
+
+\medskip
+\begin{LTXexample}[width=6cm]
+\psset{arrowscale=3}
+\begin{pspicture}(-1.5,-1.5)(4,3.5)
+  \psaxes[ticksize=0.5cm]{->}(0,0)(-1.5,-1.5)(4,3.5)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=6cm]
+\psset{arrowscale=3}
+\begin{pspicture}(-1.5,-1.5)(4,3.5)
+  \psaxes[xticksize=-10pt 0,yticksize=0 10pt]{->}(0,0)(-1.5,-1.5)(4,3.5)
+\end{pspicture}
+\end{LTXexample}
+
+A grid is also possible by setting the values to the max/min coordinates.
+
+\begin{LTXexample}[width=6cm]
+\psset{arrowscale=3}
+\begin{pspicture}(-.5,-.5)(5,4.5)
+  \psaxes[ticklinestyle=dashed,ticksize=0 4cm]{->}(0,0)(-.5,-.5)(5,4.5)
+\end{pspicture}
+\end{LTXexample}
+
+%--------------------------------------------------------------------------------------
+\subsection{\texttt{subticks}}
+%--------------------------------------------------------------------------------------
+Syntax:
+\begin{verbatim}
+subticks=<number>
+\end{verbatim}
+
+By default subticks cannot have labels.
+
+\begin{LTXexample}[width=3.5cm]
+\psset{ticksize=6pt}
+\begin{pspicture}(-1,-1)(2,2)
+\psaxes[ticks=all,subticks=5]{->}(0,0)(-1,-1)(2,2)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=3.5cm]
+\begin{pspicture}(-1,-1)(2,2)
+\psaxes[ticks=y,subticks=5]{->}(0,0)(-1,-1)(2,2)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=3.5cm]
+\begin{pspicture}(-1,-1)(2,2)
+\psaxes[ticks=x,subticks=5]{->}(0,0)(2,2)(-1,-1)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=3.5cm]
+\begin{pspicture}(-1,-1)(2,2)
+\psaxes[ticks=none,subticks=5]{->}(0,0)(2,2)(-1,-1)
+\end{pspicture}
+\end{LTXexample}
+
+
+%--------------------------------------------------------------------------------------
+\subsection{\texttt{subticksize}, \texttt{xsubticksize}, \texttt{ysubticksize}}
+%--------------------------------------------------------------------------------------
+
+Syntax:
+\begin{verbatim}
+subticksize=value
+xsubticksize=value
+ysubticksize=value
+\end{verbatim}
+
+\verb+subticksize+ sets both values, which are relative to the ticksize length and 
+can have any number. 1 sets it to the same length as the main ticks.
+
+\begin{LTXexample}[preset=\centering,pos=t]
+\psset{yunit=1.5cm,xunit=3cm}
+\begin{pspicture}(-1.25,-4.75)(3.25,.75)
+  \psaxes[xticksize=-4.5 0.5,ticklinestyle=dashed,subticks=5,xsubticksize=1,%
+     ysubticksize=0.75,xsubticklinestyle=dotted,xsubtickwidth=1pt,
+     subtickcolor=gray]{->}(0,0)(-1,-4)(3.25,0.5)
+\end{pspicture}
+\end{LTXexample}
+
+%--------------------------------------------------------------------------------------
+\subsection{\texttt{tickcolor}, \texttt{subtickcolor}}
+%--------------------------------------------------------------------------------------
+Syntax:
+\begin{verbatim}
+tickcolor=<color>
+xtickcolor=<color>
+ytickcolor=<color>
+subtickcolor=<color>
+xsubtickcolor=<color>
+ysubtickcolor=<color>
+\end{verbatim}
+
+\verb+tickcolor+ and \verb+subtickcolor+ set both for the x- and the y-Axis.
+
+\begin{LTXexample}[preset=\centering,pos=t]
+\def\pshlabel#1{\footnotesize$#1$}
+\begin{pspicture}(0,-0.75)(10,1)
+\psaxes[labelsep=2pt,yAxis=false,%
+  labelsep=-10pt,ticksize=0 10mm,subticks=10,subticksize=0.75,%
+  tickcolor=red,subtickcolor=blue,tickwidth=1pt,%
+  subtickwidth=0.5pt](10.01,0)
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=5cm]
+\def\pshlabel#1{\footnotesize$#1$}
+\begin{pspicture}(5,-0.75)(10,1)
+\psaxes[labelsep=2pt,yAxis=false,%
+  labelsep=5pt,ticksize=0 -10mm,subticks=10,subticksize=0.75,%
+  tickcolor=red,subtickcolor=blue,tickwidth=1pt,%
+  subtickwidth=0.5pt,Ox=5](5,0)(5,0)(10.01,0)
+\end{pspicture}
+\end{LTXexample}
+
+%--------------------------------------------------------------------------------------
+\subsection{\texttt{ticklinestyle} and \texttt{subticklinestyle}}
+%--------------------------------------------------------------------------------------
+Syntax:
+\begin{verbatim}
+ticklinestyle=solid|dashed|dotted|none
+xticklinestyle=solid|dashed|dotted|none
+yticklinestyle=solid|dashed|dotted|none
+subticklinestyle=solid|dashed|dotted|none
+xsubticklinestyle=solid|dashed|dotted|none
+ysubticklinestyle=solid|dashed|dotted|none
+\end{verbatim}
+
+\verb+ticklinestyle+ and \verb+subticklinestyle+ set both values for the x and y axis. The
+value \verb+none+ doesn't really makes sense, because it is the same to 
+\verb+[sub]ticklines=0+
+
+\begin{LTXexample}[preset=\centering,pos=t]
+\psset{unit=4cm}
+\pspicture(-0.15,-0.15)(2.5,1)
+  \psaxes[axesstyle=frame,logLines=y,xticksize=0 1,xsubticksize=1,%
+    ylogBase=10,tickcolor=red,subtickcolor=blue,tickwidth=1pt,%
+    subticks=20,xsubticks=10,xticklinestyle=dashed,%
+    xsubticklinestyle=dashed](2.5,1)
+\endpspicture
+\end{LTXexample}
+
+
+%--------------------------------------------------------------------------------------
+\subsection{\texttt{loglines}}
+%--------------------------------------------------------------------------------------
+Syntax:
+\begin{verbatim}
+loglines=all|x|y
+\end{verbatim}
+
+\begin{LTXexample}[width=5.5cm]
+\pspicture(0,-1)(5,5)
+   \psaxes[subticks=5,axesstyle=frame,xylogBase=10,logLines=all](5,5)
+\endpspicture
+\end{LTXexample}
+
+\begin{LTXexample}[preset=\centering,pos=t]
+\psset{unit=4cm}
+\pspicture(-0.15,-0.15)(2.5,3)
+  \psaxes[axesstyle=frame,logLines=y,xticksize=0 3,xsubticksize=1,%
+    ylogBase=10,tickcolor=red,subtickcolor=blue,tickwidth=1pt,%
+    subticks=20,xsubticks=10](2.5,3)
+\endpspicture
+\end{LTXexample}
+
+\begin{LTXexample}[preset=\centering,pos=t]
+\psset{unit=4}
+\pspicture(-0.5,-0.3)(3,1.2)
+   \psaxes[axesstyle=frame,logLines=x,xlogBase=10,Dy=0.5,%
+     tickcolor=red,subtickcolor=blue,tickwidth=1pt,ysubticks=5,xsubticks=10](3,1)
+\endpspicture
+\end{LTXexample}
+
+%--------------------------------------------------------------------------------------
+\subsection{\texttt{xylogBase}, \texttt{xlogBase} and \texttt{ylogBase}}
+%--------------------------------------------------------------------------------------
+There are additional options \verb|xylogBase | xlogBase | ylogBase| to get one or both axes with logarithm labels.
+For an intervall of [$10^{-3} ... 10^2$] choose a \verb|pstricks| intervall of [-3,2]. \verb|pstricks| takes $0$ as the origin of this axes, which is wrong
+if we want to have a logarithm axes. With the options \verb|Oy| and \verb|Ox| we can set
+the origin to $-3$, so that the first label gets $10^{-3}$. If this is not done by the
+user then \verb|pstricks-add| does it by default. An alternative is to set these
+parameters to empty values \verb|Ox={},Oy={}|, in this case \verb|pstricks-add| does nothing.
+
+
+%------------------------------------------------------------------------------------
+\subsubsection{\texttt{xylogBase}}
+%------------------------------------------------------------------------------------
+This mode is in math also called double logarithm. It is a combination of the two forgoing modes and the function is now $y=\log x$ and is shown in the following example.
+
+\medskip
+\begin{LTXexample}[width=7cm]
+\begin{pspicture}(-3.5,-3.5)(3.5,3.5)
+  \psplot[linewidth=2pt,linecolor=red]{0.001}{3}{x log}
+  \psaxes[xylogBase=10,Oy=-3]{<->}(-3,-3)(3.5,3.5)
+  \uput[-90](3.5,-3){x}
+  \uput[180](-3,3.5){y}
+  \rput(2.5,1){$y=\log x$}
+\end{pspicture}
+\end{LTXexample}
+
+
+
+%--------------------------------------------------------------------------------------------
+\subsubsection{\texttt{ylogBase}}
+%--------------------------------------------------------------------------------------------
+The values for the \texttt{psaxes} y-coordinate are now the exponents to the base $10$ and for the right function to the base $e$: $10^{-3} \ldots 10^1$ which corresponds to the given y-intervall $-3\ldots 1.5$, where only integers as exponents are possible. These logarithm labels have no effect to the internal used units. To draw the logarithm function we have to use the math function
+\[y=\log\{\log x\}\]
+\[y=\ln\{\ln x\}\]
+with an drawing intervall of $1.001\ldots 6$.
+
+\medskip
+\begin{LTXexample}[width=7cm]
+\begin{pspicture}(-0.5,-3.5)(6.5,1.5)
+  \psaxes[ylogBase=10]{<->}(0,-3)(6.5,1.5)
+  \uput[-90](6.5,-3){x}
+  \uput[0](0,1.4){y}
+  \rput(5,1){$y=\log x$}
+  \psplot[linewidth=2pt,%
+  plotpoints=100,linecolor=red]{1.001}{6}{x log log} % log(x)
+\end{pspicture}
+\end{LTXexample}
+
+\medskip
+\begin{LTXexample}[width=7cm]
+\begin{pspicture}(-0.5,-3.5)(6.5,1.5)
+  \psplot[linewidth=2pt,plotpoints=100,linecolor=red]%
+    {1.04}{6}{/ln {log 0.4343 div} def x ln ln} % log(x)
+  \psaxes[ylogBase=e]{<->}(0,-3)(6.5,1.5)
+  \uput[-90](6.5,-3){x}
+  \uput[0](0,1.5){y}
+  \rput(5,1){$y=\ln x$}
+\end{pspicture}
+\end{LTXexample}
+
+
+
+\medskip
+\begin{LTXexample}[width=7cm]
+  \begin{pspicture}(-0.5,1.75)(6.5,4.5)
+    \psaxes[ylogBase=10,Oy=2]{<->}(0,2)(0,2)(6.5,4.5)
+  \end{pspicture}
+\end{LTXexample}
+
+
+
+\medskip
+\begin{LTXexample}[width=7cm]
+  \begin{pspicture}(-0.5,-0.25)(6.5,4.5)
+    \psplot{0}{6}{x x cos add log}                       % x   + cox(x)
+    \psplot[linecolor=red]{0}{6}{x 3 exp x cos add log}  % x^3 + cos(x)
+    \psplot[linecolor=cyan]{0}{6}{x 5 exp x cos add log} % x^5 + cos(x)
+    \psaxes[ylogBase=10]{<->}(6.5,4.5)
+  \end{pspicture}
+\end{LTXexample}
+
+
+
+\medskip
+\begin{LTXexample}[width=7cm]
+\begin{pspicture}(-0.5,-1.25)(6.5,4.5)
+  \psplot{0}{6}{x x cos add log}                       % x   + cox(x)
+  \psplot[linecolor=red]{0}{6}{x 3 exp x cos add log}  % x^3 + cos(x)
+  \psplot[linecolor=cyan]{0}{6}{x 5 exp x cos add log} % x^5 + cos(x)
+  \psaxes[ylogBase=10]{<->}(0,-1)(0,-1)(6.5,4.5)
+\end{pspicture}
+\end{LTXexample}
+
+
+
+\medskip
+\begin{LTXexample}[width=4cm]
+\begin{pspicture}(2.5,1.75)(6.5,4.5)
+  \psplot[linecolor=cyan]{3}{6}{x 5 exp x cos add log} % x^5 + cos(x)
+  \psaxes[ylogBase=10,Ox=3,Oy=2]{->}(3,2)(3,2)(6.5,4.5)
+\end{pspicture}
+\end{LTXexample}
+
+
+
+
+%--------------------------------------------------------------------------------------
+\subsubsection{\texttt{xlogBase}}
+%--------------------------------------------------------------------------------------
+Now we have to use the easy math function $y=x$ because the x axis is still $\log x$.
+
+\medskip
+\begin{LTXexample}[width=7cm]
+\begin{pspicture}(-3.5,-3.5)(3.5,3.5)
+  \psplot[linewidth=2pt,linecolor=red]{-3}{3}{x} % log(x)
+  \psplot[linewidth=2pt,linecolor=blue]{-1.3}{1.5}{x 0.4343 div} % ln(x)
+  \psaxes[xlogBase=10,Oy=-3]{->}(-3,-3)(3.5,3.5)
+  \uput[-90](3.5,-3){x}
+  \uput[180](-3,3.5){y}
+  \rput(2.5,1){$y=\log x$}
+  \rput[lb](0,-1){$y=\ln x$}
+\end{pspicture}
+\end{LTXexample}
+
+
+\begin{LTXexample}[preset=\centering,pos=t]
+\psset{yunit=3cm,xunit=2cm}
+\begin{pspicture}(-1.25,-1.25)(4.25,1.5)
+  \uput[-90](4.25,-1){x}
+  \uput[0](-1,1){y}
+  \rput(0,1){$y=\sin x$}
+  \psplot[linewidth=2pt,plotpoints=5000,linecolor=red]{-1}{3.5}{10 x exp sin }
+  \psaxes[xlogBase=10,Oy=-1]{->}(-1,-1)(4.25,1.25)
+\end{pspicture}
+\end{LTXexample}
+
+
+\begin{LTXexample}[width=7cm]
+\begin{pspicture}(-3.5,-2.5)(3.5,2.5)
+  \psaxes[xlogBase=10]{->}(0,0)(-3.5,-2.5)(3.5,2.5)
+  \psplot{-2.5}{2.5}{10 x exp log}
+\end{pspicture}
+\end{LTXexample}
+
+
+
+\medskip
+\begin{LTXexample}[width=7cm]
+\begin{pspicture}(-3.5,-2.5)(3.5,2.5)
+  \psaxes[xlogBase=10,Ox={},Oy={}]{->}(0,0)(-3.5,-2.5)(3.5,2.5)
+  \psplot{-2.5}{2.5}{10 x exp log}
+\end{pspicture}
+\end{LTXexample}
+
+
+%------------------------------------------------------------------------------------
+\subsubsection{No logstyle (\texttt{xylogBase=\{\}})}
+%------------------------------------------------------------------------------------
+This is only a demonstration that the default option \verb|logBase={}| still works ... :-)
+
+\medskip
+\begin{LTXexample}[width=7cm]
+\begin{pspicture}(-3.5,-0.5)(3.5,2.5)
+  \psplot[linewidth=2pt,linecolor=red,xylogBase={}]{0.5}{3}{x log} % log(x)
+  \psaxes{->}(0,0)(-3.5,0)(3.5,2.5)
+  \uput[-90](3.5,0){x}
+  \uput[180](0,2.5){y}
+  \rput(2.5,1){$y=\log x$}
+\end{pspicture}
+\end{LTXexample}
+
+
+\newpage
+%--------------------------------------------------------------------------------------
+\subsection{\texttt{subticks}, \texttt{tickwidth} and \texttt{subtickwidth}}
+%--------------------------------------------------------------------------------------
+
+
+\begin{center}
+\psset{arrowscale=3}
+ \psaxes[labelsep=2pt,yAxis=false,subticks=8]{->}(0,0)(-5,-1)(5,1)\\[1cm]
+ \psaxes[yAxis=false,subticks=4,ticksize=-4pt 0]{->}(0,0)(5,1)(-5,-1)\\
+ \psaxes[yAxis=false,subticks=4,ticksize=-10pt 0]{->}(0,0)(-5,-5)(5,5)\\[1cm]
+ \psaxes[yAxis=false,subticks=10,ticksize=0 -10pt,labelsep=15pt]{->}(0,0)(-5,-5)(5,5)\\[1cm]
+ \psaxes[yAxis=false,subticks=4,ticksize=0 10pt,labelsep=-15pt]{->}(0,0)(5,5)(-5,-5)\\[1cm]
+ \psaxes[yAxis=false,subticks=4,ticksize=0 -10pt]{->}(0,0)(5,5)(-5,-5)\\[0.25cm]
+ \psaxes[yAxis=false,subticks=0]{->}(0,0)(-5,-5)(5,5)\\[1cm]
+ \psaxes[yAxis=false,subticks=0,tickcolor=red,linecolor=blue]{->}(0,0)(5,5)(-5,-5)\\
+ \psaxes[yAxis=false,subticks=5,tickwidth=2pt,subtickwidth=1pt]{->}(0,0)(-5,-5)(5,5)\\[1cm]
+ \psaxes[yAxis=false,subticks=0,tickcolor=red]{->}(0,0)(5,5)(-5,-5)
+\end{center}
+\begin{lstlisting}[xrightmargin=-1.75cm]
+\psset{arrowscale=3}
+\psaxes[labelsep=2pt,yAxis=false,subticks=8]{->}(0,0)(-5,-1)(5,1)\\[1cm]
+\psaxes[yAxis=false,subticks=4,ticksize=-4pt 0]{->}(0,0)(5,1)(-5,-1)\\
+\psaxes[yAxis=false,subticks=4,ticksize=-10pt 0]{->}(0,0)(-5,-5)(5,5)\\[1cm]
+\psaxes[yAxis=false,subticks=10,ticksize=0 -10pt,labelsep=15pt]{->}(0,0)(-5,-5)(5,5)\\[1cm]
+\psaxes[yAxis=false,subticks=4,ticksize=0 10pt,labelsep=-15pt]{->}(0,0)(5,5)(-5,-5)\\[1cm]
+\psaxes[yAxis=false,subticks=4,ticksize=0 -10pt]{->}(0,0)(5,5)(-5,-5)\\[0.25cm]
+\psaxes[yAxis=false,subticks=0]{->}(0,0)(-5,-5)(5,5)\\[1cm]
+\psaxes[yAxis=false,subticks=0,tickcolor=red,linecolor=blue]{->}(0,0)(5,5)(-5,-5)\\
+\psaxes[yAxis=false,subticks=5,tickwidth=2pt,subtickwidth=1pt]{->}(0,0)(-5,-5)(5,5)\\[1cm]
+\psaxes[yAxis=false,subticks=0,tickcolor=red]{->}(0,0)(5,5)(-5,-5)
+\end{lstlisting}
+   
+\vspace*{4cm}
+\begin{center}
+  \psset{arrowscale=3}
+  \psaxes[xAxis=false,subticks=8]{->}(0,0)(-5,-5)(5,5)\hspace{2em}
+  \psaxes[xAxis=false,subticks=4]{->}(0,0)(5,5)(-5,-5)\hspace{4em}
+  \psaxes[xAxis=false,subticks=4,ticksize=0 4pt]{->}(0,0)(-5,-5)(5,5)\hspace{3em}
+  \psaxes[xAxis=false,subticks=4,ticksize=-4pt 0]{->}(0,0)(-5,-5)(5,5)\hspace{1em}
+  \psaxes[xAxis=false,subticks=4,ticksize=0 4pt]{->}(0,0)(5,5)(-5,-5)\hspace{2em}
+  \psaxes[xAxis=false,subticks=4,ticksize=-4pt 0,linecolor=red]{->}(0,0)(5,5)(-5,-5)\hspace{4em}
+  \psaxes[xAxis=false,subticks=0]{->}(0,0)(-5,-5)(5,5)\hspace{1em}
+  \psaxes[xAxis=false,subticks=0,tickcolor=red,linecolor=blue]{->}(0,0)(5,5)(-5,-5)\hspace{4em}
+  \psaxes[xAxis=false,subticks=5,tickwidth=2pt,subtickwidth=1pt]{->}(0,0)(-5,-5)(5,5)\hspace{2em}
+  \psaxes[xAxis=false,subticks=5,tickcolor=red,tickwidth=2pt,%
+      ticksize=10pt,subtickcolor=blue,subticksize=0.75]{->}(0,0)(5,5)(-5,-5)
+\end{center}
+
+\vspace*{5cm}
+\begin{lstlisting}[xrightmargin=-1.75cm]
+\psset{arrowscale=3}
+\psaxes[xAxis=false,subticks=8]{->}(0,0)(-5,-5)(5,5)\hspace{2em}
+\psaxes[xAxis=false,subticks=4]{->}(0,0)(5,5)(-5,-5)\hspace{4em}
+\psaxes[xAxis=false,subticks=4,ticksize=0 4pt]{->}(0,0)(-5,-5)(5,5)\hspace{3em}
+\psaxes[xAxis=false,subticks=4,ticksize=-4pt 0]{->}(0,0)(-5,-5)(5,5)\hspace{1em}
+\psaxes[xAxis=false,subticks=4,ticksize=0 4pt]{->}(0,0)(5,5)(-5,-5)\hspace{2em}
+\psaxes[xAxis=false,subticks=4,ticksize=-4pt 0,linecolor=red]{->}(0,0)(5,5)(-5,-5)\hspace{4em}
+\psaxes[xAxis=false,subticks=0]{->}(0,0)(-5,-5)(5,5)\hspace{1em}
+\psaxes[xAxis=false,subticks=0,tickcolor=red,linecolor=blue]{->}(0,0)(5,5)(-5,-5)\hspace{4em}
+\psaxes[xAxis=false,subticks=5,tickwidth=2pt,subtickwidth=1pt]{->}(0,0)(-5,-5)(5,5)\hspace{2em}
+\psaxes[xAxis=false,subticks=5,tickcolor=red,tickwidth=2pt,%
+  ticksize=10pt,subtickcolor=blue,subticksize=0.75]{->}(0,0)(5,5)(-5,-5)
+\end{lstlisting}
+ 
+\begin{LTXexample}[width=5.5cm]
+\pspicture(5,5.5)
+\psaxes[subticks=4,ticksize=6pt,subticksize=0.5,%
+   tickcolor=red,subtickcolor=blue]{->}(5.4,5)
+\endpspicture
+\end{LTXexample}
+
+\begin{LTXexample}[width=5.5cm]
+\pspicture(5,5.5)
+   \psaxes[subticks=5,ticksize=0 6pt,subticksize=0.5]{->}(5.4,5)
+\endpspicture
+\end{LTXexample}
+
+\begin{LTXexample}[width=5.5cm]
+\pspicture(5,5.5)
+   \psaxes[subticks=5,ticksize=-6pt 0,subticksize=0.5]{->}(5.4,5)
+\endpspicture
+\end{LTXexample}
+
+\begin{LTXexample}[width=6.5cm]
+\pspicture(-3,-3)(3,3.5)
+   \psaxes[subticks=5,ticksize=0 6pt,subticksize=0.5]{->}(0,0)(3,3)(-3,-3)
+\endpspicture
+\end{LTXexample}
+
+\begin{LTXexample}[width=6.5cm]
+\pspicture(0,0.5)(-3,-3)
+   \psaxes[subticks=5,ticksize=-6pt 0,subticksize=0.5,linecolor=red]{->}(-3,-3)
+\endpspicture
+\end{LTXexample}
+
+
+
+\begin{LTXexample}[width=5.5cm]
+\psset{axesstyle=frame}
+\pspicture(5,5.5)
+   \psaxes[subticks=4,tickcolor=red,subtickcolor=blue](5,5)
+\endpspicture
+\end{LTXexample}
+
+\vspace{1cm}
+\begin{LTXexample}[width=5.5cm]
+\pspicture(5,5.5)
+   \psaxes[subticks=5,subticksize=1,subtickcolor=lightgray](5,5)
+\endpspicture
+\end{LTXexample}
+
+\begin{LTXexample}[width=5.5cm]
+\pspicture(5,5.5)
+   \psaxes[subticks=2,subticksize=1,subtickcolor=lightgray](5,5)
+\endpspicture
+\end{LTXexample}
+
+\begin{LTXexample}[width=3.5cm]
+\pspicture(3,4.5)
+   \psaxes[subticks=5,ticksize=-7pt 0](3,4)
+\endpspicture
+\end{LTXexample}
+
+
+\begin{LTXexample}[width=3.5cm]
+\pspicture(0,1)(-3,-4)
+   \psaxes[subticks=5](-3,-4)
+\endpspicture
+\end{LTXexample}
+
+\begin{LTXexample}[width=3.5cm]
+\pspicture(3,4.5)
+   \psaxes[axesstyle=axes,subticks=5](3,4)
+\endpspicture
+\end{LTXexample}
+
+\begin{LTXexample}[width=3.5cm]
+\pspicture(0,1)(-3,-4)
+  \psaxes[axesstyle=axes,subticks=5,%
+    ticksize=0 10pt,labelsep=13pt](-3,-4)
+\endpspicture
+\end{LTXexample}
+
+
+%--------------------------------------------------------------------------------------
+\subsection{\texttt{xlabelFactor} and \texttt{ylabelFactor}}
+%--------------------------------------------------------------------------------------
+When having big numbers as data records then it makes sense to write the values
+as ${<number>\cdot 10^{<exp>}}$. These new options allow to define the additional part
+of the value.
+
+\resetOptions
+\begin{LTXexample}
+\readdata{\data}{demo1.dat}
+\pstScalePoints(1,0.000001){}{}% (x,y){additional x operator}{y op}
+\psset{llx=-1cm,lly=-1cm}
+\psgraph[ylabelFactor={\cdot 10^6},Dx=5,Dy=100](0,0)(25,750){8cm}{5cm} 
+   \listplot[linecolor=red, linewidth=2pt, showpoints=true]{\data}
+\endpsgraph
+\pstScalePoints(1,1){}{}% reset
+\end{LTXexample}
+
+%--------------------------------------------------------------------------------------
+\subsection{Plot style \texttt{bar} and option \texttt{barwidth}}
+%--------------------------------------------------------------------------------------
+This option allows to draw bars for the data records. The width of the bars
+is controlled by the option \verb+barwidth+, which is set by default to
+value of \verb+0.25cm+, which is the total width.
+
+\def\barData{
+0 0.03
+1 0.11
+2 0.28
+3 0.84
+4 6.70
+5 8.55
+6 8.77
+7 11.09
+8 7.18
+9 6.20
+10 5.78
+11 4.19
+12 2.37
+13 2.26
+14 1.68
+15 1.03
+16 1.37
+17 1.34
+18 0.92
+19 0.67
+20 0.87
+21 1.20
+22 1.98
+23 3.99
+24 5.08
+25 5.17
+26 5.78
+27 4.44
+28 0.11 
+}
+
+\begin{LTXexample}[preset=\centering,pos=t]
+\psset{xunit=.44cm,yunit=.3cm}
+\begin{pspicture}(-2,-1.5)(29,13)
+  \psaxes[axesstyle=axes,Ox=1466,Oy=0,Dx=4,Dy=2,%
+     ylabelFactor={\,\%}]{-}(29,12)
+  \listplot[shadow=true,linecolor=blue,plotstyle=bar,barwidth=0.3cm,
+     fillcolor=red,fillstyle=solid]{\barData}
+  \rput{90}(-3,6.25){Amount}
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[preset=\centering,pos=t]
+\psset{xunit=.44cm,yunit=.3cm}
+\begin{pspicture}(-2,-1.5)(29,13)
+  \psaxes[axesstyle=axes,Ox=1466,Oy=0,Dx=4,Dy=2,%
+     ylabelFactor={\,\%}]{-}(29,12)
+  \listplot[linecolor=blue,plotstyle=bar,barwidth=0.3cm,
+     fillcolor=red,fillstyle=crosshatch]{\barData}
+  \rput{90}(-3,6.25){Amount}
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[preset=\centering,pos=t]
+\psset{xunit=.44cm,yunit=.3cm}
+\begin{pspicture}(-2,-1.5)(29,13)
+  \psaxes[axesstyle=axes,Ox=1466,Oy=0,Dx=4,Dy=2,%
+     ylabelFactor={\,\%}]{-}(29,12)
+  \listplot[linecolor=blue,plotstyle=bar,barwidth=0.3cm,
+     fillcolor=red,fillstyle=vlines]{\barData}
+  \listplot[showpoints=true]{\barData}
+  \rput{90}(-3,6.25){Amount}
+\end{pspicture}
+\end{LTXexample}
+
+%--------------------------------------------------------------------------------------
+\subsection{Axis with trigonmetrical units}
+%--------------------------------------------------------------------------------------
+With the option \verb+trigLabels=true+ the labels on the x axis are trigonometrical ones:
+
+\medskip
+\begin{LTXexample}[preset=\centering,pos=t]
+\begin{pspicture}(-0.5,-1.25)(10,1.25)
+  \psplot[linecolor=red,linewidth=1.5pt]%
+     {0}{9.424777961}{x 180 mul 3.141592654 div sin}
+  \psaxes[xunit=1.570796327,showorigin=false,trigLabels]{->}(0,0)(-0.5,-1.25)(6.4,1.25)
+\end{pspicture}
+\end{LTXexample}
+
+With the value of \verb+xunit+ one can change the labels.
+
+\medskip
+\begin{LTXexample}[preset=\centering,pos=t]
+\begin{pspicture}(-0.5,-1.25)(10,1.25)
+  \psplot[linecolor=red,linewidth=1.5pt]%
+     {0}{9.424777961}{x 180 mul 3.141592654 div sin}
+  \psaxes[xunit=0.7853981635,showorigin=false,trigLabels]{->}(0,0)(-1,-1.25)(12.8,1.25)
+\end{pspicture}
+\end{LTXexample}
+
+\medskip
+\begin{LTXexample}[preset=\centering,pos=t]
+\begin{pspicture}(-0.5,-1.25)(10,1.25)
+  \psplot[linecolor=red,linewidth=1.5pt]%
+     {0}{9.424777961}{x 180 mul 3.141592654 div sin}
+  \psaxes[xunit=0.7853981635,showorigin=false,trigLabels,Dx=2]{->}(0,0)(-1,-1.25)(12.8,1.25)
+\end{pspicture}
+\end{LTXexample}
+
+%------------------------------------------------------------------------------------
+\subsection{New options for \CMD{readdata}}
+%------------------------------------------------------------------------------------
+
+
+By default the macros \verb|\readdata| reads every
+data record, which could be annoying when you have some text lines at top of your
+data files or when there are more than 10000 records to read. 
+
+
+\verb|pstricks-add| defines two additional keys \verb|ignoreLines| and \verb|nStep|, which allows
+to ignore preceeding lines, e.g. \verb|ignoreLines=2|, or to read only a selected part of the data records,
+e.g. \verb|nStep=10|, only every 10\textsuperscript{th} records is saved.
+
+\begin{lstlisting}
+\readdata[ignoreLines=2]{\dataA}{stressrawdata.dat}
+\readdata[nStep=10]{\dataA}{stressrawdata.dat}
+\end{lstlisting}
+
+The default value for  \verb+ignoreLines+ is $0$ and for \verb+nStep+ is $1$.
+the following data file has two text lines which shall be ignored by the \verb+\readdata+ macro:
+
+\begin{LTXexample}[width=4cm]
+\begin{filecontents*}{pstricks-add-data9.dat}
+some nonsense in this line ���time forcex forcey
+0 0.2
+1 1
+2 4
+\end{filecontents*}
+\readdata[ignoreLines=2]{\data}{pstricks-add-data9.dat}
+\pspicture(2,4)
+  \listplot[showpoints=true]{\data}
+  \psaxes{->}(2,4)
+\endpspicture
+\end{LTXexample}
+
+%--------------------------------------------------------------------------------------
+\subsection{New options for \texttt{\textbackslash listplot}}
+%--------------------------------------------------------------------------------------
+By default the plot macros \verb|\dataplot|, \verb|\fileplot| and \verb|\listplot| plot every
+data record. The package \verb|pst-plot-add| defines additional keys \verb|nStep, nStart, nEnd| and \verb|xStep, xStart, xEnd|, which allows
+to plot only a selected part of the data records, e.g. \verb|nStep=10|. These "n" options mark the number of the record to be plot ($0,1,2,...$) and the "x" ones the x-values of the data records.
+
+
+\begin{center}
+\begin{tabular}{l|l}
+Name & Default setting\\\hline
+\verb|nStart| &  \verb|1|\\
+\verb|nEnd|   &  \verb|{}|\\
+\verb|nStep|  &  \verb|1|\\
+\verb|xStart| &  \verb|{}|\\
+\verb|xEnd|   &  \verb|{}|\\
+\verb|yStart| &  \verb|{}|\\
+\verb|yEnd|   &  \verb|{}|\\
+\verb|xStep|  &  \verb|0|\\
+\verb|plotNo|  &  \verb|1|\\
+\verb|plotNoMax|  &  \verb|1|\\
+\verb|ChangeOrder|  &  \verb|false|
+\end{tabular}
+\end{center}
+
+These new options are only available
+for the \verb|\listplot| macro, which is not a real limitation, because all data records can be read
+from a file with the \verb|\readdata| macro (see example files or \cite{dtk02.2:jackson.voss:plot-funktionen}):
+\begin{verbatim}
+\readdata[nStep=10]{\data}{/home/voss/data/data1.dat}
+\end{verbatim}
+
+The use \verb|nStep| and \verb|xStep| options make only real sense when also using the
+option \verb|plotstyle=dots|. Otherwise the coordinates are connected by a line as usual. Also the \verb|xStep| option needs increasing x values.
+Pay attention that \verb+nStep+ can be used for \verb+\readdata+ and for \verb+\listplot+. If used
+in both macros than the effect is multiplied, e.g. \verb+\readdata+ with \verb+nStep=5+ and
+\verb+\listplot+ with \verb+nStep=10+ means, that only every 50\textsuperscript{th} data records
+is read and plotted.
+
+When both, \verb|x/yStart/End| are defined then the values are also compared with
+both values.
+
+%--------------------------------------------------------------------------------------
+\subsubsection{Example for \texttt{nStep/xStep}}
+%--------------------------------------------------------------------------------------
+
+The datafile \verb|data.dat| contains $1000$ data records. The thin blue line is the plot
+of all records with the plotstyle option \verb|curve|.
+
+\begin{LTXexample}[preset=\centering,pos=t]
+\readdata{\data}{examples/data.dat}
+\psset{xunit=0.125mm,yunit=0.0002mm}
+\begin{pspicture}(-80,-30000)(1000,310000)
+\psaxes[axesstyle=frame,Dx=100,dx=100,Dy=50000,dy=50000](1000,300000)
+\listplot[nStep=50,linewidth=3pt,linecolor=red,plotstyle=dots]{\data}
+\listplot[linewidth=1pt,linecolor=blue]{\data}
+\end{pspicture}
+\end{LTXexample}
+
+
+
+%--------------------------------------------------------------------------------------
+\subsubsection{Example for \texttt{nStart/xStart}}
+%--------------------------------------------------------------------------------------
+
+\begin{LTXexample}[preset=\centering,pos=t]
+\readdata{\data}{examples/data.dat}
+\psset{xunit=0.125mm,yunit=0.0002mm}
+\begin{pspicture}(-80,-30000)(1000,310000)
+\psaxes[axesstyle=frame,Dx=100,dx=100,Dy=50000,dy=50000](1000,300000)
+\listplot[nStart=200,linewidth=3pt,linecolor=blue]{\data}
+\end{pspicture}
+\end{LTXexample}
+
+%--------------------------------------------------------------------------------------
+\subsubsection{Example for \texttt{nEnd/xEnd}}
+%--------------------------------------------------------------------------------------
+
+\begin{LTXexample}[preset=\centering,pos=t]
+\readdata{\data}{examples/data.dat}
+\psset{xunit=0.125mm,yunit=0.0002mm}
+\begin{pspicture}(-80,-30000)(1000,310000)
+\psaxes[axesstyle=frame,Dx=100,dx=100,Dy=50000,dy=50000](1000,300000)
+\listplot[nEnd=800,linewidth=3pt,linecolor=blue]{\data}
+\end{pspicture}
+\end{LTXexample}
+
+
+%--------------------------------------------------------------------------------------
+\subsubsection{Example for all new options}
+%--------------------------------------------------------------------------------------
+
+\begin{LTXexample}[preset=\centering,pos=t]
+\readdata{\data}{examples/data.dat}
+\psset{xunit=0.125mm,yunit=0.0002mm}
+\begin{pspicture}(-80,-30000)(1000,310000)
+\psaxes[axesstyle=frame,Dx=100,dx=100,Dy=50000,dy=50000](1000,300000)
+\listplot[nStart=200, nEnd=800, nStep=50,linewidth=3pt,linecolor=blue,%
+	plotstyle=dots]{\data}
+\end{pspicture}
+\end{LTXexample}
+
+
+%--------------------------------------------------------------------------------------
+\subsubsection{Example for \texttt{xStart}}
+%--------------------------------------------------------------------------------------
+
+This example shows the use of the same plot with different units and different
+\verb|xStart| value. The blue curve is the original plot of the data records.
+To show the important part of the curve there is another one plotted with a
+greater \verb|yunit| and a start value of \verb|xStart=0.35|. This makes it
+possible to have a kind of a zoom to the original graphic.
+
+\begin{LTXexample}[preset=\centering,pos=t]
+\def\pshlabel#1{\scriptsize\sffamily$#1$}
+\def\psvlabel#1{\sffamily\scriptsize$#1$}
+\psset{xunit=10cm, yunit=0.01cm}
+\readdata{\data}{examples/data3.dat}
+\begin{pspicture}(-0.1,-100)(1.5,700.0)
+  \psaxes[Dx=0.25,Dy=100,dy=100\psyunit,ticksize=-4pt 0]{->}(0,0)(0,-100)(1.4,520)
+  \uput[0](1.4,0){\textsf{t [s]}}
+  \rput(-0.125,200){\psrotateleft{\small\sffamily flow [ml/s]}}
+  \listplot[linewidth=2pt, linecolor=blue]{\data}
+  \rput(0.4,300){
+    \pscustom[yunit=0.04cm, linewidth=1pt]{%
+      \listplot[xStart=0.355]{\data}
+      \psline(1,-2.57)(1,0)(0.355,0)
+      \fill[fillstyle=hlines,fillcolor=gray,hatchwidth=0.4pt,hatchsep=1.5pt,hatchcolor=red]%
+      \psline[linewidth=0.5pt]{->}(0.7,0)(1.05,0)
+    }%
+  }
+  \psline[linewidth=.01]{->}(0.75,300)(0.4,20)
+  \psline[linewidth=.01]{->}(1,290)(1.1,440)
+  \rput(1.1,470){\footnotesize\sffamily leak volume}
+  \psline[linewidth=.01]{->}(0.78,200)(1,100)
+  \rput[l](1.02,100){\footnotesize\sffamily closing volume}
+\end{pspicture}
+\end{LTXexample}
+
+
+\resetOptions
+%--------------------------------------------------------------------------------------
+\subsubsection{Example for \texttt{yStart}/\texttt{yEnd}}
+%--------------------------------------------------------------------------------------
+
+\begin{LTXexample}[preset=\centering,pos=t]
+\readdata{\data}{examples/data.dat}
+\psset{xunit=0.125mm,yunit=0.0002mm}
+\begin{pspicture}(-80,-30000)(1000,310000)
+  \psaxes[axesstyle=frame,Dx=100,dx=100,Dy=50000,dy=50000](1000,300000)
+  \psset{linewidth=0.1pt, linestyle=dashed,linecolor=red}
+  \psline(0,40000)(1000,40000)
+  \psline(0,175000)(1000,175000)
+  \listplot[yStart=40000, yEnd=175000,linewidth=3pt,linecolor=blue,plotstyle=dots]{\data}
+\end{pspicture}
+\end{LTXexample}
+
+
+
+%--------------------------------------------------------------------------------------
+\subsubsection{Example for \texttt{plotNo/plotNoMax}}
+%--------------------------------------------------------------------------------------
+By default the plot macros expect \verb+x|y+ data records, but
+when having data files with multiple values for y, like:
+\begin{verbatim}
+x y1 y2 y3 y4 ... yMax
+x y1 y2 y3 y4 ... yMax
+...
+\end{verbatim}
+
+you can select the y value which should be plotted. The option \verb+plotNo+ marks the plotted
+value (default $1$) and the option \verb+plotNoMax+ tells \verb+pst-plot+ how many $y$ values are
+present. There are no real restrictions in the maximum number for \verb+plotNoMax+.
+
+We have the following data file:
+\begin{verbatim}
+[% file examples/data.dat
+0    0    3.375    0.0625
+10    5.375    7.1875    4.5
+20    7.1875    8.375    6.25
+30    5.75    7.75    6.6875
+40    2.1875    5.75    5.9375
+50    -1.9375    2.1875    4.3125
+60    -5.125    -1.8125    0.875
+70    -6.4375    -5.3125    -2.6875
+80    -4.875    -7.1875    -4.875
+90    0    -7.625    -5.625
+100    5.5    -6.3125    -5.8125
+110    6.8125    -2.75    -4.75
+120    5.25    2.875    -0.75
+]%
+\end{verbatim}
+
+\noindent which holds data records for multiple plots (\verb+x y1 y2 y3+). This can be plotted
+without any modification to the data file:
+
+\begin{LTXexample}[preset=\centering,pos=t]
+\readdata\Data{examples/dataMul.dat}
+\psset{xunit=0.1cm, yunit=0.5cm,lly=-0.5cm}
+\begin{pspicture}(0,-7.5)(150,10)
+\psaxes[Dx=10,Dy=2.5]{->}(0,0)(0,-7.5)(150,7.5)
+\psset{linewidth=2pt,plotstyle=line}
+\listplot[linecolor=green,plotNo=1,plotNoMax=3]{\Data}
+\listplot[linecolor=red,plotNo=2,plotNoMax=3]{\Data}
+\listplot[linecolor=blue,plotNo=3,plotNoMax=3]{\Data}
+\end{pspicture}
+\end{LTXexample}
+
+
+%--------------------------------------------------------------------------------------
+\subsubsection{Example for \texttt{changeOrder}}
+%--------------------------------------------------------------------------------------
+It is only possible to fill the region between two listplots 
+with \verb+\pscustom+ if one of both has the values in a reverse
+order. Otherwise we do not get a closed path. With the option \verb+ChangeOrder+
+the values are used in a reverse order:
+
+\begin{LTXexample}[pos=t,preset=\centering]
+\begin{filecontents*}{test.dat}
+  0 3 8 
+  2 4 7
+  5 5 5.5
+  7 3.5 5
+  10 2 9
+\end{filecontents*}
+\begin{psgraph}[axesstyle=frame,ticklinestyle=dotted,ticksize=0 10](0,0)(10,10){4in}{2in}%
+   \readdata{\data}{test.dat}%
+   \pscustom[fillstyle=solid,fillcolor=gray]{%
+     \listplot[plotNo=2,plotNoMax=2]{\data}%
+     \listplot[plotNo=1,plotNoMax=2,ChangeOrder]{\data}} 
+\end{psgraph}
+\end{LTXexample}
+
+
+
+
+%--------------------------------------------------------------------------------------
+\section{Polar plots}
+%--------------------------------------------------------------------------------------
+
+With the option \verb+polarplot=false|true+ it is possible to use \verb+\psplot+
+in polar mode:
+\begin{verbatim}
+\psplot[polarplot=true,...]{<start angle>}{<end angle>}{<r(alpha)>}
+\end{verbatim}
+
+The equation in PostScript code is interpreted as a function $r=f(\alpha)$, e.g. for the
+circle with radius 1 as $r=\sqrt{\sin^2x+\cos^2x}$:
+
+\begin{verbatim}
+x sin dup mul x cos dup mul add sqrt 
+\end{verbatim}
+
+
+\medskip
+\begin{LTXexample}[width=6cm]
+\resetOptions
+\def\pshlabel#1{\footnotesize$#1$}
+\def\psvlabel#1{\footnotesize$#1$}
+\psset{plotpoints=200,unit=0.75}
+\begin{pspicture}*(-5,-5)(3,3)
+  \psaxes[labelsep=.75mm,arrowlength=1.75,ticksize=2pt,%
+    linewidth=0.17mm]{->}(0,0)(-4.99,-4.99)(3,3)
+  \rput[Br](3,-.35){$x$}
+  \rput[tr](-.15,3){$y$}
+  \rput[Br](-.15,-.35){$0$}
+  \psset{linewidth=.35mm,polarplot=true}
+  \psplot[linecolor=red]{140}{310}{3 neg x sin mul x cos mul x sin 3 exp x cos 3 exp add div}
+  \psplot[linecolor=cyan]{140}{310}{6 neg x sin mul x cos mul x sin 3 exp x cos 3 exp add div}
+  \psplot[linecolor=blue]{140}{310}{9 neg x sin mul x cos mul x sin 3 exp x cos 3 exp add div}
+\end{pspicture}
+\end{LTXexample}
+
+
+
+\medskip
+\begin{LTXexample}[width=5cm]
+\resetOptions
+\psset{plotpoints=200,unit=1}
+\begin{pspicture}(-2.5,-2.5)(2.5,2.5)% Ulrich Dirr
+ \psaxes[labelsep=.75mm,arrowlength=1.75,%
+    ticksize=2pt,linewidth=0.17mm]{->}(0,0)(-2.5,-2.5)(2.5,2.5)
+  \rput[Br](2.5,-.35){$x$}
+  \rput[tr](-.15,2.5){$y$}
+  \rput[Br](-.15,-.35){$0$}
+  \psset{linewidth=.35mm,plotstyle=curve,polarplot=true}
+  \psplot[linecolor=red]{0}{360}{x cos 2 mul x sin mul}
+  \psplot[linecolor=green]{0}{360}{x cos 3 mul x sin mul}
+  \psplot[linecolor=blue]{0}{360}{x cos 4 mul x sin mul}
+\end{pspicture}
+\end{LTXexample}
+
+
+
+\medskip
+\begin{LTXexample}[width=8cm]
+\psset{plotpoints=200,unit=0.5}
+\begin{pspicture}(-8.5,-8.5)(9,9)% Ulrich Dirr 
+\psaxes[Dx=2,dx=2,Dy=2,dy=2,labelsep=.75mm,%
+  arrowlength=1.75,ticksize=2pt,linewidth=0.17mm]{->}(0,0)(-8.5,-8.5)(9,9)
+\rput[Br](9,-.7){$x$}
+\rput[tr](-.3,9){$y$}
+\rput[Br](-.3,-.7){$0$}
+%
+\psset{linewidth=.35mm,plotstyle=curve,polarplot=true}
+\psplot[linecolor=blue]{0}{720}{8 2.5 x mul sin mul}
+\end{pspicture}
+\end{LTXexample}
+
+
+\resetOptions
+
+
+
+
+%--------------------------------------------------------------------------------------
+\section{New commands and environments}
+%--------------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------------
+\subsection{\CMD{pstScalePoints}}
+%--------------------------------------------------------------------------------------
+The syntax is
+\begin{verbatim}
+\pstScalePoints(xScale,xScale){xPS}{yPS}
+\end{verbatim}
+
+\verb+xScale,yScale+ are decimal values as scaling factors, the \verb+xPs+ and \verb+yPS+
+are additional PostScript code to the x- and y-values of the data records. This macro
+is only valid for the \CMD{listplot} macro! 
+
+\resetOptions
+\begin{LTXexample}[width=6cm]
+\def\data{%
+  0 0 1 3 2 4 3 1
+  4 2 5 3 6 6 }
+\begin{pspicture}(-0.5,-1)(6,6)
+  \psaxes{->}(0,0)(6,6)
+  \listplot[showpoints=true,%
+    linecolor=red]{\data}
+  \pstScalePoints(1,0.5){}{3 add}
+  \listplot[showpoints=true,%
+    linecolor=blue]{\data}
+\end{pspicture}
+\end{LTXexample}
+
+\bigskip
+\verb+\pstScalePoints(1,0.5){}{3 add}+ means that \textbf{first} the value $3$ is added
+to the $y$ values and \textbf{second} this value is scaled with the factor $0.5$.
+As seen for the blue line for $x=0$ we get $y(0)=(0+3)\cdot 0.5=1.5$.
+
+Changes with \verb+\pstScalePoints+ are always global to all following \verb+\listplot+
+macros. This is the reason why it is a good idea to reset the values at the end of the
+\verb+pspicture+ environment.
+
+\begin{verbatim}
+\pstScalePoints(1,1){}{}
+\end{verbatim}
+
+%--------------------------------------------------------------------------------------
+\subsection{\texttt{psgraph} environment}
+%--------------------------------------------------------------------------------------
+This new environment does the scaling, it expects as parameter the values (without units!) for the
+coordinate system and the values of the physical width and height (with units!). The syntax is:
+
+\begin{verbatim}
+\psgraph[<axes options>]{<arrows>}%
+    (xOrig,yOrig)(xMin,yMin)(xMax,yMax){xLength}{yLength}
+...
+\endpsgraph
+
+\begin{psgraph}[<axes options>]{<arrows>}%
+    (xOrig,yOrig)(xMin,yMin)(xMax,yMax){xLength}{yLength}
+...
+\end{psgraph}
+\end{verbatim}
+
+where the options are valid \textbf{only} for the the \verb+\psaxes+ macro. The first
+two arguments have the usual \verb+PSTricks+ behaviour.
+\begin{itemize}
+  \item if \verb+(xOrig,yOrig)+ is missing, it is substituted to $(0,0)$;
+  \item if \verb+(xOrig,yOrig)+ \textbf{and} (xMin,yMin) are missing, they are both 
+	substituted to $(0,0)$.
+\end{itemize}
+
+
+\begin{LTXexample}[pos=t,preset=\centering]
+\readdata{\data}{demo1.dat}
+\pstScalePoints(1,0.000001){}{}% (x,y){additional x operator}{y op}
+\psset{llx=-1cm,lly=-1cm}
+\psgraph[axesstyle=frame,xticksize=0 759,yticksize=0 25,%
+    subticks=0,ylabelFactor={\cdot 10^6},%
+    Dx=5,dy=100\psyunit,Dy=100](0,0)(25,750){10cm}{6cm} % parameters
+   \listplot[linecolor=red, linewidth=2pt, showpoints=true]{\data}
+\endpsgraph
+\end{LTXexample}
+
+
+\begin{LTXexample}[width=7cm]
+\readdata{\data}{demo1.dat}
+\psset{xAxisLabel=x-Axes,yAxisLabel=y-Axes,llx=-1cm,%
+   xAxisLabelPos={3cm,-1cm},yAxisLabelPos={-1.5cm,2.5cm}}
+\pstScalePoints(1,0.00000001){}{}
+\begin{psgraph}[axesstyle=frame,xticksize=0 7.5,yticksize=0 25,subticksize=1,%
+     ylabelFactor={\cdot 10^8},Dx=5,Dy=1,xsubticks=2](0,0)(25,7.5){5.5cm}{5cm}
+  \listplot[linecolor=red, linewidth=2pt, showpoints=true]{\data}
+\end{psgraph}
+\end{LTXexample}
+
+
+\begin{LTXexample}[width=6.5cm]
+\readdata{\data}{demo1.dat}
+\psset{llx=-0.5cm,lly=-1cm}
+\pstScalePoints(1,0.000001){}{}
+\psgraph[arrows=->,Dx=5,dy=200\psyunit,Dy=200,%
+    subticks=5,ticksize=-10pt 0,tickwidth=0.5pt,%
+    subtickwidth=0.1pt](0,0)(25,750){5.5cm}{5cm}
+\listplot[linecolor=red,linewidth=2pt,showpoints=true,]{\data}
+\endpsgraph
+\end{LTXexample}
+
+
+\begin{LTXexample}[pos=t,preset=\centering]
+\pstScalePoints(1,0.2){}{log}
+\psset{lly=-0.75cm}
+\psgraph[ylogBase=10,Dx=5,Dy=1,subticks=5](0,0)(25,2){12cm}{4cm}
+  \listplot[linecolor=red, linewidth=2pt, showpoints=true]{\data}
+\endpsgraph
+\end{LTXexample}
+
+
+\begin{LTXexample}[pos=t,preset=\centering]
+\readdata{\data}{demo0.dat}
+\psset{lly=-0.5cm}
+\pstScalePoints(1,1){}{log}
+\begin{psgraph}[arrows=->,Dx=0.5,ylogBase=10,Oy=-1,xsubticks=10,%
+     ysubticks=2](0,-3)(3,1){12cm}{4cm}
+  \listplot[linecolor=red, linewidth=2pt, showpoints=true]{\data}
+\end{psgraph}
+\end{LTXexample}
+
+
+\begin{LTXexample}[width=6.5cm]
+\readdata{\data}{demo0.dat}
+\pstScalePoints(1,1){}{log}
+\psgraph[arrows=->,Dx=0.5,ylogBase=10,Oy=-1,subticks=4](0,-3)(3,1){6cm}{3cm}
+  \listplot[linecolor=red, linewidth=2pt, showpoints=true]{\data}
+\endpsgraph
+\end{LTXexample}
+
+
+\begin{LTXexample}[pos=t,preset=\centering]
+\readdata{\data}{demo2.dat}%
+\readdata{\dataII}{demo3.dat}%
+\pstScalePoints(1,1){1989 sub}{}
+\psset{llx=-0.5cm,lly=-1cm, xAxisLabel=Year,yAxisLabel=Whatever,%
+     xAxisLabelPos={2in,-0.4in},yAxisLabelPos={-0.4in,1in}}
+\psgraph[axesstyle=frame,Dx=2,Ox=1989,subticks=2](0,0)(12,6){4in}{2in}%
+  \listplot[linecolor=red,linewidth=2pt]{\data}
+  \listplot[linecolor=blue,linewidth=2pt]{\dataII}
+  \listplot[linecolor=cyan,linewidth=2pt,yunit=0.5]{\dataII}
+\endpsgraph
+\end{LTXexample}
+
+\begin{LTXexample}[pos=t,preset=\centering]
+\psset{llx=-0.5cm,lly=-0.75cm}
+\pstScalePoints(1,1){1989 sub}{2 sub}
+\begin{psgraph}[axesstyle=frame,Dx=2,Ox=1989,Oy=2,subticks=2](0,0)(12,4){6in}{3in}%
+  \listplot[linecolor=red,linewidth=2pt]{\data}
+  \listplot[linecolor=blue,linewidth=2pt]{\dataII}
+  \listplot[linecolor=cyan,linewidth=2pt,yunit=0.5]{\dataII}
+\end{psgraph}
+\end{LTXexample}
+
+%\newpage
+An example with ticks on every side of the frame:
+
+\begin{LTXexample}[pos=t,preset=\centering]
+\def\data{0 0 1 1 2 4 3 9}
+\psset{lly=-0.5cm}
+\begin{psgraph}[axesstyle=frame,ticksize=0 4pt](0,0)(3.0,9.0){12cm}{5cm}
+  \psaxes[axesstyle=frame,labels=none,ticksize=-4pt 0](3,9)(0,0)(3,9)
+  \listplot[linecolor=red,linewidth=2pt]{\data}
+\end{psgraph}
+\end{LTXexample}
+
+
+%-------------------------------------------------------------------------------------------
+\subsubsection{The new options}
+%-------------------------------------------------------------------------------------------
+
+\begin{center}
+\begin{tabular}{>{\tt}l>{\tt}ll}
+\textrm{name} & \textrm{default} & meaning\\\hline
+xAxisLabel & x & label for the x-axis\\
+yAxisLabel & y & label for the y-axis\\
+xAxisLabelPos & \{\} & where to put the x-label\\
+yAxisLabelPos & \{\} & where to put the y-label\\
+llx & 0pt & trim for the lower left x\\
+lly & 0pt & trim for the lower left y\\
+urx & 0pt & trim for the upper right x\\
+ury & 0pt & trim for the upper right y
+\end{tabular}
+\end{center}
+
+There is one restriction in using the trim parameters, they must been set
+\textbf{before} \verb+psgraph+ is called. They are senseless, when using
+as parameters of \verb+psgraph+ itself.
+
+\medskip
+\resetOptions
+
+\begin{LTXexample}[pos=t]
+\psset{llx=-1cm,lly=-1.25cm,urx=0.5cm,ury=0.1in,xAxisLabel=Year,%
+   yAxisLabel=Whatever,xAxisLabelPos={.4\linewidth,-0.4in},%
+   yAxisLabelPos={-0.4in,2in}}
+\pstScalePoints(1,1){1989 sub}{}
+\psframebox[linestyle=dashed,boxsep=0pt]{%
+\begin{psgraph}[axesstyle=frame,Ox=1989,subticks=2](0,0)(12,6){0.8\linewidth}{4in}%
+  \listplot[linecolor=red,linewidth=2pt]{\data}%
+  \listplot[linecolor=blue,linewidth=2pt]{\dataII}%
+  \listplot[linecolor=cyan,linewidth=2pt,yunit=0.5]{\dataII}%
+\end{psgraph}%
+}
+\end{LTXexample}
+\pstScalePoints(1,1){}{}% reset
+
+
+%--------------------------------------------------------------------------------------
+\subsubsection{Problems}
+%--------------------------------------------------------------------------------------
+Floating point operations in \TeX\ are a real mess, which causes a lot of problems
+when there are very small oder very big units. With the options of \verb+\pst-plot+
+it is possible to choose normal units (whatever this may be ...), but plotting
+the data as usual.
+
+\begin{LTXexample}[pos=t]
+\begin{filecontents*}{test.dat}
+3.2345 34.5
+3.2364 65.4
+3.2438 50.2
+\end{filecontents*}
+
+\psset{lly=-0.5cm,llx=-1cm}
+\readdata{\data}{test.dat}
+\pstScalePoints(1,1){3.23 sub 100 mul}{}
+\begin{psgraph}[Ox=3.23,Dx=0.01,dx=\psxunit,Dy=10](0,0)(3,70){0.8\linewidth}{5cm}%
+  \listplot[showpoints=true,plotstyle=curve]{\data}
+\end{psgraph}
+\end{LTXexample}
+
+This example shows some important facts:
+\begin{itemize}
+\item \verb+3.23 sub 100 mul+: the x values are now $0.45; 0.64; 1.38$
+\item \verb+Ox=3.23+: the origin of the x axis is set to $3.23$
+\item \verb+Dx=0.01+: the increment of the labels
+\item \verb+dx=\psxunit+: uses the calculated unit value to get every unit a label
+\item \verb+Dy=10+: increase the y labels by 10
+\end{itemize}
+
+Using the internal \verb+\psxunit+ one can have dynamical x-units, depending to
+the linewidth od the document.
+
+\resetOptions
+
+%--------------------------------------------------------------------------------------
+\subsection{\CMD{psStep}}
+%--------------------------------------------------------------------------------------
+\verb+\psStep+ caclulates a step function for the upper or lower sum of a given
+function. The available option is
+
+\verb+StepType=lower|upper+
+
+with \verb+lower+ as the default setting. The syntax of the function is
+
+\verb+\psStep[options](x1,x2){n}{function}+
+
+
+(x1,x2) is the given Intervall for the step wise caculated function,
+n is the number of the rectabgles and \verb+function+ is the mathematical function
+in postfix notation.
+
+\bgroup
+\begin{LTXexample}[pos=t]
+\begin{pspicture}(-0.5,-0.5)(10,4) \psaxes{->}(10,4)
+  \psplot[plotpoints=100,linewidth=1.5pt,linecolor=blue,algebraic]{0}{10}{sqrt(x)}
+  \psStep[algebraic,linecolor=magenta,StepType=upper](0,9){9}{sqrt(x)}
+  \psStep[linecolor=red,linestyle=dashed](0,9){9}{x sqrt }
+\end{pspicture}
+\end{LTXexample}
+\egroup
+
+\bgroup
+\begin{LTXexample}[pos=t]
+\begin{pspicture}[plotpoints=200](-0.5,-3)(10,3) \psaxes{->}(0,0)(0,-3)(10,3)
+  \psplot[linewidth=1.5pt,linecolor=blue,algebraic]{0}{10}{sqrt(x)*sin(x)}
+  \psStep[algebraic,linecolor=magenta,StepType=upper](0,9){20}{sqrt(x)*sin(x)}
+  \psStep[linecolor=red,linestyle=dashed](0,9){20}{x sqrt x RadtoDeg sin mul}
+\end{pspicture}
+\end{LTXexample}
+\egroup
+
+
+
+%--------------------------------------------------------------------------------------
+\subsection[\CMD{psplotTangent}]{\CMD{psplotTangent}\footnote{This part is adapted from the package \texttt{pst-eqdf}, written by Dominique Rodriguez.}}
+%--------------------------------------------------------------------------------------
+There is an additional option, named \verb+Derive+ vor an alternative function (see
+following example) to calculate the slope of the tangent. This will be in general the
+first derivation, but can also be any other function. If this option is different to
+to the default value  \verb+Derive=default+,
+then this function is taken to calculate the slope. For the other cases, \verb+pstricks-add+
+builds a secant with -0.00005<x<0.00005, calculates the slope and takes this for the
+tangent. This maybe problematic in some cases of special functions or $x$ values, then it may be appropriate to use the
+Derivate option.
+
+The macro expects three parameters:
+
+\begin{description}
+\item[$x$]: the $x$ value of the function for which the tangent should be calculated
+\item[$dx$]: the $dx$ to both sides of the $x$ value
+\item[$f(x)$]: the function in infix (with option \verb+algebraic+) or the default 
+postfix (PostScript) notation 
+\end{description}
+
+The following examples show the use of the algebraic option together with the Derive option.
+Remember that using the \verb+algebraic+ option implies that the angles have to be in the
+radian unit!
+
+\begin{center}
+\bgroup
+\def\F{x RadtoDeg dup dup cos exch 2 mul cos add exch 3 mul cos add}
+\def\Fp{x RadtoDeg dup dup sin exch 2 mul sin 2 mul add exch 3 mul sin 3 mul add neg}
+\psset{plotpoints=1001}
+\begin{pspicture}(-7.5,-2.5)(7.5,4)%X\psgrid
+  \psaxes{->}(0,0)(-7.5,-2)(7.5,3.5)
+  \psplot[linewidth=3\pslinewidth]{-7}{7}{\F}
+  \psset{linecolor=red, arrows=<->, arrowscale=2}
+  \multido{\n=-7+1}{8}{\psplotTangent{\n}{1}{\F}}
+  \psset{linecolor=magenta, arrows=<->, arrowscale=2}%
+  \multido{\n=0+1}{8}{\psplotTangent[linecolor=blue, Derive=\Fp]{\n}{1}{\F}}
+\end{pspicture}
+\egroup
+\end{center}
+
+\begin{lstlisting}
+\def\F{x RadtoDeg dup dup cos exch 2 mul cos add exch 3 mul cos add}
+\def\Fp{x RadtoDeg dup dup sin exch 2 mul sin 2 mul add exch 3 mul sin 3 mul add neg}
+\psset{plotpoints=1001}
+\begin{pspicture}(-7.5,-2.5)(7.5,4)%X\psgrid
+  \psaxes{->}(0,0)(-7.5,-2)(7.5,3.5)
+  \psplot[linewidth=3\pslinewidth]{-7}{7}{\F}
+  \psset{linecolor=red, arrows=<->, arrowscale=2}
+  \multido{\n=-7+1}{8}{\psplotTangent{\n}{1}{\F}}
+  \psset{linecolor=magenta, arrows=<->, arrowscale=2}%
+  \multido{\n=0+1}{8}{\psplotTangent[linecolor=blue, Derive=\Fp]{\n}{1}{\F}}
+\end{pspicture}
+\end{lstlisting}
+
+
+\begin{center}
+\bgroup
+\def\Falg{cos(x)+cos(2*x)+cos(3*x)}   \def\Fpalg{-sin(x)-2*sin(2*x)-3*sin(3*x)}
+\begin{pspicture}(-7.5,-2.5)(7.5,4)%\psgrid
+  \psaxes{->}(0,0)(-7.5,-2)(7.5,3.5)
+  \psplot[linewidth=1.5pt,algebraic,plotpoints=500]{-7.5}{7.5}{\Falg}
+  \multido{\n=-7+1}{8}{\psplotTangent[linecolor=red,arrows=<->,arrowscale=2,algebraic]{\n}{1}{\Falg}}
+  \multido{\n=0+1}{8}{\psplotTangent[linecolor=magenta,%
+     arrows=<->,arrowscale=2,algebraic,Derive={\Fpalg}]{\n}{1}{\Falg}}
+\end{pspicture}
+\egroup
+\end{center}
+
+\begin{lstlisting}
+\def\Falg{cos(x)+cos(2*x)+cos(3*x)}   \def\Fpalg{-sin(x)-2*sin(2*x)-3*sin(3*x)}
+\begin{pspicture}(-7.5,-2.5)(7.5,4)%\psgrid
+  \psaxes{->}(0,0)(-7.5,-2)(7.5,3.5)
+  \psplot[linewidth=1.5pt,algebraic,plotpoints=500]{-7.5}{7.5}{\Falg}
+  \multido{\n=-7+1}{8}{\psplotTangent[linecolor=red,arrows=<->,arrowscale=2,algebraic]{\n}{1}{\Falg}}
+  \multido{\n=0+1}{8}{\psplotTangent[linecolor=magenta,%
+     arrows=<->,arrowscale=2,algebraic,Derive={\Fpalg}]{\n}{1}{\Falg}}
+\end{pspicture}
+\end{lstlisting}
+
+The next example shows the use of \verb+Derive+ option to draw the perpendicular line of the
+tangent.
+
+\begin{LTXexample}[width=8cm,wide]
+\begin{pspicture}(-0.5,-0.5)(7.25,7.25)
+  \def\Func{10 x div}
+  \psaxes[arrowscale=1.5]{->}(7,7)
+  \psplot[linewidth=2pt,algebraic]{1.5}{5}{10/x}
+  \psplotTangent[linewidth=.5\pslinewidth,linecolor=red,algebraic]{3}{2}{10/x}
+  \psplotTangent[linewidth=.5\pslinewidth,linecolor=blue,algebraic,Derive=(x*x)/10]{3}{2}{10/x}
+  \psline[linestyle=dashed](!0 /x 3 def \Func)(!3 /x 3 def \Func)(3,0)
+\end{pspicture}
+\end{LTXexample}
+
+
+%--------------------------------------------------------------------------------------
+\subsubsection{A \texttt{polarplot} example}
+%--------------------------------------------------------------------------------------
+
+Let's work with the classical cardioid : $\rho=2(1+\cos(\theta))$
+and $\displaystyle \frac{d\rho}{d\theta}=-2\sin(\theta)$. The Derive option always expects the
+$\frac{d\rho}{d\theta}$ value and uses internally the equation for the derivation of implicit 
+defined functions:
+
+\[
+\frac{dy}{dx}=\frac{\rho\prime\cdot\sin\theta + x}{\rho\prime\cdot\cos\theta - y}
+\]
+where $x=r\cdot\cos\theta$ and $y=r\cdot\sin\theta$
+
+
+\begin{LTXexample}[width=6cm,wide]
+\begin{pspicture}(-1,-3)(5,3)%\psgrid[subgridcolor=lightgray]
+  \psaxes{->}(0,0)(-1,-3)(5,3)
+  \psplot[polarplot,linewidth=3\pslinewidth,linecolor=blue,%
+     plotpoints=500]{0}{360}{1 x cos add 2 mul}
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=6cm,wide]
+\begin{pspicture}(-1,-3)(5,3)%\psgrid[subgridcolor=lightgray]
+  \psaxes{->}(0,0)(-1,-3)(5,3)
+  \psplot[polarplot,linewidth=3\pslinewidth,linecolor=blue,plotpoints=500]{0}{360}{1 x cos add 2 mul}
+  \multido{\n=0+36}{10}{%
+     \psplotTangent[polarplot,linecolor=red,arrows=<->]{\n}{1.5}{1 x cos add 2 mul} }
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[width=6cm,wide]
+\begin{pspicture}(-1,-3)(5,3)%\psgrid[subgridcolor=lightgray]
+  \psaxes{->}(0,0)(-1,-3)(5,3)
+  \psplot[polarplot,linewidth=3\pslinewidth,linecolor=blue,algebraic,plotpoints=500]{0}{6.289}{2*(1+cos(x))}
+  \multido{\r=0.000+0.314}{21}{%
+     \psplotTangent[polarplot,Derive=-2*sin(x),algebraic,linecolor=red,arrows=<->]{\r}{1.5}{2*(1+cos(x))} }
+\end{pspicture}
+\end{LTXexample}
+
+
+
+%--------------------------------------------------------------------------------------
+\subsubsection{A \CMD{parametricplot} example}
+%--------------------------------------------------------------------------------------
+
+Let's work with a Lissajou curve : 
+ $\displaystyle\left\{\begin{array}{l}x=3.5\cos(2t)\\y=3.5\sin(6t)\end{array}\right.$
+whose derivative is :
+ $\displaystyle\left\{\begin{array}{l}x=-7\sin(2t)\\y=21\cos(6t)\end{array}\right.$
+
+The parameter must be the letter $t$ instead of $x$ and when using the \verb+algebraic+ option
+divide the two equations by a | (see example).
+
+\begin{LTXexample}[pos=t,wide]
+\def\Lissa{t dup 2 RadtoDeg mul cos 3.5 mul exch 6 mul RadtoDeg sin 3.5 mul}%
+\psset{yunit=0.6}
+\begin{pspicture}(-4,-4)(4,6)
+  \parametricplot[plotpoints=500,linewidth=3\pslinewidth]{0}{3.141592}{\Lissa}
+  \multido{\r=0.000+0.314}{11}{%
+    \psplotTangent[linecolor=red,arrows=<->]{\r}{1.5}{\Lissa} }
+  \multido{\r=0.157+0.314}{11}{%
+    \psplotTangent[linecolor=blue,arrows=<->]{\r}{1.5}{\Lissa} }
+\end{pspicture}\hfill%
+\def\LissaAlg{3.5*cos(2*t)|3.5*sin(6*t)}  \def\LissaAlgDer{-7*sin(2*t)|21*cos(6*t)}%
+\begin{pspicture}(-4,-4)(4,6)
+  \parametricplot[algebraic,plotpoints=500,linewidth=3\pslinewidth]{0}{3.141592}{\LissaAlg}
+  \multido{\r=0.000+0.314}{11}{%
+    \psplotTangent[algebraic,linecolor=red,arrows=<->]{\r}{1.5}{\LissaAlg} }
+  \multido{\r=0.157+0.314}{11}{%
+    \psplotTangent[algebraic,linecolor=blue,arrows=<->,%
+       Derive=\LissaAlgDer]{\r}{1.5}{\LissaAlg} }
+\end{pspicture}
+\end{LTXexample}
+
+
+
+%--------------------------------------------------------------------------------------
+\subsection[\CMD{psplotDiffEqn} -- solving diffential equations]{\CMD{psplotDiffEqn} -- solving diffential equations\footnote{This part is adapted from the package \texttt{pst-eqdf}, written by Dominique Rodriguez.}}
+%--------------------------------------------------------------------------------------
+
+
+ A differential euqation of first order is like
+
+\begin{align} y'=f(x,y) \end{align}
+
+
+where $y$ is a function of  $x$. We define some vectors $Y=[y, y', \cdots , y^{(n-1)}]$ 
+und $Y'=[y', y'', \cdots , y^{n}]$, depending to the order $n$. 
+The syntax of the macro is
+
+\begin{verbatim}
+\psplotDiffEqn[options]{x0}{x1}{y0}{f(x,y)}
+\end{verbatim}
+
+\begin{itemize}\setlength\itemsep{0pt}\setlength\parsep{0pt}\setlength\parskip{0pt}
+\item \verb+options+: the \verb+\psplotDiffEqn+ specific options and all other of PSTricks, which
+make sense;
+\item $x_0$: the start value;
+\item $x_1$: the end value of the definition interval;
+\item $y_0$: the initial values for $y(x_0)\ y'(x_0)\ \ldots$;
+\item $f(x,y,y',...)$: the differential equation, depending to the number of initial values, e.g.:
+    \verb+{0 1}+ for $y_0$ are two initial values, so that we have a differential equation of
+    second order $f(x,y,y')$ and the macro leaves $y\ y'$ on the stack.
+\end{itemize}
+
+The new options are:
+
+
+\begin{itemize}\setlength\itemsep{0pt}\setlength\parsep{0pt}\setlength\parskip{0pt}
+\item \param{method}: integration method (\verb+euler+ for order 1 euler method, \verb+rk4+ for
+  4\textsuperscript{th} order Runge-Kutta method);
+\item \param{whichabs}: select the abscissa for plotting the graph, by default it is
+  $x$, but you can specify a number which represent a position in the vector $y$;
+\item \param{whichord}: same as precedent for the ordinate, by default $y(0)$;
+\item \param{plotfuncx}: describe a ps function for the abscissa, parameter
+  \param{whichabs} becomes useless;
+\item \param{plotfuncy}: idem for ordoinate;
+\item \param{buildvector}: boolean parameter for specifying the input-output of the
+  $f$ description:
+  \begin{description}
+  \item[\texttt{true}] (default): $y$ is put on the stack element by element, $y'$
+    must be given in the same way;
+  \item[\texttt{false}]: $y$ is put on the stack as a vector, $y'$ must be returned
+  in the same way;
+  \end{description}
+
+\item \param{algebraic}: algebraic description for $f$, \param{buildvector}
+  parameter is useless when activating this option.
+\end{itemize}
+
+
+The variable $t$ (time) is represented by $x$ in the \verb+\psplotDiffEqn+,
+$x$ and $y$ (position) are represented respectively by $y[0]$ and $y[1]$
+For \verb+funcx+ and \verb+funcy+ there is some examples at the end.
+
+\def\Grav{%
+  /yp2 exch def /xp2 exch def /ay2 exch def /ax2 exch def
+  /yp1 exch def /xp1 exch def /ay1 exch def /ax1 exch def
+  /ro2 ax2 ax1 sub dup mul ay2 ay1 sub dup mul add def
+  xp1 yp1
+  ax2 ax1 sub ro2 sqrt div ro2 div
+  ay2 ay1 sub ro2 sqrt div ro2 div
+  xp2 yp2
+  3 index -20 mul
+  3 index -20 mul}
+           %%  0  1   2   3  4  5   6   7
+           %% x1 y1 x'1 y'1 x2 y2 x'2 y'2
+\def\InitCond{ 1  1  .1   0 -1 -1  -2   0}
+
+\begin{lstlisting}
+\def\Grav{%
+  /yp2 exch def /xp2 exch def /ay2 exch def /ax2 exch def
+  /yp1 exch def /xp1 exch def /ay1 exch def /ax1 exch def
+  /ro2 ax2 ax1 sub dup [21~mul ay2 ay1 sub dup mul add def
+  xp1 yp1
+  ax2 ax1 sub ro2 sqrt div ro2 div
+  ay2 ay1 sub ro2 sqrt div ro2 div
+  xp2 yp2
+  3 index -20 mul 3 index -20 mul}
+           %%  0  1   2   3  4  5   6   7
+           %% x1 y1 x'1 y'1 x2 y2 x'2 y'2
+\def\InitCond{ 1  1  .1   0 -1 -1  -2   0}
+\end{lstlisting}
+
+%--------------------------------------------------------------------------------------
+\subsubsection{\texttt{plotfuncx} and \texttt{plotfuncy}}
+%--------------------------------------------------------------------------------------
+%[pos=b,caption={Gravitational interaction: center to one of the star}]
+\begin{lstlisting}
+\begin{pspicture}(-4,-2.5)(1,1.1)\psgrid[subgriddiv=1]
+  \psplotDiffEqn[linecolor=red, method=rk4, plotpoints=200,%
+     plotfuncx=y dup 4 get exch 0 get sub,%
+     plotfuncy=dup 5 get exch 1 get sub ]{0}{3.9}{\InitCond}{\Grav}
+\end{pspicture}
+\end{lstlisting}
+
+
+\begin{center}
+\bgroup
+\begin{pspicture}(-4,-2.5)(1,1.1)\psgrid[subgriddiv=1]
+  \psplotDiffEqn[linecolor=red, method=rk4, plotpoints=200,%
+     plotfuncx=y dup 4 get exch 0 get sub,%
+     plotfuncy=dup 5 get exch 1 get sub ]{0}{3.9}{\InitCond}{\Grav}
+\end{pspicture}
+\egroup
+\end{center}
+
+The center of the landmark is set to $y[0]$ and $y[1]$
+There is also a drawing of the speed (vitesse in french) of the stars which uses
+these parameters.
+
+\iffalse
+
+%--------------------------------------------------------------------------------------
+\subsection{PostScript}
+%--------------------------------------------------------------------------------------
+
+PostScript uses the stack system and the LIFO system, "'Last In, First Out"`.
+
+\newlength{\Li}\settowidth{\Li}{Function}
+\begin{table}[htbp]
+  \begin{center}{\ttfamily
+    \begin{tabular}{|l|r@{ $\rightarrow$ }l|}\hline
+    \multirow{2}{\Li}{\normalfont Function}&\multicolumn{2}{c|}{\normalfont Pile de donnés}\\
+    &\normalfont on stack before & \normalfont after\\\hline\hline
+    add&$x\quad y$&$x+y$\\\hline
+    sub&$x\quad y$&$x-y$\\\hline
+    mul&$x\quad y$&$x\times y$\\\hline
+    div&$x\quad y$&$x\div y$\\\hline
+    sqrt&$x$&$\sqrt{x}$\\\hline
+    abs&$x$&$|x|$\\\hline
+    neg&$x$&$-x$\\\hline
+    cos&$x$&$\cos(x)$ ($x$ in degrees)\\\hline
+    sin&$x$&$\sin(x)$ ($x$  in degrees)\\\hline
+    tan&$x$&$\tan(x)$ ($x$  in degrees)\\\hline
+    atan&$y\quad x$&$\angle{(\vec{Ox};\vec{OM})}$ (in degrees of $M(x,y)$)\\\hline
+    ln&$x$&$\ln(x)$\\\hline
+    log&$x$&$\log(x)$\\\hline
+    array&$n$&\normalfont$v$ (of dimension $n$)\\\hline
+    aload&$v$&$x_1\quad x_2\quad \cdots\quad x_n\quad v$\\\hline
+    astore&$x_1\quad x_2\quad \cdots\quad x_n\quad v$&$v$\\\hline
+    pop&$x$&\\\hline
+    dup&$x\quad x$&\\\hline
+    roll&$x_1\quad x_2\quad \cdots\quad x_n\quad n p$&\\\hline
+  \end{tabular}}
+    \caption{Some primitive PostScript macros}\label{tab:primpost}
+  \end{center}
+\end{table}
+
+\fi
+%--------------------------------------------------------------------------------------
+\subsubsection{Simple equation of first order$y'=y$}
+%--------------------------------------------------------------------------------------
+ 
+For the initial value $y(0)=1$ we have the solution $y(x)=e^x$. $y$ is always
+on the stack, so we have to do nothing. Using the \verb+algebraic+ option, we write it
+as \verb$y[0]$. The following example shows different solutions depending to the number of plotpoints
+with $y_0=1$:
+
+
+\begin{lstlisting}
+\psset{xunit=4, yunit=.4}
+\begin{pspicture}(3,19)\psgrid[subgriddiv=1]
+  \psplot[linewidth=6\pslinewidth, linecolor=green]{0}{3}{Euler x exp}
+  \psplotDiffEqn[linecolor=magenta,plotpoints=16,algebraic=true]{0}{3}{1}{y[0]}
+  \psplotDiffEqn[linecolor=blue,plotpoints=151]{0}{3}{1}{}
+  \psplotDiffEqn[linecolor=red,method=rk4,plotpoints=15]{0}{3}{1}{}
+  \psplotDiffEqn[linecolor=Orange,method=rk4,plotpoints=4]{0}{3}{1}{}
+  \psset{linewidth=4\pslinewidth}
+  \rput*(0.35,19){\psline[linecolor=magenta](-.75cm,0)}
+  \rput*[l](0.35,19){\small Euler order 1 $h=0{,}2$}
+  \rput*(0.35,17){\psline[linecolor=blue](-.75cm,0)}
+  \rput*[l](0.35,17){\small Euler order 1 $h=0{,}02$}
+  \rput*(0.35,15){\psline[linecolor=Orange](-.75cm,0)}
+  \rput*[l](0.35,15){\small RK ordre 4 $h=1$}
+  \rput*(0.35,13){\psline[linecolor=red](-.75cm,0)}
+  \rput*[l](0.35,13){\small RK ordre 4 $h=0{,}2$}
+  \rput*(0.35,11){\psline[linecolor=green](-.75cm,0)}
+  \rput*[l](0.35,11){\small solution exacte}
+\end{pspicture}
+\end{lstlisting}
+
+\begin{center}
+\bgroup
+\psset{xunit=4, yunit=.4}
+\begin{pspicture}(3,19)\psgrid[subgriddiv=1]
+  \psplot[linewidth=6\pslinewidth, linecolor=green]{0}{3}{Euler x exp}
+  \psplotDiffEqn[linecolor=magenta,plotpoints=16,algebraic=true]{0}{3}{1}{y[0]}
+  \psplotDiffEqn[linecolor=blue,plotpoints=151]{0}{3}{1}{}
+  \psplotDiffEqn[linecolor=red,method=rk4,plotpoints=15]{0}{3}{1}{}
+  \psplotDiffEqn[linecolor=Orange,method=rk4,plotpoints=4]{0}{3}{1}{}
+  \psset{linewidth=4\pslinewidth}
+  \rput*(0.35,19){\psline[linecolor=magenta](-.75cm,0)}
+  \rput*[l](0.35,19){\small Euler order 1 $h=0{,}2$}
+  \rput*(0.35,17){\psline[linecolor=blue](-.75cm,0)}
+  \rput*[l](0.35,17){\small Euler order 1 $h=0{,}02$}
+  \rput*(0.35,15){\psline[linecolor=Orange](-.75cm,0)}
+  \rput*[l](0.35,15){\small RK ordre 4 $h=1$}
+  \rput*(0.35,13){\psline[linecolor=red](-.75cm,0)}
+  \rput*[l](0.35,13){\small RK ordre 4 $h=0{,}2$}
+  \rput*(0.35,11){\psline[linecolor=green](-.75cm,0)}
+  \rput*[l](0.35,11){\small solution exacte}
+\end{pspicture}
+\egroup
+\end{center}
+
+\clearpage
+%--------------------------------------------------------------------------------------
+\subsubsection{$y'=-y$}
+%--------------------------------------------------------------------------------------
+
+For the initial value $y(0)=1$ we get the solution  $y(x)=e^{-x}$, which is seen in  
+the following example with $y_0=1$:
+
+\begin{lstlisting}[xrightmargin=-1cm]
+\def\Funct{neg}\def\FunctAlg{-y[0]}
+\psset{xunit=1.5, yunit=7}
+\begin{pspicture}(0,0)(10,1)\psgrid[subgriddiv=1]
+  \psplot[linewidth=6\pslinewidth,linecolor=green]{0}{10}{Euler x neg exp}
+  \psplotDiffEqn[linecolor=magenta,plotpoints=11]{0}{10}{1}{\Funct}
+  \psplotDiffEqn[linecolor=blue,plotpoints=101,algebraic=true]{0}{10}{1}{\FunctAlg}
+  \psplotDiffEqn[linecolor=Orange,method=rk4,plotpoints=11]{0}{10}{1}{\Funct}
+  \psplotDiffEqn[linecolor=red,method=rk4,plotpoints=51]{0}{10}{1}{\Funct}
+  \psset{linewidth=4\pslinewidth}
+  \rput*(3.3,.9){\psline[linecolor=magenta](-.75cm,0)}
+  \rput*[l](3.3,.9){\small Euler order 1 $h=1$}
+  \rput*(3.3,.8){\psline[linecolor=blue](-.75cm,0)}
+  \rput*[l](3.3,.8){\small Euler order 1 $h=0{,}1$}
+  \rput*(3.3,.7){\psline[linecolor=Orange](-.75cm,0)}
+  \rput*[l](3.3,.7){\small RK ordre 4 $h=1$}
+  \rput*(3.3,.6){\psline[linecolor=red](-.75cm,0)}
+  \rput*[l](3.3,.6){\small RK ordre 4 $h=0{,}2$}
+  \rput*(3.3,.5){\psline[linecolor=green](-.75cm,0)}
+  \rput*[l](3.3,.5){\small solution exacte}
+\end{pspicture}
+\end{lstlisting}
+
+
+\begin{center}
+\bgroup
+\def\Funct{neg}\def\FunctAlg{-y[0]}
+\psset{xunit=1.5, yunit=7}
+\begin{pspicture}(0,0)(10,1)\psgrid[subgriddiv=1]
+  \psplot[linewidth=6\pslinewidth,linecolor=green]{0}{10}{Euler x neg exp}
+  \psplotDiffEqn[linecolor=magenta,plotpoints=11]{0}{10}{1}{\Funct}
+  \psplotDiffEqn[linecolor=blue,plotpoints=101,algebraic=true]{0}{10}{1}{\FunctAlg}
+  \psplotDiffEqn[linecolor=Orange,method=rk4,plotpoints=11]{0}{10}{1}{\Funct}
+  \psplotDiffEqn[linecolor=red,method=rk4,plotpoints=51]{0}{10}{1}{\Funct}
+  \psset{linewidth=4\pslinewidth}
+  \rput*(3.3,.9){\psline[linecolor=magenta](-.75cm,0)}
+  \rput*[l](3.3,.9){\small Euler order 1 $h=1$}
+  \rput*(3.3,.8){\psline[linecolor=blue](-.75cm,0)}
+  \rput*[l](3.3,.8){\small Euler order 1 $h=0{,}1$}
+  \rput*(3.3,.7){\psline[linecolor=Orange](-.75cm,0)}
+  \rput*[l](3.3,.7){\small RK ordre 4 $h=1$}
+  \rput*(3.3,.6){\psline[linecolor=red](-.75cm,0)}
+  \rput*[l](3.3,.6){\small RK ordre 4 $h=0{,}2$}
+  \rput*(3.3,.5){\psline[linecolor=green](-.75cm,0)}
+  \rput*[l](3.3,.5){\small solution exacte}
+\end{pspicture}
+\egroup
+\end{center}
+
+%--------------------------------------------------------------------------------------
+\subsubsection{$y'=\displaystyle\frac{2-ty}{4-t^2}$}% $
+%--------------------------------------------------------------------------------------
+
+For the initial value $y(0)=1$ the exact solution is $y(x)=\displaystyle\frac{t+\sqrt{4-t^2}}{2}$.
+The function $f$ described in PostScript code is like (y ist still on the stack):
+\begin{verbatim}
+x              %% y x
+mul            %% x*y
+2 exch sub     %% 2-x*y
+4 x dup mul    %% 2-x*y 4 x^2
+sub            %% 2-x*y 4-x^2
+div            %% (2-x*y)/(4-x^2)
+\end{verbatim}
+\noindent
+The following example uses $y_0=1$.
+
+\begin{verbatim}
+\newcommand{\InitCond}{1}
+\newcommand{\Func}{x mul 2 exch sub 4 x dup mul sub div}
+\newcommand{\FuncAlg}{(2-x*y[0])/(4-x^2)}
+\end{verbatim}
+
+\begin{center}
+\bgroup
+\psset{xunit=6.4, yunit=9.6, showpoints=false}
+\begin{pspicture}(0,1)(2,1.5)  \psgrid[griddots=10](0,1)(2,1.5)
+  { \psset{linewidth=4\pslinewidth,linecolor=lightgray}
+  \psplot{0}{1.8}{x dup dup mul 4 exch sub sqrt add 2 div}
+  \psplot{1.8}{2}{x dup dup mul 4 exch sub sqrt add 2 div} }
+  \def\InitCond{1}
+  \def\Func{x mul 2 exch sub 4 x dup mul sub div}
+  \psplotDiffEqn[linecolor=magenta, plotpoints=20]{0}{1.9}{\InitCond}{\Func}
+  \psplotDiffEqn[linecolor=blue, plotpoints=191]{0}{1.9}{\InitCond}{\Func}
+  \psplotDiffEqn[linecolor=red, method=rk4, plotpoints=11,%
+     algebraic=true]{0}{1.9}{\InitCond}{(2-x*y[0])/(4-x^2)}
+  \psplotDiffEqn[linecolor=Orange, method=rk4, plotpoints=21,%
+     algebraic=true]{0}{1.9}{\InitCond}{(2-x*y[0])/(4-x^2)}
+  \psset{linewidth=4\pslinewidth}\small
+  \rput*(0,1.4){\psline[linecolor=magenta](-.75cm,0)}\rput*[l](0,1.4){Euler order 1 $h=0{,}1$}
+  \rput*(0,1.35){\psline[linecolor=blue](-.75cm,0)}\rput*[l](0,1.35){Euler order 1 $h=0{,}01$}
+  \rput*(0,1.3){\psline[linecolor=Orange](-.75cm,0)}\rput*[l](0,1.3){RK order 4 $h=0{,}19$}
+  \rput*(0,1.25){\psline[linecolor=red](-.75cm,0)}\rput*[l](0,1.25){RK order 4 $h=0{,}095$}
+  \rput*(0,1.2){\psline[linecolor=lightgray](-.75cm,0)}\rput*[l](0,1.2){exactly}
+\end{pspicture}
+\egroup
+\end{center}
+
+\begin{lstlisting}[xrightmargin=-1cm,xleftmargin=-1cm]
+\psset{xunit=6.4, yunit=9.6, showpoints=false}
+\begin{pspicture}(0,1)(2,1.7)  \psgrid[subgriddiv=5]
+  { \psset{linewidth=4\pslinewidth,linecolor=lightgray}
+  \psplot{0}{1.8}{x dup dup mul 4 exch sub sqrt add 2 div}
+  \psplot{1.8}{2}{x dup dup mul 4 exch sub sqrt add 2 div} }
+  \def\InitCond{1}
+  \def\Func{x mul 2 exch sub 4 x dup mul sub div}
+  \psplotDiffEqn[linecolor=magenta, plotpoints=20]{0}{1.9}{\InitCond}{\Func}
+  \psplotDiffEqn[linecolor=blue, plotpoints=191]{0}{1.9}{\InitCond}{\Func}
+  \psplotDiffEqn[linecolor=red, method=rk4, plotpoints=11,%
+     algebraic=true]{0}{1.9}{\InitCond}{(2-x*y[0])/(4-x^2)}
+  \psplotDiffEqn[linecolor=Orange, method=rk4, plotpoints=21,%
+     algebraic=true]{0}{1.9}{\InitCond}{(2-x*y[0])/(4-x^2)}
+  \psset{linewidth=4\pslinewidth}
+  \rput*(0.3,1.6){\psline[linecolor=magenta](-.75cm,0)}\rput*[l](0.3,1.6){\small Euler order 1 $h=0{,}1$}
+  \rput*(0.3,1.55){\psline[linecolor=blue](-.75cm,0)}\rput*[l](0.3,1.55){\small Euler order 1 $h=0{,}01$}
+  \rput*(0.3,1.5){\psline[linecolor=Orange](-.75cm,0)}\rput*[l](0.3,1.5){\small RK order 4 $h=0{,}19$}
+  \rput*(0.3,1.45){\psline[linecolor=red](-.75cm,0)}\rput*[l](0.3,1.45){\small RK order 4 $h=0{,}095$}
+  \rput*(0.3,1.4){\psline[linecolor=lightgray](-.75cm,0)}\rput*[l](0.3,1.4){\small exactly}
+\end{pspicture}
+\end{lstlisting}
+
+
+%--------------------------------------------------------------------------------------
+\subsubsection{$y'=-2xy$}
+%--------------------------------------------------------------------------------------
+
+For $y(-1)=\frac{1}{e}$ we get $y(x)=e^{-x^2}$.
+
+\begin{center}
+\bgroup
+\psset{unit=4}
+\begin{pspicture}(-1,0)(3,1.1)\psgrid
+  \psplot[linewidth=4\pslinewidth,linecolor=gray]{-1}{3}{Euler x dup mul neg exp}
+  \psset{plotpoints=9}
+  \psplotDiffEqn[linecolor=cyan]{-1}{3}{1 Euler div}{x -2 mul mul}
+  \psplotDiffEqn[linecolor=yellow, method=rk4]{-1}{3}{1 Euler div}{x -2 mul mul}
+  \psset{plotpoints=21}
+  \psplotDiffEqn[linecolor=blue]{-1}{3}{1 Euler div}{x -2 mul mul}
+  \psplotDiffEqn[linecolor=Orange, method=rk4]{-1}{3}{1 Euler div}{x -2 mul mul}
+  \psset{linewidth=2\pslinewidth}
+  \rput*(2,1){\psline[linecolor=Orange](-0.25,0)}
+  \rput*[l](2,1){RK}
+  \rput*(2,.9){\psline[linecolor=blue](-0.25,0)}
+  \rput*[l](2,.9){\textsc{Euler}-1}
+  \rput*(2,.8){\psline[linecolor=gray](-0.25,0)}
+  \rput*[l](2,.8){solution}
+\end{pspicture}
+\egroup
+\end{center}
+
+
+\begin{lstlisting}
+\psset{unit=4}
+\begin{pspicture}(-1,0)(3,1.1)\psgrid
+  \psplot[linewidth=4\pslinewidth,linecolor=gray]{-1}{3}{Euler x dup mul neg exp}
+  \psset{plotpoints=9}
+  \psplotDiffEqn[linecolor=cyan]{-1}{3}{1 Euler div}{x -2 mul mul}
+  \psplotDiffEqn[linecolor=yellow, method=rk4]{-1}{3}{1 Euler div}{x -2 mul mul}
+  \psset{plotpoints=21}
+  \psplotDiffEqn[linecolor=blue]{-1}{3}{1 Euler div}{x -2 mul mul}
+  \psplotDiffEqn[linecolor=Orange, method=rk4]{-1}{3}{1 Euler div}{x -2 mul mul}
+  \psset{linewidth=2\pslinewidth}
+  \rput*(2,1){\psline[linecolor=Orange](-0.25,0)}
+  \rput*[l](2,1){RK}
+  \rput*(2,.9){\psline[linecolor=blue](-0.25,0)}
+  \rput*[l](2,.9){\textsc{Euler}-1}
+  \rput*(2,.8){\psline[linecolor=gray](-0.25,0)}
+  \rput*[l](2,.8){solution}
+\end{pspicture}
+\end{lstlisting}
+
+
+%--------------------------------------------------------------------------------------
+\subsubsection{Spirale of Cornu}
+%--------------------------------------------------------------------------------------
+
+The integrals of Fresnel :
+\begin{align} x & =\int^t_0\cos\frac{\pi t^2}{2}\mathrm{d}t \\
+ y & =\int^t_0\sin\frac{\pi t^2}{2}\mathrm{d}t \\
+\intertext{with}
+ \dot{x} &= \cos\frac{\pi t^2}{2} \\
+ \dot{y} & =\sin\frac{\pi t^2}{2} 
+ \end{align}
+
+\begin{lstlisting}
+\psset{unit=8}
+\begin{pspicture}(1,1)\psgrid[subgriddiv=5]
+  \psplotDiffEqn[whichabs=0,whichord=1,linecolor=red,method=rk4,algebraic,%
+     plotpoints=500,showpoints=true]{0}{10}{0 0}{cos(Pi*x^2/2)|sin(Pi*x^2/2)}
+\end{pspicture}
+\end{lstlisting}
+
+
+\begin{center}
+\bgroup
+\psset{unit=8}
+\begin{pspicture}(1,1)\psgrid[subgriddiv=5]
+  \psplotDiffEqn[whichabs=0,whichord=1,linecolor=red,method=rk4,algebraic,%
+     plotpoints=500,showpoints=true]{0}{10}{0 0}{cos(Pi*x^2/2)|sin(Pi*x^2/2)}
+\end{pspicture}
+\egroup
+\end{center}
+
+
+
+
+%--------------------------------------------------------------------------------------
+\subsubsection{Lotka-Volterra}
+%--------------------------------------------------------------------------------------
+
+The Lotka-Volterra model describes interactions between two species in an ecosystem, a predator and a prey. This represents our first multi-species model. Since we are considering two species, the model will involve two equations, one which describes how the prey population changes and the second which describes how the predator population changes.
+
+For concreteness let us assume that the prey in our model are rabbits, and that the predators are foxes. If we let $R(t)$ and $F(t)$ represent the number of rabbits and foxes, respectively, that are alive at time t, then the Lotka-Volterra model is:
+
+\begin{align}
+\dot R &= a\cdot R - b\cdot R\cdot F\\
+\dot F &= e\cdot b\cdot R\cdot F - c\cdot F
+\end{align}
+
+where the parameters are defined by:
+\begin{description}
+\item[a] is the natural growth rate of rabbits in the absence of predation,
+\item[c] is the natural death rate of foxes in the absence of food (rabbits),
+\item[b] is the death rate per encounter of rabbits due to predation,
+\item[e] is the efficiency of turning predated rabbits into foxes. 
+\end{description}
+
+The Stella model representing the Lotka-Volterra model will be slightly more complex than the single species models we've dealt with before. The main difference is that our model will have two stocks (reservoirs), one for each species. Each species will have its own birth and death rates. In addition, the Lotka-Volterra model involves four parameters rather than two. All told, the Stella representation of the Lotka-Volterra model will use two stocks, four flows, four converters and many connectors.
+
+\bgroup
+\def\InitCond{ 0 10 10}%% xa ya xl
+\def\Faiglelapin{\Vaigle*(y[2]-y[0])/sqrt(y[1]^2+(y[2]-y[0])^2)|%
+                 -\Vaigle*y[1]/sqrt(y[1]^2+(y[2]-y[0])^2)|%
+                 -\Vlapin}
+\def\Vlapin{1}  \def\Vaigle{1.6}  
+\psset{unit=.7,subgriddiv=0,gridcolor=lightgray,method=adams,algebraic,%
+   plotpoints=20,showpoints=true}
+\begin{pspicture}(-3,-8.25)(8,10)\psgrid[griddots=10]
+ \psplotDiffEqn[plotfuncy=pop 0,whichabs=2,linecolor=red]{0}{10}{\InitCond}{\Faiglelapin}
+ \psplotDiffEqn[whichabs=0,whichord=1,linecolor=black,method=rk4]{0}{10}{\InitCond}{\Faiglelapin}
+  \psplotDiffEqn[whichabs=0,whichord=1,linecolor=blue]{0}{10}{\InitCond}{\Faiglelapin}
+\end{pspicture}\hfill
+\begin{pspicture}(0,-0.25)(10,14)\psgrid
+ \psplotDiffEqn[plotfuncy=dup 1 get dup mul exch dup 0 get exch 2 get sub dup
+    mul add sqrt,linecolor=red,method=rk4]{0}{10}{\InitCond}{\Faiglelapin}
+ \psplotDiffEqn[plotfuncy=dup 1 get dup mul exch dup 0 get exch 2 get sub dup
+    mul add sqrt,linecolor=blue]{0}{10}{\InitCond}{\Faiglelapin}
+ \psplotDiffEqn[plotfuncy=pop Func aload pop pop dup mul exch dup mul add sqrt,
+    linecolor=yellow]{0}{10}{\InitCond}{\Faiglelapin}
+\end{pspicture}
+\egroup
+\begin{lstlisting}[label={fig:aiglelapin}]
+\def\InitCond{ 0 10 10}%% xa ya xl
+\def\Faiglelapin{\Vaigle*(y[2]-y[0])/sqrt(y[1]^2+(y[2]-y[0])^2)|%
+                 -\Vaigle*y[1]/sqrt(y[1]^2+(y[2]-y[0])^2)|%
+                 -\Vlapin}
+\def\Vlapin{1}  \def\Vaigle{1.6}  
+\psset{unit=.7,subgriddiv=0,gridcolor=lightgray,method=adams,algebraic,%
+   plotpoints=20,showpoints=true}
+\begin{pspicture}(-3,-8)(5,10)\psgrid[griddots=10]
+ \psplotDiffEqn[plotfuncy=pop 0,whichabs=2,linecolor=red]{0}{10}{\InitCond}{\Faiglelapin}
+ \psplotDiffEqn[whichabs=0,whichord=1,linecolor=black,method=rk4]{0}{10}{\InitCond}{\Faiglelapin}
+  \psplotDiffEqn[whichabs=0,whichord=1,linecolor=blue]{0}{10}{\InitCond}{\Faiglelapin}
+\end{pspicture}\hfill
+\begin{pspicture}(10,12)\psgrid
+ \psplotDiffEqn[plotfuncy=dup 1 get dup mul exch dup 0 get exch 2 get sub dup
+    mul add sqrt,linecolor=red,method=rk4]{0}{10}{\InitCond}{\Faiglelapin}
+ \psplotDiffEqn[plotfuncy=dup 1 get dup mul exch dup 0 get exch 2 get sub dup
+    mul add sqrt,linecolor=blue]{0}{10}{\InitCond}{\Faiglelapin}
+ \psplotDiffEqn[plotfuncy=pop Func aload pop pop dup mul exch dup mul add sqrt,
+    linecolor=yellow]{0}{10}{\InitCond}{\Faiglelapin}
+\end{pspicture}
+\end{lstlisting}
+
+%--------------------------------------------------------------------------------------
+\subsubsection{$y''=y$}
+%--------------------------------------------------------------------------------------
+
+Beginning with the initial equation $\displaystyle y(x)=Ae^x+Be^{-x}$ we get the hyperbolic
+trigonometrical functions.
+
+\begin{center}
+\bgroup
+\def\Funct{exch}   \psset{xunit=5cm, yunit=0.75cm}
+\begin{pspicture}(0,-0.25)(2,7)\psgrid[subgriddiv=1,griddots=10]
+ \psplot[linewidth=4\pslinewidth, linecolor=green]{0}{2}{Euler x exp}  %%e^x
+ \psplotDiffEqn[linecolor=magenta, plotpoints=11]{0}{2}{1 1}{\Funct}
+ \psplotDiffEqn[linecolor=blue, plotpoints=101]{0}{2}{1 1}{\Funct}
+ \psplotDiffEqn[linecolor=red, method=rk4, plotpoints=11]{0}{2}{1 1}{\Funct}
+ \psplot[linewidth=4\pslinewidth, linecolor=green]{0}{2}{Euler dup x exp  %%ch(x)
+    exch x neg exp add 2 div}
+ \psplotDiffEqn[linecolor=magenta, plotpoints=11]{0}{2}{1 0}{\Funct}
+ \psplotDiffEqn[linecolor=blue, plotpoints=101]{0}{2}{1 0}{\Funct}
+ \psplotDiffEqn[linecolor=red, method=rk4, plotpoints=11]{0}{2}{1 0}{\Funct}
+ \psplot[linewidth=4\pslinewidth, linecolor=green]{0}{2}{Euler dup x exp    
+     exch x neg exp sub 2 div}  %%sh(x)
+ \psplotDiffEqn[linecolor=magenta, plotpoints=11]{0}{2}{0 1}{\Funct}
+ \psplotDiffEqn[linecolor=blue, plotpoints=101]{0}{2}{0 1}{\Funct}
+ \psplotDiffEqn[linecolor=red, method=rk4, plotpoints=11]{0}{2}{0 1}{\Funct}
+ \rput*(1.3,.9){\psline[linecolor=magenta](-.75cm,0)}\rput*[l](1.3,.9){\small\textsc{Euler} ordre 1 $h=1$}
+ \rput*(1.3,.8){\psline[linecolor=blue](-.75cm,0)}\rput*[l](1.3,.8){\small\textsc{Euler} ordre 1 $h=0{,}1$}
+ \rput*(1.3,.7){\psline[linecolor=red](-.75cm,0)}\rput*[l](1.3,.7){\small RK ordre 4 $h=1$}
+ \rput*(1.3,.6){\psline[linecolor=green](-.75cm,0)}\rput*[l](1.3,.6){\small solution exacte}
+\end{pspicture}
+\egroup
+\end{center}
+
+\begin{lstlisting}[label={fig:minusexp}]
+\def\Funct{exch}   \psset{xunit=5cm, yunit=0.75cm}
+\begin{pspicture}(0,-0.25)(2,7)\psgrid[subgriddiv=1,griddots=10]
+ \psplot[linewidth=4\pslinewidth, linecolor=green]{0}{2}{Euler x exp}  %%e^x
+ \psplotDiffEqn[linecolor=magenta, plotpoints=11]{0}{2}{1 1}{\Funct}
+ \psplotDiffEqn[linecolor=blue, plotpoints=101]{0}{2}{1 1}{\Funct}
+ \psplotDiffEqn[linecolor=red, method=rk4, plotpoints=11]{0}{2}{1 1}{\Funct}
+ \psplot[linewidth=4\pslinewidth, linecolor=green]{0}{2}{Euler dup x exp  %%ch(x)
+    exch x neg exp add 2 div}
+ \psplotDiffEqn[linecolor=magenta, plotpoints=11]{0}{2}{1 0}{\Funct}
+ \psplotDiffEqn[linecolor=blue, plotpoints=101]{0}{2}{1 0}{\Funct}
+ \psplotDiffEqn[linecolor=red, method=rk4, plotpoints=11]{0}{2}{1 0}{\Funct}
+ \psplot[linewidth=4\pslinewidth, linecolor=green]{0}{2}{Euler dup x exp    
+     exch x neg exp sub 2 div}  %%sh(x)
+ \psplotDiffEqn[linecolor=magenta, plotpoints=11]{0}{2}{0 1}{\Funct}
+ \psplotDiffEqn[linecolor=blue, plotpoints=101]{0}{2}{0 1}{\Funct}
+ \psplotDiffEqn[linecolor=red, method=rk4, plotpoints=11]{0}{2}{0 1}{\Funct}
+ \rput*(1.3,.9){\psline[linecolor=magenta](-.75cm,0)}\rput*[l](1.3,.9){\small\textsc{Euler} ordre 1 $h=1$}
+ \rput*(1.3,.8){\psline[linecolor=blue](-.75cm,0)}\rput*[l](1.3,.8){\small\textsc{Euler} ordre 1 $h=0{,}1$}
+ \rput*(1.3,.7){\psline[linecolor=red](-.75cm,0)}\rput*[l](1.3,.7){\small RK ordre 4 $h=1$}
+ \rput*(1.3,.6){\psline[linecolor=green](-.75cm,0)}\rput*[l](1.3,.6){\small solution exacte}
+\end{pspicture}
+\end{lstlisting}
+
+%--------------------------------------------------------------------------------------
+\subsubsection{$y''=-y$}
+%--------------------------------------------------------------------------------------
+\begin{center}
+\bgroup
+\def\Funct{exch neg}
+\psset{xunit=1, yunit=4}
+\def\quatrepi{12.5663706144}%%4pi=12.5663706144
+\begin{pspicture}(0,-1.25)(\quatrepi,1.25)\psgrid[subgriddiv=1,griddots=10]
+ \psplot[linewidth=4\pslinewidth,linecolor=green]{0}{\quatrepi}{x RadtoDeg cos}%%cos(x)
+ \psplotDiffEqn[linecolor=blue, plotpoints=201]{0}{3.1415926}{1 0}{\Funct}
+ \psplotDiffEqn[linecolor=red, method=rk4, plotpoints=31]{0}{\quatrepi}{1 0}{\Funct}
+ \psplot[linewidth=4\pslinewidth,linecolor=green]{0}{\quatrepi}{x RadtoDeg sin}  %%sin(x)
+ \psplotDiffEqn[linecolor=blue,plotpoints=201]{0}{3.1415926}{0 1}{\Funct}
+ \psplotDiffEqn[linecolor=red,method=rk4, plotpoints=31]{0}{\quatrepi}{0 1}{\Funct}
+ \rput*(3.3,.9){\psline[linecolor=magenta](-.75cm,0)}\rput*[l](3.3,.9){\small Euler order 1 $h=1$}
+ \rput*(3.3,.8){\psline[linecolor=blue](-.75cm,0)}\rput*[l](3.3,.8){\small Euler order 1 $h=0{,}1$}
+ \rput*(3.3,.7){\psline[linecolor=red](-.75cm,0)}\rput*[l](3.3,.7){\small RK ordre 4 $h=1$}
+ \rput*(3.3,.6){\psline[linecolor=green](-.75cm,0)}\rput*[l](3.3,.6){\small solution exacte}
+\end{pspicture}
+\egroup
+\end{center}
+
+\begin{lstlisting}[label={fig:minusexp2}]
+\def\Funct{exch neg}
+\psset{xunit=1, yunit=4}
+\def\quatrepi{12.5663706144}%%4pi=12.5663706144
+\begin{pspicture}(0,-1.25)(\quatrepi,1.25)\psgrid[subgriddiv=1,griddots=10]
+ \psplot[linewidth=4\pslinewidth,linecolor=green]{0}{\quatrepi}{x RadtoDeg cos}%%cos(x)
+ \psplotDiffEqn[linecolor=blue, plotpoints=201]{0}{3.1415926}{1 0}{\Funct}
+ \psplotDiffEqn[linecolor=red, method=rk4, plotpoints=31]{0}{\quatrepi}{1 0}{\Funct}
+ \psplot[linewidth=4\pslinewidth,linecolor=green]{0}{\quatrepi}{x RadtoDeg sin}  %%sin(x)
+ \psplotDiffEqn[linecolor=blue,plotpoints=201]{0}{3.1415926}{0 1}{\Funct}
+ \psplotDiffEqn[linecolor=red,method=rk4, plotpoints=31]{0}{\quatrepi}{0 1}{\Funct}
+ \rput*(3.3,.9){\psline[linecolor=magenta](-.75cm,0)}\rput*[l](3.3,.9){\small Euler order 1 $h=1$}
+ \rput*(3.3,.8){\psline[linecolor=blue](-.75cm,0)}\rput*[l](3.3,.8){\small Euler order 1 $h=0{,}1$}
+ \rput*(3.3,.7){\psline[linecolor=red](-.75cm,0)}\rput*[l](3.3,.7){\small RK ordre 4 $h=1$}
+ \rput*(3.3,.6){\psline[linecolor=green](-.75cm,0)}\rput*[l](3.3,.6){\small solution exacte}
+\end{pspicture}
+\end{lstlisting}
+
+%--------------------------------------------------------------------------------------
+\subsubsection{The mechanical pendulum: $y''=-\frac{g}{l}\sin(y)$}% $
+%--------------------------------------------------------------------------------------
+
+Pour des faibles oscillations $\sin(y)\simeq y$:
+
+\[ y(x)=y_0\cos\left(\sqrt{\frac{g}{l}}x\right) \]
+
+The function $f$ is writen in PostScript code:
+
+\begin{verbatim}
+exch RadtoDeg sin -9.8 mul %% y' -gsin(y)
+\end{verbatim}
+
+\begin{center}
+\bgroup
+\def\Func{y[1]|-9.8*sin(y[0])}
+\psset{yunit=2,xunit=4,algebraic=true,linewidth=1.5pt}
+\begin{pspicture}(0,-2.25)(3,2.25)\psgrid[subgriddiv=2,griddots=10]
+  \psplot[linewidth=3\pslinewidth, linecolor=Orange]{0}{3}{.1*cos(sqrt(9.8)*x)}
+  \psset{method=rk4,plotpoints=50,linecolor=blue}
+  \psplotDiffEqn{0}{3}{.1 0}{\Func}
+  \psplot[linewidth=3\pslinewidth,linecolor=Orange]{0}{3}{.25*cos(sqrt(9.8)*x)}
+  \psplotDiffEqn{0}{3}{.25 0}{\Func}
+  \psplotDiffEqn{0}{3}{.5 0}{\Func}
+  \psplotDiffEqn{0}{3}{1 0}{\Func}
+  \psplotDiffEqn[plotpoints=100]{0}{3}{Pi 2 div 0}{\Func}
+\end{pspicture}
+\egroup
+\end{center}
+
+\begin{lstlisting}[label=fig:second]
+\def\Func{y[1]|-9.8*sin(y[0])}
+\psset{yunit=2,xunit=4,algebraic=true,linewidth=1.5pt}
+\begin{pspicture}(0,-2.25)(3,2.25)\psgrid[subgriddiv=2,griddots=10]
+  \psplot[linewidth=3\pslinewidth, linecolor=Orange]{0}{3}{.1*cos(sqrt(9.8)*x)}
+  \psset{method=rk4,plotpoints=50,linecolor=blue}
+  \psplotDiffEqn{0}{3}{.1 0}{\Func}
+  \psplot[linewidth=3\pslinewidth,linecolor=Orange]{0}{3}{.25*cos(sqrt(9.8)*x)}
+  \psplotDiffEqn{0}{3}{.25 0}{\Func}
+  \psplotDiffEqn{0}{3}{.5 0}{\Func}
+  \psplotDiffEqn{0}{3}{1 0}{\Func}
+  \psplotDiffEqn[plotpoints=100]{0}{3}{Pi 2 div 0}{\Func}
+\end{pspicture}
+\end{lstlisting}
+
+%--------------------------------------------------------------------------------------
+\subsubsection{$y''=-\frac{y'}{4}-2y$}% $
+%--------------------------------------------------------------------------------------
+
+Pour $y_0=5$ et $y'_0=0$ la solution est :
+
+\[ 
+5e^{-\frac{x}{8}}\left(\cos\left(\omega x\right)+\frac{\sin(\omega x)}{8\omega}\right)
+\mbox{ avec } \omega=\frac{\sqrt{127}}{8}
+\]
+
+\iffalse
+La fonction $f$ est d�rite par le code PostScript suivant :
+
+\begin{verbatim}
+dup             %% y y' y'
+3 1 roll        %% y' y y'
+-4 div          %% y' y y'/-4
+exch            %% y' y'/-4 y
+2 mul           %% y' y'/-4 2y
+sub             %% y' y'/-4-2y
+\end{verbatim}
+
+\fi
+\begin{center}
+\bgroup
+\psset{xunit=.6,yunit=0.8,plotpoints=500}
+\begin{pspicture}(0,-4.25)(26,5.25)
+  \psgrid[subgriddiv=0,gridcolor=lightgray,linewidth=1.5pt]
+  \psplot[plotpoints=200,linewidth=4\pslinewidth,linecolor=gray]{0}{26}{%
+     Euler x -8 div exp x 127 sqrt 8 div mul RadtoDeg dup cos 5 mul exch sin 127 sqrt div 5 mul add mul}
+  \psplotDiffEqn[linecolor=red,linewidth=5\pslinewidth]{0}{26}{5 0}
+     {dup 3 1 roll -4 div exch 2 mul sub}
+  \psplotDiffEqn[linecolor=black,algebraic]{0}{26}{5 0} {y[1]|-y[1]/4-2*y[0]}
+  \psset{method=rk4, plotpoints=50}
+  \psplotDiffEqn[linecolor=blue,linewidth=5\pslinewidth]{0}{26}{5 0}{%
+      dup 3 1 roll -4 div exch 2 mul sub}
+  \psplotDiffEqn[linecolor=black,algebraic=true]{0}{26}{5 0}{y[1]|-y[1]/4-2*y[0]}
+\end{pspicture}
+\egroup
+\end{center}
+
+\begin{lstlisting}
+\psset{xunit=.6,yunit=0.8,plotpoints=500}
+\begin{pspicture}(0,-4.25)(26,5.25)
+  \psgrid[subgriddiv=0,gridcolor=lightgray,linewidth=1.5pt]
+  \psplot[plotpoints=200,linewidth=4\pslinewidth,linecolor=gray]{0}{26}{%
+     Euler x -8 div exp x 127 sqrt 8 div mul RadtoDeg dup cos 5 mul exch sin 127 sqrt div 5 mul add mul}
+  \psplotDiffEqn[linecolor=red,linewidth=5\pslinewidth]{0}{26}{5 0}
+     {dup 3 1 roll -4 div exch 2 mul sub}
+  \psplotDiffEqn[linecolor=black,algebraic]{0}{26}{5 0} {y[1]|-y[1]/4-2*y[0]}
+  \psset{method=rk4, plotpoints=50}
+  \psplotDiffEqn[linecolor=blue,linewidth=5\pslinewidth]{0}{26}{5 0}{%
+      dup 3 1 roll -4 div exch 2 mul sub}
+  \psplotDiffEqn[linecolor=black,algebraic=true]{0}{26}{5 0}{y[1]|-y[1]/4-2*y[0]}
+\end{pspicture}
+\end{lstlisting}
+%--------------------------------------------------------------------------------------
+\subsubsection{Gravitation example of second order}
+%--------------------------------------------------------------------------------------
+
+\[
+\left\{
+\begin{array}[m]{l}
+  x''_1=\displaystyle\frac{M_2}{r^2}\cos(\theta)\\
+  y''_1=\displaystyle\frac{M_2}{r^2}\sin(\theta)\\
+  x''_2=\displaystyle\frac{M_1}{r^2}\cos(\theta)\\
+  y''_2=\displaystyle\frac{M_1}{r^2}\sin(\theta)\\
+\end{array}
+\right.
+\mbox{ avec }
+\left\{
+\begin{array}[m]{l}
+  r^2=(x_1-x_2)^2+(y_1-y_2)^2\\
+  \cos(\theta)=\displaystyle\frac{(x_1-x_2)}{r}\\
+  \sin(\theta)=\displaystyle\frac{(y_1-y_2)}{r}\\
+\end{array}
+\right.
+\mbox{
+\begin{pspicture}[shift=.5](5,4)\psset{arrowscale=2}
+  \psframe[linewidth=.75\pslinewidth](5,4)
+  \pstGeonode[PosAngle={-90,90}](1,1){M1}(4,3){M2}
+  \pstHomO[HomCoef=.33, PointSymbol=none]{M1}{M2}{F1}
+  \psline[arrows=->](M1)(F1)
+  \pstHomO[HomCoef=.33, PointSymbol=none]{M2}{M1}{F2}
+  \psline[arrows=->, arrowscale=2](M2)(F2)
+  \pstGeonode[PointSymbol=none](M2|M1){A}
+  \psline[linewidth=.5\pslinewidth](M1)(A)
+  \pstMarkAngle{A}{M1}{M2}{$\theta$}
+  \ncline[linewidth=.5\pslinewidth, offset=.5, arrows=<->]{M1}{M2}
+  \ncput*{$r$}
+\end{pspicture}%
+}
+\]
+
+
+\begin{table}[htbp]
+\centering
+    \caption{PostScript code for the gravitation examples}\label{intgravcode}
+\small\ttfamily
+    \begin{tabularx}{\linewidth}{XX} \hline
+      & x1 y1 x'1 y'1 x2 y2 x'2 y'2\\
+      /yp2 exch def /xp2 exch def /ay2 exch def /ax2 exch def&mise en variables\\
+      /yp1 exch def /xp1 exch def /ay1 exch def /ax1 exch def&mise en variables\\
+      /ro2 ax2 ax1 sub dup mul ay2 ay1 sub dup mul add def&calcul de r*r\\
+      xp1 yp1&\\
+      ax2 ax1 sub ro2 sqrt div ro2 div&calcul de x''1\\
+      ay2 ay1 sub ro2 sqrt div ro2 div&calcul de y''1\\
+      xp2 yp2&\\
+      3 index -20 mul&calcul de x''2=-20x''1\\
+      3 index -20 mul&calcul de y''2=-20y''1\\\hline
+    \end{tabularx}
+\end{table}
+
+\def\Grav{%
+  /yp2 exch def /xp2 exch def /ay2 exch def /ax2 exch def
+  /yp1 exch def /xp1 exch def /ay1 exch def /ax1 exch def
+  /ro2 ax2 ax1 sub dup mul ay2 ay1 sub dup mul add def
+  xp1 yp1
+  ax2 ax1 sub ro2 sqrt div ro2 div
+  ay2 ay1 sub ro2 sqrt div ro2 div
+  xp2 yp2
+  3 index -20 mul
+  3 index -20 mul}
+\def\GravAlg{%
+  y[2]|y[3]|%
+  (y[4]-y[0])/((y[4]-y[0])^2+(y[5]-y[1])^2)^1.5|%
+  (y[5]-y[1])/((y[4]-y[0])^2+(y[5]-y[1])^2)^1.5|%
+  y[6]|y[7]|%
+  20*(y[0]-y[4])/((y[4]-y[0])^2+(y[5]-y[1])^2)^1.5|%
+  20*(y[1]-y[5])/((y[4]-y[0])^2+(y[5]-y[1])^2)^1.5}
+           %%  0  1   2   3  4  5   6   7
+           %% x1 y1 x'1 y'1 x2 y2 x'2 y'2
+\def\InitCond{ 1  1  .1   0 -1 -1  -2   0}
+
+\begin{LTXexample}[pos=t,preset=\centering]
+\begin{pspicture}(-3,-2.5)(2,2.25)
+ \psgrid[subgriddiv=0,gridcolor=lightgray,linewidth=1.5pt]
+ \psset{method=rk4,plotpoints=200,whichord=1}
+ \psplotDiffEqn[whichabs=0,linecolor=blue]{0}{8}{\InitCond}{\Grav}
+ \psplotDiffEqn[whichabs=4,whichord=5,linecolor=red]{0}{8}{\InitCond}{\Grav}
+ \psplotDiffEqn[whichabs=4,linecolor=Orange,algebraic]{0}{8}{\InitCond}{\GravAlg}
+ \psplotDiffEqn[whichabs=0,whichord=1,linecolor=yellow,algebraic]{0}{8}{\InitCond}{\GravAlg}
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[pos=t,preset=\centering]
+\begin{pspicture}(-4,-2.5)(1,1.25)
+ \psgrid[subgriddiv=0,gridcolor=lightgray]
+ \psplotDiffEqn[linecolor=red,method=rk4,plotpoints=200,linewidth=1.5pt,%
+   plotfuncx=y dup 4 get exch 0 get sub,
+   plotfuncy=dup 5 get exch 1 get sub ]{0}{8}{\InitCond}{\Grav}
+\end{pspicture}
+\end{LTXexample}
+
+\begin{LTXexample}[pos=t,preset=\centering]
+\begin{pspicture}(0,-0.5)(8,8)
+  \psset{yunit=0.8,method=rk4,plotpoints=200,linewidth=1.5pt}
+  \psgrid[subgriddiv=0,gridcolor=lightgray](8,9)
+  \psplotDiffEqn[linecolor=red,plotfuncy=dup 6 get dup mul exch 7 get dup mul add sqrt]{0}{8}{\InitCond}{\Grav}
+  \psplotDiffEqn[linecolor=blue,plotfuncy=dup 2 get dup mul exch 3 get dup mul add sqrt]{0}{8}{\InitCond}{\Grav}
+\end{pspicture}
+\end{LTXexample}
+
+\newpage
+%--------------------------------------------------------------------------------------
+\subsubsection{Gravitation: two stars and more}
+%--------------------------------------------------------------------------------------
+
+\iffalse 
+L'exemple le plus complexe dans l'�riture de $f$, mais aussi dans l'�uilibrage de
+la simulation\footnote{n'h�itez pas �modifier des param�res, ajouter des astres,
+  et vous verrez que le syst�e solaire est miraculeux : il est stable !}. $f$ est
+g��ique : elle peut traiter un nombre d'astres quelconques chacun ayant sa propre
+masse. Dans cette section on va en faire interagir quatre. Cela donne pour le moteur
+d'affichage un syst�e de 16 �uations du premier ordre �r�oudre, et le r�ultat
+est remarquable.
+
+\fi
+                x1 y1 x'1 y'1 x2 y2 x'2 y'2 x3 y3 x'3    y'3  x4   y4  x'4  y'4
+  \def\InitCond{ 1  1   0   0 -1 -1  -2   2  3  3 2.86 -2.86 5.5 -3.5 -2.1 -2.1}
+  \def\tMAX{10}
+  \newcommand{\MunMdeux}{40}
+  \newcommand{\MdeuxMtrois}{40}
+  \psset{unit=1, showpoints=false, plotpoints=400}%%plotpoints=375}
+  \newcommand{\Test}{
+    %% masses des astres
+    /Weigth [ 40 1 1 2 ] def
+    /NbAstor Weigth length def
+    /ABVect { 3 -1 roll exch sub 3 1 roll sub exch } def
+    %% calculs des distances entre masses
+    1 1 NbAstor 1 sub {
+      dup /i exch def 1 add 1 NbAstor {
+        /j exch def
+        y i 1 sub 4 mul get y j 1 sub 4 mul get sub dup mul
+        y i 1 sub 4 mul 1 add get y j 1 sub 4 mul 1 add get sub dup mul add
+        } for
+      } for
+    NbAstor dup 1 sub mul 2 div cvi array astore /ro2 exch def
+    %% calculs des forces
+    1 1 NbAstor {
+      /i exch def
+      y i 1 sub 4 mul 4 getinterval aload pop 4 2 roll
+      /xf 0 def /yf 0 def
+      1 1 NbAstor {
+        dup i eq
+        { pop }
+        { /j exch def
+        2 copy y j 1 sub 4 mul 2 getinterval aload pop ABVect
+        Weigth j 1 sub get
+        ro2 i j 2 copy lt { exch } if dup
+        dup 1 sub dup NbAstor mul 3 1 roll mul 2 div sub 3 1 roll sub add 1 sub
+        cvi get dup sqrt mul div exch 1 index mul 3 1 roll mul exch
+        yf add /yf exch def xf add /xf exch def } ifelse
+        } for pop pop xf neg yf neg 
+      } for
+      NbAstor 4 mul array astore
+    }
+
+\begin{LTXexample}[pos=t,preset=\centering]
+\begin{pspicture}(-9,-6.25)(6,6)
+ \psgrid[subgriddiv=0,gridcolor=lightgray](-9,-6)(6,6)
+ \psset{buildvector=true,method=rk4,linewidth=1.5pt}
+ \psplotDiffEqn[whichabs=0,whichord=1,linecolor=blue]{0}{\tMAX}{\InitCond}{\Test}
+ \psplotDiffEqn[whichabs=4,whichord=5,linecolor=red]{0}{\tMAX}{\InitCond}{\Test}
+ \psplotDiffEqn[whichabs=4,whichord=5,linecolor=Orange,method=adams]{0}{\tMAX}{\InitCond}{\Test}
+ \psplotDiffEqn[whichabs=8,whichord=9,linecolor=magenta]{0}{\tMAX}{\InitCond}{\Test}
+ \psplotDiffEqn[whichabs=12,whichord=13,linecolor=green]{0}{\tMAX}{\InitCond}{\Test}
+ \psplotDiffEqn[whichabs=12,whichord=13,linecolor=yellow,method=adams]{0}{\tMAX}{\InitCond}{\Test}
+\end{pspicture}
+\end{LTXexample}
+
+
+\begin{LTXexample}[pos=t,preset=\centering]
+\begin{pspicture}(-10,-7.25)(5,5)
+  \psgrid[subgriddiv=0,gridcolor=lightgray](-10,-7)(5,5)
+  \psset{buildvector=true,method=rk4,linewidth=1.5pt}
+  \psplotDiffEqn[linecolor=red,plotfuncx=y dup 4 get exch 0 get sub ,
+     plotfuncy=dup 5 get exch 1 get sub ]{0}{\tMAX}{\InitCond}{\Test}
+  \psplotDiffEqn[linecolor=magenta,plotfuncx=y dup 8 get exch 0 get sub ,
+     plotfuncy=dup 9 get exch 1 get sub ]{0}{\tMAX}{\InitCond}{\Test}
+  \psplotDiffEqn[linecolor=green,plotfuncx=y dup 12 get exch 0 get sub ,
+     plotfuncy=dup 13 get exch 1 get sub ]{0}{\tMAX}{\InitCond}{\Test}
+\end{pspicture}
+\end{LTXexample}
+
+
+%--------------------------------------------------------------------------------------
+\subsection{\CMD{resetOptions}}
+%--------------------------------------------------------------------------------------
+
+Sometimes it is difficult to know what options which are changed inside a long document
+are different to the default one. With this
+macro all options depending to \verb+pst-plot+ can be reset. This depends to all
+options of the packages \verb+pstricks+, \verb+pst-plot+ and \verb+pst-node+.
+
+
+%--------------------------------------------------------------------------------------
+\section{Credits}
+%--------------------------------------------------------------------------------------
+{Hendri Adriaens | } 
+{Ulrich Dirr | } 
+{Hubert G\"a\ss lein |}
+{Denis Girou | } 
+{Peter Hutnick | } 
+{Christophe Jorssen | } 
+{Manuel Luque | } 
+{Jens-Uwe Morawski |}
+{Tobias N\"ahring |}
+{Rolf Niepraschk |}
+{Dominique Rodriguez |}
+{Arnaud Schmittbuhl |}
+{Timothy Van Zandt}
+
+
+
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{pstricks}
+
+
+%--------------------------------------------------------------------------------------
+\section{Change log}
+%--------------------------------------------------------------------------------------
+
+See file Changes
+
+%\clearpage
+%\section{The code}
+
+%\lstinputlisting{pstricks-add.tex}

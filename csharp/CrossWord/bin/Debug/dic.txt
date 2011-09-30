@@ -1,0 +1,2 @@
+fr_FR.dic
+perso.txt

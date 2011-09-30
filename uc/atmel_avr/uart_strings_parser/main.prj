@@ -1,0 +1,41 @@
+; ************************************************************
+; PROJECT:
+; AUTHOR:
+; ************************************************************
+
+; Micro + software running
+; ------------------------------------------------------------
+.MICRO "ATmega32"
+.TOOLCHAIN "GCC"
+.GCCPATH   "C:\WinAVR"
+.GCCMAKE   "makefile"
+.TARGET    "main.hex"
+.SOURCE    "main.c"
+
+.TRACE              ; Activate micro trace
+
+; Variables d'environnement
+; C:\> echo %AVR%
+;  C:\WinAVR
+; C:\> echo %AVRLib%
+;  C:\AVRLib
+; !!!! et pas C:\Program Files\AVRLib
+
+; Following lines are optional; if not included
+; exactly these values are taken by default
+; ------------------------------------------------------------
+.POWER VDD=5 VSS=0  ; Power nodes
+.CLOCK 8meg         ; Micro clock
+.STORE 250m         ; Trace (micro+signals) storage time
+
+; Micro nodes: RESET, AREF, PA0-PA7, PB0-PB7, PC0-PC7, PD0-PD7, ACO, TIM1OVF
+; Define here the hardware around the micro
+; ------------------------------------------------------------
+.PLOT V(PD0) V(PD1)
+
+;X[inst_name]  TTY(baud_rate [n_bits] [parity] [odd_parity] [n_stop_bits] [rx_display_as]) node_tx node_rx
+X1  TTY(9600 8) PD0 PD1  ; 8 bits
+
+
+
+

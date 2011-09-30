@@ -1,0 +1,28 @@
+;; Object applet_horloge2/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "applet_horloge2/"
+  :tables (list 
+   (semanticdb-table "HorlogeApplet3.java"
+    :major-mode 'java-mode
+    :tags '(("java.util.*" include nil nil [4 23]) ("java.awt.*" include nil nil [27 45]) ("java.applet.*" include nil nil [49 70]) ("HorlogeApplet3" type (:typemodifiers ("public") :interfaces ("Runnable") :superclasses "Applet" :members (("timer" variable (:type "Thread") (reparse-symbol class_member_declaration) [146 166]) ("lastyh" variable (:type "int") (reparse-symbol class_member_declaration) [227 236]) ("lastxh" variable (:type "int") (reparse-symbol class_member_declaration) [217 225]) ("lastym" variable (:type "int") (reparse-symbol class_member_declaration) [207 215]) ("lastxm" variable (:type "int") (reparse-symbol class_member_declaration) [197 205]) ("lastys" variable (:type "int") (reparse-symbol class_member_declaration) [187 195]) ("lastxs" variable (:type "int") (reparse-symbol class_member_declaration) [173 185]) ("date" variable (:type "Date") (reparse-symbol class_member_declaration) [243 266]) ("lastDate" variable (:type "String") (reparse-symbol class_member_declaration) [274 314]) ("F" variable (:type "Font") (reparse-symbol class_member_declaration) [321 369]) ("dat" variable (:type "Date") (reparse-symbol class_member_declaration) [376 392]) ("fgcol" variable (:type "Color") (reparse-symbol class_member_declaration) [399 424]) ("fgcol2" variable (:type "Color") (reparse-symbol class_member_declaration) [431 461]) ("init" function (:typemodifiers ("public") :type "void") (reparse-symbol class_member_declaration) [472 1096]) ("placerPoints" function (:typemodifiers ("public") :arguments (("x0" variable (:type "int") (reparse-symbol formal_parameters) [1132 1138]) ("y0" variable (:type "int") (reparse-symbol formal_parameters) [1140 1146]) ("x" variable (:type "int") (reparse-symbol formal_parameters) [1148 1153]) ("y" variable (:type "int") (reparse-symbol formal_parameters) [1155 1160]) ("g" variable (:type "Graphics") (reparse-symbol formal_parameters) [1162 1172])) :type "void") (reparse-symbol class_member_declaration) [1107 1526]) ("cercle" function (:typemodifiers ("public") :arguments (("x0" variable (:type "int") (reparse-symbol formal_parameters) [1556 1562]) ("y0" variable (:type "int") (reparse-symbol formal_parameters) [1564 1570]) ("r" variable (:type "int") (reparse-symbol formal_parameters) [1572 1577]) ("g" variable (:type "Graphics") (reparse-symbol formal_parameters) [1579 1589])) :type "void") (reparse-symbol class_member_declaration) [1537 1990]) ("paint" function (:typemodifiers ("public") :arguments (("g" variable (:type "Graphics") (reparse-symbol formal_parameters) [2019 2029])) :type "void") (reparse-symbol class_member_declaration) [2001 4233]) ("start" function (:typemodifiers ("public") :type "void") (reparse-symbol class_member_declaration) [4244 4387]) ("stop" function (:typemodifiers ("public") :type "void") (reparse-symbol class_member_declaration) [4398 4449]) ("run" function (:typemodifiers ("public") :type "void") (reparse-symbol class_member_declaration) [4460 4679]) ("update" function (:typemodifiers ("public") :arguments (("g" variable (:type "Graphics") (reparse-symbol formal_parameters) [4709 4719])) :type "void") (reparse-symbol class_member_declaration) [4690 4749])) :type "class") nil [75 4754]))
+    :file "HorlogeApplet3.java"
+    :pointmax 4755
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "Makefile"
+    :major-mode 'makefile-mode
+    :tags '(("all" function nil nil [1 57]))
+    :file "Makefile"
+    :pointmax 57
+    )
+   (semanticdb-table "indew.html"
+    :major-mode 'html-mode
+    :tags '(("scls" section nil nil [85 114]) ("scls" section (:members (("scls" section (:members (("scls" section nil nil [330 333]))) nil [125 128]))) nil [114 119]))
+    :file "indew.html"
+    :pointmax 542
+    )
+   )
+  :file "semantic.cache"
+  :semantic-tag-version "2.0beta3"
+  :semanticdb-version "2.0beta3"
+  )

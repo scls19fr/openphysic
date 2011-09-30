@@ -1,0 +1,217 @@
+import string
+identite = string.maketrans('','')
+print 'une chaine'.translate(identite, 'aeiou')    # Affiche : n chn
+
+----------
+
+en_a = string.maketrans('eiou', 'aaaa')
+print 'une chaine'.translate(en_a)           # Affiche : ana chaana
+print 'une chaine'.translate(en_a, 'n')      # Affiche : aa chaaa
+
+----------
+
+x = 42
+y = 3.14
+z = "george"
+print 'résultat = %d' % x             # Affiche : résultat = 42
+print 'réponses : %d %f' % (x,y)      # Affiche : réponses : 42 3.140000
+print 'hello %s' % z                  # Affiche : hello george
+
+----------
+
+'%s + %s égale %s' % (23, 45, 68)     # Produit : '23 + 45 égale 68'
+
+----------
+
+une_facon = 'x' + str(j) + 'y' + str(j) + 'z'
+une_autre = 'x%sy%sz' % (j, j)
+
+----------
+
+'%.2f' % (1/3.0)                       # Produit : '0.33'
+'%s' % (1/3.0)                         # Produit : '0.333333333333'
+
+----------
+
+import sys, codecs
+sys.stdout = codecs.EncodedFile(sys.stdout,'latin-1', 'utf-8')
+
+---------
+
+import codecs
+flout = codecs.open('uni.txt', 'w', 'latin-1', 'replace')
+
+# Vous pouvez maintenant écrire des chaines Unicode directement sur flout
+flout.write(u'élève')
+flout.close()
+
+----------
+
+'Pre.*post'
+
+----------
+
+'pre.+post'
+
+----------
+
+r'pre.*post\Z'
+
+----------
+
+ r'\bhis\b'
+
+----------
+
+r'\bher'
+
+----------
+
+r'its\b'
+
+----------
+
+r'\bher\w*'
+
+----------
+
+r'\w*its\b'
+
+----------
+
+r"[a-zA-z'\-]+"
+
+----------
+
+'|'.join([r'\b%s\b' % mot for mot in L])
+
+----------
+
+'|'.join(map(re.escape,L))
+
+----------
+
+r'(.+)\1+\Z'
+
+----------
+
+import re
+r1 = re.compile(r'(?i)hello')
+r2 = re.compile(r'hello', re.I)
+r3 = re.compile(r'hello', re.IGNORECASE)
+
+----------
+
+motif_num1 = r'(0[0-7]*|0x[\da-fA-F]+|[1-9]\d*)L?\Z'
+motif_num2 = r'''(?x)         # pattern matching integer numbers
+             (0 [0-7]*        | # octal : 0, puis 0 chiffre ou plus en octal
+              0x [\da-f-A-F]+ | # hexa : 0x, puis 1 chiffre ou plus en hexa
+              [1-9] \d*       ) # décimal : ne commence pas par 0, puis 0 chiffre ou plus en décimal
+              L?\Z              # L final facultatif, puis fin de chaîne
+             '''
+
+----------
+
+import re
+r1 = re.compile(r'box')
+if r1.match('inbox'): print 'Correspondance réussie'
+else print 'Échec de la correspondance'                # Affiche : Échec de la correspondance
+if r1. search('inbox'): print 'Succès de la recherche' # Affiche : Succès de la recherche
+else print 'Échec de la recherche'
+
+----------
+
+import re
+chiffre_final = re.compile(r'\d$', re.MULTILINE)
+if re.search(open('un_fic.txt').read()): print "Des lignes se terminent par un chiffre"
+else: print "Aucune ligne ne se termine par un chiffre"
+
+----------
+
+import re
+mot = re.compile(r'\w+')
+for un_mot in mot.findall(open('un_fic.txt').read()):
+    print un_mot
+
+----------
+
+mot = re.compile('(\w+)\s')
+
+----------
+
+import re
+premier_dernier = re.compile(r'^\W*(\w+)\b.*\b(\w+)\W*$', re.MULTILINE)
+for premier, dernier in \
+premier_dernier.findall(open('un_fic.txt').read()):
+    print premier, dernier
+
+----------
+
+import re
+chiffres = re.compile(r'\d+')
+for ligne in open('un_fic.txt'):
+    if chiffres.match(ligne): print ligne,
+
+----------
+
+import re
+chiffres = re.compile(r'\d+')
+for ligne in open('un_fic.txt'):
+    if chiffres.search(ligne): print ligne,
+
+----------
+
+import re
+hello = re.compile(r'hello', re.IGNORECASE)
+une_chaine = ''.join(hello.split(une_chaine))
+
+----------
+
+import re
+deux_pts_espace_chiffre = re.compile(r'(:)\s+(\d)')
+une_chaine = ''.join(deux_pts_espace_chiffre.split(une_chaine))
+
+----------
+
+unc_chaine = ''.join(hello.split(une_chaine, 1))
+
+----------
+
+import re
+hello = re.compile(r'hello', re.IGNORECASE)
+une_chaine = hello.sub('', une_chaine, 1)
+
+----------
+
+import re
+h_mot = re.compile(r'\bh\w+o\b', re.IGNORECASE)
+def maj(mo): return mo.group(0).upper()
+une_chaine = h_mot.sub(maj, une_chaine)
+
+----------
+
+import re
+def findall(r, s):
+    resultat = []
+    def trouveUn(mo): resultat.append(mo.group())
+    r.sub(trouveUn, s)
+    return resultat
+
+----------
+
+import re
+mot_groupe = re.compile('(\w+)')
+une_chaine = mot_groupe.sub(r'{\1}', une_chaine)
+
+----------
+
+import re
+hello = re.compile(r'hello', re.IGNORECASE)
+bidon, nombre = hello.subn('', une_chaine)
+print 'Il y a', nombre, 'occurrences de "hello"'
+
+----------
+
+import re
+bidon, nombre = re.subn(r'(?i)hello', '', une_chaine)
+print 'Il y a', nombre, 'occurrences de "hello"'

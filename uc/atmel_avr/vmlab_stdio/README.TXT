@@ -1,0 +1,1 @@
+C:\WinAVR\doc\avr-libc\examples\stdiodemo

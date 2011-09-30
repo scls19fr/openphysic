@@ -1,0 +1,204 @@
+===== Aspirer un site web =====
+Httrack : http://www.httrack.com
+
+
+===== Publier sur le web =====
+Le web : http://fr.wikipedia.org/wiki/Www
+Le web statique / le web dynamique
+La "vieille" méthode : éditeur de texte, client ftp, serveur web http
+ [[HTML]]
+
+Les méthode "modernes" : le web dynamique côté serveur
+ - Wiki
+ - CMS Content Management System (exemple : SPIP)
+Aspect technique du web dynamique : Serveur web, Php, MySQL
+Installation d'une application à base de Php (SPIP par exemple)
+Le problème de l'hébergement 
+ http://www.google.fr/search?hl=fr&q=hebergement+web+php+mysql+gratuit
+ http://developpeur.journaldunet.com/tutoriel/php/050729-php-hebergeurs-gratuits.shtml
+Indexation d'un site web
+ Remarque : le fichier ##robots.txt## http://www.commentcamarche.net/web/robots-txt.php3
+
+Mettre en ligne des exercices
+ voir Hot Potatoes (non libre) et Sequane
+ WIMS
+  http://wims.unice.fr
+  http://lamia.lille.iufm.fr/~georgesk/wims-book
+  http://logiciels-libres-cndp.ac-versailles.fr/article.php3?id_article=3
+  http://wims.ofset.org
+
+
+
+
+===== Présentation de différents logiciels libres =====
+==== Logiciel libre ====
+Quel est l'intérêt du logiciel libre ? différence libre / gratuit / propriétaire ?
+http://fr.wikipedia.org/wiki/Portail:Logiciels_libres
+GNU : http://fr.wikipedia.org/wiki/GNU
+Linux : http://fr.wikipedia.org/wiki/Linux
+
+Les licences
+http://fr.wikipedia.org/wiki/Licence_%28juridique%29
+http://fr.wikipedia.org/wiki/Licence_libre
+
+
+Annuaire de logiciels libres : http://www.framasoft.net
+
+Livre Blanc Logiciels Libres : http://www.april.org/articles/divers/livreblanclogicielslibres.pdf
+http://www.april.org/articles/divers/intro_ll.html
+
+http://www.framasoft.net/article4127.html
+http://www.framasoft.net/rubrique255.html
+
+Equivalents libres de logiciels propriétaires
+http://fr.wikipedia.org/wiki/Alternatives_libres_aux_logiciels_propri%C3%A9taires
+http://fr.wikipedia.org/wiki/Liste_de_logiciels_libres
+
+Logiciels libres et enseignement
+http://logiciels-libres-cndp.ac-versailles.fr/
+
+==== Formats de fichiers ouverts et interopérabilité ====
+http://fr.wikipedia.org/wiki/Format_ouvert
+
+http://formats-ouverts.org/
+Standards ouverts et logiciels libres : http://formats-ouverts.org/blog/2005/02/11/280-la-presentation-du-2-fevrier
+
+http://ploug.eu.org/doc/formats_ouverts.html
+
+http://www.openformats.org/main
+
+http://www.aful.org/gdt/interop
+
+
+==== Utilisation de différents logiciels libres ====
+ - OpenOffice.org
+  - OpenOffice.org Writer = Microsoft Word (Traitement de texte)
+  - OpenOffice.org Calc = Microsoft Excel (Tableur)
+  - OpenOffice.org Impress = Microsoft Powerpoint (Présentation / diaporama)
+ http://fr.openoffice.org
+  - Téléchargement, Installation :  http://fr.openoffice.org/about-downloads.html
+  - Installation des dictionnaires
+  - Tutoriaux : Espace Documentation http://fr.openoffice.org/Documentation/Index.html 
+   - Writer
+   - Les formules avec Math
+
+   http://s.cls.free.fr/wikini/wakka.php?wiki=OpenOfficeMath
+   http://fr.openoffice.org/Documentation/How-to/Math/how-to_math.pdf
+
+  - Les macros comme DMaths : http://www.dmaths.com/
+
+ - [[GIMP]] = Equivalent libre de Photoshop (retouche photos)
+ - d'autres... pourquoi ?
+  - Navigateur web : Firefox
+  - Client de messagerie : Thunderbird
+  - Dessin vectoriel : OpenOffice.org Draw, Inkscape
+  - Schéma : Dia
+  - PAO : Scribus
+  - ...
+
+
+===== Edition scientifique avec LaTeX =====
+Installation des outils sous Windows (Ghostscript, Miktex, TeXnicenter)
+Réalisation d'un document modeste (formule en ligne, hors ligne,...)
+
+===== Tracés de données numériques pour les sciences (Math, Physique,...) =====
+[[GNUPlot]]
+
+===== Calcul numérique pour les sciences (Math, Physique,...) =====
+Utilisation du tableur OpenOffice.org (résolution de problème de mécanique)
+Utilisation du logiciel de calcul numérique : Scilab/Simulink (équivalent de Matlab/Scicos)
+Utilisation du logiciel de calcul formel : xcas ("équivalent" de Maple) voir ComputerAlgebraSystem
+Utilisation d'un traceur en ligne de commande : GNUPlot
+
+
+===== Système d'exploitation : Linux =====
+Pourquoi ?
+Pour faire quoi ?
+
+Quelle distribution ? http://fr.wikipedia.org/wiki/Distributions_Linux
+
+Distribution en Live CD (pour découvrir)
+ - Knoppix http://www.knoppix.org/
+ - Kaella http://kaella.linux-azur.org/
+
+Installation
+
+Bureaux (KDE, GNOME, XFCE)
+ KDE sous Windows : 
+
+Des habitudes différentes
+ - Logiciels (notion de media et de paquets logiciel ; outils apt-get, synaptic ou urpmi)
+ - les partitions / /home swap
+ - les répertoires
+ - le concept de "montage" d'un système de fichier
+ - le tout fichier pour configurer les serveurs (sauf sur des distrib grand public qui bénéficient d'assistant)
+
+Exemple de TP :
+ Installation d'un serveur web (Apache)
+
+ Ecriture d'une page web statique en HTML
+  http://fr.wikipedia.org/wiki/HTML
+  http://fr.wikibooks.org/wiki/Programmation_HTML
+
+ Envoi de fichiers par FTP
+  http://fr.wikipedia.org/wiki/File_Transfer_Protocol
+  http://fr.wikipedia.org/wiki/Cat%C3%A9gorie:Client_FTP
+
+ Installation de PHP
+  sur un serveur sous GNU/Linux Debian (##apt-get install phpX libapacheY-modphpX## ou ##synaptic##)
+  sur Windows (WAMP, EasyPHP)
+
+ Ecriture d'une page web dynamique en PHP (pour faire un essai)
+  http://fr.wikipedia.org/wiki/PHP_hypertext_preprocessor
+
+ Test sur une appli PHP "grandeur nature" avec une base MySQL
+  http://fr.wikipedia.org/wiki/MySQL
+  Exemple : SPIP
+
+ Observation de la base avec phpMyAdmin
+  http://fr.wikipedia.org/wiki/PhpMyAdmin
+
+
+Plus d'info sur http://s.cls.free.fr/wikini/wakka.php?wiki=Linux
+
+
+===== Poser des questions =====
+Serveur de news NNTP exemple : news.wanadoo.fr
+http://groups.google.fr/
+Liste de diffusion (par mail) du logiciel en question
+http://gmane.org  (poster dans une liste de diffusion sans inscription)
+
+===== Se tenir informé de l'actualité des "nouvelles technologies" =====
+http://news.google.fr
+ http://news.google.fr/?topic=t
+ Remarque : il est posssible de suivre des sujets d'actualité en ajoutant des mots-clés à Google News
+Sites informatique
+Blog
+Abonnement à des fils RSS  http://fr.wikipedia.org/wiki/RSS
+Social bookmarking
+ http://en.wikipedia.org/wiki/Social_Bookmarking
+ http://del.icio.us
+Pages d'acceuil personnalisable
+ http://www.netvibes.com
+Ressources pédagogiques
+ http://www.educnet.education.fr
+ http://pragmatice.net
+ http://www.ntic.org
+ ...
+
+===== L'avenir... =====
+Généralisation des applications web http://fr.wikipedia.org/wiki/Application_Web
+ Le web 2.0
+ Côté serveur PHP, ASP, JSP
+ Côté client AJAX http://fr.wikipedia.org/wiki/AJAX
+  Exemples de sites avec AJAX 
+   http://gmail.google.com
+   http://maps.google.com
+   http://news.google.fr
+   http://www.ajaxwrite.com
+   http://www.netvibes.com
+ Autres... Web 2.0
+Clients fins (clients légers, thin client)
+ http://fr.wikipedia.org/wiki/Client_l%C3%A9ger
+ http://en.wikipedia.org/wiki/Thin_client
+...

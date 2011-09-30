@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage{pst-node}
+\usepackage{multido}
+\usepackage[latin1]{inputenc}%
+\usepackage[a4paper]{geometry}
+\pagestyle{empty}
+\begin{document}
+\begin{pspicture}(-5,-5)(5,5)
+   \SpecialCoor
+   \def\fct{ log 360 10 log div mul }
+   \psset{linewidth=0.4pt}
+   \pscircle(0,0){5}
+   \pnode(0,0){Or}
+   \psset{linewidth=0.2pt}
+   \pscircle(0,0){4.3}
+   \multido{\n=1+0.1}{90}{
+     \pnode(!\n\space \fct cos 4.2 mul \n\space \fct sin 4.2 mul){B0}
+     \pnode(!\n\space \fct cos 4.4 mul \n\space \fct sin 4.4 mul){E0}
+     \ncline{B0}{E0}
+   }
+   \psset{linewidth=0.3pt}
+   \multido{\n=1+0.5}{19}{
+     \pnode(!\n\space \fct cos 4.1 mul \n\space \fct sin 4.1 mul){B0}
+     \pnode(!\n\space \fct cos 4.5 mul \n\space \fct sin 4.5 mul){E0}
+     \ncline{B0}{E0}
+   }
+   \psset{linewidth=0.4pt,npos=-0.3}
+   \multido{\n=1+1}{9}{
+     \pnode(!\n\space \fct cos 4.0 mul \n\space \fct sin 4.0 mul){B0}
+     \pnode(!\n\space \fct cos 4.6 mul \n\space \fct sin 4.6 mul){E0}
+     \ncline{B0}{E0}\ncput{\n}
+     \ncline{E0}{B0}\ncput{\n}
+   }
+\end{pspicture}
+\end{document}

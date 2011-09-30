@@ -1,0 +1,1022 @@
+%An interactive document that uses JavaScript to 
+%perform simple vector operations. 
+%
+%Faro, Portugal, 05/04/2003 at 22:00h 
+%Written by Orlando Camargo Rodríguez
+%
+%In order to compile this document the insdljs.sty and 
+%dljscc.def files are required. Those files should be 
+%available at http://www.math.uakron.edu/~dpstory/webeq.html
+%
+\documentclass[12pt]{article} 
+
+\usepackage[T1]{fontenc}
+\usepackage[ansinew]{inputenc}
+\usepackage[french,english]{babel}
+\usepackage[hmargin=.75cm,vmargin=1.0cm]{geometry}
+\usepackage{graphicx}
+\usepackage[pdftex]{insdljs} 
+\usepackage{rotating}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{latexsym}
+\usepackage{color}
+
+\usepackage{hyperref}
+\hypersetup{%
+ pdftitle={Grand \'Egogramme Nouveau},%
+  pdfauthor={Mathias B\textsc{REHELIN}},
+  pdfsubject={test du stage CIES niveau I d'Hervé Raynaud},
+  pdfkeywords={},
+ 	pdfproducer={},
+  bookmarksopen=false,
+%	hyperindex=true,
+%	linkcolor=red,
+%	anchorcolor=blue,
+%	bookmarks=flase,
+%	bookmarksopen=flase,
+  colorlinks=true,
+  pdfpagemode=None,%FullScreen
+ 	pdftoolbar=false,
+ 	pdffitwindow=true
+ }
+
+\pagestyle{empty}
+
+\begin{insDLJS}[vecsum]{vecsum}{My Private vector sum}
+function vecsum()
+{
+    var v1_1 = this.getField("E1.1");
+		v1_1.defaultValue = 0 ;    
+    var v1_2 = this.getField("E1.2");
+		v1_2.defaultValue = 0 ;    
+    var v1_3 = this.getField("E1.3");
+		v1_3.defaultValue = 0 ;    
+    var v1_4 = this.getField("E1.4");
+		v1_4.defaultValue = 0 ;    
+    var S1 = this.getField("S.1");
+    S1.value = 1*v1_1.value + 2*v1_2.value + 3*v1_3.value + 4*v1_4.value ; 
+    
+    var v2_1 = this.getField("E2.1");
+		v2_1.defaultValue = 0 ;    
+    var v2_2 = this.getField("E2.2");
+		v2_2.defaultValue = 0 ;    
+    var v2_3 = this.getField("E2.3");
+		v2_3.defaultValue = 0 ;    
+    var v2_4 = this.getField("E2.4");
+		v2_4.defaultValue = 0 ;    
+    var S2 = this.getField("S.2"); 
+    S2.value = 1*v2_1.value + 2*v2_2.value + 3*v2_3.value + 4*v2_4.value ; 
+    
+    var v3_1 = this.getField("E3.1");
+		v3_1.defaultValue = 0 ;    
+    var v3_2 = this.getField("E3.2");
+		v3_2.defaultValue = 0 ;    
+    var v3_3 = this.getField("E3.3");
+		v3_3.defaultValue = 0 ;    
+    var v3_4 = this.getField("E3.4");
+		v3_4.defaultValue = 0 ;    
+    var S3 = this.getField("S.3");
+    S3.value = 1*v3_1.value + 2*v3_2.value + 3*v3_3.value + 4*v3_4.value ; 
+    
+    var v4_1 = this.getField("E4.1");
+		v4_1.defaultValue = 0 ;    
+    var v4_2 = this.getField("E4.2");
+		v4_2.defaultValue = 0 ;    
+    var v4_3 = this.getField("E4.3");
+		v4_3.defaultValue = 0 ;    
+    var v4_4 = this.getField("E4.4");
+		v4_4.defaultValue = 0 ;    
+    var S4 = this.getField("S.4");
+    S4.value = 1*v4_1.value + 2*v4_2.value + 3*v4_3.value + 4*v4_4.value ; 
+    
+    var v5_1 = this.getField("E5.1");
+		v5_1.defaultValue = 0 ;    
+    var v5_2 = this.getField("E5.2");
+		v5_2.defaultValue = 0 ;    
+    var v5_3 = this.getField("E5.3");
+		v5_3.defaultValue = 0 ;    
+    var v5_4 = this.getField("E5.4");
+		v5_4.defaultValue = 0 ;    
+    var S5 = this.getField("S.5");
+    S5.value = 1*v5_1.value + 2*v5_2.value + 3*v5_3.value + 4*v5_4.value ; 
+
+    var v6_1 = this.getField("E6.1");
+		v6_1.defaultValue = 0 ;    
+    var v6_2 = this.getField("E6.2");
+		v6_2.defaultValue = 0 ;    
+    var v6_3 = this.getField("E6.3");
+		v6_3.defaultValue = 0 ;    
+    var v6_4 = this.getField("E6.4");
+		v6_4.defaultValue = 0 ;    
+    var S6 = this.getField("S.6");
+    S6.value = 1*v6_1.value + 2*v6_2.value + 3*v6_3.value + 4*v6_4.value ; 
+
+    var v7_1 = this.getField("E7.1");
+		v7_1.defaultValue = 0 ;    
+    var v7_2 = this.getField("E7.2");
+		v7_2.defaultValue = 0 ;    
+    var v7_3 = this.getField("E7.3");
+		v7_3.defaultValue = 0 ;    
+    var v7_4 = this.getField("E7.4");
+		v7_4.defaultValue = 0 ;    
+    var S7 = this.getField("S.7");
+    S7.value = 1*v7_1.value + 2*v7_2.value + 3*v7_3.value + 4*v7_4.value ; 
+
+    var v8_1 = this.getField("E8.1");
+		v8_1.defaultValue = 0 ;    
+    var v8_2 = this.getField("E8.2");
+		v8_2.defaultValue = 0 ;    
+    var v8_3 = this.getField("E8.3");
+		v8_3.defaultValue = 0 ;    
+    var v8_4 = this.getField("E8.4");
+		v8_4.defaultValue = 0 ;    
+    var S8 = this.getField("S.8");
+    S8.value = 1*v8_1.value + 2*v8_2.value + 3*v8_3.value + 4*v8_4.value ; 
+
+    var v9_1 = this.getField("E9.1");
+		v9_1.defaultValue = 0 ;    
+    var v9_2 = this.getField("E9.2");
+		v9_2.defaultValue = 0 ;    
+    var v9_3 = this.getField("E9.3");
+		v9_3.defaultValue = 0 ;    
+    var v9_4 = this.getField("E9.4");
+		v9_4.defaultValue = 0 ;    
+    var S9 = this.getField("S.9");
+    S9.value = 1*v9_1.value + 2*v9_2.value + 3*v9_3.value + 4*v9_4.value ; 
+
+    var v10_1 = this.getField("E10.1");
+		v10_1.defaultValue = 0 ;    
+    var v10_2 = this.getField("E10.2");
+		v10_2.defaultValue = 0 ;    
+    var v10_3 = this.getField("E10.3");
+		v10_3.defaultValue = 0 ;    
+    var v10_4 = this.getField("E10.4");
+		v10_4.defaultValue = 0 ;    
+    var S10 = this.getField("S.10");
+    S10.value = 1*v10_1.value + 2*v10_2.value + 3*v10_3.value + 4*v10_4.value ; 
+
+    var v11_1 = this.getField("E11.1");
+		v11_1.defaultValue = 0 ;    
+    var v11_2 = this.getField("E11.2");
+		v11_2.defaultValue = 0 ;    
+    var v11_3 = this.getField("E11.3");
+		v11_3.defaultValue = 0 ;    
+    var v11_4 = this.getField("E11.4");
+		v11_4.defaultValue = 0 ;    
+    var S11 = this.getField("S.11");
+    S11.value = 1*v11_1.value + 2*v11_2.value + 3*v11_3.value + 4*v11_4.value ; 
+
+    var v12_1 = this.getField("E12.1");
+		v12_1.defaultValue = 0 ;    
+    var v12_2 = this.getField("E12.2");
+		v12_2.defaultValue = 0 ;    
+    var v12_3 = this.getField("E12.3");
+		v12_3.defaultValue = 0 ;    
+    var v12_4 = this.getField("E12.4");
+		v12_4.defaultValue = 0 ;    
+    var S12 = this.getField("S.12");
+    S12.value = 1*v12_1.value + 2*v12_2.value + 3*v12_3.value + 4*v12_4.value ; 
+
+    var v13_1 = this.getField("E13.1");
+		v13_1.defaultValue = 0 ;    
+    var v13_2 = this.getField("E13.2");
+		v13_2.defaultValue = 0 ;    
+    var v13_3 = this.getField("E13.3");
+		v13_3.defaultValue = 0 ;    
+    var v13_4 = this.getField("E13.4");
+		v13_4.defaultValue = 0 ;    
+    var S13 = this.getField("S.13");
+    S13.value = 1*v13_1.value + 2*v13_2.value + 3*v13_3.value + 4*v13_4.value ; 
+
+    var v14_1 = this.getField("E14.1");
+		v14_1.defaultValue = 0 ;    
+    var v14_2 = this.getField("E14.2");
+		v14_2.defaultValue = 0 ;    
+    var v14_3 = this.getField("E14.3");
+		v14_3.defaultValue = 0 ;    
+    var v14_4 = this.getField("E14.4");
+		v14_4.defaultValue = 0 ;    
+    var S14 = this.getField("S.14");
+    S14.value = 1*v14_1.value + 2*v14_2.value + 3*v14_3.value + 4*v14_4.value ; 
+
+    var v15_1 = this.getField("E15.1");
+		v15_1.defaultValue = 0 ;    
+    var v15_2 = this.getField("E15.2");
+		v15_2.defaultValue = 0 ;    
+    var v15_3 = this.getField("E15.3");
+		v15_3.defaultValue = 0 ;    
+    var v15_4 = this.getField("E15.4");
+		v15_4.defaultValue = 0 ;    
+    var S15 = this.getField("S.15");
+    S15.value = 1*v15_1.value + 2*v15_2.value + 3*v15_3.value + 4*v15_4.value ; 
+
+    var v16_1 = this.getField("E16.1");
+		v16_1.defaultValue = 0 ;    
+    var v16_2 = this.getField("E16.2");
+		v16_2.defaultValue = 0 ;    
+    var v16_3 = this.getField("E16.3");
+		v16_3.defaultValue = 0 ;    
+    var v16_4 = this.getField("E16.4");
+		v16_4.defaultValue = 0 ;    
+    var S16 = this.getField("S.16");
+    S16.value = 1*v16_1.value + 2*v16_2.value + 3*v16_3.value + 4*v16_4.value ; 
+
+    var v17_1 = this.getField("E17.1");
+		v17_1.defaultValue = 0 ;    
+    var v17_2 = this.getField("E17.2");
+		v17_2.defaultValue = 0 ;    
+    var v17_3 = this.getField("E17.3");
+		v17_3.defaultValue = 0 ;    
+    var v17_4 = this.getField("E17.4");
+		v17_4.defaultValue = 0 ;    
+    var S17 = this.getField("S.17");
+    S17.value = 1*v17_1.value + 2*v17_2.value + 3*v17_3.value + 4*v17_4.value ; 
+
+    var v18_1 = this.getField("E18.1");
+		v18_1.defaultValue = 0 ;    
+    var v18_2 = this.getField("E18.2");
+		v18_2.defaultValue = 0 ;    
+    var v18_3 = this.getField("E18.3");
+		v18_3.defaultValue = 0 ;    
+    var v18_4 = this.getField("E18.4");
+		v18_4.defaultValue = 0 ;    
+    var S18 = this.getField("S.18");
+    S18.value = 1*v18_1.value + 2*v18_2.value + 3*v18_3.value + 4*v18_4.value ; 
+
+    var v19_1 = this.getField("E19.1");
+		v19_1.defaultValue = 0 ;    
+    var v19_2 = this.getField("E19.2");
+		v19_2.defaultValue = 0 ;    
+    var v19_3 = this.getField("E19.3");
+		v19_3.defaultValue = 0 ;    
+    var v19_4 = this.getField("E19.4");
+		v19_4.defaultValue = 0 ;    
+    var S19 = this.getField("S.19");
+    S19.value = 1*v19_1.value + 2*v19_2.value + 3*v19_3.value + 4*v19_4.value ; 
+
+    var v20_1 = this.getField("E20.1");
+		v20_1.defaultValue = 0 ;    
+    var v20_2 = this.getField("E20.2");
+		v20_2.defaultValue = 0 ;    
+    var v20_3 = this.getField("E20.3");
+		v20_3.defaultValue = 0 ;    
+    var v20_4 = this.getField("E20.4");
+		v20_4.defaultValue = 0 ;    
+    var S20 = this.getField("S.20");
+    S20.value = 1*v20_1.value + 2*v20_2.value + 3*v20_3.value + 4*v20_4.value ; 
+
+    var v21_1 = this.getField("E21.1");
+		v21_1.defaultValue = 0 ;    
+    var v21_2 = this.getField("E21.2");
+		v21_2.defaultValue = 0 ;    
+    var v21_3 = this.getField("E21.3");
+		v21_3.defaultValue = 0 ;    
+    var v21_4 = this.getField("E21.4");
+		v21_4.defaultValue = 0 ;    
+    var S21 = this.getField("S.21");
+    S21.value = 1*v21_1.value + 2*v21_2.value + 3*v21_3.value + 4*v21_4.value ; 
+
+    var v22_1 = this.getField("E22.1");
+		v22_1.defaultValue = 0 ;    
+    var v22_2 = this.getField("E22.2");
+		v22_2.defaultValue = 0 ;    
+    var v22_3 = this.getField("E22.3");
+		v22_3.defaultValue = 0 ;    
+    var v22_4 = this.getField("E22.4");
+		v22_4.defaultValue = 0 ;    
+    var S22 = this.getField("S.22");
+    S22.value = 1*v22_1.value + 2*v22_2.value + 3*v22_3.value + 4*v22_4.value ; 
+
+    var v23_1 = this.getField("E23.1");
+		v23_1.defaultValue = 0 ;    
+    var v23_2 = this.getField("E23.2");
+		v23_2.defaultValue = 0 ;    
+    var v23_3 = this.getField("E23.3");
+		v23_3.defaultValue = 0 ;    
+    var v23_4 = this.getField("E23.4");
+		v23_4.defaultValue = 0 ;    
+    var S23 = this.getField("S.23");
+    S23.value = 1*v23_1.value + 2*v23_2.value + 3*v23_3.value + 4*v23_4.value ; 
+
+    var v24_1 = this.getField("E24.1");
+		v24_1.defaultValue = 0 ;    
+    var v24_2 = this.getField("E24.2");
+		v24_2.defaultValue = 0 ;    
+    var v24_3 = this.getField("E24.3");
+		v24_3.defaultValue = 0 ;    
+    var v24_4 = this.getField("E24.4");
+		v24_4.defaultValue = 0 ;    
+    var S24 = this.getField("S.24");
+    S24.value = 1*v24_1.value + 2*v24_2.value + 3*v24_3.value + 4*v24_4.value ; 
+
+    var v25_1 = this.getField("E25.1");
+		v25_1.defaultValue = 0 ;    
+    var v25_2 = this.getField("E25.2");
+		v25_2.defaultValue = 0 ;    
+    var v25_3 = this.getField("E25.3");
+		v25_3.defaultValue = 0 ;    
+    var v25_4 = this.getField("E25.4");
+		v25_4.defaultValue = 0 ;    
+    var S25 = this.getField("S.25");
+    S25.value = 1*v25_1.value + 2*v25_2.value + 3*v25_3.value + 4*v25_4.value ; 
+
+    var v26_1 = this.getField("E26.1");
+		v26_1.defaultValue = 0 ;    
+    var v26_2 = this.getField("E26.2");
+		v26_2.defaultValue = 0 ;    
+    var v26_3 = this.getField("E26.3");
+		v26_3.defaultValue = 0 ;    
+    var v26_4 = this.getField("E26.4");
+		v26_4.defaultValue = 0 ;    
+    var S26 = this.getField("S.26");
+    S26.value = 1*v26_1.value + 2*v26_2.value + 3*v26_3.value + 4*v26_4.value ; 
+
+    var v27_1 = this.getField("E27.1");
+		v27_1.defaultValue = 0 ;    
+    var v27_2 = this.getField("E27.2");
+		v27_2.defaultValue = 0 ;    
+    var v27_3 = this.getField("E27.3");
+		v27_3.defaultValue = 0 ;    
+    var v27_4 = this.getField("E27.4");
+		v27_4.defaultValue = 0 ;    
+    var S27 = this.getField("S.27");
+    S27.value = 1*v27_1.value + 2*v27_2.value + 3*v27_3.value + 4*v27_4.value ; 
+
+    var v28_1 = this.getField("E28.1");
+		v28_1.defaultValue = 0 ;    
+    var v28_2 = this.getField("E28.2");
+		v28_2.defaultValue = 0 ;    
+    var v28_3 = this.getField("E28.3");
+		v28_3.defaultValue = 0 ;    
+    var v28_4 = this.getField("E28.4");
+		v28_4.defaultValue = 0 ;    
+    var S28 = this.getField("S.28");
+    S28.value = 1*v28_1.value + 2*v28_2.value + 3*v28_3.value + 4*v28_4.value ; 
+
+    var v29_1 = this.getField("E29.1");
+		v29_1.defaultValue = 0 ;    
+    var v29_2 = this.getField("E29.2");
+		v29_2.defaultValue = 0 ;    
+    var v29_3 = this.getField("E29.3");
+		v29_3.defaultValue = 0 ;    
+    var v29_4 = this.getField("E29.4");
+		v29_4.defaultValue = 0 ;    
+    var S29 = this.getField("S.29");
+    S29.value = 1*v29_1.value + 2*v29_2.value + 3*v29_3.value + 4*v29_4.value ; 
+
+    var v30_1 = this.getField("E30.1");
+		v30_1.defaultValue = 0 ;    
+    var v30_2 = this.getField("E30.2");
+		v30_2.defaultValue = 0 ;    
+    var v30_3 = this.getField("E30.3");
+		v30_3.defaultValue = 0 ;    
+    var v30_4 = this.getField("E30.4");
+		v30_4.defaultValue = 0 ;    
+    var S30 = this.getField("S.30");
+    S30.value = 1*v30_1.value + 2*v30_2.value + 3*v30_3.value + 4*v30_4.value ; 
+
+    var v31_1 = this.getField("E31.1");
+		v31_1.defaultValue = 0 ;    
+    var v31_2 = this.getField("E31.2");
+		v31_2.defaultValue = 0 ;    
+    var v31_3 = this.getField("E31.3");
+		v31_3.defaultValue = 0 ;    
+    var v31_4 = this.getField("E31.4");
+		v31_4.defaultValue = 0 ;    
+    var S31 = this.getField("S.31");
+    S31.value = 1*v31_1.value + 2*v31_2.value + 3*v31_3.value + 4*v31_4.value ; 
+
+    var v32_1 = this.getField("E32.1");
+		v32_1.defaultValue = 0 ;    
+    var v32_2 = this.getField("E32.2");
+		v32_2.defaultValue = 0 ;    
+    var v32_3 = this.getField("E32.3");
+		v32_3.defaultValue = 0 ;    
+    var v32_4 = this.getField("E32.4");
+		v32_4.defaultValue = 0 ;    
+    var S32 = this.getField("S.32");
+    S32.value = 1*v32_1.value + 2*v32_2.value + 3*v32_3.value + 4*v32_4.value ; 
+
+    var v33_1 = this.getField("E33.1");
+		v33_1.defaultValue = 0 ;    
+    var v33_2 = this.getField("E33.2");
+		v33_2.defaultValue = 0 ;    
+    var v33_3 = this.getField("E33.3");
+		v33_3.defaultValue = 0 ;    
+    var v33_4 = this.getField("E33.4");
+		v33_4.defaultValue = 0 ;    
+    var S33 = this.getField("S.33");
+    S33.value = 1*v33_1.value + 2*v33_2.value + 3*v33_3.value + 4*v33_4.value ; 
+
+    var v34_1 = this.getField("E34.1");
+		v34_1.defaultValue = 0 ;    
+    var v34_2 = this.getField("E34.2");
+		v34_2.defaultValue = 0 ;    
+    var v34_3 = this.getField("E34.3");
+		v34_3.defaultValue = 0 ;    
+    var v34_4 = this.getField("E34.4");
+		v34_4.defaultValue = 0 ;    
+    var S34 = this.getField("S.34");
+    S34.value = 1*v34_1.value + 2*v34_2.value + 3*v34_3.value + 4*v34_4.value ; 
+
+    var v35_1 = this.getField("E35.1");
+		v35_1.defaultValue = 0 ;    
+    var v35_2 = this.getField("E35.2");
+		v35_2.defaultValue = 0 ;    
+    var v35_3 = this.getField("E35.3");
+		v35_3.defaultValue = 0 ;    
+    var v35_4 = this.getField("E35.4");
+		v35_4.defaultValue = 0 ;    
+    var S35 = this.getField("S.35");
+    S35.value = 1*v35_1.value + 2*v35_2.value + 3*v35_3.value + 4*v35_4.value ; 
+
+    var v36_1 = this.getField("E36.1");
+		v36_1.defaultValue = 0 ;    
+    var v36_2 = this.getField("E36.2");
+		v36_2.defaultValue = 0 ;    
+    var v36_3 = this.getField("E36.3");
+		v36_3.defaultValue = 0 ;    
+    var v36_4 = this.getField("E36.4");
+		v36_4.defaultValue = 0 ;    
+    var S36 = this.getField("S.36");
+    S36.value = 1*v36_1.value + 2*v36_2.value + 3*v36_3.value + 4*v36_4.value ; 
+
+    var v37_1 = this.getField("E37.1");
+		v37_1.defaultValue = 0 ;    
+    var v37_2 = this.getField("E37.2");
+		v37_2.defaultValue = 0 ;    
+    var v37_3 = this.getField("E37.3");
+		v37_3.defaultValue = 0 ;    
+    var v37_4 = this.getField("E37.4");
+		v37_4.defaultValue = 0 ;    
+    var S37 = this.getField("S.37");
+    S37.value = 1*v37_1.value + 2*v37_2.value + 3*v37_3.value + 4*v37_4.value ; 
+
+    var v38_1 = this.getField("E38.1");
+		v38_1.defaultValue = 0 ;    
+    var v38_2 = this.getField("E38.2");
+		v38_2.defaultValue = 0 ;    
+    var v38_3 = this.getField("E38.3");
+		v38_3.defaultValue = 0 ;    
+    var v38_4 = this.getField("E38.4");
+		v38_4.defaultValue = 0 ;    
+    var S38 = this.getField("S.38");
+    S38.value = 1*v38_1.value + 2*v38_2.value + 3*v38_3.value + 4*v38_4.value ; 
+
+    var v39_1 = this.getField("E39.1");
+		v39_1.defaultValue = 0 ;    
+    var v39_2 = this.getField("E39.2");
+		v39_2.defaultValue = 0 ;    
+    var v39_3 = this.getField("E39.3");
+		v39_3.defaultValue = 0 ;    
+    var v39_4 = this.getField("E39.4");
+		v39_4.defaultValue = 0 ;    
+    var S39 = this.getField("S.39");
+    S39.value = 1*v39_1.value + 2*v39_2.value + 3*v39_3.value + 4*v39_4.value ; 
+
+    var v40_1 = this.getField("E40.1");
+		v40_1.defaultValue = 0 ;    
+    var v40_2 = this.getField("E40.2");
+		v40_2.defaultValue = 0 ;    
+    var v40_3 = this.getField("E40.3");
+		v40_3.defaultValue = 0 ;    
+    var v40_4 = this.getField("E40.4");
+		v40_4.defaultValue = 0 ;    
+    var S40 = this.getField("S.40");
+    S40.value = 1*v40_1.value + 2*v40_2.value + 3*v40_3.value + 4*v40_4.value ; 
+
+    var v41_1 = this.getField("E41.1");
+		v41_1.defaultValue = 0 ;    
+    var v41_2 = this.getField("E41.2");
+		v41_2.defaultValue = 0 ;    
+    var v41_3 = this.getField("E41.3");
+		v41_3.defaultValue = 0 ;    
+    var v41_4 = this.getField("E41.4");
+		v41_4.defaultValue = 0 ;    
+    var S41 = this.getField("S.41");
+    S41.value = 1*v41_1.value + 2*v41_2.value + 3*v41_3.value + 4*v41_4.value ; 
+
+    var v42_1 = this.getField("E42.1");
+		v42_1.defaultValue = 0 ;    
+    var v42_2 = this.getField("E42.2");
+		v42_2.defaultValue = 0 ;    
+    var v42_3 = this.getField("E42.3");
+		v42_3.defaultValue = 0 ;    
+    var v42_4 = this.getField("E42.4");
+		v42_4.defaultValue = 0 ;    
+    var S42 = this.getField("S.42");
+    S42.value = 1*v42_1.value + 2*v42_2.value + 3*v42_3.value + 4*v42_4.value ; 
+
+    var v43_1 = this.getField("E43.1");
+		v43_1.defaultValue = 0 ;    
+    var v43_2 = this.getField("E43.2");
+		v43_2.defaultValue = 0 ;    
+    var v43_3 = this.getField("E43.3");
+		v43_3.defaultValue = 0 ;    
+    var v43_4 = this.getField("E43.4");
+		v43_4.defaultValue = 0 ;    
+    var S43 = this.getField("S.43");
+    S43.value = 1*v43_1.value + 2*v43_2.value + 3*v43_3.value + 4*v43_4.value ; 
+
+    var v44_1 = this.getField("E44.1");
+		v44_1.defaultValue = 0 ;    
+    var v44_2 = this.getField("E44.2");
+		v44_2.defaultValue = 0 ;    
+    var v44_3 = this.getField("E44.3");
+		v44_3.defaultValue = 0 ;    
+    var v44_4 = this.getField("E44.4");
+		v44_4.defaultValue = 0 ;    
+    var S44 = this.getField("S.44");
+    S44.value = 1*v44_1.value + 2*v44_2.value + 3*v44_3.value + 4*v44_4.value ; 
+
+    var v45_1 = this.getField("E45.1");
+		v45_1.defaultValue = 0 ;    
+    var v45_2 = this.getField("E45.2");
+		v45_2.defaultValue = 0 ;    
+    var v45_3 = this.getField("E45.3");
+		v45_3.defaultValue = 0 ;    
+    var v45_4 = this.getField("E45.4");
+		v45_4.defaultValue = 0 ;    
+    var S45 = this.getField("S.45");
+    S45.value = 1*v45_1.value + 2*v45_2.value + 3*v45_3.value + 4*v45_4.value ; 
+
+    var v46_1 = this.getField("E46.1");
+		v46_1.defaultValue = 0 ;    
+    var v46_2 = this.getField("E46.2");
+		v46_2.defaultValue = 0 ;    
+    var v46_3 = this.getField("E46.3");
+		v46_3.defaultValue = 0 ;    
+    var v46_4 = this.getField("E46.4");
+		v46_4.defaultValue = 0 ;    
+    var S46 = this.getField("S.46");
+    S46.value = 1*v46_1.value + 2*v46_2.value + 3*v46_3.value + 4*v46_4.value ; 
+
+    var v47_1 = this.getField("E47.1");
+		v47_1.defaultValue = 0 ;    
+    var v47_2 = this.getField("E47.2");
+		v47_2.defaultValue = 0 ;    
+    var v47_3 = this.getField("E47.3");
+		v47_3.defaultValue = 0 ;    
+    var v47_4 = this.getField("E47.4");
+		v47_4.defaultValue = 0 ;    
+    var S47 = this.getField("S.47");
+    S47.value = 1*v47_1.value + 2*v47_2.value + 3*v47_3.value + 4*v47_4.value ; 
+
+    var v48_1 = this.getField("E48.1");
+		v48_1.defaultValue = 0 ;    
+    var v48_2 = this.getField("E48.2");
+		v48_2.defaultValue = 0 ;    
+    var v48_3 = this.getField("E48.3");
+		v48_3.defaultValue = 0 ;    
+    var v48_4 = this.getField("E48.4");
+		v48_4.defaultValue = 0 ;    
+    var S48 = this.getField("S.48");
+    S48.value = 1*v48_1.value + 2*v48_2.value + 3*v48_3.value + 4*v48_4.value ; 
+
+    var v49_1 = this.getField("E49.1");
+		v49_1.defaultValue = 0 ;    
+    var v49_2 = this.getField("E49.2");
+		v49_2.defaultValue = 0 ;    
+    var v49_3 = this.getField("E49.3");
+		v49_3.defaultValue = 0 ;    
+    var v49_4 = this.getField("E49.4");
+		v49_4.defaultValue = 0 ;    
+    var S49 = this.getField("S.49");
+    S49.value = 1*v49_1.value + 2*v49_2.value + 3*v49_3.value + 4*v49_4.value ; 
+
+    var Res1 = this.getField("Res.1");
+    Res1.value = S2.value + S12.value + S14.value + S24.value + S27.value + S33.value + S41.value ;
+
+    var Res2 = this.getField("Res.2");
+    Res2.value = S4.value + S8.value + S15.value + S21.value + S30.value + S37.value + S42.value ;
+
+    var Res3 = this.getField("Res.3");
+    Res3.value = S6.value + S16.value + S20.value + S26.value + S34.value + S45.value + S48.value ;
+
+    var Res4 = this.getField("Res.4");
+    Res4.value = S1.value + S5.value + S10.value + S19.value + S23.value + S31.value + S43.value ;
+
+    var Res5 = this.getField("Res.5");
+    Res5.value = S9.value + S17.value + S29.value + S35.value + S38.value + S40.value + S44.value ;
+
+    var Res6 = this.getField("Res.6");
+    Res6.value = S17.value + S22.value + S25.value + S28.value + S36.value + S39.value + S46.value ;
+
+    var Res7 = this.getField("Res.7");
+    Res7.value = S3.value + S7.value + S13.value + S18.value + S32.value + S47.value + S49.value ;
+} 
+
+\end{insDLJS}
+
+\definecolor{ma_couleur}{rgb}{1.,0.886,0.756}
+
+\begin{document}
+
+\pagecolor{ma_couleur}
+
+\hrule
+\vskip2mm \centerline{\LARGE \textsc{Grand \'Egogramme Nouveau}} \vskip2mm
+\hrule
+\vskip10mm
+
+\begin{Form}
+
+%\Reset{Recommencer}
+
+Remplir le questionnaire des pages suivantes \textit{en tapant le chiffre 1} dans la case correspondant le mieux à l'affirmation. Une fois le questionnaire rempli, appuyer sur le bouton \fcolorbox{red}{ma_couleur}{\footnotesize \textsc{Analyser le questionnaire}} afin de le dépouiller. 
+
+\begin{center}
+
+\begin{tabular}{*{27}{c}}
+\multicolumn{2}{c}{\rotatebox{50}{Parent Critique}}		 	&&
+\multicolumn{2}{c}{\rotatebox{50}{Parent Nourricier}}	 	&&
+\multicolumn{2}{c}{\rotatebox{50}{Adulte}}							&&
+\multicolumn{2}{c}{\rotatebox{50}{Enfant Spontané}}			&&
+\multicolumn{2}{c}{\rotatebox{50}{Enfant Adapté}} 			&&
+\multicolumn{2}{c}{\rotatebox{50}{Enfant Rebelle}}			&& \multicolumn{2}{c}{\rotatebox{50}{Petit Professeur}} \\
+\\ \hline	\\
+& 	\TextField[width=5mm,name=Res.1,validate={Res1}]{ }{}
+&&& \TextField[width=5mm,name=Res.2,validate={Res2}]{ }{}
+&&& \TextField[width=5mm,name=Res.3,validate={Res3}]{ }{}
+&&& \TextField[width=5mm,name=Res.4,validate={Res4}]{ }{}
+&&& \TextField[width=5mm,name=Res.5,validate={Res5}]{ }{}
+&&& \TextField[width=5mm,name=Res.6,validate={Res6}]{ }{}
+&&& \TextField[width=5mm,name=Res.7,validate={Res7}]{ }{} \\
+\\ \hline 
+\end{tabular}
+
+\vspace{0.5cm}
+\centerline{\PushButton[name=pb1,onclick={vecsum();}]{\Large\textsc{\textbf{Analyser le questionnaire}}}}
+\vspace{0.5cm}
+
+\end{center}
+
+\small
+\textit{Remarque} : afin de faciliter la saisie des choix, vous pouvez vous positionner dans une cellule en cliquant avec la souris puis vous déplacer d'une case en avant à l'aide de la touche \texttt{tabular($\rightleftharpoons$)} ou en arrière à l'aide de la combinaison \texttt{shift($\Uparrow$)+tabular($\rightleftharpoons$)}
+
+\vspace{1cm}
+
+Ce document a été créé à l'aide de \LaTeX{} et du package \texttt{insdljs} permettant l'utilisation de javascript : tous les visualiseurs de pdf ne sont donc pas aptes à prendre ce dernier en charge ; si tel est le cas, dépouiller manuellement le formulaire en comptant de la manière suivante :
+
+\vspace{0.5cm}
+\begin{minipage}{0.46\linewidth}
+\begin{itemize}
+\item 4 points pour \og tout à fait d'accord \fg
+\item 3 points pour \og plutôt d'accord \fg
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.46\linewidth}
+\begin{itemize}
+\item 2 points pour \og plutôt pas d'accord \fg
+\item 1 points pour \og pas du tout d'accord \fg
+\end{itemize}
+\end{minipage}
+\vspace{0.5cm}
+
+\begin{tabular}{*{27}{c}}
+\hline
+\multicolumn{2}{c}{\textit{Par. Crit.}} && \multicolumn{2}{c}{\textit{Par. Nour.}} && \multicolumn{2}{c}{\textit{Adulte}} && \multicolumn{2}{c}{\textit{Enf. Spont.}} && \multicolumn{2}{c}{\textit{Enf. Ad.}} && \multicolumn{2}{c}{\textit{Enf. Reb.}} && \multicolumn{2}{c}{\textit{Petit Prof.}}\\
+Q.	&Note	&&Q.	&Note &&	Q.&	Note&&	Q.	&Note&	&Q.	&Note&&	Q.&	Note&&	Q.&	Note\\
+\hline \\
+2		&	\TextField[width=5mm,name=S.2,validate={S2=this.getField("S.2");}]{ }{}&
+&4	&	\TextField[width=5mm,name=S.4,validate={S4=this.getField("S.4");}]{ }{}&
+&6 &	\TextField[width=5mm,name=S.6,validate={S6=this.getField("S.6");}]{ }{}&
+&1	&	\TextField[width=5mm,name=S.1,validate={S1=this.getField("S.1");}]{ }{}&  
+&9	&	\TextField[width=5mm,name=S.9,validate={S9=this.getField("S.9");}]{ }{}&
+&11&	\TextField[width=5mm,name=S.11,validate={S11=this.getField("S.11");}]{ }{}&
+&3 &	\TextField[width=5mm,name=S.3,validate={S3=this.getField("S.3");}]{ }{}
+\\	
+12&	\TextField[width=5mm,name=S.12,validate={S12=this.getField("S.12");}]{ }{}&
+&8&	\TextField[width=5mm,name=S.8,validate={S8=this.getField("S.8");}]{ }{}&	
+&16&	\TextField[width=5mm,name=S.16,validate={S16=this.getField("S.16");}]{ }{}&  
+&5&	\TextField[width=5mm,name=S.5,validate={S5=this.getField("S.5");}]{ }{}& 
+&17&	\TextField[width=5mm,name=S.17,validate={S17=this.getField("S.17");}]{ }{}& 
+&22&	\TextField[width=5mm,name=S.22,validate={S22=this.getField("S.22");}]{ }{}&	 
+&7&	\TextField[width=5mm,name=S.7,validate={S7=this.getField("S.7");}]{ }{}
+\\
+14&	\TextField[width=5mm,name=S.14,validate={S14=this.getField("S.14");}]{ }{}&	
+&15&	\TextField[width=5mm,name=S.15,validate={S15=this.getField("S.15");}]{ }{}&	
+&20&	\TextField[width=5mm,name=S.20,validate={S20=this.getField("S.20");}]{ }{}&	
+&10&	\TextField[width=5mm,name=S.10,validate={S10=this.getField("S.10");}]{ }{}&	
+&29&	\TextField[width=5mm,name=S.29,validate={S29=this.getField("S.29");}]{ }{}&	
+&25&	\TextField[width=5mm,name=S.25,validate={S25=this.getField("S.25");}]{ }{}&	
+&13&	\TextField[width=5mm,name=S.13,validate={S13=this.getField("S.13");}]{ }{}
+\\	
+24&	\TextField[width=5mm,name=S.24,validate={S24=this.getField("S.24");}]{ }{}&	
+&21&	\TextField[width=5mm,name=S.21,validate={S21=this.getField("S.21");}]{ }{}&	
+&26&	\TextField[width=5mm,name=S.26,validate={S26=this.getField("S.26");}]{ }{}&	
+&19&	\TextField[width=5mm,name=S.19,validate={S19=this.getField("S.19");}]{ }{}&	
+&35&	\TextField[width=5mm,name=S.35,validate={S35=this.getField("S.35");}]{ }{}&	
+&28&	\TextField[width=5mm,name=S.28,validate={S28=this.getField("S.28");}]{ }{}&	
+&18&	\TextField[width=5mm,name=S.18,validate={S18=this.getField("S.18");}]{ }{}
+\\
+27&	\TextField[width=5mm,name=S.27,validate={S27=this.getField("S.27");}]{ }{}&	
+&30&	\TextField[width=5mm,name=S.30,validate={S30=this.getField("S.30");}]{ }{}&	
+&34&	\TextField[width=5mm,name=S.34,validate={S34=this.getField("S.34");}]{ }{}&	
+&23&	\TextField[width=5mm,name=S.23,validate={S23=this.getField("S.23");}]{ }{}&	
+&38&	\TextField[width=5mm,name=S.38,validate={S38=this.getField("S.38");}]{ }{}&	
+&36&	\TextField[width=5mm,name=S.36,validate={S36=this.getField("S.36");}]{ }{}&	
+&32&	\TextField[width=5mm,name=S.32,validate={S32=this.getField("S.32");}]{ }{}
+\\
+33&	\TextField[width=5mm,name=S.33,validate={S33=this.getField("S.33");}]{ }{}&	
+&37&	\TextField[width=5mm,name=S.37,validate={S37=this.getField("S.37");}]{ }{}&	
+&45&	\TextField[width=5mm,name=S.45,validate={S45=this.getField("S.45");}]{ }{}&	
+&31&	\TextField[width=5mm,name=S.31,validate={S31=this.getField("S.31");}]{ }{}&	
+&40&	\TextField[width=5mm,name=S.40,validate={S40=this.getField("S.40");}]{ }{}&	
+&39&	\TextField[width=5mm,name=S.39,validate={S39=this.getField("S.39");}]{ }{}&	
+&47&	\TextField[width=5mm,name=S.47,validate={S47=this.getField("S.47");}]{ }{}
+\\	
+41&	\TextField[width=5mm,name=S.41,validate={S41=this.getField("S.41");}]{ }{}&	
+&42&	\TextField[width=5mm,name=S.42,validate={S42=this.getField("S.42");}]{ }{}&	
+&48&	\TextField[width=5mm,name=S.48,validate={S48=this.getField("S.48");}]{ }{}&	
+&43&	\TextField[width=5mm,name=S.43,validate={S43=this.getField("S.43");}]{ }{}&	
+&44&	\TextField[width=5mm,name=S.44,validate={S44=this.getField("S.44");}]{ }{}&	
+&46&	\TextField[width=5mm,name=S.46,validate={S46=this.getField("S.46");}]{ }{}&	
+&49&	\TextField[width=5mm,name=S.49,validate={S49=this.getField("S.49");}]{ }{}
+\\ \\\hline	\\
+& 	\TextField[width=5mm,name=Res.1,validate={Res1}]{ }{}
+&&& \TextField[width=5mm,name=Res.2,validate={Res2}]{ }{}
+&&& \TextField[width=5mm,name=Res.3,validate={Res3}]{ }{}
+&&& \TextField[width=5mm,name=Res.4,validate={Res4}]{ }{}
+&&& \TextField[width=5mm,name=Res.5,validate={Res5}]{ }{}
+&&& \TextField[width=5mm,name=Res.6,validate={Res6}]{ }{}
+&&& \TextField[width=5mm,name=Res.7,validate={Res7}]{ }{} \\
+\\ \hline 
+\end{tabular}
+
+\pagebreak
+\normalsize
+
+\begin{longtable}{c l *{4}{c}}
+\hline \\
+ 	& \large \itshape Affirmations à votre sujet & \rotatebox{-90}{Pas du tout d'accord} & \rotatebox{-90}{Plutôt pas d'accord}	& \rotatebox{-90}{Plutôt d'accord}& \rotatebox{-90}{Tout à fait d'accord} \\
+\\ \hline \\ 
+\endfirsthead
+\hline \\
+ 	& \large \itshape Affirmations à votre sujet & -\,- & -	& +& +\,+ \\
+\\ \hline \\ 
+\endhead
+1	&Je suis très spontané et je livre facilement mes émotions & \TextField[width=3mm,name=E1.1,validate={v1_1}]{ }{} & 
+\TextField[width=3mm,name=E1.2,validate={v1_2}]{ }{} & 
+\TextField[width=3mm,name=E1.3,validate={v1_3}]{ }{} & 
+\TextField[width=3mm,name=E1.4,validate={v1_4}]{ }{} \\ 
+\\ 
+2 & Je ne laisse rien passer aux autres et je suis aussi très dur avec moi-même & 
+\TextField[width=3mm,name=E2.1,validate={v2_1}]{ }{} & 
+\TextField[width=3mm,name=E2.2,validate={v2_2}]{ }{} & 
+\TextField[width=3mm,name=E2.3,validate={v2_3}]{ }{} & 
+\TextField[width=3mm,name=E2.4,validate={v2_4}]{ }{} \\ 
+\\
+3	& Je trouve toujours une solution à tout &
+\TextField[width=3mm,name=E3.1,validate={v3_1}]{ }{} & 
+\TextField[width=3mm,name=E3.2,validate={v3_2}]{ }{} & 
+\TextField[width=3mm,name=E3.3,validate={v3_3}]{ }{} & 
+\TextField[width=3mm,name=E3.4,validate={v3_4}]{ }{} \\ 
+\\
+4	&Il est important d'avoir l'impression d'être utile dans la vie &
+\TextField[width=3mm,name=E4.1,validate={v4_1}]{ }{} & 
+\TextField[width=3mm,name=E4.2,validate={v4_2}]{ }{} & 
+\TextField[width=3mm,name=E4.3,validate={v4_3}]{ }{} & 
+\TextField[width=3mm,name=E4.4,validate={v4_4}]{ }{} \\ 
+\\
+5	&J'ai un langage très gestuel& 
+\TextField[width=3mm,name=E5.1,validate={v5_1}]{ }{} & 
+\TextField[width=3mm,name=E5.2,validate={v5_2}]{ }{} & 
+\TextField[width=3mm,name=E5.3,validate={v5_3}]{ }{} & 
+\TextField[width=3mm,name=E5.4,validate={v5_4}]{ }{} \\ 
+\\
+6	&Je suis ouvert à tout& 
+\TextField[width=3mm,name=E6.1,validate={v6_1}]{ }{} & 
+\TextField[width=3mm,name=E6.2,validate={v6_2}]{ }{} & 
+\TextField[width=3mm,name=E6.3,validate={v6_3}]{ }{} & 
+\TextField[width=3mm,name=E6.4,validate={v6_4}]{ }{} \\ 
+\\
+7	&On me prend pour un "débrouillard"& \TextField[width=3mm,name=E7.1,validate={v7_1}]{ }{} & 
+\TextField[width=3mm,name=E7.2,validate={v7_2}]{ }{} & 
+\TextField[width=3mm,name=E7.3,validate={v7_3}]{ }{} & 
+\TextField[width=3mm,name=E7.4,validate={v7_4}]{ }{} \\ 
+\\
+8	&On se confie beaucoup à moi car j'ai l'art de réconforter& \TextField[width=3mm,name=E8.1,validate={v8_1}]{ }{} & 
+\TextField[width=3mm,name=E8.2,validate={v8_2}]{ }{} & 
+\TextField[width=3mm,name=E8.3,validate={v8_3}]{ }{} & 
+\TextField[width=3mm,name=E8.4,validate={v8_4}]{ }{} \\
+\\
+9	&Je ne suis pas contrariant : je fais ce que l'on me demande& \TextField[width=3mm,name=E9.1,validate={v9_1}]{ }{} & 
+\TextField[width=3mm,name=E9.2,validate={v9_2}]{ }{} & 
+\TextField[width=3mm,name=E9.3,validate={v9_3}]{ }{} & 
+\TextField[width=3mm,name=E9.4,validate={v9_4}]{ }{} \\
+\\
+10& Je ne peux pas me retenir de dire ce que je pense& \TextField[width=3mm,name=E10.1,validate={v10_1}]{ }{} & 
+\TextField[width=3mm,name=E10.2,validate={v10_2}]{ }{} & 
+\TextField[width=3mm,name=E10.3,validate={v10_3}]{ }{} & 
+\TextField[width=3mm,name=E10.4,validate={v10_4}]{ }{} \\
+\\
+11& J'ai horreur d'exécuter des ordres& \TextField[width=3mm,name=E11.1,validate={v11_1}]{ }{} & 
+\TextField[width=3mm,name=E11.2,validate={v11_2}]{ }{} & 
+\TextField[width=3mm,name=E11.3,validate={v11_3}]{ }{} & 
+\TextField[width=3mm,name=E11.4,validate={v11_4}]{ }{} \\
+\\
+12& J'ai beaucoup de principes& 
+\TextField[width=3mm,name=E12.1,validate={v12_1}]{ }{} & 
+\TextField[width=3mm,name=E12.2,validate={v12_2}]{ }{} & 
+\TextField[width=3mm,name=E12.3,validate={v12_3}]{ }{} & 
+\TextField[width=3mm,name=E12.4,validate={v12_4}]{ }{} \\
+\\
+13&	Je suis un rêveur& 
+\TextField[width=3mm,name=E13.1,validate={v13_1}]{ }{} & 
+\TextField[width=3mm,name=E13.2,validate={v13_2}]{ }{} & 
+\TextField[width=3mm,name=E13.3,validate={v13_3}]{ }{} & 
+\TextField[width=3mm,name=E13.4,validate={v13_4}]{ }{} \\
+\\
+14&	Il faut être responsable de ses actes, et même de ceux des autres& \TextField[width=3mm,name=E14.1,validate={v14_1}]{ }{} & 
+\TextField[width=3mm,name=E14.2,validate={v14_2}]{ }{} & 
+\TextField[width=3mm,name=E14.3,validate={v14_3}]{ }{} & 
+\TextField[width=3mm,name=E14.4,validate={v14_4}]{ }{} \\
+\\
+15&	Je dépense beaucoup d'énergie à prendre en charge les gens en difficulté& \TextField[width=3mm,name=E15.1,validate={v15_1}]{ }{} & 
+\TextField[width=3mm,name=E15.2,validate={v15_2}]{ }{} & 
+\TextField[width=3mm,name=E15.3,validate={v15_3}]{ }{} & 
+\TextField[width=3mm,name=E15.4,validate={v15_4}]{ }{} \\
+\\
+16&	La raison doit toujours l'emporter sur l'émotion& \TextField[width=3mm,name=E16.1,validate={v16_1}]{ }{} & 
+\TextField[width=3mm,name=E16.2,validate={v16_2}]{ }{} & 
+\TextField[width=3mm,name=E16.3,validate={v16_3}]{ }{} & 
+\TextField[width=3mm,name=E16.4,validate={v16_4}]{ }{} \\
+\\
+17&	Je me soumets facilement à l'opinion générale& \TextField[width=3mm,name=E17.1,validate={v17_1}]{ }{} & 
+\TextField[width=3mm,name=E17.2,validate={v17_2}]{ }{} & 
+\TextField[width=3mm,name=E17.3,validate={v17_3}]{ }{} & 
+\TextField[width=3mm,name=E17.4,validate={v17_4}]{ }{} \\
+\\
+18&	J'aime bien m'attaquer aux problèmes réputés insolubles		& \TextField[width=3mm,name=E18.1,validate={v18_1}]{ }{} & 
+\TextField[width=3mm,name=E18.2,validate={v18_2}]{ }{} & 
+\TextField[width=3mm,name=E18.3,validate={v18_3}]{ }{} & 
+\TextField[width=3mm,name=E18.4,validate={v18_4}]{ }{} \\
+\\
+19&	Lorsque je suis heureux, il m'arrive de chantonner& \TextField[width=3mm,name=E19.1,validate={v19_1}]{ }{} & 
+\TextField[width=3mm,name=E19.2,validate={v19_2}]{ }{} & 
+\TextField[width=3mm,name=E19.3,validate={v19_3}]{ }{} & 
+\TextField[width=3mm,name=E19.4,validate={v19_4}]{ }{} \\
+\\
+20&	Pour résoudre un problème, il faut un maximum d'information& \TextField[width=3mm,name=E20.1,validate={v20_1}]{ }{} & 
+\TextField[width=3mm,name=E20.2,validate={v20_2}]{ }{} & 
+\TextField[width=3mm,name=E20.3,validate={v20_3}]{ }{} & 
+\TextField[width=3mm,name=E20.4,validate={v20_4}]{ }{} \\
+\\
+21&	On me considère comme un "sauveteur professionnel"				& \TextField[width=3mm,name=E21.1,validate={v21_1}]{ }{} & 
+\TextField[width=3mm,name=E21.2,validate={v21_2}]{ }{} & 
+\TextField[width=3mm,name=E21.3,validate={v21_3}]{ }{} & 
+\TextField[width=3mm,name=E21.4,validate={v21_4}]{ }{} \\
+\\
+22&	Je n'aime pas faire comme tout le monde& \TextField[width=3mm,name=E22.1,validate={v22_1}]{ }{} & 
+\TextField[width=3mm,name=E22.2,validate={v22_2}]{ }{} & 
+\TextField[width=3mm,name=E22.3,validate={v22_3}]{ }{} & 
+\TextField[width=3mm,name=E22.4,validate={v22_4}]{ }{} \\
+\\
+23&	Tout souci se voit sur mon visage& \TextField[width=3mm,name=E23.1,validate={v23_1}]{ }{} & 
+\TextField[width=3mm,name=E23.2,validate={v23_2}]{ }{} & 
+\TextField[width=3mm,name=E23.3,validate={v23_3}]{ }{} & 
+\TextField[width=3mm,name=E23.4,validate={v23_4}]{ }{} \\
+\\
+24&	J'aime bien commander& 
+\TextField[width=3mm,name=E24.1,validate={v24_1}]{ }{} & 
+\TextField[width=3mm,name=E24.2,validate={v24_2}]{ }{} & 
+\TextField[width=3mm,name=E24.3,validate={v24_3}]{ }{} & 
+\TextField[width=3mm,name=E24.4,validate={v24_4}]{ }{} \\
+\\
+25&	Mes réactions sont souvent agressives& \TextField[width=3mm,name=E25.1,validate={v25_1}]{ }{} & 
+\TextField[width=3mm,name=E25.2,validate={v25_2}]{ }{} & 
+\TextField[width=3mm,name=E25.3,validate={v25_3}]{ }{} & 
+\TextField[width=3mm,name=E25.4,validate={v25_4}]{ }{} \\
+\\
+26&	Ne réussissent que ceux qui s'en donnent les moyens& \TextField[width=3mm,name=E26.1,validate={v26_1}]{ }{} & 
+\TextField[width=3mm,name=E26.2,validate={v26_2}]{ }{} & 
+\TextField[width=3mm,name=E26.3,validate={v26_3}]{ }{} & 
+\TextField[width=3mm,name=E26.4,validate={v26_4}]{ }{} \\
+\\
+27&	On ne remet jamais en question l'opinion des anciens& \TextField[width=3mm,name=E27.1,validate={v27_1}]{ }{} & 
+\TextField[width=3mm,name=E27.2,validate={v27_2}]{ }{} & 
+\TextField[width=3mm,name=E27.3,validate={v27_3}]{ }{} & 
+\TextField[width=3mm,name=E27.4,validate={v27_4}]{ }{} \\
+\\
+28&	Je ne tiens pas compte de la hiérarchie dans mes relations de travail& \TextField[width=3mm,name=E28.1,validate={v28_1}]{ }{} & 
+\TextField[width=3mm,name=E28.2,validate={v28_2}]{ }{} & 
+\TextField[width=3mm,name=E28.3,validate={v28_3}]{ }{} & 
+\TextField[width=3mm,name=E28.4,validate={v28_4}]{ }{} \\
+\\
+29&	Je n'aime pas m'imposer et j'ai toujours peur de déranger	& \TextField[width=3mm,name=E29.1,validate={v29_1}]{ }{} & 
+\TextField[width=3mm,name=E29.2,validate={v29_2}]{ }{} & 
+\TextField[width=3mm,name=E29.3,validate={v29_3}]{ }{} & 
+\TextField[width=3mm,name=E29.4,validate={v29_4}]{ }{} \\
+\\
+30&	Il faut savoir se dévouer& 
+\TextField[width=3mm,name=E30.1,validate={v30_1}]{ }{} & 
+\TextField[width=3mm,name=E30.2,validate={v30_2}]{ }{} & 
+\TextField[width=3mm,name=E30.3,validate={v30_3}]{ }{} & 
+\TextField[width=3mm,name=E30.4,validate={v30_4}]{ }{} \\
+\\
+31&	Je désire toujours obtenir au plus vite ce que je veux& \TextField[width=3mm,name=E31.1,validate={v31_1}]{ }{} & 
+\TextField[width=3mm,name=E31.2,validate={v31_2}]{ }{} & 
+\TextField[width=3mm,name=E31.3,validate={v31_3}]{ }{} & 
+\TextField[width=3mm,name=E31.4,validate={v31_4}]{ }{} \\
+\\
+32&	J'adore bricoler& 
+\TextField[width=3mm,name=E32.1,validate={v32_1}]{ }{} & 
+\TextField[width=3mm,name=E32.2,validate={v32_2}]{ }{} & 
+\TextField[width=3mm,name=E32.3,validate={v32_3}]{ }{} & 
+\TextField[width=3mm,name=E32.4,validate={v32_4}]{ }{} \\
+\\
+33&	Je suis pour le respect des valeurs morales& \TextField[width=3mm,name=E33.1,validate={v33_1}]{ }{} & 
+\TextField[width=3mm,name=E33.2,validate={v33_2}]{ }{} & 
+\TextField[width=3mm,name=E33.3,validate={v33_3}]{ }{} & 
+\TextField[width=3mm,name=E33.4,validate={v33_4}]{ }{} \\
+\\
+34&	Tous mes actes sont mûrement réfléchis& \TextField[width=3mm,name=E34.1,validate={v34_1}]{ }{} & 
+\TextField[width=3mm,name=E34.2,validate={v34_2}]{ }{} & 
+\TextField[width=3mm,name=E34.3,validate={v34_3}]{ }{} & 
+\TextField[width=3mm,name=E34.4,validate={v34_4}]{ }{} \\
+\\
+35&	Je ne prends pas souvent d'initiative mais j'en laisse le soin à d'autres	& \TextField[width=3mm,name=E35.1,validate={v35_1}]{ }{} & 
+\TextField[width=3mm,name=E35.2,validate={v35_2}]{ }{} & 
+\TextField[width=3mm,name=E35.3,validate={v35_3}]{ }{} & 
+\TextField[width=3mm,name=E35.4,validate={v35_4}]{ }{} \\	
+\\
+36&	Je réponds du tac au tac quand je me sens agressé& \TextField[width=3mm,name=E36.1,validate={v36_1}]{ }{} & 
+\TextField[width=3mm,name=E36.2,validate={v36_2}]{ }{} & 
+\TextField[width=3mm,name=E36.3,validate={v36_3}]{ }{} & 
+\TextField[width=3mm,name=E36.4,validate={v36_4}]{ }{} \\
+\\
+37&	Je suis très apprécié pour les conseils que je donne& \TextField[width=3mm,name=E37.1,validate={v37_1}]{ }{} & 
+\TextField[width=3mm,name=E37.2,validate={v37_2}]{ }{} & 
+\TextField[width=3mm,name=E37.3,validate={v37_3}]{ }{} & 
+\TextField[width=3mm,name=E37.4,validate={v37_4}]{ }{} \\
+\\
+38&	Je ne suis pas de nature contrariante et je ne recherche que la paix& \TextField[width=3mm,name=E38.1,validate={v38_1}]{ }{} & 
+\TextField[width=3mm,name=E38.2,validate={v38_2}]{ }{} & 
+\TextField[width=3mm,name=E38.3,validate={v38_3}]{ }{} & 
+\TextField[width=3mm,name=E38.4,validate={v38_4}]{ }{} \\
+\\
+39&	Je contredis souvent mon entourage par amusement& \TextField[width=3mm,name=E39.1,validate={v39_1}]{ }{} & 
+\TextField[width=3mm,name=E39.2,validate={v39_2}]{ }{} & 
+\TextField[width=3mm,name=E39.3,validate={v39_3}]{ }{} & 
+\TextField[width=3mm,name=E39.4,validate={v39_4}]{ }{} \\
+\\
+40&	Je suis très respectueux		& 
+\TextField[width=3mm,name=E40.1,validate={v40_1}]{ }{} & 
+\TextField[width=3mm,name=E40.2,validate={v40_2}]{ }{} & 
+\TextField[width=3mm,name=E40.3,validate={v40_3}]{ }{} & 
+\TextField[width=3mm,name=E40.4,validate={v40_4}]{ }{} \\
+\\
+41&	Une chose est capitale pour réussir, se faire respecter& \TextField[width=3mm,name=E41.1,validate={v41_1}]{ }{} & 
+\TextField[width=3mm,name=E41.2,validate={v41_2}]{ }{} & 
+\TextField[width=3mm,name=E41.3,validate={v41_3}]{ }{} & 
+\TextField[width=3mm,name=E41.4,validate={v41_4}]{ }{} \\
+\\
+42&	J'aide avec plaisir les personnes en difficulté& \TextField[width=3mm,name=E42.1,validate={v42_1}]{ }{} & 
+\TextField[width=3mm,name=E42.2,validate={v42_2}]{ }{} & 
+\TextField[width=3mm,name=E42.3,validate={v42_3}]{ }{} & 
+\TextField[width=3mm,name=E42.4,validate={v42_4}]{ }{} \\
+\\
+43&	Je ne sais pas retenir mon enthousiasme et je le fais toujours partager& \TextField[width=3mm,name=E43.1,validate={v43_1}]{ }{} & 
+\TextField[width=3mm,name=E43.2,validate={v43_2}]{ }{} & 
+\TextField[width=3mm,name=E43.3,validate={v43_3}]{ }{} & 
+\TextField[width=3mm,name=E43.4,validate={v43_4}]{ }{} \\
+\\
+44&	Je n'aime pas me faire remarquer& \TextField[width=3mm,name=E44.1,validate={v44_1}]{ }{} & 
+\TextField[width=3mm,name=E44.2,validate={v44_2}]{ }{} & 
+\TextField[width=3mm,name=E44.3,validate={v44_3}]{ }{} & 
+\TextField[width=3mm,name=E44.4,validate={v44_4}]{ }{} \\
+\\
+45&	Je tiens toujours compte de l'avis des autres& \TextField[width=3mm,name=E45.1,validate={v45_1}]{ }{} & 
+\TextField[width=3mm,name=E45.2,validate={v45_2}]{ }{} & 
+\TextField[width=3mm,name=E45.3,validate={v45_3}]{ }{} & 
+\TextField[width=3mm,name=E45.4,validate={v45_4}]{ }{} \\
+\\
+46&	Je n'accepte pas que l'on me marche sur les pieds& \TextField[width=3mm,name=E46.1,validate={v46_1}]{ }{} & 
+\TextField[width=3mm,name=E46.2,validate={v46_2}]{ }{} & 
+\TextField[width=3mm,name=E46.3,validate={v46_3}]{ }{} & 
+\TextField[width=3mm,name=E46.4,validate={v46_4}]{ }{} \\
+\\
+47&	Je suis de nature très curieux(se)& \TextField[width=3mm,name=E47.1,validate={v47_1}]{ }{} & 
+\TextField[width=3mm,name=E47.2,validate={v47_2}]{ }{} & 
+\TextField[width=3mm,name=E47.3,validate={v47_3}]{ }{} & 
+\TextField[width=3mm,name=E47.4,validate={v47_4}]{ }{} \\
+\\
+48&	Je raisonne calmement, avec beaucoup de pondération& \TextField[width=3mm,name=E48.1,validate={v48_1}]{ }{} & 
+\TextField[width=3mm,name=E48.2,validate={v48_2}]{ }{} & 
+\TextField[width=3mm,name=E48.3,validate={v48_3}]{ }{} & 
+\TextField[width=3mm,name=E48.4,validate={v48_4}]{ }{} \\
+\\
+49&	Je cherche toujours à comprendre le pourquoi des choses& \TextField[width=3mm,name=E49.1,validate={v49_1}]{ }{} & 
+\TextField[width=3mm,name=E49.2,validate={v49_2}]{ }{} & 
+\TextField[width=3mm,name=E49.3,validate={v49_3}]{ }{} & 
+\TextField[width=3mm,name=E49.4,validate={v49_4}]{ }{} \\
+\\ \\ \hline
+\end{longtable}
+
+\end{Form}
+
+\end{document}
+
+

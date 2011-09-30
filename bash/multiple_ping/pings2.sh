@@ -1,0 +1,1 @@
+xargs -n 1 ping < ip.txt

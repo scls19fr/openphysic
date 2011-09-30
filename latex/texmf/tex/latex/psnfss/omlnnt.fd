@@ -1,0 +1,19 @@
+\ProvidesFile{omlnnt.fd}
+\DeclareFontFamily{OML}{nnt}{\skewchar\font127}
+\DeclareFontShape{OML}{nnt}{m}{n}
+   {<-> ssub * cmm/m/it}{}
+\DeclareFontShape{OML}{nnt}{m}{it}
+   {<-> ssub * cmm/m/it}{}
+\DeclareFontShape{OML}{nnt}{m}{sl}
+   {<-> ssub * cmm/m/it}{}
+\DeclareFontShape{OML}{nnt}{m}{sc}
+   {<-> ssub * cmm/m/it}{}
+\DeclareFontShape{OML}{nnt}{b}{n}
+   {<-> ssub * cmm/b/it}{}
+\DeclareFontShape{OML}{nnt}{b}{it}
+   {<-> ssub * cmm/b/it}{}
+\DeclareFontShape{OML}{nnt}{b}{sl}
+   {<-> ssub * cmm/b/it}{}
+\DeclareFontShape{OML}{nnt}{b}{sc}
+   {<-> ssub * cmm/b/it}{}
+\endinput

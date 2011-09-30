@@ -1,0 +1,10 @@
+#N canvas 342 335 454 304 10;
+#X obj 136 44 adc~;
+#X obj 90 133 dac~ 1;
+#X obj 195 132 dac~ 2;
+#X text 214 36 entree micro;
+#X text 272 141 sortie haut-parleur;
+#X text 62 206 ATTENTION : brancher un casque a la place du haut-parleur
+pour eviter le larsen;
+#X connect 0 0 1 0;
+#X connect 0 1 2 0;

@@ -1,0 +1,6 @@
+
+
+
+Tevoir la gestion des exceptions (FAIT)
+ Throws (Throw)
+ En fait il existe Exception et RuntimeException (ce que j'utilise)

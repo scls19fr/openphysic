@@ -1,0 +1,35 @@
+\doc{Divers rapporteurs pour la Physique}
+
+
+%\vspace*{\stretch{1}}
+
+\SpecialCoor
+
+\begin{multicols}{2}
+\multido{\i=1+1}{6}{%
+\begin{center}
+%\scalebox{1.414}{%
+\begin{pspicture}(-3,-3)(3,3)
+\pscircle{3}
+\pscircle[linestyle=dashed]{2.5}
+\pscircle[linestyle=dashed]{2}
+\pscircle[linestyle=dashed]{1.5}
+\pscircle[linestyle=dashed]{1}
+\pscircle[linestyle=dashed]{0.5}
+\psline(-3,0)(3,0)
+\pscircle*(0,0){0.1}
+\multido{\i=10+10}{36}{\psline(2.6;\i)(3;\i)} % grandes graduations(10°)
+\multido{\i=5+5}{72}{
+\psline[linewidth=0.3\pslinewidth](2.8;\i)(3;\i)} % moyennes graduations (5°)
+\end{pspicture}
+%}
+\end{center}
+\vspace{2cm}
+}
+\end{multicols}
+
+
+% D'après http://melusine.eu.org/syracuse/pstricks/rapporteurs/fabrique/rml.tex
+%\SpecialCoor
+
+

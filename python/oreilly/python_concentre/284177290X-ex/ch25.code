@@ -1,0 +1,49 @@
+import C, java.lang
+
+c = C()
+c.M(23)                     # Appelle M(long)
+c.M(java.lang.Integer(23))  # Appelle M(int)
+
+----------
+
+PySystemState.initialize();
+PythonInterpreter interp = new PythonInterpreter();
+
+----------
+
+String s = (String)interp.get("nomAttr", String.class);
+
+----------
+
+String s = (String)monpyobj.__tojava__(String.class);
+
+----------
+
+PyObject p.__call__(PyObject args[], String keywords[]);
+
+----------
+
+def docall(p, args, keywords):
+    assert len(args) >= len(keywords)
+    deltalen = len(args) - len(keywords)
+    return p(*args[:deltalen], ** dict(zip(keywords, args[deltalen:])))
+
+----------
+
+class UneClassePython:
+    def __init__(self, greeting = "Hello, %s!"):
+        "@sig public UneClassePython(String greeting)"
+        self.greeting = greeting
+    def hello(self, nom):
+        "@sig public String hello(String nom)"
+        return self.greeting % nom
+
+----------
+
+class UnBeanPython(UneClassePython):
+    def getGreeting(self):
+        "@sig public String getGreeting()"
+        return self.greeting
+    def setGreeting(self, greeting):
+        "@sig public void setGreeting(String greeting)"
+        self.greeting = greeting

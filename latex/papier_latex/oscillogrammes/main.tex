@@ -1,0 +1,249 @@
+% Fichier de style LaTeX de Sebastien CELLES
+% Application : Cours, TD, TP
+% \usepackage{scls}	% Definition style perso
+
+
+\documentclass[a4paper]{article}
+%\documentclass{report}
+%\documentclass{book}
+%\documentclass{slides}
+
+\usepackage[frenchb]{babel}	% specification francaise
+\usepackage[latin1]{inputenc}	% entree clavier latin1
+\usepackage[T1]{fontenc}	% sortie
+
+\usepackage{tabularx}           % tableaux
+
+% aeguil ?
+
+%\usepackage{amsmath}		% package ams-math
+%\usepackage{amsfonts}		% package ams-fonts
+%\usepackage{amssymb}		% package ams-symb
+
+% pstricks ou pdftricks
+\usepackage{pstricks}
+%\usepackage{pst-circ} % circuit en elec
+\usepackage{pst-plot} % tracé de fonctions
+
+% gestion des images (jpg, png, eps, etc...)
+%\usepackage{graphicx}
+
+% Insertion code source
+%\usepackage{verbatim}
+
+% *----------------*
+% *---- Marges ----*
+% *----------------*
+
+% Réglage manuel
+%%%%%%%%%%%%%%%%
+
+%\setlength{\voffset}{-1in}              % annulation décalage vertical (default=-1in) % fait planter \layout
+%\setlength{\hoffset}{-1in}              % annulation décalage horizontal (default=-1in) % fait planter \layout
+%\setlength{\textwidth}{17.5cm}          % largeur de la zone de texte (default=16.5cm)
+%\setlength{\textheight}{26cm}           % hauteur de la zone de texte (default=24cm)
+%\setlength{\marginparwidth}{40pt}       % largeur marge (default=40pt)
+%\setlength{\topmargin}{1cm}           % hauteur de la marge supérieure (default=2cm)
+%\setlength{\evensidemargin}{2cm}      % marge de gauche pour les pages paires (default=2cm)
+%\setlength{\oddsidemargin}{2cm}       % marge de gauche pour les pages impaires (default=2.5cm)
+%\setlength{\parskip}{\smallskipamount}  % espacement entre les paragraphes (default=\smallskipamount)
+%\setlength{\skip\footins}{0.6cm}        % espacement entre le corps de texte et les notes de bas de page (default=0.6cm)
+
+
+% Réglage automatique via le package geometry
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{geometry}
+%\geometry{ hmargin=2.5cm, vmargin=1.6cm }
+%\geometry{ hmargin=2.5cm, vmargin=1.5cm } % default
+\geometry{ hmargin=2.5cm, vmargin=1.6cm,lmargin=.5cm }
+
+% Tester les marges
+\usepackage[francais]{layout}
+%\usepackage{fullpage}
+
+% *-----------------*
+% *---- En-tête ----*
+% *-----------------*
+\usepackage{fancyhdr}
+% à placer après \begin{document}....
+%\pagestyle{fancy}  	 
+%\lhead{haut de page gauche} % haut de page gauche
+%\chead{haut de page centre} % haut de page centre
+%\rhead{haut de page droite} % haut de page droite
+%\lfoot{pied de page gauche} % pied de page gauche
+%\cfoot{pied de page centré} % pied de page centré
+%\rfoot{pied de page droit}  % pied de page droit
+%\renewcommand{\headrulewidth}{0.4pt} % Trace un trait de séparation de largeur 0,4 point. Mettre 0pt pour supprimer le trait.
+%\renewcommand{\footrulewidth}{0.4pt}
+
+
+
+% *---------------------------*
+% *---- Compteur exercice ----*
+% *---------------------------*
+\newcounter{num}
+%\renewcommand{\thenum}{\Roman{num}}	% chiffres romains
+\renewcommand{\thenum}{\arabic{num}}	% chiffres arabes
+%\renewcommand{\thenum}{\Alph{num}}	% lettre majuscule
+%\renewcommand{\thenum}{\alph{num}}	% lettre minuscule
+\newcommand{\exo}{\addtocounter{num}{1}{\noindent \textbf{Exercice~\thenum~:~}}}
+\newenvironment{exercice}{\exo}{\vskip 0.5cm}
+
+
+
+% *************************************
+% * ---- Numérotation personnelle ----*
+% *************************************
+\usepackage{titlesec}
+\titlelabel{\thetitle.~} % ajoute un point et une espace insécable après un numéro de titre
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\Alph{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+\renewcommand{\theparagraph}{\alph{paragraph}}
+\setcounter{secnumdepth}{4}
+\titleformat{\paragraph}%
+    {\normalfont \normalsize \itshape}%
+    {\theparagraph}{1em}{}
+  \titlespacing*{\paragraph}{0pt}{1ex plus 0.2ex}{0.5ex plus .2ex}
+
+\begin{document}
+
+
+\title{Oscillogrammes}
+\author{S. Celles}
+%\author{\null}
+
+%\date{\today}
+\date{\null}
+
+%thanks{Merci à eux !}
+
+
+% En-tête et pied de page
+% \usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{S. Celles} % haut de page gauche
+\chead{Physique} % haut de page centre
+%\rhead{Oscillogrammes} % haut de page droite
+%\lfoot{pied de page gauche} % pied de page gauche
+\cfoot{} % pied de page centré (pas de numéro de page)
+%\rfoot{pied de page droit}  % pied de page droit
+\renewcommand{\headrulewidth}{0.4pt} % Trace un trait de séparation de largeur 0,4 point. Mettre 0pt pour supprimer le trait.
+%\renewcommand{\footrulewidth}{0.4pt} % Trace un trait de séparation de largeur 0,4 point. Mettre 0pt pour supprimer le trait.
+
+
+%\maketitle % affichage du titre du document, de l'auteur, de la date
+
+%\tableofcontent % table des matières
+
+
+%\layout % Tester les marges nécessite \usepackage[francais]{layout}
+
+%\newpage % nouvelle page
+% \\ % saut de ligne
+%\footnote{Note de bas de page}
+
+
+
+
+%\newpage
+
+%\chapter{Chapitre} % classe book ou report mais pas article
+
+%\section{}
+%Voici la première section.
+
+%\subsection{SubSection}
+%Voici une subsection.
+
+%\subsubsection{SubSubSection}
+%Voici une subsubsection.
+
+%\paragraph{Paragraph}
+%Voici un paragraph.
+
+
+
+%\section{Oscillogrammes}
+
+%\multido{\n=1+1}{3}{n=\n, }
+
+
+%\multido{\n=1+1}{3}{}
+
+
+\newcommand{\oscillogramme}{
+\begin{tabular}{cc}
+\begin{pspicture}(-5,-4)(5,4)
+\psgrid[subgriddiv=1,griddots=5,gridlabels=0pt]
+\psset{xunit=1}
+\psset{yunit=1}
+
+% Axe des y
+\psline{-}(0,-4)(0,4)
+%\rput{0}(6,-0.25){$y$}
+%\multido{\n=-4+0.1}{80}{ \psline(-0.05,\n)(0.05,\n) } % graduations y
+\multido{\n=-4+0.2}{40}{ \psline(-0.1,\n)(0.1,\n) } % graduations y
+
+% Axe des x
+\psline{-}(-5,0)(5,0)
+%\psaxes[Dx=1]{-}(0,0)(-5,-5)(5,5) % {->} à la place de {-} pour avoir des flèches
+%\rput{0}(-0.25,1.75){$x$}
+%\multido{\n=-5+0.1}{100}{ \psline(\n,-0.05)(\n,0.05) } % graduations x
+\multido{\n=-5+0.2}{50}{ \psline(\n,-0.1)(\n,0.1) } % graduations x
+
+%\psline(-0.1,0.1)(0.1,0.1)
+
+% contour
+\psline[linewidth=2pt]{-}(-5,-4)(-5,4)
+\psline[linewidth=2pt]{-}(-5,4)(5,4)
+\psline[linewidth=2pt]{-}(5,4)(5,-4)
+\psline[linewidth=2pt]{-}(5,-4)(-5,-4)
+
+% fonction à tracer
+%\psplot[linecolor=red,linewidth=1pt]{-5}{5}{x 57.296 mul cos} % sin(x)
+
+\end{pspicture}
+
+&
+
+\begin{tabular}[b]{|lccc|}
+\hline
+\multicolumn{4}{|l|@{\rule[-1cm]{0cm}{1cm}}}{ \textbf{Montage : } }\\ %\textsl
+\hline
+\textbf{Entrées :}&\rule[0cm]{4cm}{0cm}&&\\
+\multicolumn{2}{|l}{Voie $Y_A$ : \dotfill}& \fbox{\quad \rule[0cm]{0cm}{.5cm}}& DC \\[.2cm]
+ou $CH_1$ & sensibilité : \dotfill  $ / DIV$ & \fbox{\quad \rule[0cm]{0cm}{.5cm}} &AC \\[.5cm]
+\multicolumn{2}{|l}{Voie $Y_B$ : $\dotfill$ }& \fbox{\quad \rule[0cm]{0cm}{.5cm}}& DC \\[.2cm]
+ou $CH_2$ & sensibilité : \dotfill  $ / DIV$ & \fbox{\quad \rule[0cm]{0cm}{.5cm}} &AC \\[.1cm]
+\hline
+\textbf{Mode :}&&&\\
+\multicolumn{2}{|l}{base de temps : \dotfill $/ DIV$ }& \fbox{\quad \rule[0cm]{0cm}{.5cm}} &\\[.1cm]
+\multicolumn{2}{|l}{mode $XY$}& \fbox{\quad \rule[0cm]{0cm}{.5cm}} &\\[.1cm]
+\hline
+\end{tabular}
+\bigskip
+\end{tabular}
+}
+
+
+\noindent
+\multido{\n=1+1}{3}{\oscillogramme}
+
+\newpage
+
+\noindent
+\multido{\n=1+1}{3}{\oscillogramme}
+
+%\section*{Exercices}
+
+%\setcounter{num}{0}
+%\begin{exercice} Titre de l'exercice \\
+%Soit ce premier exercice
+%\end{exercice}
+
+%\begin{exercice} \\
+%Ce deuxième exercice
+%\end{exercice}
+
+\end{document}

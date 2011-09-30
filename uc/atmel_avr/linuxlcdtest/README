@@ -1,0 +1,62 @@
+This is a test software for the LCD panels
+form shop.tuxgraphics.org. The software will scroll the string
+"tuxgraphics.org" over the display.
+
+The circuit diagram is documented in the file lcdschematic_gschem.pdf
+
+You can also check the file lcd_hw.h against your circuit.
+
+The main program is linuxlcdtest.c Feel free to use it and modify 
+it for your own purposes.
+
+
+Installation
+------------
+You need the GCC AVR programming software as described in
+http://linuxfocus.org/English/November2004/article352.shtml
+
+If you do not want to install the full environment then you can
+use the pre-compiled avr code. You download it to the AVR uC with the
+command:
+make loadprebuild
+
+To build and download the code use the command:
+make load
+
+Note: You will get some warnings "#warning "This header file is obsolete."
+during compilation with avr-libc-1.4.X. This is because this code will 
+also work with avr-libc-1.2.X
+
+In both cases you need an installation of the uisp or avrdude 
+programmer software.
+Uisp needs the following kernel modules (2.4.x kernel):
+modeprobe parport
+modeprobe parport_pc
+modeprobe ppdev
+
+----------------------------------------------
+Written by guido socher <guido(at)tuxgraphics.org>
+Copyright: GPL 
+Any updates will be made available at shop.tuxgraphics.org/snippets/
+
+Changes:
+--------
+linuxlcdpanel-0.2 2005-01-27: first public version
+linuxlcdpanel-0.3 2005-02-01: removed depricated PRG_RDB macro 
+                              (replace by pgm_read_byte)
+
+linuxlcdpanel-0.4 2005-02-07: RW is PB4 and RS is PB5. This is aligned
+                              with the i2c thermometer and the schematic
+			      included here.
+			      Note: I had RS and RW swaped in older circuits.
+			      Check the file lcd_hw.h against your circuit!
+
+linuxlcdpanel-0.5 2005-02-26: Updated README file with new recommendation
+                              regarding the 220 resistors.
+
+linuxlcdpanel-0.6 2005-02-27: Changed wire connection to avoid the bit errors
+                              during programming all together no matter what
+			      type of parallel port is used.
+
+linuxlcdpanel-0.7 2006-03-03: Modifed for gcc-4.0.x. 
+

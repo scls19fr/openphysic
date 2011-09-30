@@ -1,0 +1,24 @@
+<html>
+
+	<head>
+
+	</head>
+
+	<body>
+
+#CACHE{0}
+
+
+[(#REM) Ceci est un commentaire. ]
+
+[(#REM) Afficher article http://127.0.0.1/stagespip/spip.php?page=sommaire]
+
+	<h1>#NOM_SITE_SPIP</h1>
+
+	<BOUCLE_sommaire(RUBRIQUES){racine}>
+		<a href="#URL_RUBRIQUE"><h2>#TITRE</h2></a>
+	</BOUCLE_sommaire>
+
+
+
+</html>

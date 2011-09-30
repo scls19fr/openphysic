@@ -1,0 +1,99 @@
+import urlparse
+urlparse.urljoin('http://unemachine.com/un/chemin/ici', '../autre/chemin')
+# Le résultat est : 'http://unemachine.com/un/autre/chemin'
+
+----------
+
+urlparse.urlsplit('http://www.python.org:80/faq.cgi?src=fie')
+# Le résultat est : ('http', 'www.python.org:80', '/faq.cgi', 'src=fie','')
+
+----------
+
+urlparse.urlunsplit(('http','www.python.org:80', '/faq.cgi', 'src=fie', ''))
+# Le résultat est : 'http://www.python.org:80/faq.cgi?src=fie'
+
+----------
+
+urlparse.urlunsplit(urlparse.urlsplit('http://a.com/chemin/a?'))
+# Le résultat est : 'http://a.com/chemin/a'
+
+----------
+
+u.urlsplit('http://a.com/chemin;avec/des;parametres?anda=query')
+# Le résultat est : ('http','a.com', '/chemin;avec/des;parametres', 'anda=query', '')
+u.urlparse('http://a.com/chemin;avec/des;parametres?anda=query')
+# Le résultat est : ('http','a.com', '/chemin;avec/des', 'parametres', 'anda=query', '')
+
+----------
+
+urllib.urlencode([('ans', 42), ('clef', 'valeur')])    # 'ans=42&clef=valeur'
+urllib.urlencode({'ans':42, 'clef':'valeur'})          # 'clef=valeur&ans=42'
+
+----------
+
+u.urlencode([('K', ('x', 'y', 'z'))], 1)            # 'K=x&K=y&K=z'
+u.urlencode([('K', ('x', 'y', 'z'))], 0)            # 'K=%28%27x%27%2C+%27y%27%2C+%27z%27%29'
+
+----------
+
+def reporthook(nb_blocs, taille_bloc, taille_fichier):
+    print nb_blocs
+
+----------
+
+import urllib2
+
+x = urllib2.HTTPPasswordMgrWithDefaultRealm()
+x.add_password(None, 'http://monserveur.com/', 'utilisateur', 'motdepasse')
+auth = urrlib2.HTTPBasicAuthHandler(x)
+opener = urllib2.build_opener(auth)
+urllib2.install_opener(opener)
+
+flob = urllib2.urlopen('http://monserveur.com/index.html')
+for ligne in flob.readlines(): print ligne,
+
+----------
+
+import ftplib
+f = ftplib.FTP('ftp.python.org')
+f.login()
+f.retrlines('LIST')
+f.cwd('pub')
+f.retrlines('LIST')
+f.cwd('python')
+f.retrlines('LIST')
+f.retrlines('RETR README')
+
+----------
+
+print urllib.urlopen('ftp://ftp.python.org/pub/python/README').read()
+
+----------
+
+import nntplib
+n = nntplib.NNTP('sunsite.dk')
+reponse, groupes = n.list()
+print reponse
+print 'sunsite.dk transporte', len(groupes), 'groupes de discussion'
+groupes_linux = [g for g in groupes if g[0].startswith('linux')]
+print 'sunsite.dk transporte', len(groupes_linux), 'groupes de discussion sur linux'
+n.group('linux.postgres')
+reponse, num_art, id_art, entetes = n.head('974')
+len(entetes)
+[h for h in entetes if h.startswith('Subject:')]
+n.quit()
+
+----------
+
+import xmlrpclib
+
+proxy = xmlrpclib.ServerProxy('http://www.oreillynet.com/meerkat/xml-rpc/server.php')
+resultats = proxy.meerkat.getItems({'search':'Python', 'num_items':7})
+
+cles = 'title link description'.split( )
+n = 0
+for resultat in resultats:
+    n = n + 1
+    for cle in cles:
+        print '%d. %s: %s' % (n, cle.title( ), resultat.get(cle))
+    print

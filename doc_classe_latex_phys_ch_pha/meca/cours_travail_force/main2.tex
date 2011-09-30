@@ -1,0 +1,290 @@
+\cours{Travail d'une force}
+
+
+\section{Travail d'une force}
+
+\subsection{Définition}
+
+
+\begin{framed}
+Lors du déplacement d'un solide, les éventuelles forces qui lui sont
+appliquées travaillent.
+
+
+Le travail d'une force est une nouvelle grandeur physique. Il sera
+d'autant plus important que la valeur de la force sera grande et que
+le déplacement de l'objet se fera sur une longue distance.
+
+
+Le travail $\W{A}{B}{\vect{F}}$ d'une force constante
+$\vect{F}$, lors d'un déplacement rectiligne de son point
+d'application de $A$ vers $B$, est égal au produit scalaire de la
+force $\vect{F}$ par le vecteur déplacement $\vect{AB}$.
+
+
+
+\[
+\W{A}{B}{\vect{F}}
+ = \vect{F} . \vect{AB}
+ = \norme{\vect{F}} \cdot \norme{\vect{AB}} \cdot cos{\anglevec{F}{AB}}
+\]
+
+
+\begin{itemize}
+\item $\alpha = \anglevec{F}{AB}$\ est l'angle entre les
+ vecteurs $\vect{F}$ et $\vect{AB}$
+\item $\W{A}{B}{\vect{F}}$ en joule $J$
+\item $F$ en newton $N$
+\item $AB$ en mètre $m$
+\end{itemize}
+\end{framed}
+
+
+\remarque{%
+le joule est le travail d'une force de $1~N$ dont le point
+d'application se déplace de $1~m$ selon la direction de la force.
+}
+
+
+
+
+Une force ne travaille pas $\W{A}{B}{\vect{F}} = 0$ si son point
+d'application ne se déplace pas ou si sa direction est perpendiculaire
+à celle du déplacement ($cos{\alpha} = 0$).
+
+
+
+
+\subsection{Travail moteur et travail résistant}
+
+$F \geq 0$,  $AB \geq 0$ et $-1 \leq cos(\alpha) \leq 1$. Le travail
+est donc une \emph{grandeur algébrique}.
+
+
+
+\begin{center}
+\includegraphics{auto_4_forces.gif.eps}
+\caption{Automobile soumise à 4 forces}
+\end{center}
+
+%Scanner doc1 page 98.
+
+
+\begin{itemize}
+\item Si $\alpha < 90°$ la force $\vect{F}$ favorise le
+ déplacement$\W{A}{B}{\vect{F}} > 0$.
+ Le travail de la force est dit \emph{moteur}.
+\item Si $\alpha > 90°$ la force $F$ favorise le déplacement
+ $\W{A}{B}{\vect{F}} < 0$. 
+ Le travail de la force est dit \emph{résistant}.
+\end{itemize}
+
+
+
+\section{Travail du poids d'un corps}
+
+
+\begin{center}
+\includegraphics{balle_mvt_curviligne.png.eps}
+\caption{Balle roulant le long d'une pente}
+\end{center}
+%Scanner doc 6 page 98.
+
+
+
+Déterminons le travail du poids de la balle lors de son déplacement le
+long d'une trajectoire quelconque conduisant d'un point $A$ d'une
+altitude $z_A$ à un point $B$ d'une altitude $z_B$.
+
+
+On décompose la trajectoire curviligne $AB$ en une infinité de segments
+rectilignes $AM_1$, $M_1 M_2$, $M_2 M_3$, $M_i M_{i+1}$, $M_n B$.
+
+
+\[
+\W{A}{B}{\vect{P}} =
+ \vect{P} . \vect{AM_1}
+ + \vect{P} . \vect{M_1 M_2}
+ + \cdots
+ + \vect{P} . \vect{M_i M_{i+1}}
+ + \cdots
+ + \vect{P} . \vect{M_n B}
+\]
+
+
+\[
+\W{A}{B}{\vect{P}}
+ = \vect{P} . (\vect{A M_1} + \vect{M_1 M_2} + \vect{M_i M_{i+1}} +\vect{M_n B})
+\]
+
+
+\[
+\W{A}{B}{\vect{P}}
+ = \vect{P} . \vect{AB}
+\]
+
+
+
+$\vect{P} (O ; O ; - m \cdot g)$
+
+
+
+$\vect{AB} (x_B - x_A ; y_B - y_A ; z_B - z_A)$
+
+
+
+\[
+\W{A}{B}{\vect{P}} = m \cdot g \cdot (zA - zB)
+\]
+
+% à vérifier par 2 méthodes
+%  méth 1 : u v cos alpha
+%  méth 2 : produit scalaire avec coord
+
+
+Le travail du poids d'un corps est indépendant du chemin suivi par son
+centre d'inertie $G$ pour aller d'un point de départ $A$ vers un point
+d'arrivée $B$. Il ne dépend que de leur altitude $z_A$ et $z_B$.
+
+
+
+
+\section{Travail d'une force \emph{constante}}
+
+\begin{framed}
+
+Pour une force constante quelconque, généralisons le cas précédent : 
+
+Le travail $\W{A}{B}{\vect{P}}$ d'une force constante $\vect{F}$ lors
+d'un déplacement quelconque de son point d'application de $A$ vers $B$
+est égal au produit scalaire de la force $\vect{F}$ par le vecteur
+déplacement $\vect{AB}$ : 
+
+
+\[
+\W{A}{B}{\vect{P}}
+ = \vect{F} \cdot \vect{AB}
+\]
+
+
+Le travail d'une force constante est indépendant du chemin suivi, il
+ne dépend que du point de départ et de celui d'arrivée.
+
+\end{framed}
+
+
+\section{Travail des forces dans le cas d'un solide en translation}
+
+Si un solide est en translation, chacun de ses points subi d'un
+déplacement identique.
+
+
+\[
+\vect{A_1 B_1} =
+\vect{A_2 B_2} =
+\cdots =
+\vect{A_n B_n}
+\]
+
+
+La somme des travaux des forces s'écrit :
+
+
+\[
+ \vect{F_1} . \vect{A_1 B_1} + \vect{F_2} . \vect{A_2 B_2} + \cdots + \vect{F_n} . \vect{A_n B_n}
+= (\vect{F_1} + \vect{F_2} + \cdots + \vect{F_n}) . \vect{AB}
+= \vect{F} \cdot \vect{AB}
+= \W{A}{B}{\vect{F}}
+\]
+
+
+\begin{framed}
+Pour un solide en translation, la somme des travaux des forces
+appliquées au solide est égale au travail de la somme des forces
+(résultante).
+\end{framed}
+
+
+
+
+\section{Puissance d'une force}
+
+\subsection{Définition}
+
+%Voire introduction de cette notion aux 1ère STLB.
+
+\begin{framed}
+
+La puissance moyenne $P_{moyenne}$ d'une force $\vect{F}$ est le
+quotient de travail $\W{A}{B}{\vect{F}}$ par la durée $\Delta t$ mise à
+l'effectuer :
+
+
+
+\[
+P_{moyenne} = \frac{\W{A}{B}{\vect{F}}}{\Delta t}
+\]
+
+
+\begin{itemize}
+\item $P_{moyenne}$ en watt $W$
+\item $W(F)$ en joule $J$
+\item $\Delta t$ en seconde $s$.
+\end{itemize}
+
+
+Le watt est la puissance d'une force qui exerce un travail de $1~J$
+pendant une durée de $1~s$.
+
+\end{framed}
+
+\remarque{
+$1~ch (cheval) = 736~W$
+}
+
+\subsection{Cas particulier d'un solide en translation rectiligne uniforme}
+
+Dans ce cas particulier la vitesse est constante et de valeur
+$\vect{v} = \vect{cste}$.
+
+\[
+P_{moyenne}
+ = \frac{
+   \W{A}{B}{\vect{F}}
+   }{
+     \Delta t
+   }
+ = \frac{\vect{F} . \vect{AB}}{\Delta t}
+\]
+
+
+
+
+%\begin{framed}
+Soit un solide en translation rectiligne uniforme, on a :
+
+\[
+\vect{AB} = \vect{v} . \Delta t
+\]
+
+
+\begin{framed}
+La puissance moyenne d'une force constante $\vect{F}$ appliquée au
+solide est égale au produit scalaire de $\vect{F}$ par le vecteur
+vitesse $\vect{v}$ du solide :
+
+\[
+P_{moyenne} = \vect{F} . \vect{v}
+\]
+
+\end{framed}
+
+
+Si la vitesse n'est pas constante au cours du temps, $\vect{v}$
+désigne la vitesse à l'instant $t$, le terme $\vect{F} . \vect{v}$
+représente la puissance instantanée.
+
+
+
+
+%\doc{Travail d'une force}

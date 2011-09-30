@@ -1,0 +1,4 @@
+.cmr
+htfcss: cmssq  font-family: sans-serif;
+htfcss: cmssqi font-family: sans-serif; font-style: italic;
+

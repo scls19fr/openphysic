@@ -1,0 +1,11 @@
+#! /bin/bash
+
+/bin/rm -f m3Dpolyhedron.log
+echo Resizing m3Dpolyhedron figures, ...
+for epsfig in `ls m3Dpolyhedron.*| grep 'm3Dpolyhedron.[0-9]'`;do
+sed "s/%%BoundingBox:.*$/%%BoundingBox: -62 -61 62 67/1" $epsfig > $epsfig.eps
+done
+echo merging m3Dpolyhedron figures, ...
+convert -density 144 -geometry 50% -loop 0 -delay 5 -transparent rgbi:1/1/1 m3Dpolyhedron.*.eps m3Dpolyhedron.gif
+/bin/rm -f m3Dpolyhedron.*.eps
+echo Done with m3Dpolyhedron.gif.

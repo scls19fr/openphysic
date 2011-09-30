@@ -1,0 +1,125 @@
+\tp{Préparations de solutions aqueuses}
+
+\begin{multicols}{2}
+
+\materiel{
+\item Blouse
+\item Fiole jaugée $100~mL$
+\item Bouchon pour fiole jaugée $100~mL$
+\item Spatule métallique
+\item Entonnoir à liquide
+\item Entonnoir à solide
+\item Coupelle de pesée
+\item Balance de précision au 1/100ième de gramme près
+\item Pissette eau distillée
+\item Pipette jaugée $10~mL$, $20~mL$, pipette graduée
+\item Pipeteur
+\item 2 burettes de $25~mL$ et pince et support
+\item 1 bécher
+\item 4 tubes à essais et portes tubes
+}
+
+\produits{
+\item Glucose en poudre
+\item Bandelettes et boite \og test glucose \fg
+}
+
+\medskip
+
+Pour estimer le taux de glucose (sucre) dans les urines, on utilise des bandelettes. Leur coloration dépend de la concentration de sucre présent.
+
+Le glucose a pour formule $C_6 H_{12} O_6$ et son taux doit être régulièrement surveillé notamment chez les diabétiques et les femmes enceintes.
+
+
+\objectifs{
+\item Préparer des solutions de glucose de concentrations molaires différentes et vérifier que la teinte des bandelettes dépend bien de ces concentrations.
+}
+
+
+\end{multicols}
+
+\section{Échelle de teintes des bandelettes}
+\begin{itemize}
+\item Sur le flacon contenant les bandelettes, relever l'échelle de teintes correspondantes à leurs différentes colorations.
+\item Relever pour chaque coloration la concentration molaire en glucose correspondante.
+\end{itemize}
+
+
+\section{Préparation de la solution mère $S_M$}
+\begin{itemize}
+\item Préparer \emph{avec soin et méthode} $100~mL$ de solution de glucose de concentration molaire $1,11.10^{-1}~mol.L^{-1}$ à partir de glucose en poudre.
+\item Calculer la masse de solide à peser.
+\item Faire des schémas explicatifs décrivant le protocole expérimental.
+\end{itemize}
+
+
+\section{Dilution de la solution mère}
+\begin{itemize}
+\item Pour réaliser ces dilutions, on utilisera 2 burettes de $25~mL$ graduées :
+ \begin{itemize}
+  \item une burette contiendra la solution mère.
+  \item l'autre burette contiendra l'eau distillée.
+ \end{itemize}
+\item Les bandelettes doivent être immergées dans les solutions $10~s$ puis la lecture de la teinte prise doit se faire $20~s$ après.
+\item Rappeler la relation utile lors d'une dilution.
+\item Compléter le tableur suivant :
+
+
+% \begin{tabular}{|>{\centering}p{4.5cm}*{4}{|>{\centering}m{2cm}}|}
+% \hline
+% Volume $V_M$ de la solution mère ($mL$)                                  &  10 &   5 & 2,5 & 1,25 \tabularnewline[1cm] \hline
+% Volume d'eau ajoutée ($mL$)                                              &  10 &     &     &      \tabularnewline[1cm] \hline
+% Volume $V_F$  de la solution fille ($mL$)                                &  20 &  20 &  20 &  20  \tabularnewline[1cm] \hline
+% Concentration molaire calculée $c_F$ de la solution fille ($mol.L^{-1}$) &     &     &     &      \tabularnewline[1cm] \hline
+% Concentration massique calculée ($g.L^{-1}$)                             &     &     &     &      \tabularnewline[1cm] \hline
+% Teinte de la bandelette                                                  &     &     &     &      \tabularnewline[1cm] \hline
+% \end{tabular}
+
+\newcommand{\finligne}{\rule[-17.5pt]{0cm}{40pt}\tabularnewline\hline}
+
+\noindent
+
+%\begin{tabular}{|>{\centering}m{4.5cm}*{4}{|>{\centering}m{2cm}}|}
+%\begin{tabularx}{\linewith}{|>{\centering}m{4.5cm}*{4}{|>{\centering}m{2cm}}|}
+\begin{tabularx}{\textwidth}{|>{\centering}m{4.5cm}*{4}{|>{\centering}X}|}
+\hline
+Volume $V_M$ de la solution mère ($mL$)\vphantom{2cm}                    &  10 &   5 & 2,5 & 1,25 \finligne
+Volume d'eau ajoutée ($mL$)                                              &  10 &     &     &      \finligne
+Volume $V_F$  de la solution fille ($mL$)                                &  20 &  20 &  20 &  20  \finligne
+Concentration molaire calculée $c_F$ de la solution fille ($mol.L^{-1}$) &     &     &     &      \finligne
+Concentration massique calculée ($g.L^{-1}$)                             &     &     &     &      \finligne
+Teinte de la bandelette                                                  &     &     &     &      \finligne
+\end{tabularx}
+%\end{tabular}
+
+
+%\textwidth ou \linewidth
+% \begin{tabularx}{\textwidth}{|>{\centering}m{4.5cm}*{4}{|>{\centering}m{2cm}}|}
+% \hline
+% Volume $V_M$ de la solution mère ($mL$)\vphantom{2cm}                    &  10 &   5 & 2,5 & 1,25 \finligne
+% Volume d'eau ajoutée ($mL$)                                              &  10 &     &     &      \finligne
+% Volume $V_F$  de la solution fille ($mL$)                                &  20 &  20 &  20 &  20  \finligne
+% Concentration molaire calculée $c_F$ de la solution fille ($mol.L^{-1}$) &     &     &     &      \finligne
+% Concentration massique calculée ($g.L^{-1}$)                             &     &     &     &      \finligne
+% Teinte de la bandelette                                                  &     &     &     &      \finligne
+% \end{tabularx}
+
+
+\end{itemize}
+
+\section{Conclusions}
+
+\section{Recherches}
+\begin{itemize}
+\item Rechercher la signification des mots \emph{glycémie} et \emph{hypoglycémie}
+\item Que faut-il faire en cas d'hypoglycémie ?
+\item Quand parle-t-on de diabète ?
+\item Le taux de glycémie à jeun, pour un adulte, doit être inférieur à $1,20~g.L^{-1}$.\\
+Calculer la concentration molaire limite.
+\end{itemize}
+
+\bigskip
+
+\begin{center}
+\includegraphics[width=15cm]{boite.jpg.eps}
+\end{center}

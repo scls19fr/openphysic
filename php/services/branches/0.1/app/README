@@ -1,0 +1,206 @@
+Gestion previsionnelle des services d'enseignement
+==================================================
+
+Cette application a pour objectif de réaliser une gestion prévisionnelle des services d'enseignement.
+On défini les différentes filières (S1, S2, S3, S4, Licence...), le nb de groupes de TD, TP...
+puis on crée les matières associées à ces filières et le volume horaire
+(pour un groupe).
+On peut ensuite affecter des enseignants (avec un volume horaire donné).
+On peut alors obtenir des bilans (par filières, par matières, par enseignant)
+* Le bilan pour un enseignant permet :
+ - de connaître les matières dans lesquelles l'enseignant est impliqué (et dans quel volume horaire)
+ - de connaître le nb total d'heures de Cours, TD, TP que l'enseignant efffectue
+ aini que le nb d'heures équivalent TD et le nb d'heures total (tout type
+ d'enseignement confonduà
+* Le bilan pour une matière permet :
+ - de connaître les différents ensignants impliqués dans une matière (et dans
+ quel volume horaire)
+ - de comptabiliser le nombre d'heures de Cours, TD, TP à effectuer (fonction
+ du nb de groupe) ainsi que le nombre d'heures attribués aux enseignants et
+ surtout le nb d'heures n'étant pas encore attribuées
+* La bilan pour une filière permet :
+ - de connaître les matières associées à une filière ainsi que les volumes
+ horaires à effectuer, les volumes horaires attribués aux enseignants et
+ les volumes horaires restants non attribués.
+ 
+
+Pour les informations concernant l'installation de l'application
+ voir INSTALL.TXT
+
+
+ Copyright (C) 2009  Sébastien Celles
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+ToDo:
+=====
+* cf OpenOffice Base services.odb
+  
+* Ajouter 2 niveaux au dessus des filières (formations)
+ - niceau "département" (ex GTE, GEII...)
+ - niveau "composante" (ex IUT, IUFM, SFA...)
+
+* Définir des droits au sein d'une composante, d'un département, d'une filière, 
+d'une matière
+
+* Lier un user à un persos afin qu'une personne sans droit particulier puisse
+visualiser sa fiche de service
+
+* calculer des bilans  
+ - Création de vue SQL
+create view view_matieres_perso as select ...
+pas de vue SQL chez OVH ? 
+comment faire le produit nb_heure*nb_de_grpe pour toutes les matières !
+
+SELECT * FROM services_matieres_persos, services_persos, services_matieres, services_filieres WHERE services_matieres_persos.perso_id=services_persos.id AND services_matieres_persos.matiere_id=services_matieres.id AND filiere_id=services_filieres.id
+
+Bilan Matières
+==============
+-- besoins à combler
+CREATE VIEW services_vue_matieres_total_besoins AS SELECT services_matieres.id AS id, services_matieres.id AS matiere_id, services_matieres.h_cours, services_matieres.h_td * services_filieres.nb_gr_td AS h_td, h_tp * services_filieres.nb_gr_tp AS h_tp FROM services_matieres, services_filieres WHERE services_matieres.filiere_id = services_filieres.id;
+
+
+-- besoins comblés
+-- -- affiche uniquement les matières ayant des occupations
+CREATE VIEW services_vue_matieres_combles_besoins AS SELECT matiere_id AS id, matiere_id AS matiere_id, SUM(h_cours) AS h_cours, SUM(h_td) AS h_td, SUM(h_tp) AS h_tp FROM services_matieres_persos GROUP BY matiere_id;
+
+-- -- affiche toutes les matières
+ToDo
+CREATE VIEW services_vue_matieres_combles_besoins2 AS SELECT matiere_id AS id, matiere_id AS matiere_id, SUM(h_cours) AS h_cours, SUM(h_td) AS h_td, SUM(h_tp) AS h_tp FROM services_matieres, services_matieres_persos GROUP BY matiere_id RIGHT OUTER JOIN services_matieres ON services_matieres.id = services_matieres_persos.perso_id;
+??
+
+
+
+-- besoins non comblés
+CREATE VIEW services_vue_matieres_restants_besoins AS SELECT services_vue_matieres_total_besoins.matiere_id AS id, services_vue_matieres_total_besoins.matiere_id AS matiere_id, services_vue_matieres_total_besoins.h_cours - coalesce( services_vue_matieres_combles_besoins.h_cours, 0 ) AS h_cours, services_vue_matieres_total_besoins.h_td - coalesce( services_vue_matieres_combles_besoins.h_td, 0 ) AS h_td, services_vue_matieres_total_besoins.h_tp - coalesce( services_vue_matieres_combles_besoins.h_tp, 0 ) AS h_tp FROM services_vue_matieres_combles_besoins AS services_vue_matieres_combles_besoins RIGHT OUTER JOIN services_vue_matieres_total_besoins AS services_vue_matieres_total_besoins ON services_vue_matieres_total_besoins.matiere_id = services_vue_matieres_combles_besoins.matiere_id;
+
+Bilan Filières
+==============
+-- besoins à combler
+CREATE VIEW services_vue_filieres_total_besoins AS SELECT services_filieres.id AS id, services_filieres.id AS filiere_id, SUM( services_vue_matieres_total_besoins.h_cours ) AS h_cours, SUM( services_vue_matieres_total_besoins.h_td ) AS h_td, SUM( services_vue_matieres_total_besoins.h_tp ) AS h_tp FROM services_matieres, services_filieres, services_vue_matieres_total_besoins WHERE services_matieres.filiere_id = services_filieres.id AND services_matieres.id = services_vue_matieres_total_besoins.matiere_id GROUP BY services_filieres.id;
+
+-- besoins comblés
+--à partir de la table services_matieres_persos
+CREATE VIEW services_vue_filieres_combles_besoins AS SELECT filiere_id AS id, filiere_id AS filiere_id, SUM(services_matieres_persos.h_cours) AS h_cours, SUM(services_matieres_persos.h_td) AS h_td, SUM(services_matieres_persos.h_tp) AS h_tp FROM services_matieres_persos, services_matieres WHERE services_matieres_persos.matiere_id=services_matieres.id GROUP BY filiere_id;
+
+mauvaise idée...
+
+-->>> à partir de la vue matière besoins comblés : services_vue_matieres_combles_besoins
+
+CREATE VIEW services_vue_filieres_combles_besoins AS SELECT filiere_id AS id, filiere_id AS filiere_id, SUM(services_vue_matieres_combles_besoins.h_cours) AS h_cours, SUM(services_vue_matieres_combles_besoins.h_td) AS h_td, SUM(services_vue_matieres_combles_besoins.h_tp) AS h_tp FROM services_vue_matieres_combles_besoins, services_matieres WHERE services_vue_matieres_combles_besoins.matiere_id=services_matieres.id GROUP BY filiere_id;
+
+-- besoins non comblés (restants)
+CREATE VIEW services_vue_filieres_restants_besoins AS SELECT services_vue_filieres_total_besoins.filiere_id AS id, services_vue_filieres_total_besoins.filiere_id AS filiere_id, services_vue_filieres_total_besoins.h_cours - coalesce( services_vue_filieres_combles_besoins.h_cours, 0 ) AS h_cours, services_vue_filieres_total_besoins.h_td - coalesce( services_vue_filieres_combles_besoins.h_td, 0 ) AS h_td, services_vue_filieres_total_besoins.h_tp - coalesce( services_vue_filieres_combles_besoins.h_tp, 0 ) AS h_tp FROM services_vue_filieres_combles_besoins AS services_vue_filieres_combles_besoins RIGHT OUTER JOIN services_vue_filieres_total_besoins AS services_vue_filieres_total_besoins ON services_vue_filieres_total_besoins.filiere_id = services_vue_filieres_combles_besoins.filiere_id;
+
+
+Bilan Persos
+============
+
++ Bilan de service des persos (uniquement ceux ayant des occupations)
+CREATE VIEW services_vue_persos_bilan_services AS SELECT perso_id AS id, perso_id, SUM( h_cours ) AS h_cours, SUM( h_td ) AS h_td, SUM( h_tp ) AS h_tp FROM services_matieres_persos GROUP BY perso_id;
+
++ Bilan de service de tous les persos
+CREATE VIEW services_vue_temp_persos_bilan_services AS SELECT perso_id AS id, perso_id, SUM( h_cours ) AS h_cours, SUM( h_td ) AS h_td, SUM( h_tp ) AS h_tp FROM services_matieres_persos GROUP BY perso_id;
+CREATE VIEW services_vue_persos_bilan_services AS SELECT services_persos.id, services_persos.id AS perso_id, coalesce(h_cours,'0') as h_cours, coalesce(h_td,'0') as h_td, coalesce(h_tp,'0') as h_tp FROM services_vue_temp_persos_bilan_services RIGHT OUTER JOIN services_persos ON services_persos.id = services_vue_temp_persos_bilan_services.id;
+
+ - Requête avec find puis boucle for pour calculer la somme et on encapsule le tout dans une fonction
+
+ - Utilsation de requête SQL directe dans les modèles
+pb : comment récupérer le prefixe des tables ?
+
+
+* redirection
+gérer la redirection lors de l'ajout ou la suppression d'une occupation
+(retour vers la fiche enseignant correspondante ou vers la fiche matière correspondante
+ou vers la page index des occupations)
+voir referrers $this->referer() ou passage d'un paramètre dans l'URL ?
+
+* filtre des pages index
+http://localhost:8888/services/filieres/index/filter:filiere:1
+
+* affichage d'une zone déroulante
+(initiales) nom prenom
+dans occupations des personnels (ajouter ou editer ou voir)
+
+* sur page login http://localhost:8888/services/users/login remplacer
+'username' par 'nom d'utilisateur'
+'password' par 'mot de passe'
+voir $form->input
+dans login.ctp
+
+* couleurs dégradées pour heures restantes
+orange si <0
+vert si =0
+rouge si >=heure à effectuer
+entre rouge et vert si entre 0 et heure à effectuer
+
+* matiere_perso (add, edit ou del)
+après validation rediriger ver la page
+du personnel en question ou de la matière en question (selon le contexte)
+
+* Ajouter module d'authentification et d'autorisation
+  http://www.lazareff.net/component/content/article/9-les-autorisations-avec-cakephp-12.html?showall=1
+  
+  ACL ARO ACO ...
+
+voir http://book.cakephp.org/fr/view/171/Access-Control-Lists
+http://stackoverflow.com/questions/54230/cakephp-acl-database-setup-aro-aco-structure
+http://bakery.cakephp.org/articles/view/user-permissions-and-cakephp-acl
+http://bakery.cakephp.org/articles/view/how-to-use-acl-in-1-2-x
+
+utilisateur
+ peut consulter son service (si 'user' est attaché à un 'perso')
+ peut modifier son mot de passe
+ ne peut pas editer son username !
+ 
+administrateur de filière
+ peut	créer des matières dans la filière à laquelle il est rattaché
+ 		créer des perso
+ 		attacher des perso et des user
+ 		modifier le nb de groupe d'une filière (editer filiere)
+ 		affecter un perso sur une matière
+ 		visualiser les services de n'importe quel perso
+ 		visualiser les bilans de matière
+
+(
+administrateur de département (à confondre avec admin de filière ?)
+ peut ajouter filiere / supprimer filiere
+)
+
+
+administrateur
+ peut : tout faire
+ ne peut pas : rien
+ 
+ 
+* Ajouter occupations
+devrait utiliser Ajax
+Liste déroulante pour choisir filière
+met à jour une liste déroulant pour choisir matières (de la filière sélectionnée précédemment)
+
+
+* Grille annuelle horaire (pour 1 groupe ou pour l'ensemble ?)
+
+n° semaine -> 36 37 38 ..... 52 01 02 ... 
+Matière 
+  |
+ \ /
+ Electricité  ... ... 5h
+  Cours
+  TD
+  TP
+  
+  à l'intersection semaine / matière on note le nb d'heures à effectuer
+  

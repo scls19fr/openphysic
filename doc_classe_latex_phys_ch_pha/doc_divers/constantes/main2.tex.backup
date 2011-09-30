@@ -1,0 +1,27 @@
+%\doc{Constantes fondamentales}
+
+% Références
+% Livres de 2nd 1S TS
+% http://www.geniesenherbe.org/theorie/science/phyconst.html
+
+
+\newcommand{\tabconstantes}{%
+\begin{tabularx}{\textwidth}{|>{\centering}m{6cm}*{3}{|>{\centering}X}|}
+\hline
+\emph{Grandeur}                    & \emph{Notation}       & \emph{Valeur}          & \emph{Unité}        \tabularnewline \hline
+Constante de la gravitation        & $G$                   & $6,672~59.10^{-11}$    & $N.kg^{-2}.m^2$     \tabularnewline \hline
+Constante de la force de Coulomb   & $k$                   & $8,987~55.10^9$        & $N.m^2.C^{-2}$      \tabularnewline \hline
+Vitesse de la lumière dans le vide & $c$                   & $2,997~924~58.10^{-8}$ & $m.s^{-1}$          \tabularnewline \hline
+Perméabilité du vide               & $\mu_0$               & $1,256~64.10^{-6}$     & $T.m.A^{-1}$        \tabularnewline \hline
+Charge élémentaire                 & $e$                   & $1,602~18.10^{-19}$    & $C$                 \tabularnewline \hline
+Masse de l'électron                & $m_{\mbox{\tiny e}}$  & $9,109~39.10^{-31}$    & $kg$                \tabularnewline \hline
+Masse du proton                    & $m_{\mbox{\tiny p}}$  & $1,672~623.10^{-27}$   & $kg$                \tabularnewline \hline
+Masse du neutron                   & $m_{\mbox{\tiny n}}$  & $1,674~929.10^{-27}$   & $kg$                \tabularnewline \hline
+Nombre d'Avogadro                  & $N_A$                 & $6,02.10^23$           & $mol^-1$            \tabularnewline \hline
+Constante du gaz parfait           & $R$                   & $8,314$                & $J.mol^{-1}.K^{-1}$ \tabularnewline \hline
+Constante de Faraday               & $F = N_A \cdot e$                   & $9,65.10^4$            & $C.mol^{-1}$        \tabularnewline \hline
+\end{tabularx}
+}
+
+%\tabconstantes
+

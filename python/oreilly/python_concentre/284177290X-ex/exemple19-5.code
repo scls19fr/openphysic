@@ -1,0 +1,13 @@
+import SocketServer
+class GestionnaireEcho(SocketServer.BaseRequestHandler):
+    def handle(self):
+        print "Connexion de", self.client_address
+        while True:
+            donneesRecues = self.request.recv(8192)
+            if not donneesRecues: break
+            self.request.sendall(donneesRecues)
+        self.request.close( )
+        print "Déconnexion de", self.client_address
+
+serveur = SocketServer.ThreadingTCPServer(('', 8881), GestionnaireEcho)
+serveur.serve_forever()

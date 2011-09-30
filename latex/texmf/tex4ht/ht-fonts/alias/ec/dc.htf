@@ -1,0 +1,7 @@
+.ec
+htfcss: dcbx  font-weight: bold;
+htfcss: dcit  font-style: italic;
+htfcss: dcss  font-family: sans-serif;
+htfcss: dcti  font-style: italic;
+htfcss: dctt  font-family: monospace;
+

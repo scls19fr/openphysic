@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg
+   xmlns="http://www.w3.org/2000/svg" 
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:ev="http://www.w3.org/2001/xml-events"
+   version="1.1"
+   baseProfile="full"
+   x="0"
+   y="0"
+   width="210mm"
+   height="297mm"
+   id="svg2">
+  <title>papier</title>
+  <defs id="defs4" />
+  <g id="layer1">
+
+<!-- Lignes horizontales (minor) -->
+       <line x1="5mm" y1="6mm" x2="205mm" y2="6mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="7mm" x2="205mm" y2="7mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="8mm" x2="205mm" y2="8mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="9mm" x2="205mm" y2="9mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="10mm" x2="205mm" y2="10mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="11mm" x2="205mm" y2="11mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="12mm" x2="205mm" y2="12mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="13mm" x2="205mm" y2="13mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="14mm" x2="205mm" y2="14mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="16mm" x2="205mm" y2="16mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="17mm" x2="205mm" y2="17mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="18mm" x2="205mm" y2="18mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="19mm" x2="205mm" y2="19mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="20mm" x2="205mm" y2="20mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="21mm" x2="205mm" y2="21mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="22mm" x2="205mm" y2="22mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="23mm" x2="205mm" y2="23mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="24mm" x2="205mm" y2="24mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="26mm" x2="205mm" y2="26mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="27mm" x2="205mm" y2="27mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="28mm" x2="205mm" y2="28mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="29mm" x2="205mm" y2="29mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="30mm" x2="205mm" y2="30mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="31mm" x2="205mm" y2="31mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="32mm" x2="205mm" y2="32mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="33mm" x2="205mm" y2="33mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="34mm" x2="205mm" y2="34mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="36mm" x2="205mm" y2="36mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="37mm" x2="205mm" y2="37mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="38mm" x2="205mm" y2="38mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="39mm" x2="205mm" y2="39mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="40mm" x2="205mm" y2="40mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="41mm" x2="205mm" y2="41mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="42mm" x2="205mm" y2="42mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="43mm" x2="205mm" y2="43mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="44mm" x2="205mm" y2="44mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="46mm" x2="205mm" y2="46mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="47mm" x2="205mm" y2="47mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="48mm" x2="205mm" y2="48mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="49mm" x2="205mm" y2="49mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="50mm" x2="205mm" y2="50mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="51mm" x2="205mm" y2="51mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="52mm" x2="205mm" y2="52mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="53mm" x2="205mm" y2="53mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="54mm" x2="205mm" y2="54mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="56mm" x2="205mm" y2="56mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="57mm" x2="205mm" y2="57mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="58mm" x2="205mm" y2="58mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="59mm" x2="205mm" y2="59mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="60mm" x2="205mm" y2="60mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="61mm" x2="205mm" y2="61mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="62mm" x2="205mm" y2="62mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="63mm" x2="205mm" y2="63mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="64mm" x2="205mm" y2="64mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="66mm" x2="205mm" y2="66mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="67mm" x2="205mm" y2="67mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="68mm" x2="205mm" y2="68mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="69mm" x2="205mm" y2="69mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="70mm" x2="205mm" y2="70mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="71mm" x2="205mm" y2="71mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="72mm" x2="205mm" y2="72mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="73mm" x2="205mm" y2="73mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="74mm" x2="205mm" y2="74mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="76mm" x2="205mm" y2="76mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="77mm" x2="205mm" y2="77mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="78mm" x2="205mm" y2="78mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="79mm" x2="205mm" y2="79mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="80mm" x2="205mm" y2="80mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="81mm" x2="205mm" y2="81mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="82mm" x2="205mm" y2="82mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="83mm" x2="205mm" y2="83mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="84mm" x2="205mm" y2="84mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="86mm" x2="205mm" y2="86mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="87mm" x2="205mm" y2="87mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="88mm" x2="205mm" y2="88mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="89mm" x2="205mm" y2="89mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="90mm" x2="205mm" y2="90mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="91mm" x2="205mm" y2="91mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="92mm" x2="205mm" y2="92mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="93mm" x2="205mm" y2="93mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="94mm" x2="205mm" y2="94mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="96mm" x2="205mm" y2="96mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="97mm" x2="205mm" y2="97mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="98mm" x2="205mm" y2="98mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="99mm" x2="205mm" y2="99mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="100mm" x2="205mm" y2="100mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="101mm" x2="205mm" y2="101mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="102mm" x2="205mm" y2="102mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="103mm" x2="205mm" y2="103mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="104mm" x2="205mm" y2="104mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="106mm" x2="205mm" y2="106mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="107mm" x2="205mm" y2="107mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="108mm" x2="205mm" y2="108mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="109mm" x2="205mm" y2="109mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="110mm" x2="205mm" y2="110mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="111mm" x2="205mm" y2="111mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="112mm" x2="205mm" y2="112mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="113mm" x2="205mm" y2="113mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="114mm" x2="205mm" y2="114mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="116mm" x2="205mm" y2="116mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="117mm" x2="205mm" y2="117mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="118mm" x2="205mm" y2="118mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="119mm" x2="205mm" y2="119mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="120mm" x2="205mm" y2="120mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="121mm" x2="205mm" y2="121mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="122mm" x2="205mm" y2="122mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="123mm" x2="205mm" y2="123mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="124mm" x2="205mm" y2="124mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="126mm" x2="205mm" y2="126mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="127mm" x2="205mm" y2="127mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="128mm" x2="205mm" y2="128mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="129mm" x2="205mm" y2="129mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="130mm" x2="205mm" y2="130mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="131mm" x2="205mm" y2="131mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="132mm" x2="205mm" y2="132mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="133mm" x2="205mm" y2="133mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="134mm" x2="205mm" y2="134mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="136mm" x2="205mm" y2="136mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="137mm" x2="205mm" y2="137mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="138mm" x2="205mm" y2="138mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="139mm" x2="205mm" y2="139mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="140mm" x2="205mm" y2="140mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="141mm" x2="205mm" y2="141mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="142mm" x2="205mm" y2="142mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="143mm" x2="205mm" y2="143mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="144mm" x2="205mm" y2="144mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="146mm" x2="205mm" y2="146mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="147mm" x2="205mm" y2="147mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="148mm" x2="205mm" y2="148mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="149mm" x2="205mm" y2="149mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="150mm" x2="205mm" y2="150mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="151mm" x2="205mm" y2="151mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="152mm" x2="205mm" y2="152mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="153mm" x2="205mm" y2="153mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="154mm" x2="205mm" y2="154mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="156mm" x2="205mm" y2="156mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="157mm" x2="205mm" y2="157mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="158mm" x2="205mm" y2="158mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="159mm" x2="205mm" y2="159mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="160mm" x2="205mm" y2="160mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="161mm" x2="205mm" y2="161mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="162mm" x2="205mm" y2="162mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="163mm" x2="205mm" y2="163mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="164mm" x2="205mm" y2="164mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="166mm" x2="205mm" y2="166mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="167mm" x2="205mm" y2="167mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="168mm" x2="205mm" y2="168mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="169mm" x2="205mm" y2="169mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="170mm" x2="205mm" y2="170mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="171mm" x2="205mm" y2="171mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="172mm" x2="205mm" y2="172mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="173mm" x2="205mm" y2="173mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="174mm" x2="205mm" y2="174mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="176mm" x2="205mm" y2="176mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="177mm" x2="205mm" y2="177mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="178mm" x2="205mm" y2="178mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="179mm" x2="205mm" y2="179mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="180mm" x2="205mm" y2="180mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="181mm" x2="205mm" y2="181mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="182mm" x2="205mm" y2="182mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="183mm" x2="205mm" y2="183mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="184mm" x2="205mm" y2="184mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="186mm" x2="205mm" y2="186mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="187mm" x2="205mm" y2="187mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="188mm" x2="205mm" y2="188mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="189mm" x2="205mm" y2="189mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="190mm" x2="205mm" y2="190mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="191mm" x2="205mm" y2="191mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="192mm" x2="205mm" y2="192mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="193mm" x2="205mm" y2="193mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="194mm" x2="205mm" y2="194mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="196mm" x2="205mm" y2="196mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="197mm" x2="205mm" y2="197mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="198mm" x2="205mm" y2="198mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="199mm" x2="205mm" y2="199mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="200mm" x2="205mm" y2="200mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="201mm" x2="205mm" y2="201mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="202mm" x2="205mm" y2="202mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="203mm" x2="205mm" y2="203mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="204mm" x2="205mm" y2="204mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="206mm" x2="205mm" y2="206mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="207mm" x2="205mm" y2="207mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="208mm" x2="205mm" y2="208mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="209mm" x2="205mm" y2="209mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="210mm" x2="205mm" y2="210mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="211mm" x2="205mm" y2="211mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="212mm" x2="205mm" y2="212mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="213mm" x2="205mm" y2="213mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="214mm" x2="205mm" y2="214mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="216mm" x2="205mm" y2="216mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="217mm" x2="205mm" y2="217mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="218mm" x2="205mm" y2="218mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="219mm" x2="205mm" y2="219mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="220mm" x2="205mm" y2="220mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="221mm" x2="205mm" y2="221mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="222mm" x2="205mm" y2="222mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="223mm" x2="205mm" y2="223mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="224mm" x2="205mm" y2="224mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="226mm" x2="205mm" y2="226mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="227mm" x2="205mm" y2="227mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="228mm" x2="205mm" y2="228mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="229mm" x2="205mm" y2="229mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="230mm" x2="205mm" y2="230mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="231mm" x2="205mm" y2="231mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="232mm" x2="205mm" y2="232mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="233mm" x2="205mm" y2="233mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="234mm" x2="205mm" y2="234mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="236mm" x2="205mm" y2="236mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="237mm" x2="205mm" y2="237mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="238mm" x2="205mm" y2="238mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="239mm" x2="205mm" y2="239mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="240mm" x2="205mm" y2="240mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="241mm" x2="205mm" y2="241mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="242mm" x2="205mm" y2="242mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="243mm" x2="205mm" y2="243mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="244mm" x2="205mm" y2="244mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="246mm" x2="205mm" y2="246mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="247mm" x2="205mm" y2="247mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="248mm" x2="205mm" y2="248mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="249mm" x2="205mm" y2="249mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="250mm" x2="205mm" y2="250mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="251mm" x2="205mm" y2="251mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="252mm" x2="205mm" y2="252mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="253mm" x2="205mm" y2="253mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="254mm" x2="205mm" y2="254mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="256mm" x2="205mm" y2="256mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="257mm" x2="205mm" y2="257mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="258mm" x2="205mm" y2="258mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="259mm" x2="205mm" y2="259mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="260mm" x2="205mm" y2="260mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="261mm" x2="205mm" y2="261mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="262mm" x2="205mm" y2="262mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="263mm" x2="205mm" y2="263mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="264mm" x2="205mm" y2="264mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="266mm" x2="205mm" y2="266mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="267mm" x2="205mm" y2="267mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="268mm" x2="205mm" y2="268mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="269mm" x2="205mm" y2="269mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="270mm" x2="205mm" y2="270mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="271mm" x2="205mm" y2="271mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="272mm" x2="205mm" y2="272mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="273mm" x2="205mm" y2="273mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="274mm" x2="205mm" y2="274mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="276mm" x2="205mm" y2="276mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="277mm" x2="205mm" y2="277mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="278mm" x2="205mm" y2="278mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="279mm" x2="205mm" y2="279mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="280mm" x2="205mm" y2="280mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="281mm" x2="205mm" y2="281mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="282mm" x2="205mm" y2="282mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="283mm" x2="205mm" y2="283mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="284mm" x2="205mm" y2="284mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="286mm" x2="205mm" y2="286mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="287mm" x2="205mm" y2="287mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="288mm" x2="205mm" y2="288mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="289mm" x2="205mm" y2="289mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="290mm" x2="205mm" y2="290mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="291mm" x2="205mm" y2="291mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="292mm" x2="205mm" y2="292mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="293mm" x2="205mm" y2="293mm" stroke="gray" stroke-width="1" />
+       <line x1="5mm" y1="294mm" x2="205mm" y2="294mm" stroke="gray" stroke-width="1" />
+
+<!-- Lignes verticales (minor) -->
+       <line x1="6mm" y1="5mm" x2="6mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="7mm" y1="5mm" x2="7mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="8mm" y1="5mm" x2="8mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="9mm" y1="5mm" x2="9mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="10mm" y1="5mm" x2="10mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="11mm" y1="5mm" x2="11mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="12mm" y1="5mm" x2="12mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="13mm" y1="5mm" x2="13mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="14mm" y1="5mm" x2="14mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="16mm" y1="5mm" x2="16mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="17mm" y1="5mm" x2="17mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="18mm" y1="5mm" x2="18mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="19mm" y1="5mm" x2="19mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="20mm" y1="5mm" x2="20mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="21mm" y1="5mm" x2="21mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="22mm" y1="5mm" x2="22mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="23mm" y1="5mm" x2="23mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="24mm" y1="5mm" x2="24mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="26mm" y1="5mm" x2="26mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="27mm" y1="5mm" x2="27mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="28mm" y1="5mm" x2="28mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="29mm" y1="5mm" x2="29mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="30mm" y1="5mm" x2="30mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="31mm" y1="5mm" x2="31mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="32mm" y1="5mm" x2="32mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="33mm" y1="5mm" x2="33mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="34mm" y1="5mm" x2="34mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="36mm" y1="5mm" x2="36mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="37mm" y1="5mm" x2="37mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="38mm" y1="5mm" x2="38mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="39mm" y1="5mm" x2="39mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="40mm" y1="5mm" x2="40mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="41mm" y1="5mm" x2="41mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="42mm" y1="5mm" x2="42mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="43mm" y1="5mm" x2="43mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="44mm" y1="5mm" x2="44mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="46mm" y1="5mm" x2="46mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="47mm" y1="5mm" x2="47mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="48mm" y1="5mm" x2="48mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="49mm" y1="5mm" x2="49mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="50mm" y1="5mm" x2="50mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="51mm" y1="5mm" x2="51mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="52mm" y1="5mm" x2="52mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="53mm" y1="5mm" x2="53mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="54mm" y1="5mm" x2="54mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="56mm" y1="5mm" x2="56mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="57mm" y1="5mm" x2="57mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="58mm" y1="5mm" x2="58mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="59mm" y1="5mm" x2="59mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="60mm" y1="5mm" x2="60mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="61mm" y1="5mm" x2="61mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="62mm" y1="5mm" x2="62mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="63mm" y1="5mm" x2="63mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="64mm" y1="5mm" x2="64mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="66mm" y1="5mm" x2="66mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="67mm" y1="5mm" x2="67mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="68mm" y1="5mm" x2="68mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="69mm" y1="5mm" x2="69mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="70mm" y1="5mm" x2="70mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="71mm" y1="5mm" x2="71mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="72mm" y1="5mm" x2="72mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="73mm" y1="5mm" x2="73mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="74mm" y1="5mm" x2="74mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="76mm" y1="5mm" x2="76mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="77mm" y1="5mm" x2="77mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="78mm" y1="5mm" x2="78mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="79mm" y1="5mm" x2="79mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="80mm" y1="5mm" x2="80mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="81mm" y1="5mm" x2="81mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="82mm" y1="5mm" x2="82mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="83mm" y1="5mm" x2="83mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="84mm" y1="5mm" x2="84mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="86mm" y1="5mm" x2="86mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="87mm" y1="5mm" x2="87mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="88mm" y1="5mm" x2="88mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="89mm" y1="5mm" x2="89mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="90mm" y1="5mm" x2="90mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="91mm" y1="5mm" x2="91mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="92mm" y1="5mm" x2="92mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="93mm" y1="5mm" x2="93mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="94mm" y1="5mm" x2="94mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="96mm" y1="5mm" x2="96mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="97mm" y1="5mm" x2="97mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="98mm" y1="5mm" x2="98mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="99mm" y1="5mm" x2="99mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="100mm" y1="5mm" x2="100mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="101mm" y1="5mm" x2="101mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="102mm" y1="5mm" x2="102mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="103mm" y1="5mm" x2="103mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="104mm" y1="5mm" x2="104mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="106mm" y1="5mm" x2="106mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="107mm" y1="5mm" x2="107mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="108mm" y1="5mm" x2="108mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="109mm" y1="5mm" x2="109mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="110mm" y1="5mm" x2="110mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="111mm" y1="5mm" x2="111mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="112mm" y1="5mm" x2="112mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="113mm" y1="5mm" x2="113mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="114mm" y1="5mm" x2="114mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="116mm" y1="5mm" x2="116mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="117mm" y1="5mm" x2="117mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="118mm" y1="5mm" x2="118mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="119mm" y1="5mm" x2="119mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="120mm" y1="5mm" x2="120mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="121mm" y1="5mm" x2="121mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="122mm" y1="5mm" x2="122mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="123mm" y1="5mm" x2="123mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="124mm" y1="5mm" x2="124mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="126mm" y1="5mm" x2="126mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="127mm" y1="5mm" x2="127mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="128mm" y1="5mm" x2="128mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="129mm" y1="5mm" x2="129mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="130mm" y1="5mm" x2="130mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="131mm" y1="5mm" x2="131mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="132mm" y1="5mm" x2="132mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="133mm" y1="5mm" x2="133mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="134mm" y1="5mm" x2="134mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="136mm" y1="5mm" x2="136mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="137mm" y1="5mm" x2="137mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="138mm" y1="5mm" x2="138mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="139mm" y1="5mm" x2="139mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="140mm" y1="5mm" x2="140mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="141mm" y1="5mm" x2="141mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="142mm" y1="5mm" x2="142mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="143mm" y1="5mm" x2="143mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="144mm" y1="5mm" x2="144mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="146mm" y1="5mm" x2="146mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="147mm" y1="5mm" x2="147mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="148mm" y1="5mm" x2="148mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="149mm" y1="5mm" x2="149mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="150mm" y1="5mm" x2="150mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="151mm" y1="5mm" x2="151mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="152mm" y1="5mm" x2="152mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="153mm" y1="5mm" x2="153mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="154mm" y1="5mm" x2="154mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="156mm" y1="5mm" x2="156mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="157mm" y1="5mm" x2="157mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="158mm" y1="5mm" x2="158mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="159mm" y1="5mm" x2="159mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="160mm" y1="5mm" x2="160mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="161mm" y1="5mm" x2="161mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="162mm" y1="5mm" x2="162mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="163mm" y1="5mm" x2="163mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="164mm" y1="5mm" x2="164mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="166mm" y1="5mm" x2="166mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="167mm" y1="5mm" x2="167mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="168mm" y1="5mm" x2="168mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="169mm" y1="5mm" x2="169mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="170mm" y1="5mm" x2="170mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="171mm" y1="5mm" x2="171mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="172mm" y1="5mm" x2="172mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="173mm" y1="5mm" x2="173mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="174mm" y1="5mm" x2="174mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="176mm" y1="5mm" x2="176mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="177mm" y1="5mm" x2="177mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="178mm" y1="5mm" x2="178mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="179mm" y1="5mm" x2="179mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="180mm" y1="5mm" x2="180mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="181mm" y1="5mm" x2="181mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="182mm" y1="5mm" x2="182mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="183mm" y1="5mm" x2="183mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="184mm" y1="5mm" x2="184mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="186mm" y1="5mm" x2="186mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="187mm" y1="5mm" x2="187mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="188mm" y1="5mm" x2="188mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="189mm" y1="5mm" x2="189mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="190mm" y1="5mm" x2="190mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="191mm" y1="5mm" x2="191mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="192mm" y1="5mm" x2="192mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="193mm" y1="5mm" x2="193mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="194mm" y1="5mm" x2="194mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="196mm" y1="5mm" x2="196mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="197mm" y1="5mm" x2="197mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="198mm" y1="5mm" x2="198mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="199mm" y1="5mm" x2="199mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="200mm" y1="5mm" x2="200mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="201mm" y1="5mm" x2="201mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="202mm" y1="5mm" x2="202mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="203mm" y1="5mm" x2="203mm" y2="295mm" stroke="gray" stroke-width="1" />
+       <line x1="204mm" y1="5mm" x2="204mm" y2="295mm" stroke="gray" stroke-width="1" />
+
+<!-- Lignes horizontales (major) -->
+    <line
+       x1="5mm" y1="5mm"
+       x2="205mm" y2="5mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="15mm"
+       x2="205mm" y2="15mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="25mm"
+       x2="205mm" y2="25mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="35mm"
+       x2="205mm" y2="35mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="45mm"
+       x2="205mm" y2="45mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="55mm"
+       x2="205mm" y2="55mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="65mm"
+       x2="205mm" y2="65mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="75mm"
+       x2="205mm" y2="75mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="85mm"
+       x2="205mm" y2="85mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="95mm"
+       x2="205mm" y2="95mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="105mm"
+       x2="205mm" y2="105mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="115mm"
+       x2="205mm" y2="115mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="125mm"
+       x2="205mm" y2="125mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="135mm"
+       x2="205mm" y2="135mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="145mm"
+       x2="205mm" y2="145mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="155mm"
+       x2="205mm" y2="155mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="165mm"
+       x2="205mm" y2="165mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="175mm"
+       x2="205mm" y2="175mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="185mm"
+       x2="205mm" y2="185mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="195mm"
+       x2="205mm" y2="195mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="205mm"
+       x2="205mm" y2="205mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="215mm"
+       x2="205mm" y2="215mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="225mm"
+       x2="205mm" y2="225mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="235mm"
+       x2="205mm" y2="235mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="245mm"
+       x2="205mm" y2="245mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="255mm"
+       x2="205mm" y2="255mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="265mm"
+       x2="205mm" y2="265mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="275mm"
+       x2="205mm" y2="275mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="5mm" y1="285mm"
+       x2="205mm" y2="285mm"
+       stroke="black"
+       stroke-width="2" />
+
+<!-- Lignes verticales (major) -->
+    <line
+       x1="5mm" y1="5mm"
+       x2="5mm" y2="295mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="15mm" y1="5mm"
+       x2="15mm" y2="295mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="25mm" y1="5mm"
+       x2="25mm" y2="295mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="35mm" y1="5mm"
+       x2="35mm" y2="295mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="45mm" y1="5mm"
+       x2="45mm" y2="295mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="55mm" y1="5mm"
+       x2="55mm" y2="295mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="65mm" y1="5mm"
+       x2="65mm" y2="295mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="75mm" y1="5mm"
+       x2="75mm" y2="295mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="85mm" y1="5mm"
+       x2="85mm" y2="295mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="95mm" y1="5mm"
+       x2="95mm" y2="295mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="105mm" y1="5mm"
+       x2="105mm" y2="295mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="115mm" y1="5mm"
+       x2="115mm" y2="295mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="125mm" y1="5mm"
+       x2="125mm" y2="295mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="135mm" y1="5mm"
+       x2="135mm" y2="295mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="145mm" y1="5mm"
+       x2="145mm" y2="295mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="155mm" y1="5mm"
+       x2="155mm" y2="295mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="165mm" y1="5mm"
+       x2="165mm" y2="295mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="175mm" y1="5mm"
+       x2="175mm" y2="295mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="185mm" y1="5mm"
+       x2="185mm" y2="295mm"
+       stroke="black"
+       stroke-width="2" />
+    <line
+       x1="195mm" y1="5mm"
+       x2="195mm" y2="295mm"
+       stroke="black"
+       stroke-width="2" />
+
+    <line
+       x1="5mm" y1="295mm"
+       x2="205mm" y2="295mm"
+       stroke="black"
+       stroke-width="2" />
+
+    <line
+       x1="205mm" y1="5mm"
+       x2="205mm" y2="295mm"
+       stroke="black"
+       stroke-width="2" />
+
+  </g>
+</svg>

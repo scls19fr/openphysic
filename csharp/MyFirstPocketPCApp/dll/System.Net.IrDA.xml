@@ -1,0 +1,300 @@
+<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>System.Net.IrDA</name>
+  </assembly>
+  <members>
+    <member name="T:System.Net.Sockets.IrDAHints">
+      <summary>
+        <para>Describes an enumeration of possible device types, such
+      as <see langword="Fax" /> .</para>
+      </summary>
+    </member>
+    <member name="F:System.Net.Sockets.IrDAHints.None">
+      <summary>
+        <para> A name indicating no device</para>
+      </summary>
+    </member>
+    <member name="F:System.Net.Sockets.IrDAHints.PnP">
+      <summary>
+        <para>A Plug and Play interface</para>
+      </summary>
+    </member>
+    <member name="F:System.Net.Sockets.IrDAHints.PdaAndPalmtop">
+      <summary>
+        <para>A Pocket PC</para>
+      </summary>
+    </member>
+    <member name="F:System.Net.Sockets.IrDAHints.Computer">
+      <summary>
+        <para>A personal computer</para>
+      </summary>
+    </member>
+    <member name="F:System.Net.Sockets.IrDAHints.Printer">
+      <summary>
+        <para> A printer</para>
+      </summary>
+    </member>
+    <member name="F:System.Net.Sockets.IrDAHints.Modem">
+      <summary>
+        <para> A modem</para>
+      </summary>
+    </member>
+    <member name="F:System.Net.Sockets.IrDAHints.Fax">
+      <summary>
+        <para> A fax</para>
+      </summary>
+    </member>
+    <member name="F:System.Net.Sockets.IrDAHints.LanAccess">
+      <summary>
+        <para>A local area network access</para>
+      </summary>
+    </member>
+    <member name="F:System.Net.Sockets.IrDAHints.Telephony">
+      <summary>
+        <para>A telephonic device</para>
+      </summary>
+    </member>
+    <member name="F:System.Net.Sockets.IrDAHints.FileServer">
+      <summary>
+        <para>A personal computer file server</para>
+      </summary>
+    </member>
+    <member name="T:System.Net.Sockets.IrDACharacterSet">
+    </member>
+    <member name="F:System.Net.Sockets.IrDACharacterSet.ASCII">
+    </member>
+    <member name="F:System.Net.Sockets.IrDACharacterSet.ISO8859Latin1">
+    </member>
+    <member name="F:System.Net.Sockets.IrDACharacterSet.ISO8859Latin2">
+    </member>
+    <member name="F:System.Net.Sockets.IrDACharacterSet.ISO8859Latin3">
+    </member>
+    <member name="F:System.Net.Sockets.IrDACharacterSet.ISO8859Latin4">
+    </member>
+    <member name="F:System.Net.Sockets.IrDACharacterSet.ISO8859Cyrillic">
+    </member>
+    <member name="F:System.Net.Sockets.IrDACharacterSet.ISO8859Arabic">
+    </member>
+    <member name="F:System.Net.Sockets.IrDACharacterSet.ISO8859Greek">
+    </member>
+    <member name="F:System.Net.Sockets.IrDACharacterSet.ISO8859Hebrew">
+    </member>
+    <member name="F:System.Net.Sockets.IrDACharacterSet.ISO8859Latin5">
+    </member>
+    <member name="F:System.Net.Sockets.IrDACharacterSet.Unicode">
+    </member>
+    <member name="T:System.Net.Sockets.IrDADeviceInfo">
+      <summary>
+        <para> Provides information about
+      available servers and ports obtained by the client during a discovery query. </para>
+      </summary>
+    </member>
+    <member name="P:System.Net.Sockets.IrDADeviceInfo.DeviceID">
+      <summary>
+        <para>Gets the device identifier. </para>
+      </summary>
+    </member>
+    <member name="P:System.Net.Sockets.IrDADeviceInfo.DeviceName">
+      <summary>
+        <para>Gets a name of a device.</para>
+      </summary>
+    </member>
+    <member name="P:System.Net.Sockets.IrDADeviceInfo.Hints">
+      <summary>
+        <para>Gets the type of the device, such as
+   <see langword="Computer" /> .</para>
+      </summary>
+    </member>
+    <member name="P:System.Net.Sockets.IrDADeviceInfo.CharacterSet">
+      <summary>
+        <para>Gets the character set used by the server, such as ASCII.</para>
+      </summary>
+    </member>
+    <member name="T:System.Net.Sockets.IrDAClient">
+      <summary>
+        <para> Provides connection information, and creates
+      client connection objects for opening and closing connections to a server. </para>
+      </summary>
+    </member>
+    <member name="M:System.Net.Sockets.IrDAClient.GetRemoteMachineName(System.Net.Sockets.Socket)">
+      <summary>
+        <para> Gets the name of a device by a specified socket.</para>
+      </summary>
+      <param name="s">A <see cref="T:System.Net.Sockets.Socket" />.</param>
+      <returns>
+        <para>Returns a string value of the computer or device name.</para>
+      </returns>
+    </member>
+    <member name="M:System.Net.Sockets.IrDAClient.#ctor">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:System.Net.Sockets.IrDAClient" /> class.</para>
+      </summary>
+    </member>
+    <member name="M:System.Net.Sockets.IrDAClient.#ctor(System.String)">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:System.Net.Sockets.IrDAClient" /> class for connecting to a
+   specified service.</para>
+      </summary>
+      <param name="service">The name of a service to connect to.</param>
+    </member>
+    <member name="M:System.Net.Sockets.IrDAClient.#ctor(System.Net.IrDAEndPoint)">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:System.Net.Sockets.IrDAClient" /> class for connecting to a specified endpoint.</para>
+      </summary>
+      <param name="remoteEP">An <see cref="T:System.Net.IrDAEndPoint" /> .</param>
+    </member>
+    <member name="M:System.Net.Sockets.IrDAClient.Close">
+      <summary>
+        <para>Closes the socket of the connection.</para>
+      </summary>
+    </member>
+    <member name="M:System.Net.Sockets.IrDAClient.Connect(System.String)">
+      <summary>
+        <para>Connects a client to a specified service.</para>
+      </summary>
+      <param name="service">The name of the service to connect to.</param>
+    </member>
+    <member name="M:System.Net.Sockets.IrDAClient.Connect(System.Net.IrDAEndPoint)">
+      <summary>
+        <para>Connects a client to a specified endpoint.</para>
+      </summary>
+      <param name="remoteEP">An <see cref="T:System.Net.IrDAEndPoint" /> that represents the remote device.</param>
+    </member>
+    <member name="M:System.Net.Sockets.IrDAClient.GetStream">
+      <summary>
+        <para>Gets the underlying stream of data.</para>
+      </summary>
+    </member>
+    <member name="M:System.Net.Sockets.IrDAClient.DiscoverDevices(System.Int32,System.Net.Sockets.Socket)">
+      <summary>
+        <para> Obtains information about available devices using a socket.</para>
+      </summary>
+      <param name="irdaSocket">The IrDA socket.</param>
+      <param name=" maxDevices">The maximum number of devices to get information about.</param>
+      <returns>
+        <para>Returns an instance of the <see cref="T:System.Net.Sockets.IrDADeviceInfo" /> class.</para>
+      </returns>
+    </member>
+    <member name="M:System.Net.Sockets.IrDAClient.DiscoverDevices(System.Int32)">
+      <summary>
+        <para>Obtains information about a specified number of devices.</para>
+      </summary>
+      <param name="maxDevices">The maximum number of devices to get information about.</param>
+      <returns>
+        <para> An <see cref="T:System.Net.Sockets.IrDADeviceInfo" /> interface.</para>
+      </returns>
+    </member>
+    <member name="P:System.Net.Sockets.IrDAClient.RemoteMachineName">
+      <summary>
+        <para> Gets the name of the
+      device the connected device. </para>
+      </summary>
+    </member>
+    <member name="T:System.Net.Sockets.IrDAListener">
+      <summary>
+        <para> Places a socket in a listening state to monitor connections from a
+      specified service or network address. </para>
+      </summary>
+    </member>
+    <member name="M:System.Net.Sockets.IrDAListener.#ctor(System.String)">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:System.Net.Sockets.IrDAListener" /> class.</para>
+      </summary>
+      <param name="service">The name of the service to listen for.</param>
+    </member>
+    <member name="M:System.Net.Sockets.IrDAListener.#ctor(System.Net.IrDAEndPoint)">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:System.Net.Sockets.IrDAListener" /> class.</para>
+      </summary>
+      <param name="ep">The network address to monitor for making a connection. </param>
+    </member>
+    <member name="M:System.Net.Sockets.IrDAListener.Start">
+      <summary>
+        <para>Starts the socket to listen for incoming connections.</para>
+      </summary>
+    </member>
+    <member name="M:System.Net.Sockets.IrDAListener.Stop">
+      <summary>
+        <para>Stops the socket from monitoring connections.</para>
+      </summary>
+    </member>
+    <member name="M:System.Net.Sockets.IrDAListener.Pending">
+      <summary>
+        <para>Determines if there is a connection pending.</para>
+      </summary>
+      <returns>
+        <para>
+          <see langword="true" /> if there is a
+   connection pending; otherwise,
+<see langword="false" /> .</para>
+      </returns>
+    </member>
+    <member name="M:System.Net.Sockets.IrDAListener.AcceptSocket">
+      <summary>
+        <para>Creates a new socket for a connection.</para>
+      </summary>
+      <returns>
+        <para>A socket.</para>
+      </returns>
+    </member>
+    <member name="M:System.Net.Sockets.IrDAListener.AcceptIrDAClient">
+      <summary>
+        <para>Creates a client object for a connection when the
+      specified service or endpoint is detected by the listener component.</para>
+      </summary>
+      <returns>
+        <para>An <see cref="T:System.Net.Sockets.IrDAClient" /> component.</para>
+      </returns>
+    </member>
+    <member name="P:System.Net.Sockets.IrDAListener.LocalEndpoint">
+      <summary>
+        <para> Gets a new instance of the <see cref="T:System.Net.Sockets.IrDAListener" /> class.</para>
+      </summary>
+    </member>
+    <member name="T:System.Net.IrDAEndPoint">
+      <summary>
+        <para>This class establishes connections to a server and provides infrared port information. </para>
+      </summary>
+    </member>
+    <member name="M:System.Net.IrDAEndPoint.#ctor(System.Byte[],System.String)">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:System.Net.IrDAEndPoint" /> class.</para>
+      </summary>
+      <param name="irdaDeviceID">The device identifier.</param>
+      <param name=" serviceName">The name of the service to connect to.</param>
+    </member>
+    <member name="M:System.Net.IrDAEndPoint.Serialize">
+      <summary>
+        <para>Serializes endpoint information into a <see cref="T:System.Net.SocketAddress" />
+.</para>
+      </summary>
+      <returns>
+        <para>A <see cref="T:System.Net.SocketAddress" /> containing the endpoint information.</para>
+      </returns>
+      <exception cref="T:System.NotSupportedException">An attempt is made to access the method when the method is not overridden in a descendant class.</exception>
+    </member>
+    <member name="M:System.Net.IrDAEndPoint.Create(System.Net.SocketAddress)">
+      <summary>
+        <para>Creates an <see cref="T:System.Net.IrDAEndPoint" /> from a socket address.</para>
+      </summary>
+      <param name="sockaddr">A <see cref="T:System.Net.SocketAddress" />.</param>
+      <exception cref="T:System.NotSupportedException">Any attempt is made to access the method when the method is not overridden in a descendant class.</exception>
+    </member>
+    <member name="P:System.Net.IrDAEndPoint.ServiceName">
+      <summary>
+        <para> Gets or sets the name of the service. </para>
+      </summary>
+    </member>
+    <member name="P:System.Net.IrDAEndPoint.DeviceID">
+      <summary>
+        <para> Gets or sets an indentifier for the device.</para>
+      </summary>
+    </member>
+    <member name="P:System.Net.IrDAEndPoint.AddressFamily">
+      <summary>
+        <para>Gets the address family to which the endpoint belongs.</para>
+      </summary>
+    </member>
+  </members>
+</doc>

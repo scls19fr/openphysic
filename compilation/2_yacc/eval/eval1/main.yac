@@ -1,0 +1,44 @@
+    /*
+       Evaluation d'une expression
+       Partie analyseur grammatical.
+    */
+
+%token  Tnb
+%start  EXPR_CALCS
+
+%%
+EXPR_CALCS : EXPR_CALC              {printf ("EXPR_CALCS1\n");}
+           | EXPR_CALCS EXPR_CALC   {printf ("EXPR_CALCS2\n");}
+           ;
+
+EXPR_CALC : EXPR_NUM '='            {printf ("EXPR_CALC ");}
+          ;
+
+EXPR_NUM : FACTEUR                  {printf ("facteur(expr num) ");}
+         | EXPR_NUM '+' FACTEUR     {printf ("ADDITION ");}
+         | EXPR_NUM '-' FACTEUR     {printf ("SOUSTRACTION ");}
+         ;
+
+FACTEUR  : TERME                    {printf ("terme(facteur) ");}
+         | FACTEUR '*' TERME        {printf ("PRODUIT ");}
+         | FACTEUR '/' TERME        {printf ("DIVISION ");}
+         ;
+
+TERME    : Tnb                      {printf ("ENTIER ");}
+         | '(' EXPR_NUM ')'         {printf ("EXPR entre (). ");}
+         ;
+
+%%
+
+#include <stdio.h>
+#include "lex.yy.c"
+
+yyerror () {}
+
+main()
+{
+ if ( yyparse() != 0 )
+    { fprintf(stderr,"Syntaxe incorrecte\n"); return 1; }
+ else
+    return 0;
+}

@@ -1,0 +1,194 @@
+try: os.une_fonction_os_quelconque( )
+except OSError, err:
+    import errno
+    # Vérifie les erreurs "file not found"
+    if err.errno != errno.ENOENT: raise        # lève à nouveau les autres
+    # On continue avec le cas spécifique que l'on peut traiter
+    print "Attention : fichier", err.filename, "non trouvé -- je continue"
+
+----------
+
+import os
+def travail_sur_fichier_temp(travail):
+    nom = os.tempnam()
+    fic = open(nom, 'rw+')
+    try:
+        travail(fic)
+    finally:
+        fic.close()
+        os.remove(nom)
+
+----------
+
+print os.path.join('a/b', 'c/d', 'e/f')        
+# Sur Unix, affiche : a/b/c/d/e/f
+print os.path.join('a/b', '/c/d', 'e/f')      
+# Sur Unix, affiche : /c/d/e/f
+
+----------
+
+import os
+def affiche_arbo(racine_arbo):
+    def printall(bidon, chemin, liste_noms):
+        for nom in liste_noms: 
+            print os.path.join(chemin, nom)
+    os.path.walk(racine_arbo, printall, None)
+
+----------
+
+import os, stat
+
+print os.path.getsize(chemin)
+print os.stat(chemin)[6]
+print os.stat(chemin)[stat.ST_SIZE]
+print os.stat(chemin).st_size             # Uniquement à partir de Python 2.2
+
+----------
+
+import gzip
+fic_sous_jacent = open('x.txt.gz', 'wb')
+wrapper_compression = gzip.GzipFile(fileobj = fic_sous_jacent, mode = 'wt')
+f(wrapper_compression)
+wrapper_compression.close( )
+fic_sous_jacent.close()
+
+----------
+
+import gzip, xreadlines
+fic_sous_jacent = open('x.txt.gz', 'rb')
+wrapper_decompactage = gzip.GzipFile(fileobj = fic_sous_jacent, mode = 'rt')
+for ligne in xreadlines.xreadlines(wrapper_decompactage):
+    print ligne,
+wrapper_decompactage.close()
+fic_sous_jacent.close()
+
+----------
+
+import zipfile
+def data_to_zip_direct(z, donnees, nom):
+    import time
+    zinfo = zipfile.ZipInfo(nom, time.localtime( )[:6])
+    z.writestr(zinfo, donnees)
+def data_to_zip_indirect(z, donnees, nom):
+    import os
+    flob = open(nom, 'wb')
+    flob.write(donnees)
+    flob.close( )
+    z.write(nom)
+    os.unlink(nom)
+zz = zipfile.ZipFile('z.zip', 'w', zipfile.ZIP_DEFLATED)
+donnees = 'quatre ans\net dix\njours déjà\n'
+data_to_zip_direct(zz, donnees, 'direct.txt')
+data_to_zip_indirect(zz, donnees, 'indirect.txt')
+zz.close( )
+
+----------
+
+import zipfile
+zz = zipfile.ZipFile('z.zip')
+zz.printdir()
+for nom in zz.namelist( ):
+    print '%s : %r' % (nom, zz.read(nom))
+zz.close( )
+
+----------
+
+def redirect(fction, *params, **mcles):
+    """redirect(fction, -) -> (chaîne produite, résultat de fction)
+
+    fction doit être un objet appelable qui produit son résultat sur
+    la sortie standard.
+    redirect capture ces résultats en mémoire et renvoie une paire, dont 
+    le premier élément est le résultat et le deuxième la valeur renvoyée 
+    par fction.
+    """
+    import sys, cStringIO
+    sauve_out = sys.stdout
+    sys.stdout = cStringIO.StringIO()
+    try: 
+        val_ret = fction(*params, **mcles)
+        return sys.stdout.getvalue(), val_ret
+    finally: 
+        sys.stdout.close()
+        sys.stdout = sauve_out
+
+----------
+
+import readline, rlcompleter
+readline.parse_and_bind('tab: complete')
+
+----------
+
+import msvcrt
+print "Pressez z pour sortir, une autre touche pour voir le code"
+while 1:
+    c = msvcrt.getch()
+    if c == 'z': break
+    print "%d (%r)" % (c, c)
+
+----------
+
+def cmdloop(self, intro = None):
+    self.preloop()
+    if intro is None: intro = self.intro
+    print intro
+    while True:
+        try: s = raw_input(self.prompt)
+        except EOFError: s = `EOF'
+        else: s = self.precmd(s)
+        flag = self.onecmd(s)
+        flag = self.postcmd(flag, s)
+        if flag: break
+    self.postloop()
+
+----------
+
+import cmd
+
+class X(cmd.Cmd):
+    def do_afficher(self, reste): print reste
+    def help_afficher(self): print "afficher (une chaine) : affiche (une chaine)"
+    def do_stop(self, reste): return 1
+    def help_stop(self): print "stop : termine la boucle des commandes"
+
+if __name__ == '__main__': X().cmdloop()
+
+----------
+
+import locale
+# Plus simple et souvent plus rapide
+def locale_tri_simple(liste_de_chaines):
+    liste_de_chaines.sort(locale.strcoll)
+# Moins simple et souvent plus lent
+def locale_tri_colore(liste_de_chaines):
+    liste_aux = [(locale.strxfrm(s),s) for s in liste_de_chaines]
+    liste_aux.sort( )
+    liste_de_chaines[:] = [s for bidon, s in liste_aux]
+
+----------
+
+try: _
+except NameError:
+    def _(s): return s
+def bienvenue(): print _('Hello world')
+
+----------
+
+import os, gettext
+os.environ.setdefault('LANG', 'fr_FR')      # Langue par défaut de l'application
+gettext.install('nom_application')
+
+----------
+
+_ = translation(domain).ugettext
+
+----------
+
+import gettext
+traducteurs = {}
+def switch_vers_langue(langue, domaine='mon_app', 
+				     utilise_unicode = False):
+    if not traducteurs.has_key(langue):
+        traducteurs[langue] = gettext.translation(domaine, languages = [langue])
+    traducteurs[langue].install(utilise_unicode)
+

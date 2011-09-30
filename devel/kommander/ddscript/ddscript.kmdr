@@ -1,0 +1,92 @@
+<!DOCTYPE UI><UI version="3.0" stdsetdef="1">
+<class>frmddscript</class>
+<widget class="Dialog">
+    <property name="name">
+        <cstring>frmddscript</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>470</width>
+            <height>351</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>DDScript</string>
+    </property>
+    <property name="associations" stdset="0">
+        <stringlist>
+            <string></string>
+            <string>@Label1.setText("Hello")</string>
+            <string></string>
+        </stringlist>
+    </property>
+    <widget class="TabWidget">
+        <property name="name">
+            <cstring>TabWidget1</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>1</x>
+                <y>1</y>
+                <width>418</width>
+                <height>297</height>
+            </rect>
+        </property>
+        <property name="associations" stdset="0">
+            <stringlist>
+                <string></string>
+            </stringlist>
+        </property>
+        <widget class="QWidget">
+            <property name="name">
+                <cstring>tab</cstring>
+            </property>
+            <attribute name="title">
+                <string>Tab &amp;1</string>
+            </attribute>
+        </widget>
+        <widget class="QWidget">
+            <property name="name">
+                <cstring>tab</cstring>
+            </property>
+            <attribute name="title">
+                <string>Tab &amp;2</string>
+            </attribute>
+        </widget>
+    </widget>
+    <widget class="Label">
+        <property name="name">
+            <cstring>Label1</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>1</x>
+                <y>304</y>
+                <width>420</width>
+                <height>20</height>
+            </rect>
+        </property>
+        <property name="sizePolicy">
+            <sizepolicy>
+                <hsizetype>4</hsizetype>
+                <vsizetype>5</vsizetype>
+                <horstretch>54</horstretch>
+                <verstretch>0</verstretch>
+            </sizepolicy>
+        </property>
+        <property name="paletteBackgroundColor">
+            <color>
+                <red>255</red>
+                <green>255</green>
+                <blue>255</blue>
+            </color>
+        </property>
+        <property name="text">
+            <string>Texte</string>
+        </property>
+    </widget>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

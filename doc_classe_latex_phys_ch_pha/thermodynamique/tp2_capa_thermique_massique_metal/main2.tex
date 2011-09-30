@@ -1,0 +1,300 @@
+\tp{Mesure de la capacité thermique massique d'un métal}
+
+
+\begin{tabularx}{\linewidth}{XX}
+
+\objectifs{
+\item savoir utiliser la méthode des mélanges
+\item mesurer une capacité thermique massique
+}
+
+&
+
+\materiel{
+\item calorimètre et ses accessoires
+\item deux thermomètres gradués au degré près
+\item bécher gradué
+\item système de chauffage
+\item solide muni d'une ficelle
+\item support
+}
+
+\end{tabularx}
+
+
+\section{Principe}
+
+\begin{small}
+La méthode utilisée ici pour mesurer la capacité thermique massique
+d'un métal est appelée \emph{méthode des mélanges}. On plonge un bloc
+de métal dans de l'eau chaude suffisamment longtemps pour qu'il soit à
+la température $\theta_2$. On plonge alors ce bloc de métal dans de
+l'eau froide à la température $\theta_1$. La température se stabilise
+à $\theta_{\mbox{\small \'equi}}$.
+
+
+Lorsque l'on connait les températures $\theta_1$, $\theta_2$,
+$\theta_{\mbox{\small \'equi}}$ , la masse d'eau froide $m_1$ et $m_2$ celle du bloc
+métallique ainsi que la capacité thermique $C_{\mbox{\small calo}}$ du calorimètre
+(voir TP précédent) et la capacité thermique massique de l'eau
+$c_{\mbox{\small eau}} = 4180~J.kg^{-1}.K^{-1}$ on peut trouver
+$c_{\mbox{\small m\'etal}}$ la capacité thermique massique du métal.
+
+\end{small}
+
+
+
+\subsection{\'Etat initial}
+
+
+
+\begin{tabularx}{\linewidth}{XX}
+
+%\begin{figure}
+\includegraphics{thermodynamique/tp2_capa_thermique_massique_metal/montage_calo_1.eps}
+
+%\begin{center}
+\caption{\emph{bloc de métal} qui a séjourné quelques minutes dans l'eau
+bouillante}
+%\end{figure}
+%\end{center}
+
+
+\[
+\left\lbrace
+\begin{array}{l}
+
+m_2 = \troufixe{1.5cm}\\
+
+\theta_2 = \troufixe{1.5cm}\\
+
+c_{\mbox{\small m\'etal}} = \mbox{ \emph{?}}\\
+
+\end{array}
+\right.
+\]
+
+
+&
+
+\includegraphics{thermodynamique/tp2_capa_thermique_massique_metal/montage_calo_2.eps}
+
+%\begin{center}
+\caption{\emph{eau froide}}
+%\end{center}
+
+
+\[
+\left\lbrace
+\begin{array}{l}
+
+m_1 = \troufixe{1.5cm} \mbox{(de l'ordre de }250~g \mbox{ à } 300~g) \\
+
+\theta_1 = \troufixe{1.5cm} \mbox{(équilibre thermique)} \\
+
+c_{\mbox{\small eau}} = 4185~J.kg^{-1}.K^{-1} \\
+
+\end{array}
+\right.
+\]
+
+\end{tabularx}
+
+
+
+\begin{framed}
+
+\begin{center}
+
+\emph{Calorimètre}
+
+\fbox{n° \troufixe{1cm}}
+
+
+$C_{\mbox{\small calo}} =  \troufixe{2cm}~J.K^{-1}$
+
+
+$\theta_1 = \troufixe{1cm}~°C$
+
+\begin{small}
+Calorimètre muni du vase + agitateur : $C_{\mbox{\small calo}} =
+85~J.K^{-1}$
+
+Calorimètre muni du vase + agitateur + rondelle alu (amortisseur) :
+$C_{\mbox{\small calo}} = 120~J.K^{-1}$
+\end{small}
+
+\end{center}
+
+\end{framed}
+
+
+\subsection{\'Etat final}
+
+
+\graphicspath{{thermodynamique/tp2_capa_thermique_massique_metal/}}
+
+%\begin{multicols}{2}
+%\begin{tabularx}{\linewidth}{p{3.5cm}X}
+
+\piccaption{Bloc de métal dans le calorimètre}
+%\parpic{\includegraphics[width=4cm]{thermodynamique/tp2_capa_thermique_massique_metal/montage_calo_3.eps}}
+\parpic{\input{thermodynamique/tp2_capa_thermique_massique_metal/montage_calo_3.pstex_t}}
+
+
+% http://www.xfig.org/userman/latex_and_xfig.html
+% xfig -specialtext -latexfonts -startlatexFont default
+
+
+
+
+%&
+
+L'état final est obtenu en sortant \emph{rapidement} le bloc de métal
+de l'eau bouillante et en le plongeant dans le calorimètre ; agiter
+alors et attendre, en relevant fréquemment la température, le nouvel
+équilibre thermique $\theta_f$.
+
+
+%\end{tabularx}
+%\end{multicols}
+
+
+\bigskip
+
+\section{Calcul littéral}
+
+\bigskip
+
+\subsection{Quantités de chaleur échangées}
+
+\medskip
+
+\begin{itemize}
+
+\item $Q_1$ : quantité de chaleur gagnée par l'eau froide ;
+ $Q_1 = \Delta {U_1}_{\mbox{\small micro}} = m_1 c_{\mbox{\small eau}}
+ (\theta_{\mbox{\small \'equi}} - \theta_1) > 0$
+
+
+\item $Q_2$ : quantité de chaleur cédée par le métal ;
+ $Q_2 = \Delta {U_2}_{\mbox{\small micro}} = m_2 c_{\mbox{\small
+ m\'etal}} (\theta_{\mbox{\small \'equi}} - \theta_2) < 0$ 
+
+\item $Q_3$ : quantité de chaleur gagnée par le calorimètre ;
+ $Q_3 = \Delta {U_3}_{\mbox{\small micro}} = C_{\mbox{\small calo}}
+ (\theta_{\mbox{\small \'equi}} - \theta_1) > 0$
+
+\end{itemize}
+
+
+\subsection{Bilan des échanges de chaleur}
+
+L'enceinte étant \emph{adiabatique}\footnote{isolé thermiquement donc
+$Q_{\mbox{\small \'echangée avec l'extérieur}} = 0~J$}, écrire le
+bilan global des échanges de chaleur, à l'intérieur du calorimètre,
+une fois le «~mélange~» fait ; jusqu'à l'obtention de l'équilibre
+thermique.
+
+\[
+{\Delta U_{\mbox{\small micro}}}_{\mbox{\tiny calo + eau + m\'etal}}
+= Q_t = 0~J
+= \Delta {U_1}_{\mbox{\small micro}} + \Delta {U_2}_{\mbox{\small
+micro}} + \Delta {U_3}_{\mbox{\small micro}}
+= Q_1 + Q_2 + Q_3
+\]
+
+\subsection{Expression de $c_{\mbox{\small m\'etal}}$}
+En déduire la valeur de $c_{\mbox{\small m\'etal}}$.
+
+
+$Q_1 + Q_2 + Q_3 =
+m_1 c_{\mbox{\small eau}} (\theta_{\mbox{\'equi}} - \theta_1)
++ m_2 c_{\mbox{\small m\'etal}} (\theta_{\mbox{\'equi}} - \theta_2)
++ C_{\mbox{\small calo}} (\theta_{\mbox{\'equi}} - \theta_1)
+= 0
+ $
+
+soit $(m_1 c_{\mbox{\small eau}} + C_{\mbox{\small calo}})
+  (\theta_{\mbox{\'equi}} - \theta_1)
++  m_2 c_{\mbox{\small m\'etal}} (\theta_{\mbox{\'equi}} - \theta_2)
+= 0
+  $
+
+\[
+c_{\mbox{\small m\'etal}} =
+\frac{
+ (m_1 c_{\mbox{\small eau}} + C_{\mbox{\small calo}})
+  (\theta_{\mbox{\'equi}} - \theta_1)
+}{
+ m_2 (\theta_{\mbox{\'equi}} - \theta_2)
+}
+\]
+
+
+\section{Manipulation}
+
+\begin{enumerate}
+\item Suspendre le bloc de laiton, ou fer, ou aluminium dans une
+casserole d'eau bouillante.
+
+\item Mesurer $m_{\mbox{\small calo + accessoires}} =
+\troufixe{1.5cm}~g$\\
+puis $m'_{\mbox{\small calo + accessoires + eau froide}} =
+\troufixe{1.5cm}~g$
+
+\item En déduire $m_{{1}_{\mbox{\small eau}}} = \troufixe{1.5cm}~g$.
+
+\item Noter la température d'équilibre $\theta_1$ du calorimètre + eau
+froide.
+
+\item Retirer le métal de l'eau bouillante ($\theta_2 \approx 100~°C$)
+et l'introduire \emph{quasi-instantanément} dans le calorimètre.
+
+\item Agiter et suivre l'évolution de la température ; lorsqu'elle se
+stabilise les transferts de chaleur sont terminés. Noter alors la
+température finale $\theta_{\mbox{\small \'equi}}$ (ou $\theta_f$). La
+température est stabilisée quand elle a atteind son maximum et
+n'évolue quasiment plus pendant $1$ à $2~min$.
+
+\item Peser enfin, après l'avoir essuyé, le cylindre de métal.
+
+\end{enumerate}
+
+
+
+\section{Résultats}
+
+\begin{center}
+\fbox{Calorimètre n° \troufixe{1cm}}
+\end{center}
+
+\bigskip
+
+\begin{tabularx}{\linewidth}{|c|X|X|X|X|X|X|}
+\hline
+ & $m_1$ ($kg$) & $\theta_1$ ($°C$) & $\theta_2$ ($°C$) &
+ $\theta_{\mbox{\small \'equi}}$ ($°C$) & $m_1$ ($kg$) &
+ $c_{\mbox{\small m\'etal}}$ ($J.kg^{-1}.K^{-1}$) \tbnl
+laiton    & & & & & & \tbnl
+fer       & & & & & & \tbnl
+aluminium & & & & & & \tbnl
+
+\end{tabularx}
+
+\bigskip
+
+
+\emph{Valeurs théoriques :}
+
+%\begin{itemize}
+%\item
+ $c_{\mbox{\small fer}} = 460~J.kg^{-1}.K^{-1}$
+ \hressort{1}
+ $c_{\mbox{\small alu}} = 860 \mbox{à} 910 ~J.kg^{-1}.K^{-1}$
+ \hressort{1}
+ $c_{\mbox{\small laiton utilis\'e}} = 400~J.kg^{-1}.K^{-1}$
+%\end{itemize}
+
+
+

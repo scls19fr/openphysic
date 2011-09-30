@@ -1,0 +1,8 @@
+m = MIMEBase(typeprincipal, soustype, **params)
+
+----------
+
+m = Message()
+m.add_header('Content-Type', '%s/%s' % (typeprincipal, soustype), **parms)
+m.add_header('Mime-Version', '1.0')
+

@@ -1,0 +1,348 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage[sloped]{fourier}
+\usepackage{bm}
+\usepackage[frenchb,english]{babel}
+\renewcommand{\labelitemi}{\lefthand}
+\setlength{\leftmargini}{1em}
+\newcommand{\fourier}{Fourier-GUT\textit{enberg}}
+\renewcommand{\ttdefault}{lmtt}
+\title{\decofourleft{}\,Fourier-GUT{\itshape enberg}\,\decofourright}
+\author{Michel Bovani\\\texttt{michel.bovani@wanadoo.fr}}
+%%\renewcommand{\FrenchLabelItem}{\textbullet}
+\begin{document}
+\maketitle
+
+\section{What is \fourier{}?}
+\fourier{} is a \LaTeX{} typesetting system wich uses Adobe Utopia as its standard base font. 
+Adobe Utopia has been choosen for several reasons. The main of them is that
+four typefaces from the Utopia fonts packages have been gracefully donated to the X-consortium by 
+Adobe. These typefaces (Utopia Regular, Utopia Italic, Utopia Bold, Utopia Bold Italic)
+ are free of charges, and freely distributable (but it is \emph{not} free software: 
+ see the licence in the read-me file!).
+\par
+Shortly, here are the main features of \fourier:
+\begin{itemize}
+\item \fourier{} provides all complementary typefaces needed to allow Utopia based \TeX{} typesetting. 
+The system is absolutely stand-alone: apart from Utopia and fourier, no other typefaces are required.
+\item \fourier{} provides two greeks, slanted and upright, that may be used in the same document.
+\item It make it possible to typeset ``à la french'': upright roman uppercases, 
+and upright greek in math mode.
+\item \fourier{} do not use OT1 encoding at all. As in standard \LaTeX{} greek uppercases 
+are in the text OT1 font, maths encodings have been redefined.
+\item It is \emph{fully} T1 encoded: text symbols like ``dottlessj'' (\j, \textbf{\j}) or ``eng'' (\ng, \NG) are provided 
+through a virtual fonts mechanism.
+\item Optionnaly, the commercial Adobe expert complement may be fully used by fourier. 
+It includes old-style digits, real (not faked) small caps, semi-bold, extra-black, etc.
+ It may be usefull for professionnal typesetting, but of course, you have to buy the fonts!
+\item The \verb=\boldmath= command is not still fully implemented, \emph{but} there are
+ now bold versions of math letters fonts, which can be used with the 
+ \verb=\bm= command (package \texttt{bm.sty} which \emph{must} be called after \texttt{fourier.sty}): $\bm{\alpha x +\beta y}$.
+ \item \fourier{} provides specific symbols, in math mode ($\llbracket, 
+\rrbracket$, $\oiiint$) and in text mode (\texteuro, \eurologo, \aldineright).
+\item There is a new package provided with \fourier{}: \texttt{fourier-orns}. 
+This is for those who want only the \fourier{} logos \& decos, but not the \fourier{} fonts.
+\textit{Please don't call it if you call \texttt{fourier}}.
+\end{itemize}
+
+\section{Installation \textsc{\&} setup}
+The texmf tree provides a standard TDS.
+You have to install all the \texttt{fourier} directories of the fourier texmf tree 
+in one of yours texmf trees, according to your TDS specifications.
+
+\begin{description}
+\item[WARNING:] Note that in not up to date distributions, the \fourier{} map files
+should be in 
+
+\texttt{texmf/dvips/fourier}
+
+and \emph{not} in
+
+\texttt{texmf/fonts/map/dvips/fourier}
+\end{description}
+If you don't still have the four Utopia fonts, you have to install them too in
+
+\texttt{texmf/fonts/type1/adobe/utopia/}
+
+If you have a licence for the commercial Utopia packages, you have to 
+rename the *.pfb files to suit the declarations in \texttt{fourier-utopia-expert.map} (or to 
+modify this file). Mac fonts should be contverted to pfb format (with 
+\texttt{t1unmac}, for instance).
+
+You have now to setup your installation.
+Depending, of the choosen texmf tree, it is possible that you have to regenerate 
+first the database (\texttt{mktexlsr} command, for instance).
+
+Then, if you have a recent \texttt{web2c} distribution 
+(teTeX, TeXlive, fpTeX...), just run updmap.
+
+\begin{description}
+\item[UNIX:]\quad
+\begin{verbatim}
+    % updmap --enable Map fourier.map
+\end{verbatim}
+If you want to install the commercial complement too (remember that you will have to buy it...)
+\begin{verbatim}
+    % updmap --enable Map fourier-utopia-expert.map
+\end{verbatim}
+\item[Windows:]\quad
+\begin{verbatim}
+    % updmap --enable Map=fourier.map
+\end{verbatim}
+If you want to install the commercial complement too (remember that you will have to buy it...)
+\begin{verbatim}
+    % updmap --enable Map=fourier-utopia-expert.map
+\end{verbatim}
+
+\end{description}
+ Please note that the setting
+ of the dvi previewer is not documented here. On a \texttt{web2c} distribution, \texttt{updmap} should do it.
+
+If you don't have \texttt{updmap} or if the syntax doens not match the described command, please tell me.
+
+\section{Usage}
+\subsection{Calling \fourier}
+You call \fourier{} with: 
+\begin{verbatim}
+    \usepackage[<options>]{fourier}
+\end{verbatim}
+The options are:
+\begin{enumerate}
+\item \texttt{sloped} (default): in maths, lowercase greek is slanted, uppercase greek is upright, roman uppercase are slanted.
+\[M\in\Gamma \iff OM=x\rho\]
+\item \texttt{upright} (à la french): in maths, lowercase and uppercase greeks are upright, and so is roman uppercase.
+\[\mathrm{M}\in\Gamma \iff \mathrm{OM}=x\otherrho\]
+\item \texttt{widespace}: this option offers a larger interword space to those who think that the standard space of Utopia is too narrow\ldots
+\item \texttt{expert}, \texttt{oldstyle}, \texttt{fulloldstyle}: in order to use these options you need the commercial complements of Utopia.
+The \texttt{expert} option provides small caps (not faked), semi-bold, extra-black, (see the commands below) and more symbols in the TS1 companion encoding. The \texttt{oldstyle} option is the same, with oldstyle digits in text mode, and the \texttt{fulloldstyle} option is the same with oldstyle digits in text mode and in math mode.
+\item \texttt{poorman} (default): if you don't have the commercial complement, you must use this option. The main disadvantage is that small caps will became \textsc{reduced Caps}.
+\end{enumerate}
+\subsection{Text commands}
+First it is not usefull to call the T1 encoding (\verb=\usepackage[T1]{fontenc}=) 
+because \verb=fourier= will do it anyway.
+
+Note that the T1 encoding have been completed:
+\begin{itemize}
+\item \verb=\j=\quad \j, \textbf{\j}, \textit{\bfseries\j} etc. 
+\item \verb=\ng=, \verb=\NG=\quad \ng, \NG, \textit{\ng}, 
+\textbf{\NG} etc.
+\item \verb=\textperthousand=, \verb=\textpertenthousand= \quad 
+\textperthousand, \textpertenthousand, \textbf{\textperthousand}, 
+\textbf{\itshape\textpertenthousand} etc.
+\end{itemize}
+\subsection{The companion encoding}
+The  TS1 encoding is generally used through the 
+ \verb=textcomp= package. This encoding is not fully implemented in \fourier{} 
+ and the \verb=textcomp= package is called by \texttt{fourier}
+ \par What is avaible is roughtly what is provided in the adobe standard encoding, with some complements:
+\begin{itemize}
+\item The euro symbol: \verb=\texteuro= \texteuro, 
+\textit{\texteuro}, \textbf{\texteuro}, \textbf{\itshape\texteuro}.
+%%\item A leaf: \verb=\textleaf= \textleaf
+\end{itemize}
+\par
+\subsection{Fourier ornaments}
+\fourier{} provides several logos and ornaments:
+\begin{itemize}
+\item A ``starred'' bullet: \verb=\starredbullet= \starredbullet
+\item A variant of the euro symbol: \verb=\eurologo= \eurologo, \textbf{\eurologo}. 
+Please note that the \verb=\textit= command will not change the slant of this symbol, but \verb=\textsl{\eurologo}= \textsl{\eurologo} will do it.
+\item Decos and logos: \verb=\noway= \noway, \verb=\danger= \danger, \verb=\textxswup= \textxswup,
+\verb=\textxswdown= \textxswdown, \verb=\decoone= \decoone, \verb=\decotwo= \decotwo,
+\verb=\decothreeleft= \decothreeleft, \verb=\decothreeright= \decothreeright, 
+\verb=\decofourleft= \decofourleft, \verb=\decofourright= \decofourright,\verb=\floweroneleft= \floweroneleft,
+\verb=\floweroneright= \floweroneright,\verb=\lefthand= \lefthand, \verb=\righthand= \righthand, \verb=\decosix= \decosix, \verb=\bomb= \bomb.
+\item Smileys: \verb=\grimace= \grimace, \verb=\textthing= \textthing.
+\item Leaves: \verb=\leafleft= \leafleft, \verb=\leafright=\leafright, \verb=\leafNE= \leafNE, \verb=\aldineleft= \aldineleft,
+\\ \verb=\aldineright= \aldineright, \verb=\aldine= \aldine, \verb=\aldinesmall= \aldinesmall.
+\end{itemize}
+
+Finally, some symbols are also provided in math mode, with other names:
+\begin{itemize}
+\item\verb=$\thething$= $\thething$ is a \emph{QEDsymbol} 
+for a false proof. Of course, you don't need it!
+\item\verb=$\xswordsup$=, \verb=$\xsworddown$= $\xswordsup$ may be used as tags for a debatted statement, or for anything else. $\xswordsdown$
+\end{itemize}
+
+\subsection{Mathematical encodings}
+\subsection*{Compatibility with amsmath}
+\fourier{} is compatible with the \texttt{amsmath} package, you no longer need to call 
+\texttt{amsmath} \emph{before} \texttt{fourier} (thanks to Walter Schmidt).
+The \texttt{amssymb} package will be usefull only if the wanted symbols does not still exists
+ in \fourier{} (see the list below). If you finally need \texttt{amssymb}, 
+ it is best to call it \emph{before} \texttt{fourier}.
+\subsubsection*{Standard \LaTeX{} math commands} 
+All standard \LaTeX{} math commands are supported by \fourier{}.
+
+Of course, all these symbols have been redesigned in order to suit Utopia in 
+terms of boldness, contrast and proportions. Greek is particularly concerned:
+
+\vspace{-40pt}
+{\Huge
+\[a, \alpha, \mathrm{a}, \otheralpha, n, \eta, \mathrm{n}, \othereta, 
+c, \epsilon, \varepsilon, \mathrm{c}, \otherepsilon, 
+\othervarepsilon, \mathrm{A}, \Lambda\]\par\vspace{-12pt}
+
+\vspace{-40pt}
+\boldmath\bfseries
+\[a, \alpha, \mathbf{a}, \otheralpha, n, \eta, \mathbf{n}, \othereta, 
+c, \epsilon, \varepsilon, \mathbf{c}, \otherepsilon, 
+\othervarepsilon, \mathbf{A}, \Lambda\]\par
+}
+\noindent but also delimiters (and plenty of others glyphs):
+\def\testdelim#1#2{%
+  - \left#1\left#1\left#1\left#1\left#1\left#1\left#1\left#1 
+  \smash{\widetilde{D}} 
+  \right#2\right#2\right#2\right#2\right#2\right#2\right#2\right#2 -}
+\begingroup
+\delimitershortfall-1pt
+\begin{displaymath}
+  \testdelim\{\} 
+  \qquad 
+  \testdelim()
+\end{displaymath}
+\begin{displaymath}
+\testdelim\lfloor\rfloor
+\qquad
+\testdelim[]
+\end{displaymath}
+\endgroup
+\subsubsection*{Mathematical alphabets}
+Latin alphabets have been stolen to Utopia...
+
+\begin{itemize}
+\item Greek alphabet
+
+\smallskip
+Slanted version
+
+\smallskip
+$\alpha\,\beta\,\gamma\,\delta\,\epsilon\,\eta\,\zeta\,\theta\,\iota\,\kappa\,\lambda\,\mu\,\nu\,\xi\,\pi\,\rho\,\sigma\,\tau\,\upsilon\,\phi\,\chi\,\psi\,\omega$
+
+$\otherGamma$\,$\otherDelta$\,$\otherTheta$\,$\otherLambda$\,$\otherXi$\,$\otherPi$\,$\otherSigma$\,$\otherUpsilon$\,$\otherPhi$\,$\otherPsi$\,$\otherOmega$
+
+
+\smallskip
+\textit{Variants:}
+$\varepsilon$\,$\vartheta$\,$\varkappa$\,$\varpi$\,$\varvarpi$,\,$\varrho$\,$\varsigma$\,$\varphi$
+
+
+\smallskip
+Upright version
+
+\smallskip
+$\otheralpha\,\otherbeta\,\othergamma\,\otherdelta\,\otherepsilon\,\othereta\,\otherzeta\,\othertheta\,\otheriota\,\otherkappa\,\otherlambda\,\othermu\,\othernu\,\otherxi\,\otherpi\,\otherrho\,\othersigma\,\othertau\,\otherupsilon\,\otherphi\,\otherchi\,\otherpsi\,\otheromega$
+
+$\Gamma$\,$\Delta$\,$\Theta$\,$\Lambda$\,$\Xi$\,$\Pi$\,$\Sigma$\,$\Upsilon$\,$\Phi$\,$\Psi$\,$\Omega$
+
+
+\smallskip
+\textit{Variants:}
+$\othervarepsilon$\,$\othervartheta$\,$\othervarkappa$\,$\othervarpi$\,$\othervarvarpi$\,$\othervarrho$\,$\othervarsigma$\,$\othervarphi$
+
+
+
+The way these symbols may be obtained depends of the required option (\texttt{sloped} ou \texttt{upright}). For instance, with
+\begin{verbatim}
+   \[\alpha,\otheralpha,\Omega,\otherOmega\]
+\end{verbatim} 
+You get
+\[\alpha,\otheralpha,\Omega,\otherOmega\]
+with the \texttt{sloped} option and 
+\[\otheralpha,\alpha,\Omega,\otherOmega\]
+with the \texttt{upright} option.
+
+The \verb=\other= prefix allow you to switch from one greek to the other.
+
+\smallskip
+
+\item Calligraphic alphabet (\verb=\mathcal= command)
+
+$\mathcal{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$
+
+\smallskip
+
+\item Blackboard-bold alphabet (\verb=\mathbb= command). No need to load \texttt{amssymb} to get it!
+
+$\mathbb{ABCDEFGHIJKLMNOPQRSTUVWXYZ1k}$
+\end{itemize}
+\subsubsection*{Provided \texttt{amssymb} commands}
+
+\begin{tabular}{lll}
+\verb=\leqslant= $\leqslant$&
+\verb=\geqslant= $\geqslant$&
+\verb=\blacktriangleleft= $\blacktriangleleft$\\
+\verb=\intercal= $\intercal$&
+\verb=\vDash= $\vDash$&
+\verb=\blacktriangleright= $\blacktriangleright$\\
+\verb=\nleqslant= $\nleqslant$&
+\verb=\ngeqslant= $\ngeqslant$&
+\verb=\nparallel= $\nparallel$\\
+\verb=\complement= $\complement$&
+\verb=\hslash= $\hslash$&
+\verb=\hbar= $\hbar$\\
+\verb=\nexists= $\nexists$&
+\verb=\notowns= $\notowns$&
+\verb=\varsubsetneq= $\varsubsetneq$\\
+\verb=\smallsetminus= $\smallsetminus$&
+\verb=\nvDash= $\nvDash$&
+\verb=\square= $\square$\\
+\verb=\leftleftarrows= $\leftleftarrows$&
+\verb=\rightrightarrows= $\rightrightarrows$&
+\verb=\subsetneqq= $\subsetneqq$\\
+\verb=\curvearrowleft= $\curvearrowleft$&
+\verb=\curvearrowright= $\curvearrowright$&
+\verb=\blacksquare= $\blacksquare$
+\end{tabular}
+\subsubsection*{\fourier{} extended commands}
+The \verb=\widehat= and \verb=\widetilde= commands have been extended (like in \texttt{yhmath}).
+\[\widehat{x}\; \widehat{xx} \;\widehat{xxx} \;\widehat{xxxx} 
+\;\widehat{xxxxx} \;\widehat{xxxxxx} \;\widetilde{x}\; \widetilde{xx} 
+\;\widetilde{xxx} \;\widetilde{xxxx} \;\widetilde{xxxxx} 
+\;\widetilde{xxxxxx} \]
+\subsubsection*{\fourier{} specific commands}
+The following commands are provided by \fourier{}.
+\begin{itemize}
+\item \verb=\varkappa=, \verb=\varvarrho=, \verb=\varvarpi=, \verb=\varpartialdiff= :
+$\varkappa$, $\varvarrho$, $\varvarpi$, $\varpartialdiff$.
+\item \verb=\parallelslant= et \verb=\nparallelslant= : 
+$\parallelslant$, $\nparallelslant$.
+\item \verb=\iint=, \verb=\iiint=,  
+\verb=\oiint=,\verb=\oiiint=,\verb=\slashint= : 
+$\iint,\iiint,\oiint,\oiiint,\slashint$
+\[\iint,\iiint,\oiint,\oiiint,\slashint\]
+\item \verb=\llbracket=, \verb=\rrbracket=, \verb=\VERT=
+\begingroup
+\delimitershortfall-1pt
+\begin{displaymath}
+  \testdelim\llbracket\rrbracket
+  \qquad 
+  \testdelim\VERT\VERT
+  \end{displaymath}
+  \endgroup
+  Note that the first version of \fourier{} used \verb=\dblbrackleft= and \verb=\dblbrackright= in place of
+  \verb=\llbracket= and \verb=\rrbracket=. The old commands still exist, but are deprecated.
+ \item \verb=\wideparen= et \verb=\widering= (like in 
+\texttt{yhmath}, but please note that it is necessary to call the \texttt{amsmath} package in order to get the \verb=\widering= command in \fourier).
+ \[\wideparen{XXXXXXXXX}\quad \widering{(A\cup B)\cap(C\cup D)}\]
+\item Finally \verb=\widearc= and \verb=\wideOarc=
+\[\widearc{AMB}\quad \wideOarc{AMB}\]
+
+\end{itemize}
+\subsection{Usage of commercial typefaces}
+The \texttt{expert}, \texttt{oldstyle} or \texttt{fulloldstyle} options, if usable, provides these complementary commands:
+\begin{itemize}
+\item  \verb=\textsb= \verb=\sbseries= semi-bold;
+\item \verb=\textblack= \verb=\blackseries= extra-black;
+\item \verb=\texttitle= \verb=\titleshape= titling 
+(incomplete T1 encoding);
+\item \verb=\oldstyle= to switch to the oldstyle digits with the \texttt{expert} option;
+\item \verb=\lining= to switch to the lining digits with the \texttt{oldstyle} option.
+\end{itemize}
+
+\begin{center}\Huge
+\decotwo
+\end{center}
+
+\end{document}

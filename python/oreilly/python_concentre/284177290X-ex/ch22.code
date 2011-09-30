@@ -1,0 +1,110 @@
+def handle_charref(self, ref):
+    try: 
+        c = chr(int(ref))
+    except (TypeError, ValueError): 
+        self.unknown_charref(ref)
+    else: self.handle_data(c)
+
+----------
+
+def handle_entityref(self, ref):
+    try: t = self.entitydefs[ref]
+    except KeyError: self.unknown_entityref(ref)
+    else: self.handle_data(t)
+
+----------
+
+import sgmllib, urllib, urlparse
+
+class LinksParser(sgmllib.SGMLParser):
+    def __init__(self):
+        sgmllib.SGMLParser.__init__(self)
+        self.seen = { }
+    def do_a(self, attributs):
+        for nom, valeur in attributs:
+            if nom == 'href' and valeur not in self.seen:
+                self.seen[valeur] = True
+                pieces = urlparse.urlparse(valeur)
+                if pieces[0] != 'http': return
+                print urlparse.urlunparse(pieces)
+                return
+
+p = LinksParser()
+f = urllib.urlopen('http://www.python.org/index.html')
+BUFSIZE = 8192
+while True:
+    donnees = f.read(BUFSIZE)
+    if not donnees: break
+    p.feed(donnees)
+p.close( )
+
+----------
+
+import htmllib, formatter, urllib, urlparse
+
+p = htmllib.HTMLParser(formatter.NullFormatter())
+f = urllib.urlopen('http://www.python.org/index.html')
+BUFSIZE = 8192
+while True:
+    donnees= f.read(BUFSIZE)
+    if not donnees: break
+    p.feed(donnees)
+p.close( )
+
+seen = {}
+for url in p.anchorlist:
+    if url in seen: continue
+    seen[url] = True
+    pieces = urlparse.urlparse(url)
+    if pieces[0] == 'http':
+        print urlparse.urlunparse(pieces)
+
+----------
+
+import HTMLParser, urllib, urlparse
+
+class LinksParser(HTMLParser.HTMLParser):
+    def __init__(self):
+        HTMLParser.HTMLParser.__init__(self)
+        self.seen = {}
+    def handle_starttag(self, tag, attributs):
+        if tag != 'a': return
+        for nom, valeur in attributs:
+            if nom == 'href' and valeur not in self.seen:
+                self.seen[valeur] = True
+                pieces = urlparse.urlparse(valeur)
+                if pieces[0] != 'http': return
+                print urlparse.urlunparse(pieces)
+                return
+
+p = LinksParser()
+f = urllib.urlopen('http://www.python.org/index.html')
+BUFSIZE = 8192
+while True:
+    donnees = f.read(BUFSIZE)
+    if not donnees: break
+    p.feed(donnees)
+
+p.close()
+
+----------
+
+import Cheetah.Template
+import os, time, socket
+
+tt = Cheetah.Template.Template('''
+<html><head><title>Rapport de $USER</title></head><body>
+<h1>Rapport sur les données de la machine</h1>
+<p>Rapport écrit à $asctime :<br/>
+#for $lignehote in $uname
+  $lignehote<br/>
+#end for
+</p></body></html>
+''', searchList = [time, os.environ])
+
+try: tt.uname = os.uname
+except AttributeError:
+     tt.uname = [socket.gethostname()]
+
+print tt
+

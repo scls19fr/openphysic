@@ -1,0 +1,99 @@
+% Oscillogrammes
+% réalisés lors du stage LaTeX
+% Plan d'Action Formation PAF
+% de l'académie de Limoges
+% 2004-2005
+% Sébastien CELLES
+% 
+
+\docsanstitre{Oscillogrammes}
+
+%\chapter*{}
+
+
+
+% \verb+TO DO : modifier les marges+  % fait avec changemargin
+
+\newcommand{\oscillogramme}{
+
+\begin{tabular}{cc}
+
+\begin{pspicture}(-5,-4)(5,4)
+\psgrid[subgriddiv=1,griddots=5,gridlabels=0pt]
+\psset{xunit=1}
+\psset{yunit=1}
+
+% Axe des y
+\psline{-}(0,-4)(0,4)
+
+\multido{\dy=-4+0.2}{40}{%
+ \psline(-0.1,\dy)(0.1,\dy)
+} % graduations y
+% voir aussi \psaxes
+
+% Axe des x
+\psline{-}(-5,0)(5,0)
+
+\multido{\dx=-5+0.2}{50}{%
+ \psline(\dx,-0.1)(\dx,0.1)
+} % graduations x
+
+
+% contour
+\psline[linewidth=2pt]{-}(-5,-4)(-5,4)
+\psline[linewidth=2pt]{-}(-5,4)(5,4)
+\psline[linewidth=2pt]{-}(5,4)(5,-4)
+\psline[linewidth=2pt]{-}(5,-4)(-5,-4)
+
+\end{pspicture}
+
+
+
+&
+
+\begin{tabular}[b]{|lccc|}
+\hline
+\multicolumn{4}{|l|@{\rule[-1cm]{0cm}{1cm}}}{ \textbf{Montage : } }\\ %\textsl
+\hline
+\textbf{Entrées :}&\rule[0cm]{4cm}{0cm}&&\\
+\multicolumn{2}{|l}{Voie $Y_A$ : \dotfill}& \fbox{\quad \rule[0cm]{0cm}{.5cm}}& DC \\[.2cm]
+ou $CH_1$ & sensibilité : \dotfill  $ / DIV$ & \fbox{\quad \rule[0cm]{0cm}{.5cm}} &AC \\[.5cm]
+\multicolumn{2}{|l}{Voie $Y_B$ : $\dotfill$ }& \fbox{\quad \rule[0cm]{0cm}{.5cm}}& DC \\[.2cm]
+ou $CH_2$ & sensibilité : \dotfill  $ / DIV$ & \fbox{\quad \rule[0cm]{0cm}{.5cm}} &AC \\[.1cm]
+\hline
+\textbf{Mode :}&&&\\
+\multicolumn{2}{|l}{base de temps : \dotfill $/ DIV$ }& \fbox{\quad \rule[0cm]{0cm}{.5cm}} &\\[.1cm]
+\multicolumn{2}{|l}{mode $XY$}& \fbox{\quad \rule[0cm]{0cm}{.5cm}} &\\[.1cm]
+\hline
+\end{tabular}
+\bigskip
+\end{tabular}
+
+}
+
+\begin{changemargin}{-2cm}{0cm} % changement local des marges gauche/droite
+
+
+%\thispagestyle{empty}
+
+
+\noindent
+\oscillogramme
+\oscillogramme
+\oscillogramme
+
+%\newpage
+
+\docsuitesanstitre
+
+%\thispagestyle{empty}
+
+\vspace*{0.3cm}
+
+\noindent
+\oscillogramme
+\oscillogramme
+\oscillogramme
+\end{changemargin}
+
+

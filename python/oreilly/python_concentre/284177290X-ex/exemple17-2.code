@@ -1,0 +1,33 @@
+""" Ce module teste la fonction inverseMots fournie par le module mod.py. """
+import unittest
+import mod
+
+class ModTest(unittest.TestCase):
+
+    def testCasNormal(self):
+        self.assertEqual(mod.inverseMots('quatre ans et sept mois'),
+            'mois sept et ans quatre')
+
+    def testMotSimple(self):
+        self.assertEqual(mod.inverseMots('unseulmot'), 'unseulmot')
+
+    def testVide(self):
+        self.assertEqual(mod.inverseMots(''), '')
+
+    def testEspacesRedondants(self):
+        self.assertEqual(mod.inverseMots('avec   des   espaces redondants'),
+            'redondants espaces des avec')
+
+    def testUnicode(self):
+        self.assertEqual(mod.inverseMots(u'Unicode est également accepté'),
+            u'accepté également est Unicode')
+
+    def testUnSeulParametre(self):
+        self.assertRaises(TypeError, mod.inverseMots)
+        self.assertRaises(TypeError, mod.inverseMots, 'un', 'deux')
+
+    def testDoitEtreUneChaine(self):
+        self.assertRaises((AttributeError, TypeError), mod.inverseMots, 1)
+
+if __name__== '__main__':
+    unittest.main()

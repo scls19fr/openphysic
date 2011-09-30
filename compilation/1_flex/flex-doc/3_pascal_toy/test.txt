@@ -1,0 +1,4 @@
+
+if condition then
+  a=a+1
+end if

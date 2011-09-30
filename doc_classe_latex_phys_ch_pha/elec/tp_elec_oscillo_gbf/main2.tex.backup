@@ -1,0 +1,244 @@
+\tp{Utilisation d'un Générateur Basse Fréquence (G.B.F.) et d'un oscilloscope}
+
+\objectifs{
+\item Savoir utiliser un G.B.F.
+\item Savoir utiliser un oscilloscope
+}
+
+\materiel{
+\item 1 Générateur Basse Fréquence (G.B.F.)
+\item 1 oscilloscope
+\item des fiches BNC-banane et des fils ou des cordons BNC-BNC
+}
+
+\section{Conseils d'utilisation des appareils}
+\begin{itemize}
+\item Consulter la documentation des appareils.
+\item Consulter la fiche de chaque appareil.
+\end{itemize}
+
+
+
+\section{Travail expérimental}
+\subsection{Mesure de la période et de la fréquence d'une tension variable}
+
+\begin{itemize}
+\item Sélectionner la forme du signal.
+\item Régler la fréquence du signal.
+\item Régler l'amplitude (crête à crête) du signal à $10~V$.
+\item Remplir le tableau ci-dessous.
+\end{itemize}
+
+%\begin{tabular}{|c|c|c|c|c|c|}
+%\begin{tabular}{|c*{5}{|>{\centering}m{.15\linewidth}}|}
+\begin{tabular}{*{6}{|>{\centering}m{.13\linewidth}}|}
+\hline
+\emph{Forme du signal} & \emph{Fréquence $f$ ($Hz$)} & \emph{Nombre $N$ de divisions pour une période} & \emph{Calibre $C$ de la base de temps ($s.DIV^{-1}$)} & \emph{$T = C \cdot N$ ($s$)} & \emph{$f = \frac{1}{T}$ ($Hz$)} \tabularnewline \hline
+Triangle & $500$ & & & & \tabularnewline \hline
+Triangle & $1~000$ & & & & \tabularnewline \hline
+Carré & $2~000$ & & & & \tabularnewline \hline
+Carré & $8~000$ & & & & \tabularnewline \hline
+Sinusoïdal & $10~000$ & & & & \tabularnewline \hline
+Sinusoïdal & $40~000$ & & & & \tabularnewline \hline
+\end{tabular}
+
+
+
+\subsection{Réglage d'une tension de fréquence et d'amplitude données}
+\begin{itemize}
+\item Faire les réglages nécessaires pour observer les signaux suivants :
+
+  \begin{itemize}
+  \item Tension sinusoïdale de période $10~ms$ et d'amplitude $5~V$
+  \item Tension en crénaux de fréquence $50~kHz$ et d'amplitude $500~mV$
+  \item Tension triangulaire de fréquence $200~kHz$ et d'amplitude $2~V$
+  \end{itemize}
+
+\item Faire vérifier les 3 réglages et dessiner l'oscillogramme de la tension sinusoïdale en notant bien la sensibilité verticale, le calibre de la base de temps et la position du zéro.
+
+\end{itemize}
+
+
+
+\subsection{Réglage d'une tension décalée verticalement par rapport à l'axe horizontal}
+
+
+
+Pour décaler une tension verticalement, c'est à dire pour obtenir une tension non symétrique, on doit agir sur le bouton \emph{D\'ECALAGE} (ou \emph{DC OFFSET}) du G.B.F.
+
+\pagebreak
+
+\begin{multicols}{2}
+
+Il faut toujours régler \emph{d'abord} l'amplitude crête à crête du signal. Ensuite on peut décaler le signal par rapport à l'axe horizontal avec le bouton \emph{DC OFFSET} du G.B.F. (il faut tirer ce bouton pour activer le décalage et le tourner pour régler ce décalage).
+
+\bigskip
+
+Régler le G.B.F. pour obtenir les tensions ci-contre. On prendra $f = 2~kHz$.
+
+\bigskip
+
+Faire vérifier les 3 réglages et dessiner l'oscillogramme de la tension rectangulaire. On notera bien sur l'oscillogramme la sensibilité verticale, le calibre de la base de temps et la position du zéro.
+
+\begin{center}
+
+%Signal 1
+\begin{pspicture}(-0.5,0)(7,2)
+%\psgrid[subgriddiv=1,griddots=10]
+\psline{->}(-0.25,0)(7,0)
+\psline{->}(0,-0.25)(0,2)
+\rput(-0.25,2){$e_1$}
+\rput(7,-0.25){$t$}
+\psline(0,1.5)(2,1.5)
+\psline(2,1.5)(2,0)
+\psline(2,0)(4,0)
+\psline(4,0)(4,1.5)
+\psline(4,1.5)(6,1.5)
+\rput(4,-0.25){$T$}
+\rput(-0.5,1.5){$2~V$}
+\rput(-0.5,0){$0$}
+\end{pspicture}
+
+%\medskip
+\bigskip
+
+%Signal 2
+\begin{pspicture}(-0.5,-1)(7,1)
+%\psgrid[subgriddiv=1,griddots=10]
+\psline{->}(-0.25,0)(7,0)
+\psline{->}(0,-1.25)(0,1)
+\rput(-0.25,1){$e_2$}
+\rput(7,-0.25){$t$}
+\psline(0,-1)(2,0.5)
+\psline(2,0.5)(4,-1)
+\psline(4,-1)(6,0.5)
+\rput(4,0.25){$T$}
+\rput(-0.5,0.5){$1~V$}
+\rput(-0.5,-1){$-2~V$}
+\rput(-0.5,0){$0$}
+\end{pspicture}
+
+%\medskip
+\bigskip
+
+%Signal 3
+\begin{pspicture}(-0.5,-2)(7,0)
+%\psgrid[subgriddiv=1,griddots=10]
+\psline{->}(-0.25,0)(7,0)
+\psline{->}(0,-2)(0,0.25)
+\rput(-0.25,0.25){$e_3$}
+\rput(7,-0.25){$t$}
+\rput(4,-0.25){$T$}
+\rput(-0.5,-0.5){$-3~V$}
+\rput(-0.5,-1){$-6~V$}
+\psplot{0}{6}{x 90 mul sin 0.5 mul 0.5 sub} % 4cm<->360° -> 90
+\psline[linestyle=dashed](0,-0.5)(4.25,-0.5)
+\end{pspicture}
+
+\end{center}
+
+
+\end{multicols}
+
+\subsection{Réglage du rapport cyclique $\alpha$}
+Soit un signal rectangulaire. Il est possible avec un G.B.F d'obtenir un signal dont la durée de l'état bas est différente de la durée de l'état haut.
+
+On appelle rapport cyclique $\alpha$ du signal le rapport entre la durée du signal à l'état haut et la période du signal.
+
+\begin{multicols}{2}
+
+\begin{center}
+\begin{pspicture}(0,-1)(7,1)
+%\psgrid[subgriddiv=1,griddots=10]
+\psline{->}(-0.25,0)(7,0)
+\psline{->}(0,-1)(0,1)
+\rput(-0.25,1.25){$u$}
+\rput(7,-0.25){$t$}
+\psline(0,0.75)(1,0.75)
+\psline(1,0.75)(1,-0.5)
+\psline(1,-0.5)(4,-0.5)
+\psline(4,-0.5)(4,0.75)
+\psline(4,0.75)(5,0.75)
+\psline(5,0.75)(5,-0.5)
+\psline(5,-0.5)(6,-0.5)
+\rput(-0.5,-0.5){$U_{\mbox{min}}$}
+\rput(-0.5,0.75){$U_{\mbox{max}}$}
+\rput(1.25,0.25){$\alpha T$}
+\rput(3.75,0.25){$T$}
+
+\psline{<->}(0,-0.75)(1,-0.75)
+\rput(0.5,-1){$t_h$}
+\psline{<->}(1,-0.75)(4,-0.75)
+\rput(2.5,-1){$t_b$}
+\end{pspicture}
+\end{center}
+
+$t_h = \alpha T$ : durée du signal à l'état haut 
+
+$t_b = (1 - \alpha) T$ : durée du signal à l'état bas 
+
+$T = t_h + t_b$ : période du signal
+
+$\alpha = \frac{t_h}{T}$ : rapport cyclique ($\alpha<=1$)
+
+\end{multicols}
+
+Le réglage d'un signal à rapport cyclique variable se fait en agissant sur le bouton \emph{SYM\'ETRIE DUTY} du G.B.F.
+
+
+\bigskip
+
+Régler le G.B.F. pour obtenir la tension suivante :
+
+$T = 0,8~ms$ ; $U_{\mbox{max}} = 1~V$ ; $U_{\mbox{min}} = -1~V$ ; $\alpha = 0,25$
+
+
+Dessiner maintenant l'oscillogramme de cette tension pour $\alpha = 0,75$ en précisant bien la sensibilité verticale, le calibre de la base de temps et la position du zéro.
+
+
+\subsection{Utilisation des 2 voies de l'oscilloscope}
+
+On veut visualiser simultanément à l'oscilloscope les tensions $e(t)$ et $u_R(t)$.
+
+\begin{multicols}{2}
+
+\begin{center}
+\begin{pspicture}(0,0)(7,4)
+%\psgrid[subgriddiv=1,griddots=10]
+\pnode(0.5,0.5){O}
+\pnode(0.5,3.5){A}
+\pnode(5.5,3.5){B}
+\pnode(5.5,0.5){C}
+\resistor[tensionlabel=$u_R(t)$,tensionlabeloffset=1.5cm](B)(C){$R$}
+\diode[intensitylabel=$i$](A)(B){$D$}
+\gbf[tensionlabel=$e(t)$,tensionlabeloffset=1.5cm](O)(A)
+\wire(C)(O)
+\ground(O)
+
+% oscillo
+
+\end{pspicture}
+\end{center}
+
+\begin{framed}
+Attention : lorsqu'on veut visualiser 2 signaux en même temps à l'oscilloscope, il faut que ces 2 signaux soient référencés par rapport à la même masse. On ne relie donc qu'une seule masse (fil noir) à l'oscilloscope et cette masse doit être la même que celle du G.B.F.
+\end{framed}
+
+\end{multicols}
+
+\begin{itemize}
+\item Régler le G.B.F. à vide (c'est à dire en branchant uniquement le G.B.F. à l'oscilloscope et donc \emph{sans qu'il soit connecté au circuit} afin d'obtenir une tension $e(t)$ sinusoïdale de période $1~ms$ et d'amplitude $8~V$.
+
+\item \'Eteindre le G.B.F. puis réaliser le schéma ci-dessus avec $R = 100 \Omega$.
+
+\item Visualiser les 2 signaux $e(t)$ et $u_R(t)$ sur les 2 voies de l'oscilloscope et les relever.
+
+\item Proposer une méthode pour visualiser la tension $u_D(t)$ aux bornes de la diode en utilisant la loi des mailles et les commandes \emph{$ADD$} et \emph{$-CH2$} ou \emph{$-Y_B$} de l'oscilloscope.
+
+\item Montrer que l'alternance positive de $e$ est modifiée (sa valeur maximale diminue) alors que l'alternance négative ne l'est pas, pourquoi ?
+
+\item Expliquer l'allure obtenue pour $u_R$.
+
+\item Comment visualiser l'allure de l'intensité $i$ du courant traversant le circuit ?
+
+\end{itemize}

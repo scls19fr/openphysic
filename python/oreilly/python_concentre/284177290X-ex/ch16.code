@@ -1,0 +1,380 @@
+import sys, Tkinter
+Tkinter.Label(text = "Bienvenue !").pack( )
+Tkinter.Button(text = "Quitter", command = sys.exit).pack( )
+Tkinter.mainloop( )
+
+----------
+
+import Tkinter
+
+root = Tkinter.Tk( )
+tv = Tkinter.StringVar( )
+Tkinter.Label(textvariable = tv).pack( )
+Tkinter.Entry(textvariable = tv).pack( )
+tv.set('Bienvenue !')
+Tkinter.Button(text = "Quitter", command = root.quit).pack( )
+
+Tkinter.mainloop( )
+print tv.get( )
+
+----------
+import os
+import Tkinter
+
+root = Tkinter.Tk( )
+L = Tkinter.Listbox(selectmode = Tkinter.SINGLE)
+gifsdict = { }
+
+chemin = 'images'
+for nomGIF in os.listdir(chemin):
+    if not nomGIF[0].isdigit(  ): continue
+    chemin = os.path.join(chemin, nomGIF)
+    gif = Tkinter.PhotoImage(file = nomGIF)
+    gifsdict[nomGIF] = gif
+    L.insert(Tkinter.END, nomGIF)
+
+L.pack( )
+img = Tkinter.Label( )
+img.pack( )
+def list_entry_clicked(*ignore):
+    nomImg = L.get(L.curselection( )[0])
+img.config(image = gifsdict[nomImg])
+L.bind('<ButtonRelease-1>', list_entry_clicked)
+root.mainloop( )
+
+----------
+
+e.delete(0, END)           # Supprime le contenu du widget
+e.insert(END, uneChaine)   # Ajoute uneChaine au contenu du widget
+uneChaine = e.get()        # Récupère le contenu du widget
+
+----------
+
+e.config(state = NORMAL)   # Autorise la modification du contenu de e
+# Appel de e.delete et/ou e.insert, en fonction des besoins
+e.config(state = DISABLED) # On interdit à nouveau la modification du contenu de e
+
+----------
+
+L.delete(0, END)           # Supprime les éléments de la liste
+L.insert(END, uneChaine )  # Ajoute uneChaine aux éléments de la liste
+
+----------
+
+import Tkinter
+s = Tkinter.Scrollbar( )
+L = Tkinter.Listbox( )
+s.pack(side = Tkinter.RIGHT, fill = Tkinter.Y)
+L.pack(side = Tkinter.LEFT, fill = Tkinter.Y)
+s.config(command = L.yview)
+L.config(yscrollcommand = s.set)
+for i in range(30): L.insert(Tkinter.END, str(i) * 3)
+Tkinter.mainloop( )
+
+----------
+
+L = Tkinter.Listbox()
+L.pack()
+
+----------
+
+resizable_wh = T.resizable()
+if len(resizable_wh) != 2: resizable_wh = map(int, resizable_wh.split())
+resizable_w, resizable_h = resizable_wh
+
+----------
+
+import Tkinter
+root = Tkinter.Tk( )
+var = Tkinter.StringVar( )
+entry = Tkinter.Entry(root, textvariable = var)
+entry.focus_set()
+entry.pack( )
+var.set(root.title( ))
+def changeTitle(): root.title(var.get( ))
+Tkinter.Button(root, text="Changer le titre", command = changeTitle).pack( )
+Tkinter.Button(root, text="Icônifier", command = root.iconify).pack( )
+Tkinter.Button(root, text="Fermer", command = root.destroy).pack( )
+Tkinter.mainloop( )
+
+----------
+
+import Tkinter
+
+root = Tkinter.Tk( )
+bar = Tkinter.Menu( )
+
+def show(menu, entry): print menu, entry
+
+fic = Tkinter.Menu( )
+for x in 'Nouveau', 'Ouvrir', 'Fermer', 'Sauvegarder':
+    fic.add_command(label = x, command = lambda x = x:show('Fichier', x))
+bar.add_cascade(label = 'Fichier', menu = fic)
+
+edi = Tkinter.Menu( )
+for x in 'Couper', 'Copier', 'Coller', 'Effacer':
+    edi.add_command(label = x, command = lambda x = x:show('Édition', x))
+bar.add_cascade(label = 'Édition', menu = edi)
+
+root.config(menu = bar)
+Tkinter.mainloop()
+----------
+
+Def mkshow(menu):
+    def emit(entry, menu = menu): print menu, entry
+    return emit
+
+----------
+
+t.delete('1.0', END)            # Vide le contenu du widget
+t.insert(END, chaine)           # Ajoute chaîne au contenu du widget
+uneChaine = t.get('1.0', END)   # Récupère le contenu du widget dans une chaîne
+
+----------
+
+import Tkinter
+
+root = Tkinter.Tk( )
+s = Tkinter.Scrollbar(root)
+T = Tkinter.Text(root)
+T.focus_set( )
+s.pack(side = Tkinter.RIGHT, fill = Tkinter.Y)
+T.pack(side = Tkinter.LEFT, fill = Tkinter.Y)
+s.config(command = T.yview)
+T.config(yscrollcommand = s.set)
+for i in range(40): T.insert(Tkinter.END, "Ceci est la ligne %d\n" % i)
+Tkinter.mainloop( )
+
+----------
+
+def longueur_ligne(t, L):
+    return int(t.index('%d.end'%L).split('.')[-1])
+
+----------
+
+from Tkinter import *
+
+root = Tk()
+
+# Place une étiquette, un champ de saisie et un bouton 
+# en haut de la fenêtre racine, de gauche à droite.
+fram = Frame(root)
+Label(fram,text = 'Texte à rechercher :').pack(side = LEFT)
+edit = Entry(fram)
+edit.pack(side = LEFT, fill = BOTH, expand = 1)
+edit.focus_set( )
+butt = Button(fram, text = 'Rechercher')
+butt.pack(side = RIGHT)
+fram.pack(side = TOP)
+
+# Remplit le reste de la fenêtre racine avec un Text et y place du texte
+text = Text(root)
+text.insert('1.0',
+'''Nel mezzo del cammin di nostra vita
+mi ritrovai per una selva oscura
+che la diritta via era smarrita
+''')
+text.pack(side = BOTTOM)
+
+# Action du Button : met en évidence toutes les occurrences de la chaîne
+def trouve():
+    # Supprime les éventuelles utilisations antérieures du marqueur "ok"
+    text.tag_remove('ok', '1.0', END)
+    # Récupère la chaîne à recherche (si elle est vide, pas de recherche)
+    s = edit.get()
+    if s:
+        # Commence au début (et arrêt lorsque l'on arrive à la fin)
+        ind = '1.0'
+        while 1:
+            # Trouve l'occurrence suivante, sort de la boucle s'il
+            # n'y en a plus
+            ind = text.search(s, ind, nocase = 1, stopindex = END)
+            if not ind: break
+            # Indice juste après la fin de l'occurrence
+            dern_ind = '%s+%dc' % (ind, len(s))
+            # Marque toute l'occurrence (début inclus, fin exclue)
+            text.tag_add('ok', ind, dern_ind)
+            # Préparation pour rechercher l'occurrence suivante
+            ind = dern_ind
+        # Utilisation d'un fond rouge pour les occurrences marquées
+        text.tag_config('ok', foreground = 'red')
+    # Redonne le focus au champ de saisie
+    edit.focus_set()
+
+# Install l'action à effectuer lorsque l'utilisateur clique sur le bouton
+butt.config(command = trouve)
+
+# Lance le spectacle (piloté par les événements)
+root.mainloop ()
+
+----------
+
+from Tkinter import *
+import math
+
+root = Tk( )
+
+# D'abord, une ligne pour la saisie de la fonction et pour le bouton
+fram = Frame(root)
+Label(fram, text='f(x)  :').pack(side = LEFT)
+fction = Entry(fram)
+fction.pack(side = LEFT, fill = BOTH, expand = 1)
+butt = Button(fram, text = 'Tracer')
+butt.pack(side = RIGHT)
+fram.pack(side = TOP)
+
+# Puis, une ligne pour saisir les limites
+fram = Frame(root)
+limites = [ ]
+for label in 'minX', 'maxX', 'minY', 'maxY':
+    Label(fram, text = label + ' : ').pack(side = LEFT)
+    edit = Entry(fram, width = 6)
+    edit.pack(side = LEFT)
+    limites.append(edit)
+fram.pack(side = TOP)
+
+# Et enfin, le canevas
+c = Canvas(root)
+c.pack(side  =TOP, fill = BOTH, expand = 1)
+
+def minimax(valeurs = [0.0, 1.0, 0.0, 1.0]):
+    "Ajuste et affiche les limites X et Y"
+    for i in range(4):
+        edit = limites[i]
+        try: valeurs[i] = float(edit.get( ))
+        except: pass
+        edit.delete(0, END)
+        edit.insert(END, '%.2f' % valeurs[i])
+    return valeurs
+
+def tracer():
+    "Trace la fonction indiquée avec les limites données"
+    minx, maxx, miny, maxy = minimax( )
+
+    # Obtention et compilation de la fonction
+    f = fction.get( )
+    f = compile(f, f, 'eval')
+
+    # Obtention des dimensions X et Y du canevas
+    CX = c.winfo_width( )
+    CY = c.winfo_height( )
+
+    # Calcul des coordonnées pour la ligne
+    coords = [ ]
+    for i in range(0, CX, 5):
+        coords.append(i)
+        x = minx + ((maxx - minx) * i) / CX
+        y = eval(f, vars(math), {'x':x})
+        j = CY * (y - miny) / (maxy - miny)
+        coords.append(j)
+
+    # Tracé de la ligne
+    c.delete(ALL)
+    c.create_line(*coords)
+
+butt.config(command = tracer)
+
+# Donne un exemple initial au lieu de renvoyer à la documentation
+f = 'sin(x) + cos(x)'
+fction.insert(END, f)
+minimax([0.0, 10.0, -2.0, 2.0])
+
+root.mainloop( )
+
+----------
+
+import Tkinter
+root = Tkinter.Tk()
+for lig in range(3):
+    for col in range(4):
+        Tkinter.Label(root, text = 'L%s/C%s' % (lig, col),
+            borderwidth = 1).grid(row = lig, column = col)
+root.mainloop( )
+
+----------
+
+from Tkinter import *
+
+root = Tk( )
+def bienvenue(*ignore): print 'Hello World'
+root.bind('<Return>', bienvenue)
+root.mainloop( )
+
+----------
+
+import Tkinter
+from Tkinter import *
+
+root = Tk()
+prompt = 'Cliquez sur un bouton, ou pressez une touche'
+L = Label(root, text = prompt, width = len(prompt))
+L.pack()
+
+def touche(evt):
+    if evt.char == evt.keysym:
+        msg = 'Touche normale %r' % evt.char
+    elif len(evt.char) ==1:
+        msg = 'Touche de ponctuation %r (%r)' % (evt.keysym, evt.char)
+    else:
+        msg = 'Touche spéciale %r' % evt.keysym
+    L.config(text = msg)
+L.bind_all('<Key>', touche)
+
+def souris(nomEvt):
+    def liaison_souris(evt):
+        msg = 'Événement souris %s' % nomEvt
+        L.config(text = msg)
+    L.bind_all('<%s>'% nomEvt, liaison_souris)
+
+for i in range(1,4):
+    souris('Button-%s' % i)
+    souris('ButtonRelease-%s' % i)
+    souris('Double-Button-%s' % i)
+
+root.mainloop( )
+
+----------
+
+import Tkinter
+import time
+
+curtime = ''
+clock = Tkinter.Label()
+clock.pack()
+
+def tick( ):
+    global curtime
+    newtime = time.strftime('%H:%M:%S')
+    if newtime != curtime:
+        curtime = newtime
+        clock.config(text = curtime)
+    clock.after(200, tick)
+
+tick( )
+clock.mainloop( )
+
+----------
+
+import Tkinter
+
+F1 = Tkinter.Frame()
+s = Tkinter.Scrollbar(F1)
+L = Tkinter.Listbox(F1)
+s.pack(side = Tkinter.RIGHT, fill = Tkinter.Y)
+L.pack(side = Tkinter.LEFT, fill = Tkinter.Y)
+s['command'] = L.yview
+L['yscrollcommand'] = s.set
+for i in range(30): L.insert(Tkinter.END, str(i))
+F1.pack(side = Tkinter.TOP)
+
+F2 = Tkinter.Frame()
+lab = Tkinter.Label(F2)
+def poll():
+    lab.after(200, poll)
+    sel = L.curselection()
+    lab.config(text = str(sel))
+lab.pack( )
+F2.pack(side = Tkinter.TOP)
+
+poll( )
+Tkinter.mainloop( )

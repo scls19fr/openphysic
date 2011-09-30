@@ -1,0 +1,15 @@
+%Filename: ot1uaq.fd
+%Created by: tex Fam_6892
+%Created using fontinst v1.800
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{ot1uaq.fd}
+   [1998/11/05 Fontinst v1.800 font definitions for OT1/uaq.]
+
+\DeclareFontFamily{OT1}{uaq}{}
+
+
+\DeclareFontShape{OT1}{uaq}{m}{ui}{<->ssub * uaq/m/it}{}
+\DeclareFontShape{OT1}{uaq}{b}{ui}{<->ssub * uaq/b/it}{}
+\endinput

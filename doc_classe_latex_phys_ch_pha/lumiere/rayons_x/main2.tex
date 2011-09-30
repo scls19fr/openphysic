@@ -1,0 +1,301 @@
+\cours{Rayons X}
+
+\Section{Nature des rayons X}
+
+
+\frame{
+  \frametitle{\insertsectionhead}
+  \pause
+
+  Les rayons X sont des ondes électromagnétiques de même nature que la lumière.
+
+  \pause
+
+  Ils se différencient de celle-ci par leur longueur d'onde qui est beaucoup plus petite.
+
+  \pause
+
+\begin{center}
+  \includegraphics[width=9cm]{623_1533_spectre_complet.jpg.eps}
+\end{center}
+
+  \pause
+
+  Elle est de l'ordre de  $10~nm$ ($10^{-8}~m$) à $10^{-3}~nm$ ($10^{-12}~m$).
+
+}
+
+\Section{Production des rayons X}
+\frame{\frametitle{\insertsectionhead}}
+
+\Subsection{Tube de Coolidge}
+\frame{
+
+  \frametitle{\insertsubsectionhead}
+  
+  \begin{center}
+    \includegraphics[width=9cm]{tube_coolidge.png.eps}
+    \caption{Le tube de Coolidge}
+  \end{center}
+
+}
+
+\frame{
+  \frametitle{\insertsectionhead}
+
+  Pour produire des rayons X il faut un tube à rayons X formé :
+
+  \pause
+  
+  \begin{itemize}
+  \item d'un filament F
+    \pause
+  \item d'une électrode A en métal (appelée anode ou anticathode)
+  \end{itemize}
+
+  \pause
+
+  L'ensemble est alimenté par un générateur de courant continu sous haute tension.
+
+  \pause
+
+  La différence de potentiel (tension) entre le filament F et l'électrode A permet l'arrachage des électrons qui viennent percuter l'anticathode d'où émission de rayons X.
+
+  \pause
+
+  La tension utilisée pour accélérer les électrons peut aller jusqu'à $100~kV$.
+}
+
+\frame{
+
+  \frametitle{\insertsectionhead}
+  
+
+  Un électron peut acquérir l'énergie
+  \[E = e U\]
+
+  \begin{unites}
+  \item $E$ : énergie en Joule ($J$)
+  \item $e = 1,6.10^{-19} C$ : valeur absolue de la charge d'un électron
+  \item $U$ : différence de potentiel (tension) en Volt ($V$)
+  \end{unites}
+  
+  \pause
+
+  Or on a vu que cette énergie est équivalente à l'énergie d'une radiation de longueur d'onde $\lambda$ telle que :
+  \[E = h \nu = h \frac{c}{\lambda}\]
+
+  \pause
+  On déduit donc : \pause \[\lambda = \frac{h c}{e U}\]
+
+\pause
+
+La tension $U$ utilisée pour accélérer les électrons est réglable ce qui permet d'obtenir la longueur d'onde désirée.
+  
+}
+
+\Subsection{Mécanisme d'émission des rayons X par les atomes}
+\frame{
+  \frametitle{\insertsubsectionhead}
+
+  \pause
+  
+\begin{center}
+  \begin{tabular}{|c|c|}
+    \hline
+    Lumière & Rayons X \\ \hline \hline
+    Les électrons \emph{externes} & Les électrons \emph{internes} \\
+    changent de couche & changent de couche \\
+    (donc de niveau d'énergie) & (donc de niveau d'énergie) \\
+    \hline
+  \end{tabular}
+\end{center}
+
+  \pause
+
+  Les électrons arrachés à l'anticathode mettent donc en jeu une énergie plus importante dans le cas des rayons X que dans le cas de la lumière.
+
+  
+  
+}
+
+%\Subsubsection{\'Emission de rayons X par les atomes de l'anticathode}
+
+\frame{
+  \frametitle{a. \'Emission de rayons X par les atomes de l'anticathode}
+
+  \begin{center}
+    \includegraphics[width=5cm]{emission_rayons_x.png.eps}
+    \caption{\'Emission de rayons X par les atomes de l'anticathode}
+  \end{center}
+
+  \pause
+
+  Passage d'un électron d'une couche interne à la couche K \\ $\Longrightarrow$ émission d'un photon X de la série K
+
+  \pause
+
+  Passage d'un électron d'une couche interne à la couche L \\ $\Longrightarrow$ émission d'un photon X de la série L
+}
+
+%\Subsubsection{Anticathode en cuivre}
+\frame{
+  \frametitle{b. Anticathode en cuivre (exercice)}
+
+  \small Les électrons incidents sont accélérés sous une tension de $40~kV$.\\
+  Quelle est en $eV$ et en $J$, l'énergie de ces électrons ?\\
+  L'énergie d'un électron incident est-elle suffisante pour arracher un électron K de l'atome de cuivre ?\\
+  Cet électron K étant arraché, un électron provenant de la couche L ou de la couche M peut prendre sa place laissée vacante au niveau K.\\
+  Déduire la valeur des deux longueurs d'onde qui seront émises.\\
+
+\begin{center}
+  \begin{pspicture}(-1.5,0.5)(4,-3.5) %(-1,0)(4,-4)
+    %\psgrid[subgriddiv=1,griddots=10]
+    \psset{xunit=1}
+    \psset{yunit=0.0004}
+    \psline{->}(0,-10000)(0,1000) % Axe des y
+    \rput{0}(-0.75,750){$E~(eV)$}
+
+    \psline[linecolor=red,linewidth=2pt](0,-8979)(3,-8979)
+    \rput{0}(-1,-8979){$-8979~eV$}
+    \rput{0}(3.5,-8979){K}
+    \psline[linecolor=red,linewidth=2pt](0,-932)(3,-932)
+    \rput{0}(-1,-932){$-932~eV$}
+    \rput{0}(3.5,-932){L}
+    \psline[linecolor=red,linewidth=2pt](0,-74)(3,-74)
+    \rput{0}(-1,-74){$-74~eV$}
+    \rput{0}(3.5,-74){M}
+
+    \psline[linecolor=black,linewidth=2pt](0,0)(3,0)
+
+  \end{pspicture}
+\end{center}
+}
+
+
+\frame{
+  \frametitle{b. Anticathode en cuivre (correction de l'exercice)}
+
+  \pause
+
+  \[\Delta E = e.U = 1,6.10^{-19}.40.10^3 = 6,4.10^{-15}~J\]
+
+  \pause
+
+  \[1 eV = 1,6.10^{-19}~J\]
+
+  \pause
+
+  \[\Delta E = 40.10^3~eV = 4.10^4~eV\]
+
+  \pause
+
+  \[\lambda_{L \rightarrow K} = \frac{h.c}{\Delta E} = \frac{h.c}{E_L-E_K} = 154.10^{-12}~m\]
+
+  \pause
+
+  \[\lambda_{M \rightarrow K} = \frac{h.c}{\Delta E} = \frac{h.c}{E_M-E_K} = 139.10^{-12}~m\]
+
+  % \[\lambda_{M \rightarrow L} = \] ??????? 1,4.10^{-9}
+
+  % \lambda doit appartenir à 10^-8  10^-12 pour être dans le domaine des rayons X
+
+}
+
+\Section{Propriétés physico-chimiques des rayons X}
+\frame{\frametitle{\insertsectionhead}}
+
+\Subsection{Propagation des rayons X}
+\frame{
+  \frametitle{\insertsubsectionhead}
+  
+  \pause
+
+  Contrairement à la lumière, les rayons X ne subissent ni réflexion ni réfraction.
+
+  \pause
+
+  Ils se propagent en ligne droite dans la plus part des milieux.
+  
+  \pause
+
+  \begin{center}
+    \includegraphics[width=9cm]{absorption_rayons_x.png.eps}
+    \caption{Absorption des rayons X par la matière}
+  \end{center}
+
+
+}
+
+\Subsection{Absorption des rayons X par la matière}
+\frame{\frametitle{\insertsubsectionhead}}
+
+%\Subsubsection{Influence de la longueur d'onde}
+\frame{
+  \frametitle{a. Influence de la longueur d'onde}
+  
+  \pause
+
+  Le tableau ci-dessous donne l'épaisseur nécessaire en millimètres pour arrêter 90\% du rayonnement X.
+
+  \pause
+
+  \vspace{0,5cm}
+
+\begin{center}
+  \begin{tabular}{|c||c|c|c|}
+    \hline
+    Substance       & \multicolumn{3}{c|}{Longueur d'onde} \\ \cline{2-4}
+    \null           & $\lambda=0,03$ & $\lambda=0,1$ & $\lambda=0,23$ \\ \hline \hline
+    carbone $Z = 6$ & 93,3           & 7,5           & 0,7 \\ \hline
+    fer $Z = 26$    & 0,9            & 0,03          & 0,027 \\ \hline
+    plomb $Z = 82$  & 0,16           & 0,027         & 0,004 \\
+    \hline
+  \end{tabular}
+\end{center}
+  
+}
+
+
+%\Subsubsection{Influence de la dimension des atomes}
+\frame{
+  \frametitle{b. Influence de la dimension des atomes}
+
+  Un écran en Plomb absorbe beaucoup mieux les rayons X qu'un écran en aluminium de même épassir.
+
+  \pause
+
+  Ceci est dû au fait que les atomes de plomb ($Z = 82$) sont beaucoup plus gros que les atomes d'aluminium ($Z = 13$).
+
+  \pause
+
+  Pour se protéger des rayons X, on préférera utiliser des écrans en plomb.
+
+}
+
+\frame{
+  \frametitle{c. Influence de l'épaisseur traversée}
+
+  \begin{center}
+    \includegraphics[width=4cm]{influence_epaisseur.png.eps}
+    \caption{Influence de l'épaisseur traversée sur l'absorption des rayons X}
+  \end{center}
+
+  \[I = I_0.e^{-k a}\]
+
+  k dépend de la longueur d'onde et de la nature de la substance traversée.\\
+  k s'exprime en $m^{-1}$.
+}
+
+\Section{Applications et utilisations des rayons X}
+\frame{\frametitle{\insertsectionhead}}
+
+\Subsection{Radiographie et radioscopie}
+\frame{\frametitle{\insertsubsectionhead}}
+
+\Subsection{Radiothérapie}
+\frame{\frametitle{\insertsubsectionhead}}
+
+\Subsection{Scanner}
+\frame{\frametitle{\insertsubsectionhead}}
+

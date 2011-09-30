@@ -1,0 +1,156 @@
+%\documentclass[h, xcolor=pst, dvips]{beamer} % presentation normale avec du PSTricks (dvi->ps->pdf)
+
+\documentclass{beamer}
+
+\mode<article> % pour la version 'article'
+{
+  \usepackage{fullpage}
+  \usepackage{hyperref}
+}
+
+
+\mode<presentation> % pour la version 'presentation'
+{
+  \usetheme{Warsaw} % Warsaw Frankfurt
+}
+
+
+\usepackage[frenchb]{babel}     % specification francaise
+\usepackage[latin1]{inputenc}   % entree clavier latin1
+% \usepackage[T1]{fontenc}        % sortie
+
+% \usepackage{nameref} % permet d'écrire le nom de la section en cours
+% (nécessite 2 compilations)
+
+\usepackage{graphicx}
+\usepackage{tabularx}
+
+\renewcommand{\emph}[1]{\textcolor{red}{\underline{\textit{\textcolor{black}{#1}}}}}
+
+%\newcommand{\inclure}[1]{
+%  \graphicspath{%
+%    {#1/}%
+%  }
+%  \input{#1/main2.tex}
+%}
+
+\graphicspath{%
+  {../frames/}%
+}
+
+% PSTricks
+% \usepackage{pstricks}
+% \usepackage{pst-plot} % tracé de fonctions
+% \usepackage{pst-circ} % circuit en elec
+
+\newcommand{\actuellement}[1]{%
+  \textit{#1}
+  % \emph{#1}
+}
+
+\newcommand{\vressort}[1]{%
+  \vspace{\stretch{#1}}
+}
+
+%\inclure{poste}
+\input{poste.tex} % poste
+
+\title{\poste}
+%\title{Titre}
+
+\author{Sébastien \textsc{CELLES}}
+
+\institute{Professeur agrégé de Sciences Physiques - Physique Appliquée}
+
+\date{Mercredi 10 Janvier 2007}
+% \date{\today}
+% \subject{...}
+
+\begin{document}
+
+\frame{
+  % \maketitle
+  \titlepage
+}
+
+
+\frame
+{
+  \tableofcontents
+}
+
+
+\presposte % presentation poste
+
+%\frame{
+%  \includegraphics[width=3cm]{logo.gif.eps}
+%}
+
+% parcours scolaire
+\input{../frames/parcours_scol.tex}
+
+
+
+% enseignement
+\input{../frames/enseignement.tex}
+
+
+\section{En quoi mon parcours est-il adapté à ce poste ?}
+
+\frame{
+  \frametitle{\insertsectionhead}
+
+  \vspace{\stretch{5}}
+
+  \begin{center}
+    \begin{Huge}
+      En quoi mon parcours convient-il à ce poste ?
+    \end{Huge}
+  \end{center}
+  
+
+  \vspace{\stretch{5}}
+}
+
+% info générale
+
+% langage C
+\input{../frames/langage_c.tex}
+
+% info indus (microcontroleurs)
+\input{../frames/microcontroleurs.tex}
+
+% réseau
+\input{../frames/reseau.tex}
+
+% serveurs
+\input{../frames/serveurs.tex}
+
+% telecom
+\input{../frames/telecom.tex}
+
+% unix linux
+\input{../frames/unix_linux.tex}
+
+% logiciels libres
+\input{../frames/logiciels_libres.tex}
+
+\input{../frames/informatique.tex}
+
+\input{../frames/multimedia.tex}
+
+% conclusion
+\conclusion
+
+% \frame{
+%   \frametitle{\insertsubsectionhead (suite)}
+
+%   \begin{itemize}
+%   \item Un envie de 
+%   \end{itemize}
+
+% }
+
+
+
+\end{document}

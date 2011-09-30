@@ -1,0 +1,145 @@
+Chap 15 ? :			    IMAGES FORMEES PAR LES SYSTEMES OPTIQUES			1ère S
+
+I]	Généralités.
+
+Les télescopes sont munis de miroir et de lentilles.
+
+1)	Réflexion et réfraction.
+
+Quand la lumière arrive à la surface de séparation de 2 milieux, 2 phénomènes sont observables : réflexion, réfraction.
+
+2)	Notion d'image.
+
+La reproduction d'un objet à travers ou à l'aide d'un instrument optique s'appelle une image.
+Un point - objet A est l'intersection des rayons lumineux incidents. Le point - image A' est celle des rayons lumineux émergents.
+
+II]	Images données par un miroir plan.
+
+1)	Symétrie par rapport à un miroir plan.
+
+Objet A et image A' sont symétriques par rapport au miroir (symétrie axiale).
+
+
+
+2)	Lois de la réflexion.
+
+Rayon incident :  AI.
+
+Point d'incidence : I (AI ? surface).
+
+Plan d'incidence P : contenant le rayon incident AI et la normale IN à la surface réfléchissante.
+
+Angle d'incidence : angle i entre le rayon incident et la normale.
+
+Angle de réflexion : angle r le rayon réfléchi et la normale.
+
+
+
+A et A' sont dit points conjugués
+
+
+
+
+Exemple d'un miroir non plan
+
+Première loi de la réflexion (ou de Descartes) : le rayon réfléchi appartient au plan d'incidence.
+
+AA' // IN
+i = ? angles alternes - internes.
+r = ? angles correspondants.
+Or ? = ? car le triangle AIA' est isocèle. D'où : 
+
+Deuxième loi de la réflexion : l'angle de réflexion est égal à l'angle d'incidence. ??i =  r?.
+
+NB : 	Le miroir est souvent représenté par sa trace, des hachures symbolisent le côté non réfléchissant.
+	Ts les rayons incidents issus de A qui rencontrent le miroir semblent en émerger, provenant  de A'. A et A' sont conjugués.
+	A' ne peut être matérialisé sur un écran, A' est souvent appelé image virtuelle.
+
+3)	Généralisation à une surface réfléchissante.
+
+Il existe des miroirs non plans qui équipent par ex les télescopes. Les lois précédentes s'appliquent localement lorsqu'on définit la normale IN ? en I au plan tangent T à la surface réfléchissante et le plan d'incidence P contenant IN et le rayon incident.
+
+
+
+
+
+
+III]	Images données par une lentille convergente.
+
+1)	Foyers et plans focaux.
+
+Foyer principal image F' : un faisceau de rayons // à  l'axe optique émerge en passant par F'. Schéma.
+Plan focal image : plan ? à l'axe optique passant par F'.
+Foyer objet F : tous les rayons issus de ce point émergent //t à l'axe optique. Schéma.
+Plan focal objet : plan ? à l'axe optique passant par F.
+
+2)Conventions de signe.
+
+La distance focale apparaît comme une grandeur algébrique f' = OF' = - OF.
+
+
+
+3)	Quelques rayons incidents particuliers.
+
+1.	Les rayons lumineux passant par O ne sont pas déviés.
+2.	Les rayons lumineux // à l'axe optique émergent en passant par F'.
+3.	Les rayons lumineux passant par F émergent //t à l'axe optique.
+
+
+
+4)	Construction graphique de l'image d'un objet AB.
+
+Tout rayon incident issu d'un point - objet et qui traverse la lentille contribue à la formation du point - image correspondant.
+
+Pour une LC : 
+Pour une LD :
+
+
+5)	Relations de conjugaison.
+
+Relation de Descartes : Voir démonstration.
+
+1/OA' - 1/OA = 1/OF'		proximité image - proximité objet = vergence.
+
+Si l'on approche l'objet de la lentille OA < 0 augmente donc OA' > 0 augmente aussi, l'image s'éloigne de la lentille.
+
+Relation de Newton : FA ? F'A' = OF ? OF' = - f'²	Détermine les positions de l'objet et de l'image par rapport aux foyers.
+
+6)	Grandissement.
+
+? = A'B' / AB = OA' / OA		Destiné à déterminer la taille et le sens de l'image.
+
+Si OA' et OA sont de signes contraires, l'image est renversée par rapport à l'objet.
+
+IV]	La loupe.
+
+1)	Etude de l'image donnée par une loupe.
+
+Si la distance objet - lentille devient égale ou inférieure à la distance focale, il n'est plus possible de recueillir l'image sur un écran. L'image est virtuelle.
+
+
+2)	Grossissement.
+
+L'impression de grandeur est liée non pas à la dimension absolue de l'objet regardé mais à son diamètre apparent (angle sous lequel il est vu). C'est pourquoi pour les instruments oculaires où le récepteur est l'?il, on définit le grossissement G qui caractérise numériquement le bénéfice tiré par l'?il : 
+
+G = ?' / ?
+?' : angle sous lequel on voit l'image donnée par la loupe.
+? : angle sous lequel on voit l'objet à l'?il nu et dans les meilleures conditions donc à la distance minimum de vision distincte dm.
+
+
+
+L'?il voit AB dans les meilleures conditions sous un angle ?
+
+Observation de A'B' quand l'?il n'accommode pas
+
+G dépend des caractéristiques de l'?il et de la loupe. Pour comparer sans ambiguïté 2 loupes, on définit le grossissement commercial  GC : 
+
+On choisit dm = 25 cm.
+On suppose que l'?il est placé au foyer image F' de la loupe et qu'il n'accommode pas, ce qui revient à placer l'objet dans le plan focal objet de la loupe.
+Dans ces conditions, les angles sont petits et exprimés en radians   tg ? ? ????AB / 0,25 = 4 AB 	et 	???' ? AB / f '??
+
+GC = ?' / ? = 1 / 4f' = C / 4
+
+Un Gc < 1 est sans intérêt, la vergence C de la lentille convergente utilisée doit donc être > 4 ?.
+
+

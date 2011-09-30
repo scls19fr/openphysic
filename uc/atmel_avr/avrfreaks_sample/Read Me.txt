@@ -1,0 +1,29 @@
+http://www.avrfreaks.net/index.php?name=PNphpBB2&file=viewtopic&t=24956
+
+This package contains 5 small example projects that illustrate AVR-LibC and GCC. All 
+are tested with STK500 and the AT90S8515 shipped with the STK500.
+
+Blinky:
+A small LED chaser that deals with the GCC optimizer tendency to trach empty delay loops by
+embedding volatile inline assembler code.
+
+UART:
+A small polled serial I/O project that illustrates the use of the stdio library functions
+in AVR-LibC
+
+UART-IntSIO:
+A interrupt driver serial I/O project that uses circular buffers and uses the stdio library
+functions.
+
+Bitdefs:
+Demonstrates the use of bitfields on I/O pins.
+
+RC5:
+Is a small polled RC5 receiver based on Atmel's application note, it demonstrates the AVR-GCC 
+calling conventions.
+
+Please send feedback to koen.kempeneers@pro.tiscali.be
+
+If you have simple newbie sample code, or newbie's, if you found a 
+piece of code that you find very usefull and educational. Please share! Send the project
+to the above address.  

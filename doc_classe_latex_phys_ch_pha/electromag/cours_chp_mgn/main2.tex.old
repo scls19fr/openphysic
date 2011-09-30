@@ -1,0 +1,92 @@
+\cours{Champ magn\'etique}
+
+\Section{Qu'est-ce qu'un aimant}
+Les aimants sont des objets capables d'attirer des morceaux de fer, de nickel, ainsi que leurs alliages. Il existe des interactions \`a distance entre quelques m\'etaux et certains mat\'eriaux dits magn\'etiques (naturellement aimant\'es ou susceptibles de s'aimanter sous l'effet d'un aimant).
+
+\Section{Propri\'et\'e d'un aimant}
+
+
+Chaque aimant poss\`ede deux p\^oles diff\e'rents. Ils sont d\'esign\'es par nord et sud. Il existe des forces de r\'epulsions et des forces d'attraction.
+
+\begin{itemize}
+\item deux p\^oles de m\^eme nom se repoussent
+\item deux p\^oles de noms contraires s'attirent
+\end{itemize}
+
+\Section{Champ magn\'etique d'un aimant}
+\Subsection{Notion de champ magn\'etique}
+On appelle champ magn\'etique la r\'egion de l'espace qui entoure un aimant.
+(revoir def)
+
+\Subsection{Le vecteur champ magn\'etique}
+Une aiguille aimant\'ee, plac\'ee dans un champ magn\'etique d'un aimant s'oriente de facon bien d\'etermin\'ee.
+
+
+
+
+Le champ magn\'etique est repr\'esente par le vecteur $\vect{B}$ : il a pour caract\'eristiques :
+
+\begin{itemize}
+\item Direction : celle que prendrait une petite aiguille aimant\'ee mobile placee en ce point
+\item Sens : Sud vers le Nord de cette aiguille aimant\'ee
+\item Intensit\'e : la valeur du champ magn\'etique au point consid\'er\'e. Elle s'exprime en Tesla $T$.\\
+Ce nom vient de l'ingenieur croate Nikola \textsc{Tesla} (1857-1943)
+\end{itemize}
+
+\Subsection{Les lignes de champ}
+On appele ligne de champ magn\'etique, une ligne qui en chacun de ces points est tangente au vecteur champ magn'etique $\vect{B}$.
+
+\Subsubsection{Spectre magnetique d'un aimant droit}
+
+\Subsubsection{Propri\'etes des lignes de champ magn\'etique}
+
+\begin{itemize}
+\item \`A l'ext\'erieur d'un aimant, les lignes de champ sortent par le p\^ole Nord et entrent par le p\^ole Sud de l'aimant. 
+\item Dans le cas d'un aimant en U, le vecteur champ magn\'etique garde \`a l'interieur :
+ \begin{itemize}
+  \item la m\^eme valeur
+  \item la m\^eme direction
+  \item le m\^eme sens
+ \end{itemize}
+\end{itemize}
+
+On dit qu'il est uniforme en tout point de cette r\'egion.
+
+
+
+\Section{Spectres magn\'etiques de quelques circuits parcourus par un courant}
+
+Tout conducteur m\'etallique, parcouru par un courant, cr\'ee un champ magn\'etique.
+
+\Subsection{Spectre magn\'etique d'une bobine parcourue par un courant}
+
+
+On constate que les lignes de champ sont ferm\'ees
+
+\Subsection{Spectre magn\'etique cr\'e\'e par un courant rectiligne}
+
+Les lignes de champ sont concentriques.
+
+
+\Subsection{Spectre magn\'etique d'un sol\'enoide}
+
+\`A l'int\'erieur d'un solenoide, le champ magn\'etique est uniforme et parall\`ele \`a l'axe du solenoide.
+
+
+\Section{Champ magn\'etique terrestre}
+
+\Section{Champ magn\'etique cr\'e\'e par un courant \'electrique}
+
+\Section{Champ magn\'etique cr\'e\'e par un solenoide}
+Un solenoide est une bobine longue (la longueur est grande par rapport \`a son diam\`etre). D'apr\`es l'exp\'erience on peut dire qu'\`a l'int\'erieur d'un solenoide, le champ magn\'etique est uniforme et parall\`ele \`a l'axe du solenoide. Le sens du champ peut-\^etre donn\'e par la r\`egle du bonhomme d'Amp\`ere. L'extr\'emit\'e de la bobine par laquelle sort le vecteur champ est l'extr\'emit\'e Nord de la bobine.
+La valeur du champ magn\'etique du solenoide peut \^etre calcul\'ee.
+
+\[B = \mu_0 \frac{N I}{l}\]
+
+\begin{unites}
+\item $B$ : champ magn\'etique en Tesla ($T$)
+\item $I$ : intensit\'e du courant dans le solenoide e($A$)
+\item $N$ : nombre de spires
+\item $l$ : longueur du solenoide
+\item $\mu_0$ : perm\'eabilit\'e du vide (constante valant $4 \pi . 10^{-7}$)
+\end{unites}

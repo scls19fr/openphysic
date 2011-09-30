@@ -1,0 +1,162 @@
+\tp{Mesures de champs magnétiques avec un teslamètre}
+
+\vressort{1}
+
+\objectifs{
+\item comprendre le fonctionnement d'un teslamètre
+\item mesurer le champ magnétique $\vect{B}$ créé par un solénoïde
+  parcouru par un courant.
+}
+
+\materiel{
+\item teslamètre (et un tournevis pour faire le zéro)
+\item solénoïde
+\item alimentation stabilisée variable avec limiteur de courant maximum
+}
+
+
+\vressort{1}
+
+
+\section{Présentation du protocole expérimental}
+\subsection{Dispositif expérimental}
+
+On désire mesurer le champ magnétique à l'intérieur d'un solénoïde
+(bobine longue). On utilse un \emph{teslamètre} muni d'une \emph{sonde à
+effet Hall}\footnote{Voir le principe d'une sonde à effet Hall en annexe}. Cette sonde délivre une tension, proportionnelle à la
+norme du champ magnétique, qui est ensuite amplifiée par un système
+électronique. La lecture s'effectue soit directement en \emph{Tesla}
+(calibre $20~mT$), soit en mesurant la tension de Hall (notée $U_H$)
+avec un voltmètre en position $DC$ et en utilisant la correspondance
+suivante : $2~mV \correspond 10^{-4}~T$ (calibre $0,5~T$ max).
+
+\subsection{Utilisation du teslamètre}
+\begin{itemize}
+\item Laisser chauffer l'appareil pendant $10$ minutes environ.
+\item Régler le zéro (si les mesures durent longtemps il faut le
+  réajuster avec un tournevis en $B_x$).
+\item \emph{Manipuler la sonde avec précaution.}
+\end{itemize}
+
+
+\subsection{Montage de mesure}
+
+%\begin{pspicture}{0,0)(11,4)
+%\psgrid[subgriddiv=1,griddots=10]
+%\end{pspicture}
+
+\begin{center}
+\begin{figure}[H]
+\includegraphics{electromag/tp_champ_magnetique/teslametre.eps}
+\caption{Dispositif expérimental}
+\end{figure}
+\end{center}
+
+
+$E$ : alimentation stabilisée variable avec le bouton limitation du
+courant maximum ($2,5~A$).
+
+En jouant sur la tension $E$, on fixe l'intensité du courant $I$.
+
+
+\vressort{3}
+
+
+\section{Mesure du champ magnétique créé par le solénoïde}
+
+\subsection{Influence de la position de la sonde à l'intérieur du
+  solénoïde}
+
+$N = 200~spires$ et $I = 2~A$.
+
+\begin{itemize}
+\item Faire varier $d$ : distance de la sonde au centre du
+solénoïde.
+
+\item Relever $U_H$ et en déduire $B$.
+
+\item Présenter les résultats expérimentaux sous forme de tableau en
+  faisant varier $d$ de $2~cm$ à chaque mesure.
+
+\item Tracer $B = f(d)$.
+
+\item Commenter l'allure obtenue.
+
+\item Conclure sur l'influence de $d$ sur la valeur de $B$.
+
+\end{itemize}
+
+
+
+
+\subsection{Influence de l'intensité du courant et du nombre de
+  spires}
+
+\begin{itemize}
+
+\item Faire varier $I$ de $0$ à $2,5~A$. (On utilisera le bouton de réglage
+fin de la tension d'alimentation).
+
+\item Relever $U_H$ et en déduire $B_0$ (mesuré au centre du solénoïde
+  pour $d = 0~cm$.
+
+\item Présenter 2 tableaux de mesures (1 pour $N = 200~spires$ et
+  l'autre pour $N = 400~spires$). On fera varier $I$ de $0,5~A$ à
+  chaque mesure.
+
+\item Tracer $B_0 = f(I)$ pour les 2 cas sur le même système d'axes.
+
+\item Commenter l'allure obtenue. On pourra comparer la valeur
+  expérimentale de la pente notée $k$ pour les deux cas.
+
+\end{itemize}
+
+
+
+\subsection{Influence de la longueur du solénoïde}
+
+\begin{itemize}
+
+\item $I = 2~A$. Faire varier la longueur $l$ du solénoïde.
+
+\item Relever $U_H$ et en déduire $B_0$ au centre. \emph{Attention, il
+    faut à chaque fois éteindre l'alimentation avant chaque mesure et
+    réajuster $I$ à $2~A$ si nécessaire}.
+
+\item Présenter les résultats expériementaux sous forme de tableau.
+
+\item Tracer $B_0 = f(l)$.
+
+\item Commenter l'allure obtenue.
+
+\item Conclure sur l'influence de $l$ sur la valeur de $B_0$. On
+  pourra calculer le rapport $\frac{l}{D}$ en mesurant précisement la
+  longueur totale $l$ du solénoïde et son diamètre $D$.
+
+\end{itemize}
+
+
+\vressort{3}
+
+
+\section{Exploitation des résultats}
+
+%Retrouver théoriquement les valeurs de k du II 2
+
+Proposer une méthode, à partir des mesures faites précédemment, pour
+vérifier expérimentalement la valeur théorique de $\mu_0 = 4 \pi
+10^{-7}~\mbox{U.S.I.}$.
+
+
+
+\vressort{3}
+
+
+\hrule
+
+\section*{Annexe : Principe d'une sonde à effet Hall}
+
+%\vspace{10cm}
+
+
+\vressort{5}

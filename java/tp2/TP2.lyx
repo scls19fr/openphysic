@@ -1,0 +1,289 @@
+#LyX 1.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 221
+\textclass article
+\language frenchb
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize 10
+\spacing single 
+\papersize a4paper
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\use_natbib 0
+\use_numerical_citations 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 2
+\papersides 2
+\paperpagestyle empty
+
+\layout Title
+
+TP Java
+\newline 
+Appels et modificateurs
+\layout Author
+
+Aurélien Royer
+\layout Date
+
+2004 - 2005
+\layout Section
+
+But
+\layout Standard
+
+Le but de ce TP est 
+\layout Itemize
+
+d'analyser les appels qu'effectue Java explicitement et implicitement lors
+ de la construction .
+\layout Itemize
+
+de décomposer les mécanismes du polymorphisme et l'utilisation du mot clé
+ 
+\emph on 
+super.
+\layout Itemize
+
+d'utiliser les modificateurs tels que 
+\emph on 
+abstract
+\emph default 
+,
+\emph on 
+ final
+\emph default 
+, 
+\emph on 
+public
+\emph default 
+, 
+\emph on 
+private
+\emph default 
+ et 
+\emph on 
+protected
+\emph default 
+.
+\layout Standard
+
+Utiliser les classes prédéfinies, 
+\emph on 
+CMere, CFille 
+\emph default 
+et 
+\emph on 
+CMain.
+ 
+\emph default 
+Vous devrez dans chacun des cas suivants interpréter les résultats obtenus
+ (on repartira pour chaque cas de la version initiale du programme) .
+\layout Section
+
+Construction
+\layout Enumerate
+
+Dans le main, créez une instance de la classe mère avec le constructeur
+ par défaut.
+\layout Enumerate
+
+Dans le main, créez une instance de la classe fille avec le constructeur
+ par défaut.
+\layout Enumerate
+
+Dans le main, créez une instance de la classe fille avec le constructeur
+ initialisant les membres.
+\layout Enumerate
+
+Modifiez le constructeur de la classe fille pour faire un appel explicite
+ au constructeur initialisant les membres de la classe mère, et créez une
+ instance de la classe fille dans le main.
+\layout Enumerate
+
+Mettez le membre m_nom en private dans la classe mère.
+ Modifiez le constructeur initialisant la classe fille pour le rendre à
+ nouveau utilisable.
+ 
+\layout Section
+
+Polymorphisme
+\layout Enumerate
+
+Créez une instance de la classe fille dans le main.
+ Appelez la méthode afficher().
+\layout Enumerate
+
+Créez une instance de la classe fille en la 
+\begin_inset Quotes eld
+\end_inset 
+
+castant
+\begin_inset Quotes erd
+\end_inset 
+
+ pour la 
+\begin_inset Quotes eld
+\end_inset 
+
+faire passer
+\begin_inset Quotes erd
+\end_inset 
+
+ pour une mère.
+ Appelez la méthode afficher().
+\layout Enumerate
+
+Créez une instance de la classe fille en la 
+\begin_inset Quotes eld
+\end_inset 
+
+castant
+\begin_inset Quotes erd
+\end_inset 
+
+ pour la 
+\begin_inset Quotes eld
+\end_inset 
+
+faire passer
+\begin_inset Quotes erd
+\end_inset 
+
+ pour une mère.
+ Affichez le résultat de la méthode getClass() de la fille
+\begin_inset Foot
+collapsed false
+
+\layout Standard
+
+Cette méthode est définie dans la classe Object.
+\end_inset 
+
+.
+\layout Enumerate
+
+Créez une instance de la classe fille.
+ A l'aide de 
+\emph on 
+instanceof, 
+\emph default 
+vérifiez si c'est une instance de la classe fille et de la classe mère.
+\layout Enumerate
+
+Créez une instance de la classe mère.
+ A l'aide de 
+\emph on 
+instanceof, 
+\emph default 
+vérifiez si c'est une instance de la classe fille et de la classe mère.
+\layout Enumerate
+
+Modifiez la méthode afficher() de la classe fille pour qu'elle appelle celle
+ de la classe mère.
+\layout Enumerate
+
+Supprimez la méthode afficher() de la classe mère.
+ Créez une instance de la classe mère dans le main et appelez la méthode
+ afficher().
+\layout Enumerate
+
+Supprimer la méthode afficher() de la classe fille.
+ Créez une instance de la classe fille et appelez la méthode afficher().
+\layout Enumerate
+
+Définissez la méthode afficher() dans la classe mère comme 
+\emph on 
+abstract, 
+\emph default 
+créez un instance de la classe mère dans le main.
+\layout Enumerate
+
+Définissez la méthode afficher() dans la classe mère comme 
+\emph on 
+abstract, 
+\emph default 
+créez un instance de la classe fille dans le main.
+\layout Enumerate
+
+Définissez la méthode afficher() dans la classe mère comme 
+\emph on 
+abstract, 
+\emph default 
+supprimez la méthode afficher() de la classe fille et créez un instance
+ de la classe fille dans le main.
+\layout Section
+
+Références et modificateur 
+\emph on 
+Final
+\layout Enumerate
+
+
+\begin_inset LatexCommand \label{enu:Créez-deux-instances}
+
+\end_inset 
+
+Créez deux instances f1 et f2 de la classe fille.
+ Faîtes f1=f2, modifiez le nom de f1, affichez f2.
+\layout Enumerate
+
+Définissez la classe mère comme 
+\emph on 
+final
+\emph default 
+.
+\layout Enumerate
+
+Définissez la méthode afficher() de la classe mère comme 
+\emph on 
+final
+\emph default 
+.
+\layout Enumerate
+
+Créez une variable int var comme 
+\emph on 
+final 
+\emph default 
+dans le main
+\emph on 
+, 
+\emph default 
+modifiez-la.
+\layout Enumerate
+
+Créez deux instances f1 et f2 de la classe fille 
+\emph on 
+final.
+ 
+\emph default 
+Faîtes f1=f2.
+\layout Enumerate
+
+Créez une instances de la classe fille 
+\emph on 
+final.
+ 
+\emph default 
+Modifiez son m_ nom.
+\layout Enumerate
+
+Essayez de dupliquer un objet de la classe fille (le cloner), testez cette
+ technique avec le protocole de 
+\begin_inset LatexCommand \ref{enu:Créez-deux-instances}
+
+\end_inset 
+
+.
+ Pourquoi peut-on utiliser cette méthode alors que l'héritage multiple est
+ interdit en java.
+\the_end

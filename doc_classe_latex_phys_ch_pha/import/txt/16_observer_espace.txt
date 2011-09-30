@@ -1,0 +1,83 @@
+Chap 16 ? :			    LES INSTRUMENTS D'OBSERVATION DE L'ESPACE			1ère S
+
+En observant à travers une lunette astronomique ou un télescope, on cherche à voir les objets sous un plus grand diamètre apparent qu'à l'?il nu.
+
+I]	La lunette astronomique.
+
+1)	Rôle des différents éléments d'une lunette.
+
+
+
+
+
+2 tubes, coulissent partiellement l'un dans l'autre. L'un possède à son extrémité l'objectif L1, l'autre, l'oculaire L2.
+
+L'objectif L1: système optique convergent placé du côté de l'objet observé. f' ? 1 m. L'objectif forme 1 image intermédiaire de l'objet.
+
+L'oculaire L2 : système optique convergent placé devant l'?il. f'2 = qqs mm. L'oculaire joue le rôle de loupe.
+
+Construction élèves : O1F'1 = 8 cm, O2F'2 = 1,5 cm, O1O2 = 9 cm, bord de la feuille - O1 = 7 cm. ? = 8,5 °, tg ? = 0,75 / 5 = 1,5.
+
+
+
+2)	Lunette afocale.
+
+L'?il est placé au voisinage du foyer F'2 de l'oculaire. Pour être observée correctement, l'image définitive A2B2 doit être positionnée dans les limites de la vision distincte de l'observateur (PP - PR). La mise au point est alors réalisée en déplaçant l'oculaire par rapport à l'objectif.
+
+Plaçons-nous dans le cas d'un ?il normal n'accommodant donc pas lors d'une vision à l'?. Il faut alors que A1B1 soit dans le plan focal objet de l'oculaire.
+
+Ainsi un faisceau de rayons // arrivant sur l'objectif de l'? devient un autre faisceau de rayons // émergeant de l'oculaire.
+
+La lunette est afocale si le foyer image de l'objectif est confondu avec le foyer objet de l'oculaire.
+
+
+3)	Grossissement.
+
+G = ?' / ?		?' angle sous lequel l'image est vue.	? angle sous lequel l'objet sans instrument est vu.
+
+Dans le cas de la configuration afocale et pour de petits angles, 
+
+? ? A1B1 / O1F'1 = A1B1 / f'1	et	?' ? O2I / O2F'2 = A1B1 / f'2	car	O2I = A1B1
+
+Finalement :		G = f'1 / f'2
+
+4)	Cercle oculaire.
+
+Le cercle oculaire M'N' est l'image de l'objectif MN donnée par l'oculaire. L'?il doit y être placé pour recevoir le maximum de lumière, en fait très près du plan focal image de l'oculaire.
+
+NB : pour une lunette, un G élevé entraîne une image moins lumineuse donc moins contrastée. Il existe alors un compromis à trouver.
+
+II]	Le télescope.
+
+1)	Rôle des différents éléments d'un télescope.
+
+
+
+
+
+
+L'objectif  = le miroir principal :
+ 
+Il s'agit d'un miroir parabolique assimilé à un miroir sphérique de centre C. Le foyer image F' est confondu avec le foyer objet F. Il se situe au milieu du segment CS.
+
+SF représente la distance focale de l'objectif.
+
+Traçons l'image A1B1 de AB situé à l'?.  A étant sur l'axe optique, occupons - nous de B.
+
+Le rayon incident 1 passant par C est réfléchi sur lui-même car en I, il est normal au plan tangent à la surface.
+Le rayon incident 2 se réfléchit symétriquement par rapport à l'axe optique.
+Le rayon incident 3 passant par F se réfléchit //t à l'axe optique.
+NB : un rayon 4 incident qui arriverait //t à l'axe optique (pas le cas ici) se réfléchit en passant par F'.
+
+
+Le miroir secondaire :
+
+Pour observer A1B1 à travers un oculaire, il faut un emplacement qui ne perturbe pas le faisceau arrivant sur le miroir primaire. On utilise dans le télescope de Newton un petit miroir secondaire disposé à 45°. On obtient alors A'1B'1.
+
+
+
+L'oculaire :
+
+Comme pour la lunette, ce système convergent de lentilles joue le rôle de loupe vis à  vis de A'1B'1.
+
+

@@ -1,0 +1,7 @@
+#N canvas 219 169 462 312 10;
+#X obj 161 37 osc~ 440;
+#X text 245 33 Joue la note LA 440 Hz ATTENTION : il faut penser a
+cliquer sur compute audio;
+#X obj 161 96 dac~;
+#X connect 0 0 2 0;
+#X connect 0 0 2 1;

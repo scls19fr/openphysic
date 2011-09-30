@@ -1,0 +1,313 @@
+<html><head><title>CodePPC - Programmez votre Pocket PC</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+.daterubrique {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt; font-style: normal; font-weight: normal; color: #000000; background-color: #CCCCFF}
+.rubrique { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt; font-style: normal; font-weight: normal; color: #003333 }
+.Code {  font-family: "Courier New", Courier, mono; font-size: 8pt; background-color: #CCCCCC}
+.CodeSimple { font-family: "Courier New", Courier, mono; font-size: 8pt; background-color: #6699FF}
+-->
+</style></head>
+<body bgcolor="#000000">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="2974">
+  <tbody><tr> 
+    <td valign="top" height="2" width="161"> 
+      <div align="center"><a href="http://www.codeppc.com/index.htm"><img src="sansvs1_files/logo.jpg" width="160" height="186" border="0"></a></div>
+    </td>
+    <td bgcolor="#ffffff" height="2" width="10">&nbsp;</td>
+    <td bgcolor="#ffffff" valign="top" height="2"> 
+      <p align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><img src="sansvs1_files/codeppc.gif" width="150" height="40"><br>
+        <span class="rubrique"><b>Le premier site francophone dédié 
+        au développement Pocket PC</b></span></font></p>
+      <table width="95%" border="1" cellspacing="0" cellpadding="2" align="center" class="rubrique">
+        <tbody><tr> 
+          <td height="2" class="daterubrique"> 
+            <div align="left"><img src="sansvs1_files/vignettedotnet.gif" width="35" height="18" align="middle"> 
+              Comment développer avec .NET pour Pocket PC sans Visual Studio 
+              ? </div>
+          </td>
+        </tr>
+        <tr> 
+          <td height="2"> 
+            <table width="100%" border="0" cellspacing="2" cellpadding="2" class="rubrique">
+              <tbody><tr> 
+                <td width="15%" bgcolor="#cccccf" class="daterubrique">Auteur</td>
+                <td width="85%"> 
+                  <table width="100%" border="0" cellspacing="2" cellpadding="2" class="rubrique">
+                    <tbody><tr> 
+                      <td width="2%"><img src="sansvs1_files/rc.jpg" width="75" height="90" border="1"></td>
+                      <td width="98%"><a href="http://www.codeppc.com/developpeurs/richardclark.htm" target="_blank">Richard 
+                        Clark</a></td>
+                    </tr>
+                  </tbody></table>
+                </td>
+              </tr>
+              <tr> 
+                <td width="15%" bgcolor="#cccccf" height="2" class="daterubrique">Date</td>
+                <td width="85%" height="2">24 janvier 2003</td>
+              </tr>
+            </tbody></table>
+          </td>
+        </tr>
+      </tbody></table>
+    </td>
+    <td bgcolor="#ffffff" height="2" width="1">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="161" valign="top" height="2879">&nbsp;</td>
+    <td bgcolor="#ffffff" width="10" height="2879">&nbsp;</td>
+    <td bgcolor="#ffffff" valign="top" height="2879"> 
+      <p align="left" class="rubrique"><br>
+      </p>
+      <p class="rubrique"><b><img src="sansvs1_files/checkmark.gif" width="20" height="20" align="middle">Introduction</b></p>
+      <p class="rubrique">C'est suite à une question de Monsieur LD - personne 
+        dont je tairais le nom ainsi que le nom de la société pour laquelle il 
+        travaille ;-) - et de Stéphane Sibué (codeppc.com, codeppc.net, etc.) 
+        que j'ai décidé d'écrire cet article. La question était simple :</p>
+      <p align="center" class="rubrique"><strong>Est-il possible de créer des 
+        applications pour Pocket PC avec le Compact Framework sans Visual Studio 
+        .NET ?</strong></p>
+      <p class="rubrique">Traduction : j'ai pas les sous pour me payer Visual 
+        Studio .NET, je veux des outils gratuits.</p>
+      <p class="rubrique">La réponse est : <strong>OUI</strong>. </p>
+      <p class="rubrique">Oui vous pouvez développer des applis pour Pocket PC 
+        avec le bloc-notes&nbsp;ou autres mais cela nécessite quelques manipulations 
+        ou plutôt une connaissance approfondi du fonctionnement du .NET Framework.</p>
+      <p class="rubrique">J'avoue que comme la question m'a été&nbsp;soumise en 
+        pleine animation d'une formation, j'ai eu du mal a répondre immédiatement. 
+        Elle réclame bien entendu quelques explications mais&nbsp;elle a l'avantage 
+        d'exposer une nouvelle fois en détails tous les mécanismes de .NET et 
+        de comprendre l'une des démos faites aux DevDays 2003 montrant un même 
+        fichier exécutable tournant sous WinXP, FreeBSD et MacOS 10.2.</p>
+      <p class="Titre10"><span class="rubrique"><b><img src="sansvs1_files/checkmark.gif" width="20" height="20" align="middle">La 
+        CLI</b></span></p>
+      <p class="rubrique">A la base est la CLI. La CLI est dans le domaine publique, 
+        soumise et approuvée comme norme ECMA et ISO. La CLI est une sorte de 
+        cahier des charges indiquant ce qu'est un .NET Framework. Elle spécifie 
+        bon nombre de chose comme le format des fichiers, ce qu'est un type (classe, 
+        interface, objet, etc.), ce qu'est le Langage Intermédiare, etc.</p>
+      <p class="rubrique">Microsoft a donc crée son propre .NET Framework, répondant 
+        au cahier des charges de la CLI, en espérant que ce serait le meilleurs 
+        .NET Framework pour Windows. Rien n'empêche une société tierse de créer 
+        son propre .NET Framework pour Windows qui concurrence le MS .NET Framework 
+        (enfin, y'a du boulot quand même...).</p>
+      <p class="rubrique">Certains sont en train de créer leur propre .NET Framework 
+        pour d'autres plateformes comme le célèbre projet Mono, en Open Source, 
+        pour Linux.<br>
+        Microsoft propose d'ailleurs une implémentation de la CLI qui est librement 
+        téléchargeable (ne me posez pas de question sur les problèmes de libre 
+        redistribution du produit, j'en sais rien), ou vous avez accès&nbsp;à 
+        son&nbsp;code source complet, et qui est implémentable sur WinXP, FreeBSD 
+        et MacOS.</p>
+      <p class="rubrique">Bref, le cahier des charges CLI est publique et dit 
+        comment cela doit fonctionner. Parmi ses spécifications, figure notamment 
+        le format des fichiers. Il y est dit qu'un exécutable .NET contient plusieurs 
+        parties (c'est simplifié mais en gros ça marche comme ça) :</p>
+      <ul>
+        <li class="rubrique"> Le PE Header indiquant au système d'exploitation 
+          qui doit prendre en charge l'exécutable. Pour le MS .NET Framework pour 
+          Win32&nbsp;par exemple, il est indiqué que c'est la dll mscoree.dll 
+          (dans dossier Windows) qui s'en occupe. 
+        </li><li class="rubrique"> Le manifeste qui indique quelles sont les assemblies 
+          nécessaires à l'exécution de ce programme. 
+        </li><li class="rubrique"> Le code IL au format identique quelque soit le système 
+          d'exploitation.</li>
+      </ul>
+      <p class="rubrique"> Moralité, si l'on y réfléchit bien, dès que l'on souhaite 
+        créer un programme pour une plateforme .NET, il suffit d'avoir un générateur 
+        (autrement nommé, à tors, compilateur) qui, à partir du code écrit dans 
+        votre langage (VB .NET, C#, etc.), génère cet exécutable. Son rôle est 
+        donc d'écrire dans votre exe :</p>
+      <ul>
+        <li class="rubrique"> Le PE Header, 
+        </li><li class="rubrique"> Le manifeste, 
+        </li><li class="rubrique"> Le code IL,</li>
+      </ul>
+      <p class="Titre10"><span class="rubrique">Les "compilateurs" livrés avec 
+        le MS .NET Framework (pour Win32)</span></p>
+      <p class="rubrique">Ce "compilateur", vous l'avez si vous avez installé 
+        le .NET Framework sur votre ordinateur. Pour Visual Basic, il se nomme 
+        vbc.exe, pour C#, csc.exe, etc. Dans tout exécutable, il va écrire les 
+        informations suivantes :</p>
+      <ul>
+        <li class="rubrique"> Dans le PE Header, c'est la dll mscoree.dll qui 
+          prends en charge l'exécution du programme, 
+        </li><li class="rubrique"> Dans le manifeste, il indique quelles sont les assemblies 
+          nécessaires à l'exécution du programme, 
+        </li><li class="rubrique"> Dans la partie code IL, le code IL normalisé par 
+          la CLI.</li>
+      </ul>
+      <p class="rubrique">Il faut remarquer que le code IL qu'il va créer est 
+        le même pour tout OS, ce qui signifie que pour Pocket PC ou pour Win32, 
+        c'est la même chose.</p>
+      <p class="Titre10"><span class="rubrique"><b><img src="sansvs1_files/checkmark.gif" width="20" height="20" align="middle">Le 
+        Compact Framework</b></span></p>
+      <p class="rubrique">Quand vous installez le Compact Framework sur votre 
+        Pocket PC, vous ne faites qu'installer un VES (Virtual Execution Engine 
+        pour .NET) sur votre machine (Microsoft pour son .NET Framework a appelé 
+        son VES CLR pour Common Language Runtime). Cela signifie que quand le 
+        système d'exploitation devra exécuter une application .NET, il lira le 
+        PE Header, verra que c'est son VES qui doit le prendre en charge, lancera 
+        le VES qui exécutera votre programme.</p>
+      <p class="rubrique">Hors&nbsp;pour Pocket PC comme pour Win32 (et c'est 
+        là l'astuce), il verra que c'est la dll mscoree.dll (située dans le répertoire 
+        Windows de votre Pocket PC et de votre Win32) qui s'en charge.</p>
+      <p class="rubrique">Moralité, la partie PE Header comme la partie code IL 
+        est la même (physiquement) pour un OS type Win32 que pour un OS pour Pocket 
+        PC. La seule chose qui change, ce sont les références, écrites dans le 
+        manifeste, vers les assemblies :</p>
+      <ul>
+        <li class="rubrique"> une application win32 aura besoin de l'assembly 
+          mscorlib (2 Mo) prévue pour Win32, 
+        </li><li class="rubrique"> une application Pocket PC aura besoin de l'assembly 
+          mscorlib (380 Ko) prévue pour Pocket PC.</li>
+      </ul>
+      <p class="rubrique">Il suffit donc qu'au moment de la "compilation" de votre 
+        code pour Pocket PC, vous indiquiez que vous voulez utiliser la dll mscorlib 
+        pour Pocket PC.</p>
+      <p class="Titre10"><span class="rubrique"><b><img src="sansvs1_files/checkmark.gif" width="20" height="20" align="middle">Application 
+        concrète</b></span></p>
+      <p class="rubrique">C'est bien beau tout ce discours mais comment t'set-y 
+        kon fait ?</p>
+      <p class="rubrique">Ouvrez donc votre éditeur de code préféré, c'est-à-dire 
+        le bloc-notes et saisissez le code suivant :</p>
+      <p class="code"><span class="rubrique">Imports System.Windows.Forms <br>
+        <br>
+        Public Class frmMain <br>
+        &nbsp;&nbsp;&nbsp;&nbsp; Inherits System.Windows.Forms.Form&nbsp;<br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Public Shared Sub Main()&nbsp;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Application.Run(New 
+        frmMain)&nbsp;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End Sub&nbsp;<br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp; Public Sub New() <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MyBase.New()&nbsp;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Me.Text = "c2iHelloWorld"&nbsp;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End Sub&nbsp;<br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private Sub frmMain_Click(ByVal sender As 
+        System.Object, ByVal e As System.EventArgs) Handles MyBase.Click&nbsp;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Me.Close&nbsp;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End Sub <br>
+        End Class </span></p>
+      <ul>
+        <li class="rubrique"> La méthode partagée Main, point d'entrée de l'application,&nbsp;créée 
+          une instance de la classe frmMain. 
+        </li><li class="rubrique"> Le constructeur New de la classe frmMain créé une 
+          instance d'une WinForm (grâce à MyBase.New()) et affecte le titre "c2iHelloWorld" 
+          à la fenêtre qui apparaitra. 
+        </li><li class="rubrique"> Quand on clique sur la fenêtre (frmMain_Click), 
+          on ferme la fenêtre donc l'applicatio.</li>
+      </ul>
+      <p class="rubrique">On a donc maintenant un fichier .vb (que j'ai appelé 
+        c2iHS.vb) prêt : on n'a plus qu'à le "compiler".</p>
+      <p class="rubrique">Pour cela, on va donc créer un fichier .bat avec une 
+        ligne de commande. Si l'on veut "compiler" cette application pour Win32, 
+        il suffit d'écrire :<span class="rubrique">vbc.exe c2iHW.vb /r:Microsoft.VisualBasic.dll,System.Windows.Forms.dll,System.dll 
+        </span></p>
+      <p class="rubrique">On indique ainsi que l'exe que l'on crée pour pouvoir 
+        fonctionner à besoin de Microsoft.VisualBasic.dll, de System.Windows.Forms.dll 
+        et de System.dll.</p>
+      <p class="rubrique">Que fait le "compilateur" en réalité : il génère le 
+        PE Header, le code IL et le manifeste. Dans le manifeste, il indique que 
+        pour pouvoir fonctionner correctement, cet exécutable à besoin des dll 
+        Microsoft.VisualBasic.dll, System.Windows.Forms.dll et System.dll.</p>
+      <p class="rubrique">La question primordiale qu'il faut se poser c'est : 
+        quelles dll indique-t'il ?</p>
+      <p class="rubrique">Prenons l'exemple de la référence vers System.dll. Il 
+        regarde dans un premier temps si System.dll est présent dans le même répertoire 
+        ou est exécuté le .bat. Si il ne la trouve pas, il regarde dans le Global 
+        Assembly Cache (GAC) si elle est présente. Si les deux recherches échouent, 
+        le "compilateur" refuse la compilation. Sinon, il inscrit dans le manifeste 
+        tout un tas d'information (que je ne décrirais pas ici), précisant que 
+        c'est cette dll là dont il a besoin et pas une autre.</p>
+      <p class="rubrique">Quand on exécute donc notre fichier .bat, il s'aperçoit 
+        que toutes les dll sont dans le GAC. Il compile donc avec ces informations 
+        et si vous double-cliquez sur le .exe, la fenêtre apparaitra.</p>
+      <p class="rubrique">Maintenant, ce que l'on veut, c'est crée la même application 
+        mais pour Pocket PC. Je me répète mais la seule différence, c'est que 
+        les dll référencées sont différentes, ce sont celles spécifiquement prévues 
+        pour le Pocket PC qui nous intéresse.</p>
+      <p class="rubrique">Moralité, nous allons copier ces dll dans le dossier 
+        ou sera compilé notre exécutable. On va donc dans le dossier du Compact 
+        Framework contenant ces dll, on les sélectionne, on les copie, on retourne 
+        dans notre dossier contenant le fichier source .vb et le fichier batch 
+        .bat, on colle les fichiers.</p>
+      <p class="rubrique">Moralité, quand on "compilera", le compilateur verra 
+        tout d'abord dans le répertoire ces dll qu'il référencera dans le manifeste 
+        : il n'ira pas les chercher dans le GAC.</p>
+      <p class="rubrique">Dans notre répertoire, on doit donc avoir les fichiers 
+        suivants :</p>
+      <ul>
+        <li class="rubrique"> compile.bat 
+        </li><li class="rubrique"> c2iHS.vb 
+        </li><li class="rubrique"> mscorlib.dll 
+        </li><li class="rubrique"> system.windows.forms.dll 
+        </li><li class="rubrique"> system.dll 
+        </li><li class="rubrique"> Microsoft.VisualBasic.dll</li>
+      </ul>
+      <p class="rubrique">Les 4 derniers fichiers sont ceux présents dans le dossier 
+        CompactFrameworkSDK\v1.0.5000\Windows CE, c'est-à-dire ceux qui seront 
+        (ou sont) installés sur votre Pocket PC.</p>
+      <p class="rubrique">Exécutez votre fichier batch (.bat) et vous obtiendrez 
+        alors le fichier c2iHS.exe. Si, sous Win32, vous essayez de l'exécuter, 
+        il refusera (normal, ces dll ne sont pas prévues pour Win32).</p>
+      <p class="rubrique">Copiez alors votre exécutable (et uniquement l'exécutable) 
+        sur votre Pocket PC et lancez tranquillement votre application "splendide" 
+        avec votre stylet : It works !</p>
+      <p class="Titre10"><span class="rubrique"><b><img src="sansvs1_files/checkmark.gif" width="20" height="20" align="middle">Conclusion</b></span></p>
+      <p class="rubrique">Pour créer une application pour Pocket PC avec le bloc-notes, 
+        il faut tout d'abord que le MS .NET Framework soit installé sur votre 
+        ordinateur pour pouvoir utiliser le compliteur vbc.exe ou csc.exe.</p>
+      <p class="rubrique">Il vous faut ensuite le Compact Framework SDK. J'avoue 
+        ne pas connaitre l'adresse URL ou se le procurer (je l'ai grâce à Visual 
+        Studio .NET 2003) mais je pense que vous le trouverez sur le site de Microsoft.</p>
+      <p class="rubrique">Ecrivez votre code source avec le bloc-notes.</p>
+      <p class="rubrique">Copiez les dll du Compact Framework nécessaires au fonctionnement 
+        de votre application dans le même répertoire que votre code source.</p>
+      <p class="rubrique">Créez, dans ce même répertoire un fichier batch appelant 
+        le "compilateur" de votre choix (vbc, csc, etc.) avec comme argument des 
+        références vers les dll.</p>
+      <p class="rubrique">Copiez l'exécutable sur votre Pocket PC et ... profitez 
+        !</p>
+      <p class="Titre10"><span class="rubrique">NB : Rotor</span></p>
+      <p class="rubrique">Dans l'une des démos des DevDays 2003, il est présenté 
+        une application fonctionnant sous WinXP, FreeBSD, MacOS. Un simple copier-coller 
+        permet le déploiement de l'application.</p>
+      <p class="rubrique">Le principe est simple et s'appuie sur le projet Rotor. 
+        Ce dernier permet de créer un .NET Framework pour les trois systèmes d'exploitation. 
+        Ils ont donc tous les trois le même .NET Framework, donc les mêmes dll. 
+        Moralité, le contenu de leur manifeste peut être le même donc le même 
+        fichier .exe (ou .dll) peut être exécuté sur les 3 plateformes.</p>
+      <p class="rubrique">Ce qu'il faut retenir c'est que pour qu'un même exécutable 
+        puisse être exécuté sur différentes plateformes, il faut impérativement 
+        que toutes les informations dans le manifeste soient indentiques, donc 
+        que les assemblies référencées soient identiques.</p>
+      <p class="Titre10"><span class="rubrique">Le bloc-notes, c'est cool mais...</span></p>
+      <p class="rubrique">Promis, nous verrons dans un prochain article comment 
+        développer pour le Compact Framework avec des outils, gratuits, mais&nbsp;plus 
+        évolués que le bloc-notes.</p>
+      <p align="left" class="rubrique">&nbsp; </p>
+      <p class="rubrique"></p>
+      <p align="right"><span class="rubrique"><a href="http://www.codeppc.com/developpeurs/richardclark.htm" target="_blank"><b>Richard 
+        Clark</b></a></span></p>
+      </td>
+    <td bgcolor="#ffffff" width="1" height="2879">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="161" valign="top" height="2">&nbsp;</td>
+    <td bgcolor="#ffffff" width="10" height="2">&nbsp;</td>
+    <td bgcolor="#ffffff" valign="top"> 
+      <div align="center"><img src="sansvs1_files/codeppc.gif" width="150" height="40"><br>
+        <font face="Verdana, Arial, Helvetica, sans-serif" size="1"><b><font color="#6666ff">Copyright 2001-2003 - Tous droits réservés<br>
+        </font></b><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#999999">Toutes 
+        les autres marques et produits présents dans ces pages sont la 
+        propriété exclusive de leurs sociétés respectives.</font></font></div>
+    </td>
+    <td bgcolor="#ffffff" width="1" height="2">&nbsp;</td>
+  </tr>
+</tbody></table>
+<p>&nbsp;</p>
+</body></html>

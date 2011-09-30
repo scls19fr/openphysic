@@ -1,0 +1,132 @@
+cmtcsc 0 127
+'<font face="SYMBOL">G</font>'      ''  Gamma  0
+'<font face="SYMBOL">D</font>'      ''  Delta  1
+'<font face="SYMBOL">Q</font>'      ''  Theta  2
+'<font face="SYMBOL">L</font>'      '' Lambda  3
+'<font face="SYMBOL">X</font>'      '' Xi      4
+'<font face="SYMBOL">P</font>'      '' Pi      5
+'<font face="SYMBOL">S</font>'      '' Sigma   6
+'<font face="SYMBOL">\161\</font>'  '' Upsilon 7
+'<font face="SYMBOL">F</font>'      '' Phi     8
+'<font face="SYMBOL">Y</font>'      '' Psi     9
+'<font face="SYMBOL">W</font>'      '' Omega  10
+'\173\'     ''uparrow   11
+'\175\'     ''downarrow 12
+-'-      --          13   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'\161\'  ''          14   % cmtcsc.htf (symbol)                2002-05-12 %
+'\191\'  ''          15
+'i'      ''          16 % Copyright (C) 2000--2002 Eitan M. Gurari %
+'j'      ''          17 %                                          %
+'`'     ''          18 % This file can redistributed and/or       %
+-'-      --          19 % modified under the terms of the LaTeX    %
+''       ''          20 % Project Public License Distributed from  %
+'\175\'  ''          21 % CTAN archives in directory               %
+''       ''          22 % macros/latex/base/lppl.txt; either       %
+''       ''          23 % version 1 of the License, or (at your    %
+'\184\'  ''          24 % option) any later version.               %
+'\223\'  ''          25 %    However, you are allowed to modify    %
+'\230\'  ''       ae 26 % this file without changing its name, if  %
+'&#0339;' ''    oe   27 % you add a note of your own after this    %
+'\248\'  ''empty     28 % copyright note.                          %
+'\198\'  ''AE        29 %                                          %
+'\140\'  ''     OE   30 %                gurari@cis.ohio-state.edu %
+'\216\'  ''Empty     31 %    http://www.cis.ohio-state.edu/~gurari %
+'_'      '1'blank    32 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'!'      ''          33 
+'&#34;'  ''          34
+'#'      ''          35
+'$'      ''          36
+'%'      ''          37
+'&amp;'  ''          38
+-'-      --          39
+'('      ''          40
+')'      ''          41
+'*'      ''          42
+'+'      ''          43
+','      ''          44
+'-'      ''          45
+'.'      ''          46
+'/'      ''          47
+'0'      ''          48
+'1'      ''          49
+'2'      ''          50
+'3'      ''          51
+'4'      ''          52
+'5'      ''          53
+'6'      ''          54
+'7'      ''          55
+'8'      ''          56
+'9'      ''          57
+':'      ''          58
+';'      ''          59
+'&lt;'   ''          60
+'='      ''          61
+'&gt;'   ''          62
+'?'      ''          63
+'@'      ''          64
+'A'      ''          65
+'B'      ''          66
+'C'      ''          67
+'D'      ''          68
+'E'      ''          69
+'F'      ''          70
+'G'      ''          71
+'H'      ''          72
+'I'      ''          73
+'J'      ''          74
+'K'      ''          75
+'L'      ''          76
+'M'      ''          77
+'N'      ''          78
+'O'      ''          79
+'P'      ''          80
+'Q'      ''          81
+'R'      ''          82
+'S'      ''          83
+'T'      ''          84
+'U'      ''          85
+'V'      ''          86
+'W'      ''          87
+'X'      ''          88
+'Y'      ''          89
+'Z'      ''          90
+'['      ''          91
+'\\'     ''          92
+']'      ''          93
+'^'      ''          94
+'_'      ''          95
+'`'     ''          96
+'A'      '4'            97
+'B'      '4'            98
+'C'      '4'            99
+'D'      '4'           100
+'E'      '4'           101
+'F'      '4'           102
+'G'      '4'           103
+'H'      '4'           104
+'I'      '4'           105
+'J'      '4'           106
+'K'      '4'           107
+'L'      '4'           108
+'M'      '4'           109
+'N'      '4'           110
+'O'      '4'           111
+'P'      '4'           112
+'Q'      '4'           113
+'R'      '4'           114
+'S'      '4'           115
+'T'      '4'           116
+'U'      '4'           117
+'V'      '4'           118
+'W'      '4'           119
+'X'      '4'           120
+'Y'      '4'           121
+'Z'      '4'           122
+'{'      ''         123
+'|'      ''         124
+'}'      ''         125
+'~'      ''         126
+'\168\'  ''         127
+cmtcsc 0 127
+htfcss: cmtcsc font-family: monospace;
+
