@@ -1,2 +1,12 @@
 Analyse de relevés de comptes MT4 via script Python
 
+ToDo:
+1)
+ Parsing DetailedStatement.htm (ou Statement.htm)
+ Génération automatique de fichier .htm (via un EA... comme MyFXBook ?)
+ voir ZulutradeAnalyzerClass
+
+2) Lecture statement.csv
+
+
+Calcul en Pips... voir Useful class
