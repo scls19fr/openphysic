@@ -24,4 +24,4 @@
 """
 
 mt_dir = 'C:\Program Files\MetaTrader - Pepperstone'
-
+statement_relative_file = 'experts\files\statement.csv' # Généré par l'EA MyFXBook
