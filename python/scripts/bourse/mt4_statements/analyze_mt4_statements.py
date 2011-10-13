@@ -2,7 +2,7 @@
 # -*- coding: utf8 -*-
 
 """
-    MT4 Analyzer for History of a trader
+    Analyzer of MT4 statements
 
        But : ce script permet d'analyser les trades effectués
        dans le système de trading MetaTrader 4 http://www.metaquotes.net/
@@ -22,3 +22,6 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>
 """
+
+mt_dir = 'C:\Program Files\MetaTrader - Pepperstone'
+
