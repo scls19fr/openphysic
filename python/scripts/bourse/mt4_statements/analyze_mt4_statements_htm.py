@@ -23,5 +23,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>
 """
 
-mt_dir = 'C:\Program Files\MetaTrader - Pepperstone'
-statement_relative_file = 'experts\files\statement.csv' # Généré par l'EA MyFXBook
+#statement_relative_file = 'Statement.htm' # Généré manuellement par MT4
+statement_relative_file = 'DetailedStatement.htm' # Généré manuellement par MT4
+# ToDo : faire un EA qui génère automatiquement un statement
+
