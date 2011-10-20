@@ -1,3 +1,3 @@
 all:
-	python main.py
+	time python main.py
 	ls -lh
