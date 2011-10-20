@@ -1,8 +1,8 @@
 #!/usr/bin/python
 import random, string
 myrg = random.SystemRandom()
-length = 30
-lines = 10
+length = 80
+lines = 30
 # If you want non-English characters, remove the [0:52]
 #alphabet = string.letters[0:52] + string.digits
 alphabet = string.letters[0:26] + string.digits + '   '
