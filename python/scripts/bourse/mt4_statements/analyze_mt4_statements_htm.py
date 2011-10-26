@@ -64,6 +64,24 @@ class MT4StatementParser():
                         #data.next.split(' ')
                     
                     j = j + 1
+            elif i==1 or i==2:
+                """
+<tr align="left"><td colspan="13"><b>Closed Transactions:</b></td></tr>
+<tr align="center" bgcolor="#C0C0C0">
+<td>Ticket</td><td nowrap="nowrap">Open Time</td><td>Type</td><td>Size</td><td>Item</td>
+<td>Price</td><td>S / L</td><td>T / P</td><td nowrap="nowrap">Close Time</td>
+<td>Price</td><td>Commission</td><td>Taxes</td><td>Swap</td><td>Profit</td></tr>
+"""
+                pass
+            
+            elif i<10:
+                if (i%2)==1:
+                    print("ok")
+                else:
+                    pass
+                print(i)
+                print(row)
+
             else:
                 pass
             i = i + 1
