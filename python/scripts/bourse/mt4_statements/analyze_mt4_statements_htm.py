@@ -26,6 +26,34 @@
 from BeautifulSoup import BeautifulSoup
 from datetime import date, datetime, timedelta
 
+class Trade():
+    def __init__(self):
+        self.Ticket = None
+        self.OpenTime = None
+        self.Type = None
+        self.Size = None
+        self.Item = None
+        self.Price = None
+        self.SL = None
+        self.TP = None
+        self.CloseTime = None
+        self.Price = None
+        self.Commission = None
+        self.Taxes = None
+        self.Swap = None
+        self.Profit = None
+
+        self.MagicNumber = None
+        self.Comment = None
+
+    def show(self):
+        print("{0};{1};{2};{3};{4};{5};{6};{7};{8};{9};{10};{11};{12};{13};{14};{15}".format(self.Ticket,
+            self.OpenTime, self.Type, self.Size, self.Item,
+            self.Price, self.SL, self.TP, self.CloseTime,
+            self.Price, self.Commission, self.Taxes, self.Swap, self.Profit,
+            self.MagicNumber, self.Comment
+        ))
+
 class MT4StatementParser():
     def __init__(self, filename):
         self.filename = filename
@@ -76,7 +104,7 @@ class MT4StatementParser():
             
             elif i<10:
                 if (i%2)==1:
-                    print("ok")
+                    print('='*3+' Trade '+'='*3)
                 else:
                     pass
                 print(i)
@@ -104,3 +132,6 @@ statement_relative_file = 'DetailedStatement.htm' # Généré manuellement par M
 
 statement = MT4StatementParser(statement_relative_file)
 statement.show()
+
+t = Trade()
+t.show()
