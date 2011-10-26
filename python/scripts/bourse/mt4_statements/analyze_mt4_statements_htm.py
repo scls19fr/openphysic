@@ -24,6 +24,7 @@
 """
 
 from BeautifulSoup import BeautifulSoup
+from datetime import date, datetime, timedelta
 
 class MT4StatementParser():
     def __init__(self, filename):
@@ -32,9 +33,9 @@ class MT4StatementParser():
         self.account = None
         self.name = None
         self.currency = None
-        self.datetime = None
+        self.datetime_generated = None
         
-        datasource = open(filename)
+        datasource = open(self.filename)
         html = datasource.read()
         soup = BeautifulSoup(html)
         table = soup.find('table')
@@ -52,13 +53,15 @@ class MT4StatementParser():
                 for col in cols:
                     data = col.find('b')
                     if j==0:
-                        self.account = data
+                        self.account = data.next.split(':')[1].strip()
                     elif j==1:
-                        self.name = data
+                        self.name = str(data.next).split(':')[1].strip()
                     elif j==2:
-                        self.currency = data
+                        self.currency = data.next.split(':')[1].strip()
                     elif j==3:
-                        self.datetime = data
+                        #2011 October 13, 21:33
+                        self.datetime_generated = data.next #datetime.strptime(data, '%Y')
+                        #data.next.split(' ')
                     
                     j = j + 1
             else:
@@ -71,8 +74,8 @@ class MT4StatementParser():
 Account: {account}
 Name: {name}
 Currency: {currency}
-Datetime: {datetime}
-""".format(filename=self.filename, account=self.account, name=self.name, currency=self.currency, datetime=self.datetime))
+Datetime: {datetime_generated}
+""".format(filename=self.filename, account=self.account, name=self.name, currency=self.currency, datetime_generated=self.datetime_generated))
 
 
         
