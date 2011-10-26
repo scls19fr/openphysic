@@ -104,11 +104,23 @@ class MT4StatementParser():
             
             elif i<10:
                 print(i)
+                trade = Trade()
                 if (i%2)==1:
                     print('='*3+' Trade '+'='*3)
-                    print(row)
+                    #print(row)
+                    cols = row.findAll('td')
+                    j = 0
+                    for col in cols:
+                        print(col)
+                        if j==0:
+                            trade.Ticket = "TicketNum"
+                        else:
+                            pass
+                        j = j + 1
                 else:
                     print(row)
+
+                trade.show()
 
             else:
                 pass
@@ -133,5 +145,5 @@ statement_relative_file = 'DetailedStatement.htm' # Généré manuellement par M
 statement = MT4StatementParser(statement_relative_file)
 statement.show()
 
-t = Trade()
-t.show()
+#t = Trade()
+#t.show()
