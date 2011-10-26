@@ -103,12 +103,12 @@ class MT4StatementParser():
                 pass
             
             elif i<10:
+                print(i)
                 if (i%2)==1:
                     print('='*3+' Trade '+'='*3)
+                    print(row)
                 else:
-                    pass
-                print(i)
-                print(row)
+                    print(row)
 
             else:
                 pass
