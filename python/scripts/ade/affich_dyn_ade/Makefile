@@ -7,4 +7,4 @@ all:
 .PHONY: clean
 
 clean:
-	$(RM) *.htm
+	$(RM) *.htm *.html

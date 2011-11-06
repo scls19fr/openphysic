@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+wget -O out.html --no-check-certificate "https://upplanning.appli.univ-poitiers.fr/ade/custom/modules/plannings/direct_planning.jsp?login=visu&password=visu&showTree=false&showPianoDays=true&showPianoWeeks=true&showOptions=false&displayConfName=IUTP-Campus%20(GTE)&projectId=1&code=Z2PT22"

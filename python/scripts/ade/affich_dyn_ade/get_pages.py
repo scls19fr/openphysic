@@ -4,8 +4,14 @@ import urllib
 
 # clean previous pages
 
+# Ex url
+# http://upplanning.appli.univ-poitiers.fr/ade/standard/direct_planning.jsp?login=visu&password=visu&showTree=false&showPianoDays=true&showPianoWeeks=true&showOptions=false&displayConfName=IUTP-Campus%20(GTE)&projectId=1&code=Z2PT22
+# https://upplanning.appli.univ-poitiers.fr/ade/custom/modules/plannings/direct_planning.jsp?login=visu&password=visu&showTree=false&showPianoDays=true&showPianoWeeks=true&showOptions=false&displayConfName=IUTP-Campus%20(GTE)&projectId=1&code=Z2PT22
+
+
 # get pages
-url_start = 'https://upplanning.appli.univ-poitiers.fr/ade/standard/direct_planning.jsp?login=visu&password=visu&showTree=false&showPianoDays=true&showPianoWeeks=true&showOptions=false&displayConfName=IUTP-Campus%20(GTE)&projectId=1&code='
+#url_start = 'http://upplanning.appli.univ-poitiers.fr/ade/standard/direct_planning.jsp?login=visu&password=visu&showTree=false&showPianoDays=true&showPianoWeeks=true&showOptions=false&displayConfName=IUTP-Campus%20(GTE)&projectId=1&code='
+url_start = 'https://upplanning.appli.univ-poitiers.fr/ade/custom/modules/plannings/direct_planning.jsp?login=visu&password=visu&showTree=false&showPianoDays=true&showPianoWeeks=true&showOptions=false&displayConfName=IUTP-Campus%20(GTE)&projectId=1&code='
 
 urls = [
 	url_start + 'Z1PT11',
