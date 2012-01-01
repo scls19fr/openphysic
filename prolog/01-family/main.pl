@@ -3,6 +3,7 @@
  http://www.ailab.si/ivan
  Chapter 1
 */
+
 parent(pam, bob).
 parent(tom, bob).
 parent(tom, liz).
