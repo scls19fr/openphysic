@@ -11,12 +11,12 @@ parent(bob, ann).
 parent(bob, pat).
 parent(pat, jim).
 
-female().
-male().
-male().
-female().
-female().
-female().
-male().
+%female().
+%male().
+%male().
+%female().
+%female().
+%female().
+%male().
 
 % parent(tom, X).

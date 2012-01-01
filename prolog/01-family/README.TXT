@@ -18,6 +18,11 @@ $ swipl
 
 ?- consult(main).
 
+ou
+
+?- consult('main.pro').
+
+
 3) Utilisation en mode non interactif
 Edition fichier main.pl
 Compilation:
