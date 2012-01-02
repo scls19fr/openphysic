@@ -7,4 +7,4 @@ fallible(X) :- man(X). % All men are fallible
 %listing.
 
 % is Socrates fallible ?
-% fallible(socrates)
+%fallible(socrates).
