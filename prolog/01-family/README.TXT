@@ -43,5 +43,12 @@ Remarques:
 % Editeur de texte : Emacs
 ?- emacs.
 
+% Sauver des faits (rentré en intéractif)
+tell('save.pro'), listing, told. 
+
 % Quitter Prolog
 ?- halt.
+
+
+Xabc = variable
+xabc = atom

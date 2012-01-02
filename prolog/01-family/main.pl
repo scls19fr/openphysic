@@ -5,6 +5,7 @@
 */
 
 %write('Prolog - code sample'),nl.
+%write('Hello World!'),nl,fail.
 
 /* FACTS */
 
