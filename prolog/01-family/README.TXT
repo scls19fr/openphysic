@@ -4,8 +4,11 @@ Compilateur : SWI Prolog
 
 $ swipl
 
-?- assert(parent(tom, bob)).
+?- assertz(parent(tom, bob)).
 true.
+
+% "assertz" remplace "assert"
+% voir aussi "asserta"
 
 ?- parent(tom, X).
 X = bob.
@@ -36,3 +39,9 @@ Remarques:
 % Aide
 ?- help(Topic).
 ?- apropos(Word).
+
+% Editeur de texte : Emacs
+?- emacs.
+
+% Quitter Prolog
+?- halt.
