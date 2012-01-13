@@ -43,7 +43,7 @@ def clear_screen():
 
 def update():
     y = yql.Public()
-    symbol = 'EURUSD'
+    symbol = 'EURUSD' # 'AUDJPY'
     query = 'select * from yahoo.finance.quotes where symbol="{0}=X" limit 1'.format(symbol);
     result = y.execute(query, env='http://datatables.org/alltables.env')
     # ToFix : No definition found for Table yahoo.finance.quotes => env
@@ -57,8 +57,7 @@ def update():
 
     clear_screen()
     print("""{0} rates from Yahoo! Finance YQL @ {1}
-Bid : {2}
-Ask : {3}""".format(
+Bid : {2}\tAsk : {3}""".format(
     symbol,
     datetime.datetime.now(), #.strftime('%Y/%m/%d %H:%M:%s'),
     data['Bid'],
