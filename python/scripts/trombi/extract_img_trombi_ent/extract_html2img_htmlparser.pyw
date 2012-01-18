@@ -3,7 +3,7 @@
 from html.parser import *
 import base64
 
-filename = 'photos/{nom}_{prenom}_{num}.jpg'
+filename_out = 'photos/{nom}_{prenom}_{num}.jpg'
 
 def cleanup(str):
   str = str.strip() # enlever espace
@@ -53,7 +53,7 @@ class MyHTMLParser(HTMLParser):
     elif (tag=='td'):
       print('='*5)
       #filename = 'photos/{:03d}.jpg'.format(self.i)
-      fd_out = open(filename.format(nom=self.nom, prenom=self.prenom, num=self.num), 'wb')
+      fd_out = open(filename_out.format(nom=self.nom, prenom=self.prenom, num=self.num), 'wb')
       fd_out.write(self.img)
       fd_out.close()
 
@@ -71,8 +71,8 @@ class MyHTMLParser(HTMLParser):
       print("Encountered   some data:", self.j, data)
       self.j = self.j + 1
 
-filename = 'trombi_html.txt'
-fd = open(filename, 'r', encoding='iso-8859-1')
+filename_in = 'trombi_html.txt'
+fd = open(filename_in, 'r', encoding='iso-8859-1')
 html = fd.read()
 parser = MyHTMLParser(html)
 
