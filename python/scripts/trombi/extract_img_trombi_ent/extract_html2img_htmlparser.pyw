@@ -7,6 +7,8 @@ class MyHTMLParser(HTMLParser):
   def __init__(self, data):
     self.mode = 0 # mode=0 : pas de capture ; mode=1 : capture
     self.i = 1
+    self.j = 0
+    self.filename_img = ''
     HTMLParser.__init__(self)
     self.feed(data)
     self.close()
@@ -39,8 +41,14 @@ class MyHTMLParser(HTMLParser):
       #print("Encountered  an end tag:", tag)
       self.mode = 0
 
-#  def handle_data(self, data):
-#      print("Encountered   some data:", data)
+  def handle_data(self, data):
+    if (self.mode == 1):
+      if (self.j == 0):
+        self.filename_img = ''
+      else:
+        self.filename_img = self.filename_img + data
+      self.j = (self.j + 1) % 4
+      print("Encountered   some data:", self.j, data)
 
 filename = 'trombi_html.txt'
 fd = open(filename, 'r', encoding='iso-8859-1')
