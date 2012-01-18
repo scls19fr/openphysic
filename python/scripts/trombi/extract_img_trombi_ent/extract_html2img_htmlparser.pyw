@@ -2,20 +2,25 @@
 
 from html.parser import *
 import base64
-#import unicodedata
 
 filename_out = 'photos/{nom}_{prenom}_{num}.jpg'
 
-#def strip_accents(text, encoding):
-#        unicode_text= unicodedata.normalize('NFD', text.decode(encoding))
-#        return filter(not_combining, unicode_text).encode(encoding)
+import unicodedata
 
-def cleanup(str):
-  str = str.strip() # enlever espace
-  str = str.lower() # mise en minuscule
-  str = str.replace(' ','_') # remplacer espace par underscore
-  #str = strip_accents(str, 'iso-8859-1')
-  return str
+def remove_diacritic(input):
+    '''
+    Accept a unicode string, and return a normal string (bytes in Python 3)
+    without any diacritical marks.
+    '''
+    return unicodedata.normalize('NFKD', input).encode('ASCII', 'ignore')
+
+def cleanup(txt):
+  txt = txt.strip() # enlever espace
+  txt = txt.lower() # mise en minuscule
+  txt = txt.replace(' ','_') # remplacer espace par underscore
+  txt = remove_diacritic(txt)
+  txt = txt.decode('ascii')
+  return txt
 
 class MyHTMLParser(HTMLParser):
   def __init__(self, data):
