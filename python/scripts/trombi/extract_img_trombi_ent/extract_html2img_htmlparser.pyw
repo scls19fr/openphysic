@@ -2,12 +2,19 @@
 
 from html.parser import *
 import base64
+#import unicodedata
 
 filename_out = 'photos/{nom}_{prenom}_{num}.jpg'
+
+#def strip_accents(text, encoding):
+#        unicode_text= unicodedata.normalize('NFD', text.decode(encoding))
+#        return filter(not_combining, unicode_text).encode(encoding)
 
 def cleanup(str):
   str = str.strip() # enlever espace
   str = str.lower() # mise en minuscule
+  str = str.replace(' ','_') # remplacer espace par underscore
+  #str = strip_accents(str, 'iso-8859-1')
   return str
 
 class MyHTMLParser(HTMLParser):
