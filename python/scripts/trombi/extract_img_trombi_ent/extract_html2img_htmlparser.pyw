@@ -3,6 +3,8 @@
 from html.parser import *
 import base64
 
+filename = 'photos/{nom}_{prenom}_{num}.jpg'
+
 def cleanup(str):
   str = str.strip() # enlever espace
   str = str.lower() # mise en minuscule
@@ -35,7 +37,6 @@ class MyHTMLParser(HTMLParser):
       #decoded = base64.b64decode(b64encoded)
       self.img = base64.b64decode(b64encoded)
 
-
       self.i = self.i + 1
 
     if (tag=='td'):
@@ -52,8 +53,7 @@ class MyHTMLParser(HTMLParser):
     elif (tag=='td'):
       print('='*5)
       #filename = 'photos/{:03d}.jpg'.format(self.i)
-      filename = 'photos/{0}_{1}_{2}.jpg'.format(self.nom, self.prenom, self.num)
-      fd_out = open(filename, 'wb')
+      fd_out = open(filename.format(nom=self.nom, prenom=self.prenom, num=self.num), 'wb')
       fd_out.write(self.img)
       fd_out.close()
 
