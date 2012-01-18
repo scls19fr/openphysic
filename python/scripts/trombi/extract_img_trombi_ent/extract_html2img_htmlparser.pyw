@@ -43,7 +43,7 @@ class MyHTMLParser(HTMLParser):
 #      print("Encountered   some data:", data)
 
 filename = 'trombi_html.txt'
-fd = open(filename, 'r')
+fd = open(filename, 'r', encoding='iso-8859-1')
 html = fd.read()
 parser = MyHTMLParser(html)
 
