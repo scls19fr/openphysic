@@ -3,10 +3,16 @@
 from html.parser import *
 import base64
 
-filename_out = 'photos/{nom}_{prenom}_{num}.jpg'
+import csv
+
+filename_out_format = 'photos/{nom}_{prenom}_{num}.jpg'
 
 import unicodedata
 
+csvWriter = csv.writer(open('liste_etu.csv', 'w'), delimiter=';')
+csvWriter.writerow(['NUM', 'NOM', 'PRENOM', 'IMG', 'TP'])
+
+                        
 def remove_diacritic(input):
     '''
     Accept a unicode string, and return a normal string (bytes in Python 3)
@@ -65,18 +71,20 @@ class MyHTMLParser(HTMLParser):
     elif (tag=='td'):
       print('='*5)
       #filename = 'photos/{:03d}.jpg'.format(self.i)
-      fd_out = open(filename_out.format(nom=self.nom, prenom=self.prenom, num=self.num), 'wb')
+      filename_out = filename_out_format.format(nom=cleanup(self.nom), prenom=cleanup(self.prenom), num=self.num)
+      fd_out = open(filename_out, 'wb')
       fd_out.write(self.img)
       fd_out.close()
+      csvWriter.writerow([self.num, self.nom, self.prenom.strip(), filename_out, 0])
 
   def handle_data(self, data):
     if (self.mode == 1):
       if (self.j == 0):
         self.num = data
       elif (self.j==1):
-        self.nom = cleanup(data)
+        self.nom = data
       elif (self.j==2):
-        self.prenom = cleanup(data)
+        self.prenom = data
       #  self.filename_img = ''
       #else:
       #  self.filename_img = self.filename_img + data
