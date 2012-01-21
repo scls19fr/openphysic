@@ -88,7 +88,7 @@ class MyHTMLParser(HTMLParser):
       #  self.filename_img = ''
       #else:
       #  self.filename_img = self.filename_img + data
-      print("Encountered   some data:", self.j, data)
+      print("Encountered some data:", self.j, data)
       self.j = self.j + 1
 
 filename_in = 'trombi_html.txt'
