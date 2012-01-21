@@ -2,16 +2,13 @@
 
 from html.parser import *
 import base64
-
+import unicodedata
 import csv
 
 filename_out_format = 'photos/{nom}_{prenom}_{num}.jpg'
 
-import unicodedata
-
 csvWriter = csv.writer(open('liste_etu.csv', 'w'), delimiter=';')
 csvWriter.writerow(['NUM', 'NOM', 'PRENOM', 'IMG', 'TP'])
-
                         
 def remove_diacritic(input):
     '''
