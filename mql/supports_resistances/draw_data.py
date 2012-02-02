@@ -25,14 +25,17 @@ from matplotlib.finance import quotes_historical_yahoo, candlestick
 from datetime import date, datetime, timedelta
 
 import csv
-dataReader = csv.reader(open('data_EURUSD_43200.csv', 'rb'), delimiter=',')
+#filename = 'data_EURUSD_15.csv'
+filename = 'data_EURUSD_43200.csv'
+dataReader = csv.reader(open(filename, 'rb'), delimiter=',')
 
-i=0
+i = 0
+DOCHLV = []
 for row in dataReader:
-    print ', '.join(row)
+    #print ', '.join(row)
     if i<>0:
-        date=datetime.strptime(row[0], '%Y.%m.%d').date()
-        time = row[1].split(':')
+        date=datetime.strptime(row[0]+" "+row[1], '%Y.%m.%d %H:%M')
+        #time = row[1].split(':')
         #date.hour = time[0]
         #date.hour = time[0]
         openP=float(row[2])
@@ -41,5 +44,12 @@ for row in dataReader:
         closeP=float(row[5])
         volume=int(row[6])
         RSI=float(row[7])
-        print(date,time)
+        #print(date)
+        DOCHLV.append((i, openP, closeP, highP, lowP, volume))
+
     i = i + 1
+
+fig = figure()
+fig.subplots_adjust(bottom=0.1)
+ax = fig.add_subplot(311)
+candlestick(ax, DOCHLV, width=0.6, colorup='g', colordown='r', alpha=1.0)
