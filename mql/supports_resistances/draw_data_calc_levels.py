@@ -34,6 +34,11 @@ DOCHLV = []
 prices = []
 numbars = []
 
+#openPs = []
+#lowPs = []
+#highPs = []
+#closePs= []
+
 for row in dataReader:
     #print ', '.join(row)
     if i<>0:
@@ -67,19 +72,30 @@ for row in dataReader:
     i = i + 1
 
 
-print(price_min, 0.8227)
-print(price_max, 1.6038)
+prices = frange(price_min,price_max,0.0001)
+prices = [1.0000,1.0001]
+numbars = []
+for price in prices:
+    num=0
+    for row in DOCHLV:
+        #print(row)
+        lowP = row[3]
+        highP = row[4]
+        if(price>=lowP and price<=highP):
+            num=num+1
+            print("tofix")
+        
+    numbars.append(num)
 
 fig = figure()
-#fig.subplots_adjust(bottom=0.1)
+fig.subplots_adjust(bottom=0.1)
 
 # S/R
-#ax = fig.add_subplot(121)
-#plot(numbars,prices)
+ax = fig.add_subplot(121)
+plot(numbars,prices)
 
 # Cours
 ax = fig.add_subplot(122)
 candlestick(ax, DOCHLV, width=0.6, colorup='g', colordown='r', alpha=1.0)
-
 
 show()
