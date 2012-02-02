@@ -50,7 +50,7 @@ void RSI_output(string SymbolName,int PeriodMinutes)
    if (size==0) return;
    int handle=FileOpen("data_"+SymbolName+"_"+PeriodMinutes+".csv",FILE_CSV|FILE_WRITE,',');
    if (handle<0) return;
-   FileWrite(handle,"Date,Time,Open,High,Low,Close,Volume,RSI");  //failo pirmoji eilute
+   FileWrite(handle,"Date,Time,Open,Low,High,Close,Volume,RSI");  //failo pirmoji eilute
    for (int i=size-1;i>=0;i--)
       {
       //irasoma i faila eilutemis
