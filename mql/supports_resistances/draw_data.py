@@ -39,8 +39,8 @@ for row in dataReader:
         #date.hour = time[0]
         #date.hour = time[0]
         openP=float(row[2])
-        highP=float(row[3])
-        lowP=float(row[4])
+        lowP=float(row[3])
+        highP=float(row[4])
         closeP=float(row[5])
         volume=int(row[6])
         RSI=float(row[7])
