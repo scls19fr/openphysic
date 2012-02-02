@@ -31,7 +31,7 @@ from ZuluTradeAnalyzerClass import *
 #  ###########################################
 
 #filename = 'ZuluTrade-TradeHistory.html' # v1 05/2011
-filename = 'ZuluTrade-TradeHistory-latest.xls' #v2 12/06/2011
+filename = 'ZuluTrade-TradeHistory.xls' #v2 12/06/2011
 myparser = ZuluTradeMyHistoryParser(filename)
 
 header = myparser.get_header()
