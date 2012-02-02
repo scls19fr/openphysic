@@ -49,7 +49,9 @@ for row in dataReader:
 
     i = i + 1
 
-fig = figure()
-fig.subplots_adjust(bottom=0.1)
-ax = fig.add_subplot(311)
-candlestick(ax, DOCHLV, width=0.6, colorup='g', colordown='r', alpha=1.0)
+
+# ToFix
+#fig = figure()
+#fig.subplots_adjust(bottom=0.1)
+#ax = fig.add_subplot(311)
+#candlestick(ax, DOCHLV, width=0.6, colorup='g', colordown='r', alpha=1.0)
