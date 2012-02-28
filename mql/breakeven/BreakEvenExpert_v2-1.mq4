@@ -171,7 +171,7 @@ void TrailStops() {
 
         if ( filterOrdersBy() ) {
             if ( OrderType()==OP_BUY ) {
-                double bid = MarketInfo(OrderSymbol(),MODE_BID); // bid (bid price for order symbol) <> Bid (bid price for EA symbol)
+                double bid = MarketInfo(OrderSymbol(), MODE_BID); // bid (bid price for order symbol) <> Bid (bid price for EA symbol)
                 if ( bid-OrderOpenPrice() >= Point*BreakEven ) {
                     SL = NormalizeDouble(OrderOpenPrice() + Offset*Point, digit);
                     if (OrderStopLoss()<SL) { // fix 2012-01-04
