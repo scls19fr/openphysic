@@ -287,6 +287,9 @@ void ManageThisOrder() {
     
     double vSL = getVirtualStopLoss(ticket); //getVarTicket(ticket, "vSL");
     double vTP = getVirtualTakeProfit(ticket); //getVarTicket(ticket, "vTP");
+
+    double point = MarketInfo(OrderSymbol(), MODE_POINT); // Point<>point fix 2012-02-29 (to have setup in points)
+    //double point = PipPoint(OrderSymbol()); // to have setup in pips (instead of points)
     
     
     // Draw line
@@ -324,7 +327,7 @@ void ManageThisOrder() {
 
 
     if ( OrderType()==OP_BUY ) {
-        double bid = MarketInfo(OrderSymbol(),MODE_BID); // bid (bid price for order symbol) <> Bid (bid price for EA symbol)
+        double bid = MarketInfo(OrderSymbol(), MODE_BID); // bid (bid price for order symbol) <> Bid (bid price for EA symbol)
     
         // Virtual (stealth) Stop Loss
         if (bid<vSL && vSL>0) {
