@@ -54,7 +54,7 @@ bool filterOrdersBy() {
 }
 
 int digit=0;
-int slippage = 3;
+int slippage = 3; // pts
 bool result;
 int tryClose;
 
@@ -63,6 +63,17 @@ bool InputParametersOk() {
    return(true);
    //return(false);
 }  
+
+// Pip Point Function
+double PipPoint(string symbol) {
+    int CalcDigits = MarketInfo(symbol, MODE_DIGITS);
+    if(CalcDigits == 2 || CalcDigits == 3) {
+        double CalcPoint = 0.01;
+    } else if(CalcDigits == 4 || CalcDigits == 5) {
+        CalcPoint = 0.0001;
+    }
+    return(CalcPoint);
+}
 
 double getVarTicket(int ticket, string mode) {
    string varname = GV_PREFIX+ticket+"_"+mode;

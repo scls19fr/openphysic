@@ -9,13 +9,17 @@
 
 #include <vOM.mqh>
 
+//double UsePoint;
+
 //+------------------------------------------------------------------+
 //| expert initialization function                                   |
 //+------------------------------------------------------------------+
 int init()
   {
 //----
-   
+    //UsePoint = PipPoint(Symbol());
+    // use UsePoint instead of Point... but Point is not a good idea as there is differents symbols
+
 //----
    return(0);
   }
