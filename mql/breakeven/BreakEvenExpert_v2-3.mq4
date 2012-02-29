@@ -19,8 +19,8 @@
 
 //---- input parameters
 
-extern double BreakEven = 2.0; //15.0    // Profit Lock in pips
-extern double Offset = 0.2;  //2.0  // Offset in pips
+extern double BreakEven = 15.0; //15.0    // Profit Lock in pips
+extern double Offset = 2.0;  //2.0  // Offset in pips
 
 int digit=0;
 
