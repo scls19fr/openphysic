@@ -35,7 +35,7 @@
 
 #define MY_SHORTNAME "vOM EA"
 #define MY_LONGNAME "virtual Order Management (vOM) EA"
-#define MY_VERSION "0.1"
+#define MY_VERSION "0.01-alpha"
 #define MY_AUTHOR "Sebastien Celles"
 #define MY_WEB "ww.celles.net"
 #define MY_RELEASE_DATE "2012/02/29"
@@ -43,6 +43,10 @@
 #define GV_PREFIX "vOM_Ticket_" // Global Variable Prefix
 #define OBJ_PREFIX "OBJ_vOM_" // Global Variable Prefix
 
+//double TrailingStopDist = 100;
+//double TrailingStopStep = 10;
+//extern double     BreakEven       = 150; //150    // Profit Lock in points (pips for 4 digits brokers)
+//extern double     Offset          = 20;  //20  // Offset in points
 
 bool filterOrdersBy() {
     return ( OrderType()==OP_SELL || OrderType()==OP_BUY );
@@ -89,14 +93,16 @@ void setVarTicket(int ticket, string mode, double value) {
    }
 }
 
-void CreateTicketVarIfNotExists(int ticket, string mode, double price) {
+void CreateTicketVarIfNotExists(int ticket, string mode, double value) {
    string varname = GV_PREFIX+ticket+"_"+mode;
    if(!GlobalVariableCheck(varname)) {
       //setVarTicket(ticket, mode, -1.0);
       //setVarTicket(ticket, mode, 0.0);
-      setVarTicket(ticket, mode, price);
+      setVarTicket(ticket, mode, value);
    }
 }
+
+// ToDo : setVarTicket
 
 string strComment = "";
 
@@ -185,7 +191,7 @@ double getVirtualTakeProfit(int ticket){
 }
 
 void setBrokerStopLoss(int ticket, double SL) {
-    result = OrderSelect(ticket, SELECT_BY_TICKET);
+    result = OrderSelect(ticket, SELECT_BY_TICKET); // is it necessary ? ticket=OrderTicket() if order has been previously selected
     if (!result) {
         Print("Can't select ticket #" + ticket);
     }
@@ -238,6 +244,28 @@ double getBrokerTakeProfit(int ticket) {
     return(OrderTakeProfit());
 }
 
+
+// State machine
+
+// 0 : New trade (initial mode)
+// 1 : BreakEven has been reached
+// 2 : Trailing stop is on
+
+void setMode(int ticket, int mode) {
+
+}
+
+int getMode(int ticket) {
+
+}
+
+void ModeChange() {
+// order was previouly selected
+// define the rules to change from a mode to an other
+
+}
+
+
 void ManageThisOrder() {
     int ticket = OrderTicket();
 
@@ -249,29 +277,6 @@ void ManageThisOrder() {
     double vSL = getVirtualStopLoss(ticket); //getVarTicket(ticket, "vSL");
     double vTP = getVirtualTakeProfit(ticket); //getVarTicket(ticket, "vTP");
     
-    string str = "Ticket #" + ticket
-     + sep + "Magic=" + OrderMagicNumber() + sep + OrderSymbol() + " " + getOrderTypeStr()
-     + sep + "open=" + OrderOpenPrice()
-     + sep + "lots=" + OrderLots()
-     + sep + "SL=" + OrderStopLoss()
-     + sep + "TP=" + OrderTakeProfit()
-     + sep + "vSL=" + vSL
-     + sep + "vTP=" + vTP;
-
-    /*
-    string strMode;
-    if (BE[ticket]==0) {
-        strMode = "0-NB";
-    } else {
-        strMode = "1-BE";
-    }
-    */
-    //Print(str);
-
-    //str = str + sep + strMode;
-    //str = str + sep + BE[ticket];
-
-    CommentAddLine(str);
     
     // Draw line
     string objname;
@@ -322,7 +327,6 @@ void ManageThisOrder() {
 
         /*
         // Breakeven
-        double bid = MarketInfo(OrderSymbol(),MODE_BID); // bid (bid price for order symbol) <> Bid (bid price for EA symbol)
         if ( bid-OrderOpenPrice() >= Point*BreakEven ) {
             SL = NormalizeDouble(OrderOpenPrice() + Offset*Point, digit);
             if (OrderStopLoss()<SL) { // fix 2012-01-04
@@ -330,6 +334,9 @@ void ManageThisOrder() {
             }
         }
         */
+        
+        //ModeChange();
+        
     }
     
     if ( OrderType()==OP_SELL ) {
@@ -347,15 +354,44 @@ void ManageThisOrder() {
 
         /*
         // Breakeven
-        double ask = MarketInfo(OrderSymbol(), MODE_ASK); // ask (ask price for order symbol) <> Ask (ask price for EA symbol)
         if ( OrderOpenPrice()-ask >= Point*BreakEven ) {
             SL = NormalizeDouble( OrderOpenPrice() - Offset*Point, digit );
-            if (OrderStopLoss()>SL) { // fix 2012-01-04
+            if (OrderStopLoss()>SL || OrderStopLoss()==0) { // fix 2012-01-04 fix again 2012-02-09 (if no SL was previously set)
                 setStopLoss(SL, Yellow);
             }
         }
         */
+        
+        //ModeChange();
     }
+
+
+    string str = "Ticket #" + ticket
+     + sep + "Magic=" + OrderMagicNumber() + sep + OrderSymbol() + " " + getOrderTypeStr()
+     + sep + "open=" + OrderOpenPrice()
+     + sep + "lots=" + OrderLots()
+     + sep + "SL=" + OrderStopLoss()
+     + sep + "TP=" + OrderTakeProfit()
+     + sep + "vSL=" + vSL
+     + sep + "vTP=" + vTP;
+     //+ sep + "profit=" + OrderProfit();
+
+    /*
+    string strMode;
+    if (BE[ticket]==0) {
+        strMode = "0-NB";
+    } else {
+        strMode = "1-BE";
+    }
+    */
+    //Print(str);
+
+    //str = str + sep + strMode;
+    //str = str + sep + BE[ticket];
+
+    CommentAddLine(str);
+
+
 }
 
 void cleanup_gv_obj(int ticket) {
