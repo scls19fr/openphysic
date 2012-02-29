@@ -171,20 +171,22 @@ void TrailStops() {
 
 
         if ( filterOrdersBy() ) {
+            double point = MarketInfo(OrderSymbol(), MODE_POINT); // Point<>point fix 2012-02-29
+        
             if ( OrderType()==OP_BUY ) {
-                double bid = MarketInfo(OrderSymbol(),MODE_BID); // bid (bid price for order symbol) <> Bid (bid price for EA symbol)
+                double bid = MarketInfo(OrderSymbol(),MODE_BID); // bid (bid price for order symbol) <> Bid (bid price for EA symbol) fix 2012-02-28
                 
-                if ( bid-OrderOpenPrice() >= Point*BreakEven ) {
-                    SL = NormalizeDouble(OrderOpenPrice() + Offset*Point, digit);
+                if ( bid-OrderOpenPrice() >= point*BreakEven ) {
+                    SL = NormalizeDouble(OrderOpenPrice() + Offset*point, digit);
                     if (OrderStopLoss()<SL) { // fix 2012-01-04
                         setStopLoss(SL, LightGreen);
                     }
                 }
             }
             if ( OrderType()==OP_SELL ) {
-                double ask = MarketInfo(OrderSymbol(), MODE_ASK); // ask (ask price for order symbol) <> Ask (ask price for EA symbol)
-                if ( OrderOpenPrice()-ask >= Point*BreakEven ) {
-                    SL = NormalizeDouble( OrderOpenPrice() - Offset*Point, digit );
+                double ask = MarketInfo(OrderSymbol(), MODE_ASK); // ask (ask price for order symbol) <> Ask (ask price for EA symbol) fix 2012-02-28
+                if ( OrderOpenPrice()-ask >= point*BreakEven ) {
+                    SL = NormalizeDouble( OrderOpenPrice() - Offset*point, digit );
                     if (OrderStopLoss()>SL || OrderStopLoss()==0) { // fix 2012-01-04 fix again 2012-02-09 (if no SL was previously set)
                         setStopLoss(SL, Yellow);
                     }
