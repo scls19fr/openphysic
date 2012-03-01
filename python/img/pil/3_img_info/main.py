@@ -24,3 +24,6 @@ b.save(file+'-B'+ext)
 comp = r, g, b
 imgnew = Image.merge('RGB',comp) ## Recomposition de l'image
 imgnew.save(file+'-recomposed'+ext) ## Sauvegarde de l'image decomposee puis recomposee
+
+print(r)
+#<PIL.Image.Image image mode=L size=140x140 at 0x103DE7D88>
