@@ -117,8 +117,8 @@ void CreateTicketVarIfNotExists(int ticket, string mode, double value) {
 
 string strComment = "";
 
-void CommentClear() {
-    strComment = "";
+void CommentClear(string def_str="") {
+    strComment = def_str;
 }
 
 void CommentAddLine(string line) {
