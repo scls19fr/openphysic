@@ -26,10 +26,10 @@ im3 = Image.open("page3.png")
 print(im3)
 
 
-im123 = Image.new('RGB', (3*W,H), "white")
+im123 = Image.new('RGB', (W,3*H), "white")
 im123.paste(im2, (0, 0) )
-im123.paste(im1, (W, 0) )
-im123.paste(im3, (2*W, 0) )
+im123.paste(im1, (0, H) )
+im123.paste(im3, (0, 2*H) )
 im123.save('all_in_one.png', 'PNG')
 print(im123)
 
