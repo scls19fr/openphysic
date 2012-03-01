@@ -335,7 +335,7 @@ void ManageThisOrder() {
 //        Print("buy");
         if (BreakEven>0 && BEOffset>0 && BreakEven>BEOffset) {
             if ( profit >= point*BreakEven ) {
-                newSL = NormalizeDouble(OrderOpenPrice() + BEOffset*point, digit);
+                newSL = OrderOpenPrice() + BEOffset*point;
                 if (vSL<newSL) { // fix 2012-01-04
                     setVirtualStopLoss(ticket, newSL);
                 }
@@ -374,9 +374,8 @@ void ManageThisOrder() {
 
         // Breakeven
         if (BreakEven>0 && BEOffset>0 && BreakEven>BEOffset) {
-            if ( OrderOpenPrice()-ask >= point*BreakEven ) {
-//            Print("BE SELL");
-                newSL = NormalizeDouble( OrderOpenPrice() - BEOffset*point, digit );
+            if ( profit >= point*BreakEven ) {
+                newSL = OrderOpenPrice() - BEOffset*point;
                 if (vSL>newSL || vSL==0) { // fix 2012-01-04 fix again 2012-02-09 (if no SL was previously set)
                     setVirtualStopLoss(ticket, newSL);
                 }
