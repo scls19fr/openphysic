@@ -31,6 +31,7 @@ int start() {
 
    CommentAddLine("Done");
    Comment(strComment);
+   //MessageBox("Done");
 
 //----
    return(0);

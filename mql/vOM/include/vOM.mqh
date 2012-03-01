@@ -37,7 +37,7 @@
 #define MY_LONGNAME "virtual Order Management (vOM) EA"
 #define MY_VERSION "0.01-alpha"
 #define MY_AUTHOR "Sebastien Celles"
-#define MY_WEB "ww.celles.net"
+#define MY_WEB "www.celles.net"
 #define MY_RELEASE_DATE "2012/02/29"
 
 #define GV_PREFIX "vOM_Ticket_" // Global Variable Prefix
@@ -126,7 +126,7 @@ void CommentAddLine(string line) {
 }
 
 string getTitle() {
-    return("\n" + MY_LONGNAME + " v" + MY_VERSION + " (" + MY_RELEASE_DATE + ")" + "\n" + MY_WEB + " by " + MY_AUTHOR + " " + "(c)" + "\n");
+    return("\n" + MY_LONGNAME + " v" + MY_VERSION + " (" + MY_RELEASE_DATE + ")" + "\n" + MY_WEB + " by " + MY_AUTHOR + " " + "©" + "\n");
 }
 
 void CommentPrint() {
