@@ -8,16 +8,30 @@
 
 #include <vOM.mqh>
 
+#define MY_SCRIPTNAME "Cleanup"
+
 //+------------------------------------------------------------------+
 //| script program start function                                    |
 //+------------------------------------------------------------------+
 int start() {
 //----
+
+   CommentClear(getTitle());
+   CommentAddLine(MY_SCRIPTNAME);
+
+   Comment(strComment);
+
    GlobalVariablesDeleteAll(GV_PREFIX);
    ObjectsDeleteAll();
-
+   
    //CleanupUnusedGlobalVariables();
-   //CleanupUnusedObjects();   
+   //CleanupUnusedObjects();
+   
+   //Sleep(1000);
+
+   CommentAddLine("Done");
+   Comment(strComment);
+
 //----
    return(0);
 }
