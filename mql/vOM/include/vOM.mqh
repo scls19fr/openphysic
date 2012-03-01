@@ -68,10 +68,12 @@ bool InputParametersOk() {
    //return(false);
 }
 
+//int CalcDigits;
 
 // Pip Point Function
 double PipPoint(string symbol) {
     int CalcDigits = MarketInfo(symbol, MODE_DIGITS);
+
     if(CalcDigits == 2 || CalcDigits == 3) {
         double CalcPoint = 0.01;
     } else if(CalcDigits == 4 || CalcDigits == 5) {
@@ -306,14 +308,18 @@ void ManageThisOrder() {
     double vTP = getVirtualTakeProfit(ticket); //getVarTicket(ticket, "vTP");
 
     double point = MarketInfo(OrderSymbol(), MODE_POINT); // Point<>point fix 2012-02-29 (to have setup in points)
+    int CalcDigits = MarketInfo(OrderSymbol(), MODE_DIGITS);
     //double point = PipPoint(OrderSymbol()); // to have setup in pips (instead of points)
     
     double newSL;
     //double newTP;
+    
+    double profit;
 
 
     if ( OrderType()==OP_BUY ) {
         double bid = MarketInfo(OrderSymbol(), MODE_BID); // bid (bid price for order symbol) <> Bid (bid price for EA symbol)
+        profit = bid - OrderOpenPrice();
     
         // Virtual (stealth) Stop Loss
         if (bid<vSL && vSL>0) {
@@ -328,7 +334,7 @@ void ManageThisOrder() {
         // Breakeven
 //        Print("buy");
         if (BreakEven>0 && BEOffset>0 && BreakEven>BEOffset) {
-            if ( bid-OrderOpenPrice() >= point*BreakEven ) {
+            if ( profit >= point*BreakEven ) {
                 newSL = NormalizeDouble(OrderOpenPrice() + BEOffset*point, digit);
                 if (vSL<newSL) { // fix 2012-01-04
                     setVirtualStopLoss(ticket, newSL);
@@ -341,7 +347,7 @@ void ManageThisOrder() {
         
         // Trailing stop
         if (TrailingStopDist>0) {
-            if (bid - OrderOpenPrice() > point * TrailingStopDist || (!OnlyTrailProfits)) { // trail only if profit when OnlyTrailProfits is set to true
+            if (profit > point * TrailingStopDist || (!OnlyTrailProfits)) { // trail only if profit when OnlyTrailProfits is set to true
                 newSL = bid - point * TrailingStopDist;
                 if (vSL < newSL) { // change SL only if new SL is higher
                     setVirtualStopLoss(ticket, newSL);
@@ -354,6 +360,7 @@ void ManageThisOrder() {
     
     if ( OrderType()==OP_SELL ) {
         double ask = MarketInfo(OrderSymbol(), MODE_ASK); // ask (ask price for order symbol) <> Ask (ask price for EA symbol)
+        profit = OrderOpenPrice() - ask;
  
          // Virtual (stealth) Stop Loss
         if (ask>vSL && vSL>0) {
@@ -394,13 +401,13 @@ void ManageThisOrder() {
 
     string str = "Ticket #" + ticket
      + sep + "Magic=" + OrderMagicNumber() + sep + OrderSymbol() + " " + getOrderTypeStr()
-     + sep + "open=" + OrderOpenPrice()
-     + sep + "lots=" + OrderLots()
-     + sep + "SL=" + OrderStopLoss()
-     + sep + "TP=" + OrderTakeProfit()
-     + sep + "vSL=" + vSL
-     + sep + "vTP=" + vTP;
-     //+ sep + "profit=" + OrderProfit();
+     + sep + "open=" + DoubleToStr(OrderOpenPrice(), CalcDigits)
+     + sep + "lots=" + DoubleToStr(OrderLots(), 2)
+     + sep + "SL=" + DoubleToStr(OrderStopLoss(), CalcDigits)
+     + sep + "TP=" + DoubleToStr(OrderTakeProfit(), CalcDigits)
+     + sep + "vSL=" + DoubleToStr(vSL, CalcDigits)
+     + sep + "vTP=" + DoubleToStr(vTP, CalcDigits)
+     + sep + "profit=" + DoubleToStr(profit/point, 1); // OrderProfit();
 
     /*
     string strMode;
