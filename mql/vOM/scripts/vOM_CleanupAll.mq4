@@ -27,7 +27,7 @@ int start() {
    //CleanupUnusedGlobalVariables();
    //CleanupUnusedObjects();
    
-   //Sleep(1000);
+   Sleep(200);
 
    CommentAddLine("Done");
    Comment(strComment);

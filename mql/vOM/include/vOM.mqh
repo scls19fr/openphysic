@@ -38,15 +38,19 @@
 #define MY_VERSION "0.01-alpha"
 #define MY_AUTHOR "Sebastien Celles"
 #define MY_WEB "www.celles.net"
-#define MY_RELEASE_DATE "2012/02/29"
+#define MY_RELEASE_DATE "2012/03/01"
 
 #define GV_PREFIX "vOM_Ticket_" // Global Variable Prefix
 #define OBJ_PREFIX "OBJ_vOM_" // Global Variable Prefix
 
-//double TrailingStopDist = 100;
+extern bool OnlyTrailProfits = false;
+extern double TrailingStopDist = 50; // 0 to switch off trailing stop
 //double TrailingStopStep = 10;
-//extern double     BreakEven       = 150; //150    // Profit Lock in points (pips for 4 digits brokers)
-//extern double     Offset          = 20;  //20  // Offset in points
+//extern int TrailingSide = 0; // 0 broker side ; 1 client side
+
+extern double BreakEven = 100; //150    // Profit Lock in points (pips for 4 digits brokers)
+extern double BEOffset = 20;  //20  // Offset in points
+//extern int BESide = 0; // 0 broker side ; 1 client side
 
 bool filterOrdersBy() {
     return ( OrderType()==OP_SELL || OrderType()==OP_BUY );
@@ -62,7 +66,8 @@ bool InputParametersOk() {
    //return(BreakEven>0 && Offset>0 && BreakEven>Offset);
    return(true);
    //return(false);
-}  
+}
+
 
 // Pip Point Function
 double PipPoint(string symbol) {
@@ -75,7 +80,7 @@ double PipPoint(string symbol) {
     return(CalcPoint);
 }
 
-double getVarTicket(int ticket, string mode) {
+double getVarTicket(int ticket, string mode, double def_val=0.0) {
    string varname = GV_PREFIX+ticket+"_"+mode;
    
    double value;
@@ -84,10 +89,13 @@ double getVarTicket(int ticket, string mode) {
       value = GlobalVariableGet(varname);
       //Comment("Get var "+varname+" = "+value);
    } else {
+      /*
       string msg;
       msg = "Can't get var "+varname;
       //Comment(msg);
       Print(msg);
+      */
+      setVarTicket(ticket, mode, def_val);
    }
 
    return(value);
@@ -104,6 +112,7 @@ void setVarTicket(int ticket, string mode, double value) {
    }
 }
 
+/*
 void CreateTicketVarIfNotExists(int ticket, string mode, double value) {
    string varname = GV_PREFIX+ticket+"_"+mode;
    if(!GlobalVariableCheck(varname)) {
@@ -112,6 +121,7 @@ void CreateTicketVarIfNotExists(int ticket, string mode, double value) {
       setVarTicket(ticket, mode, value);
    }
 }
+*/
 
 // ToDo : setVarTicket
 
@@ -160,27 +170,31 @@ string getOrderTypeStr() {
     }
 }
 
-void closeTicket(double price) {
+void closeTicket(int ticket, double price) {
     result = false;
     tryClose = 0;
     
     while(!result) {
-        result=OrderClose(OrderTicket(), OrderLots(), price, slippage, CLR_NONE);
-        Print("Trying to close order #" + OrderTicket() + " at " + price); // after OrderClose to improve time of execution
+        result=OrderClose(ticket, OrderLots(), price, slippage, CLR_NONE);
+        Print("Trying to close order #" + ticket + " at " + price); // after OrderClose to improve time of execution
         tryClose++;
         if (!result) {
-          Print("Can't close order #" + OrderTicket() + "(" + tryClose + ")");
+          Print("Can't close order #" + ticket + "(" + tryClose + ")");
           //RefreshRates();
           if(OrderType()==OP_BUY) {
-              price=MarketInfo(OrderSymbol(),MODE_BID); //Bid;
+              price = MarketInfo(OrderSymbol(), MODE_BID); //Bid;
           } else {
-              price=MarketInfo(OrderSymbol(),MODE_ASK); //Ask;
+              price = MarketInfo(OrderSymbol(), MODE_ASK); //Ask;
           }
           Print(GetLastError());
         }
     }
 
-    cleanup_gv_obj(OrderTicket());
+    cleanup_gv_obj(ticket);
+}
+
+void setStopLoss(int ticket, double price) {
+    setStopLoss(ticket, price);
 }
 
 void setVirtualStopLoss(int ticket, double price) {
@@ -191,6 +205,10 @@ void setVirtualStopLoss(int ticket, double price) {
 void setVirtualTakeProfit(int ticket, double price) {
     //CreateTicketVarIfNotExists(ticket, "vTP", price);
     setVarTicket(ticket, "vTP", price);
+}
+
+double getStopLoss(int ticket){
+    return(getVirtualStopLoss(ticket));
 }
 
 double getVirtualStopLoss(int ticket){
@@ -276,12 +294,11 @@ void ModeChange() {
 
 }
 
-
 void ManageThisOrder() {
     int ticket = OrderTicket();
 
-    CreateTicketVarIfNotExists(ticket, "vSL", 0.0);
-    CreateTicketVarIfNotExists(ticket, "vTP", 0.0);
+    //CreateTicketVarIfNotExists(ticket, "vSL", 0.0);
+    //CreateTicketVarIfNotExists(ticket, "vTP", 0.0);
 
     string sep = "  - "; // \t
     
@@ -291,7 +308,115 @@ void ManageThisOrder() {
     double point = MarketInfo(OrderSymbol(), MODE_POINT); // Point<>point fix 2012-02-29 (to have setup in points)
     //double point = PipPoint(OrderSymbol()); // to have setup in pips (instead of points)
     
+    double newSL;
+    //double newTP;
+
+
+    if ( OrderType()==OP_BUY ) {
+        double bid = MarketInfo(OrderSymbol(), MODE_BID); // bid (bid price for order symbol) <> Bid (bid price for EA symbol)
     
+        // Virtual (stealth) Stop Loss
+        if (bid<vSL && vSL>0) {
+            closeTicket(ticket, bid);
+        }
+
+        // Virtual (stealth) Take Profit
+        if (bid>vTP && vTP>0) {
+            closeTicket(ticket, bid);
+        }
+
+        // Breakeven
+//        Print("buy");
+        if (BreakEven>0 && BEOffset>0 && BreakEven>BEOffset) {
+            if ( bid-OrderOpenPrice() >= point*BreakEven ) {
+                newSL = NormalizeDouble(OrderOpenPrice() + BEOffset*point, digit);
+                if (vSL<newSL) { // fix 2012-01-04
+                    setVirtualStopLoss(ticket, newSL);
+                }
+            }
+        }
+        /*
+        */
+
+        
+        // Trailing stop
+        if (TrailingStopDist>0) {
+            if (bid - OrderOpenPrice() > point * TrailingStopDist || (!OnlyTrailProfits)) { // trail only if profit when OnlyTrailProfits is set to true
+                newSL = bid - point * TrailingStopDist;
+                if (vSL < newSL) { // change SL only if new SL is higher
+                    setVirtualStopLoss(ticket, newSL);
+                }
+            }
+        }
+
+        
+    }
+    
+    if ( OrderType()==OP_SELL ) {
+        double ask = MarketInfo(OrderSymbol(), MODE_ASK); // ask (ask price for order symbol) <> Ask (ask price for EA symbol)
+ 
+         // Virtual (stealth) Stop Loss
+        if (ask>vSL && vSL>0) {
+            closeTicket(ticket, ask);
+        }
+        
+        // Virtual (stealth) Take Profit
+        if (ask<vTP && vTP>0) {
+            closeTicket(ticket, ask);
+        }
+
+        // Breakeven
+        if (BreakEven>0 && BEOffset>0 && BreakEven>BEOffset) {
+            if ( OrderOpenPrice()-ask >= point*BreakEven ) {
+//            Print("BE SELL");
+                newSL = NormalizeDouble( OrderOpenPrice() - BEOffset*point, digit );
+                if (vSL>newSL || vSL==0) { // fix 2012-01-04 fix again 2012-02-09 (if no SL was previously set)
+                    setVirtualStopLoss(ticket, newSL);
+                }
+            }
+        }
+        /*
+        */
+
+        // Trailing stop
+        if (TrailingStopDist>0) {
+            if (OrderOpenPrice() - ask > point * TrailingStopDist || (!OnlyTrailProfits)) { // trail only if profit when OnlyTrailProfits is set to true
+                newSL = ask + point * TrailingStopDist;
+                if (vSL > newSL || vSL==0.0) { // change SL only if new SL is lower
+                    setVirtualStopLoss(ticket, newSL);
+                }
+            }
+        }
+         
+        //ModeChange();
+    }
+
+
+    string str = "Ticket #" + ticket
+     + sep + "Magic=" + OrderMagicNumber() + sep + OrderSymbol() + " " + getOrderTypeStr()
+     + sep + "open=" + OrderOpenPrice()
+     + sep + "lots=" + OrderLots()
+     + sep + "SL=" + OrderStopLoss()
+     + sep + "TP=" + OrderTakeProfit()
+     + sep + "vSL=" + vSL
+     + sep + "vTP=" + vTP;
+     //+ sep + "profit=" + OrderProfit();
+
+    /*
+    string strMode;
+    if (BE[ticket]==0) {
+        strMode = "0-NB";
+    } else {
+        strMode = "1-BE";
+    }
+    */
+    //Print(str);
+
+    //str = str + sep + strMode;
+    //str = str + sep + BE[ticket];
+
+    CommentAddLine(str);
+
     // Draw line
     string objname;
     if ( vSL>0 ) {
@@ -323,89 +448,6 @@ void ManageThisOrder() {
         }
         ObjectSet(objname, OBJPROP_PRICE1, vTP);
     }
-
-
-
-    if ( OrderType()==OP_BUY ) {
-        double bid = MarketInfo(OrderSymbol(), MODE_BID); // bid (bid price for order symbol) <> Bid (bid price for EA symbol)
-    
-        // Virtual (stealth) Stop Loss
-        if (bid<vSL && vSL>0) {
-            closeTicket(bid);
-        }
-
-        // Virtual (stealth) Take Profit
-        if (bid>vTP && vTP>0) {
-            closeTicket(bid);
-        }
-
-        /*
-        // Breakeven
-        if ( bid-OrderOpenPrice() >= Point*BreakEven ) {
-            SL = NormalizeDouble(OrderOpenPrice() + Offset*Point, digit);
-            if (OrderStopLoss()<SL) { // fix 2012-01-04
-                setStopLoss(SL, LightGreen);
-            }
-        }
-        */
-        
-        //ModeChange();
-        
-    }
-    
-    if ( OrderType()==OP_SELL ) {
-        double ask = MarketInfo(OrderSymbol(), MODE_ASK); // ask (ask price for order symbol) <> Ask (ask price for EA symbol)
- 
-         // Virtual (stealth) Stop Loss
-        if (ask>vSL && vSL>0) {
-            closeTicket(ask);
-        }
-        
-        // Virtual (stealth) Take Profit
-        if (ask<vTP && vTP>0) {
-            closeTicket(ask);
-        }
-
-        /*
-        // Breakeven
-        if ( OrderOpenPrice()-ask >= Point*BreakEven ) {
-            SL = NormalizeDouble( OrderOpenPrice() - Offset*Point, digit );
-            if (OrderStopLoss()>SL || OrderStopLoss()==0) { // fix 2012-01-04 fix again 2012-02-09 (if no SL was previously set)
-                setStopLoss(SL, Yellow);
-            }
-        }
-        */
-        
-        //ModeChange();
-    }
-
-
-    string str = "Ticket #" + ticket
-     + sep + "Magic=" + OrderMagicNumber() + sep + OrderSymbol() + " " + getOrderTypeStr()
-     + sep + "open=" + OrderOpenPrice()
-     + sep + "lots=" + OrderLots()
-     + sep + "SL=" + OrderStopLoss()
-     + sep + "TP=" + OrderTakeProfit()
-     + sep + "vSL=" + vSL
-     + sep + "vTP=" + vTP;
-     //+ sep + "profit=" + OrderProfit();
-
-    /*
-    string strMode;
-    if (BE[ticket]==0) {
-        strMode = "0-NB";
-    } else {
-        strMode = "1-BE";
-    }
-    */
-    //Print(str);
-
-    //str = str + sep + strMode;
-    //str = str + sep + BE[ticket];
-
-    CommentAddLine(str);
-
-
 }
 
 void cleanup_gv_obj(int ticket) {
@@ -430,11 +472,10 @@ void cleanup_gv_obj(int ticket) {
 
 // ---- Scan Trades
 int ScanTrades() {
-    int total = OrdersTotal();
     int numords = 0;
 
-    for (int cnt=0; cnt<total; cnt++) {
-        OrderSelect(cnt, SELECT_BY_POS);
+    for (int i=0; i<OrdersTotal(); i++) {
+        OrderSelect(i, SELECT_BY_POS);
         if ( filterOrdersBy() ) {
             numords++;
         }
@@ -445,9 +486,8 @@ int ScanTrades() {
 void ManageOrders() {
     //CommentAddLine("Managing");
     
-    int total=OrdersTotal();
-    for ( int cnt=0; cnt<total; cnt++ ) {
-        OrderSelect(cnt, SELECT_BY_POS);
+    for ( int i=0; i<OrdersTotal(); i++ ) {
+        OrderSelect(i, SELECT_BY_POS);
         
      // uniquement si
     //  buy et SL actuel < nv SL
