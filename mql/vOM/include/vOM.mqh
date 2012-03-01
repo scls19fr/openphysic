@@ -44,7 +44,7 @@
 #define OBJ_PREFIX "OBJ_vOM_" // Global Variable Prefix
 
 extern bool OnlyTrailProfits = false;
-extern double TrailingStopDist = 50; // 0 to switch off trailing stop
+extern double TrailingStopDist = 120; // 0 to switch off trailing stop
 //double TrailingStopStep = 10;
 //extern int TrailingSide = 0; // 0 broker side ; 1 client side
 
