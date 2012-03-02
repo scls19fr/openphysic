@@ -25,7 +25,7 @@ int start() {
    //ObjectsDeleteAll();
    
    CleanupUnusedGlobalVariables();
-   //CleanupUnusedObjects();
+   CleanupUnusedObjects();
    
    Sleep(200);
 

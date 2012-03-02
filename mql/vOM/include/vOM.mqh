@@ -83,7 +83,7 @@ double PipPoint(string symbol) {
 }
 
 double getVarTicket(int ticket, string mode, double def_val=0.0) {
-   string varname = GV_PREFIX+ticket+"_"+mode;
+   string varname = GV_PREFIX+ticket+"-"+mode;
    
    double value;
    
@@ -104,7 +104,7 @@ double getVarTicket(int ticket, string mode, double def_val=0.0) {
 }
 
 void setVarTicket(int ticket, string mode, double value) {
-   string varname = GV_PREFIX+ticket+"_"+mode;
+   string varname = GV_PREFIX+ticket+"-"+mode;
    if(GlobalVariableSet(varname,value)==0) {
       string msg = "Can't Set var "+varname+" to "+value;
       //Comment(msg);
@@ -116,7 +116,7 @@ void setVarTicket(int ticket, string mode, double value) {
 
 /*
 void CreateTicketVarIfNotExists(int ticket, string mode, double value) {
-   string varname = GV_PREFIX+ticket+"_"+mode;
+   string varname = GV_PREFIX+ticket+"-"+mode;
    if(!GlobalVariableCheck(varname)) {
       //setVarTicket(ticket, mode, -1.0);
       //setVarTicket(ticket, mode, 0.0);
@@ -426,7 +426,7 @@ void ManageThisOrder() {
     // Draw line
     string objname;
     if ( vSL>0 ) {
-        objname = OBJ_PREFIX+"vSL_"+ticket;
+        objname = OBJ_PREFIX+"vSL-"+ticket;
         if(ObjectFind(objname)==-1) {
             if (ObjectCreate(objname, OBJ_HLINE, 0, TimeCurrent(), vSL)) {
                 Print("Create object "+objname);
@@ -441,7 +441,7 @@ void ManageThisOrder() {
     }
 
     if ( vTP>0 ) {
-        objname = OBJ_PREFIX+"vTP_"+ticket;
+        objname = OBJ_PREFIX+"vTP-"+ticket;
         if(ObjectFind(objname)==-1) {
             if (ObjectCreate(objname, OBJ_HLINE, 0, TimeCurrent(), vTP)) {
                 Print("Create object "+objname);
@@ -514,7 +514,9 @@ void CleanupUnusedGlobalVariables() {
         name=GlobalVariableName(i);    
         if (StringFind(name, GV_PREFIX)==0) {
             //Print(i,": Global variable name - ",name);
-            ticket=StrToInteger(StringSubstr(name, StringLen(GV_PREFIX), StringFind(name, "_", StringLen(GV_PREFIX)) - StringLen(GV_PREFIX)));
+            //Print("Test", );
+            //ticket=StrToInteger(StringSubstr(name, StringLen(GV_PREFIX), StringFind(name, "-", StringLen(GV_PREFIX)) - StringLen(GV_PREFIX)));
+            ticket=StrToInteger(StringSubstr(name, StringLen(GV_PREFIX), StringFind(name, "-")-StringLen(GV_PREFIX)));
             //Print(ticket);
             todelete = true;
             for ( int j=0; j<OrdersTotal(); j++ ) {
@@ -525,13 +527,13 @@ void CleanupUnusedGlobalVariables() {
             }
 
             if (todelete) {
-                Print(name, " should be deleted");
+                Print("Global variable ", name, " should be deleted");
                 result=GlobalVariableDel(name);
                 if(!result) {
-                    Print("Can't del ",name, " err: ",GetLastError());
+                    Print("Can't del global variable ",name, " err: ",GetLastError());
                 }  
             } else {
-                Print(name, " shouldn't be deleted");
+                Print("Global variable ", name, " shouldn't be deleted");
             }
         } else {
             Print(name, " is not a good variable");
@@ -540,7 +542,39 @@ void CleanupUnusedGlobalVariables() {
 }
 
 void CleanupUnusedObjects() {
-// ToDo
+    string name;
+    int ticket;
+    bool todelete;
+    bool result;
+    for(int i=0;i<ObjectsTotal();i++) {
+        name=ObjectName(i);
+        if (StringFind(name, OBJ_PREFIX)==0) {
+            Print("Object name for object #",i," is " + name);
+            ticket=StrToInteger((StringSubstr(name, StringFind(name, "-")+1)));
+
+            todelete = true;
+            for ( int j=0; j<OrdersTotal(); j++ ) {
+                OrderSelect(j, SELECT_BY_POS);
+                if (ticket==OrderTicket()) {
+                    todelete = false;
+                }
+            }
+
+            if (todelete) {
+                Print("Object ", name, " should be deleted");
+                result=ObjectDelete(name);
+                if(!result) {
+                    Print("Can't del object ",name, " err: ",GetLastError());
+                }  
+            } else {
+                Print("Object ", name, " shouldn't be deleted");
+            }
+
+
+        } else {
+            Print(name, " is not a good object");
+        }
+    }
 }
 
 int NewOrder(string symbol, int mode, double lots, double price, int slippage, double p_SL, double p_TP, double p_vSL, double p_vTP, string comment) {       
