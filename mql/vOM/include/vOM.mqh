@@ -38,10 +38,12 @@
 #define MY_VERSION "0.01-alpha"
 #define MY_AUTHOR "Sebastien Celles"
 #define MY_WEB "www.celles.net"
-#define MY_RELEASE_DATE "2012/03/01"
+#define MY_RELEASE_DATE "2012/03/02"
 
 #define GV_PREFIX "vOM_Ticket_" // Global Variable Prefix
 #define OBJ_PREFIX "OBJ_vOM_" // Global Variable Prefix
+
+extern bool SymbolsFilter = false;
 
 extern bool OnlyTrailProfits = false;
 extern double TrailingStopDist = 120; // 0 to switch off trailing stop
@@ -52,9 +54,12 @@ extern double BreakEven = 100; //150    // Profit Lock in points (pips for 4 dig
 extern double BEOffset = 20;  //20  // Offset in points
 //extern int BESide = 0; // 0 broker side ; 1 client side
 
-bool filterOrdersBy() {
-    return ( OrderType()==OP_SELL || OrderType()==OP_BUY );
-//    return ( OrderSymbol()==Symbol()  && ( OrderType()==OP_SELL || OrderType()==OP_BUY ) ); // have been fixed (more readable) !!!! OrderType()<=OP_SELL
+bool filterOrdersBy() {    
+    if (SymbolsFilter) {
+        return ( OrderSymbol()==Symbol()  && ( OrderType()==OP_SELL || OrderType()==OP_BUY ) ); // have been fixed (more readable) !!!! OrderType()<=OP_SELL    
+    } else {
+        return ( OrderType()==OP_SELL || OrderType()==OP_BUY );
+    }
 }
 
 int digit=0;
@@ -506,6 +511,8 @@ void ManageOrders() {
 }
 
 void CleanupUnusedGlobalVariables() {
+// ToFix : TP global var are not delete the first time script is run
+
     string name;
     int ticket;
     bool todelete;
