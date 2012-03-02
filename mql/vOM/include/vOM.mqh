@@ -506,13 +506,32 @@ void ManageOrders() {
 }
 
 void CleanupUnusedGlobalVariables() {
-// ToDo
-    int var_total=GlobalVariablesTotal();
-    Print("Global Variables Total=",GlobalVariablesTotal());
     string name;
-    for(int i=0;i<var_total;i++) {
-        name=GlobalVariableName(i);
-        Print(i,": Global variable name - ",name);
+    int ticket;
+    bool todelete;
+    for(int i=0;i<GlobalVariablesTotal();i++) {
+        name=GlobalVariableName(i);    
+        if (StringFind(name, GV_PREFIX)==0) {
+            //Print(i,": Global variable name - ",name);
+            ticket=StrToInteger(StringSubstr(name, StringLen(GV_PREFIX), StringFind(name, "_", StringLen(GV_PREFIX)) - StringLen(GV_PREFIX)));
+            //Print(ticket);
+            todelete = true;
+            for ( int j=0; j<OrdersTotal(); j++ ) {
+                OrderSelect(j, SELECT_BY_POS);
+                if (ticket==OrderTicket()) {
+                    todelete = false;
+                }
+            }
+
+            if (todelete) {
+                Print(name, " should be deleted");
+                GlobalVariableDel(name);
+            } else {
+                Print(name, " shouldn't be deleted");
+            }
+        } else {
+            Print(name, " is not a good variable");
+        }
     }
 }
 

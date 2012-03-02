@@ -1,5 +1,5 @@
 //+------------------------------------------------------------------+
-//|                                               vOM_CleanupAll.mq4 |
+//|                                            vOM_CleanupUnused.mq4 |
 //|                               Copyright © 2012, Sebastien Celles |
 //|                                            http://www.celles.net |
 //+------------------------------------------------------------------+
@@ -8,7 +8,7 @@
 
 #include <vOM.mqh>
 
-#define MY_SCRIPTNAME "CleanupAll"
+#define MY_SCRIPTNAME "CleanupUnused"
 
 //+------------------------------------------------------------------+
 //| script program start function                                    |
@@ -21,10 +21,10 @@ int start() {
 
    Comment(strComment);
 
-   GlobalVariablesDeleteAll(GV_PREFIX);
-   ObjectsDeleteAll();
+   //GlobalVariablesDeleteAll(GV_PREFIX);
+   //ObjectsDeleteAll();
    
-   //CleanupUnusedGlobalVariables();
+   CleanupUnusedGlobalVariables();
    //CleanupUnusedObjects();
    
    Sleep(200);
