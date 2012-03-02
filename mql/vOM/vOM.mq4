@@ -19,6 +19,7 @@ int init()
 //----
     //UsePoint = PipPoint(Symbol());
     // use UsePoint instead of Point... but Point is not a good idea as there is differents symbols
+    
 
 //----
    return(0);
@@ -53,6 +54,8 @@ int start()
 
     } else {
         string str = "Setup parameters aren't valid.";
+        str = str + "\n" + "BreakEven ON: BreakEven>0 and Offset>=0 and BreakEven>BEOffset or BreakEven OFF: BreakEven=0";
+        str = str + "\n" + "TrailingStop ON: TrailingStopDist>0 or TrailingStop OFF: TrailingStopDist=0";
         Print(str);
         CommentAddLine(str);
     }

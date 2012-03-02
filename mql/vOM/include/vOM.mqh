@@ -67,10 +67,32 @@ int slippage = 3; // pts
 bool result;
 int tryClose;
 
+bool flag_alert = true;
+
 bool InputParametersOk() {
    //return(BreakEven>0 && Offset>0 && BreakEven>Offset);
-   return(true);
    //return(false);
+
+    if (BreakEven!=0) {
+        if (!(BreakEven>0 && BEOffset>=0 && BreakEven>BEOffset)) {
+            if (flag_alert) Alert("Setup (BreakEven) parameters aren't valid.");
+            flag_alert = false;
+            return(false);
+        }
+    }
+
+    if (TrailingStopDist!=0) {
+        if (!(TrailingStopDist>0)) {
+            if (flag_alert) Alert("Setup (TrailingStop) parameters aren't valid.");
+            flag_alert = false;
+            return(false);
+        }        
+    }
+
+    flag_alert = true;
+
+    return(true);
+    
 }
 
 //int CalcDigits;
