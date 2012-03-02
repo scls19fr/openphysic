@@ -69,6 +69,13 @@ int tryClose;
 
 bool flag_alert = true;
 
+void usage() {
+    string str = "BreakEven ON: BreakEven>0 and Offset>=0 and BreakEven>BEOffset or BreakEven OFF: BreakEven=0";
+    str = str + "\n" + "TrailingStop ON: TrailingStopDist>0 or TrailingStop OFF: TrailingStopDist=0";
+    //Print(str);
+    CommentAddLine(str);
+}
+
 bool InputParametersOk() {
    //return(BreakEven>0 && Offset>0 && BreakEven>Offset);
    //return(false);
@@ -77,6 +84,7 @@ bool InputParametersOk() {
         if (!(BreakEven>0 && BEOffset>=0 && BreakEven>BEOffset)) {
             if (flag_alert) Alert("Setup (BreakEven) parameters aren't valid.");
             flag_alert = false;
+            CommentAddLine("Setup (BreakEven) parameters aren't valid.");
             return(false);
         }
     }
