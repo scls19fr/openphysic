@@ -509,6 +509,7 @@ void CleanupUnusedGlobalVariables() {
     string name;
     int ticket;
     bool todelete;
+    bool result;
     for(int i=0;i<GlobalVariablesTotal();i++) {
         name=GlobalVariableName(i);    
         if (StringFind(name, GV_PREFIX)==0) {
@@ -525,7 +526,10 @@ void CleanupUnusedGlobalVariables() {
 
             if (todelete) {
                 Print(name, " should be deleted");
-                GlobalVariableDel(name);
+                result=GlobalVariableDel(name);
+                if(!result) {
+                    Print("Can't del ",name, " err: ",GetLastError());
+                }  
             } else {
                 Print(name, " shouldn't be deleted");
             }
