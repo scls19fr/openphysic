@@ -1,0 +1,9 @@
+ToDo
+
+NewOrder function
+NFA regulation
+	FIFO
+	No hedging
+	
+	extern bool allow_fifo = true
+	extern bool disable_hedging = true
