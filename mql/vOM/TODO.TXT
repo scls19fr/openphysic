@@ -1,0 +1,7 @@
+ToDo:
+parameters management for each trades
+(BreakEvenByOrder=false TrailingStopByOrder=true) )
+default value
+
+ToFix:
+pb of global variables not deleted when unused
