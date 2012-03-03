@@ -1,7 +1,8 @@
 ToDo
 
-NewOrder function
+NewOrder / CloseOrder functions that comply with
 NFA regulation
+
 	FIFO
 	No hedging
 	
