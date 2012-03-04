@@ -40,6 +40,19 @@ int task_01()  {
     Print("Close");
 
 /*
+IdŽe : juste avant la cloture du marchŽ (le vendredi soir juste avant-minuit)
+
+- fermer les ordres en profit
+(ou dŽplacer le SL ?)
+tout dŽpend si le SL est "garanti" ou pas..
+
+- rapprocher le stop-loss des ordres en perte
+(quelle distance ?)
+
+
+*/
+
+/*
     int total=OrdersTotal();
     Comment("There is " + total + " orders");
     for ( int i=total-1; i>=0; i-- ) {
