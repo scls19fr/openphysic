@@ -47,14 +47,14 @@ extern bool SymbolsFilter = false;
 
 extern bool TrailingStopByOrder = true;
 extern bool OnlyTrailProfits = false;
-extern double TrailingStopDist = 120; // 0 to switch off trailing stop
+extern double TrailingStopDist_default = 120; // 0 to switch off trailing stop
 //double TrailingStopStep = 10;
 //extern int TrailingBrokerSide = false; // true broker side ; false client side
 
 
 extern bool BreakEvenByOrder = false;
-extern double BreakEven = 100; //150    // Profit Lock in points (pips for 4 digits brokers)
-extern double BEOffset = 20;  //20  // Offset in points
+extern double BreakEven_default = 100; //150    // Profit Lock in points (pips for 4 digits brokers)
+extern double BEOffset_default = 20;  //20  // Offset in points
 //extern int BreakEvenBrokerSide = false; // 0 broker side ; 1 client side
 
 bool filterOrdersBy() {    
@@ -83,8 +83,8 @@ bool InputParametersOk() {
    //return(BreakEven>0 && Offset>0 && BreakEven>Offset);
    //return(false);
 
-    if (BreakEven!=0) {
-        if (!(BreakEven>0 && BEOffset>=0 && BreakEven>BEOffset)) {
+    if (BreakEven_default!=0) {
+        if (!(BreakEven_default>0 && BEOffset_default>=0 && BreakEven_default>BEOffset_default)) {
             if (flag_alert) Alert("Setup (BreakEven) parameters aren't valid.");
             flag_alert = false;
             CommentAddLine("Setup (BreakEven) parameters aren't valid.");
@@ -92,8 +92,8 @@ bool InputParametersOk() {
         }
     }
 
-    if (TrailingStopDist!=0) {
-        if (!(TrailingStopDist>0)) {
+    if (TrailingStopDist_default!=0) {
+        if (!(TrailingStopDist_default>0)) {
             if (flag_alert) Alert("Setup (TrailingStop) parameters aren't valid.");
             flag_alert = false;
             return(false);
@@ -353,14 +353,31 @@ void ManageThisOrder() {
     //double newTP;
     
     double profit;
-    
+
+    double TrailingStopDist;
+    double BreakEven;
+    double BEOffset;  
+
     if (TrailingStopByOrder) {
-        TrailingStopDist = getVarTicket(ticket, "TrailingStopDist", TrailingStopDist);
+        TrailingStopDist = getVarTicket(ticket, "TrailingStopDist", TrailingStopDist_default);
+    } else {
+        TrailingStopDist = TrailingStopDist_default;
     }
 
     if (BreakEvenByOrder) {
-        BreakEven = getVarTicket(ticket, "BreakEven", BreakEven);
-        BEOffset = getVarTicket(ticket, "BEOffset", BEOffset);
+        BreakEven = getVarTicket(ticket, "BreakEven", BreakEven_default);
+        BEOffset = getVarTicket(ticket, "BEOffset", BEOffset_default);
+        
+        /*
+        if (Symbol()==0) {
+            BreakEven = ;
+            BEOffset = ;
+        }
+        */
+        
+    } else {
+        BreakEven = BreakEven_default;
+        BEOffset = BEOffset_default;
     }
 
     if ( OrderType()==OP_BUY ) {
