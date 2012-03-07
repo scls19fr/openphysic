@@ -58,7 +58,8 @@ double getHour(int offset) {
 }
 
 double getMinute(int offset) {
-    return(60.0*(getTime(offset)-MathFloor(getTime(offset))));
+    return(Minute()); // GMTOffset is integer
+    //return(60.0*(getTime(offset)-MathFloor(getTime(offset))));
 }
 
 string getStrTime(int offset) {
@@ -118,13 +119,13 @@ int start() {
     
     // Friday close
     // 0=Sunday, 1=Mo, 2=Tu, 3=We, 4=Th, 5=Fr, 6=Sa
-    double cur_time = MathMod(Hour() + Minute()/100 - GMTOffset, 24);
+    double cur_time = getTime(GMTOffset);
     if ( getDayOfWeek(GMTOffset)==5 && cur_time>=23.75 && flag_close_friday) {
         task_01();
         
         flag_close_friday = false;
     }
-    if ( DayOfWeek()==1 && cur_time>=0 && cur_time<=0.25 && !flag_close_friday) {
+    if ( getDayOfWeek(GMTOffset)==1 && cur_time>=0 && cur_time<=0.25 && !flag_close_friday) {
         flag_close_friday = true;
     }
 
