@@ -369,7 +369,7 @@ void ManageThisOrder() {
         BEOffset = getVarTicket(ticket, "BEOffset", BEOffset_default);
         
         /*
-        if (Symbol()==0) {
+        if (Magic()==0 || Magic()==0) {
             BreakEven = ;
             BEOffset = ;
         }
