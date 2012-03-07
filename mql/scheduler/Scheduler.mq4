@@ -16,13 +16,15 @@
 
 //+------------------------------------------------------------------+
 
-extern int GMTOffset = 1; // MT4 Broker GMT Offset
+extern int GMTOffset = 2; // MT4 Broker GMT Offset
 
-int slippage = 3;
+extern int slippage = 3;
 
 double price;
 bool result;
 int tryClose;
+
+extern int MaxTryClose = 100;
 
 int init() {
 
@@ -36,21 +38,27 @@ int deinit() {
 
 }
 
+int getDayOfWeek(int offset) {
+    double cur_time = Hour() + Minute()/60.0 - offset;
+    if (cur_time>24) {
+        return((MathMod(DayOfWeek()+1, 7)));
+    } else if (cur_time<0) {
+        return((MathMod(DayOfWeek()-1, 7)));
+    } else {
+        return(DayOfWeek());
+    }
+}
+
+double getTime(int offset) {
+    return(MathMod(Hour() + Minute()/60.0 - offset, 24));
+}
+
+string getStrTime(int offset) {
+    return(MathFloor(getTime(offset)) + ":" + 60.0*(getTime(offset)-MathFloor(getTime(offset)))+" ; "+getTime(offset));
+}
+
 int task_01()  {
     Print("Close");
-
-/*
-IdŽe : juste avant la cloture du marchŽ (le vendredi soir juste avant-minuit)
-
-- fermer les ordres en profit
-(ou dŽplacer le SL ?)
-tout dŽpend si le SL est "garanti" ou pas..
-
-- rapprocher le stop-loss des ordres en perte
-(quelle distance ?)
-
-
-*/
 
 /*
     int total=OrdersTotal();
@@ -63,7 +71,7 @@ tout dŽpend si le SL est "garanti" ou pas..
  
         if(OrderType()==OP_BUY || OrderType()==OP_SELL) {
 
-            while(!result) {
+            while(!result && tryClose<MaxTryClose) {
                 if(OrderType()==OP_BUY) {
                     price = MarketInfo(OrderSymbol(), MODE_BID); //Bid;
                 } else {
@@ -92,18 +100,24 @@ bool flag_hour = true;
 bool flag_day = true;
 //bool flag_month = true;
 
+
+bool flag_close_friday = true;
+
 int start() {
 
     CommentClear(MY_LONGNAME + " v" + MY_VERSION + " (" + MY_RELEASE_DATE + ")" + "\n" + MY_WEB + " by " + MY_AUTHOR + " " + "©" + "\n");
-    CommentAddLine("Ready");
+    CommentAddLine("Ready "+getStrTime(GMTOffset));
     
     // Friday close
     // 0=Sunday, 1=Mo, 2=Tu, 3=We, 4=Th, 5=Fr, 6=Sa
-    if ( DayOfWeek()==5 ) {
-        double cur_time = MathMod(Hour() + Minute()/100 - GMTOffset, 24);
-        if ( cur_time>=23.75 ) {
-            task_01();
-        }
+    double cur_time = MathMod(Hour() + Minute()/100 - GMTOffset, 24);
+    if ( getDayOfWeek(GMTOffset)==5 && cur_time>=23.75 && flag_close_friday) {
+        task_01();
+        
+        flag_close_friday = false;
+    }
+    if ( DayOfWeek()==1 && cur_time>=0 && cur_time<=0.25 && !flag_close_friday) {
+        flag_close_friday = true;
     }
 
     // Every Minutes
