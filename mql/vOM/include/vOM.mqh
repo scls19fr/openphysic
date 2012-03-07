@@ -38,21 +38,24 @@
 #define MY_VERSION "0.01-alpha"
 #define MY_AUTHOR "Sebastien Celles"
 #define MY_WEB "www.celles.net"
-#define MY_RELEASE_DATE "2012/03/02"
+#define MY_RELEASE_DATE "2012/03/07"
 
 #define GV_PREFIX "vOM_Ticket_" // Global Variable Prefix
 #define OBJ_PREFIX "OBJ_vOM_" // Global Variable Prefix
 
 extern bool SymbolsFilter = false;
 
+extern bool TrailingStopByOrder = true;
 extern bool OnlyTrailProfits = false;
 extern double TrailingStopDist = 120; // 0 to switch off trailing stop
 //double TrailingStopStep = 10;
-//extern int TrailingSide = 0; // 0 broker side ; 1 client side
+//extern int TrailingBrokerSide = false; // true broker side ; false client side
 
+
+extern bool BreakEvenByOrder = false;
 extern double BreakEven = 100; //150    // Profit Lock in points (pips for 4 digits brokers)
 extern double BEOffset = 20;  //20  // Offset in points
-//extern int BESide = 0; // 0 broker side ; 1 client side
+//extern int BreakEvenBrokerSide = false; // 0 broker side ; 1 client side
 
 bool filterOrdersBy() {    
     if (SymbolsFilter) {
@@ -350,7 +353,15 @@ void ManageThisOrder() {
     //double newTP;
     
     double profit;
+    
+    if (TrailingStopByOrder) {
+        TrailingStopDist = getVarTicket(ticket, "TrailingStopDist", TrailingStopDist);
+    }
 
+    if (BreakEvenByOrder) {
+        BreakEven = getVarTicket(ticket, "BreakEven", BreakEven);
+        BEOffset = getVarTicket(ticket, "BEOffset", BEOffset);
+    }
 
     if ( OrderType()==OP_BUY ) {
         double bid = MarketInfo(OrderSymbol(), MODE_BID); // bid (bid price for order symbol) <> Bid (bid price for EA symbol)
