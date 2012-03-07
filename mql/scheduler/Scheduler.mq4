@@ -53,8 +53,16 @@ double getTime(int offset) {
     return(MathMod(Hour() + Minute()/60.0 - offset, 24));
 }
 
+double getHour(int offset) {
+    return(MathFloor(getTime(offset)));
+}
+
+double getMinute(int offset) {
+    return(60.0*(getTime(offset)-MathFloor(getTime(offset))));
+}
+
 string getStrTime(int offset) {
-    return(MathFloor(getTime(offset)) + ":" + 60.0*(getTime(offset)-MathFloor(getTime(offset)))+" ; "+getTime(offset));
+    return(getHour(offset) + ":" + getMinute(offset) + " ; "+getTime(offset));
 }
 
 int task_01()  {
@@ -141,7 +149,7 @@ int start() {
     */
 
     // Every Hour
-    if ( Minute()==0 && Seconds()==0 && flag_hour) {
+    if ( getMinute(GMTOffset)==0 && Seconds()==0 && flag_hour) {
         flag_min = true;
         
         Print("Every Hour");
@@ -150,7 +158,7 @@ int start() {
     }
 
     // Every Day at 00h00 00s
-    if ( Hour()==0 && Minute()==0 && Seconds()==0 && flag_day) {
+    if ( getHour(GMTOffset)==0 && getMinute(GMTOffset)==0 && Seconds()==0 && flag_day) {
         flag_hour = true;
 
         Print("Every Day");
@@ -159,7 +167,7 @@ int start() {
     }
 
     // RAZ flag_day (monthly)
-    if ( Day()==1 && Hour()==0 && Minute()==0 && Seconds()==0 ) {
+    if ( Day()==1 && getHour(GMTOffset)==0 && getMinute(GMTOffset)==0 && Seconds()==0 ) {
         flag_day = true;
     }
     
