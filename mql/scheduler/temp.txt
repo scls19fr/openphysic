@@ -18,7 +18,7 @@ string getStrTime(int offset) {
 }
 
 /*
-Pb : dÃ©calage +/- 1 jour -> date (mois 30j 31j 29j)
+Pb : décalage +/- 1 jour -> date (mois 30j 31j 29j)
 
 string getStrDate(int offset) {
     return("");
@@ -64,6 +64,6 @@ int getNumberOfDays(int month, int year) {
 }
 
 
-// jour de rÃ©fÃ©rence pour date (en 1970)
+// jour de référence pour date (en 1970)
 
-//DÃ©calage x jours
+//Décalage x jours
