@@ -28,7 +28,32 @@ class TicTacToe:
       self.player=1
 
   def test(self):
-    return(-1) # -1 continue - 1 winner=P1 - 2 winner=P2 - 0 draw (match nul)
+    result = -1
+    
+    for i in range(0,self.height): # hz line
+      if self.game[i][0]!=0 and self.game[i][0]==self.game[i][1] and self.game[i][1]==self.game[i][2]:
+        return(self.game[i][0])
+
+    for j in range(0,self.width): # vrt line
+      if self.game[0][j]!=0 and self.game[0][j]==self.game[1][j] and self.game[1][j]==self.game[2][j]:
+        return(self.game[0][j])
+
+    # diagonals
+    # \
+    if self.game[0][0]!=0 and self.game[0][0]==self.game[1][1] and self.game[1][1]==self.game[2][2]:
+      return(self.game[0][0])
+    # /
+    if self.game[2][0]!=0 and self.game[2][0]==self.game[1][1] and self.game[1][1]==self.game[0][2]:
+      return(self.game[0][0])
+    
+        
+#      temp = self.game(1,1)
+#      for j in range(1,self.width)
+#        if temp
+    
+    
+  
+    return(result) # -1 continue - 1 winner=P1 - 2 winner=P2 - 0 draw (match nul)
       
   def play(self, i, j):
     if i>=self.height:
@@ -72,20 +97,20 @@ class TicTacToe:
       sys.stdout.write("-")
     print("")  
 
-    print("""Player {} - turn {}""".format(self.player, self.turns+1))
 
 myGame = TicTacToe()
 
 
 #myGame.play(1,2)
 
-
-while True:
+winner=-1
+while winner==-1:
   #try:
     myGame.display()
     
     winner=myGame.test()
     if winner==-1:
+      print("""Player {} - turn {}""".format(myGame.player, myGame.turns+1))
       print('Please enter a position')
       in_str=input(' as line,col (or q to quit): ') # raw_input
 
