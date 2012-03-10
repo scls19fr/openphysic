@@ -6,12 +6,14 @@ class TicTacToe:
   def __init__(self):
     self.width=4
     self.height=4
+    
+    self.player = 1
 
     self.game=[[0 for j in range(0,self.width)] for i in range(0,self.height)]
     
     self.game[1][2]=1
     self.game[1][3]=2
-    
+
   def display(self):
     sys.stdout.write(" ")
     for j in range(0,self.width):
