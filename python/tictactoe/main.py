@@ -28,32 +28,73 @@ class TicTacToe:
       self.player=1
 
   def test(self):
-    result = -1
     
-    for i in range(0,self.height): # hz line
-      if self.game[i][0]!=0 and self.game[i][0]==self.game[i][1] and self.game[i][1]==self.game[i][2]:
+    #for i in range(0,self.height): # hz line
+    #  if self.game[i][0]!=0 and self.game[i][0]==self.game[i][1] and self.game[i][1]==self.game[i][2]:
+    #    return(self.game[i][0])
+    
+    # hz line
+    for i in range(0,self.height):
+      if self.game[i][0]!=0:
+        idem=True
+        for j in range(0,self.width-1):
+          if self.game[i][j]!=self.game[i][j+1]:
+            idem=False
+            break
+      else:
+        idem=False
+
+      if idem:
         return(self.game[i][0])
 
-    for j in range(0,self.width): # vrt line
-      if self.game[0][j]!=0 and self.game[0][j]==self.game[1][j] and self.game[1][j]==self.game[2][j]:
+    #for j in range(0,self.width): # vrt line
+    #  if self.game[0][j]!=0 and self.game[0][j]==self.game[1][j] and self.game[1][j]==self.game[2][j]:
+    #    return(self.game[0][j])
+    
+    # vrt line
+    for j in range(0,self.width):
+      if self.game[0][j]!=0:
+        idem=True
+        for i in range(0,self.width-1):
+          if self.game[i+1][j]!=self.game[i][j]:
+            idem=False
+            break
+      else:
+        idem=False
+
+      if idem:
         return(self.game[0][j])
 
     # diagonals
     # \
-    if self.game[0][0]!=0 and self.game[0][0]==self.game[1][1] and self.game[1][1]==self.game[2][2]:
-      return(self.game[0][0])
+    #if self.game[0][0]!=0 and self.game[0][0]==self.game[1][1] and self.game[1][1]==self.game[2][2]:
+    #  return(self.game[0][0])
+    
+    if self.game[0][0]!=0:
+      idem=True
+      for i in range(0,self.dim-1):
+        if self.game[i][i]!=self.game[i+1][i+1]:
+          idem=False
+          break
+          
+      if idem:
+        return(self.game[i][i])
+    
     # /
-    if self.game[2][0]!=0 and self.game[2][0]==self.game[1][1] and self.game[1][1]==self.game[0][2]:
-      return(self.game[0][0])
-    
-        
-#      temp = self.game(1,1)
-#      for j in range(1,self.width)
-#        if temp
-    
-    
+    #if self.game[2][0]!=0 and self.game[2][0]==self.game[1][1] and self.game[1][1]==self.game[0][2]:
+    #  return(self.game[0][0])
+
+    if self.game[0][self.dim-1]!=0:
+      idem=True
+      for i in range(0,self.dim-1):
+        if self.game[i][self.dim-1-i]!=self.game[i+1][self.dim-1-i-1]:
+          idem=False
+          break
+          
+      if idem:
+        return(self.game[i][i])    
   
-    return(result) # -1 continue - 1 winner=P1 - 2 winner=P2 - 0 draw (match nul)
+    return(-1) # -1 continue - 1 winner=P1 - 2 winner=P2 - 0 draw (match nul)
       
   def play(self, i, j):
     if i>=self.height:
