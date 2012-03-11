@@ -10,15 +10,17 @@ class FourInARow:
   player = 1
   
   dim = 4
-  width = dim
-  height = dim
+  width = 7
+  height = 6
   
   game = []
+  nb = []
   
   turns = 0
 
   def __init__(self):
     self.game=[[0 for j in range(0,self.width)] for i in range(0,self.height)]
+    self.nb=[0 for j in range(0,self.width)]
     
 
   def turn(self):
@@ -29,14 +31,16 @@ class FourInARow:
 
   def test(self):
     return(-1)
+    # ToDo
       
   def play(self, j):
     if j>=self.width:
       raise(Exception("j dim error"))
       
   
-#    if self.game[i][j]==0:
-#      self.game[i][j] = self.player
+    if self.nb[j]<self.height:
+      self.nb[j] = self.nb[j]+1
+      self.game[self.height-self.nb[j]][j] = self.player
       
       self.turns = self.turns + 1
       self.turn()
@@ -46,10 +50,15 @@ class FourInARow:
 
   def display(self):
     cls()
+
+    sys.stdout.write("  ")
+    for j in range(0,self.width):
+      sys.stdout.write("{}".format(j+1))
+    print("")
     print("  "+"-"*self.width)
 
     for i in range(0,self.height):
-      sys.stdout.write("{}|".format(i+1))
+      sys.stdout.write("{}|".format(self.height-i))
   
       for j in range(0,self.width):
         if self.game[i][j]==0:
@@ -59,7 +68,7 @@ class FourInARow:
         elif self.game[i][j]==2:
           sys.stdout.write("2")
     
-      print("|")
+      print("|{}".format(self.height-i))
 
     sys.stdout.write("  ")
     for j in range(0,self.width):
@@ -69,6 +78,10 @@ class FourInARow:
     for j in range(0,self.width):
       sys.stdout.write("{}".format(j+1))
     print("")
+    
+    #debug
+    #print(self.game)
+    #print(self.nb)
 
 
 myGame = FourInARow()
@@ -86,7 +99,9 @@ while winner==-1:
       print('Please enter a column')
       in_str=input(' (or q to quit): ') # raw_input
 
-      myGame.play(in_str)
+      j = in_str-1
+
+      myGame.play(j)
       
     elif winner==1 or winner==2:
       in_str=raw_input('Winner is player {}'.format(winner))
