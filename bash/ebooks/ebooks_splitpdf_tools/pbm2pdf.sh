@@ -4,4 +4,4 @@ source _config.sh
 
 echo "Convert pbm files to $destFilename"
 
-convert temp2/pbm/*.pbm out/$destFilename
+convert -compress zip temp2/pbm/*.pbm out/$destFilename
