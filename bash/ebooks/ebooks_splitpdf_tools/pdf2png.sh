@@ -5,7 +5,8 @@ source _config.sh
 echo "Extracting $srcFilename to .pbm"
 
 # pour scan (images)
-pdfimages in/$srcFilename -j temp/pbm/img
+#pdfimages in/$srcFilename -j temp/pbm/img
+
 
 # pour texte
-#convert -density 200 in/$srcFilename temp/pbm/img%04d.pbm
+convert -density 200 in/$srcFilename temp/png/img%04d.png
