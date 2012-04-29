@@ -4,7 +4,8 @@ source _config.sh
 
 ls -lh in/
 
-./pdf2pbm.sh
+#./pdf2pbm.sh
+./pdf_txt2pbm.sh
 ./split_pbm_minw.sh
 #./bw2wb.sh
 #./fix_cover_jpg.sh
