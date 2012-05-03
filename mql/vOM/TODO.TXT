@@ -18,3 +18,4 @@ other ways
 		#property show_inputs
 	2)real GUI in MT4
 	3)prog outside of MT4 (what bridge ?)
+		cf GUI Ninja Trader SuperDOM
