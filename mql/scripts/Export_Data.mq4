@@ -1,7 +1,6 @@
 //+------------------------------------------------------------------+
 //|                                                  RSI_to_File.mq4 |
-//|                      Copyright © 2007, MetaQuotes Software Corp. |
-//|                                        http://www.metaquotes.ru/ |
+//|                                                 Copyright © 2011 |
 //+------------------------------------------------------------------+
 #property copyright "Copyright © 2007, MetaQuotes Software Corp."
 #property link      "http://www.metaquotes.ru/"

@@ -1,7 +1,6 @@
 //+------------------------------------------------------------------+
 //|                                                      _SetVar.mq4 |
-//|                               Copyright © 2012, Sebastien Celles |
-//|                                            http://www.celles.net |
+//|                                                 Copyright © 2011 |
 //+------------------------------------------------------------------+
 #property copyright "Copyright © 2012, Sebastien Celles"
 #property link      "http://www.celles.net"

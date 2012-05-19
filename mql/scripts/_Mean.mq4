@@ -1,7 +1,6 @@
 //+------------------------------------------------------------------+
 //|                                                        _Mean.mq4 |
-//|                      Copyright © 2011, MetaQuotes Software Corp. |
-//|                                        http://www.metaquotes.net |
+//|                                                 Copyright © 2011 |
 //+------------------------------------------------------------------+
 #property copyright "Copyright © 2011, MetaQuotes Software Corp."
 #property link      "http://www.metaquotes.net"

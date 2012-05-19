@@ -1,7 +1,6 @@
 //+------------------------------------------------------------------+
 //|                                                      BuySell.mq4 |
-//|                                    Copyright © 2011, FemtoTrader |
-//|                                       http://www.femtotrader.net |
+//|                                                 Copyright © 2011 |
 //+------------------------------------------------------------------+
 #property copyright "Copyright © 2011, FemtoTrader"
 #property link      "http://www.femtotrader.net"

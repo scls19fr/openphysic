@@ -1,7 +1,6 @@
 //+------------------------------------------------------------------+
 //|                                               Export_History.mq4 |
-//|                                 Copyright © 2012, www.celles.net |
-//|                                            http://www.celles.net |
+//|                                                 Copyright © 2011 |
 //+------------------------------------------------------------------+
 #property copyright "Copyright © 2012, Sebastien Celles"
 #property link      "http://www.celles.net"
