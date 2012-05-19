@@ -2,8 +2,8 @@
 //|                                               Export_History.mq4 |
 //|                                                 Copyright © 2011 |
 //+------------------------------------------------------------------+
-#property copyright "Copyright © 2012, Sebastien Celles"
-#property link      "http://www.celles.net"
+#property copyright "Copyright © 2011, MetaQuotes Software Corp."
+#property link      "http://www.metaquotes.net"
 
 //+------------------------------------------------------------------+
 //| script program start function                                    |

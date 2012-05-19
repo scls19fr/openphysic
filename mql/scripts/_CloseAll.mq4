@@ -2,8 +2,8 @@
 //|                                                    _CloseAll.mq4 |
 //|                                                 Copyright © 2011 |
 //+------------------------------------------------------------------+
-#property copyright "Copyright © 2011, FemtoTrader"
-#property link      "http://www.femtotrader.net"
+#property copyright "Copyright © 2011, MetaQuotes Software Corp."
+#property link      "http://www.metaquotes.net"
 
 //+------------------------------------------------------------------+
 //| script program start function                                    |
