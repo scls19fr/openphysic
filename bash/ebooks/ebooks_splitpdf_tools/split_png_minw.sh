@@ -11,7 +11,7 @@ do
   if [ $width -gt $minimal_width ]; then
     echo "split $f ${width}x${height} to 2 files ${width2}x${height2}"
     f2=$(basename $f)
-    convert $f -crop ${width2}x${height2}+0+0 +repage temp2/png/${f2%%.*}a.jpg
+    convert $f -crop ${width2}x${height2}+0+0 +repage temp2/png/${f2%%.*}a.png
     convert $f -crop ${width2}x${height2}+$width2+0 +repage temp2/png/${f2%%.*}b.png
   else
     echo "copy $f ${width}x${height} (don't split because width<$minimal_width)"
