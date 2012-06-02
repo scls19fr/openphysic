@@ -7,7 +7,7 @@ do
   fullfilename=$(basename $f)
   f2=temp/jpg/${fullfilename%.*}.jpg
   echo " Convert $f to $f2"
-  #convert $f $f2
+  convert $f $f2
 done
 
 #!/bin/bash

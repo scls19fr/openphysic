@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-srcFilename="My_Life_As_A_Quant_Derman_Emanuel.pdf"
-destFilename="My_Life_As_A_Quant_Derman_Emanuel-split.pdf"
+srcFilename="John_Perkins_-_Les_confessions_d_un_assassin_financier.pdf"
+destFilename="John_Perkins_-_Les_confessions_d_un_assassin_financier-split.pdf"
