@@ -28,18 +28,26 @@ class CSignalGenerator:
 		self.offset = 0.1 # V
 		self.amplitude = 1.0 # V
 		self.phase = 0.0 # deg
+		self.dutycycle = 100 # %
 		
-		self.N = 1000 #2**8 # nb de points
+		self.Nt = 1000 #2**8 # nb de points (echantillonnage)
+		self.Ny = 2**8 # nb de points (quantification)
 
-		self.t = arange(0, self.getPeriod(), self.getPeriod()/self.N)
+		self.t = arange(0, self.getPeriod(), self.getPeriod()/self.Nt)
 		
-		self.out = self.amplitude*sin(2*pi*self.t)+self.offset
+		self.out = self.amplitude*sin(2*pi*self.t+self.phase*pi/180)+self.offset
 		
 		pass
 		
 	#def setMode(self, mode):
 	#	pass
 		# calcul sur une periode
+
+	def getOutputModeDC(self, t):
+		return(self.offset)
+	
+	def getOutputModeSin(self, t):
+		return(self.amplitude*sin(2*pi*self.t+self.phase*pi/180)+self.offset)
 	
 	def calculate():
 		pass
@@ -50,7 +58,7 @@ class CSignalGenerator:
 		print(self.getPeriod())
 		#t = arange(0, self.getPeriod()/self.N, self.getPeriod())
 		print(len(self.t))
-		print(self.t[self.N-1])
+		print(self.t[self.Nt-1])
 
 	def getSignal(self, t):
 		if self.mode=='sin':
