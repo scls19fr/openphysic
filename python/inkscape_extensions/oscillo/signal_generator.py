@@ -29,15 +29,31 @@ class CSignalGenerator:
 		self.amplitude = 1.0 # V
 		self.phase = 0.0 # deg
 		
+		self.N = 2**8 # nb de points
+		
+		pass
+		
+	#def setMode(self, mode):
+	#	pass
+		# calcul sur une periode
+	
+	def calculate():
 		pass
 
 	def display(self):
 		for attr in dir(self):
 			print("obj.%s = %s" % (attr, getattr(self, attr)))
+		print(self.getPeriod())
+		#t = arange(0, self.getPeriod()/self.N, self.getPeriod())
+		t = arange(0, self.getPeriod(), self.getPeriod()/self.N)
+		print(len(t))
+		print(t[self.N-1])
 
 	def getSignal(self, t):
 		if self.mode=='sin':
-			return(self.offset)
+			#return(self.offset)
+			return(t/t-1+self.offset)
+			return(self.amplitude*sin(2*pi*t)+self.offset)
 	
 	def getPeriod(self):
 		return(1/self.frequency)
