@@ -6,9 +6,7 @@ import numpy as np
 from pylab import figure, plot, show, grid, title, xlabel, ylabel, subplot, bar, np, xticks # plot
 from matplotlib.finance import candlestick
 from datetime import *
-
-#def apply_SL(min):
-  
+from scipy import optimize # http://docs.scipy.org/doc/scipy/reference/tutorial/optimize.html
 
 print("Trade history")
 
@@ -32,6 +30,48 @@ Profit ($)
 def conv_str_to_datetime(x):
   return(datetime.strptime(x, '%Y/%m/%d %H:%M:%S'))
 
+def apply_strategy(df, SL, TP, mode=None):
+  # optimistic : SL code and TP code
+  # pessimistic : TP code and SL code
+
+  if mode=='pessimistic':
+    print("mode = pessimistic")
+    # Apply TP Take Profit
+    b_hit_tp = df['Highest Profit (Pips)']>TP
+    df['Profit (Pips)']=np.where(b_hit_tp,TP,df['Profit (Pips)'])
+
+    # Apply SL Stop Loss
+    b_hit_sl = df['Worst Drawdown (Pips)']<-SL
+    df['Profit (Pips)']=np.where(b_hit_sl,-SL,df['Profit (Pips)'])
+    
+  elif mode=='optimistic':
+    print("mode = optimistic")
+    # Apply SL Stop Loss
+    b_hit_sl = df['Worst Drawdown (Pips)']<-SL
+    df['Profit (Pips)']=np.where(b_hit_sl,-SL,df['Profit (Pips)'])
+
+    # Apply TP Take Profit
+    b_hit_tp = df['Highest Profit (Pips)']>TP
+    df['Profit (Pips)']=np.where(b_hit_tp,TP,df['Profit (Pips)'])
+    
+  else:
+    print("mode = Undef")
+  
+
+  df_profit_pips_cum = df['Profit (Pips)'].cumsum()
+
+  #print("idxmax={0}".format(df_profit_pips_cum.idxmax()))
+  ##print("date close={0}".format(df.irow(df_profit_pips_cum.idxmax())['Date Close']))
+  #print("max={0}".format(df_profit_pips_cum.max()))
+
+  df_profit_pips_cum_max = df_profit_pips_cum.max()
+
+  print("""SL={0}
+TP={1}
+profit_pips_cum_max={2}
+===""".format(SL,TP,df_profit_pips_cum_max))
+
+  return((df_profit_pips_cum, df_profit_pips_cum_max))
 
 #df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv')
 df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', converters={'Date Open': conv_str_to_datetime, 'Date Close': conv_str_to_datetime})
@@ -82,49 +122,54 @@ df=df.sort(axis=0, ascending=False)
 
 #print(df)
 
-#for row in df:
+#mode=None
+mode='optimistic'
+#mode='pessimistic'
+#1462.5
 
-# optimistic : SL code and TP code
-# pessimistic : TP code and SL code
+SL=110
+TP=180
 
-# Apply TP Take Profit
-#TP = 100
-#b_hit_tp = df['Highest Profit (Pips)']>TP
-#df['Profit (Pips)']=np.where(b_hit_tp,TP,df['Profit (Pips)'])
+#results = apply_strategy(df, SL, TP, mode)
+#df_profit_pips_cum = results[0]
+#df_profit_pips_cum_max = results[1]
 
-# Apply SL Stop Loss
-#SL = 60
-#b_hit_sl = df['Worst Drawdown (Pips)']<-SL
-#df['Profit (Pips)']=np.where(b_hit_sl,-SL,df['Profit (Pips)'])
+df_profit_pips_cum_max_max=0
+SLmax=0
+TPmax=0
 
-#ndf = df['Worst Drawdown (Pips)'] < -SL
+for SL in range(50,200,5):
+  for TP in range(50,200,5):
+    results = apply_strategy(df, SL, TP, mode)
+    df_profit_pips_cum = results[0]
+    df_profit_pips_cum_max = results[1]
+    if df_profit_pips_cum_max>df_profit_pips_cum_max_max:
+      df_profit_pips_cum_max_max=df_profit_pips_cum_max
+      SLmax=SL
+      TPmax=TP
+print("""!!! MAX !!!
+SL={0}
+TP={1}
+profit_pips_cum_max={2}
+===""".format(SLmax,TPmax,df_profit_pips_cum_max_max))
 
-#df['Profit (Pips)'] = -SL
 
-#df[df['Worst Drawdown (Pips)'] < -SL]['Profit (Pips)'] = -SL
+"""
+for SL in range(50,200,1):
+  for TP in range(50,200,1):
+!!! MAX !!!
+SL=55
+TP=185
+profit_pips_cum_max=1616.0
+"""
 
-#df_hitSL=df[df['Worst Drawdown (Pips)']<-SL]
-#df_hitSL['Profit (Pips)'] = -SL
+results = apply_strategy(df, SLmax, TPmax, mode)
+df_profit_pips_cum = results[0]
+df_profit_pips_cum_max = results[1]
 
-#df=df.sort(axis=0, ascending=False, column='Date Close')
 
-#print(df['Profit (Pips)'])
-
-#print(df.head())
-
-df_profit_pips_cum = df['Profit (Pips)'].cumsum()
-
-#df_profit_pips.plot()
-
-#df_profit_pips_cum.plot()
-#plt.show()
-
-#val = df.values
-#print(val[0][0])
-
-#print(df['Profit (Pips),Profit ($)'])
-
-#print(df.values)
+# ToDo : optimize ; Panel ? ; colormap
+# optimization de l'ecart quadratique (ecart type - ratio de Sharpe) et de la pente
 
 Date = range(1,len(df)+1)
 #Date = range(len(df)+1,1,-1)
@@ -149,3 +194,4 @@ df_profit_pips_cum.plot()
 show()
 
 #print(df['Duration'])
+
