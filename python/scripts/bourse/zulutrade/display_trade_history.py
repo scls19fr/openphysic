@@ -32,14 +32,29 @@ Profit ($)
 #df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv')
 #df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', parse_dates=[[5, 6]], index_col=0)
 df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', parse_dates=6, index_col=6)
+# todo : il faudrait que les dates open et close soient parsees
+
 
 #df=df[df['Profit (Pips)']>100] # filter
+
+#for row in df:
+#	print row
 
 df=df.sort(axis=0, ascending=True)
 
 #df=df[1:100]
-#df=df[df['Date Open']>datetime(2012,1,1)]
+#df=df[df['Date Open']>datetime(2012,1,1)] # tofix
 #df=df[len(df)-100:len(df)] # derniers trades
+
+
+pd.set_printoptions(precision=2)
+
+df_resume = df.describe()
+for key in df_resume:
+  print("="*3+" {0} ".format(key) + "="*3)
+  print(df.describe()[key])
+  print("")
+
 
 # invert trade
 #df['Profit (Pips)'] = -df['Profit (Pips)']
@@ -48,7 +63,7 @@ df=df.sort(axis=0, ascending=True)
 #df['Worst Drawdown (Pips)'] = -df['temp']
 #del df['temp']
 
-print(df)
+#print(df)
 
 #for row in df:
 
