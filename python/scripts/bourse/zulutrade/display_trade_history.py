@@ -6,6 +6,9 @@ import numpy as np
 from pylab import figure, plot, show, grid, title, xlabel, ylabel, subplot, bar, np, xticks # plot
 from matplotlib.finance import candlestick
 
+#def apply_SL(min):
+  
+
 print("Trade history")
 
 """
@@ -28,7 +31,22 @@ Profit ($)
 #df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv')
 #df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', parse_dates=[[5, 6]], index_col=0)
 df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', parse_dates=6, index_col=6)
+
+#df=df[df['Profit (Pips)']>100] # filter
+
 df=df.sort(axis=0, ascending=True)
+
+#df=df[1:100]
+df=df[len(df)-100:len(df)] # derniers trades
+
+print(df)
+
+#for row in df:
+#	df['Profit (Pips)'] = -20
+
+#df_hitSL=df[df['Worst Drawdown (Pips)']<-SL]
+#df_hitSL['Profit (Pips)'] = -SL
+
 #df=df.sort(axis=0, ascending=False, column='Date Close')
 
 #print(df['Profit (Pips)'])
@@ -55,19 +73,7 @@ High = df['Highest Profit (Pips)'].values
 Low = df['Worst Drawdown (Pips)'].values
 Close = df['Profit (Pips)'].values
 Volume = np.zeros(len(df))
-#OHLC = [Open,High,Low,Close]
-
-#print(Date)
-#print(Open)
-#print(High)
-#print(Low)
-#print(Close)
-#print(Volume)
-#print(OHLC)
-
-DOCHLV = []
-for i in range(len(df)):
-  DOCHLV.append((i+1, Open[i], Close[i], High[i], Low[i], Volume[i]))
+DOCHLV = zip(Date, Open, Close, High, Low, Volume)
 
 #print(DOCHLV)
 
