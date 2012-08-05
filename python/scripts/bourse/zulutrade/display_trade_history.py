@@ -24,10 +24,11 @@ Profit ($)
 
 df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', parse_dates=[[5, 6]])
 
-df2=df['Price Open']
+df_profit=df['Profit (Pips)']
+df_profit = df_profit.cumsum()
 
-print(df2)
+print(df_profit)
 
-df2.plot()
+df_profit.plot()
 
 plt.show()
