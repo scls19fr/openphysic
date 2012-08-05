@@ -29,7 +29,15 @@ Profit (Pips)
 Profit ($)
 """
 
-df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv')
+def conv_str_to_datetime(x):
+  return(datetime.strptime(x, '%Y/%m/%d %H:%M:%S'))
+
+
+#df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv')
+df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', converters={'Date Open': conv_str_to_datetime, 'Date Close': conv_str_to_datetime})
+
+#df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', parse_dates=6, index_col=6)
+
 #df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', parse_dates=[[5, 6]], index_col=0)
 #df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', parse_dates=6, index_col=6)
 # todo : il faudrait que les dates open et close soient parsees
@@ -39,12 +47,16 @@ df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv')
 
 #print(df.to_string())
 
+df=df[df['Date Close']<datetime(2011,9,1)]
 #df=df[df['Profit (Pips)']>100] # filter
 
 #for row in df:
 #	print row
 
-df=df.sort(axis=0, ascending=True)
+df=df.sort(axis=0, ascending=False)
+#df=df.sort(axis=0, ascending=True, columns='Date Close')
+#df=df.sort(axis=0, ascending=False)
+#df=df.sort(axis=0, ascending=False, column='Date Close')
 #df=df.sort(axis=0, ascending=True)
 
 #df=df[1:100]
@@ -52,13 +64,13 @@ df=df.sort(axis=0, ascending=True)
 #df=df[len(df)-100:len(df)] # derniers trades
 
 
-pd.set_printoptions(precision=2)
+#pd.set_printoptions(precision=2)
 
-df_resume = df.describe()
-for key in df_resume:
-  print("="*3+" {0} ".format(key) + "="*3)
-  print(df.describe()[key])
-  print("")
+#df_resume = df.describe()
+#for key in df_resume:
+#  print("="*3+" {0} ".format(key) + "="*3)
+#  print(df.describe()[key])
+#  print("")
 
 
 # invert trade
@@ -72,9 +84,18 @@ for key in df_resume:
 
 #for row in df:
 
+# optimistic : SL code and TP code
+# pessimistic : TP code and SL code
+
+# Apply TP Take Profit
+#TP = 100
+#b_hit_tp = df['Highest Profit (Pips)']>TP
+#df['Profit (Pips)']=np.where(b_hit_tp,TP,df['Profit (Pips)'])
+
 # Apply SL Stop Loss
-#SL = 10
-#df[df['Worst Drawdown (Pips)'] < -SL]['Profit (Pips)'] = -SL
+#SL = 60
+#b_hit_sl = df['Worst Drawdown (Pips)']<-SL
+#df['Profit (Pips)']=np.where(b_hit_sl,-SL,df['Profit (Pips)'])
 
 #ndf = df['Worst Drawdown (Pips)'] < -SL
 
@@ -106,6 +127,7 @@ df_profit_pips_cum = df['Profit (Pips)'].cumsum()
 #print(df.values)
 
 Date = range(1,len(df)+1)
+#Date = range(len(df)+1,1,-1)
 Open = np.zeros(len(df))
 High = df['Highest Profit (Pips)'].values
 Low = df['Worst Drawdown (Pips)'].values
@@ -125,3 +147,5 @@ subplot(212)
 df_profit_pips_cum.plot()
 
 show()
+
+#print(df['Duration'])
