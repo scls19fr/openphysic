@@ -3,6 +3,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+from pylab import figure, plot, show, grid, title, xlabel, ylabel, subplot, bar, np, xticks # plot
+from matplotlib.finance import candlestick
 
 print("Trade history")
 
@@ -33,15 +35,12 @@ df=df.sort(axis=0, ascending=True)
 
 #print(df.head())
 
-df_profit_pips=df['Profit (Pips)']
-df_profit_pips_cum = df_profit_pips.cumsum()
-
-#print(df_profit_pips)
+df_profit_pips_cum = df['Profit (Pips)'].cumsum()
 
 df_profit_pips_cum.plot()
 #df_profit_pips.plot()
 
-plt.show()
+#plt.show()
 
 #val = df.values
 #print(val[0][0])
@@ -50,20 +49,32 @@ plt.show()
 
 #print(df.values)
 
-Open = np.zeros(shape=(len(df),1))
+Date = range(1,len(df)+1)
+Open = np.zeros(len(df))
 High = df['Highest Profit (Pips)'].values
 Low = df['Worst Drawdown (Pips)'].values
 Close = df['Profit (Pips)'].values
+Volume = np.zeros(len(df))
 #OHLC = [Open,High,Low,Close]
 
+#print(Date)
 #print(Open)
-print(High)
+#print(High)
 #print(Low)
 #print(Close)
+#print(Volume)
 #print(OHLC)
 
-#fig = figure()
-#fig.subplots_adjust(bottom=0.1)
-#ax = fig.add_subplot(311)
+DOCHLV = []
+for i in range(len(df)):
+  DOCHLV.append((i+1, Open[i], Close[i], High[i], Low[i], Volume[i]))
+
+#print(DOCHLV)
+
+fig = figure()
+fig.subplots_adjust(bottom=0.1)
+ax = fig.add_subplot(111)
 # [(1, 0, 12.0, 12.0, -16.0, 0), ... (Date,Open,Close,High,Low,Volume)]
-#candlestick(ax, DOCHLV, width=0.6, colorup='g', colordown='r', alpha=1.0)
+candlestick(ax, DOCHLV, width=0.6, colorup='g', colordown='r', alpha=1.0)
+
+show()
