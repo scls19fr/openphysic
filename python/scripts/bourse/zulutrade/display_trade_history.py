@@ -21,7 +21,7 @@ Profit (Pips)
 Profit ($)
 """
 
-df = pd.read_csv('data/Trade_History_denganyouqianle_19850311_20120727.csv', parse_dates=[[5, 6]])
+df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', parse_dates=[[5, 6]])
 
 df2=df['Price Open']
 
