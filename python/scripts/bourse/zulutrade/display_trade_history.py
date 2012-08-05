@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import pandas as pd
+import matplotlib.pyplot as plt
 
 print("Trade history")
 
@@ -28,3 +29,5 @@ df2=df['Price Open']
 print(df2)
 
 df2.plot()
+
+plt.show()
