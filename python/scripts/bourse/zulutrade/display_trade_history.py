@@ -34,31 +34,47 @@ def apply_strategy(df, SL, TP, mode=None):
   # optimistic : SL code and TP code
   # pessimistic : TP code and SL code
 
+  #b_hit_sl=
+  #b_hit_tp=
+
+  b_hit_tp = df['Highest Profit (Pips)']>TP
+  b_hit_sl = df['Worst Drawdown (Pips)']<-SL
+  b_hit_sl_AND_tp = b_hit_tp & b_hit_sl
+  b_hit_sl_OR_tp = b_hit_tp | b_hit_sl
+  
+  b_clip_profit_tp = df['Profit (Pips)']>TP
+  b_clip_profit_sl = df['Profit (Pips)']<-SL
+  
   if mode=='pessimistic':
     print("mode = pessimistic")
     # Apply TP Take Profit
-    b_hit_tp = df['Highest Profit (Pips)']>TP
-    df['Profit (Pips)']=np.where(b_hit_tp,TP,df['Profit (Pips)'])
+    df['New Profit (Pips)']=np.where(b_hit_tp,TP,df['Profit (Pips)'])
 
     # Apply SL Stop Loss
-    b_hit_sl = df['Worst Drawdown (Pips)']<-SL
-    df['Profit (Pips)']=np.where(b_hit_sl,-SL,df['Profit (Pips)'])
+    df['New Profit (Pips)']=np.where(b_hit_sl,-SL,df['Profit (Pips)'])
+
+    df['New Profit (Pips)']=np.where(b_clip_profit_sl,-SL,df['New Profit (Pips)'])
+    df['New Profit (Pips)']=np.where(b_clip_profit_tp,TP,df['New Profit (Pips)'])
+    
+
     
   elif mode=='optimistic':
     print("mode = optimistic")
     # Apply SL Stop Loss
-    b_hit_sl = df['Worst Drawdown (Pips)']<-SL
-    df['Profit (Pips)']=np.where(b_hit_sl,-SL,df['Profit (Pips)'])
+    df['New Profit (Pips)']=np.where(b_hit_sl,-SL,df['Profit (Pips)'])
 
     # Apply TP Take Profit
-    b_hit_tp = df['Highest Profit (Pips)']>TP
-    df['Profit (Pips)']=np.where(b_hit_tp,TP,df['Profit (Pips)'])
+    df['New Profit (Pips)']=np.where(b_hit_tp,TP,df['Profit (Pips)'])
+
+    df['New Profit (Pips)']=np.where(b_clip_profit_sl,-SL,df['New Profit (Pips)'])
+    df['New Profit (Pips)']=np.where(b_clip_profit_tp,TP,df['New Profit (Pips)'])
     
   else:
     print("mode = Undef")
+    df['New Profit (Pips)']=df['Profit (Pips)']
   
 
-  df_profit_pips_cum = df['Profit (Pips)'].cumsum()
+  df_profit_pips_cum = df['New Profit (Pips)'].cumsum()
 
   #print("idxmax={0}".format(df_profit_pips_cum.idxmax()))
   ##print("date close={0}".format(df.irow(df_profit_pips_cum.idxmax())['Date Close']))
@@ -123,49 +139,53 @@ df=df.sort(axis=0, ascending=False)
 #print(df)
 
 #mode=None
-mode='optimistic'
-#mode='pessimistic'
+#mode='optimistic'
+mode='pessimistic'
 #1462.5
 
-SL=110
-TP=180
+SL=100
+TP=50
 
-#results = apply_strategy(df, SL, TP, mode)
-#df_profit_pips_cum = results[0]
-#df_profit_pips_cum_max = results[1]
+results = apply_strategy(df, SL, TP, mode)
+df_profit_pips_cum = results[0]
+df_profit_pips_cum_max = results[1]
 
-df_profit_pips_cum_max_max=0
-SLmax=0
-TPmax=0
 
-for SL in range(50,200,5):
-  for TP in range(50,200,5):
-    results = apply_strategy(df, SL, TP, mode)
-    df_profit_pips_cum = results[0]
-    df_profit_pips_cum_max = results[1]
-    if df_profit_pips_cum_max>df_profit_pips_cum_max_max:
-      df_profit_pips_cum_max_max=df_profit_pips_cum_max
-      SLmax=SL
-      TPmax=TP
-print("""!!! MAX !!!
-SL={0}
-TP={1}
-profit_pips_cum_max={2}
-===""".format(SLmax,TPmax,df_profit_pips_cum_max_max))
+#df_profit_pips_cum_max_max=0
+#SLmax=0
+#TPmax=0
+
+#for SL in range(50,200,1):
+#  for TP in range(50,200,1):
+#    results = apply_strategy(df, SL, TP, mode)
+#    df_profit_pips_cum = results[0]
+#    df_profit_pips_cum_max = results[1]
+#    if df_profit_pips_cum_max>df_profit_pips_cum_max_max:
+#      df_profit_pips_cum_max_max=df_profit_pips_cum_max
+#      SLmax=SL
+#      TPmax=TP
+
+#print("""!!! MAX !!!
+#SL={0}
+#TP={1}
+#profit_pips_cum_max={2}
+#===""".format(SLmax,TPmax,df_profit_pips_cum_max_max))
 
 
 """
 for SL in range(50,200,1):
   for TP in range(50,200,1):
 !!! MAX !!!
-SL=55
-TP=185
-profit_pips_cum_max=1616.0
+mode = pessimistic
+SL=86
+TP=50
+profit_pips_cum_max=1505.8
+
 """
 
-results = apply_strategy(df, SLmax, TPmax, mode)
-df_profit_pips_cum = results[0]
-df_profit_pips_cum_max = results[1]
+#results = apply_strategy(df, SLmax, TPmax, mode)
+#df_profit_pips_cum = results[0]
+#df_profit_pips_cum_max = results[1]
 
 
 # ToDo : optimize ; Panel ? ; colormap
@@ -176,7 +196,8 @@ Date = range(1,len(df)+1)
 Open = np.zeros(len(df))
 High = df['Highest Profit (Pips)'].values
 Low = df['Worst Drawdown (Pips)'].values
-Close = df['Profit (Pips)'].values
+#Close = df['Profit (Pips)'].values
+Close = df['New Profit (Pips)'].values
 Volume = np.zeros(len(df))
 DOCHLV = zip(Date, Open, Close, High, Low, Volume)
 
