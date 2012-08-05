@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from pylab import figure, plot, show, grid, title, xlabel, ylabel, subplot, bar, np, xticks # plot
 from matplotlib.finance import candlestick
+from datetime import *
 
 #def apply_SL(min):
   
@@ -37,7 +38,8 @@ df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', parse_da
 df=df.sort(axis=0, ascending=True)
 
 #df=df[1:100]
-df=df[len(df)-100:len(df)] # derniers trades
+#df=df[df['Date Open']>datetime(2012,1,1)]
+#df=df[len(df)-100:len(df)] # derniers trades
 
 # invert trade
 #df['Profit (Pips)'] = -df['Profit (Pips)']
