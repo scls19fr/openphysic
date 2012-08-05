@@ -95,6 +95,7 @@ df_profit_pips_cum = df['Profit (Pips)'].cumsum()
 
 #df_profit_pips.plot()
 
+#df_profit_pips_cum.plot()
 #plt.show()
 
 #val = df.values
