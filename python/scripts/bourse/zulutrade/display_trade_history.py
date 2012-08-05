@@ -39,10 +39,26 @@ df=df.sort(axis=0, ascending=True)
 #df=df[1:100]
 df=df[len(df)-100:len(df)] # derniers trades
 
+# invert trade
+#df['Profit (Pips)'] = -df['Profit (Pips)']
+#df['temp'] = df['Highest Profit (Pips)']
+#df['Highest Profit (Pips)'] = -df['Worst Drawdown (Pips)']
+#df['Worst Drawdown (Pips)'] = -df['temp']
+#del df['temp']
+
 print(df)
 
 #for row in df:
-#	df['Profit (Pips)'] = -20
+
+# Apply SL Stop Loss
+#SL = 10
+#df[df['Worst Drawdown (Pips)'] < -SL]['Profit (Pips)'] = -SL
+
+#ndf = df['Worst Drawdown (Pips)'] < -SL
+
+#df['Profit (Pips)'] = -SL
+
+#df[df['Worst Drawdown (Pips)'] < -SL]['Profit (Pips)'] = -SL
 
 #df_hitSL=df[df['Worst Drawdown (Pips)']<-SL]
 #df_hitSL['Profit (Pips)'] = -SL
