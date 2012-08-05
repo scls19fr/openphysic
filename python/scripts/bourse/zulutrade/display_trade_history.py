@@ -29,11 +29,15 @@ Profit (Pips)
 Profit ($)
 """
 
-#df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv')
+df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv')
 #df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', parse_dates=[[5, 6]], index_col=0)
-df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', parse_dates=6, index_col=6)
+#df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', parse_dates=6, index_col=6)
 # todo : il faudrait que les dates open et close soient parsees
+#df['Duration']=df['Date Close']-df['Date Open']
 
+#print(df.to_string(columns=['Currency', 'Date Open', 'Date Close', 'Profit (Pips)'],index=True))
+
+#print(df.to_string())
 
 #df=df[df['Profit (Pips)']>100] # filter
 
@@ -41,6 +45,7 @@ df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', parse_da
 #	print row
 
 df=df.sort(axis=0, ascending=True)
+#df=df.sort(axis=0, ascending=True)
 
 #df=df[1:100]
 #df=df[df['Date Open']>datetime(2012,1,1)] # tofix
@@ -88,7 +93,6 @@ for key in df_resume:
 
 df_profit_pips_cum = df['Profit (Pips)'].cumsum()
 
-df_profit_pips_cum.plot()
 #df_profit_pips.plot()
 
 #plt.show()
@@ -112,8 +116,11 @@ DOCHLV = zip(Date, Open, Close, High, Low, Volume)
 
 fig = figure()
 fig.subplots_adjust(bottom=0.1)
-ax = fig.add_subplot(111)
+ax = fig.add_subplot(211)
 # [(1, 0, 12.0, 12.0, -16.0, 0), ... (Date,Open,Close,High,Low,Volume)]
 candlestick(ax, DOCHLV, width=0.6, colorup='g', colordown='r', alpha=1.0)
+
+subplot(212)
+df_profit_pips_cum.plot()
 
 show()
