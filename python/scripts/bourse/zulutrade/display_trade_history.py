@@ -3,10 +3,12 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-from pylab import figure, plot, show, grid, title, xlabel, ylabel, subplot, bar, np, xticks # plot
+from pylab import figure, plot, show, grid, title, xlabel, ylabel, subplot, bar, np, xticks, ogrid, zeros, imshow # plot
 from matplotlib.finance import candlestick
 from datetime import *
 from scipy import optimize # http://docs.scipy.org/doc/scipy/reference/tutorial/optimize.html
+
+#http://www.scipy.org/Plotting_Tutorial
 
 print("Trade history")
 
@@ -53,7 +55,8 @@ def print_trades(df):
 
 def trades_stats(df):
   df_stats = dict() #pd.DataFrame()
-  df_stats['Trades']=len(df)
+  N=len(df)
+  df_stats['Trades']=N
   df_win=df[df['Profit (Pips)']>0]
   df_stats['Winning trades']=len(df_win)
   df_stats['Winning trades (%)']=100.0*df_stats['Winning trades']/df_stats['Trades']
@@ -71,15 +74,16 @@ def trades_stats(df):
   df_stats['Worst trade (Pips)']=df['Worst Drawdown (Pips)'].min() #df['Profit (Pips)'].min()
   df_stats['Best trade (Pips)']=df['Profit (Pips)'].max() #df['Highest Profit (Pips)'].max() #df['Profit (Pips)'].max()
   df_stats['Running duration']=df['Date Close'].max()-df['Date Open'].min()
-  
+  cur = df['Currency'].value_counts()
+  df_stats['Currencies']=cur
+  df_stats['Currencies (%)']=100.0*cur/N
   return(df_stats)
 
 def print_trades_stats(df):
   df_stats = trades_stats(df)
   print("="*10)
-  for key, value in df_stats.items():
+  for key, value in df_stats.iteritems():
     print("{0}={1}".format(key, value))
-    #print("")
   print("="*10)
 
 
@@ -166,7 +170,7 @@ df['Duration']=df['Date Close']-df['Date Open']
 #print(df.to_string())
 
 #df=df[df['Date Close']<datetime(2011,8,1)]
-
+#df=df[df['Currency']=="GBPUSD"]
 #df=df[df['Profit (Pips)']>100] # filter
 
 #for row in df:
@@ -212,28 +216,54 @@ ref_df = new_df.copy()
 mode='pessimistic'
 #1462.5
 
-SL=5
-TP=80
+#SL=20
+#TP=60
 
-df_profit_pips_cum_max = apply_strategy(new_df, ref_df, SL, TP, mode)
+#df_profit_pips_cum_max = apply_strategy(new_df, ref_df, SL, TP, mode)
 
 
-"""
 df_profit_pips_cum_max_max=0
-SLmax=0
-TPmax=0
+SLmax_profit=0
+TPmax_profit=0
 
-for SL in range(5,50,5):
-  for TP in range(5,200,5):
+SLmin=5.
+SLmax=41.
+SLstep=5.0
+
+TPmin=5.
+TPmax=201.
+TPstep=5.0
+
+
+aSL,aTP = ogrid[SLmin:SLmax:SLstep, TPmin:TPmax:TPstep]
+aProfit=zeros((aSL.size, aTP.size))
+
+i=0
+j=0
+
+for SL in aSL: # range(SLmin,SLmax;SLstep)
+  j = 0
+  for TP in aTP.transpose(): # range(TPmin,TPmax;TPstep)
     df_profit_pips_cum_max = apply_strategy(new_df, ref_df, SL, TP, mode)
+    #print((i,j))
+    aProfit[i,j]=df_profit_pips_cum_max
     if df_profit_pips_cum_max>df_profit_pips_cum_max_max:
       df_profit_pips_cum_max_max=df_profit_pips_cum_max
-      SLmax=SL
-      TPmax=TP
+      SLmax_profit=SL
+      TPmax_profit=TP
+    j = j + 1
+  i = i + 1
 
 print("!!! MAX !!!")
-df_profit_pips_cum_max = apply_strategy(new_df, ref_df, SLmax, TPmax, mode)
-"""
+df_profit_pips_cum_max = apply_strategy(new_df, ref_df, SLmax_profit, TPmax_profit, mode)
+
+imshow(aProfit, origin='lower', extent=[TPmin,TPmax,SLmin,SLmax])
+title("Optimize SL & TP ({0})".format(mode))
+xlabel('Take Profit (TP=x)')
+ylabel('Stop Loss (SL=y)')
+show()
+
+#print(aSL, aTP)
 
 """
 for SL in range(50,200,1):
