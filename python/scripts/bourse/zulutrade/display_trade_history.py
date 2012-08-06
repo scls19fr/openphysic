@@ -37,12 +37,9 @@ def invert_trades(my_df):
 def conv_str_to_datetime(x):
   return(datetime.strptime(x, '%Y/%m/%d %H:%M:%S'))
 
-def apply_strategy(df, SL, TP, mode=None):
+def apply_strategy(new_df, df, SL, TP, mode=None):
   # optimistic : SL code and TP code
   # pessimistic : TP code and SL code
-
-  #b_hit_sl=
-  #b_hit_tp=
 
   b_hit_tp = df['Highest Profit (Pips)']>TP
   b_hit_sl = df['Worst Drawdown (Pips)']<-SL
@@ -52,36 +49,30 @@ def apply_strategy(df, SL, TP, mode=None):
   b_clip_profit_tp = df['Profit (Pips)']>TP
   b_clip_profit_sl = df['Profit (Pips)']<-SL
 
-  df['New Profit (Pips)']=df['Profit (Pips)']
+  new_df['Profit (Pips)']=df['Profit (Pips)']
 
   if mode=='pessimistic' or mode=='optimistic':
-    df['New Profit (Pips)']=np.where(b_clip_profit_tp,TP,df['New Profit (Pips)'])
-    df['New Profit (Pips)']=np.where(b_clip_profit_sl,-SL,df['New Profit (Pips)'])
+    new_df['Profit (Pips)']=np.where(b_clip_profit_tp,TP,df['Profit (Pips)'])
+    new_df['Profit (Pips)']=np.where(b_clip_profit_sl,-SL,df['Profit (Pips)'])
 
 
   if mode=='pessimistic':
     print("mode = pessimistic")
     # Apply TP Take Profit
-    df['Profit (Pips)']=np.where(b_hit_tp,TP,df['Profit (Pips)'])
+    new_df['Profit (Pips)']=np.where(b_hit_tp,TP,df['Profit (Pips)'])
 
     # Apply SL Stop Loss
-    df['Profit (Pips)']=np.where(b_hit_sl,-SL,df['Profit (Pips)'])
-
-    #df['New Profit (Pips)']=np.where(b_clip_profit_sl,-SL,df['New Profit (Pips)'])
-    #df['New Profit (Pips)']=np.where(b_clip_profit_tp,TP,df['New Profit (Pips)'])
-    
+    new_df['Profit (Pips)']=np.where(b_hit_sl,-SL,df['Profit (Pips)'])
 
     
   elif mode=='optimistic':
     print("mode = optimistic")
     # Apply SL Stop Loss
-    df['Profit (Pips)']=np.where(b_hit_sl,-SL,df['Profit (Pips)'])
+    new_df['Profit (Pips)']=np.where(b_hit_sl,-SL,df['Profit (Pips)'])
 
     # Apply TP Take Profit
-    df['Profit (Pips)']=np.where(b_hit_tp,TP,df['Profit (Pips)'])
+    new_df['Profit (Pips)']=np.where(b_hit_tp,TP,df['Profit (Pips)'])
 
-    #df['New Profit (Pips)']=np.where(b_clip_profit_sl,-SL,df['New Profit (Pips)'])
-    #df['New Profit (Pips)']=np.where(b_clip_profit_tp,TP,df['New Profit (Pips)'])
     
   else:
     print("mode = Undef")
@@ -89,14 +80,14 @@ def apply_strategy(df, SL, TP, mode=None):
 
   #df_profit_pips_cum = df['New Profit (Pips)'].cumsum()
   
-  df['Cumsum Profit (Pips)'] = df['Profit (Pips)'].cumsum()
+  new_df['Cumsum Profit (Pips)'] = new_df['Profit (Pips)'].cumsum()
 
   #print("idxmax={0}".format(df_profit_pips_cum.idxmax()))
   ##print("date close={0}".format(df.irow(df_profit_pips_cum.idxmax())['Date Close']))
   #print("max={0}".format(df_profit_pips_cum.max()))
 
   #df_profit_pips_cum_max = df_profit_pips_cum.max()
-  df_profit_pips_cum_max = df['Cumsum Profit (Pips)'].max()
+  df_profit_pips_cum_max = new_df['Cumsum Profit (Pips)'].max()
 
   print("""SL={0}
 TP={1}
@@ -166,16 +157,15 @@ invert_trades(new_df)
 mode='pessimistic'
 #1462.5
 
-#SL=100
-#TP=50
+SL=200
+TP=200
 
+df_profit_pips_cum_max = apply_strategy(new_df, df, SL, TP, mode)
+
+
+"""
 SL=70
 TP=50
-
-
-#results = apply_strategy(df, SL, TP, mode)
-#df_profit_pips_cum = results[0]
-#df_profit_pips_cum_max = results[1]
 
 df_profit_pips_cum_max = apply_strategy(new_df, SL, TP, mode)
 
@@ -183,8 +173,8 @@ df_profit_pips_cum_max_max=0
 SLmax=0
 TPmax=0
 
-for SL in range(1,200,1):
-  for TP in range(1,200,1):
+for SL in range(150,200,5):
+  for TP in range(150,200,5):
     df_profit_pips_cum_max = apply_strategy(new_df, SL, TP, mode)
     if df_profit_pips_cum_max>df_profit_pips_cum_max_max:
       df_profit_pips_cum_max_max=df_profit_pips_cum_max
@@ -193,7 +183,7 @@ for SL in range(1,200,1):
 
 print("!!! MAX !!!")
 df_profit_pips_cum_max = apply_strategy(new_df, SLmax, TPmax, mode)
-
+"""
 
 """
 for SL in range(50,200,1):
