@@ -47,29 +47,34 @@ def apply_strategy(df, SL, TP, mode=None):
 
   df['New Profit (Pips)']=df['Profit (Pips)']
 
+  if mode=='pessimistic' or mode=='optimistic':
+    df['New Profit (Pips)']=np.where(b_clip_profit_tp,TP,df['New Profit (Pips)'])
+    df['New Profit (Pips)']=np.where(b_clip_profit_sl,-SL,df['New Profit (Pips)'])
+
+
   if mode=='pessimistic':
     print("mode = pessimistic")
     # Apply TP Take Profit
-    df['New Profit (Pips)']=np.where(b_hit_tp,TP,df['Profit (Pips)'])
+    df['New Profit (Pips)']=np.where(b_hit_tp,TP,df['New Profit (Pips)'])
 
     # Apply SL Stop Loss
-    df['New Profit (Pips)']=np.where(b_hit_sl,-SL,df['Profit (Pips)'])
+    df['New Profit (Pips)']=np.where(b_hit_sl,-SL,df['New Profit (Pips)'])
 
-    df['New Profit (Pips)']=np.where(b_clip_profit_sl,-SL,df['New Profit (Pips)'])
-    df['New Profit (Pips)']=np.where(b_clip_profit_tp,TP,df['New Profit (Pips)'])
+    #df['New Profit (Pips)']=np.where(b_clip_profit_sl,-SL,df['New Profit (Pips)'])
+    #df['New Profit (Pips)']=np.where(b_clip_profit_tp,TP,df['New Profit (Pips)'])
     
 
     
   elif mode=='optimistic':
     print("mode = optimistic")
     # Apply SL Stop Loss
-    df['New Profit (Pips)']=np.where(b_hit_sl,-SL,df['Profit (Pips)'])
+    df['New Profit (Pips)']=np.where(b_hit_sl,-SL,df['New Profit (Pips)'])
 
     # Apply TP Take Profit
-    df['New Profit (Pips)']=np.where(b_hit_tp,TP,df['Profit (Pips)'])
+    df['New Profit (Pips)']=np.where(b_hit_tp,TP,df['New Profit (Pips)'])
 
-    df['New Profit (Pips)']=np.where(b_clip_profit_sl,-SL,df['New Profit (Pips)'])
-    df['New Profit (Pips)']=np.where(b_clip_profit_tp,TP,df['New Profit (Pips)'])
+    #df['New Profit (Pips)']=np.where(b_clip_profit_sl,-SL,df['New Profit (Pips)'])
+    #df['New Profit (Pips)']=np.where(b_clip_profit_tp,TP,df['New Profit (Pips)'])
     
   else:
     print("mode = Undef")
@@ -108,7 +113,7 @@ df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', converte
 
 #print(df.to_string())
 
-#df=df[df['Date Close']<datetime(2011,9,1)]
+df=df[df['Date Close']<datetime(2011,9,1)]
 
 
 #df=df[df['Profit (Pips)']>100] # filter
@@ -116,7 +121,7 @@ df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', converte
 #for row in df:
 #	print row
 
-#df=df.sort(axis=0, ascending=False)
+df=df.sort(axis=0, ascending=False)
 #df=df.reindex(index=['Date Close'])
 
 df['Cumsum Profit (Pips)'] = df['Profit (Pips)'].cumsum()
@@ -155,8 +160,12 @@ df['Cumsum Profit (Pips)'] = df['Profit (Pips)'].cumsum()
 mode='pessimistic'
 #1462.5
 
-SL=100
+#SL=100
+#TP=50
+
+SL=70
 TP=50
+
 
 #results = apply_strategy(df, SL, TP, mode)
 #df_profit_pips_cum = results[0]
