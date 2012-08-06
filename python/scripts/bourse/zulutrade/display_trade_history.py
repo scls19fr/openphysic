@@ -60,25 +60,25 @@ def apply_strategy(new_df, df, SL, TP, mode=None):
 
   if mode=='pessimistic' or mode=='optimistic':
     new_df['Profit (Pips)']=np.where(b_clip_profit_tp,TP,df['Profit (Pips)'])
-    new_df['Profit (Pips)']=np.where(b_clip_profit_sl,-SL,df['Profit (Pips)'])
+    new_df['Profit (Pips)']=np.where(b_clip_profit_sl,-SL,new_df['Profit (Pips)'])
 
 
   if mode=='pessimistic':
     print("mode = pessimistic")
     # Apply TP Take Profit
-    new_df['Profit (Pips)']=np.where(b_hit_tp,TP,df['Profit (Pips)'])
+    new_df['Profit (Pips)']=np.where(b_hit_tp,TP,new_df['Profit (Pips)'])
 
     # Apply SL Stop Loss
-    new_df['Profit (Pips)']=np.where(b_hit_sl,-SL,df['Profit (Pips)'])
+    new_df['Profit (Pips)']=np.where(b_hit_sl,-SL,new_df['Profit (Pips)'])
 
     
   elif mode=='optimistic':
     print("mode = optimistic")
     # Apply SL Stop Loss
-    new_df['Profit (Pips)']=np.where(b_hit_sl,-SL,df['Profit (Pips)'])
+    new_df['Profit (Pips)']=np.where(b_hit_sl,-SL,new_df['Profit (Pips)'])
 
     # Apply TP Take Profit
-    new_df['Profit (Pips)']=np.where(b_hit_tp,TP,df['Profit (Pips)'])
+    new_df['Profit (Pips)']=np.where(b_hit_tp,TP,new_df['Profit (Pips)'])
 
     
   else:
@@ -137,8 +137,8 @@ df['Cumsum Profit (Pips)'] = df['Profit (Pips)'].cumsum()
 ref_df = df.copy()
 
 #invert_trades(new_df)
-invert_trades(new_df, df)
-ref_df = new_df.copy()
+#invert_trades(new_df, df)
+#ref_df = new_df.copy()
 
 
 #df=df.sort(axis=0, ascending=True, columns='Date Close')
