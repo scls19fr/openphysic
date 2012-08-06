@@ -27,12 +27,12 @@ Profit (Pips)
 Profit ($)
 """
 
-def invert_trades(df):
-  df['Profit (Pips)'] = -df['Profit (Pips)']
-  df['temp'] = df['Highest Profit (Pips)']
-  df['Highest Profit (Pips)'] = -df['Worst Drawdown (Pips)']
-  df['Worst Drawdown (Pips)'] = -df['temp']
-  del df['temp']
+def invert_trades(my_df):
+  my_df['Profit (Pips)'] = -my_df['Profit (Pips)']
+  my_df['temp'] = my_df['Highest Profit (Pips)']
+  my_df['Highest Profit (Pips)'] = -my_df['Worst Drawdown (Pips)']
+  my_df['Worst Drawdown (Pips)'] = -my_df['temp']
+  del my_df['temp']
 
 def conv_str_to_datetime(x):
   return(datetime.strptime(x, '%Y/%m/%d %H:%M:%S'))
@@ -62,10 +62,10 @@ def apply_strategy(df, SL, TP, mode=None):
   if mode=='pessimistic':
     print("mode = pessimistic")
     # Apply TP Take Profit
-    df['New Profit (Pips)']=np.where(b_hit_tp,TP,df['New Profit (Pips)'])
+    df['Profit (Pips)']=np.where(b_hit_tp,TP,df['Profit (Pips)'])
 
     # Apply SL Stop Loss
-    df['New Profit (Pips)']=np.where(b_hit_sl,-SL,df['New Profit (Pips)'])
+    df['Profit (Pips)']=np.where(b_hit_sl,-SL,df['Profit (Pips)'])
 
     #df['New Profit (Pips)']=np.where(b_clip_profit_sl,-SL,df['New Profit (Pips)'])
     #df['New Profit (Pips)']=np.where(b_clip_profit_tp,TP,df['New Profit (Pips)'])
@@ -75,10 +75,10 @@ def apply_strategy(df, SL, TP, mode=None):
   elif mode=='optimistic':
     print("mode = optimistic")
     # Apply SL Stop Loss
-    df['New Profit (Pips)']=np.where(b_hit_sl,-SL,df['New Profit (Pips)'])
+    df['Profit (Pips)']=np.where(b_hit_sl,-SL,df['Profit (Pips)'])
 
     # Apply TP Take Profit
-    df['New Profit (Pips)']=np.where(b_hit_tp,TP,df['New Profit (Pips)'])
+    df['Profit (Pips)']=np.where(b_hit_tp,TP,df['Profit (Pips)'])
 
     #df['New Profit (Pips)']=np.where(b_clip_profit_sl,-SL,df['New Profit (Pips)'])
     #df['New Profit (Pips)']=np.where(b_clip_profit_tp,TP,df['New Profit (Pips)'])
@@ -89,14 +89,14 @@ def apply_strategy(df, SL, TP, mode=None):
 
   #df_profit_pips_cum = df['New Profit (Pips)'].cumsum()
   
-  df['New Cumsum Profit (Pips)'] = df['New Profit (Pips)'].cumsum()
+  df['Cumsum Profit (Pips)'] = df['Profit (Pips)'].cumsum()
 
   #print("idxmax={0}".format(df_profit_pips_cum.idxmax()))
   ##print("date close={0}".format(df.irow(df_profit_pips_cum.idxmax())['Date Close']))
   #print("max={0}".format(df_profit_pips_cum.max()))
 
   #df_profit_pips_cum_max = df_profit_pips_cum.max()
-  df_profit_pips_cum_max = df['New Cumsum Profit (Pips)'].max()
+  df_profit_pips_cum_max = df['Cumsum Profit (Pips)'].max()
 
   print("""SL={0}
 TP={1}
@@ -122,7 +122,6 @@ df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', converte
 
 #df=df[df['Date Close']<datetime(2011,9,1)]
 
-
 #df=df[df['Profit (Pips)']>100] # filter
 
 #for row in df:
@@ -131,10 +130,14 @@ df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', converte
 df=df.sort(axis=0, ascending=False)
 #df=df.reindex(index=['Date Close'])
 
+new_df = df.copy()
+
 df['Cumsum Profit (Pips)'] = df['Profit (Pips)'].cumsum()
 
 
-#invert_trades(df)
+
+
+invert_trades(new_df)
 
 #df=df.sort(axis=0, ascending=True, columns='Date Close')
 #df=df.sort(axis=0, ascending=False)
@@ -158,9 +161,9 @@ df['Cumsum Profit (Pips)'] = df['Profit (Pips)'].cumsum()
 
 #print(df)
 
-mode=None
+#mode=None
 #mode='optimistic'
-#mode='pessimistic'
+mode='pessimistic'
 #1462.5
 
 #SL=100
@@ -174,24 +177,22 @@ TP=50
 #df_profit_pips_cum = results[0]
 #df_profit_pips_cum_max = results[1]
 
-df_profit_pips_cum_max = apply_strategy(df, SL, TP, mode)
+df_profit_pips_cum_max = apply_strategy(new_df, SL, TP, mode)
 
-"""
 df_profit_pips_cum_max_max=0
 SLmax=0
 TPmax=0
 
 for SL in range(1,200,1):
   for TP in range(1,200,1):
-    df_profit_pips_cum_max = apply_strategy(df, SL, TP, mode)
+    df_profit_pips_cum_max = apply_strategy(new_df, SL, TP, mode)
     if df_profit_pips_cum_max>df_profit_pips_cum_max_max:
       df_profit_pips_cum_max_max=df_profit_pips_cum_max
       SLmax=SL
       TPmax=TP
 
 print("!!! MAX !!!")
-df_profit_pips_cum_max = apply_strategy(df, SLmax, TPmax, mode)
-"""
+df_profit_pips_cum_max = apply_strategy(new_df, SLmax, TPmax, mode)
 
 
 """
@@ -216,10 +217,16 @@ Open = np.zeros(len(df))
 High = df['Highest Profit (Pips)'].values
 Low = df['Worst Drawdown (Pips)'].values
 Close = df['Profit (Pips)'].values
-newClose = df['New Profit (Pips)'].values
 Volume = np.zeros(len(df))
 DOCHLV = zip(Date, Open, Close, High, Low, Volume)
-newDOCHLV = zip(Date, Open, newClose, High, Low, Volume)
+
+newDate = Date
+newOpen = Open
+newHigh = new_df['Highest Profit (Pips)'].values
+newLow = new_df['Worst Drawdown (Pips)'].values
+newClose = new_df['Profit (Pips)'].values
+newVolume = Volume
+newDOCHLV = zip(newDate, newOpen, newClose, newHigh, newLow, newVolume)
 
 #print(DOCHLV)
 
@@ -240,7 +247,7 @@ df['Cumsum Profit (Pips)'].plot()
 
 subplot(224)
 #df_profit_pips_cum.plot()
-df['New Cumsum Profit (Pips)'].plot()
+new_df['Cumsum Profit (Pips)'].plot()
 
 show()
 
