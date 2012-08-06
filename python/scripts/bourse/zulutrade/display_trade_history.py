@@ -41,8 +41,55 @@ def invert_trades(new_df, df):
   new_df['Highest Profit (Pips)'] = -df['Worst Drawdown (Pips)']
   new_df['Worst Drawdown (Pips)'] = -df['Highest Profit (Pips)']
 
+def print_resume(df):
+  df_resume = df.describe()
+  for key in df_resume:
+    print("="*5+" {0} ".format(key) + "="*5)
+    print(df.describe()[key])
+    print("")
+
+def print_trades(df):
+  print(df.to_string(columns=['Currency', 'Date Open', 'Date Close', 'Profit (Pips)'],index=True))
+
+def trades_stats(df):
+  df_stats = dict() #pd.DataFrame()
+  df_stats['Trades']=len(df)
+  df_win=df[df['Profit (Pips)']>0]
+  df_stats['Winning trades']=len(df_win)
+  df_stats['Winning trades (%)']=100.0*df_stats['Winning trades']/df_stats['Trades']
+  df_lose=df[df['Profit (Pips)']<0]
+  df_stats['Losing trades']=len(df_lose)
+  df_be=df[df['Profit (Pips)']==0]
+  df_stats['Losing trades (%)']=100.0*df_stats['Losing trades']/df_stats['Trades']
+  df_stats['BreakEven trades']=len(df_be)
+  df_stats['BreakEven trades (%)']=100.0*df_stats['BreakEven trades']/df_stats['Trades']
+  df_stats['Average pips/trade']=df['Profit (Pips)'].sum()/df_stats['Trades']
+  df_stats['Average trade time']=df['Duration'].sum()/df_stats['Trades']
+  #df_stats['Maximum drawdown (Pips)']
+  #df_stats['Maximum drawdown (%)']
+  #df_stats['Max open trades']?
+  df_stats['Worst trade (Pips)']=df['Worst Drawdown (Pips)'].min() #df['Profit (Pips)'].min()
+  df_stats['Best trade (Pips)']=df['Profit (Pips)'].max() #df['Highest Profit (Pips)'].max() #df['Profit (Pips)'].max()
+  df_stats['Running duration']=df['Date Close'].max()-df['Date Open'].min()
+  
+  return(df_stats)
+
+def print_trades_stats(df):
+  df_stats = trades_stats(df)
+  print("="*10)
+  for key, value in df_stats.items():
+    print("{0}={1}".format(key, value))
+    #print("")
+  print("="*10)
+
+
 def conv_str_to_datetime(x):
   return(datetime.strptime(x, '%Y/%m/%d %H:%M:%S'))
+
+def conv_str_to_pair(x):
+  x=x.split('/')
+  return(x[0]+x[1])
+
 
 def apply_strategy(new_df, df, SL, TP, mode=None):
   # optimistic : SL code and TP code
@@ -105,20 +152,20 @@ profit_pips_cum_max={2}
   return(df_profit_pips_cum_max)
 
 #df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv')
-df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', converters={'Date Open': conv_str_to_datetime, 'Date Close': conv_str_to_datetime})
+df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', converters={'Date Open': conv_str_to_datetime, 'Date Close': conv_str_to_datetime, 'Currency': conv_str_to_pair})
 
 #df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', parse_dates=6, index_col=6)
 
 #df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', parse_dates=[[5, 6]], index_col=0)
 #df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', parse_dates=6, index_col=6)
 # todo : il faudrait que les dates open et close soient parsees
-#df['Duration']=df['Date Close']-df['Date Open']
+df['Duration']=df['Date Close']-df['Date Open']
 
 #print(df.to_string(columns=['Currency', 'Date Open', 'Date Close', 'Profit (Pips)'],index=True))
 
 #print(df.to_string())
 
-#df=df[df['Date Close']<datetime(2011,9,1)]
+#df=df[df['Date Close']<datetime(2011,8,1)]
 
 #df=df[df['Profit (Pips)']>100] # filter
 
@@ -128,17 +175,20 @@ df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', converte
 df=df.sort(axis=0, ascending=False)
 #df=df.reindex(index=['Date Close'])
 
+
+#print_trades(df)
+print_trades_stats(df)
+
 new_df = df.copy()
 
 df['Cumsum Profit (Pips)'] = df['Profit (Pips)'].cumsum()
 
 
 
-ref_df = df.copy()
+#ref_df = df.copy()
 
-#invert_trades(new_df)
-#invert_trades(new_df, df)
-#ref_df = new_df.copy()
+invert_trades(new_df, df)
+ref_df = new_df.copy()
 
 
 #df=df.sort(axis=0, ascending=True, columns='Date Close')
@@ -153,12 +203,6 @@ ref_df = df.copy()
 
 #pd.set_printoptions(precision=2)
 
-#df_resume = df.describe()
-#for key in df_resume:
-#  print("="*3+" {0} ".format(key) + "="*3)
-#  print(df.describe()[key])
-#  print("")
-
 
 
 #print(df)
@@ -168,32 +212,27 @@ ref_df = df.copy()
 mode='pessimistic'
 #1462.5
 
-SL=20
-TP=50
+SL=5
+TP=80
 
 df_profit_pips_cum_max = apply_strategy(new_df, ref_df, SL, TP, mode)
 
 
 """
-SL=70
-TP=50
-
-df_profit_pips_cum_max = apply_strategy(new_df, SL, TP, mode)
-
 df_profit_pips_cum_max_max=0
 SLmax=0
 TPmax=0
 
-for SL in range(150,200,5):
-  for TP in range(150,200,5):
-    df_profit_pips_cum_max = apply_strategy(new_df, SL, TP, mode)
+for SL in range(5,50,5):
+  for TP in range(5,200,5):
+    df_profit_pips_cum_max = apply_strategy(new_df, ref_df, SL, TP, mode)
     if df_profit_pips_cum_max>df_profit_pips_cum_max_max:
       df_profit_pips_cum_max_max=df_profit_pips_cum_max
       SLmax=SL
       TPmax=TP
 
 print("!!! MAX !!!")
-df_profit_pips_cum_max = apply_strategy(new_df, SLmax, TPmax, mode)
+df_profit_pips_cum_max = apply_strategy(new_df, ref_df, SLmax, TPmax, mode)
 """
 
 """
@@ -236,18 +275,22 @@ fig.subplots_adjust(bottom=0.1)
 
 ax = fig.add_subplot(221)
 # [(1, 0, 12.0, 12.0, -16.0, 0), ... (Date,Open,Close,High,Low,Volume)]
+title("Trades candlestick")
 candlestick(ax, DOCHLV, width=0.6, colorup='g', colordown='r', alpha=1.0)
 
 ax = fig.add_subplot(222)
 # [(1, 0, 12.0, 12.0, -16.0, 0), ... (Date,Open,Close,High,Low,Volume)]
+title("Trades candlestick (2)")
 candlestick(ax, newDOCHLV, width=0.6, colorup='g', colordown='r', alpha=1.0)
 
 subplot(223)
 #df_profit_pips_cum.plot()
+title("Cumsum Profit (Pips)")
 df['Cumsum Profit (Pips)'].plot()
 
 subplot(224)
 #df_profit_pips_cum.plot()
+title("Cumsum Profit (Pips) (2)")
 new_df['Cumsum Profit (Pips)'].plot()
 
 show()
