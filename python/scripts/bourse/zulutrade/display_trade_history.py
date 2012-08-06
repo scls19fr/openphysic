@@ -27,6 +27,13 @@ Profit (Pips)
 Profit ($)
 """
 
+def invert_trades(df):
+  df['Profit (Pips)'] = -df['Profit (Pips)']
+  df['temp'] = df['Highest Profit (Pips)']
+  df['Highest Profit (Pips)'] = -df['Worst Drawdown (Pips)']
+  df['Worst Drawdown (Pips)'] = -df['temp']
+  del df['temp']
+
 def conv_str_to_datetime(x):
   return(datetime.strptime(x, '%Y/%m/%d %H:%M:%S'))
 
@@ -113,7 +120,7 @@ df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', converte
 
 #print(df.to_string())
 
-df=df[df['Date Close']<datetime(2011,9,1)]
+#df=df[df['Date Close']<datetime(2011,9,1)]
 
 
 #df=df[df['Profit (Pips)']>100] # filter
@@ -126,6 +133,8 @@ df=df.sort(axis=0, ascending=False)
 
 df['Cumsum Profit (Pips)'] = df['Profit (Pips)'].cumsum()
 
+
+#invert_trades(df)
 
 #df=df.sort(axis=0, ascending=True, columns='Date Close')
 #df=df.sort(axis=0, ascending=False)
@@ -146,18 +155,12 @@ df['Cumsum Profit (Pips)'] = df['Profit (Pips)'].cumsum()
 #  print("")
 
 
-# invert trade
-#df['Profit (Pips)'] = -df['Profit (Pips)']
-#df['temp'] = df['Highest Profit (Pips)']
-#df['Highest Profit (Pips)'] = -df['Worst Drawdown (Pips)']
-#df['Worst Drawdown (Pips)'] = -df['temp']
-#del df['temp']
 
 #print(df)
 
-#mode=None
+mode=None
 #mode='optimistic'
-mode='pessimistic'
+#mode='pessimistic'
 #1462.5
 
 #SL=100
@@ -173,26 +176,22 @@ TP=50
 
 df_profit_pips_cum_max = apply_strategy(df, SL, TP, mode)
 
+"""
+df_profit_pips_cum_max_max=0
+SLmax=0
+TPmax=0
 
-#df_profit_pips_cum_max_max=0
-#SLmax=0
-#TPmax=0
+for SL in range(1,200,1):
+  for TP in range(1,200,1):
+    df_profit_pips_cum_max = apply_strategy(df, SL, TP, mode)
+    if df_profit_pips_cum_max>df_profit_pips_cum_max_max:
+      df_profit_pips_cum_max_max=df_profit_pips_cum_max
+      SLmax=SL
+      TPmax=TP
 
-#for SL in range(50,200,1):
-#  for TP in range(50,200,1):
-#    results = apply_strategy(df, SL, TP, mode)
-#    df_profit_pips_cum = results[0]
-#    df_profit_pips_cum_max = results[1]
-#    if df_profit_pips_cum_max>df_profit_pips_cum_max_max:
-#      df_profit_pips_cum_max_max=df_profit_pips_cum_max
-#      SLmax=SL
-#      TPmax=TP
-
-#print("""!!! MAX !!!
-#SL={0}
-#TP={1}
-#profit_pips_cum_max={2}
-#===""".format(SLmax,TPmax,df_profit_pips_cum_max_max))
+print("!!! MAX !!!")
+df_profit_pips_cum_max = apply_strategy(df, SLmax, TPmax, mode)
+"""
 
 
 """
@@ -205,10 +204,6 @@ TP=50
 profit_pips_cum_max=1505.8
 
 """
-
-#results = apply_strategy(df, SLmax, TPmax, mode)
-#df_profit_pips_cum = results[0]
-#df_profit_pips_cum_max = results[1]
 
 
 # ToDo : optimize ; Panel ? ; colormap
