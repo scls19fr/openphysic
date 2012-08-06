@@ -27,12 +27,19 @@ Profit (Pips)
 Profit ($)
 """
 
+"""
 def invert_trades(my_df):
   my_df['Profit (Pips)'] = -my_df['Profit (Pips)']
   my_df['temp'] = my_df['Highest Profit (Pips)']
   my_df['Highest Profit (Pips)'] = -my_df['Worst Drawdown (Pips)']
   my_df['Worst Drawdown (Pips)'] = -my_df['temp']
   del my_df['temp']
+"""
+
+def invert_trades(new_df, df):
+  new_df['Profit (Pips)'] = -df['Profit (Pips)']
+  new_df['Highest Profit (Pips)'] = -df['Worst Drawdown (Pips)']
+  new_df['Worst Drawdown (Pips)'] = -df['Highest Profit (Pips)']
 
 def conv_str_to_datetime(x):
   return(datetime.strptime(x, '%Y/%m/%d %H:%M:%S'))
@@ -127,8 +134,12 @@ df['Cumsum Profit (Pips)'] = df['Profit (Pips)'].cumsum()
 
 
 
+ref_df = df.copy()
 
-invert_trades(new_df)
+#invert_trades(new_df)
+invert_trades(new_df, df)
+ref_df = new_df.copy()
+
 
 #df=df.sort(axis=0, ascending=True, columns='Date Close')
 #df=df.sort(axis=0, ascending=False)
@@ -157,10 +168,10 @@ invert_trades(new_df)
 mode='pessimistic'
 #1462.5
 
-SL=200
-TP=200
+SL=20
+TP=50
 
-df_profit_pips_cum_max = apply_strategy(new_df, df, SL, TP, mode)
+df_profit_pips_cum_max = apply_strategy(new_df, ref_df, SL, TP, mode)
 
 
 """
