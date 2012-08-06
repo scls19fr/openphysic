@@ -44,7 +44,9 @@ def apply_strategy(df, SL, TP, mode=None):
   
   b_clip_profit_tp = df['Profit (Pips)']>TP
   b_clip_profit_sl = df['Profit (Pips)']<-SL
-  
+
+  df['New Profit (Pips)']=df['Profit (Pips)']
+
   if mode=='pessimistic':
     print("mode = pessimistic")
     # Apply TP Take Profit
@@ -71,23 +73,26 @@ def apply_strategy(df, SL, TP, mode=None):
     
   else:
     print("mode = Undef")
-    df['New Profit (Pips)']=df['Profit (Pips)']
   
 
-  df_profit_pips_cum = df['New Profit (Pips)'].cumsum()
+  #df_profit_pips_cum = df['New Profit (Pips)'].cumsum()
+  
+  df['New Cumsum Profit (Pips)'] = df['New Profit (Pips)'].cumsum()
 
   #print("idxmax={0}".format(df_profit_pips_cum.idxmax()))
   ##print("date close={0}".format(df.irow(df_profit_pips_cum.idxmax())['Date Close']))
   #print("max={0}".format(df_profit_pips_cum.max()))
 
-  df_profit_pips_cum_max = df_profit_pips_cum.max()
+  #df_profit_pips_cum_max = df_profit_pips_cum.max()
+  df_profit_pips_cum_max = df['New Cumsum Profit (Pips)'].max()
 
   print("""SL={0}
 TP={1}
 profit_pips_cum_max={2}
 ===""".format(SL,TP,df_profit_pips_cum_max))
 
-  return((df_profit_pips_cum, df_profit_pips_cum_max))
+  #return((df_profit_pips_cum, df_profit_pips_cum_max))
+  return(df_profit_pips_cum_max)
 
 #df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv')
 df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', converters={'Date Open': conv_str_to_datetime, 'Date Close': conv_str_to_datetime})
@@ -103,13 +108,20 @@ df = pd.read_csv('Trade_History_denganyouqianle_19850320_20120805.csv', converte
 
 #print(df.to_string())
 
-df=df[df['Date Close']<datetime(2011,9,1)]
+#df=df[df['Date Close']<datetime(2011,9,1)]
+
+
 #df=df[df['Profit (Pips)']>100] # filter
 
 #for row in df:
 #	print row
 
-df=df.sort(axis=0, ascending=False)
+#df=df.sort(axis=0, ascending=False)
+#df=df.reindex(index=['Date Close'])
+
+df['Cumsum Profit (Pips)'] = df['Profit (Pips)'].cumsum()
+
+
 #df=df.sort(axis=0, ascending=True, columns='Date Close')
 #df=df.sort(axis=0, ascending=False)
 #df=df.sort(axis=0, ascending=False, column='Date Close')
@@ -146,9 +158,11 @@ mode='pessimistic'
 SL=100
 TP=50
 
-results = apply_strategy(df, SL, TP, mode)
-df_profit_pips_cum = results[0]
-df_profit_pips_cum_max = results[1]
+#results = apply_strategy(df, SL, TP, mode)
+#df_profit_pips_cum = results[0]
+#df_profit_pips_cum_max = results[1]
+
+df_profit_pips_cum_max = apply_strategy(df, SL, TP, mode)
 
 
 #df_profit_pips_cum_max_max=0
@@ -191,28 +205,44 @@ profit_pips_cum_max=1505.8
 # ToDo : optimize ; Panel ? ; colormap
 # optimization de l'ecart quadratique (ecart type - ratio de Sharpe) et de la pente
 
+#Date = df.index # TypeError: unsupported operand type(s) for -: 'Timestamp' and 'float'
 Date = range(1,len(df)+1)
 #Date = range(len(df)+1,1,-1)
 Open = np.zeros(len(df))
 High = df['Highest Profit (Pips)'].values
 Low = df['Worst Drawdown (Pips)'].values
-#Close = df['Profit (Pips)'].values
-Close = df['New Profit (Pips)'].values
+Close = df['Profit (Pips)'].values
+newClose = df['New Profit (Pips)'].values
 Volume = np.zeros(len(df))
 DOCHLV = zip(Date, Open, Close, High, Low, Volume)
+newDOCHLV = zip(Date, Open, newClose, High, Low, Volume)
 
 #print(DOCHLV)
 
 fig = figure()
 fig.subplots_adjust(bottom=0.1)
-ax = fig.add_subplot(211)
+
+ax = fig.add_subplot(221)
 # [(1, 0, 12.0, 12.0, -16.0, 0), ... (Date,Open,Close,High,Low,Volume)]
 candlestick(ax, DOCHLV, width=0.6, colorup='g', colordown='r', alpha=1.0)
 
-subplot(212)
-df_profit_pips_cum.plot()
+ax = fig.add_subplot(222)
+# [(1, 0, 12.0, 12.0, -16.0, 0), ... (Date,Open,Close,High,Low,Volume)]
+candlestick(ax, newDOCHLV, width=0.6, colorup='g', colordown='r', alpha=1.0)
+
+subplot(223)
+#df_profit_pips_cum.plot()
+df['Cumsum Profit (Pips)'].plot()
+
+subplot(224)
+#df_profit_pips_cum.plot()
+df['New Cumsum Profit (Pips)'].plot()
 
 show()
 
 #print(df['Duration'])
 
+#fig2 = figure()
+#df[['Duration', 'Profit (Pips)']].plot() #?
+
+#show()
