@@ -3,7 +3,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-from pylab import figure, plot, show, grid, title, xlabel, ylabel, subplot, bar, np, xticks, ogrid, zeros, imshow # plot
+#from pylab import figure, plot, show, grid, title, xlabel, ylabel, subplot, bar, np, xticks, ogrid, zeros, imshow # plot
+#from pylab import subplot
 from matplotlib.finance import candlestick
 from datetime import *
 from scipy import optimize # http://docs.scipy.org/doc/scipy/reference/tutorial/optimize.html
@@ -235,8 +236,8 @@ TPmax=201.
 TPstep=5.0
 
 
-aSL,aTP = ogrid[SLmin:SLmax:SLstep, TPmin:TPmax:TPstep]
-aProfit=zeros((aSL.size, aTP.size))
+aSL,aTP = np.ogrid[SLmin:SLmax:SLstep, TPmin:TPmax:TPstep]
+aProfit = np.zeros((aSL.size, aTP.size))
 
 i=0
 j=0
@@ -257,11 +258,11 @@ for SL in aSL: # range(SLmin,SLmax;SLstep)
 print("!!! MAX !!!")
 df_profit_pips_cum_max = apply_strategy(new_df, ref_df, SLmax_profit, TPmax_profit, mode)
 
-imshow(aProfit, origin='lower', extent=[TPmin,TPmax,SLmin,SLmax])
-title("Optimize SL & TP ({0})".format(mode))
-xlabel('Take Profit (TP=x)')
-ylabel('Stop Loss (SL=y)')
-show()
+plt.imshow(aProfit, origin='lower', extent=[TPmin,TPmax,SLmin,SLmax])
+plt.title("Optimize SL & TP ({0})".format(mode))
+plt.xlabel('Take Profit (TP=x)')
+plt.ylabel('Stop Loss (SL=y)')
+plt.show()
 
 #print(aSL, aTP)
 
@@ -300,30 +301,30 @@ newDOCHLV = zip(newDate, newOpen, newClose, newHigh, newLow, newVolume)
 
 #print(DOCHLV)
 
-fig = figure()
+fig = plt.figure()
 fig.subplots_adjust(bottom=0.1)
 
 ax = fig.add_subplot(221)
 # [(1, 0, 12.0, 12.0, -16.0, 0), ... (Date,Open,Close,High,Low,Volume)]
-title("Trades candlestick")
+plt.title("Trades candlestick")
 candlestick(ax, DOCHLV, width=0.6, colorup='g', colordown='r', alpha=1.0)
 
 ax = fig.add_subplot(222)
 # [(1, 0, 12.0, 12.0, -16.0, 0), ... (Date,Open,Close,High,Low,Volume)]
-title("Trades candlestick (2)")
+plt.title("Trades candlestick (2)")
 candlestick(ax, newDOCHLV, width=0.6, colorup='g', colordown='r', alpha=1.0)
 
-subplot(223)
+plt.subplot(223)
 #df_profit_pips_cum.plot()
-title("Cumsum Profit (Pips)")
+plt.title("Cumsum Profit (Pips)")
 df['Cumsum Profit (Pips)'].plot()
 
-subplot(224)
+plt.subplot(224)
 #df_profit_pips_cum.plot()
-title("Cumsum Profit (Pips) (2)")
+plt.title("Cumsum Profit (Pips) (2)")
 new_df['Cumsum Profit (Pips)'].plot()
 
-show()
+plt.show()
 
 #print(df['Duration'])
 
@@ -331,3 +332,7 @@ show()
 #df[['Duration', 'Profit (Pips)']].plot() #?
 
 #show()
+
+# Linear Regression
+#model = pd.ols(y=df['Cumsum Profit (Pips)'], x=df['Date Close'])
+#ToDo : datetime.toordinal
