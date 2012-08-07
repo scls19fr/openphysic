@@ -43,6 +43,7 @@ def invert_trades(new_df, df):
   new_df['Profit (Pips)'] = -df['Profit (Pips)']
   new_df['Highest Profit (Pips)'] = -df['Worst Drawdown (Pips)']
   new_df['Worst Drawdown (Pips)'] = -df['Highest Profit (Pips)']
+  #del df['temp']
 
 def print_resume(df):
   df_resume = df.describe()
