@@ -337,3 +337,5 @@ plt.show()
 # Linear Regression
 #model = pd.ols(y=df['Cumsum Profit (Pips)'], x=df['Date Close'])
 #ToDo : datetime.toordinal
+
+#df['Date Close'].apply(lambda x: datetime.toordinal(x)) # pb renvoie un int
