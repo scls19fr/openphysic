@@ -169,7 +169,7 @@ class MarketBacktester:
       while tr_dt_open>=mk_dt_open and tr_dt_open<=mk_dt_close:
         #print("open trade {0}".format(self.itr))
         self.print_trade(self.itr)
-        
+        # ToDo open trade and store it in trades basket
         
         if self.dfTr.ix[self.itr0]['Price Open']<self.dfMk.ix[self.imk]['Low'] or self.dfTr.ix[self.itr0]['Price Open']>self.dfMk.ix[self.imk]['High']:
           print("  *** open out of price range ***")
@@ -180,6 +180,9 @@ class MarketBacktester:
         else:
           print(">>> no more trades <<<")
           break
+
+      #self.manage_close_trade()
+      # ToDo : manage close trade
 
       """
       while True:
