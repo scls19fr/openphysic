@@ -119,8 +119,9 @@ class MarketBacktester:
 
   def print_trade(self, itr):
     itr0=self.dfTr.index[itr]
-    print(" > TR{0}\t{1}\t{2}\t{3}\t{4}\t{5}".format(itr,
+    print(" > TR{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}".format(itr,
       itr0,
+      self.dfTr.ix[itr0]['Type'],
       self.dfTr.ix[itr0]['Date Open'],
       self.dfTr.ix[itr0]['Price Open'],
       self.dfTr.ix[itr0]['Date Close'],
@@ -161,18 +162,32 @@ class MarketBacktester:
       tr_dt_open = self.dfTr.ix[self.itr0]['Date Open']
       tr_dt_close = self.dfTr.ix[self.itr0]['Date Close']
 
+
       if tr_dt_open>=mk_dt_open and tr_dt_open<=mk_dt_close:
         self.print_market_candle(self.imk)
       
       while tr_dt_open>=mk_dt_open and tr_dt_open<=mk_dt_close:
         #print("open trade {0}".format(self.itr))
         self.print_trade(self.itr)
+        
+        
+        if self.dfTr.ix[self.itr0]['Price Open']<self.dfMk.ix[self.imk]['Low'] or self.dfTr.ix[self.itr0]['Price Open']>self.dfMk.ix[self.imk]['High']:
+          print("  *** open out of price range ***")
+        
         if self.next_trade():
           tr_dt_open = self.dfTr.ix[self.itr0]['Date Open']
           tr_dt_close = self.dfTr.ix[self.itr0]['Date Close']
         else:
+          print(">>> no more trades <<<")
           break
-      
+
+      """
+      while True:
+        do_something()
+        if condition():
+          break
+      """
+
     """
       if tr_dt_open<mk_dt_open:
         print(">>> Error : no market history for this trade <<<")
