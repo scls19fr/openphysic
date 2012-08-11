@@ -1,12 +1,10 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 import pandas as pd
 from datetime import date, datetime, timedelta
 
-
 """
-Objet permettant de lire les données du marché
+Objet permettant de lire les donnees du marche
 """
 class MarketPlayer:
   def __init__(self):
@@ -32,14 +30,14 @@ class TradesPlayer:
     pass
 
 """
-Objet permettant de gérer les trades en cours
+Objet permettant de gerer les trades en cours
 """
 class TradeBasket:
   def __init__(self):
     pass
 
 """
-Objet permettant de gérer les trades cloturés
+Objet permettant de gerer les trades clotures
 """
 class TradeHistory:
   def __init__(self):
@@ -47,7 +45,7 @@ class TradeHistory:
 
 
 """
-Objet gérant toute la logique de backtest
+Objet gerant toute la logique de backtest
 """
 class MarketBacktester:
   def __init__(self):
@@ -61,7 +59,7 @@ class MarketBacktester:
       index_col='Date_Time', parse_dates=[[0, 1]])
       
     #self.MkPeriod = self.dfMk.index[100]-self.dfMk.index[99]
-    #self.MkPeriod = timedelta(0, 900) # ToFix : récupérer périodicité
+    #self.MkPeriod = timedelta(0, 900) # ToFix : recuperer periodicite (WE??)
     # M15 = 900s
     self.MkPeriod = timedelta(minutes=self.period_min)
     
@@ -70,8 +68,35 @@ class MarketBacktester:
       converters={'Date Open': self.conv_str_to_datetime, 'Date Close': self.conv_str_to_datetime, 'Currency': self.conv_str_to_pair})
       
     self.dfTr = self.dfTrFull[self.dfTrFull['Currency']==self.pair] # Filter for same pair
-    self.dfTr = self.dfTr.sort(axis=0, ascending=False) # sort ascending date
+    #self.dfTr = self.dfTr.sort(axis=0, ascending=False) # sort descending index
+    self.dfTr = self.dfTr.sort(axis=0, ascending=True, columns='Date Open') # sort ascending date open
     
+    # ajuster temps (garder uniquement partie commune)
+    #intersection
+    tr_min = min(self.dfTr['Date Open'])
+    tr_max = max(self.dfTr['Date Close'])
+    mk_min = min(self.dfMk.index)
+    mk_max = max(self.dfMk.index)    
+    dt_min = max(tr_min, mk_min)
+    dt_max = min(tr_max, mk_max)
+    #print(tr_min, tr_max, mk_min, mk_max, dt_min, dt_max)
+
+    #self.dfTr = self.dfTr[self.dfTr['Date Open']>=dt_min & self.dfTr['Date Close']<=dt_max]
+    self.dfTr = self.dfTr[self.dfTr['Date Open']>=dt_min]
+    self.dfTr = self.dfTr[self.dfTr['Date Close']<=dt_max]
+    self.dfMk = self.dfMk[self.dfMk.index>=dt_min]
+    self.dfMk = self.dfMk[self.dfMk.index<=dt_max]
+    
+    print("=== Market history ===")
+    print(self.dfMk)
+    
+    print("")
+    
+    print("=== Trades history ===")
+    print(self.dfTr)
+
+    print("")
+
     self.backtest()
 
   def conv_str_to_datetime(self, x):
@@ -103,14 +128,19 @@ class MarketBacktester:
     ))
 
 
-#  def next_trade(self):
-#    self.itr=self.itr+1
-#    self.itr0=self.dfTr.index[itr]
+  def next_trade(self):
+    if self.itr<len(self.dfTr)-1:
+      self.itr=self.itr+1
+      self.itr0=self.dfTr.index[self.itr]
+      return(True)
+    else:
+       self.itr = len(self.dfTr)-1
+       return(False)
 
   def backtest(self):
     #imk=0 # indice market hist
-    itr=0 # indice trades hist
-    itr0=self.dfTr.index[itr]
+    self.itr=0 # indice trades hist
+    self.itr0=self.dfTr.index[self.itr]
     
     """
     print("Market History")
@@ -124,9 +154,37 @@ class MarketBacktester:
       self.print_trade(itr)
     """
 
-    print("Market History")
-    for imk in range(0, len(self.dfMk)):
-      if self.dfTr.ix[itr0]['Date Open']<
+    print("=== Backtesting ===")
+    for self.imk in range(0, len(self.dfMk)):
+      mk_dt_open = self.dfMk.index[self.imk]
+      mk_dt_close = self.dfMk.index[self.imk]+self.MkPeriod
+      tr_dt_open = self.dfTr.ix[self.itr0]['Date Open']
+      tr_dt_close = self.dfTr.ix[self.itr0]['Date Close']
+
+      if tr_dt_open>=mk_dt_open and tr_dt_open<=mk_dt_close:
+        self.print_market_candle(self.imk)
+      
+      while tr_dt_open>=mk_dt_open and tr_dt_open<=mk_dt_close:
+        #print("open trade {0}".format(self.itr))
+        self.print_trade(self.itr)
+        if self.next_trade():
+          tr_dt_open = self.dfTr.ix[self.itr0]['Date Open']
+          tr_dt_close = self.dfTr.ix[self.itr0]['Date Close']
+        else:
+          break
+      
+    """
+      if tr_dt_open<mk_dt_open:
+        print(">>> Error : no market history for this trade <<<")
+        self.print_market_candle(self.imk)
+        self.print_trade(self.itr)
+        #return()
+        #self.next_trade()
+        #imk = imk - 1
+      #else:
+    """
+      
+      #if self.dfTr.ix[itr0]['Date Open']<
       #self.print_market_candle(imk)
     
     
