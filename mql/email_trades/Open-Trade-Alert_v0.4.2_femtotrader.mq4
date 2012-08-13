@@ -3,26 +3,34 @@ datetime dt;
 int temp;
 int oldtemp;
 
+extern string CommentTitle = "=== Title ===";
 extern string Title = "[VPS Mail][AAAFX]";
 
+extern string CommentSymbols = "=== Symbols ===";
 extern bool NotifyOnlyOnChartSymbol = FALSE;
+//extern string NotifySymbolsList = "EURUSD,USDJPY"; // ToDo
 
+extern string CommentOpen = "=== Open ===";
 extern bool NotifyOpenBuy = TRUE;
 extern bool NotifyOpenSell = TRUE;
 
+extern string CommentClose = "=== Close ===";
 extern bool NotifyCloseBuy = TRUE;
 extern bool NotifyCloseSell = TRUE;
 
+extern string CommentOpenPending= "=== Open Pending ===";
 extern bool NotifyOpenBuyLimit = TRUE;
 extern bool NotifyOpenSellLimit = TRUE;
 extern bool NotifyOpenBuyStop = TRUE;
 extern bool NotifyOpenSellStop = TRUE;
 
+extern string CommentClosePending= "=== Close Pending ===";
 extern bool NotifyCloseBuyLimit = TRUE;
 extern bool NotifyCloseSellLimit = TRUE;
 extern bool NotifyCloseBuyStop = TRUE;
 extern bool NotifyCloseSellStop = TRUE;
 
+extern string CommentDeletePending= "=== Delete Pending ===";
 extern bool NotifyDeleteBuyLimit = TRUE;
 extern bool NotifyDeleteSellLimit = TRUE;
 extern bool NotifyDeleteBuyStop = TRUE;
