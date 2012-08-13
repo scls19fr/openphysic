@@ -3,6 +3,15 @@ datetime dt;
 int temp;
 int oldtemp;
 
+extern string CommentProg0 = "===============";
+
+extern string CommentProgName = "Email Alert Indicator";
+extern string CommentProgVersion = "0.4.2";
+extern string CommentProgAuthor0 = "Dmitry Reznikov";
+extern string CommentProgAuthor1 = "Femto Trader";
+
+extern string CommentProg1 = "===============";
+
 extern string CommentTitle = "=== Title ===";
 extern string Title = "[VPS Mail][AAAFX]";
 
@@ -105,7 +114,7 @@ int start()
     
 
     string msg;
-    msg = "Alert Indicator v0.4.2\nDmitry Reznikov modif by FemtoTrader"+"\n"+oldtemp+"/"+temp;
+    msg = CommentProgName + " " + "v"+CommentProgVersion+"\n"+CommentProgAuthor0+" modif by "+CommentProgAuthor1+"\n"+oldtemp+"/"+temp;
     if (oldtemp != temp) {
         msg = msg + "\n" + "Send Email for Ticket#: "+OrderTicket();
         msg = msg + "\n" + "OrderType: " + OrderTypeToStr(OrderType());
