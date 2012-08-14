@@ -2,6 +2,17 @@
 
 import pandas as pd
 from datetime import date, datetime, timedelta
+import numpy as np
+
+"""
+ToDo:
+  voir historique d'un trade donné
+    dir * (price_hist_open  - price_open) * 10**PipsPosition
+    dir * (price_hist_high  - price_open) * 10**PipsPosition
+    dir * (price_hist_low   - price_open) * 10**PipsPosition
+    dir * (price_hist_close - price_open) * 10**PipsPosition
+
+"""
 
 """
 Objet permettant de lire les donnees du marche
@@ -50,6 +61,8 @@ Objet gerant toute la logique de backtest
 class MarketBacktester:
   def __init__(self):
     self.pair = 'EURUSD'
+    self.PipPosition = 4 # 0.0001 (so 4 because 10^(-4)) for most pairs but for xxxJPY PipPosition=2
+    
     self.period_min=15
 
     # Market history
@@ -71,8 +84,7 @@ class MarketBacktester:
     #self.dfTr = self.dfTr.sort(axis=0, ascending=False) # sort descending index
     self.dfTr = self.dfTr.sort(axis=0, ascending=True, columns='Date Open') # sort ascending date open
     
-    # ajuster temps (garder uniquement partie commune)
-    #intersection
+    # ajuster temps (garder uniquement partie commune = intersection)
     tr_min = min(self.dfTr['Date Open'])
     tr_max = max(self.dfTr['Date Close'])
     mk_min = min(self.dfMk.index)
@@ -80,13 +92,19 @@ class MarketBacktester:
     dt_min = max(tr_min, mk_min)
     dt_max = min(tr_max, mk_max)
     #print(tr_min, tr_max, mk_min, mk_max, dt_min, dt_max)
-
     #self.dfTr = self.dfTr[self.dfTr['Date Open']>=dt_min & self.dfTr['Date Close']<=dt_max]
     self.dfTr = self.dfTr[self.dfTr['Date Open']>=dt_min]
     self.dfTr = self.dfTr[self.dfTr['Date Close']<=dt_max]
     self.dfMk = self.dfMk[self.dfMk.index>=dt_min]
     self.dfMk = self.dfMk[self.dfMk.index<=dt_max]
     
+    self.dfTrInv = self.dfTr.copy()
+    self.invert_trades(self.dfTrInv, self.dfTr)
+
+    self.update_trades(self.dfTr)
+    self.update_trades(self.dfTrInv)
+
+
     print("=== Market history ===")
     print(self.dfMk)
     
@@ -99,6 +117,19 @@ class MarketBacktester:
 
     self.backtest()
 
+  def invert_trades(self, new_dfTr, dfTr):
+    new_dfTr['Type'] =  np.where(dfTr['Type']=='BUY', 'SELL', 'BUY') # ne doit pas y avoir autre chose que BUY ou SELL (risque)
+    
+  def update_trades(self, dfTr):
+    dfTr['Dir'] = np.where(dfTr['Type']=='BUY', 1, 0) + np.where(dfTr['Type']=='SELL', -1, 0) #BUY=+1 SELL=-1
+      
+    SL_pips = 20.0 # pips
+    TP_pips = 40.0 # pips
+    
+    dfTr['SL'] = dfTr['Price Open'] - dfTr['Dir']*SL_pips*10.0**-self.PipPosition
+    dfTr['TP'] = dfTr['Price Open'] + dfTr['Dir']*TP_pips*10.0**-self.PipPosition
+
+
   def conv_str_to_datetime(self, x):
     return(datetime.strptime(x, '%Y/%m/%d %H:%M:%S'))
 
@@ -106,6 +137,10 @@ class MarketBacktester:
     x=x.split('/')
     return(x[0]+x[1])
 
+  """
+  irow ou ix ?
+  pour Mk c'est pareil mais pas pour Tr
+  """
   def print_market_candle(self, imk):
     print("MK{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}".format(imk,
       self.dfMk.index[imk],

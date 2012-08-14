@@ -60,23 +60,33 @@ def trades_stats(df):
   df_stats = dict() #pd.DataFrame()
   N=len(df)
   df_stats['Trades']=N
+
   df_win=df[df['Profit (Pips)']>0]
   df_stats['Winning trades']=len(df_win)
   df_stats['Winning trades (%)']=100.0*df_stats['Winning trades']/df_stats['Trades']
+  df_stats['Average win (Pips)']=df_win['Profit (Pips)'].mean()
+
   df_lose=df[df['Profit (Pips)']<0]
   df_stats['Losing trades']=len(df_lose)
-  df_be=df[df['Profit (Pips)']==0]
   df_stats['Losing trades (%)']=100.0*df_stats['Losing trades']/df_stats['Trades']
+  df_stats['Average lose (Pips)']=df_lose['Profit (Pips)'].mean()
+
+  df_be=df[df['Profit (Pips)']==0]
   df_stats['BreakEven trades']=len(df_be)
   df_stats['BreakEven trades (%)']=100.0*df_stats['BreakEven trades']/df_stats['Trades']
+
   df_stats['Average pips/trade']=df['Profit (Pips)'].sum()/df_stats['Trades']
   df_stats['Average trade duration']=df['Duration'].sum()/df_stats['Trades']
+
   #df_stats['Maximum drawdown (Pips)']
   #df_stats['Maximum drawdown (%)']
   #df_stats['Max open trades']?
+
   df_stats['Worst trade (Pips)']=df['Worst Drawdown (Pips)'].min() #df['Profit (Pips)'].min()
   df_stats['Best trade (Pips)']=df['Profit (Pips)'].max() #df['Highest Profit (Pips)'].max() #df['Profit (Pips)'].max()
+
   df_stats['Running duration']=df['Date Close'].max()-df['Date Open'].min()
+
   cur = df['Currency'].value_counts()
   df_stats['Currencies']=cur
   df_stats['Currencies (%)']=100.0*cur/N
@@ -89,6 +99,13 @@ def trades_stats(df):
   do_diff=do_diff.fillna(timedelta(0)) # remplacer NaN par 0
   df_stats['Average duration between 2 trades']=do_diff.sum()/(len(do_diff)-1)
   
+  df_stats['Longs']=len(df[df['Type']=='BUY'])
+  df_stats['Longs won']=len(df[ (df['Type']=='BUY') & (df['Profit (Pips)']>0) ])
+  df_stats['Longs won (%)']=100.0*df_stats['Longs won']/df_stats['Longs']
+  df_stats['Shorts']=len(df[df['Type']=='SELL'])
+  df_stats['Shorts won']=len(df[ (df['Type']=='SELL') & (df['Profit (Pips)']>0) ])
+  df_stats['Shorts won (%)']=100.0*df_stats['Shorts won']/df_stats['Shorts']
+  
   """
   ToDo:
   df_stats['Lots']=df['Standard Lots'].sum()
@@ -96,6 +113,8 @@ def trades_stats(df):
   df_stats['Profit (Pips)']=df['Profit (Pips)'].sum()
   df_stats['Profit ($)']=df['Profit ($)'].sum()
   Profit Factor
+    df_stats['Profit Factor (Pips)']=df[df['Profit (Pips)']>0]['Profit (Pips)'].sum()/abs(df[df['Profit (Pips)']<0]['Profit (Pips)'].sum())
+    df_stats['Profit Factor ($)']=df[df['Profit ($)']>0]['Profit ($)'].sum()/abs(df[df['Profit ($)']<0]['Profit ($)'].sum())
   Standard Deviation
   Sharpe Ratio
   Z-Score (Probability)
@@ -111,6 +130,12 @@ def trades_stats(df):
   Summuary daily
   
   Risk of ruin
+  
+  Periods
+    Today
+    This Week
+    This Month
+    This Year
   
   Profit/Duration plot
   """  
