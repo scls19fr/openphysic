@@ -102,6 +102,17 @@ def trades_stats(df):
   Expectancy
   AHPR (%)
   GHPR (%)
+  
+  Summuary by currency
+   Longs / Short / Total
+   
+  Summuary hourly
+  
+  Summuary daily
+  
+  Risk of ruin
+  
+  Profit/Duration plot
   """  
   
   return(df_stats)
