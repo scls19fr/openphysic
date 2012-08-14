@@ -55,6 +55,7 @@ def print_resume(df):
 def print_trades(df):
   print(df.to_string(columns=['Currency', 'Date Open', 'Date Close', 'Profit (Pips)'],index=True))
 
+# df_stats=trades_stats(df)
 def trades_stats(df):
   df_stats = dict() #pd.DataFrame()
   N=len(df)
@@ -69,7 +70,7 @@ def trades_stats(df):
   df_stats['BreakEven trades']=len(df_be)
   df_stats['BreakEven trades (%)']=100.0*df_stats['BreakEven trades']/df_stats['Trades']
   df_stats['Average pips/trade']=df['Profit (Pips)'].sum()/df_stats['Trades']
-  df_stats['Average trade time']=df['Duration'].sum()/df_stats['Trades']
+  df_stats['Average trade duration']=df['Duration'].sum()/df_stats['Trades']
   #df_stats['Maximum drawdown (Pips)']
   #df_stats['Maximum drawdown (%)']
   #df_stats['Max open trades']?
@@ -79,8 +80,22 @@ def trades_stats(df):
   cur = df['Currency'].value_counts()
   df_stats['Currencies']=cur
   df_stats['Currencies (%)']=100.0*cur/N
+
+  #Average duration between 2 trades
+  do=df['Date Open'].copy()
+  do.sort() # trier ordre croissant
+  do2=do.shift() # décaler de 1
+  do_diff=do-do2
+  do_diff=do_diff.fillna(timedelta(0)) # remplacer NaN par 0
+  df_stats['Average duration between 2 trades']=do_diff.sum()/(len(do_diff)-1)
+  
+  """
+  ToDo:
+  """  
+  
   return(df_stats)
 
+# print_trades_stats(df)
 def print_trades_stats(df):
   df_stats = trades_stats(df)
   print("="*10)
