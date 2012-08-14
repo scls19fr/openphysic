@@ -6,7 +6,7 @@ import numpy as np
 
 """
 ToDo:
-  voir historique d'un trade donné
+  voir historique d'un trade donne
     dir * (price_hist_open  - price_open) * 10**PipsPosition
     dir * (price_hist_high  - price_open) * 10**PipsPosition
     dir * (price_hist_low   - price_open) * 10**PipsPosition
@@ -93,10 +93,12 @@ class MarketBacktester:
     dt_max = min(tr_max, mk_max)
     #print(tr_min, tr_max, mk_min, mk_max, dt_min, dt_max)
     #self.dfTr = self.dfTr[self.dfTr['Date Open']>=dt_min & self.dfTr['Date Close']<=dt_max]
-    self.dfTr = self.dfTr[self.dfTr['Date Open']>=dt_min]
-    self.dfTr = self.dfTr[self.dfTr['Date Close']<=dt_max]
-    self.dfMk = self.dfMk[self.dfMk.index>=dt_min]
-    self.dfMk = self.dfMk[self.dfMk.index<=dt_max]
+    #self.dfTr = self.dfTr[self.dfTr['Date Open']>=dt_min]
+    #self.dfTr = self.dfTr[self.dfTr['Date Close']<=dt_max]
+    self.dfTr = self.dfTr[ (self.dfTr['Date Open']>=dt_min) & (self.dfTr['Date Close']<=dt_max) ]
+    #self.dfMk = self.dfMk[self.dfMk.index>=dt_min]
+    #self.dfMk = self.dfMk[self.dfMk.index<=dt_max]
+    self.dfMk = self.dfMk[ (self.dfMk.index>=dt_min) & (self.dfMk.index<=dt_max) ]
     
     self.dfTrInv = self.dfTr.copy()
     self.invert_trades(self.dfTrInv, self.dfTr)
