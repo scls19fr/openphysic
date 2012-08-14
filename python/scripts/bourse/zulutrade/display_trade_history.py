@@ -91,6 +91,17 @@ def trades_stats(df):
   
   """
   ToDo:
+  df_stats['Lots']=df['Standard Lots'].sum()
+  df_stats['Interest ($)']=df['Interest ($)'].sum()
+  df_stats['Profit (Pips)']=df['Profit (Pips)'].sum()
+  df_stats['Profit ($)']=df['Profit ($)'].sum()
+  Profit Factor
+  Standard Deviation
+  Sharpe Ratio
+  Z-Score (Probability)
+  Expectancy
+  AHPR (%)
+  GHPR (%)
   """  
   
   return(df_stats)
