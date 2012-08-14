@@ -8,7 +8,7 @@ extern string CommentProg0 = "===============";
 extern string CommentProgName = "Email Alert Indicator";
 extern string CommentProgVersion = "0.4.2";
 extern string CommentProgAuthor0 = "Dmitry Reznikov";
-extern string CommentProgAuthor1 = "Femto Trader";
+extern string CommentProgAuthor1 = "FemtoTrader";
 
 extern string CommentProg1 = "===============";
 
@@ -91,7 +91,7 @@ int start()
             }
         }
         
-        if (temp==0) {
+        if (temp<oldtemp  || temp==0) {
             ret = OrderSelect(OrdersHistoryTotal()-1, SELECT_BY_POS, MODE_HISTORY); // last history order
             if (OrderSymbol() != Symbol()) {
                 ret = false;
@@ -103,7 +103,7 @@ int start()
     } else { /* === FemtoTrader : notif for any symbols */
         temp = OrdersTotal();
         
-        if (temp==0) {
+        if (temp<oldtemp  || temp==0) {
             ret = OrderSelect(OrdersHistoryTotal()-1, SELECT_BY_POS, MODE_HISTORY); // last history order
         } else {
             ret = OrderSelect(temp-1, SELECT_BY_POS, MODE_TRADES); // last trade order
@@ -138,16 +138,22 @@ int start()
             ordertyp="OPEN BUY";
             msg = msg + "\n" + ordertyp;
             SendMail(strTitle+ordertyp+" "+DoubleToStr(OrderLots(),2)+" "+OrderSymbol()+"@"+DoubleToStr(OrderOpenPrice(),5)+", bal: "+DoubleToStr(AccountBalance(),2)+", eq: "+DoubleToStr(AccountEquity(),2)+", "+OrderComment()+"",
-            "Symbol: "+Symbol()+" "+ordertyp+"   "+OrderMagicNumber()+" \n"+
+            "Symbol: "+Symbol()+" "+ordertyp+" \n"+
+            "MagicNumber: "+OrderMagicNumber()+" \n"+
             "Comment: "+OrderComment()+" \n"+
             "Ticket#: "+OrderTicket()+" \n"+
             "Size: "+DoubleToStr(OrderLots(),2)+" \n"+
+            "===================="+" \n"+
             "OpenTime: "+TimeToStr(OrderOpenTime())+" \n"+
             "OpenPrice: "+DoubleToStr(OrderOpenPrice(),5)+" \n"+
+            "OrderStopLoss: "+DoubleToStr(OrderStopLoss(),5)+" \n"+
+            "OrderTakeProfit: "+DoubleToStr(OrderTakeProfit(),5)+" \n"+
+            //"===================="+" \n"+
             //      "CloseTime: "+TimeToStr(OrderCloseTime())+" \n"+
             //      "ClosePrice: "+DoubleToStr(OrderClosePrice(),5)+" \n"+
             //      "Profit: "+DoubleToStr(OrderProfit(),2)+" \n"+
             //      "Pips: "+DoubleToStr(pips,1)+" \n\n"+
+            "===================="+" \n"+
             "Balance: "+DoubleToStr(AccountBalance(),2)+" \n"+
             "Used Margin: "+DoubleToStr(AccountMargin(),2)+" \n"+
             "Free Margin: "+DoubleToStr(AccountFreeMargin(),2)+" \n"+
@@ -161,16 +167,22 @@ int start()
             ordertyp="OPEN SELL";
             msg = msg + "\n" + ordertyp;
             SendMail(strTitle+ordertyp+" "+DoubleToStr(OrderLots(),2)+" "+OrderSymbol()+"@"+DoubleToStr(OrderOpenPrice(),5)+", bal: "+DoubleToStr(AccountBalance(),2)+", eq: "+DoubleToStr(AccountEquity(),2)+", "+OrderComment()+"",
-            "Symbol: "+Symbol()+" "+ordertyp+"   "+OrderMagicNumber()+" \n"+
+            "Symbol: "+Symbol()+" "+ordertyp+" \n"+
+            "MagicNumber: "+OrderMagicNumber()+" \n"+
             "Comment: "+OrderComment()+" \n"+
             "Ticket#: "+OrderTicket()+" \n"+
             "Size: "+DoubleToStr(OrderLots(),2)+" \n"+
+            "===================="+" \n"+
             "OpenTime: "+TimeToStr(OrderOpenTime())+" \n"+
             "OpenPrice: "+DoubleToStr(OrderOpenPrice(),5)+" \n"+
+            "OrderStopLoss: "+DoubleToStr(OrderStopLoss(),5)+" \n"+
+            "OrderTakeProfit: "+DoubleToStr(OrderTakeProfit(),5)+" \n"+
+            //"===================="+" \n"+
             //      "CloseTime: "+TimeToStr(OrderCloseTime())+" \n"+
             //      "ClosePrice: "+DoubleToStr(OrderClosePrice(),5)+" \n"+
             //      "Profit: "+DoubleToStr(OrderProfit(),2)+" \n"+
             //      "Pips: "+DoubleToStr(pips,1)+" \n\n"+
+            "===================="+" \n"+
             "Balance: "+DoubleToStr(AccountBalance(),2)+" \n"+
             "Used Margin: "+DoubleToStr(AccountMargin(),2)+" \n"+
             "Free Margin: "+DoubleToStr(AccountFreeMargin(),2)+" \n"+
@@ -184,16 +196,22 @@ int start()
             ordertyp="CLOSE BUY";
             msg = msg + "\n" + ordertyp;
             SendMail(strTitle+ordertyp+" $: "+DoubleToStr(OrderProfit(),2)+" "+OrderSymbol()+"@"+DoubleToStr(OrderClosePrice(),5)+", bal: "+DoubleToStr(AccountBalance(),2)+", eq: "+DoubleToStr(AccountEquity(),2)+", mar: "+DoubleToStr(AccountMargin(),2)+", "+OrderComment()+"",
-            "Symbol: "+Symbol()+" "+ordertyp+"   "+OrderMagicNumber()+" \n"+
+            "Symbol: "+Symbol()+" "+ordertyp+" \n"+
+            "MagicNumber: "+OrderMagicNumber()+" \n"+
             "Comment: "+OrderComment()+" \n"+
             "Ticket#: "+OrderTicket()+" \n"+
             "Size: "+DoubleToStr(OrderLots(),2)+" \n"+
+            "===================="+" \n"+
             "OpenTime: "+TimeToStr(OrderOpenTime())+" \n"+
             "OpenPrice: "+DoubleToStr(OrderOpenPrice(),5)+" \n"+
+            "OrderStopLoss: "+DoubleToStr(OrderStopLoss(),5)+" \n"+
+            "OrderTakeProfit: "+DoubleToStr(OrderTakeProfit(),5)+" \n"+
+            "===================="+" \n"+
             "CloseTime: "+TimeToStr(OrderCloseTime())+" \n"+
             "ClosePrice: "+DoubleToStr(OrderClosePrice(),5)+" \n"+
             "Profit: "+DoubleToStr(OrderProfit(),2)+" \n"+
             "Pips: "+DoubleToStr(pips,1)+" \n\n"+
+            "===================="+" \n"+
             "Balance: "+DoubleToStr(AccountBalance(),2)+" \n"+
             "Used Margin: "+DoubleToStr(AccountMargin(),2)+" \n"+
             "Free Margin: "+DoubleToStr(AccountFreeMargin(),2)+" \n"+
@@ -207,16 +225,22 @@ int start()
             ordertyp="CLOSE SELL";
             msg = msg + "\n" + ordertyp;
             SendMail(strTitle+ordertyp+" $: "+DoubleToStr(OrderProfit(),2)+" "+OrderSymbol()+"@"+DoubleToStr(OrderClosePrice(),5)+", bal: "+DoubleToStr(AccountBalance(),2)+", eq: "+DoubleToStr(AccountEquity(),2)+", mar: "+DoubleToStr(AccountMargin(),2)+", "+OrderComment()+"",
-            "Symbol: "+Symbol()+" "+ordertyp+"   "+OrderMagicNumber()+" \n"+
+            "Symbol: "+Symbol()+" "+ordertyp+" \n"+
+            "MagicNumber: "+OrderMagicNumber()+" \n"+
             "Comment: "+OrderComment()+" \n"+
             "Ticket#: "+OrderTicket()+" \n"+
             "Size: "+DoubleToStr(OrderLots(),2)+" \n"+
+            "===================="+" \n"+
             "OpenTime: "+TimeToStr(OrderOpenTime())+" \n"+
             "OpenPrice: "+DoubleToStr(OrderOpenPrice(),5)+" \n"+
+            "OrderStopLoss: "+DoubleToStr(OrderStopLoss(),5)+" \n"+
+            "OrderTakeProfit: "+DoubleToStr(OrderTakeProfit(),5)+" \n"+
+            "===================="+" \n"+
             "CloseTime: "+TimeToStr(OrderCloseTime())+" \n"+
             "ClosePrice: "+DoubleToStr(OrderClosePrice(),5)+" \n"+
             "Profit: "+DoubleToStr(OrderProfit(),2)+" \n"+
             "Pips: "+DoubleToStr(pips,1)+" \n\n"+
+            "===================="+" \n"+
             "Balance: "+DoubleToStr(AccountBalance(),2)+" \n"+
             "Used Margin: "+DoubleToStr(AccountMargin(),2)+" \n"+
             "Free Margin: "+DoubleToStr(AccountFreeMargin(),2)+" \n"+
@@ -271,16 +295,22 @@ int start()
             
             if (b_notify) {
                 SendMail(strTitle+ordertyp+" "+DoubleToStr(OrderLots(),2)+" "+OrderSymbol()+"@"+DoubleToStr(OrderOpenPrice(),5)+", bal: "+DoubleToStr(AccountBalance(),2)+", eq: "+DoubleToStr(AccountEquity(),2)+", "+OrderComment()+"",
-                    "Symbol: "+Symbol()+" "+ordertyp+"   "+OrderMagicNumber()+" \n"+
+                    "Symbol: "+Symbol()+" "+ordertyp+" \n"+
+                    "MagicNumber: "+OrderMagicNumber()+" \n"+
                     "Comment: "+OrderComment()+" \n"+
                     "Ticket#: "+OrderTicket()+" \n"+
                     "Size: "+DoubleToStr(OrderLots(),2)+" \n"+
+                    "===================="+" \n"+
                     "OpenTime: "+TimeToStr(OrderOpenTime())+" \n"+
                     "OpenPrice: "+DoubleToStr(OrderOpenPrice(),5)+" \n"+
+                    "OrderStopLoss: "+DoubleToStr(OrderStopLoss(),5)+" \n"+
+                    "OrderTakeProfit: "+DoubleToStr(OrderTakeProfit(),5)+" \n"+
+                    "===================="+" \n"+
                     "CloseTime: "+TimeToStr(OrderCloseTime())+" \n"+
                     "ClosePrice: "+DoubleToStr(OrderClosePrice(),5)+" \n"+ // ?
                     "Profit: "+DoubleToStr(OrderProfit(),2)+" \n"+ // ?
                     "Pips: "+DoubleToStr(pips,1)+" \n\n"+ // ?
+                    "===================="+" \n"+
                     "Balance: "+DoubleToStr(AccountBalance(),2)+" \n"+
                     "Used Margin: "+DoubleToStr(AccountMargin(),2)+" \n"+
                     "Free Margin: "+DoubleToStr(AccountFreeMargin(),2)+" \n"+
