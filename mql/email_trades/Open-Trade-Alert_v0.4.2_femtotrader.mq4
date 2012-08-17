@@ -12,8 +12,13 @@ extern string CommentProgAuthor1 = "FemtoTrader";
 
 extern string CommentProg1 = "===============";
 
-extern string CommentTitle = "=== Title ===";
+extern string CommentTitle = "=== Notifications ===";
 extern string Title = "[VPS Mail][AAAFX]";
+extern bool EmailNotification = TRUE;
+extern bool PushNotification = TRUE;
+extern bool AlertNotification = FALSE;
+//extern bool SoundNotification = FALSE;
+//extern string SoundFilename = "alert.wav";
 
 extern string CommentSymbols = "=== Symbols ===";
 extern bool NotifyOnlyOnChartSymbol = FALSE;
@@ -49,6 +54,14 @@ extern bool NotifyDeleteSellStop = TRUE;
 /* ModifyTP ModifySL */
 
 string strTitle;
+
+void SendNotifications(string subject, string message)
+{
+    if (EmailNotification) SendMail(subject, message);
+    if (PushNotification) SendNotification(subject + "\n" + message); // need MetaQuotes ID - support only MT4>=v4.00 build 427
+    if (AlertNotification) Alert(message);
+    //if (SoundNotification) PlaySound(SoundFilename);
+}
 
 //+------------------------------------------------------------------+
 //| Custom indicator initialization function                         |
@@ -125,7 +138,7 @@ int start()
     Comment(msg);
 
     if (oldtemp != temp && ret) { // to be fixed (oldtemp!=temp) oldtemp<temp  && ret
-        //SendMail("New event","New event");
+        //SendNotifications("New event","New event");
     
         string ordertyp;
         double x=OrderOpenPrice(),y=OrderClosePrice(),pips;
@@ -137,7 +150,7 @@ int start()
         if(NotifyOpenBuy && ( OrderType()==OP_BUY ) && ( OrderCloseTime()==0 ) ) {
             ordertyp="OPEN BUY";
             msg = msg + "\n" + ordertyp;
-            SendMail(strTitle+ordertyp+" "+DoubleToStr(OrderLots(),2)+" "+OrderSymbol()+"@"+DoubleToStr(OrderOpenPrice(),5)+", bal: "+DoubleToStr(AccountBalance(),2)+", eq: "+DoubleToStr(AccountEquity(),2)+", "+OrderComment()+"",
+            SendNotifications(strTitle+ordertyp+" "+DoubleToStr(OrderLots(),2)+" "+OrderSymbol()+"@"+DoubleToStr(OrderOpenPrice(),5)+", bal: "+DoubleToStr(AccountBalance(),2)+", eq: "+DoubleToStr(AccountEquity(),2)+", "+OrderComment()+"",
             "Symbol: "+Symbol()+" "+ordertyp+" \n"+
             "MagicNumber: "+OrderMagicNumber()+" \n"+
             "Comment: "+OrderComment()+" \n"+
@@ -166,7 +179,7 @@ int start()
         if(NotifyOpenSell && ( OrderType()==OP_SELL ) && ( OrderCloseTime()==0 ) ) {
             ordertyp="OPEN SELL";
             msg = msg + "\n" + ordertyp;
-            SendMail(strTitle+ordertyp+" "+DoubleToStr(OrderLots(),2)+" "+OrderSymbol()+"@"+DoubleToStr(OrderOpenPrice(),5)+", bal: "+DoubleToStr(AccountBalance(),2)+", eq: "+DoubleToStr(AccountEquity(),2)+", "+OrderComment()+"",
+            SendNotifications(strTitle+ordertyp+" "+DoubleToStr(OrderLots(),2)+" "+OrderSymbol()+"@"+DoubleToStr(OrderOpenPrice(),5)+", bal: "+DoubleToStr(AccountBalance(),2)+", eq: "+DoubleToStr(AccountEquity(),2)+", "+OrderComment()+"",
             "Symbol: "+Symbol()+" "+ordertyp+" \n"+
             "MagicNumber: "+OrderMagicNumber()+" \n"+
             "Comment: "+OrderComment()+" \n"+
@@ -195,7 +208,7 @@ int start()
         if(NotifyCloseBuy && ( OrderType()==OP_BUY ) && ( OrderCloseTime()!=0 ) ) {
             ordertyp="CLOSE BUY";
             msg = msg + "\n" + ordertyp;
-            SendMail(strTitle+ordertyp+" $: "+DoubleToStr(OrderProfit(),2)+" "+OrderSymbol()+"@"+DoubleToStr(OrderClosePrice(),5)+", bal: "+DoubleToStr(AccountBalance(),2)+", eq: "+DoubleToStr(AccountEquity(),2)+", mar: "+DoubleToStr(AccountMargin(),2)+", "+OrderComment()+"",
+            SendNotifications(strTitle+ordertyp+" $: "+DoubleToStr(OrderProfit(),2)+" "+OrderSymbol()+"@"+DoubleToStr(OrderClosePrice(),5)+", bal: "+DoubleToStr(AccountBalance(),2)+", eq: "+DoubleToStr(AccountEquity(),2)+", mar: "+DoubleToStr(AccountMargin(),2)+", "+OrderComment()+"",
             "Symbol: "+Symbol()+" "+ordertyp+" \n"+
             "MagicNumber: "+OrderMagicNumber()+" \n"+
             "Comment: "+OrderComment()+" \n"+
@@ -224,7 +237,7 @@ int start()
         if(NotifyCloseSell && ( OrderType()==OP_SELL ) && ( OrderCloseTime()!=0 ) ) {
             ordertyp="CLOSE SELL";
             msg = msg + "\n" + ordertyp;
-            SendMail(strTitle+ordertyp+" $: "+DoubleToStr(OrderProfit(),2)+" "+OrderSymbol()+"@"+DoubleToStr(OrderClosePrice(),5)+", bal: "+DoubleToStr(AccountBalance(),2)+", eq: "+DoubleToStr(AccountEquity(),2)+", mar: "+DoubleToStr(AccountMargin(),2)+", "+OrderComment()+"",
+            SendNotifications(strTitle+ordertyp+" $: "+DoubleToStr(OrderProfit(),2)+" "+OrderSymbol()+"@"+DoubleToStr(OrderClosePrice(),5)+", bal: "+DoubleToStr(AccountBalance(),2)+", eq: "+DoubleToStr(AccountEquity(),2)+", mar: "+DoubleToStr(AccountMargin(),2)+", "+OrderComment()+"",
             "Symbol: "+Symbol()+" "+ordertyp+" \n"+
             "MagicNumber: "+OrderMagicNumber()+" \n"+
             "Comment: "+OrderComment()+" \n"+
@@ -294,7 +307,7 @@ int start()
             msg = msg + "\n" + ordertyp;
             
             if (b_notify) {
-                SendMail(strTitle+ordertyp+" "+DoubleToStr(OrderLots(),2)+" "+OrderSymbol()+"@"+DoubleToStr(OrderOpenPrice(),5)+", bal: "+DoubleToStr(AccountBalance(),2)+", eq: "+DoubleToStr(AccountEquity(),2)+", "+OrderComment()+"",
+                SendNotifications(strTitle+ordertyp+" "+DoubleToStr(OrderLots(),2)+" "+OrderSymbol()+"@"+DoubleToStr(OrderOpenPrice(),5)+", bal: "+DoubleToStr(AccountBalance(),2)+", eq: "+DoubleToStr(AccountEquity(),2)+", "+OrderComment()+"",
                     "Symbol: "+Symbol()+" "+ordertyp+" \n"+
                     "MagicNumber: "+OrderMagicNumber()+" \n"+
                     "Comment: "+OrderComment()+" \n"+
