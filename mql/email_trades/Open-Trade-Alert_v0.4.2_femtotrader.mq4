@@ -17,12 +17,12 @@ extern string Title = "[VPS Mail][AAAFX]";
 extern bool EmailNotification = TRUE;
 extern bool PushNotification = TRUE;
 extern bool AlertNotification = FALSE;
-//extern bool SoundNotification = FALSE;
+//extern bool SoundNotification = TRUE;
 //extern string SoundFilename = "alert.wav";
 
 extern string CommentSymbols = "=== Symbols ===";
 extern bool NotifyOnlyOnChartSymbol = FALSE;
-//extern string NotifySymbolsList = "EURUSD,USDJPY"; // ToDo
+//extern string NotifySymbolsList = "EURUSD,USDJPY"; // ToDo (split, ...)
 
 extern string CommentOpen = "=== Open ===";
 extern bool NotifyOpenBuy = TRUE;
