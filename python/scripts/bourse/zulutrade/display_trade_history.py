@@ -213,6 +213,7 @@ def apply_strategy(new_df, df, SL, TP, mode=None):
 
   #df_profit_pips_cum_max = df_profit_pips_cum.max()
   df_profit_pips_cum_max = new_df['Cumsum Profit (Pips)'].max()
+  #df_profit_pips_cum_max = new_df['Cumsum Profit (Pips)'][0]
 
   print("""SL={0}
 TP={1}
