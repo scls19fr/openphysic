@@ -185,6 +185,9 @@ def apply_strategy(new_df, df, SL, TP, mode=None):
 
     # Apply SL Stop Loss
     new_df['Profit (Pips)']=np.where(b_hit_sl,-SL,new_df['Profit (Pips)'])
+    
+    new_df['Highest Profit (Pips)']=np.where(b_hit_tp,TP,df['Highest Profit (Pips)'])
+    new_df['Worst Drawdown (Pips)']=np.where(b_hit_sl,-SL,df['Worst Drawdown (Pips)'])
 
     
   elif mode=='optimistic':
@@ -233,7 +236,7 @@ df['Duration']=df['Date Close']-df['Date Open']
 
 #print(df.to_string())
 
-#df=df[df['Date Close']<datetime(2011,8,1)]
+df=df[df['Date Close']>datetime(2012,2,1)]
 #df=df[df['Currency']=="GBPUSD"]
 #df=df[df['Profit (Pips)']>100] # filter
 
@@ -276,8 +279,8 @@ ref_df = new_df.copy()
 #print(df)
 
 #mode=None
-mode='optimistic'
-#mode='pessimistic'
+#mode='optimistic'
+mode='pessimistic'
 #1462.5
 
 #SL=20
@@ -301,6 +304,7 @@ TPstep=5.0
 aSL=np.arange(SLmin,SLmax,SLstep)
 aTP=np.arange(TPmin,TPmax,TPstep)
 #aSL,aTP = np.ogrid[SLmin:SLmax:SLstep, TPmin:TPmax:TPstep]
+#aTP.shape=(1, x) #aSL.shape=(8, 1)
 aProfit = np.zeros((aSL.size, aTP.size))
 
 i=0
