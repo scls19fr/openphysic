@@ -94,7 +94,7 @@ def trades_stats(df):
   #Average duration between 2 trades
   do=df['Date Open'].copy()
   do.sort() # trier ordre croissant
-  do2=do.shift() # décaler de 1
+  do2=do.shift() # decaler de 1
   do_diff=do-do2
   do_diff=do_diff.fillna(timedelta(0)) # remplacer NaN par 0
   df_stats['Average duration between 2 trades']=do_diff.sum()/(len(do_diff)-1)
@@ -276,8 +276,8 @@ ref_df = new_df.copy()
 #print(df)
 
 #mode=None
-#mode='optimistic'
-mode='pessimistic'
+mode='optimistic'
+#mode='pessimistic'
 #1462.5
 
 #SL=20
@@ -298,16 +298,17 @@ TPmin=5.
 TPmax=201.
 TPstep=5.0
 
-
-aSL,aTP = np.ogrid[SLmin:SLmax:SLstep, TPmin:TPmax:TPstep]
+aSL=np.arange(SLmin,SLmax,SLstep)
+aTP=np.arange(TPmin,TPmax,TPstep)
+#aSL,aTP = np.ogrid[SLmin:SLmax:SLstep, TPmin:TPmax:TPstep]
 aProfit = np.zeros((aSL.size, aTP.size))
 
 i=0
 j=0
 
-for SL in aSL: # range(SLmin,SLmax;SLstep)
+for SL in aSL: # range(SLmin,SLmax,SLstep)
   j = 0
-  for TP in aTP.transpose(): # range(TPmin,TPmax;TPstep)
+  for TP in aTP.transpose(): # range(TPmin,TPmax,TPstep)
     df_profit_pips_cum_max = apply_strategy(new_df, ref_df, SL, TP, mode)
     #print((i,j))
     aProfit[i,j]=df_profit_pips_cum_max
@@ -322,6 +323,10 @@ print("!!! MAX !!!")
 df_profit_pips_cum_max = apply_strategy(new_df, ref_df, SLmax_profit, TPmax_profit, mode)
 
 plt.imshow(aProfit, origin='lower', extent=[TPmin,TPmax,SLmin,SLmax])
+#cs=plt.contour(aProfit) # contourf
+#cs=plt.contour(np.arange(TPmin,TPmax,TPstep),np.arange(SLmin,SLmax,SLstep),aProfit, colors='k') # contourf
+cs=plt.contour(aTP,aSL,aProfit, colors='k') # contourf
+plt.clabel(cs)
 plt.title("Optimize SL & TP ({0})".format(mode))
 plt.xlabel('Take Profit (TP=x)')
 plt.ylabel('Stop Loss (SL=y)')
