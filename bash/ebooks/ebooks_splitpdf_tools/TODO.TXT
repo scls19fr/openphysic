@@ -1,3 +1,9 @@
-if you can't generate a multipage PDF (for some obscur reason)
+* if you can't generate a multipage PDF (for some obscur reason)
 convert each image file (png, ppm, pbm, jpg) into a pdf and
 use pdfjoin command from pdfjam package
+
+* remove moiré pattern / denoising / smoothing (using G'MIC cli GREYCstoration)
+
+* reduce or remove shadow at spine of the flip pages
+flatten scanned
+book spine shadow
