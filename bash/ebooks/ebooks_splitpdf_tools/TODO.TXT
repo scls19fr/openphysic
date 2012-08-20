@@ -8,4 +8,4 @@ use pdfjoin command from pdfjam package
 book spine shadow
 
 * flatten scanned image
-http://hugin.sourceforge.net/tutorials/scans/en.shtml
+http://hugin.sourceforge.net/tutorials/scans/en.shtml ?
