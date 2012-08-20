@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-srcFilename="John_Perkins_-_Les_confessions_d_un_assassin_financier.pdf"
-destFilename="John_Perkins_-_Les_confessions_d_un_assassin_financier-split.pdf"
+srcFilename="Statistics for Experimenters, 2nd ed, Box, Hunter, Hunter, 2005, cleaned.pdf"
+destFilename="Statistics_for_Experimenters,_2nd_ed,_Box,_Hunter,_Hunter,_2005.pdf"
