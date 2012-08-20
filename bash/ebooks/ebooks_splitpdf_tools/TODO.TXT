@@ -5,5 +5,7 @@ use pdfjoin command from pdfjam package
 * remove moiré pattern / denoising / smoothing (using G'MIC cli GREYCstoration)
 
 * reduce or remove shadow at spine of the flip pages
-flatten scanned
 book spine shadow
+
+* flatten scanned image
+http://hugin.sourceforge.net/tutorials/scans/en.shtml
