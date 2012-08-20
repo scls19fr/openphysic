@@ -1,3 +1,9 @@
 #!/usr/bin/env bash
 
-identify temp/*.jpg
+ext='jpg'
+
+echo "=== List of files with size ==="
+ls -lh "temp/$ext/*.$ext"
+
+echo "=== Indentify ==="
+identify "temp/$ext/*.$ext"
