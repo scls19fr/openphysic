@@ -1,0 +1,3 @@
+if you can't generate a multipage PDF (for some obscur reason)
+convert each image file (png, ppm, pbm, jpg) into a pdf and
+use pdfjoin command from pdfjam package
