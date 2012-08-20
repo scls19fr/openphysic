@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "Converting .pbm to .png"
+echo "Converting .p?m(pbm or ppm) to .jpg"
 for f in temp/pbm/img*.p?m
 do
   fullfilename=$(basename $f)
