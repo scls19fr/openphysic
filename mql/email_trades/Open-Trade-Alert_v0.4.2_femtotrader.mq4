@@ -142,7 +142,7 @@ int start()
     
         string ordertyp;
         double x=OrderOpenPrice(),y=OrderClosePrice(),pips;
-        pips = MathAbs(y - x);
+        pips = y-x; //MathAbs(y - x);
         //pips = pips * 10000; // ToFix for xxxJPY
         double point = PipPoint(OrderSymbol());
         pips = pips/point;
