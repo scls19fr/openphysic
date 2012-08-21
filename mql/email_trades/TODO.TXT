@@ -1,0 +1,10 @@
+Titre
+Mettre le nb de pips et le % de min(balance;equity) dans le titre
+(au lieu du montant)
+
+Contenu du message
+mettre account number
+
+Comment (affichage sur graph)
+Rappel des paramètres
+(mode debug ?)
