@@ -43,7 +43,7 @@ int start()
       int i;
       while (!FileIsEnding(handle)) {
          Type = StrToInteger(FileReadString(handle));
-         _Symbol = StrToSymbol(FileReadString(handle));
+         _Symbol = FileReadString(handle);
          Lots = StrToDouble(FileReadString(handle));
          DateOpen = StrToTime(FileReadString(handle));
          PriceOpen = StrToDouble(FileReadString(handle));
@@ -83,8 +83,3 @@ int start()
    return(0);
   }
 //+------------------------------------------------------------------+
-
-  string StrToSymbol(string str) {
-      return(StringSubstr(str,0,3)+StringSubstr(str,4,3));
-  }
-
