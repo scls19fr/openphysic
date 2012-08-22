@@ -20,9 +20,14 @@ def conv_strBuySell_to_int(x):
     return(0)
 
 trade_history_filename_full = 'files/Trade_History_Full.csv'
+
 trade_history_filename_symbols_list = 'files/Trade_History_out_Symbols_List.txt'
+
 trade_history_filename_out_clean = 'files/Trade_History_out_clean.csv'
 trade_history_filename_out_model = "files/Trade_History_out_{symbol}.csv"
+
+trade_history_filename_out_code_all_symbols = 'include/Trade_History_out_code_all_symbols.mqh'
+trade_history_filename_out_code_symbol_model = "include/Trade_History_out_code_{symbol}.mqh"
 
 df = pd.read_csv(trade_history_filename_full, converters={'Type': conv_strBuySell_to_int, 'Date Open': conv_str_to_datetime, 'Date Close': conv_str_to_datetime, 'Currency': conv_str_to_pair})
 
@@ -52,6 +57,7 @@ df = df.reindex_axis(['Type', 'Symbol', 'Lots', 'DateOpen', 'PriceOpen', 'DateCl
 #df = df.sort(axis=0, ascending=False)
 df = df.sort(columns='DateOpen')
 
+"""
 print("="*4+" Generating file {0} ".format(trade_history_filename_out_clean)+"="*4)
 df.to_csv(trade_history_filename_out_clean, index=False)
 
@@ -74,3 +80,47 @@ for symbol in symbols:
   df_out = df[df['Symbol']==symbol] # only one symbol
   print(df_out)
   df_out.to_csv(trade_history_filename_out, index=False)
+"""
+
+symbol = 'EURUSD'
+trade_history_filename_out_code_symbol = trade_history_filename_out_code_symbol_model.format(symbol=symbol)
+f = open(trade_history_filename_out_code_symbol, 'w')
+print("="*4+" Generating file {0} ".format(trade_history_filename_out_code_symbol)+"="*4)
+df_out = df[df['Symbol']==symbol] # only one symbol
+print(df_out)
+
+code = """//+------------------------------------------------------------------+
+//|{filename}
+//|                                 Copyright (c) 2012, Femto Trader |
+//|                        http://sites.google.com/site/femtotrader/ |
+//+------------------------------------------------------------------+
+#property copyright "Copyright (c) 2012, Femto Trader"
+#property link      "http://sites.google.com/site/femtotrader/"
+
+int NbOrdersInFile = {NbOrdersInFile};
+
+int aType[{NbOrdersInFile}];
+string aSymbol[{NbOrdersInFile}];
+double aLots[{NbOrdersInFile}];
+datetime aDateOpen[{NbOrdersInFile}];
+double aPriceOpen[{NbOrdersInFile}];
+datetime aDateClose[{NbOrdersInFile}];
+double aPriceClose[{NbOrdersInFile}];
+""".format(filename=trade_history_filename_out_code_symbol, NbOrdersInFile=len(df_out))
+code = code + '\n';
+
+for i in range(len(df_out)):
+  index =  df_out.index[i]
+  code = code + '\n// ' + '='*10 + ' {0} ===== {1} '.format(i, index) + '='*10 + '\n'
+  code = code + "{var}[{tab_index}] = {value};\n".format(var='aType', tab_index=i, value=0) #df_out.get_value(index,1)
+  code = code + "{var}[{tab_index}] = {value};\n".format(var='aSymbol', tab_index=i, value=0)
+  code = code + "{var}[{tab_index}] = {value};\n".format(var='aLots', tab_index=i, value=0)
+  code = code + "{var}[{tab_index}] = D'{value}';\n".format(var='aDateOpen', tab_index=i, value=0) # D'1980.07.19 12:30:27' strf
+  code = code + "{var}[{tab_index}] = {value};\n".format(var='aPriceOpen', tab_index=i, value=0)
+  code = code + "{var}[{tab_index}] = D'{value}';\n".format(var='aDateClose', tab_index=i, value=0)
+  code = code + "{var}[{tab_index}] = {value};\n".format(var='aPriceClose', tab_index=i, value=0)
+
+print(code)
+
+f.write(code)
+f.close()
