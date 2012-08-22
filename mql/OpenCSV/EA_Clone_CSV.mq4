@@ -171,7 +171,12 @@ void display_comments() {
    string msg;
    
    msg = "Start ("+NbOrdersInFile+" orders in file)";
-   msg = msg + "\n" + "Trade history = " + i_tr; 
+   msg = msg + "\n" + "Next trade #" + get_str_trade(i_tr);
+   //msg = msg + "\n" + "Trade history = " + i_tr;
    
    Comment(msg);
+}
+
+string get_str_trade(int i) {
+   return(i + " " + "OPEN "+aType[i]+" "+aSymbol[i]+" "+TimeToStr(aDateOpen[i])+"@"+aPriceOpen[i]+" CLOSE "+TimeToStr(aDateClose[i])+"@"+aPriceClose[i]);
 }
