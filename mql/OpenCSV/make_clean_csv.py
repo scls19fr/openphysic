@@ -31,8 +31,6 @@ Provider Ticket,Broker Ticket,Type,Currency,Standard Lots,Date Open,Date Close,P
 # take only useful columns
 df = df[['Type', 'Currency', 'Standard Lots', 'Date Open', 'Date Close', 'Price Open', 'Price Close']]
 
-# sort DateOpen ascending
-df = df.sort(axis=0, ascending=False)
 
 print(df)
 
@@ -48,6 +46,11 @@ df = df.rename(columns={'Type': 'Type',
 
 # reorder cols
 df = df.reindex_axis(['Type', 'Symbol', 'Lots', 'DateOpen', 'PriceOpen', 'DateClose', 'PriceClose'], axis=1)
+
+# sort DateOpen ascending
+#df = df.sort(axis=0, ascending=False)
+df = df.sort(columns='DateOpen')
+
 
 print(df)
 
