@@ -9,6 +9,8 @@
 extern string filename = "Trade_History_out_EURUSD.csv";
 //extern int MaxOrders = 500;
 
+extern int time_offset = 0;
+
 #define MaxOrders 500
 
 #define MY_SHORTNAME "EA_Clone_CSV"
@@ -82,9 +84,9 @@ int init()
             aType[i] = Type;
             aSymbol[i] = _Symbol;
             aLots[i] = Lots;
-            aDateOpen[i] = DateOpen;
+            aDateOpen[i] = DateOpen + time_offset*3600;
             aPriceOpen[i] = PriceOpen;
-            aDateClose[i] = DateClose;
+            aDateClose[i] = DateClose + time_offset*3600;
             aPriceClose[i] = PriceClose;
 
             //Print(i + " " + "OPEN "+Type+" "+_Symbol+" "+TimeToStr(DateOpen)+"@"+PriceOpen+" CLOSE "+TimeToStr(DateClose)+"@"+PriceClose);
@@ -173,6 +175,7 @@ void display_comments() {
    msg = "Start ("+NbOrdersInFile+" orders in file)";
    msg = msg + "\n" + "Next trade #" + get_str_trade(i_tr);
    //msg = msg + "\n" + "Trade history = " + i_tr;
+   msg = msg + "\n" + "TimeCurrent=" + TimeToStr(TimeCurrent(),TIME_DATE|TIME_SECONDS);
    
    Comment(msg);
 }
