@@ -111,14 +111,22 @@ code = code + '\n';
 
 for i in range(len(df_out)):
   index =  df_out.index[i]
+  print(df_out.get_value(index, 'Type'))
   code = code + '\n// ' + '='*10 + ' {0} ===== {1} '.format(i, index) + '='*10 + '\n'
-  code = code + "{var}[{tab_index}] = {value};\n".format(var='aType', tab_index=i, value=0) #df_out.get_value(index,1)
-  code = code + "{var}[{tab_index}] = {value};\n".format(var='aSymbol', tab_index=i, value=0)
-  code = code + "{var}[{tab_index}] = {value};\n".format(var='aLots', tab_index=i, value=0)
-  code = code + "{var}[{tab_index}] = D'{value}';\n".format(var='aDateOpen', tab_index=i, value=0) # D'1980.07.19 12:30:27' strf
-  code = code + "{var}[{tab_index}] = {value};\n".format(var='aPriceOpen', tab_index=i, value=0)
-  code = code + "{var}[{tab_index}] = D'{value}';\n".format(var='aDateClose', tab_index=i, value=0)
-  code = code + "{var}[{tab_index}] = {value};\n".format(var='aPriceClose', tab_index=i, value=0)
+  
+  if df_out.get_value(index, 'Type')==1:
+    code = code + "{var}[{tab_index}] = {value};\n".format(var='aType', tab_index=i, value='OP_BUY')
+  elif df_out.get_value(index, 'Type')==-1:
+    code = code + "{var}[{tab_index}] = {value};\n".format(var='aType', tab_index=i, value='OP_SELL')
+  
+  code = code + '{var}[{tab_index}] = "{value}";\n'.format(var='aSymbol', tab_index=i, value=df_out.get_value(index, 'Symbol'))
+  code = code + "{var}[{tab_index}] = {value};\n".format(var='aLots', tab_index=i, value=df_out.get_value(index, 'Lots'))
+  #code = code + "{var}[{tab_index}] = D'{value}';\n".format(var='aDateOpen', tab_index=i, value=df_out.get_value(index, 'DateOpen')) # D'1980.07.19 12:30:27'
+  code = code + "{var}[{tab_index}] = D'{value}';\n".format(var='aDateOpen', tab_index=i, value=df_out.get_value(index, 'DateOpen').strftime("%Y.%m.%d %H:%M:%S"))
+  code = code + "{var}[{tab_index}] = {value};\n".format(var='aPriceOpen', tab_index=i, value=df_out.get_value(index, 'PriceOpen'))
+  #code = code + "{var}[{tab_index}] = D'{value}';\n".format(var='aDateClose', tab_index=i, value=df_out.get_value(index, 'DateClose'))
+  code = code + "{var}[{tab_index}] = D'{value}';\n".format(var='aDateOpen', tab_index=i, value=df_out.get_value(index, 'DateClose').strftime("%Y.%m.%d %H:%M:%S"))
+  code = code + "{var}[{tab_index}] = {value};\n".format(var='aPriceClose', tab_index=i, value=df_out.get_value(index, 'PriceClose'))
 
 print(code)
 
