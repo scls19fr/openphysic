@@ -52,6 +52,8 @@ df = df.reindex_axis(['Type', 'Symbol', 'Lots', 'DateOpen', 'PriceOpen', 'DateCl
 #df = df.sort(axis=0, ascending=False)
 df = df.sort(columns='DateOpen')
 
+print("="*4+" Generating file {0} ".format(trade_history_filename_out_clean)+"="*4)
+df.to_csv(trade_history_filename_out_clean, index=False)
 
 print(df)
 
@@ -70,5 +72,5 @@ for symbol in symbols:
   trade_history_filename_out = trade_history_filename_out_model.format(symbol=symbol)
   print("="*4+" Generating file {0} ".format(trade_history_filename_out)+"="*4)
   df_out = df[df['Symbol']==symbol] # only one symbol
-
+  print(df_out)
   df_out.to_csv(trade_history_filename_out, index=False)
