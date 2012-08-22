@@ -36,6 +36,9 @@ df.rename(columns={'Type': 'Type',
  'Price Close': 'PriceClose'
 }, copy=False)
 """ 
+
+# reorder cols
+
 print(df)
 
 # list of symbols
