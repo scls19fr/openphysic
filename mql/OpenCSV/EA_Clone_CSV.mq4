@@ -28,6 +28,8 @@ int NbOrdersInFile;
 
 int i_tr; // trade index
 
+datetime t, t0, t1;
+
 //+------------------------------------------------------------------+
 //| expert initialization function                                   |
 //+------------------------------------------------------------------+
@@ -139,6 +141,7 @@ int start()
   {
 //----
 
+//while(true) {
      manage_trades_to_open();
      
      manage_trades_to_close();
@@ -146,17 +149,28 @@ int start()
      //manage_opened_trades();
      
      display_comments();
-   
+//}   
 //----
    return(0);
   }
 //+------------------------------------------------------------------+
 
 int manage_trades_to_open() {
-//   if (true) {
-//      i_tr = i_tr + 1;
-//   }
+   t0 = Time[0];
+   t1 = Time[0]+Period()*60;
+   //t = TimeCurrent();
 
+   while(t<t0 && i_tr<NbOrdersInFile) {
+      t = aDateOpen[i_tr];
+      if (t<=t0) {
+         i_tr = i_tr + 1;
+      } else if (t>=t0 && t<t1) {
+         Print("Open "+TimeToStr(TimeCurrent()));
+      } else { // t>=t1
+         //
+      }   
+   }
+//}
 }
 
 int manage_trades_to_close() {
@@ -175,11 +189,19 @@ void display_comments() {
    msg = "Start ("+NbOrdersInFile+" orders in file)";
    msg = msg + "\n" + "Next trade #" + get_str_trade(i_tr);
    //msg = msg + "\n" + "Trade history = " + i_tr;
-   msg = msg + "\n" + "TimeCurrent=" + TimeToStr(TimeCurrent(),TIME_DATE|TIME_SECONDS);
+   msg = msg + "\n" + "TimeCurrent=" + TimeToStr(t,TIME_DATE|TIME_SECONDS);
    
+   
+   msg = msg + "\n" + "t0=" + TimeToStr(t0);
+   msg = msg + "\n" + "t1=" + TimeToStr(t1);
+      
    Comment(msg);
 }
 
 string get_str_trade(int i) {
-   return(i + " " + "OPEN "+aType[i]+" "+aSymbol[i]+" "+TimeToStr(aDateOpen[i])+"@"+aPriceOpen[i]+" CLOSE "+TimeToStr(aDateClose[i])+"@"+aPriceClose[i]);
+   if (i<NbOrdersInFile) {
+      return(i + " " + "OPEN "+aType[i]+" "+aSymbol[i]+" "+TimeToStr(aDateOpen[i])+"@"+aPriceOpen[i]+" CLOSE "+TimeToStr(aDateClose[i])+"@"+aPriceClose[i]);
+   } else {
+      return("No trade to manage");
+   }   
 }
