@@ -28,6 +28,8 @@ int start()
    double PriceOpen;
    datetime DateClose;
    double PriceClose;
+
+   datetime DateOpen_previous; // = D'1980.01.01 00:00';
    
    int handle;
    
@@ -52,7 +54,15 @@ int start()
          if (i==0) {
             // Skip header
          } else {
-            Print("OPEN "+Type+" "+_Symbol+" "+TimeToStr(DateOpen)+"@"+PriceOpen+" CLOSE "+TimeToStr(DateClose)+"@"+PriceClose);          
+            if (i>1) {
+               if (DateOpen<=DateOpen_previous) {
+                  msg = msg + "\n" + "DateOpen must be ascending (use a script to feed me correctly !)";
+                  break;
+               }
+            }
+            Print("OPEN "+Type+" "+_Symbol+" "+TimeToStr(DateOpen)+"@"+PriceOpen+" CLOSE "+TimeToStr(DateClose)+"@"+PriceClose);
+            
+            DateOpen_previous = DateOpen;       
          }
          
          i = i + 1;
