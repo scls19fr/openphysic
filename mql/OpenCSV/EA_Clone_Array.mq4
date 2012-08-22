@@ -127,6 +127,8 @@ void display_comments() {
    
    msg = msg + "\n" + "t0=" + TimeToStr(t0);
    msg = msg + "\n" + "t1=" + TimeToStr(t1);
+   msg = msg + "\n" + "t in [t0;t1[ : " + (t>=t0 && t<t1);
+   msg = msg + "\n" + "TimeCurrent in [t0;t1[ : " + (TimeCurrent()>=t0 && TimeCurrent()<t1);
       
    Comment(msg);
 }
