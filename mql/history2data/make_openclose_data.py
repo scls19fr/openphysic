@@ -139,7 +139,7 @@ def dfHistory2dfOpenClose(df):
   dfClose['Action'] = 'CLOSE'
   #print(dfClose)
 
-  print("="*4+" DataFrame OpenClose "+"="*4)
+  #print("="*4+" DataFrame OpenClose "+"="*4)
   #Generate new DataFrame with OPEN BUY/SELL and CLOSE (sort ascending Date)
   dfOpenClose = pd.concat([dfOpen, dfClose])
   #dfOpenClose = dfOpenClose.sort(columns='Action', ascending=False) # en cas d'egalite, mettre OPEN avant CLOSE
@@ -223,5 +223,15 @@ for symbol in symbols:
 
 
 # PseudoTicket0
-#for symbol in symbols:
-#  df_out = df[df['Symbol']==symbol]
+for symbol in symbols:
+  df_symb = df[df['Symbol']==symbol]
+  df_symb['PseudoTicket'] = np.arange(len(df_symb))
+  dfOpenCloseSymb = dfHistory2dfOpenClose(df_symb)
+
+  filename = 'files/Trade_History_out_OpenClose0_{symbol}.csv'.format(symbol=symbol)
+  print("="*4+" Generating CSV file {0} ".format(filename)+"="*4)
+  dfOpenCloseSymb.to_csv(filename, index=False)
+
+  filename = 'include/Trade_History_out_OpenClose0_{symbol}.mqh'.format(symbol=symbol)
+  print("="*4+" Generating MQL file {0} ".format(filename)+"="*4)
+  generate_mql_code_openclose(dfOpenCloseSymb, filename)
