@@ -55,7 +55,7 @@ df = df.rename(columns={'Type': 'Type',
 
 # sort DateOpen ascending
 #df = df.sort(axis=0, ascending=False)
-df = df.sort(columns='DateOpen')
+#df = df.sort(columns='DateOpen')
 
 # list of symbols
 symbols = df['Symbol'].unique()
@@ -67,7 +67,8 @@ print("="*4+" DataFrame "+"="*4)
 #print(df)
 
 print("="*4+" DataFrame Open "+"="*4)
-dfOpen = df[['Type', 'Symbol', 'Lots', 'DateOpen', 'PriceOpen']]
+dfOpen = df.copy()
+dfOpen = dfOpen[['Type', 'Symbol', 'Lots', 'DateOpen', 'PriceOpen', 'PseudoTicket']]
 dfOpen['Action'] = 'OPEN'
 dfOpen = dfOpen.rename(columns={
   'DateOpen': 'Date',
@@ -79,23 +80,26 @@ dfOpen = dfOpen.rename(columns={
 #print(df)
 
 print("="*4+" DataFrame Close "+"="*4)
-dfClose = df[['Type', 'Symbol', 'Lots', 'DateClose', 'PriceClose']]
+dfClose = df.copy()
+dfClose = dfClose[['Type', 'Symbol', 'Lots', 'DateClose', 'PriceClose', 'PseudoTicket']]
 dfClose['Action'] = 'CLOSE'
-dfOpen = dfOpen.rename(columns={
+dfClose = dfOpen.rename(columns={
   'DateClose': 'Date',
   'PriceClose': 'Price'
 })
 #print(dfClose)
 
+print("="*4+" DataFrame OpenClose "+"="*4)
 #Generate new DataFrame with OPEN BUY/SELL and CLOSE (sort ascending Date)
+dfOpenClose = pd.concat([dfOpen, dfClose])
+dfOpenClose = dfOpenClose.sort(columns='Date')
 
-#dfOpenClose = dfOpenClose.sort(columns='Date')
-
+#print(dfOpenClose)
 
 #
 df.to_csv('files/df.csv', index=False)
 dfOpen.to_csv('files/dfOpen.csv', index=False)
 dfClose.to_csv('files/dfClose.csv', index=False)
-#dfOpenClose.to_csv('files/dfOpenClose.csv', index=False)
+dfOpenClose.to_csv('files/dfOpenClose.csv', index=False)
 
 #print(df)
