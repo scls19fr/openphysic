@@ -8,7 +8,7 @@
 
 #define OBJ_PREFIX "OBJ_DrawHistoryArray_"
 
-#include "../include/Trade_History_out_code_EURUSD.mqh"
+#include "../include/Trade_History_out_History_EURUSD.mqh"
 
 //+------------------------------------------------------------------+
 //| script program start function                                    |
