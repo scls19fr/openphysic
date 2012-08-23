@@ -68,21 +68,23 @@ int time_offset = 3;
     #print(df.get_value(index, 'Type'))
     code = code + '\n   // ' + '='*10 + ' {0} ===== {1} '.format(i, index) + '='*10 + '\n'
   
-    """
-    if df.get_value(index, 'Type')=='BUY':
+    code = code + '   {var}[{tab_index}] = {value};\n'.format(var='aPseudoTicket', tab_index=i, value=df.irow(i)['PseudoTicket'])
+
+    if df.irow(i)['Action']=='OPEN':
+      code = code + '   {var}[{tab_index}] = {value};\n'.format(var='aAction', tab_index=i, value=1)
+    elif df.irow(i)['Action']=='CLOSE':
+      code = code + '   {var}[{tab_index}] = {value};\n'.format(var='aAction', tab_index=i, value=0)
+
+    if df.irow(i)['Type']=='BUY':
       code = code + "   {var}[{tab_index}] = {value};\n".format(var='aType', tab_index=i, value='OP_BUY')
-    elif df.get_value(index, 'Type')=='SELL':
+    elif df.irow(i)['Type']=='SELL':
       code = code + "   {var}[{tab_index}] = {value};\n".format(var='aType', tab_index=i, value='OP_SELL')
-  
-    code = code + '   {var}[{tab_index}] = "{value}";\n'.format(var='aSymbol', tab_index=i, value=df.get_value(index, 'Symbol'))
-    code = code + "   {var}[{tab_index}] = {value};\n".format(var='aLots', tab_index=i, value=df.get_value(index, 'Lots'))
-    #code = code + "   {var}[{tab_index}] = D'{value}';\n".format(var='aDateOpen', tab_index=i, value=df.get_value(index, 'DateOpen')) # D'1980.07.19 12:30:27'
-    code = code + "   {var}[{tab_index}] = D'{value}'+time_offset*3600;\n".format(var='aDateOpen', tab_index=i, value=df.get_value(index, 'DateOpen').strftime("%Y.%m.%d %H:%M:%S"))
-    code = code + "   {var}[{tab_index}] = {value};\n".format(var='aPriceOpen', tab_index=i, value=df.get_value(index, 'PriceOpen'))
-    #code = code + "   {var}[{tab_index}] = D'{value}';\n".format(var='aDateClose', tab_index=i, value=df.get_value(index, 'DateClose'))
-    code = code + "   {var}[{tab_index}] = D'{value}'+time_offset*3600;\n".format(var='aDateClose', tab_index=i, value=df.get_value(index, 'DateClose').strftime("%Y.%m.%d %H:%M:%S"))
-    code = code + "   {var}[{tab_index}] = {value};\n".format(var='aPriceClose', tab_index=i, value=df.get_value(index, 'PriceClose'))
-    """
+    
+
+    code = code + '   {var}[{tab_index}] = "{value}";\n'.format(var='aSymbol', tab_index=i, value=df.irow(i)['Symbol'])
+    code = code + "   {var}[{tab_index}] = {value};\n".format(var='aLots', tab_index=i, value=df.irow(i)['Lots'])
+    code = code + "   {var}[{tab_index}] = D'{value}'+time_offset*3600;\n".format(var='aDate', tab_index=i, value=df.irow(i)['Date'].strftime("%Y.%m.%d %H:%M:%S"))
+    code = code + "   {var}[{tab_index}] = {value};\n".format(var='aPrice', tab_index=i, value=df.irow(i)['Price'])
 
   code = code + '}\n'
   
@@ -170,8 +172,8 @@ dfOpenClose = dfOpenClose.reindex_axis(['PseudoTicket', 'Action', 'Type', 'Symbo
 #df.to_csv('files/df.csv', index=False)
 #dfOpen.to_csv('files/dfOpen.csv', index=False)
 #dfClose.to_csv('files/dfClose.csv', index=False)
-dfOpenClose.to_csv('files/dfOpenClose.csv', index=True)
+dfOpenClose.to_csv('files/Trade_History_out_OpenClose_all_symbols.csv', index=True)
 
 #print(df)
 
-print(dfOpenClose2mql(dfOpenClose, 'include/OpenClose.mql'))
+print(dfOpenClose2mql(dfOpenClose, 'include/Trade_History_out_OpenClose_all_symbols.mql'))
