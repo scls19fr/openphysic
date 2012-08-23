@@ -72,9 +72,6 @@ int init()
     dt = Time[0];
     //oldtemp = 0;
     oldtemp = OrdersTotal(); // modif by if loaded with opened trades
-
-    strTitle = Title + "[" + AccountNumber() + "]" + " ";
-
 }
 
 //+------------------------------------------------------------------+
@@ -138,6 +135,7 @@ int start()
     Comment(msg);
 
     if (oldtemp != temp && ret) { // to be fixed (oldtemp!=temp) oldtemp<temp  && ret
+        strTitle = Title + "[" + AccountNumber() + "]" + " ";
         //SendNotifications("New event","New event");
     
         string ordertyp;
