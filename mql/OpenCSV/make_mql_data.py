@@ -19,6 +19,59 @@ def conv_strBuySell_to_int(x):
   else:
     return(0)
 
+def generate_mql_code(df_out, filename):
+  f = open(filename, 'w')
+
+  code = """//+------------------------------------------------------------------+
+//|{filename}
+//|                                 Copyright (c) 2012, Femto Trader |
+//|                        http://sites.google.com/site/femtotrader/ |
+//+------------------------------------------------------------------+
+#property copyright "Copyright (c) 2012, Femto Trader"
+#property link      "http://sites.google.com/site/femtotrader/"
+
+int NbOrdersInFile = {NbOrdersInFile};
+
+int aType[{NbOrdersInFile}];
+string aSymbol[{NbOrdersInFile}];
+double aLots[{NbOrdersInFile}];
+datetime aDateOpen[{NbOrdersInFile}];
+double aPriceOpen[{NbOrdersInFile}];
+datetime aDateClose[{NbOrdersInFile}];
+double aPriceClose[{NbOrdersInFile}];
+
+int time_offset = 3;
+""".format(filename=filename, NbOrdersInFile=len(df_out))
+  code = code + '\n';
+
+  code = code + 'void init_tab() {\n';
+
+  for i in range(len(df_out)):
+    index =  df_out.index[i]
+    #print(df_out.get_value(index, 'Type'))
+    code = code + '\n   // ' + '='*10 + ' {0} ===== {1} '.format(i, index) + '='*10 + '\n'
+  
+    if df_out.get_value(index, 'Type')==1:
+      code = code + "   {var}[{tab_index}] = {value};\n".format(var='aType', tab_index=i, value='OP_BUY')
+    elif df_out.get_value(index, 'Type')==-1:
+      code = code + "   {var}[{tab_index}] = {value};\n".format(var='aType', tab_index=i, value='OP_SELL')
+  
+    code = code + '   {var}[{tab_index}] = "{value}";\n'.format(var='aSymbol', tab_index=i, value=df_out.get_value(index, 'Symbol'))
+    code = code + "   {var}[{tab_index}] = {value};\n".format(var='aLots', tab_index=i, value=df_out.get_value(index, 'Lots'))
+    #code = code + "   {var}[{tab_index}] = D'{value}';\n".format(var='aDateOpen', tab_index=i, value=df_out.get_value(index, 'DateOpen')) # D'1980.07.19 12:30:27'
+    code = code + "   {var}[{tab_index}] = D'{value}'+time_offset*3600;\n".format(var='aDateOpen', tab_index=i, value=df_out.get_value(index, 'DateOpen').strftime("%Y.%m.%d %H:%M:%S"))
+    code = code + "   {var}[{tab_index}] = {value};\n".format(var='aPriceOpen', tab_index=i, value=df_out.get_value(index, 'PriceOpen'))
+    #code = code + "   {var}[{tab_index}] = D'{value}';\n".format(var='aDateClose', tab_index=i, value=df_out.get_value(index, 'DateClose'))
+    code = code + "   {var}[{tab_index}] = D'{value}'+time_offset*3600;\n".format(var='aDateClose', tab_index=i, value=df_out.get_value(index, 'DateClose').strftime("%Y.%m.%d %H:%M:%S"))
+    code = code + "   {var}[{tab_index}] = {value};\n".format(var='aPriceClose', tab_index=i, value=df_out.get_value(index, 'PriceClose'))
+
+  code = code + '}\n'
+
+  #print(code)
+
+  f.write(code)
+  f.close()
+
 trade_history_filename_full = 'files/Trade_History_Full.csv'
 
 trade_history_filename_symbols_list = 'files/Trade_History_out_Symbols_List.txt'
@@ -38,7 +91,7 @@ Provider Ticket,Broker Ticket,Type,Currency,Standard Lots,Date Open,Date Close,P
 df = df[['Type', 'Currency', 'Standard Lots', 'Date Open', 'Date Close', 'Price Open', 'Price Close']]
 
 
-print(df)
+#print(df)
 
 # rename cols
 df = df.rename(columns={'Type': 'Type',
@@ -57,12 +110,6 @@ df = df.reindex_axis(['Type', 'Symbol', 'Lots', 'DateOpen', 'PriceOpen', 'DateCl
 #df = df.sort(axis=0, ascending=False)
 df = df.sort(columns='DateOpen')
 
-"""
-print("="*4+" Generating file {0} ".format(trade_history_filename_out_clean)+"="*4)
-df.to_csv(trade_history_filename_out_clean, index=False)
-
-print(df)
-
 # list of symbols
 symbols = df['Symbol'].unique()
 
@@ -72,69 +119,26 @@ for symbol in symbols:
   f_sl.write("{0}\n".format(symbol))
 f_sl.close()
 
-# for each symbol write a CSV file of trade
+
+print("="*4+" Generating CSV file {0} ".format(trade_history_filename_out_clean)+"="*4)
+df.to_csv(trade_history_filename_out_clean, index=False)
+#print(df)
+print("="*4+" Generating MQL file {0} ".format(trade_history_filename_out_code_all_symbols)+"="*4)
+generate_mql_code(df, trade_history_filename_out_code_all_symbols)
+
 for symbol in symbols:
   #symbol = 'EURUSD'
-  trade_history_filename_out = trade_history_filename_out_model.format(symbol=symbol)
-  print("="*4+" Generating file {0} ".format(trade_history_filename_out)+"="*4)
   df_out = df[df['Symbol']==symbol] # only one symbol
-  print(df_out)
+
+  # for each symbol write a CSV file of trade
+  trade_history_filename_out = trade_history_filename_out_model.format(symbol=symbol)
+  print("="*4+" Generating CSV file {0} ".format(trade_history_filename_out)+"="*4)
+  df_out = df[df['Symbol']==symbol] # only one symbol
+  #print(df_out)
   df_out.to_csv(trade_history_filename_out, index=False)
-"""
 
-symbol = 'EURUSD'
-trade_history_filename_out_code_symbol = trade_history_filename_out_code_symbol_model.format(symbol=symbol)
-f = open(trade_history_filename_out_code_symbol, 'w')
-print("="*4+" Generating file {0} ".format(trade_history_filename_out_code_symbol)+"="*4)
-df_out = df[df['Symbol']==symbol] # only one symbol
-print(df_out)
-
-code = """//+------------------------------------------------------------------+
-//|{filename}
-//|                                 Copyright (c) 2012, Femto Trader |
-//|                        http://sites.google.com/site/femtotrader/ |
-//+------------------------------------------------------------------+
-#property copyright "Copyright (c) 2012, Femto Trader"
-#property link      "http://sites.google.com/site/femtotrader/"
-
-int NbOrdersInFile = {NbOrdersInFile};
-
-int aType[{NbOrdersInFile}];
-string aSymbol[{NbOrdersInFile}];
-double aLots[{NbOrdersInFile}];
-datetime aDateOpen[{NbOrdersInFile}];
-double aPriceOpen[{NbOrdersInFile}];
-datetime aDateClose[{NbOrdersInFile}];
-double aPriceClose[{NbOrdersInFile}];
-
-int time_offset = 3;
-""".format(filename=trade_history_filename_out_code_symbol, NbOrdersInFile=len(df_out))
-code = code + '\n';
-
-code = code + 'void init_tab() {\n';
-
-for i in range(len(df_out)):
-  index =  df_out.index[i]
-  print(df_out.get_value(index, 'Type'))
-  code = code + '\n   // ' + '='*10 + ' {0} ===== {1} '.format(i, index) + '='*10 + '\n'
-  
-  if df_out.get_value(index, 'Type')==1:
-    code = code + "   {var}[{tab_index}] = {value};\n".format(var='aType', tab_index=i, value='OP_BUY')
-  elif df_out.get_value(index, 'Type')==-1:
-    code = code + "   {var}[{tab_index}] = {value};\n".format(var='aType', tab_index=i, value='OP_SELL')
-  
-  code = code + '   {var}[{tab_index}] = "{value}";\n'.format(var='aSymbol', tab_index=i, value=df_out.get_value(index, 'Symbol'))
-  code = code + "   {var}[{tab_index}] = {value};\n".format(var='aLots', tab_index=i, value=df_out.get_value(index, 'Lots'))
-  #code = code + "   {var}[{tab_index}] = D'{value}';\n".format(var='aDateOpen', tab_index=i, value=df_out.get_value(index, 'DateOpen')) # D'1980.07.19 12:30:27'
-  code = code + "   {var}[{tab_index}] = D'{value}'+time_offset*3600;\n".format(var='aDateOpen', tab_index=i, value=df_out.get_value(index, 'DateOpen').strftime("%Y.%m.%d %H:%M:%S"))
-  code = code + "   {var}[{tab_index}] = {value};\n".format(var='aPriceOpen', tab_index=i, value=df_out.get_value(index, 'PriceOpen'))
-  #code = code + "   {var}[{tab_index}] = D'{value}';\n".format(var='aDateClose', tab_index=i, value=df_out.get_value(index, 'DateClose'))
-  code = code + "   {var}[{tab_index}] = D'{value}'+time_offset*3600;\n".format(var='aDateClose', tab_index=i, value=df_out.get_value(index, 'DateClose').strftime("%Y.%m.%d %H:%M:%S"))
-  code = code + "   {var}[{tab_index}] = {value};\n".format(var='aPriceClose', tab_index=i, value=df_out.get_value(index, 'PriceClose'))
-
-code = code + '}\n'
-
-print(code)
-
-f.write(code)
-f.close()
+  # for each symbol write a MQL file of trade
+  trade_history_filename_out_code_symbol = trade_history_filename_out_code_symbol_model.format(symbol=symbol)
+  print("="*4+" Generating MQL file {0} ".format(trade_history_filename_out_code_symbol)+"="*4)
+  #print(df_out)
+  generate_mql_code(df_out, trade_history_filename_out_code_symbol)
