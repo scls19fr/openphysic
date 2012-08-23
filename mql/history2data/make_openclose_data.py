@@ -81,14 +81,14 @@ int time_offset = 3;
     code = code + '   {var}[{tab_index}] = {value};\n'.format(var='aPseudoTicket', tab_index=i, value=df.irow(i)['PseudoTicket'])
 
     if df.irow(i)['Action']=='OPEN':
-      code = code + '   {var}[{tab_index}] = {value};\n'.format(var='aAction', tab_index=i, value=1)
+      code = code + '   {var}[{tab_index}] = {value}; // OPEN\n'.format(var='aAction', tab_index=i, value=1)
     elif df.irow(i)['Action']=='CLOSE':
-      code = code + '   {var}[{tab_index}] = {value};\n'.format(var='aAction', tab_index=i, value=0)
+      code = code + '   {var}[{tab_index}] = {value}; // CLOSE\n'.format(var='aAction', tab_index=i, value=0)
 
     if df.irow(i)['Type']=='BUY':
-      code = code + "   {var}[{tab_index}] = {value};\n".format(var='aType', tab_index=i, value='OP_BUY')
+      code = code + "   {var}[{tab_index}] = {value}; // BUY\n".format(var='aType', tab_index=i, value='OP_BUY')
     elif df.irow(i)['Type']=='SELL':
-      code = code + "   {var}[{tab_index}] = {value};\n".format(var='aType', tab_index=i, value='OP_SELL')
+      code = code + "   {var}[{tab_index}] = {value}; // SELL\n".format(var='aType', tab_index=i, value='OP_SELL')
     
 
     code = code + '   {var}[{tab_index}] = "{value}";\n'.format(var='aSymbol', tab_index=i, value=df.irow(i)['Symbol'])
@@ -215,7 +215,7 @@ for symbol in symbols:
 
   filename = 'files/Trade_History_out_OpenClose_{symbol}.csv'.format(symbol=symbol)
   print("="*4+" Generating CSV file {0} ".format(filename)+"="*4)
-  df_out.to_csv(filename, index=False)
+  df_out.to_csv(filename, index=True)
 
   filename = 'include/Trade_History_out_OpenClose_{symbol}.mqh'.format(symbol=symbol)
   print("="*4+" Generating MQL file {0} ".format(filename)+"="*4)
@@ -230,7 +230,7 @@ for symbol in symbols:
 
   filename = 'files/Trade_History_out_OpenClose0_{symbol}.csv'.format(symbol=symbol)
   print("="*4+" Generating CSV file {0} ".format(filename)+"="*4)
-  dfOpenCloseSymb.to_csv(filename, index=False)
+  dfOpenCloseSymb.to_csv(filename, index=True)
 
   filename = 'include/Trade_History_out_OpenClose0_{symbol}.mqh'.format(symbol=symbol)
   print("="*4+" Generating MQL file {0} ".format(filename)+"="*4)
