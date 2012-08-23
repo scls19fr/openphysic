@@ -55,25 +55,26 @@ df = df.rename(columns={'Type': 'Type',
 
 # sort DateOpen ascending
 #df = df.sort(axis=0, ascending=False)
-#df = df.sort(columns='DateOpen')
+df = df.sort(columns='DateOpen')
 
 # list of symbols
 symbols = df['Symbol'].unique()
 
 # Add PseudoTicket col
-df['PseudoTicket'] = np.arange(1, len(df)+1)
-
+#df['PseudoTicket'] = np.arange(1, len(df)+1)
+df['PseudoTicket'] = np.arange(len(df),0,-1)
+ 
 print("="*4+" DataFrame "+"="*4)
 #print(df)
 
 print("="*4+" DataFrame Open "+"="*4)
 dfOpen = df.copy()
 dfOpen = dfOpen[['Type', 'Symbol', 'Lots', 'DateOpen', 'PriceOpen', 'PseudoTicket']]
-dfOpen['Action'] = 'OPEN'
 dfOpen = dfOpen.rename(columns={
   'DateOpen': 'Date',
   'PriceOpen': 'Price'
 })
+dfOpen['Action'] = 'OPEN'
 #print(dfOpen)
 
 #print("="*20+" Debug "+"="*20)
@@ -82,17 +83,17 @@ dfOpen = dfOpen.rename(columns={
 print("="*4+" DataFrame Close "+"="*4)
 dfClose = df.copy()
 dfClose = dfClose[['Type', 'Symbol', 'Lots', 'DateClose', 'PriceClose', 'PseudoTicket']]
-dfClose['Action'] = 'CLOSE'
 dfClose = dfOpen.rename(columns={
   'DateClose': 'Date',
   'PriceClose': 'Price'
 })
+dfClose['Action'] = 'CLOSE'
 #print(dfClose)
 
 print("="*4+" DataFrame OpenClose "+"="*4)
 #Generate new DataFrame with OPEN BUY/SELL and CLOSE (sort ascending Date)
 dfOpenClose = pd.concat([dfOpen, dfClose])
-dfOpenClose = dfOpenClose.sort(columns='Date')
+dfOpenClose = dfOpenClose.sort(columns='Date') # ToFix en cas d'égalité, mettre OPEN avant CLOSE
 
 #print(dfOpenClose)
 
