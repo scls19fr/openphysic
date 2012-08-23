@@ -19,9 +19,10 @@ def conv_strBuySell_to_int(x):
   else:
     return(0)
 
-def generate_mql_code(df_out, filename):
-  f = open(filename, 'w')
-
+"""
+Return string
+"""
+def df2mql(df_out, filename):
   code = """//+------------------------------------------------------------------+
 //|{filename}
 //|                                 Copyright (c) 2012, Femto Trader |
@@ -66,7 +67,16 @@ int time_offset = 3;
     code = code + "   {var}[{tab_index}] = {value};\n".format(var='aPriceClose', tab_index=i, value=df_out.get_value(index, 'PriceClose'))
 
   code = code + '}\n'
+  
+  return(code)
+  
+"""
+Write file
+"""
+def generate_mql_code(df_out, filename):
+  f = open(filename, 'w')
 
+  code = df2mql(df_out, filename)
   #print(code)
 
   f.write(code)
