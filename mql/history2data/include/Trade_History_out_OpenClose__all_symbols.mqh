@@ -8,7 +8,7 @@
 
 int NbOrdersInFile = 1682;
 
-int aPseudoTicket[1682];
+//int aPseudoTicket[1682];
 int aAction[1682]; // 1=OPEN 0=CLOSE
 int aType[1682];  // OP_BUY or OP_SELL
 string aSymbol[1682];
@@ -16,14 +16,14 @@ double aLots[1682];
 datetime aDate[1682];
 double aPrice[1682];
 
-int aReturn[1682];
+int aReturn[841];
 
 int time_offset = 3;
 
 void init_tab() {
 
    // ========== 0 ===== 840 ==========
-   aPseudoTicket[0] = 1;
+   //aPseudoTicket[0] = 1;
    aAction[0] = 1; // OPEN
    aReturn[1] = 0;
    aType[0] = OP_BUY; // BUY
@@ -34,7 +34,7 @@ void init_tab() {
    aPrice[0] = 0.96882;
 
    // ========== 1 ===== 840 ==========
-   aPseudoTicket[1] = 1;
+   //aPseudoTicket[1] = 1;
    aAction[1] = 0; // CLOSE
    aType[1] = OP_BUY; // BUY
    aTicket[1] = -1; // Ticket given by broker
@@ -44,7 +44,7 @@ void init_tab() {
    aPrice[1] = 0.97431;
 
    // ========== 2 ===== 838 ==========
-   aPseudoTicket[2] = 2;
+   //aPseudoTicket[2] = 2;
    aAction[2] = 1; // OPEN
    aReturn[2] = 2;
    aType[2] = OP_BUY; // BUY
@@ -55,7 +55,7 @@ void init_tab() {
    aPrice[2] = 0.96953;
 
    // ========== 3 ===== 839 ==========
-   aPseudoTicket[3] = 3;
+   //aPseudoTicket[3] = 3;
    aAction[3] = 1; // OPEN
    aReturn[3] = 3;
    aType[3] = OP_SELL; // SELL
@@ -66,7 +66,7 @@ void init_tab() {
    aPrice[3] = 1.618;
 
    // ========== 4 ===== 839 ==========
-   aPseudoTicket[4] = 3;
+   //aPseudoTicket[4] = 3;
    aAction[4] = 0; // CLOSE
    aType[4] = OP_SELL; // SELL
    aTicket[4] = -1; // Ticket given by broker
@@ -76,7 +76,7 @@ void init_tab() {
    aPrice[4] = 1.623;
 
    // ========== 5 ===== 838 ==========
-   aPseudoTicket[5] = 2;
+   //aPseudoTicket[5] = 2;
    aAction[5] = 0; // CLOSE
    aType[5] = OP_BUY; // BUY
    aTicket[5] = -1; // Ticket given by broker
@@ -86,7 +86,7 @@ void init_tab() {
    aPrice[5] = 0.97854;
 
    // ========== 6 ===== 836 ==========
-   aPseudoTicket[6] = 4;
+   //aPseudoTicket[6] = 4;
    aAction[6] = 1; // OPEN
    aReturn[4] = 6;
    aType[6] = OP_SELL; // SELL
@@ -97,7 +97,7 @@ void init_tab() {
    aPrice[6] = 1.40736;
 
    // ========== 7 ===== 837 ==========
-   aPseudoTicket[7] = 5;
+   //aPseudoTicket[7] = 5;
    aAction[7] = 1; // OPEN
    aReturn[5] = 7;
    aType[7] = OP_BUY; // BUY
@@ -108,7 +108,7 @@ void init_tab() {
    aPrice[7] = 0.97642;
 
    // ========== 8 ===== 837 ==========
-   aPseudoTicket[8] = 5;
+   //aPseudoTicket[8] = 5;
    aAction[8] = 0; // CLOSE
    aType[8] = OP_BUY; // BUY
    aTicket[8] = -1; // Ticket given by broker
@@ -118,7 +118,7 @@ void init_tab() {
    aPrice[8] = 0.98144;
 
    // ========== 9 ===== 836 ==========
-   aPseudoTicket[9] = 4;
+   //aPseudoTicket[9] = 4;
    aAction[9] = 0; // CLOSE
    aType[9] = OP_SELL; // SELL
    aTicket[9] = -1; // Ticket given by broker
@@ -128,7 +128,7 @@ void init_tab() {
    aPrice[9] = 1.40444;
 
    // ========== 10 ===== 835 ==========
-   aPseudoTicket[10] = 6;
+   //aPseudoTicket[10] = 6;
    aAction[10] = 1; // OPEN
    aReturn[6] = 10;
    aType[10] = OP_BUY; // BUY
@@ -139,7 +139,7 @@ void init_tab() {
    aPrice[10] = 0.87688;
 
    // ========== 11 ===== 834 ==========
-   aPseudoTicket[11] = 7;
+   //aPseudoTicket[11] = 7;
    aAction[11] = 1; // OPEN
    aReturn[7] = 11;
    aType[11] = OP_BUY; // BUY
@@ -150,7 +150,7 @@ void init_tab() {
    aPrice[11] = 0.9765;
 
    // ========== 12 ===== 835 ==========
-   aPseudoTicket[12] = 6;
+   //aPseudoTicket[12] = 6;
    aAction[12] = 0; // CLOSE
    aType[12] = OP_BUY; // BUY
    aTicket[12] = -1; // Ticket given by broker
@@ -160,7 +160,7 @@ void init_tab() {
    aPrice[12] = 0.86718;
 
    // ========== 13 ===== 834 ==========
-   aPseudoTicket[13] = 7;
+   //aPseudoTicket[13] = 7;
    aAction[13] = 0; // CLOSE
    aType[13] = OP_BUY; // BUY
    aTicket[13] = -1; // Ticket given by broker
@@ -170,7 +170,7 @@ void init_tab() {
    aPrice[13] = 0.97911;
 
    // ========== 14 ===== 833 ==========
-   aPseudoTicket[14] = 8;
+   //aPseudoTicket[14] = 8;
    aAction[14] = 1; // OPEN
    aReturn[8] = 14;
    aType[14] = OP_BUY; // BUY
@@ -181,7 +181,7 @@ void init_tab() {
    aPrice[14] = 1.636;
 
    // ========== 15 ===== 833 ==========
-   aPseudoTicket[15] = 8;
+   //aPseudoTicket[15] = 8;
    aAction[15] = 0; // CLOSE
    aType[15] = OP_BUY; // BUY
    aTicket[15] = -1; // Ticket given by broker
@@ -191,7 +191,7 @@ void init_tab() {
    aPrice[15] = 1.63707;
 
    // ========== 16 ===== 832 ==========
-   aPseudoTicket[16] = 9;
+   //aPseudoTicket[16] = 9;
    aAction[16] = 1; // OPEN
    aReturn[9] = 16;
    aType[16] = OP_SELL; // SELL
@@ -202,7 +202,7 @@ void init_tab() {
    aPrice[16] = 0.84414;
 
    // ========== 17 ===== 832 ==========
-   aPseudoTicket[17] = 9;
+   //aPseudoTicket[17] = 9;
    aAction[17] = 0; // CLOSE
    aType[17] = OP_SELL; // SELL
    aTicket[17] = -1; // Ticket given by broker
@@ -212,7 +212,7 @@ void init_tab() {
    aPrice[17] = 0.84103;
 
    // ========== 18 ===== 831 ==========
-   aPseudoTicket[18] = 10;
+   //aPseudoTicket[18] = 10;
    aAction[18] = 1; // OPEN
    aReturn[10] = 18;
    aType[18] = OP_SELL; // SELL
@@ -223,7 +223,7 @@ void init_tab() {
    aPrice[18] = 1.45446;
 
    // ========== 19 ===== 831 ==========
-   aPseudoTicket[19] = 10;
+   //aPseudoTicket[19] = 10;
    aAction[19] = 0; // CLOSE
    aType[19] = OP_SELL; // SELL
    aTicket[19] = -1; // Ticket given by broker
@@ -233,7 +233,7 @@ void init_tab() {
    aPrice[19] = 1.45;
 
    // ========== 20 ===== 830 ==========
-   aPseudoTicket[20] = 11;
+   //aPseudoTicket[20] = 11;
    aAction[20] = 1; // OPEN
    aReturn[11] = 20;
    aType[20] = OP_SELL; // SELL
@@ -244,7 +244,7 @@ void init_tab() {
    aPrice[20] = 1.45337;
 
    // ========== 21 ===== 830 ==========
-   aPseudoTicket[21] = 11;
+   //aPseudoTicket[21] = 11;
    aAction[21] = 0; // CLOSE
    aType[21] = OP_SELL; // SELL
    aTicket[21] = -1; // Ticket given by broker
@@ -254,7 +254,7 @@ void init_tab() {
    aPrice[21] = 1.44906;
 
    // ========== 22 ===== 829 ==========
-   aPseudoTicket[22] = 12;
+   //aPseudoTicket[22] = 12;
    aAction[22] = 1; // OPEN
    aReturn[12] = 22;
    aType[22] = OP_SELL; // SELL
@@ -265,7 +265,7 @@ void init_tab() {
    aPrice[22] = 1.63052;
 
    // ========== 23 ===== 829 ==========
-   aPseudoTicket[23] = 12;
+   //aPseudoTicket[23] = 12;
    aAction[23] = 0; // CLOSE
    aType[23] = OP_SELL; // SELL
    aTicket[23] = -1; // Ticket given by broker
@@ -275,7 +275,7 @@ void init_tab() {
    aPrice[23] = 1.62631;
 
    // ========== 24 ===== 828 ==========
-   aPseudoTicket[24] = 13;
+   //aPseudoTicket[24] = 13;
    aAction[24] = 1; // OPEN
    aReturn[13] = 24;
    aType[24] = OP_SELL; // SELL
@@ -286,7 +286,7 @@ void init_tab() {
    aPrice[24] = 1.63242;
 
    // ========== 25 ===== 828 ==========
-   aPseudoTicket[25] = 13;
+   //aPseudoTicket[25] = 13;
    aAction[25] = 0; // CLOSE
    aType[25] = OP_SELL; // SELL
    aTicket[25] = -1; // Ticket given by broker
@@ -296,7 +296,7 @@ void init_tab() {
    aPrice[25] = 1.63785;
 
    // ========== 26 ===== 827 ==========
-   aPseudoTicket[26] = 14;
+   //aPseudoTicket[26] = 14;
    aAction[26] = 1; // OPEN
    aReturn[14] = 26;
    aType[26] = OP_SELL; // SELL
@@ -307,7 +307,7 @@ void init_tab() {
    aPrice[26] = 1.64078;
 
    // ========== 27 ===== 826 ==========
-   aPseudoTicket[27] = 15;
+   //aPseudoTicket[27] = 15;
    aAction[27] = 1; // OPEN
    aReturn[15] = 27;
    aType[27] = OP_SELL; // SELL
@@ -318,7 +318,7 @@ void init_tab() {
    aPrice[27] = 1.44354;
 
    // ========== 28 ===== 827 ==========
-   aPseudoTicket[28] = 14;
+   //aPseudoTicket[28] = 14;
    aAction[28] = 0; // CLOSE
    aType[28] = OP_SELL; // SELL
    aTicket[28] = -1; // Ticket given by broker
@@ -328,7 +328,7 @@ void init_tab() {
    aPrice[28] = 1.63877;
 
    // ========== 29 ===== 826 ==========
-   aPseudoTicket[29] = 15;
+   //aPseudoTicket[29] = 15;
    aAction[29] = 0; // CLOSE
    aType[29] = OP_SELL; // SELL
    aTicket[29] = -1; // Ticket given by broker
@@ -338,7 +338,7 @@ void init_tab() {
    aPrice[29] = 1.44148;
 
    // ========== 30 ===== 825 ==========
-   aPseudoTicket[30] = 16;
+   //aPseudoTicket[30] = 16;
    aAction[30] = 1; // OPEN
    aReturn[16] = 30;
    aType[30] = OP_SELL; // SELL
@@ -349,7 +349,7 @@ void init_tab() {
    aPrice[30] = 1.42035;
 
    // ========== 31 ===== 825 ==========
-   aPseudoTicket[31] = 16;
+   //aPseudoTicket[31] = 16;
    aAction[31] = 0; // CLOSE
    aType[31] = OP_SELL; // SELL
    aTicket[31] = -1; // Ticket given by broker
@@ -359,7 +359,7 @@ void init_tab() {
    aPrice[31] = 1.41487;
 
    // ========== 32 ===== 824 ==========
-   aPseudoTicket[32] = 17;
+   //aPseudoTicket[32] = 17;
    aAction[32] = 1; // OPEN
    aReturn[17] = 32;
    aType[32] = OP_SELL; // SELL
@@ -370,7 +370,7 @@ void init_tab() {
    aPrice[32] = 1.61711;
 
    // ========== 33 ===== 824 ==========
-   aPseudoTicket[33] = 17;
+   //aPseudoTicket[33] = 17;
    aAction[33] = 0; // CLOSE
    aType[33] = OP_SELL; // SELL
    aTicket[33] = -1; // Ticket given by broker
@@ -380,7 +380,7 @@ void init_tab() {
    aPrice[33] = 1.61584;
 
    // ========== 34 ===== 823 ==========
-   aPseudoTicket[34] = 18;
+   //aPseudoTicket[34] = 18;
    aAction[34] = 1; // OPEN
    aReturn[18] = 34;
    aType[34] = OP_BUY; // BUY
@@ -391,7 +391,7 @@ void init_tab() {
    aPrice[34] = 1.42279;
 
    // ========== 35 ===== 821 ==========
-   aPseudoTicket[35] = 19;
+   //aPseudoTicket[35] = 19;
    aAction[35] = 1; // OPEN
    aReturn[19] = 35;
    aType[35] = OP_SELL; // SELL
@@ -402,7 +402,7 @@ void init_tab() {
    aPrice[35] = 1.61782;
 
    // ========== 36 ===== 823 ==========
-   aPseudoTicket[36] = 18;
+   //aPseudoTicket[36] = 18;
    aAction[36] = 0; // CLOSE
    aType[36] = OP_BUY; // BUY
    aTicket[36] = -1; // Ticket given by broker
@@ -412,7 +412,7 @@ void init_tab() {
    aPrice[36] = 1.42331;
 
    // ========== 37 ===== 822 ==========
-   aPseudoTicket[37] = 20;
+   //aPseudoTicket[37] = 20;
    aAction[37] = 1; // OPEN
    aReturn[20] = 37;
    aType[37] = OP_BUY; // BUY
@@ -423,7 +423,7 @@ void init_tab() {
    aPrice[37] = 0.97872;
 
    // ========== 38 ===== 822 ==========
-   aPseudoTicket[38] = 20;
+   //aPseudoTicket[38] = 20;
    aAction[38] = 0; // CLOSE
    aType[38] = OP_BUY; // BUY
    aTicket[38] = -1; // Ticket given by broker
@@ -433,7 +433,7 @@ void init_tab() {
    aPrice[38] = 0.97492;
 
    // ========== 39 ===== 820 ==========
-   aPseudoTicket[39] = 21;
+   //aPseudoTicket[39] = 21;
    aAction[39] = 1; // OPEN
    aReturn[21] = 39;
    aType[39] = OP_BUY; // BUY
@@ -444,7 +444,7 @@ void init_tab() {
    aPrice[39] = 0.84133;
 
    // ========== 40 ===== 821 ==========
-   aPseudoTicket[40] = 19;
+   //aPseudoTicket[40] = 19;
    aAction[40] = 0; // CLOSE
    aType[40] = OP_SELL; // SELL
    aTicket[40] = -1; // Ticket given by broker
@@ -454,7 +454,7 @@ void init_tab() {
    aPrice[40] = 1.61264;
 
    // ========== 41 ===== 820 ==========
-   aPseudoTicket[41] = 21;
+   //aPseudoTicket[41] = 21;
    aAction[41] = 0; // CLOSE
    aType[41] = OP_BUY; // BUY
    aTicket[41] = -1; // Ticket given by broker
@@ -464,7 +464,7 @@ void init_tab() {
    aPrice[41] = 0.83888;
 
    // ========== 42 ===== 819 ==========
-   aPseudoTicket[42] = 22;
+   //aPseudoTicket[42] = 22;
    aAction[42] = 1; // OPEN
    aReturn[22] = 42;
    aType[42] = OP_SELL; // SELL
@@ -475,7 +475,7 @@ void init_tab() {
    aPrice[42] = 0.83525;
 
    // ========== 43 ===== 819 ==========
-   aPseudoTicket[43] = 22;
+   //aPseudoTicket[43] = 22;
    aAction[43] = 0; // CLOSE
    aType[43] = OP_SELL; // SELL
    aTicket[43] = -1; // Ticket given by broker
@@ -485,7 +485,7 @@ void init_tab() {
    aPrice[43] = 0.83618;
 
    // ========== 44 ===== 817 ==========
-   aPseudoTicket[44] = 23;
+   //aPseudoTicket[44] = 23;
    aAction[44] = 1; // OPEN
    aReturn[23] = 44;
    aType[44] = OP_BUY; // BUY
@@ -496,7 +496,7 @@ void init_tab() {
    aPrice[44] = 1.42506;
 
    // ========== 45 ===== 816 ==========
-   aPseudoTicket[45] = 24;
+   //aPseudoTicket[45] = 24;
    aAction[45] = 1; // OPEN
    aReturn[24] = 45;
    aType[45] = OP_BUY; // BUY
@@ -507,7 +507,7 @@ void init_tab() {
    aPrice[45] = 1.421;
 
    // ========== 46 ===== 818 ==========
-   aPseudoTicket[46] = 25;
+   //aPseudoTicket[46] = 25;
    aAction[46] = 1; // OPEN
    aReturn[25] = 46;
    aType[46] = OP_BUY; // BUY
@@ -518,7 +518,7 @@ void init_tab() {
    aPrice[46] = 1.41495;
 
    // ========== 47 ===== 817 ==========
-   aPseudoTicket[47] = 23;
+   //aPseudoTicket[47] = 23;
    aAction[47] = 0; // CLOSE
    aType[47] = OP_BUY; // BUY
    aTicket[47] = -1; // Ticket given by broker
@@ -528,7 +528,7 @@ void init_tab() {
    aPrice[47] = 1.4182;
 
    // ========== 48 ===== 818 ==========
-   aPseudoTicket[48] = 25;
+   //aPseudoTicket[48] = 25;
    aAction[48] = 0; // CLOSE
    aType[48] = OP_BUY; // BUY
    aTicket[48] = -1; // Ticket given by broker
@@ -538,7 +538,7 @@ void init_tab() {
    aPrice[48] = 1.4182;
 
    // ========== 49 ===== 816 ==========
-   aPseudoTicket[49] = 24;
+   //aPseudoTicket[49] = 24;
    aAction[49] = 0; // CLOSE
    aType[49] = OP_BUY; // BUY
    aTicket[49] = -1; // Ticket given by broker
@@ -548,7 +548,7 @@ void init_tab() {
    aPrice[49] = 1.4182;
 
    // ========== 50 ===== 814 ==========
-   aPseudoTicket[50] = 26;
+   //aPseudoTicket[50] = 26;
    aAction[50] = 1; // OPEN
    aReturn[26] = 50;
    aType[50] = OP_SELL; // SELL
@@ -559,7 +559,7 @@ void init_tab() {
    aPrice[50] = 1.4225;
 
    // ========== 51 ===== 815 ==========
-   aPseudoTicket[51] = 27;
+   //aPseudoTicket[51] = 27;
    aAction[51] = 1; // OPEN
    aReturn[27] = 51;
    aType[51] = OP_SELL; // SELL
@@ -570,7 +570,7 @@ void init_tab() {
    aPrice[51] = 1.60209;
 
    // ========== 52 ===== 815 ==========
-   aPseudoTicket[52] = 27;
+   //aPseudoTicket[52] = 27;
    aAction[52] = 0; // CLOSE
    aType[52] = OP_SELL; // SELL
    aTicket[52] = -1; // Ticket given by broker
@@ -580,7 +580,7 @@ void init_tab() {
    aPrice[52] = 1.59663;
 
    // ========== 53 ===== 814 ==========
-   aPseudoTicket[53] = 26;
+   //aPseudoTicket[53] = 26;
    aAction[53] = 0; // CLOSE
    aType[53] = OP_SELL; // SELL
    aTicket[53] = -1; // Ticket given by broker
@@ -590,7 +590,7 @@ void init_tab() {
    aPrice[53] = 1.42449;
 
    // ========== 54 ===== 813 ==========
-   aPseudoTicket[54] = 28;
+   //aPseudoTicket[54] = 28;
    aAction[54] = 1; // OPEN
    aReturn[28] = 54;
    aType[54] = OP_SELL; // SELL
@@ -601,7 +601,7 @@ void init_tab() {
    aPrice[54] = 1.42233;
 
    // ========== 55 ===== 813 ==========
-   aPseudoTicket[55] = 28;
+   //aPseudoTicket[55] = 28;
    aAction[55] = 0; // CLOSE
    aType[55] = OP_SELL; // SELL
    aTicket[55] = -1; // Ticket given by broker
@@ -611,7 +611,7 @@ void init_tab() {
    aPrice[55] = 1.4203;
 
    // ========== 56 ===== 812 ==========
-   aPseudoTicket[56] = 29;
+   //aPseudoTicket[56] = 29;
    aAction[56] = 1; // OPEN
    aReturn[29] = 56;
    aType[56] = OP_SELL; // SELL
@@ -622,7 +622,7 @@ void init_tab() {
    aPrice[56] = 1.60265;
 
    // ========== 57 ===== 812 ==========
-   aPseudoTicket[57] = 29;
+   //aPseudoTicket[57] = 29;
    aAction[57] = 0; // CLOSE
    aType[57] = OP_SELL; // SELL
    aTicket[57] = -1; // Ticket given by broker
@@ -632,7 +632,7 @@ void init_tab() {
    aPrice[57] = 1.59713;
 
    // ========== 58 ===== 811 ==========
-   aPseudoTicket[58] = 30;
+   //aPseudoTicket[58] = 30;
    aAction[58] = 1; // OPEN
    aReturn[30] = 58;
    aType[58] = OP_SELL; // SELL
@@ -643,7 +643,7 @@ void init_tab() {
    aPrice[58] = 1.42979;
 
    // ========== 59 ===== 810 ==========
-   aPseudoTicket[59] = 31;
+   //aPseudoTicket[59] = 31;
    aAction[59] = 1; // OPEN
    aReturn[31] = 59;
    aType[59] = OP_SELL; // SELL
@@ -654,7 +654,7 @@ void init_tab() {
    aPrice[59] = 1.04705;
 
    // ========== 60 ===== 811 ==========
-   aPseudoTicket[60] = 30;
+   //aPseudoTicket[60] = 30;
    aAction[60] = 0; // CLOSE
    aType[60] = OP_SELL; // SELL
    aTicket[60] = -1; // Ticket given by broker
@@ -664,7 +664,7 @@ void init_tab() {
    aPrice[60] = 1.42979;
 
    // ========== 61 ===== 810 ==========
-   aPseudoTicket[61] = 31;
+   //aPseudoTicket[61] = 31;
    aAction[61] = 0; // CLOSE
    aType[61] = OP_SELL; // SELL
    aTicket[61] = -1; // Ticket given by broker
@@ -674,7 +674,7 @@ void init_tab() {
    aPrice[61] = 1.04489;
 
    // ========== 62 ===== 809 ==========
-   aPseudoTicket[62] = 32;
+   //aPseudoTicket[62] = 32;
    aAction[62] = 1; // OPEN
    aReturn[32] = 62;
    aType[62] = OP_SELL; // SELL
@@ -685,7 +685,7 @@ void init_tab() {
    aPrice[62] = 1.04831;
 
    // ========== 63 ===== 809 ==========
-   aPseudoTicket[63] = 32;
+   //aPseudoTicket[63] = 32;
    aAction[63] = 0; // CLOSE
    aType[63] = OP_SELL; // SELL
    aTicket[63] = -1; // Ticket given by broker
@@ -695,7 +695,7 @@ void init_tab() {
    aPrice[63] = 1.05228;
 
    // ========== 64 ===== 808 ==========
-   aPseudoTicket[64] = 33;
+   //aPseudoTicket[64] = 33;
    aAction[64] = 1; // OPEN
    aReturn[33] = 64;
    aType[64] = OP_BUY; // BUY
@@ -706,7 +706,7 @@ void init_tab() {
    aPrice[64] = 0.98117;
 
    // ========== 65 ===== 808 ==========
-   aPseudoTicket[65] = 33;
+   //aPseudoTicket[65] = 33;
    aAction[65] = 0; // CLOSE
    aType[65] = OP_BUY; // BUY
    aTicket[65] = -1; // Ticket given by broker
@@ -716,7 +716,7 @@ void init_tab() {
    aPrice[65] = 0.97336;
 
    // ========== 66 ===== 807 ==========
-   aPseudoTicket[66] = 34;
+   //aPseudoTicket[66] = 34;
    aAction[66] = 1; // OPEN
    aReturn[34] = 66;
    aType[66] = OP_SELL; // SELL
@@ -727,7 +727,7 @@ void init_tab() {
    aPrice[66] = 1.60338;
 
    // ========== 67 ===== 806 ==========
-   aPseudoTicket[67] = 35;
+   //aPseudoTicket[67] = 35;
    aAction[67] = 1; // OPEN
    aReturn[35] = 67;
    aType[67] = OP_SELL; // SELL
@@ -738,7 +738,7 @@ void init_tab() {
    aPrice[67] = 1.61151;
 
    // ========== 68 ===== 807 ==========
-   aPseudoTicket[68] = 34;
+   //aPseudoTicket[68] = 34;
    aAction[68] = 0; // CLOSE
    aType[68] = OP_SELL; // SELL
    aTicket[68] = -1; // Ticket given by broker
@@ -748,7 +748,7 @@ void init_tab() {
    aPrice[68] = 1.60254;
 
    // ========== 69 ===== 806 ==========
-   aPseudoTicket[69] = 35;
+   //aPseudoTicket[69] = 35;
    aAction[69] = 0; // CLOSE
    aType[69] = OP_SELL; // SELL
    aTicket[69] = -1; // Ticket given by broker
@@ -758,7 +758,7 @@ void init_tab() {
    aPrice[69] = 1.60145;
 
    // ========== 70 ===== 805 ==========
-   aPseudoTicket[70] = 36;
+   //aPseudoTicket[70] = 36;
    aAction[70] = 1; // OPEN
    aReturn[36] = 70;
    aType[70] = OP_SELL; // SELL
@@ -769,7 +769,7 @@ void init_tab() {
    aPrice[70] = 1.60655;
 
    // ========== 71 ===== 804 ==========
-   aPseudoTicket[71] = 37;
+   //aPseudoTicket[71] = 37;
    aAction[71] = 1; // OPEN
    aReturn[37] = 71;
    aType[71] = OP_BUY; // BUY
@@ -780,7 +780,7 @@ void init_tab() {
    aPrice[71] = 1.43404;
 
    // ========== 72 ===== 805 ==========
-   aPseudoTicket[72] = 36;
+   //aPseudoTicket[72] = 36;
    aAction[72] = 0; // CLOSE
    aType[72] = OP_SELL; // SELL
    aTicket[72] = -1; // Ticket given by broker
@@ -790,7 +790,7 @@ void init_tab() {
    aPrice[72] = 1.59701;
 
    // ========== 73 ===== 804 ==========
-   aPseudoTicket[73] = 37;
+   //aPseudoTicket[73] = 37;
    aAction[73] = 0; // CLOSE
    aType[73] = OP_BUY; // BUY
    aTicket[73] = -1; // Ticket given by broker
@@ -800,7 +800,7 @@ void init_tab() {
    aPrice[73] = 1.43262;
 
    // ========== 74 ===== 803 ==========
-   aPseudoTicket[74] = 38;
+   //aPseudoTicket[74] = 38;
    aAction[74] = 1; // OPEN
    aReturn[38] = 74;
    aType[74] = OP_SELL; // SELL
@@ -811,7 +811,7 @@ void init_tab() {
    aPrice[74] = 1.43334;
 
    // ========== 75 ===== 803 ==========
-   aPseudoTicket[75] = 38;
+   //aPseudoTicket[75] = 38;
    aAction[75] = 0; // CLOSE
    aType[75] = OP_SELL; // SELL
    aTicket[75] = -1; // Ticket given by broker
@@ -821,7 +821,7 @@ void init_tab() {
    aPrice[75] = 1.43022;
 
    // ========== 76 ===== 802 ==========
-   aPseudoTicket[76] = 39;
+   //aPseudoTicket[76] = 39;
    aAction[76] = 1; // OPEN
    aReturn[39] = 76;
    aType[76] = OP_BUY; // BUY
@@ -832,7 +832,7 @@ void init_tab() {
    aPrice[76] = 1.07666;
 
    // ========== 77 ===== 802 ==========
-   aPseudoTicket[77] = 39;
+   //aPseudoTicket[77] = 39;
    aAction[77] = 0; // CLOSE
    aType[77] = OP_BUY; // BUY
    aTicket[77] = -1; // Ticket given by broker
@@ -842,7 +842,7 @@ void init_tab() {
    aPrice[77] = 1.07675;
 
    // ========== 78 ===== 801 ==========
-   aPseudoTicket[78] = 40;
+   //aPseudoTicket[78] = 40;
    aAction[78] = 1; // OPEN
    aReturn[40] = 78;
    aType[78] = OP_SELL; // SELL
@@ -853,7 +853,7 @@ void init_tab() {
    aPrice[78] = 0.95962;
 
    // ========== 79 ===== 801 ==========
-   aPseudoTicket[79] = 40;
+   //aPseudoTicket[79] = 40;
    aAction[79] = 0; // CLOSE
    aType[79] = OP_SELL; // SELL
    aTicket[79] = -1; // Ticket given by broker
@@ -863,7 +863,7 @@ void init_tab() {
    aPrice[79] = 0.95855;
 
    // ========== 80 ===== 800 ==========
-   aPseudoTicket[80] = 41;
+   //aPseudoTicket[80] = 41;
    aAction[80] = 1; // OPEN
    aReturn[41] = 80;
    aType[80] = OP_BUY; // BUY
@@ -874,7 +874,7 @@ void init_tab() {
    aPrice[80] = 1.60089;
 
    // ========== 81 ===== 800 ==========
-   aPseudoTicket[81] = 41;
+   //aPseudoTicket[81] = 41;
    aAction[81] = 0; // CLOSE
    aType[81] = OP_BUY; // BUY
    aTicket[81] = -1; // Ticket given by broker
@@ -884,7 +884,7 @@ void init_tab() {
    aPrice[81] = 1.60599;
 
    // ========== 82 ===== 799 ==========
-   aPseudoTicket[82] = 42;
+   //aPseudoTicket[82] = 42;
    aAction[82] = 1; // OPEN
    aReturn[42] = 82;
    aType[82] = OP_BUY; // BUY
@@ -895,7 +895,7 @@ void init_tab() {
    aPrice[82] = 1.06991;
 
    // ========== 83 ===== 799 ==========
-   aPseudoTicket[83] = 42;
+   //aPseudoTicket[83] = 42;
    aAction[83] = 0; // CLOSE
    aType[83] = OP_BUY; // BUY
    aTicket[83] = -1; // Ticket given by broker
@@ -905,7 +905,7 @@ void init_tab() {
    aPrice[83] = 1.059;
 
    // ========== 84 ===== 798 ==========
-   aPseudoTicket[84] = 43;
+   //aPseudoTicket[84] = 43;
    aAction[84] = 1; // OPEN
    aReturn[43] = 84;
    aType[84] = OP_BUY; // BUY
@@ -916,7 +916,7 @@ void init_tab() {
    aPrice[84] = 1.05892;
 
    // ========== 85 ===== 798 ==========
-   aPseudoTicket[85] = 43;
+   //aPseudoTicket[85] = 43;
    aAction[85] = 0; // CLOSE
    aType[85] = OP_BUY; // BUY
    aTicket[85] = -1; // Ticket given by broker
@@ -926,7 +926,7 @@ void init_tab() {
    aPrice[85] = 1.05419;
 
    // ========== 86 ===== 796 ==========
-   aPseudoTicket[86] = 44;
+   //aPseudoTicket[86] = 44;
    aAction[86] = 1; // OPEN
    aReturn[44] = 86;
    aType[86] = OP_SELL; // SELL
@@ -937,7 +937,7 @@ void init_tab() {
    aPrice[86] = 79.451;
 
    // ========== 87 ===== 797 ==========
-   aPseudoTicket[87] = 45;
+   //aPseudoTicket[87] = 45;
    aAction[87] = 1; // OPEN
    aReturn[45] = 87;
    aType[87] = OP_SELL; // SELL
@@ -948,7 +948,7 @@ void init_tab() {
    aPrice[87] = 1.4037;
 
    // ========== 88 ===== 797 ==========
-   aPseudoTicket[88] = 45;
+   //aPseudoTicket[88] = 45;
    aAction[88] = 0; // CLOSE
    aType[88] = OP_SELL; // SELL
    aTicket[88] = -1; // Ticket given by broker
@@ -958,7 +958,7 @@ void init_tab() {
    aPrice[88] = 1.3987;
 
    // ========== 89 ===== 794 ==========
-   aPseudoTicket[89] = 46;
+   //aPseudoTicket[89] = 46;
    aAction[89] = 1; // OPEN
    aReturn[46] = 89;
    aType[89] = OP_SELL; // SELL
@@ -969,7 +969,7 @@ void init_tab() {
    aPrice[89] = 1.59366;
 
    // ========== 90 ===== 796 ==========
-   aPseudoTicket[90] = 44;
+   //aPseudoTicket[90] = 44;
    aAction[90] = 0; // CLOSE
    aType[90] = OP_SELL; // SELL
    aTicket[90] = -1; // Ticket given by broker
@@ -979,7 +979,7 @@ void init_tab() {
    aPrice[90] = 79.297;
 
    // ========== 91 ===== 792 ==========
-   aPseudoTicket[91] = 47;
+   //aPseudoTicket[91] = 47;
    aAction[91] = 1; // OPEN
    aReturn[47] = 91;
    aType[91] = OP_SELL; // SELL
@@ -990,7 +990,7 @@ void init_tab() {
    aPrice[91] = 1.40938;
 
    // ========== 92 ===== 795 ==========
-   aPseudoTicket[92] = 48;
+   //aPseudoTicket[92] = 48;
    aAction[92] = 1; // OPEN
    aReturn[48] = 92;
    aType[92] = OP_SELL; // SELL
@@ -1001,7 +1001,7 @@ void init_tab() {
    aPrice[92] = 1.41012;
 
    // ========== 93 ===== 795 ==========
-   aPseudoTicket[93] = 48;
+   //aPseudoTicket[93] = 48;
    aAction[93] = 0; // CLOSE
    aType[93] = OP_SELL; // SELL
    aTicket[93] = -1; // Ticket given by broker
@@ -1011,7 +1011,7 @@ void init_tab() {
    aPrice[93] = 1.40689;
 
    // ========== 94 ===== 794 ==========
-   aPseudoTicket[94] = 46;
+   //aPseudoTicket[94] = 46;
    aAction[94] = 0; // CLOSE
    aType[94] = OP_SELL; // SELL
    aTicket[94] = -1; // Ticket given by broker
@@ -1021,7 +1021,7 @@ void init_tab() {
    aPrice[94] = 1.59642;
 
    // ========== 95 ===== 789 ==========
-   aPseudoTicket[95] = 49;
+   //aPseudoTicket[95] = 49;
    aAction[95] = 1; // OPEN
    aReturn[49] = 95;
    aType[95] = OP_SELL; // SELL
@@ -1032,7 +1032,7 @@ void init_tab() {
    aPrice[95] = 1.4222;
 
    // ========== 96 ===== 793 ==========
-   aPseudoTicket[96] = 50;
+   //aPseudoTicket[96] = 50;
    aAction[96] = 1; // OPEN
    aReturn[50] = 96;
    aType[96] = OP_SELL; // SELL
@@ -1043,7 +1043,7 @@ void init_tab() {
    aPrice[96] = 78.9;
 
    // ========== 97 ===== 790 ==========
-   aPseudoTicket[97] = 51;
+   //aPseudoTicket[97] = 51;
    aAction[97] = 1; // OPEN
    aReturn[51] = 97;
    aType[97] = OP_SELL; // SELL
@@ -1054,7 +1054,7 @@ void init_tab() {
    aPrice[97] = 1.42465;
 
    // ========== 98 ===== 793 ==========
-   aPseudoTicket[98] = 50;
+   //aPseudoTicket[98] = 50;
    aAction[98] = 0; // CLOSE
    aType[98] = OP_SELL; // SELL
    aTicket[98] = -1; // Ticket given by broker
@@ -1064,7 +1064,7 @@ void init_tab() {
    aPrice[98] = 78.861;
 
    // ========== 99 ===== 791 ==========
-   aPseudoTicket[99] = 52;
+   //aPseudoTicket[99] = 52;
    aAction[99] = 1; // OPEN
    aReturn[52] = 99;
    aType[99] = OP_SELL; // SELL
@@ -1075,7 +1075,7 @@ void init_tab() {
    aPrice[99] = 1.4272;
 
    // ========== 100 ===== 792 ==========
-   aPseudoTicket[100] = 47;
+   //aPseudoTicket[100] = 47;
    aAction[100] = 0; // CLOSE
    aType[100] = OP_SELL; // SELL
    aTicket[100] = -1; // Ticket given by broker
@@ -1085,7 +1085,7 @@ void init_tab() {
    aPrice[100] = 1.42222;
 
    // ========== 101 ===== 782 ==========
-   aPseudoTicket[101] = 53;
+   //aPseudoTicket[101] = 53;
    aAction[101] = 1; // OPEN
    aReturn[53] = 101;
    aType[101] = OP_SELL; // SELL
@@ -1096,7 +1096,7 @@ void init_tab() {
    aPrice[101] = 0.81165;
 
    // ========== 102 ===== 791 ==========
-   aPseudoTicket[102] = 52;
+   //aPseudoTicket[102] = 52;
    aAction[102] = 0; // CLOSE
    aType[102] = OP_SELL; // SELL
    aTicket[102] = -1; // Ticket given by broker
@@ -1106,7 +1106,7 @@ void init_tab() {
    aPrice[102] = 1.42134;
 
    // ========== 103 ===== 790 ==========
-   aPseudoTicket[103] = 51;
+   //aPseudoTicket[103] = 51;
    aAction[103] = 0; // CLOSE
    aType[103] = OP_SELL; // SELL
    aTicket[103] = -1; // Ticket given by broker
@@ -1116,7 +1116,7 @@ void init_tab() {
    aPrice[103] = 1.41961;
 
    // ========== 104 ===== 789 ==========
-   aPseudoTicket[104] = 49;
+   //aPseudoTicket[104] = 49;
    aAction[104] = 0; // CLOSE
    aType[104] = OP_SELL; // SELL
    aTicket[104] = -1; // Ticket given by broker
@@ -1126,7 +1126,7 @@ void init_tab() {
    aPrice[104] = 1.41805;
 
    // ========== 105 ===== 788 ==========
-   aPseudoTicket[105] = 54;
+   //aPseudoTicket[105] = 54;
    aAction[105] = 1; // OPEN
    aReturn[54] = 105;
    aType[105] = OP_BUY; // BUY
@@ -1137,7 +1137,7 @@ void init_tab() {
    aPrice[105] = 1.41784;
 
    // ========== 106 ===== 788 ==========
-   aPseudoTicket[106] = 54;
+   //aPseudoTicket[106] = 54;
    aAction[106] = 0; // CLOSE
    aType[106] = OP_BUY; // BUY
    aTicket[106] = -1; // Ticket given by broker
@@ -1147,7 +1147,7 @@ void init_tab() {
    aPrice[106] = 1.41847;
 
    // ========== 107 ===== 787 ==========
-   aPseudoTicket[107] = 55;
+   //aPseudoTicket[107] = 55;
    aAction[107] = 1; // OPEN
    aReturn[55] = 107;
    aType[107] = OP_BUY; // BUY
@@ -1158,7 +1158,7 @@ void init_tab() {
    aPrice[107] = 1.61148;
 
    // ========== 108 ===== 787 ==========
-   aPseudoTicket[108] = 55;
+   //aPseudoTicket[108] = 55;
    aAction[108] = 0; // CLOSE
    aType[108] = OP_BUY; // BUY
    aTicket[108] = -1; // Ticket given by broker
@@ -1168,7 +1168,7 @@ void init_tab() {
    aPrice[108] = 1.61316;
 
    // ========== 109 ===== 786 ==========
-   aPseudoTicket[109] = 56;
+   //aPseudoTicket[109] = 56;
    aAction[109] = 1; // OPEN
    aReturn[56] = 109;
    aType[109] = OP_SELL; // SELL
@@ -1179,7 +1179,7 @@ void init_tab() {
    aPrice[109] = 0.81717;
 
    // ========== 110 ===== 786 ==========
-   aPseudoTicket[110] = 56;
+   //aPseudoTicket[110] = 56;
    aAction[110] = 0; // CLOSE
    aType[110] = OP_SELL; // SELL
    aTicket[110] = -1; // Ticket given by broker
@@ -1189,7 +1189,7 @@ void init_tab() {
    aPrice[110] = 0.81649;
 
    // ========== 111 ===== 783 ==========
-   aPseudoTicket[111] = 57;
+   //aPseudoTicket[111] = 57;
    aAction[111] = 1; // OPEN
    aReturn[57] = 111;
    aType[111] = OP_SELL; // SELL
@@ -1200,7 +1200,7 @@ void init_tab() {
    aPrice[111] = 0.81569;
 
    // ========== 112 ===== 784 ==========
-   aPseudoTicket[112] = 58;
+   //aPseudoTicket[112] = 58;
    aAction[112] = 1; // OPEN
    aReturn[58] = 112;
    aType[112] = OP_SELL; // SELL
@@ -1211,7 +1211,7 @@ void init_tab() {
    aPrice[112] = 0.81752;
 
    // ========== 113 ===== 785 ==========
-   aPseudoTicket[113] = 59;
+   //aPseudoTicket[113] = 59;
    aAction[113] = 1; // OPEN
    aReturn[59] = 113;
    aType[113] = OP_SELL; // SELL
@@ -1222,7 +1222,7 @@ void init_tab() {
    aPrice[113] = 1.60755;
 
    // ========== 114 ===== 785 ==========
-   aPseudoTicket[114] = 59;
+   //aPseudoTicket[114] = 59;
    aAction[114] = 0; // CLOSE
    aType[114] = OP_SELL; // SELL
    aTicket[114] = -1; // Ticket given by broker
@@ -1232,7 +1232,7 @@ void init_tab() {
    aPrice[114] = 1.60991;
 
    // ========== 115 ===== 784 ==========
-   aPseudoTicket[115] = 58;
+   //aPseudoTicket[115] = 58;
    aAction[115] = 0; // CLOSE
    aType[115] = OP_SELL; // SELL
    aTicket[115] = -1; // Ticket given by broker
@@ -1242,7 +1242,7 @@ void init_tab() {
    aPrice[115] = 0.80986;
 
    // ========== 116 ===== 783 ==========
-   aPseudoTicket[116] = 57;
+   //aPseudoTicket[116] = 57;
    aAction[116] = 0; // CLOSE
    aType[116] = OP_SELL; // SELL
    aTicket[116] = -1; // Ticket given by broker
@@ -1252,7 +1252,7 @@ void init_tab() {
    aPrice[116] = 0.80998;
 
    // ========== 117 ===== 781 ==========
-   aPseudoTicket[117] = 60;
+   //aPseudoTicket[117] = 60;
    aAction[117] = 1; // OPEN
    aReturn[60] = 117;
    aType[117] = OP_SELL; // SELL
@@ -1263,7 +1263,7 @@ void init_tab() {
    aPrice[117] = 0.81631;
 
    // ========== 118 ===== 782 ==========
-   aPseudoTicket[118] = 53;
+   //aPseudoTicket[118] = 53;
    aAction[118] = 0; // CLOSE
    aType[118] = OP_SELL; // SELL
    aTicket[118] = -1; // Ticket given by broker
@@ -1273,7 +1273,7 @@ void init_tab() {
    aPrice[118] = 0.821;
 
    // ========== 119 ===== 781 ==========
-   aPseudoTicket[119] = 60;
+   //aPseudoTicket[119] = 60;
    aAction[119] = 0; // CLOSE
    aType[119] = OP_SELL; // SELL
    aTicket[119] = -1; // Ticket given by broker
@@ -1283,7 +1283,7 @@ void init_tab() {
    aPrice[119] = 0.821;
 
    // ========== 120 ===== 780 ==========
-   aPseudoTicket[120] = 61;
+   //aPseudoTicket[120] = 61;
    aAction[120] = 1; // OPEN
    aReturn[61] = 120;
    aType[120] = OP_BUY; // BUY
@@ -1294,7 +1294,7 @@ void init_tab() {
    aPrice[120] = 1.41482;
 
    // ========== 121 ===== 779 ==========
-   aPseudoTicket[121] = 62;
+   //aPseudoTicket[121] = 62;
    aAction[121] = 1; // OPEN
    aReturn[62] = 121;
    aType[121] = OP_BUY; // BUY
@@ -1305,7 +1305,7 @@ void init_tab() {
    aPrice[121] = 1.41682;
 
    // ========== 122 ===== 780 ==========
-   aPseudoTicket[122] = 61;
+   //aPseudoTicket[122] = 61;
    aAction[122] = 0; // CLOSE
    aType[122] = OP_BUY; // BUY
    aTicket[122] = -1; // Ticket given by broker
@@ -1315,7 +1315,7 @@ void init_tab() {
    aPrice[122] = 1.412;
 
    // ========== 123 ===== 779 ==========
-   aPseudoTicket[123] = 62;
+   //aPseudoTicket[123] = 62;
    aAction[123] = 0; // CLOSE
    aType[123] = OP_BUY; // BUY
    aTicket[123] = -1; // Ticket given by broker
@@ -1325,7 +1325,7 @@ void init_tab() {
    aPrice[123] = 1.412;
 
    // ========== 124 ===== 778 ==========
-   aPseudoTicket[124] = 63;
+   //aPseudoTicket[124] = 63;
    aAction[124] = 1; // OPEN
    aReturn[63] = 124;
    aType[124] = OP_SELL; // SELL
@@ -1336,7 +1336,7 @@ void init_tab() {
    aPrice[124] = 0.8265;
 
    // ========== 125 ===== 776 ==========
-   aPseudoTicket[125] = 64;
+   //aPseudoTicket[125] = 64;
    aAction[125] = 1; // OPEN
    aReturn[64] = 125;
    aType[125] = OP_SELL; // SELL
@@ -1347,7 +1347,7 @@ void init_tab() {
    aPrice[125] = 79.132;
 
    // ========== 126 ===== 777 ==========
-   aPseudoTicket[126] = 65;
+   //aPseudoTicket[126] = 65;
    aAction[126] = 1; // OPEN
    aReturn[65] = 126;
    aType[126] = OP_BUY; // BUY
@@ -1358,7 +1358,7 @@ void init_tab() {
    aPrice[126] = 1.41849;
 
    // ========== 127 ===== 778 ==========
-   aPseudoTicket[127] = 63;
+   //aPseudoTicket[127] = 63;
    aAction[127] = 0; // CLOSE
    aType[127] = OP_SELL; // SELL
    aTicket[127] = -1; // Ticket given by broker
@@ -1368,7 +1368,7 @@ void init_tab() {
    aPrice[127] = 0.8235;
 
    // ========== 128 ===== 777 ==========
-   aPseudoTicket[128] = 65;
+   //aPseudoTicket[128] = 65;
    aAction[128] = 0; // CLOSE
    aType[128] = OP_BUY; // BUY
    aTicket[128] = -1; // Ticket given by broker
@@ -1378,7 +1378,7 @@ void init_tab() {
    aPrice[128] = 1.4164;
 
    // ========== 129 ===== 775 ==========
-   aPseudoTicket[129] = 66;
+   //aPseudoTicket[129] = 66;
    aAction[129] = 1; // OPEN
    aReturn[66] = 129;
    aType[129] = OP_SELL; // SELL
@@ -1389,7 +1389,7 @@ void init_tab() {
    aPrice[129] = 78.785;
 
    // ========== 130 ===== 776 ==========
-   aPseudoTicket[130] = 64;
+   //aPseudoTicket[130] = 64;
    aAction[130] = 0; // CLOSE
    aType[130] = OP_SELL; // SELL
    aTicket[130] = -1; // Ticket given by broker
@@ -1399,7 +1399,7 @@ void init_tab() {
    aPrice[130] = 78.69;
 
    // ========== 131 ===== 775 ==========
-   aPseudoTicket[131] = 66;
+   //aPseudoTicket[131] = 66;
    aAction[131] = 0; // CLOSE
    aType[131] = OP_SELL; // SELL
    aTicket[131] = -1; // Ticket given by broker
@@ -1409,7 +1409,7 @@ void init_tab() {
    aPrice[131] = 78.868;
 
    // ========== 132 ===== 774 ==========
-   aPseudoTicket[132] = 67;
+   //aPseudoTicket[132] = 67;
    aAction[132] = 1; // OPEN
    aReturn[67] = 132;
    aType[132] = OP_BUY; // BUY
@@ -1420,7 +1420,7 @@ void init_tab() {
    aPrice[132] = 1.4195;
 
    // ========== 133 ===== 774 ==========
-   aPseudoTicket[133] = 67;
+   //aPseudoTicket[133] = 67;
    aAction[133] = 0; // CLOSE
    aType[133] = OP_BUY; // BUY
    aTicket[133] = -1; // Ticket given by broker
@@ -1430,7 +1430,7 @@ void init_tab() {
    aPrice[133] = 1.41811;
 
    // ========== 134 ===== 773 ==========
-   aPseudoTicket[134] = 68;
+   //aPseudoTicket[134] = 68;
    aAction[134] = 1; // OPEN
    aReturn[68] = 134;
    aType[134] = OP_SELL; // SELL
@@ -1441,7 +1441,7 @@ void init_tab() {
    aPrice[134] = 1.41763;
 
    // ========== 135 ===== 773 ==========
-   aPseudoTicket[135] = 68;
+   //aPseudoTicket[135] = 68;
    aAction[135] = 0; // CLOSE
    aType[135] = OP_SELL; // SELL
    aTicket[135] = -1; // Ticket given by broker
@@ -1451,7 +1451,7 @@ void init_tab() {
    aPrice[135] = 1.42214;
 
    // ========== 136 ===== 772 ==========
-   aPseudoTicket[136] = 69;
+   //aPseudoTicket[136] = 69;
    aAction[136] = 1; // OPEN
    aReturn[69] = 136;
    aType[136] = OP_BUY; // BUY
@@ -1462,7 +1462,7 @@ void init_tab() {
    aPrice[136] = 1.43315;
 
    // ========== 137 ===== 772 ==========
-   aPseudoTicket[137] = 69;
+   //aPseudoTicket[137] = 69;
    aAction[137] = 0; // CLOSE
    aType[137] = OP_BUY; // BUY
    aTicket[137] = -1; // Ticket given by broker
@@ -1472,7 +1472,7 @@ void init_tab() {
    aPrice[137] = 1.44305;
 
    // ========== 138 ===== 771 ==========
-   aPseudoTicket[138] = 70;
+   //aPseudoTicket[138] = 70;
    aAction[138] = 1; // OPEN
    aReturn[70] = 138;
    aType[138] = OP_BUY; // BUY
@@ -1483,7 +1483,7 @@ void init_tab() {
    aPrice[138] = 1.43888;
 
    // ========== 139 ===== 770 ==========
-   aPseudoTicket[139] = 71;
+   //aPseudoTicket[139] = 71;
    aAction[139] = 1; // OPEN
    aReturn[71] = 139;
    aType[139] = OP_BUY; // BUY
@@ -1494,7 +1494,7 @@ void init_tab() {
    aPrice[139] = 0.82281;
 
    // ========== 140 ===== 771 ==========
-   aPseudoTicket[140] = 70;
+   //aPseudoTicket[140] = 70;
    aAction[140] = 0; // CLOSE
    aType[140] = OP_BUY; // BUY
    aTicket[140] = -1; // Ticket given by broker
@@ -1504,7 +1504,7 @@ void init_tab() {
    aPrice[140] = 1.44238;
 
    // ========== 141 ===== 770 ==========
-   aPseudoTicket[141] = 71;
+   //aPseudoTicket[141] = 71;
    aAction[141] = 0; // CLOSE
    aType[141] = OP_BUY; // BUY
    aTicket[141] = -1; // Ticket given by broker
@@ -1514,7 +1514,7 @@ void init_tab() {
    aPrice[141] = 0.82016;
 
    // ========== 142 ===== 768 ==========
-   aPseudoTicket[142] = 72;
+   //aPseudoTicket[142] = 72;
    aAction[142] = 1; // OPEN
    aReturn[72] = 142;
    aType[142] = OP_BUY; // BUY
@@ -1525,7 +1525,7 @@ void init_tab() {
    aPrice[142] = 1.4384;
 
    // ========== 143 ===== 769 ==========
-   aPseudoTicket[143] = 73;
+   //aPseudoTicket[143] = 73;
    aAction[143] = 1; // OPEN
    aReturn[73] = 143;
    aType[143] = OP_BUY; // BUY
@@ -1536,7 +1536,7 @@ void init_tab() {
    aPrice[143] = 1.434;
 
    // ========== 144 ===== 769 ==========
-   aPseudoTicket[144] = 73;
+   //aPseudoTicket[144] = 73;
    aAction[144] = 0; // CLOSE
    aType[144] = OP_BUY; // BUY
    aTicket[144] = -1; // Ticket given by broker
@@ -1546,7 +1546,7 @@ void init_tab() {
    aPrice[144] = 1.4386;
 
    // ========== 145 ===== 768 ==========
-   aPseudoTicket[145] = 72;
+   //aPseudoTicket[145] = 72;
    aAction[145] = 0; // CLOSE
    aType[145] = OP_BUY; // BUY
    aTicket[145] = -1; // Ticket given by broker
@@ -1556,7 +1556,7 @@ void init_tab() {
    aPrice[145] = 1.4387;
 
    // ========== 146 ===== 766 ==========
-   aPseudoTicket[146] = 74;
+   //aPseudoTicket[146] = 74;
    aAction[146] = 1; // OPEN
    aReturn[74] = 146;
    aType[146] = OP_BUY; // BUY
@@ -1567,7 +1567,7 @@ void init_tab() {
    aPrice[146] = 1.43508;
 
    // ========== 147 ===== 767 ==========
-   aPseudoTicket[147] = 75;
+   //aPseudoTicket[147] = 75;
    aAction[147] = 1; // OPEN
    aReturn[75] = 147;
    aType[147] = OP_SELL; // SELL
@@ -1578,7 +1578,7 @@ void init_tab() {
    aPrice[147] = 0.80632;
 
    // ========== 148 ===== 767 ==========
-   aPseudoTicket[148] = 75;
+   //aPseudoTicket[148] = 75;
    aAction[148] = 0; // CLOSE
    aType[148] = OP_SELL; // SELL
    aTicket[148] = -1; // Ticket given by broker
@@ -1588,7 +1588,7 @@ void init_tab() {
    aPrice[148] = 0.80186;
 
    // ========== 149 ===== 766 ==========
-   aPseudoTicket[149] = 74;
+   //aPseudoTicket[149] = 74;
    aAction[149] = 0; // CLOSE
    aType[149] = OP_BUY; // BUY
    aTicket[149] = -1; // Ticket given by broker
@@ -1598,7 +1598,7 @@ void init_tab() {
    aPrice[149] = 1.45126;
 
    // ========== 150 ===== 765 ==========
-   aPseudoTicket[150] = 76;
+   //aPseudoTicket[150] = 76;
    aAction[150] = 1; // OPEN
    aReturn[76] = 150;
    aType[150] = OP_BUY; // BUY
@@ -1609,7 +1609,7 @@ void init_tab() {
    aPrice[150] = 1.44751;
 
    // ========== 151 ===== 764 ==========
-   aPseudoTicket[151] = 77;
+   //aPseudoTicket[151] = 77;
    aAction[151] = 1; // OPEN
    aReturn[77] = 151;
    aType[151] = OP_BUY; // BUY
@@ -1620,7 +1620,7 @@ void init_tab() {
    aPrice[151] = 1.44781;
 
    // ========== 152 ===== 765 ==========
-   aPseudoTicket[152] = 76;
+   //aPseudoTicket[152] = 76;
    aAction[152] = 0; // CLOSE
    aType[152] = OP_BUY; // BUY
    aTicket[152] = -1; // Ticket given by broker
@@ -1630,7 +1630,7 @@ void init_tab() {
    aPrice[152] = 1.44765;
 
    // ========== 153 ===== 764 ==========
-   aPseudoTicket[153] = 77;
+   //aPseudoTicket[153] = 77;
    aAction[153] = 0; // CLOSE
    aType[153] = OP_BUY; // BUY
    aTicket[153] = -1; // Ticket given by broker
@@ -1640,7 +1640,7 @@ void init_tab() {
    aPrice[153] = 1.44788;
 
    // ========== 154 ===== 763 ==========
-   aPseudoTicket[154] = 78;
+   //aPseudoTicket[154] = 78;
    aAction[154] = 1; // OPEN
    aReturn[78] = 154;
    aType[154] = OP_BUY; // BUY
@@ -1651,7 +1651,7 @@ void init_tab() {
    aPrice[154] = 1.4479;
 
    // ========== 155 ===== 763 ==========
-   aPseudoTicket[155] = 78;
+   //aPseudoTicket[155] = 78;
    aAction[155] = 0; // CLOSE
    aType[155] = OP_BUY; // BUY
    aTicket[155] = -1; // Ticket given by broker
@@ -1661,7 +1661,7 @@ void init_tab() {
    aPrice[155] = 1.44759;
 
    // ========== 156 ===== 762 ==========
-   aPseudoTicket[156] = 79;
+   //aPseudoTicket[156] = 79;
    aAction[156] = 1; // OPEN
    aReturn[79] = 156;
    aType[156] = OP_SELL; // SELL
@@ -1672,7 +1672,7 @@ void init_tab() {
    aPrice[156] = 1.44753;
 
    // ========== 157 ===== 762 ==========
-   aPseudoTicket[157] = 79;
+   //aPseudoTicket[157] = 79;
    aAction[157] = 0; // CLOSE
    aType[157] = OP_SELL; // SELL
    aTicket[157] = -1; // Ticket given by broker
@@ -1682,7 +1682,7 @@ void init_tab() {
    aPrice[157] = 1.44773;
 
    // ========== 158 ===== 761 ==========
-   aPseudoTicket[158] = 80;
+   //aPseudoTicket[158] = 80;
    aAction[158] = 1; // OPEN
    aReturn[80] = 158;
    aType[158] = OP_BUY; // BUY
@@ -1693,7 +1693,7 @@ void init_tab() {
    aPrice[158] = 1.44774;
 
    // ========== 159 ===== 761 ==========
-   aPseudoTicket[159] = 80;
+   //aPseudoTicket[159] = 80;
    aAction[159] = 0; // CLOSE
    aType[159] = OP_BUY; // BUY
    aTicket[159] = -1; // Ticket given by broker
@@ -1703,7 +1703,7 @@ void init_tab() {
    aPrice[159] = 1.44776;
 
    // ========== 160 ===== 760 ==========
-   aPseudoTicket[160] = 81;
+   //aPseudoTicket[160] = 81;
    aAction[160] = 1; // OPEN
    aReturn[81] = 160;
    aType[160] = OP_BUY; // BUY
@@ -1714,7 +1714,7 @@ void init_tab() {
    aPrice[160] = 1.44681;
 
    // ========== 161 ===== 760 ==========
-   aPseudoTicket[161] = 81;
+   //aPseudoTicket[161] = 81;
    aAction[161] = 0; // CLOSE
    aType[161] = OP_BUY; // BUY
    aTicket[161] = -1; // Ticket given by broker
@@ -1724,7 +1724,7 @@ void init_tab() {
    aPrice[161] = 1.45133;
 
    // ========== 162 ===== 759 ==========
-   aPseudoTicket[162] = 82;
+   //aPseudoTicket[162] = 82;
    aAction[162] = 1; // OPEN
    aReturn[82] = 162;
    aType[162] = OP_BUY; // BUY
@@ -1735,7 +1735,7 @@ void init_tab() {
    aPrice[162] = 1.44602;
 
    // ========== 163 ===== 759 ==========
-   aPseudoTicket[163] = 82;
+   //aPseudoTicket[163] = 82;
    aAction[163] = 0; // CLOSE
    aType[163] = OP_BUY; // BUY
    aTicket[163] = -1; // Ticket given by broker
@@ -1745,7 +1745,7 @@ void init_tab() {
    aPrice[163] = 1.436;
 
    // ========== 164 ===== 758 ==========
-   aPseudoTicket[164] = 83;
+   //aPseudoTicket[164] = 83;
    aAction[164] = 1; // OPEN
    aReturn[83] = 164;
    aType[164] = OP_BUY; // BUY
@@ -1756,7 +1756,7 @@ void init_tab() {
    aPrice[164] = 1.434;
 
    // ========== 165 ===== 757 ==========
-   aPseudoTicket[165] = 84;
+   //aPseudoTicket[165] = 84;
    aAction[165] = 1; // OPEN
    aReturn[84] = 165;
    aType[165] = OP_BUY; // BUY
@@ -1767,7 +1767,7 @@ void init_tab() {
    aPrice[165] = 1.63239;
 
    // ========== 166 ===== 758 ==========
-   aPseudoTicket[166] = 83;
+   //aPseudoTicket[166] = 83;
    aAction[166] = 0; // CLOSE
    aType[166] = OP_BUY; // BUY
    aTicket[166] = -1; // Ticket given by broker
@@ -1777,7 +1777,7 @@ void init_tab() {
    aPrice[166] = 1.43607;
 
    // ========== 167 ===== 757 ==========
-   aPseudoTicket[167] = 84;
+   //aPseudoTicket[167] = 84;
    aAction[167] = 0; // CLOSE
    aType[167] = OP_BUY; // BUY
    aTicket[167] = -1; // Ticket given by broker
@@ -1787,7 +1787,7 @@ void init_tab() {
    aPrice[167] = 1.63314;
 
    // ========== 168 ===== 756 ==========
-   aPseudoTicket[168] = 85;
+   //aPseudoTicket[168] = 85;
    aAction[168] = 1; // OPEN
    aReturn[85] = 168;
    aType[168] = OP_SELL; // SELL
@@ -1798,7 +1798,7 @@ void init_tab() {
    aPrice[168] = 1.43234;
 
    // ========== 169 ===== 756 ==========
-   aPseudoTicket[169] = 85;
+   //aPseudoTicket[169] = 85;
    aAction[169] = 0; // CLOSE
    aType[169] = OP_SELL; // SELL
    aTicket[169] = -1; // Ticket given by broker
@@ -1808,7 +1808,7 @@ void init_tab() {
    aPrice[169] = 1.429;
 
    // ========== 170 ===== 753 ==========
-   aPseudoTicket[170] = 86;
+   //aPseudoTicket[170] = 86;
    aAction[170] = 1; // OPEN
    aReturn[86] = 170;
    aType[170] = OP_BUY; // BUY
@@ -1819,7 +1819,7 @@ void init_tab() {
    aPrice[170] = 1.0976;
 
    // ========== 171 ===== 755 ==========
-   aPseudoTicket[171] = 87;
+   //aPseudoTicket[171] = 87;
    aAction[171] = 1; // OPEN
    aReturn[87] = 171;
    aType[171] = OP_SELL; // SELL
@@ -1830,7 +1830,7 @@ void init_tab() {
    aPrice[171] = 0.95115;
 
    // ========== 172 ===== 755 ==========
-   aPseudoTicket[172] = 87;
+   //aPseudoTicket[172] = 87;
    aAction[172] = 0; // CLOSE
    aType[172] = OP_SELL; // SELL
    aTicket[172] = -1; // Ticket given by broker
@@ -1840,7 +1840,7 @@ void init_tab() {
    aPrice[172] = 0.95433;
 
    // ========== 173 ===== 754 ==========
-   aPseudoTicket[173] = 88;
+   //aPseudoTicket[173] = 88;
    aAction[173] = 1; // OPEN
    aReturn[88] = 173;
    aType[173] = OP_BUY; // BUY
@@ -1851,7 +1851,7 @@ void init_tab() {
    aPrice[173] = 0.95606;
 
    // ========== 174 ===== 752 ==========
-   aPseudoTicket[174] = 89;
+   //aPseudoTicket[174] = 89;
    aAction[174] = 1; // OPEN
    aReturn[89] = 174;
    aType[174] = OP_BUY; // BUY
@@ -1862,7 +1862,7 @@ void init_tab() {
    aPrice[174] = 1.63988;
 
    // ========== 175 ===== 754 ==========
-   aPseudoTicket[175] = 88;
+   //aPseudoTicket[175] = 88;
    aAction[175] = 0; // CLOSE
    aType[175] = OP_BUY; // BUY
    aTicket[175] = -1; // Ticket given by broker
@@ -1872,7 +1872,7 @@ void init_tab() {
    aPrice[175] = 0.95387;
 
    // ========== 176 ===== 753 ==========
-   aPseudoTicket[176] = 86;
+   //aPseudoTicket[176] = 86;
    aAction[176] = 0; // CLOSE
    aType[176] = OP_BUY; // BUY
    aTicket[176] = -1; // Ticket given by broker
@@ -1882,7 +1882,7 @@ void init_tab() {
    aPrice[176] = 1.09967;
 
    // ========== 177 ===== 752 ==========
-   aPseudoTicket[177] = 89;
+   //aPseudoTicket[177] = 89;
    aAction[177] = 0; // CLOSE
    aType[177] = OP_BUY; // BUY
    aTicket[177] = -1; // Ticket given by broker
@@ -1892,7 +1892,7 @@ void init_tab() {
    aPrice[177] = 1.6451;
 
    // ========== 178 ===== 750 ==========
-   aPseudoTicket[178] = 90;
+   //aPseudoTicket[178] = 90;
    aAction[178] = 1; // OPEN
    aReturn[90] = 178;
    aType[178] = OP_SELL; // SELL
@@ -1903,7 +1903,7 @@ void init_tab() {
    aPrice[178] = 1.10127;
 
    // ========== 179 ===== 751 ==========
-   aPseudoTicket[179] = 91;
+   //aPseudoTicket[179] = 91;
    aAction[179] = 1; // OPEN
    aReturn[91] = 179;
    aType[179] = OP_SELL; // SELL
@@ -1914,7 +1914,7 @@ void init_tab() {
    aPrice[179] = 0.79489;
 
    // ========== 180 ===== 751 ==========
-   aPseudoTicket[180] = 91;
+   //aPseudoTicket[180] = 91;
    aAction[180] = 0; // CLOSE
    aType[180] = OP_SELL; // SELL
    aTicket[180] = -1; // Ticket given by broker
@@ -1924,7 +1924,7 @@ void init_tab() {
    aPrice[180] = 0.79076;
 
    // ========== 181 ===== 750 ==========
-   aPseudoTicket[181] = 90;
+   //aPseudoTicket[181] = 90;
    aAction[181] = 0; // CLOSE
    aType[181] = OP_SELL; // SELL
    aTicket[181] = -1; // Ticket given by broker
@@ -1934,7 +1934,7 @@ void init_tab() {
    aPrice[181] = 1.10393;
 
    // ========== 182 ===== 749 ==========
-   aPseudoTicket[182] = 92;
+   //aPseudoTicket[182] = 92;
    aAction[182] = 1; // OPEN
    aReturn[92] = 182;
    aType[182] = OP_SELL; // SELL
@@ -1945,7 +1945,7 @@ void init_tab() {
    aPrice[182] = 1.443;
 
    // ========== 183 ===== 749 ==========
-   aPseudoTicket[183] = 92;
+   //aPseudoTicket[183] = 92;
    aAction[183] = 0; // CLOSE
    aType[183] = OP_SELL; // SELL
    aTicket[183] = -1; // Ticket given by broker
@@ -1955,7 +1955,7 @@ void init_tab() {
    aPrice[183] = 1.42876;
 
    // ========== 184 ===== 748 ==========
-   aPseudoTicket[184] = 93;
+   //aPseudoTicket[184] = 93;
    aAction[184] = 1; // OPEN
    aReturn[93] = 184;
    aType[184] = OP_SELL; // SELL
@@ -1966,7 +1966,7 @@ void init_tab() {
    aPrice[184] = 0.7835;
 
    // ========== 185 ===== 747 ==========
-   aPseudoTicket[185] = 94;
+   //aPseudoTicket[185] = 94;
    aAction[185] = 1; // OPEN
    aReturn[94] = 185;
    aType[185] = OP_SELL; // SELL
@@ -1977,7 +1977,7 @@ void init_tab() {
    aPrice[185] = 1.42684;
 
    // ========== 186 ===== 748 ==========
-   aPseudoTicket[186] = 93;
+   //aPseudoTicket[186] = 93;
    aAction[186] = 0; // CLOSE
    aType[186] = OP_SELL; // SELL
    aTicket[186] = -1; // Ticket given by broker
@@ -1987,7 +1987,7 @@ void init_tab() {
    aPrice[186] = 0.78147;
 
    // ========== 187 ===== 747 ==========
-   aPseudoTicket[187] = 94;
+   //aPseudoTicket[187] = 94;
    aAction[187] = 0; // CLOSE
    aType[187] = OP_SELL; // SELL
    aTicket[187] = -1; // Ticket given by broker
@@ -1997,7 +1997,7 @@ void init_tab() {
    aPrice[187] = 1.42419;
 
    // ========== 188 ===== 746 ==========
-   aPseudoTicket[188] = 95;
+   //aPseudoTicket[188] = 95;
    aAction[188] = 1; // OPEN
    aReturn[95] = 188;
    aType[188] = OP_SELL; // SELL
@@ -2008,7 +2008,7 @@ void init_tab() {
    aPrice[188] = 1.41713;
 
    // ========== 189 ===== 744 ==========
-   aPseudoTicket[189] = 96;
+   //aPseudoTicket[189] = 96;
    aAction[189] = 1; // OPEN
    aReturn[96] = 189;
    aType[189] = OP_BUY; // BUY
@@ -2019,7 +2019,7 @@ void init_tab() {
    aPrice[189] = 1.08343;
 
    // ========== 190 ===== 746 ==========
-   aPseudoTicket[190] = 95;
+   //aPseudoTicket[190] = 95;
    aAction[190] = 0; // CLOSE
    aType[190] = OP_SELL; // SELL
    aTicket[190] = -1; // Ticket given by broker
@@ -2029,7 +2029,7 @@ void init_tab() {
    aPrice[190] = 1.41688;
 
    // ========== 191 ===== 745 ==========
-   aPseudoTicket[191] = 97;
+   //aPseudoTicket[191] = 97;
    aAction[191] = 1; // OPEN
    aReturn[97] = 191;
    aType[191] = OP_BUY; // BUY
@@ -2040,7 +2040,7 @@ void init_tab() {
    aPrice[191] = 1.07824;
 
    // ========== 192 ===== 745 ==========
-   aPseudoTicket[192] = 97;
+   //aPseudoTicket[192] = 97;
    aAction[192] = 0; // CLOSE
    aType[192] = OP_BUY; // BUY
    aTicket[192] = -1; // Ticket given by broker
@@ -2050,7 +2050,7 @@ void init_tab() {
    aPrice[192] = 1.07601;
 
    // ========== 193 ===== 744 ==========
-   aPseudoTicket[193] = 96;
+   //aPseudoTicket[193] = 96;
    aAction[193] = 0; // CLOSE
    aType[193] = OP_BUY; // BUY
    aTicket[193] = -1; // Ticket given by broker
@@ -2060,7 +2060,7 @@ void init_tab() {
    aPrice[193] = 1.07596;
 
    // ========== 194 ===== 742 ==========
-   aPseudoTicket[194] = 98;
+   //aPseudoTicket[194] = 98;
    aAction[194] = 1; // OPEN
    aReturn[98] = 194;
    aType[194] = OP_BUY; // BUY
@@ -2071,7 +2071,7 @@ void init_tab() {
    aPrice[194] = 1.07394;
 
    // ========== 195 ===== 743 ==========
-   aPseudoTicket[195] = 99;
+   //aPseudoTicket[195] = 99;
    aAction[195] = 1; // OPEN
    aReturn[99] = 195;
    aType[195] = OP_BUY; // BUY
@@ -2082,7 +2082,7 @@ void init_tab() {
    aPrice[195] = 1.07294;
 
    // ========== 196 ===== 743 ==========
-   aPseudoTicket[196] = 99;
+   //aPseudoTicket[196] = 99;
    aAction[196] = 0; // CLOSE
    aType[196] = OP_BUY; // BUY
    aTicket[196] = -1; // Ticket given by broker
@@ -2092,7 +2092,7 @@ void init_tab() {
    aPrice[196] = 1.06851;
 
    // ========== 197 ===== 742 ==========
-   aPseudoTicket[197] = 98;
+   //aPseudoTicket[197] = 98;
    aAction[197] = 0; // CLOSE
    aType[197] = OP_BUY; // BUY
    aTicket[197] = -1; // Ticket given by broker
@@ -2102,7 +2102,7 @@ void init_tab() {
    aPrice[197] = 1.06897;
 
    // ========== 198 ===== 741 ==========
-   aPseudoTicket[198] = 100;
+   //aPseudoTicket[198] = 100;
    aAction[198] = 1; // OPEN
    aReturn[100] = 198;
    aType[198] = OP_SELL; // SELL
@@ -2113,7 +2113,7 @@ void init_tab() {
    aPrice[198] = 1.63029;
 
    // ========== 199 ===== 741 ==========
-   aPseudoTicket[199] = 100;
+   //aPseudoTicket[199] = 100;
    aAction[199] = 0; // CLOSE
    aType[199] = OP_SELL; // SELL
    aTicket[199] = -1; // Ticket given by broker
@@ -2123,7 +2123,7 @@ void init_tab() {
    aPrice[199] = 1.63575;
 
    // ========== 200 ===== 740 ==========
-   aPseudoTicket[200] = 101;
+   //aPseudoTicket[200] = 101;
    aAction[200] = 1; // OPEN
    aReturn[101] = 200;
    aType[200] = OP_BUY; // BUY
@@ -2134,7 +2134,7 @@ void init_tab() {
    aPrice[200] = 1.6365;
 
    // ========== 201 ===== 740 ==========
-   aPseudoTicket[201] = 101;
+   //aPseudoTicket[201] = 101;
    aAction[201] = 0; // CLOSE
    aType[201] = OP_BUY; // BUY
    aTicket[201] = -1; // Ticket given by broker
@@ -2144,7 +2144,7 @@ void init_tab() {
    aPrice[201] = 1.63873;
 
    // ========== 202 ===== 738 ==========
-   aPseudoTicket[202] = 102;
+   //aPseudoTicket[202] = 102;
    aAction[202] = 1; // OPEN
    aReturn[102] = 202;
    aType[202] = OP_SELL; // SELL
@@ -2155,7 +2155,7 @@ void init_tab() {
    aPrice[202] = 1.07283;
 
    // ========== 203 ===== 739 ==========
-   aPseudoTicket[203] = 103;
+   //aPseudoTicket[203] = 103;
    aAction[203] = 1; // OPEN
    aReturn[103] = 203;
    aType[203] = OP_BUY; // BUY
@@ -2166,7 +2166,7 @@ void init_tab() {
    aPrice[203] = 1.6413;
 
    // ========== 204 ===== 739 ==========
-   aPseudoTicket[204] = 103;
+   //aPseudoTicket[204] = 103;
    aAction[204] = 0; // CLOSE
    aType[204] = OP_BUY; // BUY
    aTicket[204] = -1; // Ticket given by broker
@@ -2176,7 +2176,7 @@ void init_tab() {
    aPrice[204] = 1.64071;
 
    // ========== 205 ===== 737 ==========
-   aPseudoTicket[205] = 104;
+   //aPseudoTicket[205] = 104;
    aAction[205] = 1; // OPEN
    aReturn[104] = 205;
    aType[205] = OP_SELL; // SELL
@@ -2187,7 +2187,7 @@ void init_tab() {
    aPrice[205] = 0.77823;
 
    // ========== 206 ===== 738 ==========
-   aPseudoTicket[206] = 102;
+   //aPseudoTicket[206] = 102;
    aAction[206] = 0; // CLOSE
    aType[206] = OP_SELL; // SELL
    aTicket[206] = -1; // Ticket given by broker
@@ -2197,7 +2197,7 @@ void init_tab() {
    aPrice[206] = 1.06337;
 
    // ========== 207 ===== 737 ==========
-   aPseudoTicket[207] = 104;
+   //aPseudoTicket[207] = 104;
    aAction[207] = 0; // CLOSE
    aType[207] = OP_SELL; // SELL
    aTicket[207] = -1; // Ticket given by broker
@@ -2207,7 +2207,7 @@ void init_tab() {
    aPrice[207] = 0.77758;
 
    // ========== 208 ===== 736 ==========
-   aPseudoTicket[208] = 105;
+   //aPseudoTicket[208] = 105;
    aAction[208] = 1; // OPEN
    aReturn[105] = 208;
    aType[208] = OP_SELL; // SELL
@@ -2218,7 +2218,7 @@ void init_tab() {
    aPrice[208] = 80.029;
 
    // ========== 209 ===== 736 ==========
-   aPseudoTicket[209] = 105;
+   //aPseudoTicket[209] = 105;
    aAction[209] = 0; // CLOSE
    aType[209] = OP_SELL; // SELL
    aTicket[209] = -1; // Ticket given by broker
@@ -2228,7 +2228,7 @@ void init_tab() {
    aPrice[209] = 79.642;
 
    // ========== 210 ===== 735 ==========
-   aPseudoTicket[210] = 106;
+   //aPseudoTicket[210] = 106;
    aAction[210] = 1; // OPEN
    aReturn[106] = 210;
    aType[210] = OP_BUY; // BUY
@@ -2239,7 +2239,7 @@ void init_tab() {
    aPrice[210] = 79.148;
 
    // ========== 211 ===== 735 ==========
-   aPseudoTicket[211] = 106;
+   //aPseudoTicket[211] = 106;
    aAction[211] = 0; // CLOSE
    aType[211] = OP_BUY; // BUY
    aTicket[211] = -1; // Ticket given by broker
@@ -2249,7 +2249,7 @@ void init_tab() {
    aPrice[211] = 79.111;
 
    // ========== 212 ===== 733 ==========
-   aPseudoTicket[212] = 107;
+   //aPseudoTicket[212] = 107;
    aAction[212] = 1; // OPEN
    aReturn[107] = 212;
    aType[212] = OP_BUY; // BUY
@@ -2260,7 +2260,7 @@ void init_tab() {
    aPrice[212] = 1.0464;
 
    // ========== 213 ===== 734 ==========
-   aPseudoTicket[213] = 108;
+   //aPseudoTicket[213] = 108;
    aAction[213] = 1; // OPEN
    aReturn[108] = 213;
    aType[213] = OP_BUY; // BUY
@@ -2271,7 +2271,7 @@ void init_tab() {
    aPrice[213] = 1.4073;
 
    // ========== 214 ===== 734 ==========
-   aPseudoTicket[214] = 108;
+   //aPseudoTicket[214] = 108;
    aAction[214] = 0; // CLOSE
    aType[214] = OP_BUY; // BUY
    aTicket[214] = -1; // Ticket given by broker
@@ -2281,7 +2281,7 @@ void init_tab() {
    aPrice[214] = 1.41058;
 
    // ========== 215 ===== 733 ==========
-   aPseudoTicket[215] = 107;
+   //aPseudoTicket[215] = 107;
    aAction[215] = 0; // CLOSE
    aType[215] = OP_BUY; // BUY
    aTicket[215] = -1; // Ticket given by broker
@@ -2291,7 +2291,7 @@ void init_tab() {
    aPrice[215] = 1.04886;
 
    // ========== 216 ===== 732 ==========
-   aPseudoTicket[216] = 109;
+   //aPseudoTicket[216] = 109;
    aAction[216] = 1; // OPEN
    aReturn[109] = 216;
    aType[216] = OP_SELL; // SELL
@@ -2302,7 +2302,7 @@ void init_tab() {
    aPrice[216] = 1.4155;
 
    // ========== 217 ===== 732 ==========
-   aPseudoTicket[217] = 109;
+   //aPseudoTicket[217] = 109;
    aAction[217] = 0; // CLOSE
    aType[217] = OP_SELL; // SELL
    aTicket[217] = -1; // Ticket given by broker
@@ -2312,7 +2312,7 @@ void init_tab() {
    aPrice[217] = 1.41435;
 
    // ========== 218 ===== 731 ==========
-   aPseudoTicket[218] = 110;
+   //aPseudoTicket[218] = 110;
    aAction[218] = 1; // OPEN
    aReturn[110] = 218;
    aType[218] = OP_SELL; // SELL
@@ -2323,7 +2323,7 @@ void init_tab() {
    aPrice[218] = 0.97969;
 
    // ========== 219 ===== 730 ==========
-   aPseudoTicket[219] = 111;
+   //aPseudoTicket[219] = 111;
    aAction[219] = 1; // OPEN
    aReturn[111] = 219;
    aType[219] = OP_SELL; // SELL
@@ -2334,7 +2334,7 @@ void init_tab() {
    aPrice[219] = 1.41623;
 
    // ========== 220 ===== 731 ==========
-   aPseudoTicket[220] = 110;
+   //aPseudoTicket[220] = 110;
    aAction[220] = 0; // CLOSE
    aType[220] = OP_SELL; // SELL
    aTicket[220] = -1; // Ticket given by broker
@@ -2344,7 +2344,7 @@ void init_tab() {
    aPrice[220] = 0.97943;
 
    // ========== 221 ===== 730 ==========
-   aPseudoTicket[221] = 111;
+   //aPseudoTicket[221] = 111;
    aAction[221] = 0; // CLOSE
    aType[221] = OP_SELL; // SELL
    aTicket[221] = -1; // Ticket given by broker
@@ -2354,7 +2354,7 @@ void init_tab() {
    aPrice[221] = 1.41301;
 
    // ========== 222 ===== 729 ==========
-   aPseudoTicket[222] = 112;
+   //aPseudoTicket[222] = 112;
    aAction[222] = 1; // OPEN
    aReturn[112] = 222;
    aType[222] = OP_SELL; // SELL
@@ -2365,7 +2365,7 @@ void init_tab() {
    aPrice[222] = 1.41649;
 
    // ========== 223 ===== 729 ==========
-   aPseudoTicket[223] = 112;
+   //aPseudoTicket[223] = 112;
    aAction[223] = 0; // CLOSE
    aType[223] = OP_SELL; // SELL
    aTicket[223] = -1; // Ticket given by broker
@@ -2375,7 +2375,7 @@ void init_tab() {
    aPrice[223] = 1.42;
 
    // ========== 224 ===== 728 ==========
-   aPseudoTicket[224] = 113;
+   //aPseudoTicket[224] = 113;
    aAction[224] = 1; // OPEN
    aReturn[113] = 224;
    aType[224] = OP_BUY; // BUY
@@ -2386,7 +2386,7 @@ void init_tab() {
    aPrice[224] = 1.63458;
 
    // ========== 225 ===== 728 ==========
-   aPseudoTicket[225] = 113;
+   //aPseudoTicket[225] = 113;
    aAction[225] = 0; // CLOSE
    aType[225] = OP_BUY; // BUY
    aTicket[225] = -1; // Ticket given by broker
@@ -2396,7 +2396,7 @@ void init_tab() {
    aPrice[225] = 1.63228;
 
    // ========== 226 ===== 727 ==========
-   aPseudoTicket[226] = 114;
+   //aPseudoTicket[226] = 114;
    aAction[226] = 1; // OPEN
    aReturn[114] = 226;
    aType[226] = OP_SELL; // SELL
@@ -2407,7 +2407,7 @@ void init_tab() {
    aPrice[226] = 1.04476;
 
    // ========== 227 ===== 726 ==========
-   aPseudoTicket[227] = 115;
+   //aPseudoTicket[227] = 115;
    aAction[227] = 1; // OPEN
    aReturn[115] = 227;
    aType[227] = OP_BUY; // BUY
@@ -2418,7 +2418,7 @@ void init_tab() {
    aPrice[227] = 1.63631;
 
    // ========== 228 ===== 727 ==========
-   aPseudoTicket[228] = 114;
+   //aPseudoTicket[228] = 114;
    aAction[228] = 0; // CLOSE
    aType[228] = OP_SELL; // SELL
    aTicket[228] = -1; // Ticket given by broker
@@ -2428,7 +2428,7 @@ void init_tab() {
    aPrice[228] = 1.04431;
 
    // ========== 229 ===== 726 ==========
-   aPseudoTicket[229] = 115;
+   //aPseudoTicket[229] = 115;
    aAction[229] = 0; // CLOSE
    aType[229] = OP_BUY; // BUY
    aTicket[229] = -1; // Ticket given by broker
@@ -2438,7 +2438,7 @@ void init_tab() {
    aPrice[229] = 1.63673;
 
    // ========== 230 ===== 725 ==========
-   aPseudoTicket[230] = 116;
+   //aPseudoTicket[230] = 116;
    aAction[230] = 1; // OPEN
    aReturn[116] = 230;
    aType[230] = OP_SELL; // SELL
@@ -2449,7 +2449,7 @@ void init_tab() {
    aPrice[230] = 1.04;
 
    // ========== 231 ===== 725 ==========
-   aPseudoTicket[231] = 116;
+   //aPseudoTicket[231] = 116;
    aAction[231] = 0; // CLOSE
    aType[231] = OP_SELL; // SELL
    aTicket[231] = -1; // Ticket given by broker
@@ -2459,7 +2459,7 @@ void init_tab() {
    aPrice[231] = 1.04556;
 
    // ========== 232 ===== 724 ==========
-   aPseudoTicket[232] = 117;
+   //aPseudoTicket[232] = 117;
    aAction[232] = 1; // OPEN
    aReturn[117] = 232;
    aType[232] = OP_BUY; // BUY
@@ -2470,7 +2470,7 @@ void init_tab() {
    aPrice[232] = 1.42395;
 
    // ========== 233 ===== 724 ==========
-   aPseudoTicket[233] = 117;
+   //aPseudoTicket[233] = 117;
    aAction[233] = 0; // CLOSE
    aType[233] = OP_BUY; // BUY
    aTicket[233] = -1; // Ticket given by broker
@@ -2480,7 +2480,7 @@ void init_tab() {
    aPrice[233] = 1.43911;
 
    // ========== 234 ===== 723 ==========
-   aPseudoTicket[234] = 118;
+   //aPseudoTicket[234] = 118;
    aAction[234] = 1; // OPEN
    aReturn[118] = 234;
    aType[234] = OP_BUY; // BUY
@@ -2491,7 +2491,7 @@ void init_tab() {
    aPrice[234] = 1.43;
 
    // ========== 235 ===== 723 ==========
-   aPseudoTicket[235] = 118;
+   //aPseudoTicket[235] = 118;
    aAction[235] = 0; // CLOSE
    aType[235] = OP_BUY; // BUY
    aTicket[235] = -1; // Ticket given by broker
@@ -2501,7 +2501,7 @@ void init_tab() {
    aPrice[235] = 1.4351;
 
    // ========== 236 ===== 722 ==========
-   aPseudoTicket[236] = 119;
+   //aPseudoTicket[236] = 119;
    aAction[236] = 1; // OPEN
    aReturn[119] = 236;
    aType[236] = OP_SELL; // SELL
@@ -2512,7 +2512,7 @@ void init_tab() {
    aPrice[236] = 0.99018;
 
    // ========== 237 ===== 722 ==========
-   aPseudoTicket[237] = 119;
+   //aPseudoTicket[237] = 119;
    aAction[237] = 0; // CLOSE
    aType[237] = OP_SELL; // SELL
    aTicket[237] = -1; // Ticket given by broker
@@ -2522,7 +2522,7 @@ void init_tab() {
    aPrice[237] = 1.0;
 
    // ========== 238 ===== 721 ==========
-   aPseudoTicket[238] = 120;
+   //aPseudoTicket[238] = 120;
    aAction[238] = 1; // OPEN
    aReturn[120] = 238;
    aType[238] = OP_SELL; // SELL
@@ -2533,7 +2533,7 @@ void init_tab() {
    aPrice[238] = 0.99883;
 
    // ========== 239 ===== 720 ==========
-   aPseudoTicket[239] = 121;
+   //aPseudoTicket[239] = 121;
    aAction[239] = 1; // OPEN
    aReturn[121] = 239;
    aType[239] = OP_SELL; // SELL
@@ -2544,7 +2544,7 @@ void init_tab() {
    aPrice[239] = 1.0131;
 
    // ========== 240 ===== 721 ==========
-   aPseudoTicket[240] = 120;
+   //aPseudoTicket[240] = 120;
    aAction[240] = 0; // CLOSE
    aType[240] = OP_SELL; // SELL
    aTicket[240] = -1; // Ticket given by broker
@@ -2554,7 +2554,7 @@ void init_tab() {
    aPrice[240] = 0.99469;
 
    // ========== 241 ===== 720 ==========
-   aPseudoTicket[241] = 121;
+   //aPseudoTicket[241] = 121;
    aAction[241] = 0; // CLOSE
    aType[241] = OP_SELL; // SELL
    aTicket[241] = -1; // Ticket given by broker
@@ -2564,7 +2564,7 @@ void init_tab() {
    aPrice[241] = 1.0231;
 
    // ========== 242 ===== 719 ==========
-   aPseudoTicket[242] = 122;
+   //aPseudoTicket[242] = 122;
    aAction[242] = 1; // OPEN
    aReturn[122] = 242;
    aType[242] = OP_SELL; // SELL
@@ -2575,7 +2575,7 @@ void init_tab() {
    aPrice[242] = 1.02241;
 
    // ========== 243 ===== 719 ==========
-   aPseudoTicket[243] = 122;
+   //aPseudoTicket[243] = 122;
    aAction[243] = 0; // CLOSE
    aType[243] = OP_SELL; // SELL
    aTicket[243] = -1; // Ticket given by broker
@@ -2585,7 +2585,7 @@ void init_tab() {
    aPrice[243] = 1.01488;
 
    // ========== 244 ===== 718 ==========
-   aPseudoTicket[244] = 123;
+   //aPseudoTicket[244] = 123;
    aAction[244] = 1; // OPEN
    aReturn[123] = 244;
    aType[244] = OP_BUY; // BUY
@@ -2596,7 +2596,7 @@ void init_tab() {
    aPrice[244] = 77.064;
 
    // ========== 245 ===== 718 ==========
-   aPseudoTicket[245] = 123;
+   //aPseudoTicket[245] = 123;
    aAction[245] = 0; // CLOSE
    aType[245] = OP_BUY; // BUY
    aTicket[245] = -1; // Ticket given by broker
@@ -2606,7 +2606,7 @@ void init_tab() {
    aPrice[245] = 77.221;
 
    // ========== 246 ===== 717 ==========
-   aPseudoTicket[246] = 124;
+   //aPseudoTicket[246] = 124;
    aAction[246] = 1; // OPEN
    aReturn[124] = 246;
    aType[246] = OP_SELL; // SELL
@@ -2617,7 +2617,7 @@ void init_tab() {
    aPrice[246] = 1.03526;
 
    // ========== 247 ===== 715 ==========
-   aPseudoTicket[247] = 125;
+   //aPseudoTicket[247] = 125;
    aAction[247] = 1; // OPEN
    aReturn[125] = 247;
    aType[247] = OP_BUY; // BUY
@@ -2628,7 +2628,7 @@ void init_tab() {
    aPrice[247] = 1.43699;
 
    // ========== 248 ===== 717 ==========
-   aPseudoTicket[248] = 124;
+   //aPseudoTicket[248] = 124;
    aAction[248] = 0; // CLOSE
    aType[248] = OP_SELL; // SELL
    aTicket[248] = -1; // Ticket given by broker
@@ -2638,7 +2638,7 @@ void init_tab() {
    aPrice[248] = 1.03419;
 
    // ========== 249 ===== 716 ==========
-   aPseudoTicket[249] = 126;
+   //aPseudoTicket[249] = 126;
    aAction[249] = 1; // OPEN
    aReturn[126] = 249;
    aType[249] = OP_SELL; // SELL
@@ -2649,7 +2649,7 @@ void init_tab() {
    aPrice[249] = 0.7267;
 
    // ========== 250 ===== 716 ==========
-   aPseudoTicket[250] = 126;
+   //aPseudoTicket[250] = 126;
    aAction[250] = 0; // CLOSE
    aType[250] = OP_SELL; // SELL
    aTicket[250] = -1; // Ticket given by broker
@@ -2659,7 +2659,7 @@ void init_tab() {
    aPrice[250] = 0.7217;
 
    // ========== 251 ===== 714 ==========
-   aPseudoTicket[251] = 127;
+   //aPseudoTicket[251] = 127;
    aAction[251] = 1; // OPEN
    aReturn[127] = 251;
    aType[251] = OP_BUY; // BUY
@@ -2670,7 +2670,7 @@ void init_tab() {
    aPrice[251] = 76.67;
 
    // ========== 252 ===== 715 ==========
-   aPseudoTicket[252] = 125;
+   //aPseudoTicket[252] = 125;
    aAction[252] = 0; // CLOSE
    aType[252] = OP_BUY; // BUY
    aTicket[252] = -1; // Ticket given by broker
@@ -2680,7 +2680,7 @@ void init_tab() {
    aPrice[252] = 1.4384;
 
    // ========== 253 ===== 712 ==========
-   aPseudoTicket[253] = 128;
+   //aPseudoTicket[253] = 128;
    aAction[253] = 1; // OPEN
    aReturn[128] = 253;
    aType[253] = OP_SELL; // SELL
@@ -2691,7 +2691,7 @@ void init_tab() {
    aPrice[253] = 1.43023;
 
    // ========== 254 ===== 714 ==========
-   aPseudoTicket[254] = 127;
+   //aPseudoTicket[254] = 127;
    aAction[254] = 0; // CLOSE
    aType[254] = OP_BUY; // BUY
    aTicket[254] = -1; // Ticket given by broker
@@ -2701,7 +2701,7 @@ void init_tab() {
    aPrice[254] = 76.516;
 
    // ========== 255 ===== 713 ==========
-   aPseudoTicket[255] = 129;
+   //aPseudoTicket[255] = 129;
    aAction[255] = 1; // OPEN
    aReturn[129] = 255;
    aType[255] = OP_SELL; // SELL
@@ -2712,7 +2712,7 @@ void init_tab() {
    aPrice[255] = 1.61817;
 
    // ========== 256 ===== 713 ==========
-   aPseudoTicket[256] = 129;
+   //aPseudoTicket[256] = 129;
    aAction[256] = 0; // CLOSE
    aType[256] = OP_SELL; // SELL
    aTicket[256] = -1; // Ticket given by broker
@@ -2722,7 +2722,7 @@ void init_tab() {
    aPrice[256] = 1.61267;
 
    // ========== 257 ===== 712 ==========
-   aPseudoTicket[257] = 128;
+   //aPseudoTicket[257] = 128;
    aAction[257] = 0; // CLOSE
    aType[257] = OP_SELL; // SELL
    aTicket[257] = -1; // Ticket given by broker
@@ -2732,7 +2732,7 @@ void init_tab() {
    aPrice[257] = 1.4146;
 
    // ========== 258 ===== 709 ==========
-   aPseudoTicket[258] = 130;
+   //aPseudoTicket[258] = 130;
    aAction[258] = 1; // OPEN
    aReturn[130] = 258;
    aType[258] = OP_SELL; // SELL
@@ -2743,7 +2743,7 @@ void init_tab() {
    aPrice[258] = 1.421;
 
    // ========== 259 ===== 711 ==========
-   aPseudoTicket[259] = 131;
+   //aPseudoTicket[259] = 131;
    aAction[259] = 1; // OPEN
    aReturn[131] = 259;
    aType[259] = OP_BUY; // BUY
@@ -2754,7 +2754,7 @@ void init_tab() {
    aPrice[259] = 0.73175;
 
    // ========== 260 ===== 711 ==========
-   aPseudoTicket[260] = 131;
+   //aPseudoTicket[260] = 131;
    aAction[260] = 0; // CLOSE
    aType[260] = OP_BUY; // BUY
    aTicket[260] = -1; // Ticket given by broker
@@ -2764,7 +2764,7 @@ void init_tab() {
    aPrice[260] = 0.72875;
 
    // ========== 261 ===== 710 ==========
-   aPseudoTicket[261] = 132;
+   //aPseudoTicket[261] = 132;
    aAction[261] = 1; // OPEN
    aReturn[132] = 261;
    aType[261] = OP_SELL; // SELL
@@ -2775,7 +2775,7 @@ void init_tab() {
    aPrice[261] = 1.61966;
 
    // ========== 262 ===== 710 ==========
-   aPseudoTicket[262] = 132;
+   //aPseudoTicket[262] = 132;
    aAction[262] = 0; // CLOSE
    aType[262] = OP_SELL; // SELL
    aTicket[262] = -1; // Ticket given by broker
@@ -2785,7 +2785,7 @@ void init_tab() {
    aPrice[262] = 1.61825;
 
    // ========== 263 ===== 709 ==========
-   aPseudoTicket[263] = 130;
+   //aPseudoTicket[263] = 130;
    aAction[263] = 0; // CLOSE
    aType[263] = OP_SELL; // SELL
    aTicket[263] = -1; // Ticket given by broker
@@ -2795,7 +2795,7 @@ void init_tab() {
    aPrice[263] = 1.41711;
 
    // ========== 264 ===== 708 ==========
-   aPseudoTicket[264] = 133;
+   //aPseudoTicket[264] = 133;
    aAction[264] = 1; // OPEN
    aReturn[133] = 264;
    aType[264] = OP_SELL; // SELL
@@ -2806,7 +2806,7 @@ void init_tab() {
    aPrice[264] = 1.41499;
 
    // ========== 265 ===== 708 ==========
-   aPseudoTicket[265] = 133;
+   //aPseudoTicket[265] = 133;
    aAction[265] = 0; // CLOSE
    aType[265] = OP_SELL; // SELL
    aTicket[265] = -1; // Ticket given by broker
@@ -2816,7 +2816,7 @@ void init_tab() {
    aPrice[265] = 1.41671;
 
    // ========== 266 ===== 707 ==========
-   aPseudoTicket[266] = 134;
+   //aPseudoTicket[266] = 134;
    aAction[266] = 1; // OPEN
    aReturn[134] = 266;
    aType[266] = OP_SELL; // SELL
@@ -2827,7 +2827,7 @@ void init_tab() {
    aPrice[266] = 0.76761;
 
    // ========== 267 ===== 707 ==========
-   aPseudoTicket[267] = 134;
+   //aPseudoTicket[267] = 134;
    aAction[267] = 0; // CLOSE
    aType[267] = OP_SELL; // SELL
    aTicket[267] = -1; // Ticket given by broker
@@ -2837,7 +2837,7 @@ void init_tab() {
    aPrice[267] = 0.76084;
 
    // ========== 268 ===== 706 ==========
-   aPseudoTicket[268] = 135;
+   //aPseudoTicket[268] = 135;
    aAction[268] = 1; // OPEN
    aReturn[135] = 268;
    aType[268] = OP_SELL; // SELL
@@ -2848,7 +2848,7 @@ void init_tab() {
    aPrice[268] = 1.41596;
 
    // ========== 269 ===== 706 ==========
-   aPseudoTicket[269] = 135;
+   //aPseudoTicket[269] = 135;
    aAction[269] = 0; // CLOSE
    aType[269] = OP_SELL; // SELL
    aTicket[269] = -1; // Ticket given by broker
@@ -2858,7 +2858,7 @@ void init_tab() {
    aPrice[269] = 1.41792;
 
    // ========== 270 ===== 705 ==========
-   aPseudoTicket[270] = 136;
+   //aPseudoTicket[270] = 136;
    aAction[270] = 1; // OPEN
    aReturn[136] = 270;
    aType[270] = OP_BUY; // BUY
@@ -2869,7 +2869,7 @@ void init_tab() {
    aPrice[270] = 1.62892;
 
    // ========== 271 ===== 705 ==========
-   aPseudoTicket[271] = 136;
+   //aPseudoTicket[271] = 136;
    aAction[271] = 0; // CLOSE
    aType[271] = OP_BUY; // BUY
    aTicket[271] = -1; // Ticket given by broker
@@ -2879,7 +2879,7 @@ void init_tab() {
    aPrice[271] = 1.62906;
 
    // ========== 272 ===== 704 ==========
-   aPseudoTicket[272] = 137;
+   //aPseudoTicket[272] = 137;
    aAction[272] = 1; // OPEN
    aReturn[137] = 272;
    aType[272] = OP_BUY; // BUY
@@ -2890,7 +2890,7 @@ void init_tab() {
    aPrice[272] = 0.77358;
 
    // ========== 273 ===== 704 ==========
-   aPseudoTicket[273] = 137;
+   //aPseudoTicket[273] = 137;
    aAction[273] = 0; // CLOSE
    aType[273] = OP_BUY; // BUY
    aTicket[273] = -1; // Ticket given by broker
@@ -2900,7 +2900,7 @@ void init_tab() {
    aPrice[273] = 0.768;
 
    // ========== 274 ===== 702 ==========
-   aPseudoTicket[274] = 138;
+   //aPseudoTicket[274] = 138;
    aAction[274] = 1; // OPEN
    aReturn[138] = 274;
    aType[274] = OP_SELL; // SELL
@@ -2911,7 +2911,7 @@ void init_tab() {
    aPrice[274] = 0.78765;
 
    // ========== 275 ===== 703 ==========
-   aPseudoTicket[275] = 139;
+   //aPseudoTicket[275] = 139;
    aAction[275] = 1; // OPEN
    aReturn[139] = 275;
    aType[275] = OP_SELL; // SELL
@@ -2922,7 +2922,7 @@ void init_tab() {
    aPrice[275] = 0.79818;
 
    // ========== 276 ===== 703 ==========
-   aPseudoTicket[276] = 139;
+   //aPseudoTicket[276] = 139;
    aAction[276] = 0; // CLOSE
    aType[276] = OP_SELL; // SELL
    aTicket[276] = -1; // Ticket given by broker
@@ -2932,7 +2932,7 @@ void init_tab() {
    aPrice[276] = 0.7877;
 
    // ========== 277 ===== 698 ==========
-   aPseudoTicket[277] = 140;
+   //aPseudoTicket[277] = 140;
    aAction[277] = 1; // OPEN
    aReturn[140] = 277;
    aType[277] = OP_BUY; // BUY
@@ -2943,7 +2943,7 @@ void init_tab() {
    aPrice[277] = 1.43703;
 
    // ========== 278 ===== 702 ==========
-   aPseudoTicket[278] = 138;
+   //aPseudoTicket[278] = 138;
    aAction[278] = 0; // CLOSE
    aType[278] = OP_SELL; // SELL
    aTicket[278] = -1; // Ticket given by broker
@@ -2953,7 +2953,7 @@ void init_tab() {
    aPrice[278] = 0.78452;
 
    // ========== 279 ===== 701 ==========
-   aPseudoTicket[279] = 141;
+   //aPseudoTicket[279] = 141;
    aAction[279] = 1; // OPEN
    aReturn[141] = 279;
    aType[279] = OP_SELL; // SELL
@@ -2964,7 +2964,7 @@ void init_tab() {
    aPrice[279] = 1.0496;
 
    // ========== 280 ===== 701 ==========
-   aPseudoTicket[280] = 141;
+   //aPseudoTicket[280] = 141;
    aAction[280] = 0; // CLOSE
    aType[280] = OP_SELL; // SELL
    aTicket[280] = -1; // Ticket given by broker
@@ -2974,7 +2974,7 @@ void init_tab() {
    aPrice[280] = 1.04856;
 
    // ========== 281 ===== 700 ==========
-   aPseudoTicket[281] = 142;
+   //aPseudoTicket[281] = 142;
    aAction[281] = 1; // OPEN
    aReturn[142] = 281;
    aType[281] = OP_BUY; // BUY
@@ -2985,7 +2985,7 @@ void init_tab() {
    aPrice[281] = 1.44165;
 
    // ========== 282 ===== 700 ==========
-   aPseudoTicket[282] = 142;
+   //aPseudoTicket[282] = 142;
    aAction[282] = 0; // CLOSE
    aType[282] = OP_BUY; // BUY
    aTicket[282] = -1; // Ticket given by broker
@@ -2995,7 +2995,7 @@ void init_tab() {
    aPrice[282] = 1.4389;
 
    // ========== 283 ===== 699 ==========
-   aPseudoTicket[283] = 143;
+   //aPseudoTicket[283] = 143;
    aAction[283] = 1; // OPEN
    aReturn[143] = 283;
    aType[283] = OP_SELL; // SELL
@@ -3006,7 +3006,7 @@ void init_tab() {
    aPrice[283] = 0.79118;
 
    // ========== 284 ===== 699 ==========
-   aPseudoTicket[284] = 143;
+   //aPseudoTicket[284] = 143;
    aAction[284] = 0; // CLOSE
    aType[284] = OP_SELL; // SELL
    aTicket[284] = -1; // Ticket given by broker
@@ -3016,7 +3016,7 @@ void init_tab() {
    aPrice[284] = 0.78702;
 
    // ========== 285 ===== 698 ==========
-   aPseudoTicket[285] = 140;
+   //aPseudoTicket[285] = 140;
    aAction[285] = 0; // CLOSE
    aType[285] = OP_BUY; // BUY
    aTicket[285] = -1; // Ticket given by broker
@@ -3026,7 +3026,7 @@ void init_tab() {
    aPrice[285] = 1.435;
 
    // ========== 286 ===== 697 ==========
-   aPseudoTicket[286] = 144;
+   //aPseudoTicket[286] = 144;
    aAction[286] = 1; // OPEN
    aReturn[144] = 286;
    aType[286] = OP_SELL; // SELL
@@ -3037,7 +3037,7 @@ void init_tab() {
    aPrice[286] = 1.43362;
 
    // ========== 287 ===== 697 ==========
-   aPseudoTicket[287] = 144;
+   //aPseudoTicket[287] = 144;
    aAction[287] = 0; // CLOSE
    aType[287] = OP_SELL; // SELL
    aTicket[287] = -1; // Ticket given by broker
@@ -3047,7 +3047,7 @@ void init_tab() {
    aPrice[287] = 1.438;
 
    // ========== 288 ===== 696 ==========
-   aPseudoTicket[288] = 145;
+   //aPseudoTicket[288] = 145;
    aAction[288] = 1; // OPEN
    aReturn[145] = 288;
    aType[288] = OP_BUY; // BUY
@@ -3058,7 +3058,7 @@ void init_tab() {
    aPrice[288] = 1.44041;
 
    // ========== 289 ===== 695 ==========
-   aPseudoTicket[289] = 146;
+   //aPseudoTicket[289] = 146;
    aAction[289] = 1; // OPEN
    aReturn[146] = 289;
    aType[289] = OP_SELL; // SELL
@@ -3069,7 +3069,7 @@ void init_tab() {
    aPrice[289] = 1.05851;
 
    // ========== 290 ===== 696 ==========
-   aPseudoTicket[290] = 145;
+   //aPseudoTicket[290] = 145;
    aAction[290] = 0; // CLOSE
    aType[290] = OP_BUY; // BUY
    aTicket[290] = -1; // Ticket given by broker
@@ -3079,7 +3079,7 @@ void init_tab() {
    aPrice[290] = 1.44327;
 
    // ========== 291 ===== 694 ==========
-   aPseudoTicket[291] = 147;
+   //aPseudoTicket[291] = 147;
    aAction[291] = 1; // OPEN
    aReturn[147] = 291;
    aType[291] = OP_BUY; // BUY
@@ -3090,7 +3090,7 @@ void init_tab() {
    aPrice[291] = 1.44309;
 
    // ========== 292 ===== 695 ==========
-   aPseudoTicket[292] = 146;
+   //aPseudoTicket[292] = 146;
    aAction[292] = 0; // CLOSE
    aType[292] = OP_SELL; // SELL
    aTicket[292] = -1; // Ticket given by broker
@@ -3100,7 +3100,7 @@ void init_tab() {
    aPrice[292] = 1.05658;
 
    // ========== 293 ===== 693 ==========
-   aPseudoTicket[293] = 148;
+   //aPseudoTicket[293] = 148;
    aAction[293] = 1; // OPEN
    aReturn[148] = 293;
    aType[293] = OP_BUY; // BUY
@@ -3111,7 +3111,7 @@ void init_tab() {
    aPrice[293] = 1.44142;
 
    // ========== 294 ===== 694 ==========
-   aPseudoTicket[294] = 147;
+   //aPseudoTicket[294] = 147;
    aAction[294] = 0; // CLOSE
    aType[294] = OP_BUY; // BUY
    aTicket[294] = -1; // Ticket given by broker
@@ -3121,7 +3121,7 @@ void init_tab() {
    aPrice[294] = 1.44;
 
    // ========== 295 ===== 693 ==========
-   aPseudoTicket[295] = 148;
+   //aPseudoTicket[295] = 148;
    aAction[295] = 0; // CLOSE
    aType[295] = OP_BUY; // BUY
    aTicket[295] = -1; // Ticket given by broker
@@ -3131,7 +3131,7 @@ void init_tab() {
    aPrice[295] = 1.439;
 
    // ========== 296 ===== 692 ==========
-   aPseudoTicket[296] = 149;
+   //aPseudoTicket[296] = 149;
    aAction[296] = 1; // OPEN
    aReturn[149] = 296;
    aType[296] = OP_BUY; // BUY
@@ -3142,7 +3142,7 @@ void init_tab() {
    aPrice[296] = 1.64966;
 
    // ========== 297 ===== 692 ==========
-   aPseudoTicket[297] = 149;
+   //aPseudoTicket[297] = 149;
    aAction[297] = 0; // CLOSE
    aType[297] = OP_BUY; // BUY
    aTicket[297] = -1; // Ticket given by broker
@@ -3152,7 +3152,7 @@ void init_tab() {
    aPrice[297] = 1.65169;
 
    // ========== 298 ===== 690 ==========
-   aPseudoTicket[298] = 150;
+   //aPseudoTicket[298] = 150;
    aAction[298] = 1; // OPEN
    aReturn[150] = 298;
    aType[298] = OP_SELL; // SELL
@@ -3163,7 +3163,7 @@ void init_tab() {
    aPrice[298] = 1.64829;
 
    // ========== 299 ===== 691 ==========
-   aPseudoTicket[299] = 151;
+   //aPseudoTicket[299] = 151;
    aAction[299] = 1; // OPEN
    aReturn[151] = 299;
    aType[299] = OP_SELL; // SELL
@@ -3174,7 +3174,7 @@ void init_tab() {
    aPrice[299] = 0.78768;
 
    // ========== 300 ===== 691 ==========
-   aPseudoTicket[300] = 151;
+   //aPseudoTicket[300] = 151;
    aAction[300] = 0; // CLOSE
    aType[300] = OP_SELL; // SELL
    aTicket[300] = -1; // Ticket given by broker
@@ -3184,7 +3184,7 @@ void init_tab() {
    aPrice[300] = 0.78912;
 
    // ========== 301 ===== 690 ==========
-   aPseudoTicket[301] = 150;
+   //aPseudoTicket[301] = 150;
    aAction[301] = 0; // CLOSE
    aType[301] = OP_SELL; // SELL
    aTicket[301] = -1; // Ticket given by broker
@@ -3194,7 +3194,7 @@ void init_tab() {
    aPrice[301] = 1.64479;
 
    // ========== 302 ===== 689 ==========
-   aPseudoTicket[302] = 152;
+   //aPseudoTicket[302] = 152;
    aAction[302] = 1; // OPEN
    aReturn[152] = 302;
    aType[302] = OP_SELL; // SELL
@@ -3205,7 +3205,7 @@ void init_tab() {
    aPrice[302] = 1.43041;
 
    // ========== 303 ===== 689 ==========
-   aPseudoTicket[303] = 152;
+   //aPseudoTicket[303] = 152;
    aAction[303] = 0; // CLOSE
    aType[303] = OP_SELL; // SELL
    aTicket[303] = -1; // Ticket given by broker
@@ -3215,7 +3215,7 @@ void init_tab() {
    aPrice[303] = 1.43028;
 
    // ========== 304 ===== 686 ==========
-   aPseudoTicket[304] = 153;
+   //aPseudoTicket[304] = 153;
    aAction[304] = 1; // OPEN
    aReturn[153] = 304;
    aType[304] = OP_SELL; // SELL
@@ -3226,7 +3226,7 @@ void init_tab() {
    aPrice[304] = 1.4314;
 
    // ========== 305 ===== 688 ==========
-   aPseudoTicket[305] = 154;
+   //aPseudoTicket[305] = 154;
    aAction[305] = 1; // OPEN
    aReturn[154] = 305;
    aType[305] = OP_SELL; // SELL
@@ -3237,7 +3237,7 @@ void init_tab() {
    aPrice[305] = 0.79049;
 
    // ========== 306 ===== 688 ==========
-   aPseudoTicket[306] = 154;
+   //aPseudoTicket[306] = 154;
    aAction[306] = 0; // CLOSE
    aType[306] = OP_SELL; // SELL
    aTicket[306] = -1; // Ticket given by broker
@@ -3247,7 +3247,7 @@ void init_tab() {
    aPrice[306] = 0.78996;
 
    // ========== 307 ===== 687 ==========
-   aPseudoTicket[307] = 155;
+   //aPseudoTicket[307] = 155;
    aAction[307] = 1; // OPEN
    aReturn[155] = 307;
    aType[307] = OP_SELL; // SELL
@@ -3258,7 +3258,7 @@ void init_tab() {
    aPrice[307] = 1.42904;
 
    // ========== 308 ===== 687 ==========
-   aPseudoTicket[308] = 155;
+   //aPseudoTicket[308] = 155;
    aAction[308] = 0; // CLOSE
    aType[308] = OP_SELL; // SELL
    aTicket[308] = -1; // Ticket given by broker
@@ -3268,7 +3268,7 @@ void init_tab() {
    aPrice[308] = 1.42898;
 
    // ========== 309 ===== 686 ==========
-   aPseudoTicket[309] = 153;
+   //aPseudoTicket[309] = 153;
    aAction[309] = 0; // CLOSE
    aType[309] = OP_SELL; // SELL
    aTicket[309] = -1; // Ticket given by broker
@@ -3278,7 +3278,7 @@ void init_tab() {
    aPrice[309] = 1.43324;
 
    // ========== 310 ===== 685 ==========
-   aPseudoTicket[310] = 156;
+   //aPseudoTicket[310] = 156;
    aAction[310] = 1; // OPEN
    aReturn[156] = 310;
    aType[310] = OP_SELL; // SELL
@@ -3289,7 +3289,7 @@ void init_tab() {
    aPrice[310] = 1.43119;
 
    // ========== 311 ===== 685 ==========
-   aPseudoTicket[311] = 156;
+   //aPseudoTicket[311] = 156;
    aAction[311] = 0; // CLOSE
    aType[311] = OP_SELL; // SELL
    aTicket[311] = -1; // Ticket given by broker
@@ -3299,7 +3299,7 @@ void init_tab() {
    aPrice[311] = 1.43572;
 
    // ========== 312 ===== 684 ==========
-   aPseudoTicket[312] = 157;
+   //aPseudoTicket[312] = 157;
    aAction[312] = 1; // OPEN
    aReturn[157] = 312;
    aType[312] = OP_BUY; // BUY
@@ -3310,7 +3310,7 @@ void init_tab() {
    aPrice[312] = 1.43935;
 
    // ========== 313 ===== 683 ==========
-   aPseudoTicket[313] = 158;
+   //aPseudoTicket[313] = 158;
    aAction[313] = 1; // OPEN
    aReturn[158] = 313;
    aType[313] = OP_SELL; // SELL
@@ -3321,7 +3321,7 @@ void init_tab() {
    aPrice[313] = 1.04373;
 
    // ========== 314 ===== 684 ==========
-   aPseudoTicket[314] = 157;
+   //aPseudoTicket[314] = 157;
    aAction[314] = 0; // CLOSE
    aType[314] = OP_BUY; // BUY
    aTicket[314] = -1; // Ticket given by broker
@@ -3331,7 +3331,7 @@ void init_tab() {
    aPrice[314] = 1.44157;
 
    // ========== 315 ===== 682 ==========
-   aPseudoTicket[315] = 159;
+   //aPseudoTicket[315] = 159;
    aAction[315] = 1; // OPEN
    aReturn[159] = 315;
    aType[315] = OP_BUY; // BUY
@@ -3342,7 +3342,7 @@ void init_tab() {
    aPrice[315] = 1.652;
 
    // ========== 316 ===== 683 ==========
-   aPseudoTicket[316] = 158;
+   //aPseudoTicket[316] = 158;
    aAction[316] = 0; // CLOSE
    aType[316] = OP_SELL; // SELL
    aTicket[316] = -1; // Ticket given by broker
@@ -3352,7 +3352,7 @@ void init_tab() {
    aPrice[316] = 1.04214;
 
    // ========== 317 ===== 681 ==========
-   aPseudoTicket[317] = 160;
+   //aPseudoTicket[317] = 160;
    aAction[317] = 1; // OPEN
    aReturn[160] = 317;
    aType[317] = OP_BUY; // BUY
@@ -3363,7 +3363,7 @@ void init_tab() {
    aPrice[317] = 1.4355;
 
    // ========== 318 ===== 682 ==========
-   aPseudoTicket[318] = 159;
+   //aPseudoTicket[318] = 159;
    aAction[318] = 0; // CLOSE
    aType[318] = OP_BUY; // BUY
    aTicket[318] = -1; // Ticket given by broker
@@ -3373,7 +3373,7 @@ void init_tab() {
    aPrice[318] = 1.64975;
 
    // ========== 319 ===== 681 ==========
-   aPseudoTicket[319] = 160;
+   //aPseudoTicket[319] = 160;
    aAction[319] = 0; // CLOSE
    aType[319] = OP_BUY; // BUY
    aTicket[319] = -1; // Ticket given by broker
@@ -3383,7 +3383,7 @@ void init_tab() {
    aPrice[319] = 1.43987;
 
    // ========== 320 ===== 680 ==========
-   aPseudoTicket[320] = 161;
+   //aPseudoTicket[320] = 161;
    aAction[320] = 1; // OPEN
    aReturn[161] = 320;
    aType[320] = OP_BUY; // BUY
@@ -3394,7 +3394,7 @@ void init_tab() {
    aPrice[320] = 1.65166;
 
    // ========== 321 ===== 679 ==========
-   aPseudoTicket[321] = 162;
+   //aPseudoTicket[321] = 162;
    aAction[321] = 1; // OPEN
    aReturn[162] = 321;
    aType[321] = OP_BUY; // BUY
@@ -3405,7 +3405,7 @@ void init_tab() {
    aPrice[321] = 1.44215;
 
    // ========== 322 ===== 680 ==========
-   aPseudoTicket[322] = 161;
+   //aPseudoTicket[322] = 161;
    aAction[322] = 0; // CLOSE
    aType[322] = OP_BUY; // BUY
    aTicket[322] = -1; // Ticket given by broker
@@ -3415,7 +3415,7 @@ void init_tab() {
    aPrice[322] = 1.65189;
 
    // ========== 323 ===== 678 ==========
-   aPseudoTicket[323] = 163;
+   //aPseudoTicket[323] = 163;
    aAction[323] = 1; // OPEN
    aReturn[163] = 323;
    aType[323] = OP_BUY; // BUY
@@ -3426,7 +3426,7 @@ void init_tab() {
    aPrice[323] = 1.44455;
 
    // ========== 324 ===== 678 ==========
-   aPseudoTicket[324] = 163;
+   //aPseudoTicket[324] = 163;
    aAction[324] = 0; // CLOSE
    aType[324] = OP_BUY; // BUY
    aTicket[324] = -1; // Ticket given by broker
@@ -3436,7 +3436,7 @@ void init_tab() {
    aPrice[324] = 1.4394;
 
    // ========== 325 ===== 679 ==========
-   aPseudoTicket[325] = 162;
+   //aPseudoTicket[325] = 162;
    aAction[325] = 0; // CLOSE
    aType[325] = OP_BUY; // BUY
    aTicket[325] = -1; // Ticket given by broker
@@ -3446,7 +3446,7 @@ void init_tab() {
    aPrice[325] = 1.4394;
 
    // ========== 326 ===== 677 ==========
-   aPseudoTicket[326] = 164;
+   //aPseudoTicket[326] = 164;
    aAction[326] = 1; // OPEN
    aReturn[164] = 326;
    aType[326] = OP_SELL; // SELL
@@ -3457,7 +3457,7 @@ void init_tab() {
    aPrice[326] = 1.05274;
 
    // ========== 327 ===== 677 ==========
-   aPseudoTicket[327] = 164;
+   //aPseudoTicket[327] = 164;
    aAction[327] = 0; // CLOSE
    aType[327] = OP_SELL; // SELL
    aTicket[327] = -1; // Ticket given by broker
@@ -3467,7 +3467,7 @@ void init_tab() {
    aPrice[327] = 1.05201;
 
    // ========== 328 ===== 676 ==========
-   aPseudoTicket[328] = 165;
+   //aPseudoTicket[328] = 165;
    aAction[328] = 1; // OPEN
    aReturn[165] = 328;
    aType[328] = OP_BUY; // BUY
@@ -3478,7 +3478,7 @@ void init_tab() {
    aPrice[328] = 1.44425;
 
    // ========== 329 ===== 676 ==========
-   aPseudoTicket[329] = 165;
+   //aPseudoTicket[329] = 165;
    aAction[329] = 0; // CLOSE
    aType[329] = OP_BUY; // BUY
    aTicket[329] = -1; // Ticket given by broker
@@ -3488,7 +3488,7 @@ void init_tab() {
    aPrice[329] = 1.44681;
 
    // ========== 330 ===== 675 ==========
-   aPseudoTicket[330] = 166;
+   //aPseudoTicket[330] = 166;
    aAction[330] = 1; // OPEN
    aReturn[166] = 330;
    aType[330] = OP_SELL; // SELL
@@ -3499,7 +3499,7 @@ void init_tab() {
    aPrice[330] = 1.64698;
 
    // ========== 331 ===== 675 ==========
-   aPseudoTicket[331] = 166;
+   //aPseudoTicket[331] = 166;
    aAction[331] = 0; // CLOSE
    aType[331] = OP_SELL; // SELL
    aTicket[331] = -1; // Ticket given by broker
@@ -3509,7 +3509,7 @@ void init_tab() {
    aPrice[331] = 1.6472;
 
    // ========== 332 ===== 674 ==========
-   aPseudoTicket[332] = 167;
+   //aPseudoTicket[332] = 167;
    aAction[332] = 1; // OPEN
    aReturn[167] = 332;
    aType[332] = OP_BUY; // BUY
@@ -3520,7 +3520,7 @@ void init_tab() {
    aPrice[332] = 1.44684;
 
    // ========== 333 ===== 673 ==========
-   aPseudoTicket[333] = 168;
+   //aPseudoTicket[333] = 168;
    aAction[333] = 1; // OPEN
    aReturn[168] = 333;
    aType[333] = OP_BUY; // BUY
@@ -3531,7 +3531,7 @@ void init_tab() {
    aPrice[333] = 0.79075;
 
    // ========== 334 ===== 674 ==========
-   aPseudoTicket[334] = 167;
+   //aPseudoTicket[334] = 167;
    aAction[334] = 0; // CLOSE
    aType[334] = OP_BUY; // BUY
    aTicket[334] = -1; // Ticket given by broker
@@ -3541,7 +3541,7 @@ void init_tab() {
    aPrice[334] = 1.44347;
 
    // ========== 335 ===== 673 ==========
-   aPseudoTicket[335] = 168;
+   //aPseudoTicket[335] = 168;
    aAction[335] = 0; // CLOSE
    aType[335] = OP_BUY; // BUY
    aTicket[335] = -1; // Ticket given by broker
@@ -3551,7 +3551,7 @@ void init_tab() {
    aPrice[335] = 0.79577;
 
    // ========== 336 ===== 672 ==========
-   aPseudoTicket[336] = 169;
+   //aPseudoTicket[336] = 169;
    aAction[336] = 1; // OPEN
    aReturn[169] = 336;
    aType[336] = OP_BUY; // BUY
@@ -3562,7 +3562,7 @@ void init_tab() {
    aPrice[336] = 1.4446;
 
    // ========== 337 ===== 672 ==========
-   aPseudoTicket[337] = 169;
+   //aPseudoTicket[337] = 169;
    aAction[337] = 0; // CLOSE
    aType[337] = OP_BUY; // BUY
    aTicket[337] = -1; // Ticket given by broker
@@ -3572,7 +3572,7 @@ void init_tab() {
    aPrice[337] = 1.44329;
 
    // ========== 338 ===== 669 ==========
-   aPseudoTicket[338] = 170;
+   //aPseudoTicket[338] = 170;
    aAction[338] = 1; // OPEN
    aReturn[170] = 338;
    aType[338] = OP_SELL; // SELL
@@ -3583,7 +3583,7 @@ void init_tab() {
    aPrice[338] = 77.099;
 
    // ========== 339 ===== 671 ==========
-   aPseudoTicket[339] = 171;
+   //aPseudoTicket[339] = 171;
    aAction[339] = 1; // OPEN
    aReturn[171] = 339;
    aType[339] = OP_SELL; // SELL
@@ -3594,7 +3594,7 @@ void init_tab() {
    aPrice[339] = 1.63312;
 
    // ========== 340 ===== 671 ==========
-   aPseudoTicket[340] = 171;
+   //aPseudoTicket[340] = 171;
    aAction[340] = 0; // CLOSE
    aType[340] = OP_SELL; // SELL
    aTicket[340] = -1; // Ticket given by broker
@@ -3604,7 +3604,7 @@ void init_tab() {
    aPrice[340] = 1.6356;
 
    // ========== 341 ===== 670 ==========
-   aPseudoTicket[341] = 172;
+   //aPseudoTicket[341] = 172;
    aAction[341] = 1; // OPEN
    aReturn[172] = 341;
    aType[341] = OP_BUY; // BUY
@@ -3615,7 +3615,7 @@ void init_tab() {
    aPrice[341] = 1.44586;
 
    // ========== 342 ===== 670 ==========
-   aPseudoTicket[342] = 172;
+   //aPseudoTicket[342] = 172;
    aAction[342] = 0; // CLOSE
    aType[342] = OP_BUY; // BUY
    aTicket[342] = -1; // Ticket given by broker
@@ -3625,7 +3625,7 @@ void init_tab() {
    aPrice[342] = 1.4418;
 
    // ========== 343 ===== 669 ==========
-   aPseudoTicket[343] = 170;
+   //aPseudoTicket[343] = 170;
    aAction[343] = 0; // CLOSE
    aType[343] = OP_SELL; // SELL
    aTicket[343] = -1; // Ticket given by broker
@@ -3635,7 +3635,7 @@ void init_tab() {
    aPrice[343] = 77.59;
 
    // ========== 344 ===== 668 ==========
-   aPseudoTicket[344] = 173;
+   //aPseudoTicket[344] = 173;
    aAction[344] = 1; // OPEN
    aReturn[173] = 344;
    aType[344] = OP_SELL; // SELL
@@ -3646,7 +3646,7 @@ void init_tab() {
    aPrice[344] = 1.4373;
 
    // ========== 345 ===== 668 ==========
-   aPseudoTicket[345] = 173;
+   //aPseudoTicket[345] = 173;
    aAction[345] = 0; // CLOSE
    aType[345] = OP_SELL; // SELL
    aTicket[345] = -1; // Ticket given by broker
@@ -3656,7 +3656,7 @@ void init_tab() {
    aPrice[345] = 1.44;
 
    // ========== 346 ===== 667 ==========
-   aPseudoTicket[346] = 174;
+   //aPseudoTicket[346] = 174;
    aAction[346] = 1; // OPEN
    aReturn[174] = 346;
    aType[346] = OP_BUY; // BUY
@@ -3667,7 +3667,7 @@ void init_tab() {
    aPrice[346] = 1.44164;
 
    // ========== 347 ===== 667 ==========
-   aPseudoTicket[347] = 174;
+   //aPseudoTicket[347] = 174;
    aAction[347] = 0; // CLOSE
    aType[347] = OP_BUY; // BUY
    aTicket[347] = -1; // Ticket given by broker
@@ -3677,7 +3677,7 @@ void init_tab() {
    aPrice[347] = 1.44103;
 
    // ========== 348 ===== 666 ==========
-   aPseudoTicket[348] = 175;
+   //aPseudoTicket[348] = 175;
    aAction[348] = 1; // OPEN
    aReturn[175] = 348;
    aType[348] = OP_SELL; // SELL
@@ -3688,7 +3688,7 @@ void init_tab() {
    aPrice[348] = 1.4426;
 
    // ========== 349 ===== 665 ==========
-   aPseudoTicket[349] = 176;
+   //aPseudoTicket[349] = 176;
    aAction[349] = 1; // OPEN
    aReturn[176] = 349;
    aType[349] = OP_SELL; // SELL
@@ -3699,7 +3699,7 @@ void init_tab() {
    aPrice[349] = 0.78931;
 
    // ========== 350 ===== 666 ==========
-   aPseudoTicket[350] = 175;
+   //aPseudoTicket[350] = 175;
    aAction[350] = 0; // CLOSE
    aType[350] = OP_SELL; // SELL
    aTicket[350] = -1; // Ticket given by broker
@@ -3709,7 +3709,7 @@ void init_tab() {
    aPrice[350] = 1.44467;
 
    // ========== 351 ===== 665 ==========
-   aPseudoTicket[351] = 176;
+   //aPseudoTicket[351] = 176;
    aAction[351] = 0; // CLOSE
    aType[351] = OP_SELL; // SELL
    aTicket[351] = -1; // Ticket given by broker
@@ -3719,7 +3719,7 @@ void init_tab() {
    aPrice[351] = 0.7939;
 
    // ========== 352 ===== 664 ==========
-   aPseudoTicket[352] = 177;
+   //aPseudoTicket[352] = 177;
    aAction[352] = 1; // OPEN
    aReturn[177] = 352;
    aType[352] = OP_BUY; // BUY
@@ -3730,7 +3730,7 @@ void init_tab() {
    aPrice[352] = 1.44411;
 
    // ========== 353 ===== 664 ==========
-   aPseudoTicket[353] = 177;
+   //aPseudoTicket[353] = 177;
    aAction[353] = 0; // CLOSE
    aType[353] = OP_BUY; // BUY
    aTicket[353] = -1; // Ticket given by broker
@@ -3740,7 +3740,7 @@ void init_tab() {
    aPrice[353] = 1.43996;
 
    // ========== 354 ===== 663 ==========
-   aPseudoTicket[354] = 178;
+   //aPseudoTicket[354] = 178;
    aAction[354] = 1; // OPEN
    aReturn[178] = 354;
    aType[354] = OP_BUY; // BUY
@@ -3751,7 +3751,7 @@ void init_tab() {
    aPrice[354] = 0.79999;
 
    // ========== 355 ===== 662 ==========
-   aPseudoTicket[355] = 179;
+   //aPseudoTicket[355] = 179;
    aAction[355] = 1; // OPEN
    aReturn[179] = 355;
    aType[355] = OP_SELL; // SELL
@@ -3762,7 +3762,7 @@ void init_tab() {
    aPrice[355] = 1.4353;
 
    // ========== 356 ===== 663 ==========
-   aPseudoTicket[356] = 178;
+   //aPseudoTicket[356] = 178;
    aAction[356] = 0; // CLOSE
    aType[356] = OP_BUY; // BUY
    aTicket[356] = -1; // Ticket given by broker
@@ -3772,7 +3772,7 @@ void init_tab() {
    aPrice[356] = 0.80465;
 
    // ========== 357 ===== 662 ==========
-   aPseudoTicket[357] = 179;
+   //aPseudoTicket[357] = 179;
    aAction[357] = 0; // CLOSE
    aType[357] = OP_SELL; // SELL
    aTicket[357] = -1; // Ticket given by broker
@@ -3782,7 +3782,7 @@ void init_tab() {
    aPrice[357] = 1.44592;
 
    // ========== 358 ===== 659 ==========
-   aPseudoTicket[358] = 180;
+   //aPseudoTicket[358] = 180;
    aAction[358] = 1; // OPEN
    aReturn[180] = 358;
    aType[358] = OP_BUY; // BUY
@@ -3793,7 +3793,7 @@ void init_tab() {
    aPrice[358] = 1.44709;
 
    // ========== 359 ===== 661 ==========
-   aPseudoTicket[359] = 181;
+   //aPseudoTicket[359] = 181;
    aAction[359] = 1; // OPEN
    aReturn[181] = 359;
    aType[359] = OP_SELL; // SELL
@@ -3804,7 +3804,7 @@ void init_tab() {
    aPrice[359] = 1.63974;
 
    // ========== 360 ===== 661 ==========
-   aPseudoTicket[360] = 181;
+   //aPseudoTicket[360] = 181;
    aAction[360] = 0; // CLOSE
    aType[360] = OP_SELL; // SELL
    aTicket[360] = -1; // Ticket given by broker
@@ -3814,7 +3814,7 @@ void init_tab() {
    aPrice[360] = 1.63951;
 
    // ========== 361 ===== 660 ==========
-   aPseudoTicket[361] = 182;
+   //aPseudoTicket[361] = 182;
    aAction[361] = 1; // OPEN
    aReturn[182] = 361;
    aType[361] = OP_SELL; // SELL
@@ -3825,7 +3825,7 @@ void init_tab() {
    aPrice[361] = 1.6439;
 
    // ========== 362 ===== 660 ==========
-   aPseudoTicket[362] = 182;
+   //aPseudoTicket[362] = 182;
    aAction[362] = 0; // CLOSE
    aType[362] = OP_SELL; // SELL
    aTicket[362] = -1; // Ticket given by broker
@@ -3835,7 +3835,7 @@ void init_tab() {
    aPrice[362] = 1.64084;
 
    // ========== 363 ===== 659 ==========
-   aPseudoTicket[363] = 180;
+   //aPseudoTicket[363] = 180;
    aAction[363] = 0; // CLOSE
    aType[363] = OP_BUY; // BUY
    aTicket[363] = -1; // Ticket given by broker
@@ -3845,7 +3845,7 @@ void init_tab() {
    aPrice[363] = 1.45149;
 
    // ========== 364 ===== 658 ==========
-   aPseudoTicket[364] = 183;
+   //aPseudoTicket[364] = 183;
    aAction[364] = 1; // OPEN
    aReturn[183] = 364;
    aType[364] = OP_BUY; // BUY
@@ -3856,7 +3856,7 @@ void init_tab() {
    aPrice[364] = 1.44406;
 
    // ========== 365 ===== 658 ==========
-   aPseudoTicket[365] = 183;
+   //aPseudoTicket[365] = 183;
    aAction[365] = 0; // CLOSE
    aType[365] = OP_BUY; // BUY
    aTicket[365] = -1; // Ticket given by broker
@@ -3866,7 +3866,7 @@ void init_tab() {
    aPrice[365] = 1.44108;
 
    // ========== 366 ===== 657 ==========
-   aPseudoTicket[366] = 184;
+   //aPseudoTicket[366] = 184;
    aAction[366] = 1; // OPEN
    aReturn[184] = 366;
    aType[366] = OP_SELL; // SELL
@@ -3877,7 +3877,7 @@ void init_tab() {
    aPrice[366] = 1.62669;
 
    // ========== 367 ===== 657 ==========
-   aPseudoTicket[367] = 184;
+   //aPseudoTicket[367] = 184;
    aAction[367] = 0; // CLOSE
    aType[367] = OP_SELL; // SELL
    aTicket[367] = -1; // Ticket given by broker
@@ -3887,7 +3887,7 @@ void init_tab() {
    aPrice[367] = 1.62898;
 
    // ========== 368 ===== 656 ==========
-   aPseudoTicket[368] = 185;
+   //aPseudoTicket[368] = 185;
    aAction[368] = 1; // OPEN
    aReturn[185] = 368;
    aType[368] = OP_SELL; // SELL
@@ -3898,7 +3898,7 @@ void init_tab() {
    aPrice[368] = 1.44093;
 
    // ========== 369 ===== 656 ==========
-   aPseudoTicket[369] = 185;
+   //aPseudoTicket[369] = 185;
    aAction[369] = 0; // CLOSE
    aType[369] = OP_SELL; // SELL
    aTicket[369] = -1; // Ticket given by broker
@@ -3908,7 +3908,7 @@ void init_tab() {
    aPrice[369] = 1.43777;
 
    // ========== 370 ===== 655 ==========
-   aPseudoTicket[370] = 186;
+   //aPseudoTicket[370] = 186;
    aAction[370] = 1; // OPEN
    aReturn[186] = 370;
    aType[370] = OP_BUY; // BUY
@@ -3919,7 +3919,7 @@ void init_tab() {
    aPrice[370] = 1.07131;
 
    // ========== 371 ===== 655 ==========
-   aPseudoTicket[371] = 186;
+   //aPseudoTicket[371] = 186;
    aAction[371] = 0; // CLOSE
    aType[371] = OP_BUY; // BUY
    aTicket[371] = -1; // Ticket given by broker
@@ -3929,7 +3929,7 @@ void init_tab() {
    aPrice[371] = 1.0696;
 
    // ========== 372 ===== 652 ==========
-   aPseudoTicket[372] = 187;
+   //aPseudoTicket[372] = 187;
    aAction[372] = 1; // OPEN
    aReturn[187] = 372;
    aType[372] = OP_BUY; // BUY
@@ -3940,7 +3940,7 @@ void init_tab() {
    aPrice[372] = 0.97758;
 
    // ========== 373 ===== 654 ==========
-   aPseudoTicket[373] = 188;
+   //aPseudoTicket[373] = 188;
    aAction[373] = 1; // OPEN
    aReturn[188] = 373;
    aType[373] = OP_SELL; // SELL
@@ -3951,7 +3951,7 @@ void init_tab() {
    aPrice[373] = 1.43236;
 
    // ========== 374 ===== 654 ==========
-   aPseudoTicket[374] = 188;
+   //aPseudoTicket[374] = 188;
    aAction[374] = 0; // CLOSE
    aType[374] = OP_SELL; // SELL
    aTicket[374] = -1; // Ticket given by broker
@@ -3961,7 +3961,7 @@ void init_tab() {
    aPrice[374] = 1.42623;
 
    // ========== 375 ===== 653 ==========
-   aPseudoTicket[375] = 189;
+   //aPseudoTicket[375] = 189;
    aAction[375] = 1; // OPEN
    aReturn[189] = 375;
    aType[375] = OP_SELL; // SELL
@@ -3972,7 +3972,7 @@ void init_tab() {
    aPrice[375] = 1.62177;
 
    // ========== 376 ===== 653 ==========
-   aPseudoTicket[376] = 189;
+   //aPseudoTicket[376] = 189;
    aAction[376] = 0; // CLOSE
    aType[376] = OP_SELL; // SELL
    aTicket[376] = -1; // Ticket given by broker
@@ -3982,7 +3982,7 @@ void init_tab() {
    aPrice[376] = 1.61987;
 
    // ========== 377 ===== 651 ==========
-   aPseudoTicket[377] = 190;
+   //aPseudoTicket[377] = 190;
    aAction[377] = 1; // OPEN
    aReturn[190] = 377;
    aType[377] = OP_SELL; // SELL
@@ -3993,7 +3993,7 @@ void init_tab() {
    aPrice[377] = 0.785;
 
    // ========== 378 ===== 652 ==========
-   aPseudoTicket[378] = 187;
+   //aPseudoTicket[378] = 187;
    aAction[378] = 0; // CLOSE
    aType[378] = OP_BUY; // BUY
    aTicket[378] = -1; // Ticket given by broker
@@ -4003,7 +4003,7 @@ void init_tab() {
    aPrice[378] = 0.9867;
 
    // ========== 379 ===== 648 ==========
-   aPseudoTicket[379] = 191;
+   //aPseudoTicket[379] = 191;
    aAction[379] = 1; // OPEN
    aReturn[191] = 379;
    aType[379] = OP_BUY; // BUY
@@ -4014,7 +4014,7 @@ void init_tab() {
    aPrice[379] = 1.05785;
 
    // ========== 380 ===== 651 ==========
-   aPseudoTicket[380] = 190;
+   //aPseudoTicket[380] = 190;
    aAction[380] = 0; // CLOSE
    aType[380] = OP_SELL; // SELL
    aTicket[380] = -1; // Ticket given by broker
@@ -4024,7 +4024,7 @@ void init_tab() {
    aPrice[380] = 0.78777;
 
    // ========== 381 ===== 649 ==========
-   aPseudoTicket[381] = 192;
+   //aPseudoTicket[381] = 192;
    aAction[381] = 1; // OPEN
    aReturn[192] = 381;
    aType[381] = OP_BUY; // BUY
@@ -4035,7 +4035,7 @@ void init_tab() {
    aPrice[381] = 1.40595;
 
    // ========== 382 ===== 650 ==========
-   aPseudoTicket[382] = 193;
+   //aPseudoTicket[382] = 193;
    aAction[382] = 1; // OPEN
    aReturn[193] = 382;
    aType[382] = OP_BUY; // BUY
@@ -4046,7 +4046,7 @@ void init_tab() {
    aPrice[382] = 0.79255;
 
    // ========== 383 ===== 650 ==========
-   aPseudoTicket[383] = 193;
+   //aPseudoTicket[383] = 193;
    aAction[383] = 0; // CLOSE
    aType[383] = OP_BUY; // BUY
    aTicket[383] = -1; // Ticket given by broker
@@ -4056,7 +4056,7 @@ void init_tab() {
    aPrice[383] = 0.79302;
 
    // ========== 384 ===== 649 ==========
-   aPseudoTicket[384] = 192;
+   //aPseudoTicket[384] = 192;
    aAction[384] = 0; // CLOSE
    aType[384] = OP_BUY; // BUY
    aTicket[384] = -1; // Ticket given by broker
@@ -4066,7 +4066,7 @@ void init_tab() {
    aPrice[384] = 1.413;
 
    // ========== 385 ===== 647 ==========
-   aPseudoTicket[385] = 194;
+   //aPseudoTicket[385] = 194;
    aAction[385] = 1; // OPEN
    aReturn[194] = 385;
    aType[385] = OP_SELL; // SELL
@@ -4077,7 +4077,7 @@ void init_tab() {
    aPrice[385] = 1.4179;
 
    // ========== 386 ===== 648 ==========
-   aPseudoTicket[386] = 191;
+   //aPseudoTicket[386] = 191;
    aAction[386] = 0; // CLOSE
    aType[386] = OP_BUY; // BUY
    aTicket[386] = -1; // Ticket given by broker
@@ -4087,7 +4087,7 @@ void init_tab() {
    aPrice[386] = 1.059;
 
    // ========== 387 ===== 647 ==========
-   aPseudoTicket[387] = 194;
+   //aPseudoTicket[387] = 194;
    aAction[387] = 0; // CLOSE
    aType[387] = OP_SELL; // SELL
    aTicket[387] = -1; // Ticket given by broker
@@ -4097,7 +4097,7 @@ void init_tab() {
    aPrice[387] = 1.4279;
 
    // ========== 388 ===== 646 ==========
-   aPseudoTicket[388] = 195;
+   //aPseudoTicket[388] = 195;
    aAction[388] = 1; // OPEN
    aReturn[195] = 388;
    aType[388] = OP_SELL; // SELL
@@ -4108,7 +4108,7 @@ void init_tab() {
    aPrice[388] = 0.85063;
 
    // ========== 389 ===== 646 ==========
-   aPseudoTicket[389] = 195;
+   //aPseudoTicket[389] = 195;
    aAction[389] = 0; // CLOSE
    aType[389] = OP_SELL; // SELL
    aTicket[389] = -1; // Ticket given by broker
@@ -4118,7 +4118,7 @@ void init_tab() {
    aPrice[389] = 0.84509;
 
    // ========== 390 ===== 645 ==========
-   aPseudoTicket[390] = 196;
+   //aPseudoTicket[390] = 196;
    aAction[390] = 1; // OPEN
    aReturn[196] = 390;
    aType[390] = OP_SELL; // SELL
@@ -4129,7 +4129,7 @@ void init_tab() {
    aPrice[390] = 1.4211;
 
    // ========== 391 ===== 645 ==========
-   aPseudoTicket[391] = 196;
+   //aPseudoTicket[391] = 196;
    aAction[391] = 0; // CLOSE
    aType[391] = OP_SELL; // SELL
    aTicket[391] = -1; // Ticket given by broker
@@ -4139,7 +4139,7 @@ void init_tab() {
    aPrice[391] = 1.4175;
 
    // ========== 392 ===== 644 ==========
-   aPseudoTicket[392] = 197;
+   //aPseudoTicket[392] = 197;
    aAction[392] = 1; // OPEN
    aReturn[197] = 392;
    aType[392] = OP_BUY; // BUY
@@ -4150,7 +4150,7 @@ void init_tab() {
    aPrice[392] = 1.41331;
 
    // ========== 393 ===== 643 ==========
-   aPseudoTicket[393] = 198;
+   //aPseudoTicket[393] = 198;
    aAction[393] = 1; // OPEN
    aReturn[198] = 393;
    aType[393] = OP_SELL; // SELL
@@ -4161,7 +4161,7 @@ void init_tab() {
    aPrice[393] = 0.85342;
 
    // ========== 394 ===== 644 ==========
-   aPseudoTicket[394] = 197;
+   //aPseudoTicket[394] = 197;
    aAction[394] = 0; // CLOSE
    aType[394] = OP_BUY; // BUY
    aTicket[394] = -1; // Ticket given by broker
@@ -4171,7 +4171,7 @@ void init_tab() {
    aPrice[394] = 1.40011;
 
    // ========== 395 ===== 640 ==========
-   aPseudoTicket[395] = 199;
+   //aPseudoTicket[395] = 199;
    aAction[395] = 1; // OPEN
    aReturn[199] = 395;
    aType[395] = OP_SELL; // SELL
@@ -4182,7 +4182,7 @@ void init_tab() {
    aPrice[395] = 1.40595;
 
    // ========== 396 ===== 641 ==========
-   aPseudoTicket[396] = 200;
+   //aPseudoTicket[396] = 200;
    aAction[396] = 1; // OPEN
    aReturn[200] = 396;
    aType[396] = OP_SELL; // SELL
@@ -4193,7 +4193,7 @@ void init_tab() {
    aPrice[396] = 1.40716;
 
    // ========== 397 ===== 643 ==========
-   aPseudoTicket[397] = 198;
+   //aPseudoTicket[397] = 198;
    aAction[397] = 0; // CLOSE
    aType[397] = OP_SELL; // SELL
    aTicket[397] = -1; // Ticket given by broker
@@ -4203,7 +4203,7 @@ void init_tab() {
    aPrice[397] = 0.85644;
 
    // ========== 398 ===== 642 ==========
-   aPseudoTicket[398] = 201;
+   //aPseudoTicket[398] = 201;
    aAction[398] = 1; // OPEN
    aReturn[201] = 398;
    aType[398] = OP_SELL; // SELL
@@ -4214,7 +4214,7 @@ void init_tab() {
    aPrice[398] = 1.60147;
 
    // ========== 399 ===== 642 ==========
-   aPseudoTicket[399] = 201;
+   //aPseudoTicket[399] = 201;
    aAction[399] = 0; // CLOSE
    aType[399] = OP_SELL; // SELL
    aTicket[399] = -1; // Ticket given by broker
@@ -4224,7 +4224,7 @@ void init_tab() {
    aPrice[399] = 1.59955;
 
    // ========== 400 ===== 641 ==========
-   aPseudoTicket[400] = 200;
+   //aPseudoTicket[400] = 200;
    aAction[400] = 0; // CLOSE
    aType[400] = OP_SELL; // SELL
    aTicket[400] = -1; // Ticket given by broker
@@ -4234,7 +4234,7 @@ void init_tab() {
    aPrice[400] = 1.4088;
 
    // ========== 401 ===== 640 ==========
-   aPseudoTicket[401] = 199;
+   //aPseudoTicket[401] = 199;
    aAction[401] = 0; // CLOSE
    aType[401] = OP_SELL; // SELL
    aTicket[401] = -1; // Ticket given by broker
@@ -4244,7 +4244,7 @@ void init_tab() {
    aPrice[401] = 1.40888;
 
    // ========== 402 ===== 639 ==========
-   aPseudoTicket[402] = 202;
+   //aPseudoTicket[402] = 202;
    aAction[402] = 1; // OPEN
    aReturn[202] = 402;
    aType[402] = OP_SELL; // SELL
@@ -4255,7 +4255,7 @@ void init_tab() {
    aPrice[402] = 1.6009;
 
    // ========== 403 ===== 638 ==========
-   aPseudoTicket[403] = 203;
+   //aPseudoTicket[403] = 203;
    aAction[403] = 1; // OPEN
    aReturn[203] = 403;
    aType[403] = OP_SELL; // SELL
@@ -4266,7 +4266,7 @@ void init_tab() {
    aPrice[403] = 1.41001;
 
    // ========== 404 ===== 639 ==========
-   aPseudoTicket[404] = 202;
+   //aPseudoTicket[404] = 202;
    aAction[404] = 0; // CLOSE
    aType[404] = OP_SELL; // SELL
    aTicket[404] = -1; // Ticket given by broker
@@ -4276,7 +4276,7 @@ void init_tab() {
    aPrice[404] = 1.59747;
 
    // ========== 405 ===== 638 ==========
-   aPseudoTicket[405] = 203;
+   //aPseudoTicket[405] = 203;
    aAction[405] = 0; // CLOSE
    aType[405] = OP_SELL; // SELL
    aTicket[405] = -1; // Ticket given by broker
@@ -4286,7 +4286,7 @@ void init_tab() {
    aPrice[405] = 1.40444;
 
    // ========== 406 ===== 637 ==========
-   aPseudoTicket[406] = 204;
+   //aPseudoTicket[406] = 204;
    aAction[406] = 1; // OPEN
    aReturn[204] = 406;
    aType[406] = OP_BUY; // BUY
@@ -4297,7 +4297,7 @@ void init_tab() {
    aPrice[406] = 0.98642;
 
    // ========== 407 ===== 637 ==========
-   aPseudoTicket[407] = 204;
+   //aPseudoTicket[407] = 204;
    aAction[407] = 0; // CLOSE
    aType[407] = OP_BUY; // BUY
    aTicket[407] = -1; // Ticket given by broker
@@ -4307,7 +4307,7 @@ void init_tab() {
    aPrice[407] = 0.98804;
 
    // ========== 408 ===== 634 ==========
-   aPseudoTicket[408] = 205;
+   //aPseudoTicket[408] = 205;
    aAction[408] = 1; // OPEN
    aReturn[205] = 408;
    aType[408] = OP_BUY; // BUY
@@ -4318,7 +4318,7 @@ void init_tab() {
    aPrice[408] = 0.98523;
 
    // ========== 409 ===== 636 ==========
-   aPseudoTicket[409] = 206;
+   //aPseudoTicket[409] = 206;
    aAction[409] = 1; // OPEN
    aReturn[206] = 409;
    aType[409] = OP_SELL; // SELL
@@ -4329,7 +4329,7 @@ void init_tab() {
    aPrice[409] = 0.86253;
 
    // ========== 410 ===== 636 ==========
-   aPseudoTicket[410] = 206;
+   //aPseudoTicket[410] = 206;
    aAction[410] = 0; // CLOSE
    aType[410] = OP_SELL; // SELL
    aTicket[410] = -1; // Ticket given by broker
@@ -4339,7 +4339,7 @@ void init_tab() {
    aPrice[410] = 0.86412;
 
    // ========== 411 ===== 635 ==========
-   aPseudoTicket[411] = 207;
+   //aPseudoTicket[411] = 207;
    aAction[411] = 1; // OPEN
    aReturn[207] = 411;
    aType[411] = OP_SELL; // SELL
@@ -4350,7 +4350,7 @@ void init_tab() {
    aPrice[411] = 1.40056;
 
    // ========== 412 ===== 635 ==========
-   aPseudoTicket[412] = 207;
+   //aPseudoTicket[412] = 207;
    aAction[412] = 0; // CLOSE
    aType[412] = OP_SELL; // SELL
    aTicket[412] = -1; // Ticket given by broker
@@ -4360,7 +4360,7 @@ void init_tab() {
    aPrice[412] = 1.39956;
 
    // ========== 413 ===== 634 ==========
-   aPseudoTicket[413] = 205;
+   //aPseudoTicket[413] = 205;
    aAction[413] = 0; // CLOSE
    aType[413] = OP_BUY; // BUY
    aTicket[413] = -1; // Ticket given by broker
@@ -4370,7 +4370,7 @@ void init_tab() {
    aPrice[413] = 0.9847;
 
    // ========== 414 ===== 633 ==========
-   aPseudoTicket[414] = 208;
+   //aPseudoTicket[414] = 208;
    aAction[414] = 1; // OPEN
    aReturn[208] = 414;
    aType[414] = OP_BUY; // BUY
@@ -4381,7 +4381,7 @@ void init_tab() {
    aPrice[414] = 1.59538;
 
    // ========== 415 ===== 632 ==========
-   aPseudoTicket[415] = 209;
+   //aPseudoTicket[415] = 209;
    aAction[415] = 1; // OPEN
    aReturn[209] = 415;
    aType[415] = OP_SELL; // SELL
@@ -4392,7 +4392,7 @@ void init_tab() {
    aPrice[415] = 77.465;
 
    // ========== 416 ===== 633 ==========
-   aPseudoTicket[416] = 208;
+   //aPseudoTicket[416] = 208;
    aAction[416] = 0; // CLOSE
    aType[416] = OP_BUY; // BUY
    aTicket[416] = -1; // Ticket given by broker
@@ -4402,7 +4402,7 @@ void init_tab() {
    aPrice[416] = 1.59574;
 
    // ========== 417 ===== 632 ==========
-   aPseudoTicket[417] = 209;
+   //aPseudoTicket[417] = 209;
    aAction[417] = 0; // CLOSE
    aType[417] = OP_SELL; // SELL
    aTicket[417] = -1; // Ticket given by broker
@@ -4412,7 +4412,7 @@ void init_tab() {
    aPrice[417] = 77.431;
 
    // ========== 418 ===== 630 ==========
-   aPseudoTicket[418] = 210;
+   //aPseudoTicket[418] = 210;
    aAction[418] = 1; // OPEN
    aReturn[210] = 418;
    aType[418] = OP_SELL; // SELL
@@ -4423,7 +4423,7 @@ void init_tab() {
    aPrice[418] = 0.88673;
 
    // ========== 419 ===== 631 ==========
-   aPseudoTicket[419] = 211;
+   //aPseudoTicket[419] = 211;
    aAction[419] = 1; // OPEN
    aReturn[211] = 419;
    aType[419] = OP_BUY; // BUY
@@ -4434,7 +4434,7 @@ void init_tab() {
    aPrice[419] = 1.35867;
 
    // ========== 420 ===== 631 ==========
-   aPseudoTicket[420] = 211;
+   //aPseudoTicket[420] = 211;
    aAction[420] = 0; // CLOSE
    aType[420] = OP_BUY; // BUY
    aTicket[420] = -1; // Ticket given by broker
@@ -4444,7 +4444,7 @@ void init_tab() {
    aPrice[420] = 1.364;
 
    // ========== 421 ===== 630 ==========
-   aPseudoTicket[421] = 210;
+   //aPseudoTicket[421] = 210;
    aAction[421] = 0; // CLOSE
    aType[421] = OP_SELL; // SELL
    aTicket[421] = -1; // Ticket given by broker
@@ -4454,7 +4454,7 @@ void init_tab() {
    aPrice[421] = 0.8842;
 
    // ========== 422 ===== 628 ==========
-   aPseudoTicket[422] = 212;
+   //aPseudoTicket[422] = 212;
    aAction[422] = 1; // OPEN
    aReturn[212] = 422;
    aType[422] = OP_BUY; // BUY
@@ -4465,7 +4465,7 @@ void init_tab() {
    aPrice[422] = 0.88254;
 
    // ========== 423 ===== 629 ==========
-   aPseudoTicket[423] = 213;
+   //aPseudoTicket[423] = 213;
    aAction[423] = 1; // OPEN
    aReturn[213] = 423;
    aType[423] = OP_SELL; // SELL
@@ -4476,7 +4476,7 @@ void init_tab() {
    aPrice[423] = 1.03776;
 
    // ========== 424 ===== 629 ==========
-   aPseudoTicket[424] = 213;
+   //aPseudoTicket[424] = 213;
    aAction[424] = 0; // CLOSE
    aType[424] = OP_SELL; // SELL
    aTicket[424] = -1; // Ticket given by broker
@@ -4486,7 +4486,7 @@ void init_tab() {
    aPrice[424] = 1.03307;
 
    // ========== 425 ===== 628 ==========
-   aPseudoTicket[425] = 212;
+   //aPseudoTicket[425] = 212;
    aAction[425] = 0; // CLOSE
    aType[425] = OP_BUY; // BUY
    aTicket[425] = -1; // Ticket given by broker
@@ -4496,7 +4496,7 @@ void init_tab() {
    aPrice[425] = 0.88459;
 
    // ========== 426 ===== 627 ==========
-   aPseudoTicket[426] = 214;
+   //aPseudoTicket[426] = 214;
    aAction[426] = 1; // OPEN
    aReturn[214] = 426;
    aType[426] = OP_BUY; // BUY
@@ -4507,7 +4507,7 @@ void init_tab() {
    aPrice[426] = 0.99186;
 
    // ========== 427 ===== 627 ==========
-   aPseudoTicket[427] = 214;
+   //aPseudoTicket[427] = 214;
    aAction[427] = 0; // CLOSE
    aType[427] = OP_BUY; // BUY
    aTicket[427] = -1; // Ticket given by broker
@@ -4517,7 +4517,7 @@ void init_tab() {
    aPrice[427] = 0.996;
 
    // ========== 428 ===== 626 ==========
-   aPseudoTicket[428] = 215;
+   //aPseudoTicket[428] = 215;
    aAction[428] = 1; // OPEN
    aReturn[215] = 428;
    aType[428] = OP_SELL; // SELL
@@ -4528,7 +4528,7 @@ void init_tab() {
    aPrice[428] = 1.58024;
 
    // ========== 429 ===== 626 ==========
-   aPseudoTicket[429] = 215;
+   //aPseudoTicket[429] = 215;
    aAction[429] = 0; // CLOSE
    aType[429] = OP_SELL; // SELL
    aTicket[429] = -1; // Ticket given by broker
@@ -4538,7 +4538,7 @@ void init_tab() {
    aPrice[429] = 1.57872;
 
    // ========== 430 ===== 625 ==========
-   aPseudoTicket[430] = 216;
+   //aPseudoTicket[430] = 216;
    aAction[430] = 1; // OPEN
    aReturn[216] = 430;
    aType[430] = OP_SELL; // SELL
@@ -4549,7 +4549,7 @@ void init_tab() {
    aPrice[430] = 1.38097;
 
    // ========== 431 ===== 624 ==========
-   aPseudoTicket[431] = 217;
+   //aPseudoTicket[431] = 217;
    aAction[431] = 1; // OPEN
    aReturn[217] = 431;
    aType[431] = OP_BUY; // BUY
@@ -4560,7 +4560,7 @@ void init_tab() {
    aPrice[431] = 0.87294;
 
    // ========== 432 ===== 625 ==========
-   aPseudoTicket[432] = 216;
+   //aPseudoTicket[432] = 216;
    aAction[432] = 0; // CLOSE
    aType[432] = OP_SELL; // SELL
    aTicket[432] = -1; // Ticket given by broker
@@ -4570,7 +4570,7 @@ void init_tab() {
    aPrice[432] = 1.37962;
 
    // ========== 433 ===== 623 ==========
-   aPseudoTicket[433] = 218;
+   //aPseudoTicket[433] = 218;
    aAction[433] = 1; // OPEN
    aReturn[218] = 433;
    aType[433] = OP_BUY; // BUY
@@ -4581,7 +4581,7 @@ void init_tab() {
    aPrice[433] = 1.385;
 
    // ========== 434 ===== 624 ==========
-   aPseudoTicket[434] = 217;
+   //aPseudoTicket[434] = 217;
    aAction[434] = 0; // CLOSE
    aType[434] = OP_BUY; // BUY
    aTicket[434] = -1; // Ticket given by broker
@@ -4591,7 +4591,7 @@ void init_tab() {
    aPrice[434] = 0.86936;
 
    // ========== 435 ===== 623 ==========
-   aPseudoTicket[435] = 218;
+   //aPseudoTicket[435] = 218;
    aAction[435] = 0; // CLOSE
    aType[435] = OP_BUY; // BUY
    aTicket[435] = -1; // Ticket given by broker
@@ -4601,7 +4601,7 @@ void init_tab() {
    aPrice[435] = 1.38595;
 
    // ========== 436 ===== 622 ==========
-   aPseudoTicket[436] = 219;
+   //aPseudoTicket[436] = 219;
    aAction[436] = 1; // OPEN
    aReturn[219] = 436;
    aType[436] = OP_SELL; // SELL
@@ -4612,7 +4612,7 @@ void init_tab() {
    aPrice[436] = 0.86978;
 
    // ========== 437 ===== 622 ==========
-   aPseudoTicket[437] = 219;
+   //aPseudoTicket[437] = 219;
    aAction[437] = 0; // CLOSE
    aType[437] = OP_SELL; // SELL
    aTicket[437] = -1; // Ticket given by broker
@@ -4622,7 +4622,7 @@ void init_tab() {
    aPrice[437] = 0.86864;
 
    // ========== 438 ===== 621 ==========
-   aPseudoTicket[438] = 220;
+   //aPseudoTicket[438] = 220;
    aAction[438] = 1; // OPEN
    aReturn[220] = 438;
    aType[438] = OP_SELL; // SELL
@@ -4633,7 +4633,7 @@ void init_tab() {
    aPrice[438] = 1.38852;
 
    // ========== 439 ===== 620 ==========
-   aPseudoTicket[439] = 221;
+   //aPseudoTicket[439] = 221;
    aAction[439] = 1; // OPEN
    aReturn[221] = 439;
    aType[439] = OP_SELL; // SELL
@@ -4644,7 +4644,7 @@ void init_tab() {
    aPrice[439] = 76.701;
 
    // ========== 440 ===== 621 ==========
-   aPseudoTicket[440] = 220;
+   //aPseudoTicket[440] = 220;
    aAction[440] = 0; // CLOSE
    aType[440] = OP_SELL; // SELL
    aTicket[440] = -1; // Ticket given by broker
@@ -4654,7 +4654,7 @@ void init_tab() {
    aPrice[440] = 1.38838;
 
    // ========== 441 ===== 618 ==========
-   aPseudoTicket[441] = 222;
+   //aPseudoTicket[441] = 222;
    aAction[441] = 1; // OPEN
    aReturn[222] = 441;
    aType[441] = OP_SELL; // SELL
@@ -4665,7 +4665,7 @@ void init_tab() {
    aPrice[441] = 1.03494;
 
    // ========== 442 ===== 619 ==========
-   aPseudoTicket[442] = 223;
+   //aPseudoTicket[442] = 223;
    aAction[442] = 1; // OPEN
    aReturn[223] = 442;
    aType[442] = OP_SELL; // SELL
@@ -4676,7 +4676,7 @@ void init_tab() {
    aPrice[442] = 1.03746;
 
    // ========== 443 ===== 620 ==========
-   aPseudoTicket[443] = 221;
+   //aPseudoTicket[443] = 221;
    aAction[443] = 0; // CLOSE
    aType[443] = OP_SELL; // SELL
    aTicket[443] = -1; // Ticket given by broker
@@ -4686,7 +4686,7 @@ void init_tab() {
    aPrice[443] = 76.964;
 
    // ========== 444 ===== 619 ==========
-   aPseudoTicket[444] = 223;
+   //aPseudoTicket[444] = 223;
    aAction[444] = 0; // CLOSE
    aType[444] = OP_SELL; // SELL
    aTicket[444] = -1; // Ticket given by broker
@@ -4696,7 +4696,7 @@ void init_tab() {
    aPrice[444] = 1.03658;
 
    // ========== 445 ===== 618 ==========
-   aPseudoTicket[445] = 222;
+   //aPseudoTicket[445] = 222;
    aAction[445] = 0; // CLOSE
    aType[445] = OP_SELL; // SELL
    aTicket[445] = -1; // Ticket given by broker
@@ -4706,7 +4706,7 @@ void init_tab() {
    aPrice[445] = 1.0299;
 
    // ========== 446 ===== 617 ==========
-   aPseudoTicket[446] = 224;
+   //aPseudoTicket[446] = 224;
    aAction[446] = 1; // OPEN
    aReturn[224] = 446;
    aType[446] = OP_BUY; // BUY
@@ -4717,7 +4717,7 @@ void init_tab() {
    aPrice[446] = 1.57279;
 
    // ========== 447 ===== 617 ==========
-   aPseudoTicket[447] = 224;
+   //aPseudoTicket[447] = 224;
    aAction[447] = 0; // CLOSE
    aType[447] = OP_BUY; // BUY
    aTicket[447] = -1; // Ticket given by broker
@@ -4727,7 +4727,7 @@ void init_tab() {
    aPrice[447] = 1.56866;
 
    // ========== 448 ===== 616 ==========
-   aPseudoTicket[448] = 225;
+   //aPseudoTicket[448] = 225;
    aAction[448] = 1; // OPEN
    aReturn[225] = 448;
    aType[448] = OP_BUY; // BUY
@@ -4738,7 +4738,7 @@ void init_tab() {
    aPrice[448] = 0.88919;
 
    // ========== 449 ===== 616 ==========
-   aPseudoTicket[449] = 225;
+   //aPseudoTicket[449] = 225;
    aAction[449] = 0; // CLOSE
    aType[449] = OP_BUY; // BUY
    aTicket[449] = -1; // Ticket given by broker
@@ -4748,7 +4748,7 @@ void init_tab() {
    aPrice[449] = 0.88712;
 
    // ========== 450 ===== 615 ==========
-   aPseudoTicket[450] = 226;
+   //aPseudoTicket[450] = 226;
    aAction[450] = 1; // OPEN
    aReturn[226] = 450;
    aType[450] = OP_SELL; // SELL
@@ -4759,7 +4759,7 @@ void init_tab() {
    aPrice[450] = 1.57347;
 
    // ========== 451 ===== 615 ==========
-   aPseudoTicket[451] = 226;
+   //aPseudoTicket[451] = 226;
    aAction[451] = 0; // CLOSE
    aType[451] = OP_SELL; // SELL
    aTicket[451] = -1; // Ticket given by broker
@@ -4769,7 +4769,7 @@ void init_tab() {
    aPrice[451] = 1.5731;
 
    // ========== 452 ===== 613 ==========
-   aPseudoTicket[452] = 227;
+   //aPseudoTicket[452] = 227;
    aAction[452] = 1; // OPEN
    aReturn[227] = 452;
    aType[452] = OP_BUY; // BUY
@@ -4780,7 +4780,7 @@ void init_tab() {
    aPrice[452] = 1.54505;
 
    // ========== 453 ===== 614 ==========
-   aPseudoTicket[453] = 228;
+   //aPseudoTicket[453] = 228;
    aAction[453] = 1; // OPEN
    aReturn[228] = 453;
    aType[453] = OP_SELL; // SELL
@@ -4791,7 +4791,7 @@ void init_tab() {
    aPrice[453] = 1.34776;
 
    // ========== 454 ===== 614 ==========
-   aPseudoTicket[454] = 228;
+   //aPseudoTicket[454] = 228;
    aAction[454] = 0; // CLOSE
    aType[454] = OP_SELL; // SELL
    aTicket[454] = -1; // Ticket given by broker
@@ -4801,7 +4801,7 @@ void init_tab() {
    aPrice[454] = 1.34401;
 
    // ========== 455 ===== 612 ==========
-   aPseudoTicket[455] = 229;
+   //aPseudoTicket[455] = 229;
    aAction[455] = 1; // OPEN
    aReturn[229] = 455;
    aType[455] = OP_SELL; // SELL
@@ -4812,7 +4812,7 @@ void init_tab() {
    aPrice[455] = 0.98046;
 
    // ========== 456 ===== 613 ==========
-   aPseudoTicket[456] = 227;
+   //aPseudoTicket[456] = 227;
    aAction[456] = 0; // CLOSE
    aType[456] = OP_BUY; // BUY
    aTicket[456] = -1; // Ticket given by broker
@@ -4822,7 +4822,7 @@ void init_tab() {
    aPrice[456] = 1.53968;
 
    // ========== 457 ===== 610 ==========
-   aPseudoTicket[457] = 230;
+   //aPseudoTicket[457] = 230;
    aAction[457] = 1; // OPEN
    aReturn[230] = 457;
    aType[457] = OP_SELL; // SELL
@@ -4833,7 +4833,7 @@ void init_tab() {
    aPrice[457] = 1.5423;
 
    // ========== 458 ===== 611 ==========
-   aPseudoTicket[458] = 231;
+   //aPseudoTicket[458] = 231;
    aAction[458] = 1; // OPEN
    aReturn[231] = 458;
    aType[458] = OP_BUY; // BUY
@@ -4844,7 +4844,7 @@ void init_tab() {
    aPrice[458] = 1.02284;
 
    // ========== 459 ===== 612 ==========
-   aPseudoTicket[459] = 229;
+   //aPseudoTicket[459] = 229;
    aAction[459] = 0; // CLOSE
    aType[459] = OP_SELL; // SELL
    aTicket[459] = -1; // Ticket given by broker
@@ -4854,7 +4854,7 @@ void init_tab() {
    aPrice[459] = 0.97748;
 
    // ========== 460 ===== 611 ==========
-   aPseudoTicket[460] = 231;
+   //aPseudoTicket[460] = 231;
    aAction[460] = 0; // CLOSE
    aType[460] = OP_BUY; // BUY
    aTicket[460] = -1; // Ticket given by broker
@@ -4864,7 +4864,7 @@ void init_tab() {
    aPrice[460] = 1.02723;
 
    // ========== 461 ===== 610 ==========
-   aPseudoTicket[461] = 230;
+   //aPseudoTicket[461] = 230;
    aAction[461] = 0; // CLOSE
    aType[461] = OP_SELL; // SELL
    aTicket[461] = -1; // Ticket given by broker
@@ -4874,7 +4874,7 @@ void init_tab() {
    aPrice[461] = 1.53925;
 
    // ========== 462 ===== 609 ==========
-   aPseudoTicket[462] = 232;
+   //aPseudoTicket[462] = 232;
    aAction[462] = 1; // OPEN
    aReturn[232] = 462;
    aType[462] = OP_SELL; // SELL
@@ -4885,7 +4885,7 @@ void init_tab() {
    aPrice[462] = 1.54268;
 
    // ========== 463 ===== 609 ==========
-   aPseudoTicket[463] = 232;
+   //aPseudoTicket[463] = 232;
    aAction[463] = 0; // CLOSE
    aType[463] = OP_SELL; // SELL
    aTicket[463] = -1; // Ticket given by broker
@@ -4895,7 +4895,7 @@ void init_tab() {
    aPrice[463] = 1.5407;
 
    // ========== 464 ===== 608 ==========
-   aPseudoTicket[464] = 233;
+   //aPseudoTicket[464] = 233;
    aAction[464] = 1; // OPEN
    aReturn[233] = 464;
    aType[464] = OP_SELL; // SELL
@@ -4906,7 +4906,7 @@ void init_tab() {
    aPrice[464] = 1.34569;
 
    // ========== 465 ===== 607 ==========
-   aPseudoTicket[465] = 234;
+   //aPseudoTicket[465] = 234;
    aAction[465] = 1; // OPEN
    aReturn[234] = 465;
    aType[465] = OP_SELL; // SELL
@@ -4917,7 +4917,7 @@ void init_tab() {
    aPrice[465] = 0.97592;
 
    // ========== 466 ===== 608 ==========
-   aPseudoTicket[466] = 233;
+   //aPseudoTicket[466] = 233;
    aAction[466] = 0; // CLOSE
    aType[466] = OP_SELL; // SELL
    aTicket[466] = -1; // Ticket given by broker
@@ -4927,7 +4927,7 @@ void init_tab() {
    aPrice[466] = 1.34551;
 
    // ========== 467 ===== 606 ==========
-   aPseudoTicket[467] = 235;
+   //aPseudoTicket[467] = 235;
    aAction[467] = 1; // OPEN
    aReturn[235] = 467;
    aType[467] = OP_SELL; // SELL
@@ -4938,7 +4938,7 @@ void init_tab() {
    aPrice[467] = 1.55191;
 
    // ========== 468 ===== 607 ==========
-   aPseudoTicket[468] = 234;
+   //aPseudoTicket[468] = 234;
    aAction[468] = 0; // CLOSE
    aType[468] = OP_SELL; // SELL
    aTicket[468] = -1; // Ticket given by broker
@@ -4948,7 +4948,7 @@ void init_tab() {
    aPrice[468] = 0.9723;
 
    // ========== 469 ===== 606 ==========
-   aPseudoTicket[469] = 235;
+   //aPseudoTicket[469] = 235;
    aAction[469] = 0; // CLOSE
    aType[469] = OP_SELL; // SELL
    aTicket[469] = -1; // Ticket given by broker
@@ -4958,7 +4958,7 @@ void init_tab() {
    aPrice[469] = 1.557;
 
    // ========== 470 ===== 605 ==========
-   aPseudoTicket[470] = 236;
+   //aPseudoTicket[470] = 236;
    aAction[470] = 1; // OPEN
    aReturn[236] = 470;
    aType[470] = OP_SELL; // SELL
@@ -4969,7 +4969,7 @@ void init_tab() {
    aPrice[470] = 1.55726;
 
    // ========== 471 ===== 605 ==========
-   aPseudoTicket[471] = 236;
+   //aPseudoTicket[471] = 236;
    aAction[471] = 0; // CLOSE
    aType[471] = OP_SELL; // SELL
    aTicket[471] = -1; // Ticket given by broker
@@ -4979,7 +4979,7 @@ void init_tab() {
    aPrice[471] = 1.55415;
 
    // ========== 472 ===== 603 ==========
-   aPseudoTicket[472] = 237;
+   //aPseudoTicket[472] = 237;
    aAction[472] = 1; // OPEN
    aReturn[237] = 472;
    aType[472] = OP_SELL; // SELL
@@ -4990,7 +4990,7 @@ void init_tab() {
    aPrice[472] = 0.99078;
 
    // ========== 473 ===== 604 ==========
-   aPseudoTicket[473] = 238;
+   //aPseudoTicket[473] = 238;
    aAction[473] = 1; // OPEN
    aReturn[238] = 473;
    aType[473] = OP_BUY; // BUY
@@ -5001,7 +5001,7 @@ void init_tab() {
    aPrice[473] = 1.56287;
 
    // ========== 474 ===== 604 ==========
-   aPseudoTicket[474] = 238;
+   //aPseudoTicket[474] = 238;
    aAction[474] = 0; // CLOSE
    aType[474] = OP_BUY; // BUY
    aTicket[474] = -1; // Ticket given by broker
@@ -5011,7 +5011,7 @@ void init_tab() {
    aPrice[474] = 1.56192;
 
    // ========== 475 ===== 603 ==========
-   aPseudoTicket[475] = 237;
+   //aPseudoTicket[475] = 237;
    aAction[475] = 0; // CLOSE
    aType[475] = OP_SELL; // SELL
    aTicket[475] = -1; // Ticket given by broker
@@ -5021,7 +5021,7 @@ void init_tab() {
    aPrice[475] = 0.9914;
 
    // ========== 476 ===== 602 ==========
-   aPseudoTicket[476] = 239;
+   //aPseudoTicket[476] = 239;
    aAction[476] = 1; // OPEN
    aReturn[239] = 476;
    aType[476] = OP_SELL; // SELL
@@ -5032,7 +5032,7 @@ void init_tab() {
    aPrice[476] = 0.98279;
 
    // ========== 477 ===== 602 ==========
-   aPseudoTicket[477] = 239;
+   //aPseudoTicket[477] = 239;
    aAction[477] = 0; // CLOSE
    aType[477] = OP_SELL; // SELL
    aTicket[477] = -1; // Ticket given by broker
@@ -5042,7 +5042,7 @@ void init_tab() {
    aPrice[477] = 0.98204;
 
    // ========== 478 ===== 601 ==========
-   aPseudoTicket[478] = 240;
+   //aPseudoTicket[478] = 240;
    aAction[478] = 1; // OPEN
    aReturn[240] = 478;
    aType[478] = OP_SELL; // SELL
@@ -5053,7 +5053,7 @@ void init_tab() {
    aPrice[478] = 1.34938;
 
    // ========== 479 ===== 601 ==========
-   aPseudoTicket[479] = 240;
+   //aPseudoTicket[479] = 240;
    aAction[479] = 0; // CLOSE
    aType[479] = OP_SELL; // SELL
    aTicket[479] = -1; // Ticket given by broker
@@ -5063,7 +5063,7 @@ void init_tab() {
    aPrice[479] = 1.35036;
 
    // ========== 480 ===== 599 ==========
-   aPseudoTicket[480] = 241;
+   //aPseudoTicket[480] = 241;
    aAction[480] = 1; // OPEN
    aReturn[241] = 480;
    aType[480] = OP_SELL; // SELL
@@ -5074,7 +5074,7 @@ void init_tab() {
    aPrice[480] = 1.04357;
 
    // ========== 481 ===== 600 ==========
-   aPseudoTicket[481] = 242;
+   //aPseudoTicket[481] = 242;
    aAction[481] = 1; // OPEN
    aReturn[242] = 481;
    aType[481] = OP_SELL; // SELL
@@ -5085,7 +5085,7 @@ void init_tab() {
    aPrice[481] = 1.55317;
 
    // ========== 482 ===== 600 ==========
-   aPseudoTicket[482] = 242;
+   //aPseudoTicket[482] = 242;
    aAction[482] = 0; // CLOSE
    aType[482] = OP_SELL; // SELL
    aTicket[482] = -1; // Ticket given by broker
@@ -5095,7 +5095,7 @@ void init_tab() {
    aPrice[482] = 1.55655;
 
    // ========== 483 ===== 599 ==========
-   aPseudoTicket[483] = 241;
+   //aPseudoTicket[483] = 241;
    aAction[483] = 0; // CLOSE
    aType[483] = OP_SELL; // SELL
    aTicket[483] = -1; // Ticket given by broker
@@ -5105,7 +5105,7 @@ void init_tab() {
    aPrice[483] = 1.0375;
 
    // ========== 484 ===== 598 ==========
-   aPseudoTicket[484] = 243;
+   //aPseudoTicket[484] = 243;
    aAction[484] = 1; // OPEN
    aReturn[243] = 484;
    aType[484] = OP_SELL; // SELL
@@ -5116,7 +5116,7 @@ void init_tab() {
    aPrice[484] = 1.32382;
 
    // ========== 485 ===== 598 ==========
-   aPseudoTicket[485] = 243;
+   //aPseudoTicket[485] = 243;
    aAction[485] = 0; // CLOSE
    aType[485] = OP_SELL; // SELL
    aTicket[485] = -1; // Ticket given by broker
@@ -5126,7 +5126,7 @@ void init_tab() {
    aPrice[485] = 1.32075;
 
    // ========== 486 ===== 597 ==========
-   aPseudoTicket[486] = 244;
+   //aPseudoTicket[486] = 244;
    aAction[486] = 1; // OPEN
    aReturn[244] = 486;
    aType[486] = OP_BUY; // BUY
@@ -5137,7 +5137,7 @@ void init_tab() {
    aPrice[486] = 0.9433;
 
    // ========== 487 ===== 595 ==========
-   aPseudoTicket[487] = 245;
+   //aPseudoTicket[487] = 245;
    aAction[487] = 1; // OPEN
    aReturn[245] = 487;
    aType[487] = OP_SELL; // SELL
@@ -5148,7 +5148,7 @@ void init_tab() {
    aPrice[487] = 1.05981;
 
    // ========== 488 ===== 597 ==========
-   aPseudoTicket[488] = 244;
+   //aPseudoTicket[488] = 244;
    aAction[488] = 0; // CLOSE
    aType[488] = OP_BUY; // BUY
    aTicket[488] = -1; // Ticket given by broker
@@ -5158,7 +5158,7 @@ void init_tab() {
    aPrice[488] = 0.94561;
 
    // ========== 489 ===== 596 ==========
-   aPseudoTicket[489] = 246;
+   //aPseudoTicket[489] = 246;
    aAction[489] = 1; // OPEN
    aReturn[246] = 489;
    aType[489] = OP_SELL; // SELL
@@ -5169,7 +5169,7 @@ void init_tab() {
    aPrice[489] = 1.33045;
 
    // ========== 490 ===== 596 ==========
-   aPseudoTicket[490] = 246;
+   //aPseudoTicket[490] = 246;
    aAction[490] = 0; // CLOSE
    aType[490] = OP_SELL; // SELL
    aTicket[490] = -1; // Ticket given by broker
@@ -5179,7 +5179,7 @@ void init_tab() {
    aPrice[490] = 1.32918;
 
    // ========== 491 ===== 595 ==========
-   aPseudoTicket[491] = 245;
+   //aPseudoTicket[491] = 245;
    aAction[491] = 0; // CLOSE
    aType[491] = OP_SELL; // SELL
    aTicket[491] = -1; // Ticket given by broker
@@ -5189,7 +5189,7 @@ void init_tab() {
    aPrice[491] = 1.06018;
 
    // ========== 492 ===== 593 ==========
-   aPseudoTicket[492] = 247;
+   //aPseudoTicket[492] = 247;
    aAction[492] = 1; // OPEN
    aReturn[247] = 492;
    aType[492] = OP_SELL; // SELL
@@ -5200,7 +5200,7 @@ void init_tab() {
    aPrice[492] = 0.91997;
 
    // ========== 493 ===== 594 ==========
-   aPseudoTicket[493] = 248;
+   //aPseudoTicket[493] = 248;
    aAction[493] = 1; // OPEN
    aReturn[248] = 493;
    aType[493] = OP_BUY; // BUY
@@ -5211,7 +5211,7 @@ void init_tab() {
    aPrice[493] = 1.05312;
 
    // ========== 494 ===== 594 ==========
-   aPseudoTicket[494] = 248;
+   //aPseudoTicket[494] = 248;
    aAction[494] = 0; // CLOSE
    aType[494] = OP_BUY; // BUY
    aTicket[494] = -1; // Ticket given by broker
@@ -5221,7 +5221,7 @@ void init_tab() {
    aPrice[494] = 1.05403;
 
    // ========== 495 ===== 593 ==========
-   aPseudoTicket[495] = 247;
+   //aPseudoTicket[495] = 247;
    aAction[495] = 0; // CLOSE
    aType[495] = OP_SELL; // SELL
    aTicket[495] = -1; // Ticket given by broker
@@ -5231,7 +5231,7 @@ void init_tab() {
    aPrice[495] = 0.91834;
 
    // ========== 496 ===== 592 ==========
-   aPseudoTicket[496] = 249;
+   //aPseudoTicket[496] = 249;
    aAction[496] = 1; // OPEN
    aReturn[249] = 496;
    aType[496] = OP_SELL; // SELL
@@ -5242,7 +5242,7 @@ void init_tab() {
    aPrice[496] = 0.95802;
 
    // ========== 497 ===== 590 ==========
-   aPseudoTicket[497] = 250;
+   //aPseudoTicket[497] = 250;
    aAction[497] = 1; // OPEN
    aReturn[250] = 497;
    aType[497] = OP_BUY; // BUY
@@ -5253,7 +5253,7 @@ void init_tab() {
    aPrice[497] = 1.046;
 
    // ========== 498 ===== 592 ==========
-   aPseudoTicket[498] = 249;
+   //aPseudoTicket[498] = 249;
    aAction[498] = 0; // CLOSE
    aType[498] = OP_SELL; // SELL
    aTicket[498] = -1; // Ticket given by broker
@@ -5263,7 +5263,7 @@ void init_tab() {
    aPrice[498] = 0.968;
 
    // ========== 499 ===== 591 ==========
-   aPseudoTicket[499] = 251;
+   //aPseudoTicket[499] = 251;
    aAction[499] = 1; // OPEN
    aReturn[251] = 499;
    aType[499] = OP_BUY; // BUY
@@ -5274,7 +5274,7 @@ void init_tab() {
    aPrice[499] = 1.04133;
 
    // ========== 500 ===== 591 ==========
-   aPseudoTicket[500] = 251;
+   //aPseudoTicket[500] = 251;
    aAction[500] = 0; // CLOSE
    aType[500] = OP_BUY; // BUY
    aTicket[500] = -1; // Ticket given by broker
@@ -5284,7 +5284,7 @@ void init_tab() {
    aPrice[500] = 1.03875;
 
    // ========== 501 ===== 590 ==========
-   aPseudoTicket[501] = 250;
+   //aPseudoTicket[501] = 250;
    aAction[501] = 0; // CLOSE
    aType[501] = OP_BUY; // BUY
    aTicket[501] = -1; // Ticket given by broker
@@ -5294,7 +5294,7 @@ void init_tab() {
    aPrice[501] = 1.03855;
 
    // ========== 502 ===== 588 ==========
-   aPseudoTicket[502] = 252;
+   //aPseudoTicket[502] = 252;
    aAction[502] = 1; // OPEN
    aReturn[252] = 502;
    aType[502] = OP_SELL; // SELL
@@ -5305,7 +5305,7 @@ void init_tab() {
    aPrice[502] = 0.92418;
 
    // ========== 503 ===== 589 ==========
-   aPseudoTicket[503] = 253;
+   //aPseudoTicket[503] = 253;
    aAction[503] = 1; // OPEN
    aReturn[253] = 503;
    aType[503] = OP_SELL; // SELL
@@ -5316,7 +5316,7 @@ void init_tab() {
    aPrice[503] = 1.52814;
 
    // ========== 504 ===== 589 ==========
-   aPseudoTicket[504] = 253;
+   //aPseudoTicket[504] = 253;
    aAction[504] = 0; // CLOSE
    aType[504] = OP_SELL; // SELL
    aTicket[504] = -1; // Ticket given by broker
@@ -5326,7 +5326,7 @@ void init_tab() {
    aPrice[504] = 1.54328;
 
    // ========== 505 ===== 588 ==========
-   aPseudoTicket[505] = 252;
+   //aPseudoTicket[505] = 252;
    aAction[505] = 0; // CLOSE
    aType[505] = OP_SELL; // SELL
    aTicket[505] = -1; // Ticket given by broker
@@ -5336,7 +5336,7 @@ void init_tab() {
    aPrice[505] = 0.91968;
 
    // ========== 506 ===== 582 ==========
-   aPseudoTicket[506] = 254;
+   //aPseudoTicket[506] = 254;
    aAction[506] = 1; // OPEN
    aReturn[254] = 506;
    aType[506] = OP_SELL; // SELL
@@ -5347,7 +5347,7 @@ void init_tab() {
    aPrice[506] = 0.97827;
 
    // ========== 507 ===== 587 ==========
-   aPseudoTicket[507] = 255;
+   //aPseudoTicket[507] = 255;
    aAction[507] = 1; // OPEN
    aReturn[255] = 507;
    aType[507] = OP_BUY; // BUY
@@ -5358,7 +5358,7 @@ void init_tab() {
    aPrice[507] = 1.34636;
 
    // ========== 508 ===== 587 ==========
-   aPseudoTicket[508] = 255;
+   //aPseudoTicket[508] = 255;
    aAction[508] = 0; // CLOSE
    aType[508] = OP_BUY; // BUY
    aTicket[508] = -1; // Ticket given by broker
@@ -5368,7 +5368,7 @@ void init_tab() {
    aPrice[508] = 1.34405;
 
    // ========== 509 ===== 586 ==========
-   aPseudoTicket[509] = 256;
+   //aPseudoTicket[509] = 256;
    aAction[509] = 1; // OPEN
    aReturn[256] = 509;
    aType[509] = OP_BUY; // BUY
@@ -5379,7 +5379,7 @@ void init_tab() {
    aPrice[509] = 0.91965;
 
    // ========== 510 ===== 586 ==========
-   aPseudoTicket[510] = 256;
+   //aPseudoTicket[510] = 256;
    aAction[510] = 0; // CLOSE
    aType[510] = OP_BUY; // BUY
    aTicket[510] = -1; // Ticket given by broker
@@ -5389,7 +5389,7 @@ void init_tab() {
    aPrice[510] = 0.9155;
 
    // ========== 511 ===== 583 ==========
-   aPseudoTicket[511] = 257;
+   //aPseudoTicket[511] = 257;
    aAction[511] = 1; // OPEN
    aReturn[257] = 511;
    aType[511] = OP_SELL; // SELL
@@ -5400,7 +5400,7 @@ void init_tab() {
    aPrice[511] = 0.91526;
 
    // ========== 512 ===== 584 ==========
-   aPseudoTicket[512] = 258;
+   //aPseudoTicket[512] = 258;
    aAction[512] = 1; // OPEN
    aReturn[258] = 512;
    aType[512] = OP_SELL; // SELL
@@ -5411,7 +5411,7 @@ void init_tab() {
    aPrice[512] = 0.91523;
 
    // ========== 513 ===== 585 ==========
-   aPseudoTicket[513] = 259;
+   //aPseudoTicket[513] = 259;
    aAction[513] = 1; // OPEN
    aReturn[259] = 513;
    aType[513] = OP_SELL; // SELL
@@ -5422,7 +5422,7 @@ void init_tab() {
    aPrice[513] = 0.91487;
 
    // ========== 514 ===== 585 ==========
-   aPseudoTicket[514] = 259;
+   //aPseudoTicket[514] = 259;
    aAction[514] = 0; // CLOSE
    aType[514] = OP_SELL; // SELL
    aTicket[514] = -1; // Ticket given by broker
@@ -5432,7 +5432,7 @@ void init_tab() {
    aPrice[514] = 0.91891;
 
    // ========== 515 ===== 584 ==========
-   aPseudoTicket[515] = 258;
+   //aPseudoTicket[515] = 258;
    aAction[515] = 0; // CLOSE
    aType[515] = OP_SELL; // SELL
    aTicket[515] = -1; // Ticket given by broker
@@ -5442,7 +5442,7 @@ void init_tab() {
    aPrice[515] = 0.91828;
 
    // ========== 516 ===== 583 ==========
-   aPseudoTicket[516] = 257;
+   //aPseudoTicket[516] = 257;
    aAction[516] = 0; // CLOSE
    aType[516] = OP_SELL; // SELL
    aTicket[516] = -1; // Ticket given by broker
@@ -5452,7 +5452,7 @@ void init_tab() {
    aPrice[516] = 0.91834;
 
    // ========== 517 ===== 582 ==========
-   aPseudoTicket[517] = 254;
+   //aPseudoTicket[517] = 254;
    aAction[517] = 0; // CLOSE
    aType[517] = OP_SELL; // SELL
    aTicket[517] = -1; // Ticket given by broker
@@ -5462,7 +5462,7 @@ void init_tab() {
    aPrice[517] = 0.98302;
 
    // ========== 518 ===== 579 ==========
-   aPseudoTicket[518] = 260;
+   //aPseudoTicket[518] = 260;
    aAction[518] = 1; // OPEN
    aReturn[260] = 518;
    aType[518] = OP_BUY; // BUY
@@ -5473,7 +5473,7 @@ void init_tab() {
    aPrice[518] = 0.91778;
 
    // ========== 519 ===== 578 ==========
-   aPseudoTicket[519] = 261;
+   //aPseudoTicket[519] = 261;
    aAction[519] = 1; // OPEN
    aReturn[261] = 519;
    aType[519] = OP_BUY; // BUY
@@ -5484,7 +5484,7 @@ void init_tab() {
    aPrice[519] = 0.91786;
 
    // ========== 520 ===== 580 ==========
-   aPseudoTicket[520] = 262;
+   //aPseudoTicket[520] = 262;
    aAction[520] = 1; // OPEN
    aReturn[262] = 520;
    aType[520] = OP_BUY; // BUY
@@ -5495,7 +5495,7 @@ void init_tab() {
    aPrice[520] = 0.91798;
 
    // ========== 521 ===== 581 ==========
-   aPseudoTicket[521] = 263;
+   //aPseudoTicket[521] = 263;
    aAction[521] = 1; // OPEN
    aReturn[263] = 521;
    aType[521] = OP_BUY; // BUY
@@ -5506,7 +5506,7 @@ void init_tab() {
    aPrice[521] = 0.9175;
 
    // ========== 522 ===== 581 ==========
-   aPseudoTicket[522] = 263;
+   //aPseudoTicket[522] = 263;
    aAction[522] = 0; // CLOSE
    aType[522] = OP_BUY; // BUY
    aTicket[522] = -1; // Ticket given by broker
@@ -5516,7 +5516,7 @@ void init_tab() {
    aPrice[522] = 0.92661;
 
    // ========== 523 ===== 580 ==========
-   aPseudoTicket[523] = 262;
+   //aPseudoTicket[523] = 262;
    aAction[523] = 0; // CLOSE
    aType[523] = OP_BUY; // BUY
    aTicket[523] = -1; // Ticket given by broker
@@ -5526,7 +5526,7 @@ void init_tab() {
    aPrice[523] = 0.92737;
 
    // ========== 524 ===== 579 ==========
-   aPseudoTicket[524] = 260;
+   //aPseudoTicket[524] = 260;
    aAction[524] = 0; // CLOSE
    aType[524] = OP_BUY; // BUY
    aTicket[524] = -1; // Ticket given by broker
@@ -5536,7 +5536,7 @@ void init_tab() {
    aPrice[524] = 0.92721;
 
    // ========== 525 ===== 578 ==========
-   aPseudoTicket[525] = 261;
+   //aPseudoTicket[525] = 261;
    aAction[525] = 0; // CLOSE
    aType[525] = OP_BUY; // BUY
    aTicket[525] = -1; // Ticket given by broker
@@ -5546,7 +5546,7 @@ void init_tab() {
    aPrice[525] = 0.92668;
 
    // ========== 526 ===== 575 ==========
-   aPseudoTicket[526] = 264;
+   //aPseudoTicket[526] = 264;
    aAction[526] = 1; // OPEN
    aReturn[264] = 526;
    aType[526] = OP_SELL; // SELL
@@ -5557,7 +5557,7 @@ void init_tab() {
    aPrice[526] = 0.98374;
 
    // ========== 527 ===== 576 ==========
-   aPseudoTicket[527] = 265;
+   //aPseudoTicket[527] = 265;
    aAction[527] = 1; // OPEN
    aReturn[265] = 527;
    aType[527] = OP_SELL; // SELL
@@ -5568,7 +5568,7 @@ void init_tab() {
    aPrice[527] = 1.3459;
 
    // ========== 528 ===== 577 ==========
-   aPseudoTicket[528] = 266;
+   //aPseudoTicket[528] = 266;
    aAction[528] = 1; // OPEN
    aReturn[266] = 528;
    aType[528] = OP_SELL; // SELL
@@ -5579,7 +5579,7 @@ void init_tab() {
    aPrice[528] = 1.36553;
 
    // ========== 529 ===== 577 ==========
-   aPseudoTicket[529] = 266;
+   //aPseudoTicket[529] = 266;
    aAction[529] = 0; // CLOSE
    aType[529] = OP_SELL; // SELL
    aTicket[529] = -1; // Ticket given by broker
@@ -5589,7 +5589,7 @@ void init_tab() {
    aPrice[529] = 1.36329;
 
    // ========== 530 ===== 576 ==========
-   aPseudoTicket[530] = 265;
+   //aPseudoTicket[530] = 265;
    aAction[530] = 0; // CLOSE
    aType[530] = OP_SELL; // SELL
    aTicket[530] = -1; // Ticket given by broker
@@ -5599,7 +5599,7 @@ void init_tab() {
    aPrice[530] = 1.36277;
 
    // ========== 531 ===== 575 ==========
-   aPseudoTicket[531] = 264;
+   //aPseudoTicket[531] = 264;
    aAction[531] = 0; // CLOSE
    aType[531] = OP_SELL; // SELL
    aTicket[531] = -1; // Ticket given by broker
@@ -5609,7 +5609,7 @@ void init_tab() {
    aPrice[531] = 0.99345;
 
    // ========== 532 ===== 574 ==========
-   aPseudoTicket[532] = 267;
+   //aPseudoTicket[532] = 267;
    aAction[532] = 1; // OPEN
    aReturn[267] = 532;
    aType[532] = OP_BUY; // BUY
@@ -5620,7 +5620,7 @@ void init_tab() {
    aPrice[532] = 1.35995;
 
    // ========== 533 ===== 574 ==========
-   aPseudoTicket[533] = 267;
+   //aPseudoTicket[533] = 267;
    aAction[533] = 0; // CLOSE
    aType[533] = OP_BUY; // BUY
    aTicket[533] = -1; // Ticket given by broker
@@ -5630,7 +5630,7 @@ void init_tab() {
    aPrice[533] = 1.3599;
 
    // ========== 534 ===== 573 ==========
-   aPseudoTicket[534] = 268;
+   //aPseudoTicket[534] = 268;
    aAction[534] = 1; // OPEN
    aReturn[268] = 534;
    aType[534] = OP_BUY; // BUY
@@ -5641,7 +5641,7 @@ void init_tab() {
    aPrice[534] = 1.35975;
 
    // ========== 535 ===== 571 ==========
-   aPseudoTicket[535] = 269;
+   //aPseudoTicket[535] = 269;
    aAction[535] = 1; // OPEN
    aReturn[269] = 535;
    aType[535] = OP_SELL; // SELL
@@ -5652,7 +5652,7 @@ void init_tab() {
    aPrice[535] = 0.91091;
 
    // ========== 536 ===== 573 ==========
-   aPseudoTicket[536] = 268;
+   //aPseudoTicket[536] = 268;
    aAction[536] = 0; // CLOSE
    aType[536] = OP_BUY; // BUY
    aTicket[536] = -1; // Ticket given by broker
@@ -5662,7 +5662,7 @@ void init_tab() {
    aPrice[536] = 1.36585;
 
    // ========== 537 ===== 572 ==========
-   aPseudoTicket[537] = 270;
+   //aPseudoTicket[537] = 270;
    aAction[537] = 1; // OPEN
    aReturn[270] = 537;
    aType[537] = OP_BUY; // BUY
@@ -5673,7 +5673,7 @@ void init_tab() {
    aPrice[537] = 1.37282;
 
    // ========== 538 ===== 572 ==========
-   aPseudoTicket[538] = 270;
+   //aPseudoTicket[538] = 270;
    aAction[538] = 0; // CLOSE
    aType[538] = OP_BUY; // BUY
    aTicket[538] = -1; // Ticket given by broker
@@ -5683,7 +5683,7 @@ void init_tab() {
    aPrice[538] = 1.3738;
 
    // ========== 539 ===== 571 ==========
-   aPseudoTicket[539] = 269;
+   //aPseudoTicket[539] = 269;
    aAction[539] = 0; // CLOSE
    aType[539] = OP_SELL; // SELL
    aTicket[539] = -1; // Ticket given by broker
@@ -5693,7 +5693,7 @@ void init_tab() {
    aPrice[539] = 0.90124;
 
    // ========== 540 ===== 565 ==========
-   aPseudoTicket[540] = 271;
+   //aPseudoTicket[540] = 271;
    aAction[540] = 1; // OPEN
    aReturn[271] = 540;
    aType[540] = OP_SELL; // SELL
@@ -5704,7 +5704,7 @@ void init_tab() {
    aPrice[540] = 1.01334;
 
    // ========== 541 ===== 570 ==========
-   aPseudoTicket[541] = 272;
+   //aPseudoTicket[541] = 272;
    aAction[541] = 1; // OPEN
    aReturn[272] = 541;
    aType[541] = OP_BUY; // BUY
@@ -5715,7 +5715,7 @@ void init_tab() {
    aPrice[541] = 77.314;
 
    // ========== 542 ===== 569 ==========
-   aPseudoTicket[542] = 273;
+   //aPseudoTicket[542] = 273;
    aAction[542] = 1; // OPEN
    aReturn[273] = 542;
    aType[542] = OP_SELL; // SELL
@@ -5726,7 +5726,7 @@ void init_tab() {
    aPrice[542] = 1.01651;
 
    // ========== 543 ===== 567 ==========
-   aPseudoTicket[543] = 274;
+   //aPseudoTicket[543] = 274;
    aAction[543] = 1; // OPEN
    aReturn[274] = 543;
    aType[543] = OP_SELL; // SELL
@@ -5737,7 +5737,7 @@ void init_tab() {
    aPrice[543] = 1.01963;
 
    // ========== 544 ===== 570 ==========
-   aPseudoTicket[544] = 272;
+   //aPseudoTicket[544] = 272;
    aAction[544] = 0; // CLOSE
    aType[544] = OP_BUY; // BUY
    aTicket[544] = -1; // Ticket given by broker
@@ -5747,7 +5747,7 @@ void init_tab() {
    aPrice[544] = 77.335;
 
    // ========== 545 ===== 568 ==========
-   aPseudoTicket[545] = 275;
+   //aPseudoTicket[545] = 275;
    aAction[545] = 1; // OPEN
    aReturn[275] = 545;
    aType[545] = OP_SELL; // SELL
@@ -5758,7 +5758,7 @@ void init_tab() {
    aPrice[545] = 1.01947;
 
    // ========== 546 ===== 569 ==========
-   aPseudoTicket[546] = 273;
+   //aPseudoTicket[546] = 273;
    aAction[546] = 0; // CLOSE
    aType[546] = OP_SELL; // SELL
    aTicket[546] = -1; // Ticket given by broker
@@ -5768,7 +5768,7 @@ void init_tab() {
    aPrice[546] = 1.0133;
 
    // ========== 547 ===== 568 ==========
-   aPseudoTicket[547] = 275;
+   //aPseudoTicket[547] = 275;
    aAction[547] = 0; // CLOSE
    aType[547] = OP_SELL; // SELL
    aTicket[547] = -1; // Ticket given by broker
@@ -5778,7 +5778,7 @@ void init_tab() {
    aPrice[547] = 1.013;
 
    // ========== 548 ===== 567 ==========
-   aPseudoTicket[548] = 274;
+   //aPseudoTicket[548] = 274;
    aAction[548] = 0; // CLOSE
    aType[548] = OP_SELL; // SELL
    aTicket[548] = -1; // Ticket given by broker
@@ -5788,7 +5788,7 @@ void init_tab() {
    aPrice[548] = 1.01458;
 
    // ========== 549 ===== 566 ==========
-   aPseudoTicket[549] = 276;
+   //aPseudoTicket[549] = 276;
    aAction[549] = 1; // OPEN
    aReturn[276] = 549;
    aType[549] = OP_SELL; // SELL
@@ -5799,7 +5799,7 @@ void init_tab() {
    aPrice[549] = 1.02241;
 
    // ========== 550 ===== 566 ==========
-   aPseudoTicket[550] = 276;
+   //aPseudoTicket[550] = 276;
    aAction[550] = 0; // CLOSE
    aType[550] = OP_SELL; // SELL
    aTicket[550] = -1; // Ticket given by broker
@@ -5809,7 +5809,7 @@ void init_tab() {
    aPrice[550] = 1.01933;
 
    // ========== 551 ===== 565 ==========
-   aPseudoTicket[551] = 271;
+   //aPseudoTicket[551] = 271;
    aAction[551] = 0; // CLOSE
    aType[551] = OP_SELL; // SELL
    aTicket[551] = -1; // Ticket given by broker
@@ -5819,7 +5819,7 @@ void init_tab() {
    aPrice[551] = 1.0188;
 
    // ========== 552 ===== 564 ==========
-   aPseudoTicket[552] = 277;
+   //aPseudoTicket[552] = 277;
    aAction[552] = 1; // OPEN
    aReturn[277] = 552;
    aType[552] = OP_BUY; // BUY
@@ -5830,7 +5830,7 @@ void init_tab() {
    aPrice[552] = 1.38193;
 
    // ========== 553 ===== 564 ==========
-   aPseudoTicket[553] = 277;
+   //aPseudoTicket[553] = 277;
    aAction[553] = 0; // CLOSE
    aType[553] = OP_BUY; // BUY
    aTicket[553] = -1; // Ticket given by broker
@@ -5840,7 +5840,7 @@ void init_tab() {
    aPrice[553] = 1.37923;
 
    // ========== 554 ===== 560 ==========
-   aPseudoTicket[554] = 278;
+   //aPseudoTicket[554] = 278;
    aAction[554] = 1; // OPEN
    aReturn[278] = 554;
    aType[554] = OP_SELL; // SELL
@@ -5851,7 +5851,7 @@ void init_tab() {
    aPrice[554] = 1.01674;
 
    // ========== 555 ===== 562 ==========
-   aPseudoTicket[555] = 279;
+   //aPseudoTicket[555] = 279;
    aAction[555] = 1; // OPEN
    aReturn[279] = 555;
    aType[555] = OP_SELL; // SELL
@@ -5862,7 +5862,7 @@ void init_tab() {
    aPrice[555] = 1.01737;
 
    // ========== 556 ===== 563 ==========
-   aPseudoTicket[556] = 280;
+   //aPseudoTicket[556] = 280;
    aAction[556] = 1; // OPEN
    aReturn[280] = 556;
    aType[556] = OP_SELL; // SELL
@@ -5873,7 +5873,7 @@ void init_tab() {
    aPrice[556] = 1.01736;
 
    // ========== 557 ===== 563 ==========
-   aPseudoTicket[557] = 280;
+   //aPseudoTicket[557] = 280;
    aAction[557] = 0; // CLOSE
    aType[557] = OP_SELL; // SELL
    aTicket[557] = -1; // Ticket given by broker
@@ -5883,7 +5883,7 @@ void init_tab() {
    aPrice[557] = 1.01433;
 
    // ========== 558 ===== 556 ==========
-   aPseudoTicket[558] = 281;
+   //aPseudoTicket[558] = 281;
    aAction[558] = 1; // OPEN
    aReturn[281] = 558;
    aType[558] = OP_SELL; // SELL
@@ -5894,7 +5894,7 @@ void init_tab() {
    aPrice[558] = 76.799;
 
    // ========== 559 ===== 557 ==========
-   aPseudoTicket[559] = 282;
+   //aPseudoTicket[559] = 282;
    aAction[559] = 1; // OPEN
    aReturn[282] = 559;
    aType[559] = OP_SELL; // SELL
@@ -5905,7 +5905,7 @@ void init_tab() {
    aPrice[559] = 76.824;
 
    // ========== 560 ===== 562 ==========
-   aPseudoTicket[560] = 279;
+   //aPseudoTicket[560] = 279;
    aAction[560] = 0; // CLOSE
    aType[560] = OP_SELL; // SELL
    aTicket[560] = -1; // Ticket given by broker
@@ -5915,7 +5915,7 @@ void init_tab() {
    aPrice[560] = 1.01671;
 
    // ========== 561 ===== 561 ==========
-   aPseudoTicket[561] = 283;
+   //aPseudoTicket[561] = 283;
    aAction[561] = 1; // OPEN
    aReturn[283] = 561;
    aType[561] = OP_SELL; // SELL
@@ -5926,7 +5926,7 @@ void init_tab() {
    aPrice[561] = 1.37345;
 
    // ========== 562 ===== 561 ==========
-   aPseudoTicket[562] = 283;
+   //aPseudoTicket[562] = 283;
    aAction[562] = 0; // CLOSE
    aType[562] = OP_SELL; // SELL
    aTicket[562] = -1; // Ticket given by broker
@@ -5936,7 +5936,7 @@ void init_tab() {
    aPrice[562] = 1.37211;
 
    // ========== 563 ===== 560 ==========
-   aPseudoTicket[563] = 278;
+   //aPseudoTicket[563] = 278;
    aAction[563] = 0; // CLOSE
    aType[563] = OP_SELL; // SELL
    aTicket[563] = -1; // Ticket given by broker
@@ -5946,7 +5946,7 @@ void init_tab() {
    aPrice[563] = 1.01468;
 
    // ========== 564 ===== 558 ==========
-   aPseudoTicket[564] = 284;
+   //aPseudoTicket[564] = 284;
    aAction[564] = 1; // OPEN
    aReturn[284] = 564;
    aType[564] = OP_SELL; // SELL
@@ -5957,7 +5957,7 @@ void init_tab() {
    aPrice[564] = 0.90023;
 
    // ========== 565 ===== 559 ==========
-   aPseudoTicket[565] = 285;
+   //aPseudoTicket[565] = 285;
    aAction[565] = 1; // OPEN
    aReturn[285] = 565;
    aType[565] = OP_SELL; // SELL
@@ -5968,7 +5968,7 @@ void init_tab() {
    aPrice[565] = 0.901;
 
    // ========== 566 ===== 559 ==========
-   aPseudoTicket[566] = 285;
+   //aPseudoTicket[566] = 285;
    aAction[566] = 0; // CLOSE
    aType[566] = OP_SELL; // SELL
    aTicket[566] = -1; // Ticket given by broker
@@ -5978,7 +5978,7 @@ void init_tab() {
    aPrice[566] = 0.90014;
 
    // ========== 567 ===== 558 ==========
-   aPseudoTicket[567] = 284;
+   //aPseudoTicket[567] = 284;
    aAction[567] = 0; // CLOSE
    aType[567] = OP_SELL; // SELL
    aTicket[567] = -1; // Ticket given by broker
@@ -5988,7 +5988,7 @@ void init_tab() {
    aPrice[567] = 0.9005;
 
    // ========== 568 ===== 557 ==========
-   aPseudoTicket[568] = 282;
+   //aPseudoTicket[568] = 282;
    aAction[568] = 0; // CLOSE
    aType[568] = OP_SELL; // SELL
    aTicket[568] = -1; // Ticket given by broker
@@ -5998,7 +5998,7 @@ void init_tab() {
    aPrice[568] = 76.89;
 
    // ========== 569 ===== 556 ==========
-   aPseudoTicket[569] = 281;
+   //aPseudoTicket[569] = 281;
    aAction[569] = 0; // CLOSE
    aType[569] = OP_SELL; // SELL
    aTicket[569] = -1; // Ticket given by broker
@@ -6008,7 +6008,7 @@ void init_tab() {
    aPrice[569] = 76.963;
 
    // ========== 570 ===== 554 ==========
-   aPseudoTicket[570] = 286;
+   //aPseudoTicket[570] = 286;
    aAction[570] = 1; // OPEN
    aReturn[286] = 570;
    aType[570] = OP_BUY; // BUY
@@ -6019,7 +6019,7 @@ void init_tab() {
    aPrice[570] = 1.02152;
 
    // ========== 571 ===== 555 ==========
-   aPseudoTicket[571] = 287;
+   //aPseudoTicket[571] = 287;
    aAction[571] = 1; // OPEN
    aReturn[287] = 571;
    aType[571] = OP_SELL; // SELL
@@ -6030,7 +6030,7 @@ void init_tab() {
    aPrice[571] = 1.3785;
 
    // ========== 572 ===== 555 ==========
-   aPseudoTicket[572] = 287;
+   //aPseudoTicket[572] = 287;
    aAction[572] = 0; // CLOSE
    aType[572] = OP_SELL; // SELL
    aTicket[572] = -1; // Ticket given by broker
@@ -6040,7 +6040,7 @@ void init_tab() {
    aPrice[572] = 1.38082;
 
    // ========== 573 ===== 554 ==========
-   aPseudoTicket[573] = 286;
+   //aPseudoTicket[573] = 286;
    aAction[573] = 0; // CLOSE
    aType[573] = OP_BUY; // BUY
    aTicket[573] = -1; // Ticket given by broker
@@ -6050,7 +6050,7 @@ void init_tab() {
    aPrice[573] = 1.01732;
 
    // ========== 574 ===== 550 ==========
-   aPseudoTicket[574] = 288;
+   //aPseudoTicket[574] = 288;
    aAction[574] = 1; // OPEN
    aReturn[288] = 574;
    aType[574] = OP_BUY; // BUY
@@ -6061,7 +6061,7 @@ void init_tab() {
    aPrice[574] = 1.01779;
 
    // ========== 575 ===== 553 ==========
-   aPseudoTicket[575] = 289;
+   //aPseudoTicket[575] = 289;
    aAction[575] = 1; // OPEN
    aReturn[289] = 575;
    aType[575] = OP_BUY; // BUY
@@ -6072,7 +6072,7 @@ void init_tab() {
    aPrice[575] = 1.01824;
 
    // ========== 576 ===== 552 ==========
-   aPseudoTicket[576] = 290;
+   //aPseudoTicket[576] = 290;
    aAction[576] = 1; // OPEN
    aReturn[290] = 576;
    aType[576] = OP_BUY; // BUY
@@ -6083,7 +6083,7 @@ void init_tab() {
    aPrice[576] = 1.01686;
 
    // ========== 577 ===== 551 ==========
-   aPseudoTicket[577] = 291;
+   //aPseudoTicket[577] = 291;
    aAction[577] = 1; // OPEN
    aReturn[291] = 577;
    aType[577] = OP_BUY; // BUY
@@ -6094,7 +6094,7 @@ void init_tab() {
    aPrice[577] = 1.01663;
 
    // ========== 578 ===== 552 ==========
-   aPseudoTicket[578] = 290;
+   //aPseudoTicket[578] = 290;
    aAction[578] = 0; // CLOSE
    aType[578] = OP_BUY; // BUY
    aTicket[578] = -1; // Ticket given by broker
@@ -6104,7 +6104,7 @@ void init_tab() {
    aPrice[578] = 1.013;
 
    // ========== 579 ===== 553 ==========
-   aPseudoTicket[579] = 289;
+   //aPseudoTicket[579] = 289;
    aAction[579] = 0; // CLOSE
    aType[579] = OP_BUY; // BUY
    aTicket[579] = -1; // Ticket given by broker
@@ -6114,7 +6114,7 @@ void init_tab() {
    aPrice[579] = 1.013;
 
    // ========== 580 ===== 551 ==========
-   aPseudoTicket[580] = 291;
+   //aPseudoTicket[580] = 291;
    aAction[580] = 0; // CLOSE
    aType[580] = OP_BUY; // BUY
    aTicket[580] = -1; // Ticket given by broker
@@ -6124,7 +6124,7 @@ void init_tab() {
    aPrice[580] = 1.013;
 
    // ========== 581 ===== 550 ==========
-   aPseudoTicket[581] = 288;
+   //aPseudoTicket[581] = 288;
    aAction[581] = 0; // CLOSE
    aType[581] = OP_BUY; // BUY
    aTicket[581] = -1; // Ticket given by broker
@@ -6134,7 +6134,7 @@ void init_tab() {
    aPrice[581] = 1.01159;
 
    // ========== 582 ===== 549 ==========
-   aPseudoTicket[582] = 292;
+   //aPseudoTicket[582] = 292;
    aAction[582] = 1; // OPEN
    aReturn[292] = 582;
    aType[582] = OP_BUY; // BUY
@@ -6145,7 +6145,7 @@ void init_tab() {
    aPrice[582] = 1.38507;
 
    // ========== 583 ===== 549 ==========
-   aPseudoTicket[583] = 292;
+   //aPseudoTicket[583] = 292;
    aAction[583] = 0; // CLOSE
    aType[583] = OP_BUY; // BUY
    aTicket[583] = -1; // Ticket given by broker
@@ -6155,7 +6155,7 @@ void init_tab() {
    aPrice[583] = 1.38727;
 
    // ========== 584 ===== 548 ==========
-   aPseudoTicket[584] = 293;
+   //aPseudoTicket[584] = 293;
    aAction[584] = 1; // OPEN
    aReturn[293] = 584;
    aType[584] = OP_BUY; // BUY
@@ -6166,7 +6166,7 @@ void init_tab() {
    aPrice[584] = 1.00856;
 
    // ========== 585 ===== 548 ==========
-   aPseudoTicket[585] = 293;
+   //aPseudoTicket[585] = 293;
    aAction[585] = 0; // CLOSE
    aType[585] = OP_BUY; // BUY
    aTicket[585] = -1; // Ticket given by broker
@@ -6176,7 +6176,7 @@ void init_tab() {
    aPrice[585] = 1.01269;
 
    // ========== 586 ===== 544 ==========
-   aPseudoTicket[586] = 294;
+   //aPseudoTicket[586] = 294;
    aAction[586] = 1; // OPEN
    aReturn[294] = 586;
    aType[586] = OP_BUY; // BUY
@@ -6187,7 +6187,7 @@ void init_tab() {
    aPrice[586] = 1.01475;
 
    // ========== 587 ===== 547 ==========
-   aPseudoTicket[587] = 295;
+   //aPseudoTicket[587] = 295;
    aAction[587] = 1; // OPEN
    aReturn[295] = 587;
    aType[587] = OP_BUY; // BUY
@@ -6198,7 +6198,7 @@ void init_tab() {
    aPrice[587] = 1.01426;
 
    // ========== 588 ===== 545 ==========
-   aPseudoTicket[588] = 296;
+   //aPseudoTicket[588] = 296;
    aAction[588] = 1; // OPEN
    aReturn[296] = 588;
    aType[588] = OP_BUY; // BUY
@@ -6209,7 +6209,7 @@ void init_tab() {
    aPrice[588] = 1.01328;
 
    // ========== 589 ===== 546 ==========
-   aPseudoTicket[589] = 297;
+   //aPseudoTicket[589] = 297;
    aAction[589] = 1; // OPEN
    aReturn[297] = 589;
    aType[589] = OP_BUY; // BUY
@@ -6220,7 +6220,7 @@ void init_tab() {
    aPrice[589] = 1.0124;
 
    // ========== 590 ===== 547 ==========
-   aPseudoTicket[590] = 295;
+   //aPseudoTicket[590] = 295;
    aAction[590] = 0; // CLOSE
    aType[590] = OP_BUY; // BUY
    aTicket[590] = -1; // Ticket given by broker
@@ -6230,7 +6230,7 @@ void init_tab() {
    aPrice[590] = 1.01842;
 
    // ========== 591 ===== 546 ==========
-   aPseudoTicket[591] = 297;
+   //aPseudoTicket[591] = 297;
    aAction[591] = 0; // CLOSE
    aType[591] = OP_BUY; // BUY
    aTicket[591] = -1; // Ticket given by broker
@@ -6240,7 +6240,7 @@ void init_tab() {
    aPrice[591] = 1.02025;
 
    // ========== 592 ===== 545 ==========
-   aPseudoTicket[592] = 296;
+   //aPseudoTicket[592] = 296;
    aAction[592] = 0; // CLOSE
    aType[592] = OP_BUY; // BUY
    aTicket[592] = -1; // Ticket given by broker
@@ -6250,7 +6250,7 @@ void init_tab() {
    aPrice[592] = 1.02048;
 
    // ========== 593 ===== 544 ==========
-   aPseudoTicket[593] = 294;
+   //aPseudoTicket[593] = 294;
    aAction[593] = 0; // CLOSE
    aType[593] = OP_BUY; // BUY
    aTicket[593] = -1; // Ticket given by broker
@@ -6260,7 +6260,7 @@ void init_tab() {
    aPrice[593] = 1.02042;
 
    // ========== 594 ===== 543 ==========
-   aPseudoTicket[594] = 298;
+   //aPseudoTicket[594] = 298;
    aAction[594] = 1; // OPEN
    aReturn[298] = 594;
    aType[594] = OP_SELL; // SELL
@@ -6271,7 +6271,7 @@ void init_tab() {
    aPrice[594] = 0.90777;
 
    // ========== 595 ===== 543 ==========
-   aPseudoTicket[595] = 298;
+   //aPseudoTicket[595] = 298;
    aAction[595] = 0; // CLOSE
    aType[595] = OP_SELL; // SELL
    aTicket[595] = -1; // Ticket given by broker
@@ -6281,7 +6281,7 @@ void init_tab() {
    aPrice[595] = 0.90553;
 
    // ========== 596 ===== 542 ==========
-   aPseudoTicket[596] = 299;
+   //aPseudoTicket[596] = 299;
    aAction[596] = 1; // OPEN
    aReturn[299] = 596;
    aType[596] = OP_BUY; // BUY
@@ -6292,7 +6292,7 @@ void init_tab() {
    aPrice[596] = 0.89434;
 
    // ========== 597 ===== 542 ==========
-   aPseudoTicket[597] = 299;
+   //aPseudoTicket[597] = 299;
    aAction[597] = 0; // CLOSE
    aType[597] = OP_BUY; // BUY
    aTicket[597] = -1; // Ticket given by broker
@@ -6302,7 +6302,7 @@ void init_tab() {
    aPrice[597] = 0.895;
 
    // ========== 598 ===== 541 ==========
-   aPseudoTicket[598] = 300;
+   //aPseudoTicket[598] = 300;
    aAction[598] = 1; // OPEN
    aReturn[300] = 598;
    aType[598] = OP_SELL; // SELL
@@ -6313,7 +6313,7 @@ void init_tab() {
    aPrice[598] = 0.88912;
 
    // ========== 599 ===== 541 ==========
-   aPseudoTicket[599] = 300;
+   //aPseudoTicket[599] = 300;
    aAction[599] = 0; // CLOSE
    aType[599] = OP_SELL; // SELL
    aTicket[599] = -1; // Ticket given by broker
@@ -6323,7 +6323,7 @@ void init_tab() {
    aPrice[599] = 0.88896;
 
    // ========== 600 ===== 538 ==========
-   aPseudoTicket[600] = 301;
+   //aPseudoTicket[600] = 301;
    aAction[600] = 1; // OPEN
    aReturn[301] = 600;
    aType[600] = OP_SELL; // SELL
@@ -6334,7 +6334,7 @@ void init_tab() {
    aPrice[600] = 76.437;
 
    // ========== 601 ===== 536 ==========
-   aPseudoTicket[601] = 302;
+   //aPseudoTicket[601] = 302;
    aAction[601] = 1; // OPEN
    aReturn[302] = 601;
    aType[601] = OP_SELL; // SELL
@@ -6345,7 +6345,7 @@ void init_tab() {
    aPrice[601] = 76.099;
 
    // ========== 602 ===== 540 ==========
-   aPseudoTicket[602] = 303;
+   //aPseudoTicket[602] = 303;
    aAction[602] = 1; // OPEN
    aReturn[303] = 602;
    aType[602] = OP_BUY; // BUY
@@ -6356,7 +6356,7 @@ void init_tab() {
    aPrice[602] = 1.59253;
 
    // ========== 603 ===== 540 ==========
-   aPseudoTicket[603] = 303;
+   //aPseudoTicket[603] = 303;
    aAction[603] = 0; // CLOSE
    aType[603] = OP_BUY; // BUY
    aTicket[603] = -1; // Ticket given by broker
@@ -6366,7 +6366,7 @@ void init_tab() {
    aPrice[603] = 1.59243;
 
    // ========== 604 ===== 539 ==========
-   aPseudoTicket[604] = 304;
+   //aPseudoTicket[604] = 304;
    aAction[604] = 1; // OPEN
    aReturn[304] = 604;
    aType[604] = OP_BUY; // BUY
@@ -6377,7 +6377,7 @@ void init_tab() {
    aPrice[604] = 1.5905;
 
    // ========== 605 ===== 539 ==========
-   aPseudoTicket[605] = 304;
+   //aPseudoTicket[605] = 304;
    aAction[605] = 0; // CLOSE
    aType[605] = OP_BUY; // BUY
    aTicket[605] = -1; // Ticket given by broker
@@ -6387,7 +6387,7 @@ void init_tab() {
    aPrice[605] = 1.599;
 
    // ========== 606 ===== 538 ==========
-   aPseudoTicket[606] = 301;
+   //aPseudoTicket[606] = 301;
    aAction[606] = 0; // CLOSE
    aType[606] = OP_SELL; // SELL
    aTicket[606] = -1; // Ticket given by broker
@@ -6397,7 +6397,7 @@ void init_tab() {
    aPrice[606] = 76.099;
 
    // ========== 607 ===== 537 ==========
-   aPseudoTicket[607] = 305;
+   //aPseudoTicket[607] = 305;
    aAction[607] = 1; // OPEN
    aReturn[305] = 607;
    aType[607] = OP_SELL; // SELL
@@ -6408,7 +6408,7 @@ void init_tab() {
    aPrice[607] = 1.3913;
 
    // ========== 608 ===== 537 ==========
-   aPseudoTicket[608] = 305;
+   //aPseudoTicket[608] = 305;
    aAction[608] = 0; // CLOSE
    aType[608] = OP_SELL; // SELL
    aTicket[608] = -1; // Ticket given by broker
@@ -6418,7 +6418,7 @@ void init_tab() {
    aPrice[608] = 1.39159;
 
    // ========== 609 ===== 536 ==========
-   aPseudoTicket[609] = 302;
+   //aPseudoTicket[609] = 302;
    aAction[609] = 0; // CLOSE
    aType[609] = OP_SELL; // SELL
    aTicket[609] = -1; // Ticket given by broker
@@ -6428,7 +6428,7 @@ void init_tab() {
    aPrice[609] = 75.967;
 
    // ========== 610 ===== 535 ==========
-   aPseudoTicket[610] = 306;
+   //aPseudoTicket[610] = 306;
    aAction[610] = 1; // OPEN
    aReturn[306] = 610;
    aType[610] = OP_BUY; // BUY
@@ -6439,7 +6439,7 @@ void init_tab() {
    aPrice[610] = 0.87908;
 
    // ========== 611 ===== 535 ==========
-   aPseudoTicket[611] = 306;
+   //aPseudoTicket[611] = 306;
    aAction[611] = 0; // CLOSE
    aType[611] = OP_BUY; // BUY
    aTicket[611] = -1; // Ticket given by broker
@@ -6449,7 +6449,7 @@ void init_tab() {
    aPrice[611] = 0.87873;
 
    // ========== 612 ===== 534 ==========
-   aPseudoTicket[612] = 307;
+   //aPseudoTicket[612] = 307;
    aAction[612] = 1; // OPEN
    aReturn[307] = 612;
    aType[612] = OP_BUY; // BUY
@@ -6460,7 +6460,7 @@ void init_tab() {
    aPrice[612] = 1.03831;
 
    // ========== 613 ===== 534 ==========
-   aPseudoTicket[613] = 307;
+   //aPseudoTicket[613] = 307;
    aAction[613] = 0; // CLOSE
    aType[613] = OP_BUY; // BUY
    aTicket[613] = -1; // Ticket given by broker
@@ -6470,7 +6470,7 @@ void init_tab() {
    aPrice[613] = 1.03752;
 
    // ========== 614 ===== 532 ==========
-   aPseudoTicket[614] = 308;
+   //aPseudoTicket[614] = 308;
    aAction[614] = 1; // OPEN
    aReturn[308] = 614;
    aType[614] = OP_BUY; // BUY
@@ -6481,7 +6481,7 @@ void init_tab() {
    aPrice[614] = 1.0371;
 
    // ========== 615 ===== 533 ==========
-   aPseudoTicket[615] = 309;
+   //aPseudoTicket[615] = 309;
    aAction[615] = 1; // OPEN
    aReturn[309] = 615;
    aType[615] = OP_BUY; // BUY
@@ -6492,7 +6492,7 @@ void init_tab() {
    aPrice[615] = 1.03563;
 
    // ========== 616 ===== 533 ==========
-   aPseudoTicket[616] = 309;
+   //aPseudoTicket[616] = 309;
    aAction[616] = 0; // CLOSE
    aType[616] = OP_BUY; // BUY
    aTicket[616] = -1; // Ticket given by broker
@@ -6502,7 +6502,7 @@ void init_tab() {
    aPrice[616] = 1.03776;
 
    // ========== 617 ===== 532 ==========
-   aPseudoTicket[617] = 308;
+   //aPseudoTicket[617] = 308;
    aAction[617] = 0; // CLOSE
    aType[617] = OP_BUY; // BUY
    aTicket[617] = -1; // Ticket given by broker
@@ -6512,7 +6512,7 @@ void init_tab() {
    aPrice[617] = 1.03774;
 
    // ========== 618 ===== 527 ==========
-   aPseudoTicket[618] = 310;
+   //aPseudoTicket[618] = 310;
    aAction[618] = 1; // OPEN
    aReturn[310] = 618;
    aType[618] = OP_BUY; // BUY
@@ -6523,7 +6523,7 @@ void init_tab() {
    aPrice[618] = 1.00408;
 
    // ========== 619 ===== 530 ==========
-   aPseudoTicket[619] = 311;
+   //aPseudoTicket[619] = 311;
    aAction[619] = 1; // OPEN
    aReturn[311] = 619;
    aType[619] = OP_BUY; // BUY
@@ -6534,7 +6534,7 @@ void init_tab() {
    aPrice[619] = 1.002;
 
    // ========== 620 ===== 528 ==========
-   aPseudoTicket[620] = 312;
+   //aPseudoTicket[620] = 312;
    aAction[620] = 1; // OPEN
    aReturn[312] = 620;
    aType[620] = OP_BUY; // BUY
@@ -6545,7 +6545,7 @@ void init_tab() {
    aPrice[620] = 1.00095;
 
    // ========== 621 ===== 531 ==========
-   aPseudoTicket[621] = 313;
+   //aPseudoTicket[621] = 313;
    aAction[621] = 1; // OPEN
    aReturn[313] = 621;
    aType[621] = OP_BUY; // BUY
@@ -6556,7 +6556,7 @@ void init_tab() {
    aPrice[621] = 1.39581;
 
    // ========== 622 ===== 531 ==========
-   aPseudoTicket[622] = 313;
+   //aPseudoTicket[622] = 313;
    aAction[622] = 0; // CLOSE
    aType[622] = OP_BUY; // BUY
    aTicket[622] = -1; // Ticket given by broker
@@ -6566,7 +6566,7 @@ void init_tab() {
    aPrice[622] = 1.39681;
 
    // ========== 623 ===== 529 ==========
-   aPseudoTicket[623] = 314;
+   //aPseudoTicket[623] = 314;
    aAction[623] = 1; // OPEN
    aReturn[314] = 623;
    aType[623] = OP_BUY; // BUY
@@ -6577,7 +6577,7 @@ void init_tab() {
    aPrice[623] = 0.99918;
 
    // ========== 624 ===== 528 ==========
-   aPseudoTicket[624] = 312;
+   //aPseudoTicket[624] = 312;
    aAction[624] = 0; // CLOSE
    aType[624] = OP_BUY; // BUY
    aTicket[624] = -1; // Ticket given by broker
@@ -6587,7 +6587,7 @@ void init_tab() {
    aPrice[624] = 0.996;
 
    // ========== 625 ===== 527 ==========
-   aPseudoTicket[625] = 310;
+   //aPseudoTicket[625] = 310;
    aAction[625] = 0; // CLOSE
    aType[625] = OP_BUY; // BUY
    aTicket[625] = -1; // Ticket given by broker
@@ -6597,7 +6597,7 @@ void init_tab() {
    aPrice[625] = 0.996;
 
    // ========== 626 ===== 530 ==========
-   aPseudoTicket[626] = 311;
+   //aPseudoTicket[626] = 311;
    aAction[626] = 0; // CLOSE
    aType[626] = OP_BUY; // BUY
    aTicket[626] = -1; // Ticket given by broker
@@ -6607,7 +6607,7 @@ void init_tab() {
    aPrice[626] = 0.996;
 
    // ========== 627 ===== 529 ==========
-   aPseudoTicket[627] = 314;
+   //aPseudoTicket[627] = 314;
    aAction[627] = 0; // CLOSE
    aType[627] = OP_BUY; // BUY
    aTicket[627] = -1; // Ticket given by broker
@@ -6617,7 +6617,7 @@ void init_tab() {
    aPrice[627] = 0.996;
 
    // ========== 628 ===== 524 ==========
-   aPseudoTicket[628] = 315;
+   //aPseudoTicket[628] = 315;
    aAction[628] = 1; // OPEN
    aReturn[315] = 628;
    aType[628] = OP_SELL; // SELL
@@ -6628,7 +6628,7 @@ void init_tab() {
    aPrice[628] = 1.06189;
 
    // ========== 629 ===== 523 ==========
-   aPseudoTicket[629] = 316;
+   //aPseudoTicket[629] = 316;
    aAction[629] = 1; // OPEN
    aReturn[316] = 629;
    aType[629] = OP_SELL; // SELL
@@ -6639,7 +6639,7 @@ void init_tab() {
    aPrice[629] = 1.06841;
 
    // ========== 630 ===== 525 ==========
-   aPseudoTicket[630] = 317;
+   //aPseudoTicket[630] = 317;
    aAction[630] = 1; // OPEN
    aReturn[317] = 630;
    aType[630] = OP_SELL; // SELL
@@ -6650,7 +6650,7 @@ void init_tab() {
    aPrice[630] = 1.0687;
 
    // ========== 631 ===== 526 ==========
-   aPseudoTicket[631] = 318;
+   //aPseudoTicket[631] = 318;
    aAction[631] = 1; // OPEN
    aReturn[318] = 631;
    aType[631] = OP_SELL; // SELL
@@ -6661,7 +6661,7 @@ void init_tab() {
    aPrice[631] = 1.06634;
 
    // ========== 632 ===== 526 ==========
-   aPseudoTicket[632] = 318;
+   //aPseudoTicket[632] = 318;
    aAction[632] = 0; // CLOSE
    aType[632] = OP_SELL; // SELL
    aTicket[632] = -1; // Ticket given by broker
@@ -6671,7 +6671,7 @@ void init_tab() {
    aPrice[632] = 1.067;
 
    // ========== 633 ===== 525 ==========
-   aPseudoTicket[633] = 317;
+   //aPseudoTicket[633] = 317;
    aAction[633] = 0; // CLOSE
    aType[633] = OP_SELL; // SELL
    aTicket[633] = -1; // Ticket given by broker
@@ -6681,7 +6681,7 @@ void init_tab() {
    aPrice[633] = 1.067;
 
    // ========== 634 ===== 523 ==========
-   aPseudoTicket[634] = 316;
+   //aPseudoTicket[634] = 316;
    aAction[634] = 0; // CLOSE
    aType[634] = OP_SELL; // SELL
    aTicket[634] = -1; // Ticket given by broker
@@ -6691,7 +6691,7 @@ void init_tab() {
    aPrice[634] = 1.066;
 
    // ========== 635 ===== 524 ==========
-   aPseudoTicket[635] = 315;
+   //aPseudoTicket[635] = 315;
    aAction[635] = 0; // CLOSE
    aType[635] = OP_SELL; // SELL
    aTicket[635] = -1; // Ticket given by broker
@@ -6701,7 +6701,7 @@ void init_tab() {
    aPrice[635] = 1.066;
 
    // ========== 636 ===== 522 ==========
-   aPseudoTicket[636] = 319;
+   //aPseudoTicket[636] = 319;
    aAction[636] = 1; // OPEN
    aReturn[319] = 636;
    aType[636] = OP_BUY; // BUY
@@ -6712,7 +6712,7 @@ void init_tab() {
    aPrice[636] = 1.41674;
 
    // ========== 637 ===== 522 ==========
-   aPseudoTicket[637] = 319;
+   //aPseudoTicket[637] = 319;
    aAction[637] = 0; // CLOSE
    aType[637] = OP_BUY; // BUY
    aTicket[637] = -1; // Ticket given by broker
@@ -6722,7 +6722,7 @@ void init_tab() {
    aPrice[637] = 1.41822;
 
    // ========== 638 ===== 521 ==========
-   aPseudoTicket[638] = 320;
+   //aPseudoTicket[638] = 320;
    aAction[638] = 1; // OPEN
    aReturn[320] = 638;
    aType[638] = OP_BUY; // BUY
@@ -6733,7 +6733,7 @@ void init_tab() {
    aPrice[638] = 1.41505;
 
    // ========== 639 ===== 521 ==========
-   aPseudoTicket[639] = 320;
+   //aPseudoTicket[639] = 320;
    aAction[639] = 0; // CLOSE
    aType[639] = OP_BUY; // BUY
    aTicket[639] = -1; // Ticket given by broker
@@ -6743,7 +6743,7 @@ void init_tab() {
    aPrice[639] = 1.41679;
 
    // ========== 640 ===== 520 ==========
-   aPseudoTicket[640] = 321;
+   //aPseudoTicket[640] = 321;
    aAction[640] = 1; // OPEN
    aReturn[321] = 640;
    aType[640] = OP_BUY; // BUY
@@ -6754,7 +6754,7 @@ void init_tab() {
    aPrice[640] = 1.41464;
 
    // ========== 641 ===== 518 ==========
-   aPseudoTicket[641] = 322;
+   //aPseudoTicket[641] = 322;
    aAction[641] = 1; // OPEN
    aReturn[322] = 641;
    aType[641] = OP_BUY; // BUY
@@ -6765,7 +6765,7 @@ void init_tab() {
    aPrice[641] = 78.165;
 
    // ========== 642 ===== 517 ==========
-   aPseudoTicket[642] = 323;
+   //aPseudoTicket[642] = 323;
    aAction[642] = 1; // OPEN
    aReturn[323] = 642;
    aType[642] = OP_BUY; // BUY
@@ -6776,7 +6776,7 @@ void init_tab() {
    aPrice[642] = 78.213;
 
    // ========== 643 ===== 519 ==========
-   aPseudoTicket[643] = 324;
+   //aPseudoTicket[643] = 324;
    aAction[643] = 1; // OPEN
    aReturn[324] = 643;
    aType[643] = OP_BUY; // BUY
@@ -6787,7 +6787,7 @@ void init_tab() {
    aPrice[643] = 77.936;
 
    // ========== 644 ===== 520 ==========
-   aPseudoTicket[644] = 321;
+   //aPseudoTicket[644] = 321;
    aAction[644] = 0; // CLOSE
    aType[644] = OP_BUY; // BUY
    aTicket[644] = -1; // Ticket given by broker
@@ -6797,7 +6797,7 @@ void init_tab() {
    aPrice[644] = 1.40792;
 
    // ========== 645 ===== 519 ==========
-   aPseudoTicket[645] = 324;
+   //aPseudoTicket[645] = 324;
    aAction[645] = 0; // CLOSE
    aType[645] = OP_BUY; // BUY
    aTicket[645] = -1; // Ticket given by broker
@@ -6807,7 +6807,7 @@ void init_tab() {
    aPrice[645] = 79.189;
 
    // ========== 646 ===== 518 ==========
-   aPseudoTicket[646] = 322;
+   //aPseudoTicket[646] = 322;
    aAction[646] = 0; // CLOSE
    aType[646] = OP_BUY; // BUY
    aTicket[646] = -1; // Ticket given by broker
@@ -6817,7 +6817,7 @@ void init_tab() {
    aPrice[646] = 79.187;
 
    // ========== 647 ===== 517 ==========
-   aPseudoTicket[647] = 323;
+   //aPseudoTicket[647] = 323;
    aAction[647] = 0; // CLOSE
    aType[647] = OP_BUY; // BUY
    aTicket[647] = -1; // Ticket given by broker
@@ -6827,7 +6827,7 @@ void init_tab() {
    aPrice[647] = 79.324;
 
    // ========== 648 ===== 516 ==========
-   aPseudoTicket[648] = 325;
+   //aPseudoTicket[648] = 325;
    aAction[648] = 1; // OPEN
    aReturn[325] = 648;
    aType[648] = OP_BUY; // BUY
@@ -6838,7 +6838,7 @@ void init_tab() {
    aPrice[648] = 78.02;
 
    // ========== 649 ===== 515 ==========
-   aPseudoTicket[649] = 326;
+   //aPseudoTicket[649] = 326;
    aAction[649] = 1; // OPEN
    aReturn[326] = 649;
    aType[649] = OP_SELL; // SELL
@@ -6849,7 +6849,7 @@ void init_tab() {
    aPrice[649] = 1.60406;
 
    // ========== 650 ===== 514 ==========
-   aPseudoTicket[650] = 327;
+   //aPseudoTicket[650] = 327;
    aAction[650] = 1; // OPEN
    aReturn[327] = 650;
    aType[650] = OP_SELL; // SELL
@@ -6860,7 +6860,7 @@ void init_tab() {
    aPrice[650] = 1.06049;
 
    // ========== 651 ===== 516 ==========
-   aPseudoTicket[651] = 325;
+   //aPseudoTicket[651] = 325;
    aAction[651] = 0; // CLOSE
    aType[651] = OP_BUY; // BUY
    aTicket[651] = -1; // Ticket given by broker
@@ -6870,7 +6870,7 @@ void init_tab() {
    aPrice[651] = 77.967;
 
    // ========== 652 ===== 515 ==========
-   aPseudoTicket[652] = 326;
+   //aPseudoTicket[652] = 326;
    aAction[652] = 0; // CLOSE
    aType[652] = OP_SELL; // SELL
    aTicket[652] = -1; // Ticket given by broker
@@ -6880,7 +6880,7 @@ void init_tab() {
    aPrice[652] = 1.61;
 
    // ========== 653 ===== 514 ==========
-   aPseudoTicket[653] = 327;
+   //aPseudoTicket[653] = 327;
    aAction[653] = 0; // CLOSE
    aType[653] = OP_SELL; // SELL
    aTicket[653] = -1; // Ticket given by broker
@@ -6890,7 +6890,7 @@ void init_tab() {
    aPrice[653] = 1.05381;
 
    // ========== 654 ===== 512 ==========
-   aPseudoTicket[654] = 328;
+   //aPseudoTicket[654] = 328;
    aAction[654] = 1; // OPEN
    aReturn[328] = 654;
    aType[654] = OP_SELL; // SELL
@@ -6901,7 +6901,7 @@ void init_tab() {
    aPrice[654] = 0.87719;
 
    // ========== 655 ===== 513 ==========
-   aPseudoTicket[655] = 329;
+   //aPseudoTicket[655] = 329;
    aAction[655] = 1; // OPEN
    aReturn[329] = 655;
    aType[655] = OP_SELL; // SELL
@@ -6912,7 +6912,7 @@ void init_tab() {
    aPrice[655] = 0.87848;
 
    // ========== 656 ===== 513 ==========
-   aPseudoTicket[656] = 329;
+   //aPseudoTicket[656] = 329;
    aAction[656] = 0; // CLOSE
    aType[656] = OP_SELL; // SELL
    aTicket[656] = -1; // Ticket given by broker
@@ -6922,7 +6922,7 @@ void init_tab() {
    aPrice[656] = 0.88055;
 
    // ========== 657 ===== 512 ==========
-   aPseudoTicket[657] = 328;
+   //aPseudoTicket[657] = 328;
    aAction[657] = 0; // CLOSE
    aType[657] = OP_SELL; // SELL
    aTicket[657] = -1; // Ticket given by broker
@@ -6932,7 +6932,7 @@ void init_tab() {
    aPrice[657] = 0.88054;
 
    // ========== 658 ===== 511 ==========
-   aPseudoTicket[658] = 330;
+   //aPseudoTicket[658] = 330;
    aAction[658] = 1; // OPEN
    aReturn[330] = 658;
    aType[658] = OP_SELL; // SELL
@@ -6943,7 +6943,7 @@ void init_tab() {
    aPrice[658] = 1.60285;
 
    // ========== 659 ===== 511 ==========
-   aPseudoTicket[659] = 330;
+   //aPseudoTicket[659] = 330;
    aAction[659] = 0; // CLOSE
    aType[659] = OP_SELL; // SELL
    aTicket[659] = -1; // Ticket given by broker
@@ -6953,7 +6953,7 @@ void init_tab() {
    aPrice[659] = 1.60535;
 
    // ========== 660 ===== 510 ==========
-   aPseudoTicket[660] = 331;
+   //aPseudoTicket[660] = 331;
    aAction[660] = 1; // OPEN
    aReturn[331] = 660;
    aType[660] = OP_BUY; // BUY
@@ -6964,7 +6964,7 @@ void init_tab() {
    aPrice[660] = 1.02994;
 
    // ========== 661 ===== 507 ==========
-   aPseudoTicket[661] = 332;
+   //aPseudoTicket[661] = 332;
    aAction[661] = 1; // OPEN
    aReturn[332] = 661;
    aType[661] = OP_BUY; // BUY
@@ -6975,7 +6975,7 @@ void init_tab() {
    aPrice[661] = 1.36569;
 
    // ========== 662 ===== 508 ==========
-   aPseudoTicket[662] = 333;
+   //aPseudoTicket[662] = 333;
    aAction[662] = 1; // OPEN
    aReturn[333] = 662;
    aType[662] = OP_BUY; // BUY
@@ -6986,7 +6986,7 @@ void init_tab() {
    aPrice[662] = 1.36491;
 
    // ========== 663 ===== 509 ==========
-   aPseudoTicket[663] = 334;
+   //aPseudoTicket[663] = 334;
    aAction[663] = 1; // OPEN
    aReturn[334] = 663;
    aType[663] = OP_BUY; // BUY
@@ -6997,7 +6997,7 @@ void init_tab() {
    aPrice[663] = 1.36277;
 
    // ========== 664 ===== 510 ==========
-   aPseudoTicket[664] = 331;
+   //aPseudoTicket[664] = 331;
    aAction[664] = 0; // CLOSE
    aType[664] = OP_BUY; // BUY
    aTicket[664] = -1; // Ticket given by broker
@@ -7007,7 +7007,7 @@ void init_tab() {
    aPrice[664] = 1.03267;
 
    // ========== 665 ===== 509 ==========
-   aPseudoTicket[665] = 334;
+   //aPseudoTicket[665] = 334;
    aAction[665] = 0; // CLOSE
    aType[665] = OP_BUY; // BUY
    aTicket[665] = -1; // Ticket given by broker
@@ -7017,7 +7017,7 @@ void init_tab() {
    aPrice[665] = 1.36749;
 
    // ========== 666 ===== 508 ==========
-   aPseudoTicket[666] = 333;
+   //aPseudoTicket[666] = 333;
    aAction[666] = 0; // CLOSE
    aType[666] = OP_BUY; // BUY
    aTicket[666] = -1; // Ticket given by broker
@@ -7027,7 +7027,7 @@ void init_tab() {
    aPrice[666] = 1.3681;
 
    // ========== 667 ===== 507 ==========
-   aPseudoTicket[667] = 332;
+   //aPseudoTicket[667] = 332;
    aAction[667] = 0; // CLOSE
    aType[667] = OP_BUY; // BUY
    aTicket[667] = -1; // Ticket given by broker
@@ -7037,7 +7037,7 @@ void init_tab() {
    aPrice[667] = 1.3681;
 
    // ========== 668 ===== 505 ==========
-   aPseudoTicket[668] = 335;
+   //aPseudoTicket[668] = 335;
    aAction[668] = 1; // OPEN
    aReturn[335] = 668;
    aType[668] = OP_SELL; // SELL
@@ -7048,7 +7048,7 @@ void init_tab() {
    aPrice[668] = 1.02147;
 
    // ========== 669 ===== 506 ==========
-   aPseudoTicket[669] = 336;
+   //aPseudoTicket[669] = 336;
    aAction[669] = 1; // OPEN
    aReturn[336] = 669;
    aType[669] = OP_SELL; // SELL
@@ -7059,7 +7059,7 @@ void init_tab() {
    aPrice[669] = 1.02162;
 
    // ========== 670 ===== 506 ==========
-   aPseudoTicket[670] = 336;
+   //aPseudoTicket[670] = 336;
    aAction[670] = 0; // CLOSE
    aType[670] = OP_SELL; // SELL
    aTicket[670] = -1; // Ticket given by broker
@@ -7069,7 +7069,7 @@ void init_tab() {
    aPrice[670] = 1.01885;
 
    // ========== 671 ===== 505 ==========
-   aPseudoTicket[671] = 335;
+   //aPseudoTicket[671] = 335;
    aAction[671] = 0; // CLOSE
    aType[671] = OP_SELL; // SELL
    aTicket[671] = -1; // Ticket given by broker
@@ -7079,7 +7079,7 @@ void init_tab() {
    aPrice[671] = 1.01875;
 
    // ========== 672 ===== 503 ==========
-   aPseudoTicket[672] = 337;
+   //aPseudoTicket[672] = 337;
    aAction[672] = 1; // OPEN
    aReturn[337] = 672;
    aType[672] = OP_SELL; // SELL
@@ -7090,7 +7090,7 @@ void init_tab() {
    aPrice[672] = 1.03594;
 
    // ========== 673 ===== 504 ==========
-   aPseudoTicket[673] = 338;
+   //aPseudoTicket[673] = 338;
    aAction[673] = 1; // OPEN
    aReturn[338] = 673;
    aType[673] = OP_SELL; // SELL
@@ -7101,7 +7101,7 @@ void init_tab() {
    aPrice[673] = 1.038;
 
    // ========== 674 ===== 501 ==========
-   aPseudoTicket[674] = 339;
+   //aPseudoTicket[674] = 339;
    aAction[674] = 1; // OPEN
    aReturn[339] = 674;
    aType[674] = OP_SELL; // SELL
@@ -7112,7 +7112,7 @@ void init_tab() {
    aPrice[674] = 1.5984;
 
    // ========== 675 ===== 504 ==========
-   aPseudoTicket[675] = 338;
+   //aPseudoTicket[675] = 338;
    aAction[675] = 0; // CLOSE
    aType[675] = OP_SELL; // SELL
    aTicket[675] = -1; // Ticket given by broker
@@ -7122,7 +7122,7 @@ void init_tab() {
    aPrice[675] = 1.0417;
 
    // ========== 676 ===== 503 ==========
-   aPseudoTicket[676] = 337;
+   //aPseudoTicket[676] = 337;
    aAction[676] = 0; // CLOSE
    aType[676] = OP_SELL; // SELL
    aTicket[676] = -1; // Ticket given by broker
@@ -7132,7 +7132,7 @@ void init_tab() {
    aPrice[676] = 1.03501;
 
    // ========== 677 ===== 502 ==========
-   aPseudoTicket[677] = 340;
+   //aPseudoTicket[677] = 340;
    aAction[677] = 1; // OPEN
    aReturn[340] = 677;
    aType[677] = OP_BUY; // BUY
@@ -7143,7 +7143,7 @@ void init_tab() {
    aPrice[677] = 1.38277;
 
    // ========== 678 ===== 502 ==========
-   aPseudoTicket[678] = 340;
+   //aPseudoTicket[678] = 340;
    aAction[678] = 0; // CLOSE
    aType[678] = OP_BUY; // BUY
    aTicket[678] = -1; // Ticket given by broker
@@ -7153,7 +7153,7 @@ void init_tab() {
    aPrice[678] = 1.377;
 
    // ========== 679 ===== 501 ==========
-   aPseudoTicket[679] = 339;
+   //aPseudoTicket[679] = 339;
    aAction[679] = 0; // CLOSE
    aType[679] = OP_SELL; // SELL
    aTicket[679] = -1; // Ticket given by broker
@@ -7163,7 +7163,7 @@ void init_tab() {
    aPrice[679] = 1.58871;
 
    // ========== 680 ===== 500 ==========
-   aPseudoTicket[680] = 341;
+   //aPseudoTicket[680] = 341;
    aAction[680] = 1; // OPEN
    aReturn[341] = 680;
    aType[680] = OP_BUY; // BUY
@@ -7174,7 +7174,7 @@ void init_tab() {
    aPrice[680] = 0.88452;
 
    // ========== 681 ===== 500 ==========
-   aPseudoTicket[681] = 341;
+   //aPseudoTicket[681] = 341;
    aAction[681] = 0; // CLOSE
    aType[681] = OP_BUY; // BUY
    aTicket[681] = -1; // Ticket given by broker
@@ -7184,7 +7184,7 @@ void init_tab() {
    aPrice[681] = 0.88512;
 
    // ========== 682 ===== 497 ==========
-   aPseudoTicket[682] = 342;
+   //aPseudoTicket[682] = 342;
    aAction[682] = 1; // OPEN
    aReturn[342] = 682;
    aType[682] = OP_BUY; // BUY
@@ -7195,7 +7195,7 @@ void init_tab() {
    aPrice[682] = 78.115;
 
    // ========== 683 ===== 498 ==========
-   aPseudoTicket[683] = 343;
+   //aPseudoTicket[683] = 343;
    aAction[683] = 1; // OPEN
    aReturn[343] = 683;
    aType[683] = OP_BUY; // BUY
@@ -7206,7 +7206,7 @@ void init_tab() {
    aPrice[683] = 78.076;
 
    // ========== 684 ===== 499 ==========
-   aPseudoTicket[684] = 344;
+   //aPseudoTicket[684] = 344;
    aAction[684] = 1; // OPEN
    aReturn[344] = 684;
    aType[684] = OP_BUY; // BUY
@@ -7217,7 +7217,7 @@ void init_tab() {
    aPrice[684] = 1.60413;
 
    // ========== 685 ===== 499 ==========
-   aPseudoTicket[685] = 344;
+   //aPseudoTicket[685] = 344;
    aAction[685] = 0; // CLOSE
    aType[685] = OP_BUY; // BUY
    aTicket[685] = -1; // Ticket given by broker
@@ -7227,7 +7227,7 @@ void init_tab() {
    aPrice[685] = 1.60165;
 
    // ========== 686 ===== 496 ==========
-   aPseudoTicket[686] = 345;
+   //aPseudoTicket[686] = 345;
    aAction[686] = 1; // OPEN
    aReturn[345] = 686;
    aType[686] = OP_SELL; // SELL
@@ -7238,7 +7238,7 @@ void init_tab() {
    aPrice[686] = 1.38212;
 
    // ========== 687 ===== 498 ==========
-   aPseudoTicket[687] = 343;
+   //aPseudoTicket[687] = 343;
    aAction[687] = 0; // CLOSE
    aType[687] = OP_BUY; // BUY
    aTicket[687] = -1; // Ticket given by broker
@@ -7248,7 +7248,7 @@ void init_tab() {
    aPrice[687] = 78.04;
 
    // ========== 688 ===== 497 ==========
-   aPseudoTicket[688] = 342;
+   //aPseudoTicket[688] = 342;
    aAction[688] = 0; // CLOSE
    aType[688] = OP_BUY; // BUY
    aTicket[688] = -1; // Ticket given by broker
@@ -7258,7 +7258,7 @@ void init_tab() {
    aPrice[688] = 78.079;
 
    // ========== 689 ===== 495 ==========
-   aPseudoTicket[689] = 346;
+   //aPseudoTicket[689] = 346;
    aAction[689] = 1; // OPEN
    aReturn[346] = 689;
    aType[689] = OP_SELL; // SELL
@@ -7269,7 +7269,7 @@ void init_tab() {
    aPrice[689] = 1.37354;
 
    // ========== 690 ===== 496 ==========
-   aPseudoTicket[690] = 345;
+   //aPseudoTicket[690] = 345;
    aAction[690] = 0; // CLOSE
    aType[690] = OP_SELL; // SELL
    aTicket[690] = -1; // Ticket given by broker
@@ -7279,7 +7279,7 @@ void init_tab() {
    aPrice[690] = 1.37404;
 
    // ========== 691 ===== 495 ==========
-   aPseudoTicket[691] = 346;
+   //aPseudoTicket[691] = 346;
    aAction[691] = 0; // CLOSE
    aType[691] = OP_SELL; // SELL
    aTicket[691] = -1; // Ticket given by broker
@@ -7289,7 +7289,7 @@ void init_tab() {
    aPrice[691] = 1.37617;
 
    // ========== 692 ===== 494 ==========
-   aPseudoTicket[692] = 347;
+   //aPseudoTicket[692] = 347;
    aAction[692] = 1; // OPEN
    aReturn[347] = 692;
    aType[692] = OP_BUY; // BUY
@@ -7300,7 +7300,7 @@ void init_tab() {
    aPrice[692] = 1.60322;
 
    // ========== 693 ===== 494 ==========
-   aPseudoTicket[693] = 347;
+   //aPseudoTicket[693] = 347;
    aAction[693] = 0; // CLOSE
    aType[693] = OP_BUY; // BUY
    aTicket[693] = -1; // Ticket given by broker
@@ -7310,7 +7310,7 @@ void init_tab() {
    aPrice[693] = 1.6035;
 
    // ========== 694 ===== 493 ==========
-   aPseudoTicket[694] = 348;
+   //aPseudoTicket[694] = 348;
    aAction[694] = 1; // OPEN
    aReturn[348] = 694;
    aType[694] = OP_SELL; // SELL
@@ -7321,7 +7321,7 @@ void init_tab() {
    aPrice[694] = 1.6054;
 
    // ========== 695 ===== 493 ==========
-   aPseudoTicket[695] = 348;
+   //aPseudoTicket[695] = 348;
    aAction[695] = 0; // CLOSE
    aType[695] = OP_SELL; // SELL
    aTicket[695] = -1; // Ticket given by broker
@@ -7331,7 +7331,7 @@ void init_tab() {
    aPrice[695] = 1.60098;
 
    // ========== 696 ===== 492 ==========
-   aPseudoTicket[696] = 349;
+   //aPseudoTicket[696] = 349;
    aAction[696] = 1; // OPEN
    aReturn[349] = 696;
    aType[696] = OP_SELL; // SELL
@@ -7342,7 +7342,7 @@ void init_tab() {
    aPrice[696] = 1.60232;
 
    // ========== 697 ===== 492 ==========
-   aPseudoTicket[697] = 349;
+   //aPseudoTicket[697] = 349;
    aAction[697] = 0; // CLOSE
    aType[697] = OP_SELL; // SELL
    aTicket[697] = -1; // Ticket given by broker
@@ -7352,7 +7352,7 @@ void init_tab() {
    aPrice[697] = 1.59941;
 
    // ========== 698 ===== 491 ==========
-   aPseudoTicket[698] = 350;
+   //aPseudoTicket[698] = 350;
    aAction[698] = 1; // OPEN
    aReturn[350] = 698;
    aType[698] = OP_SELL; // SELL
@@ -7363,7 +7363,7 @@ void init_tab() {
    aPrice[698] = 1.60546;
 
    // ========== 699 ===== 491 ==========
-   aPseudoTicket[699] = 350;
+   //aPseudoTicket[699] = 350;
    aAction[699] = 0; // CLOSE
    aType[699] = OP_SELL; // SELL
    aTicket[699] = -1; // Ticket given by broker
@@ -7373,7 +7373,7 @@ void init_tab() {
    aPrice[699] = 1.60431;
 
    // ========== 700 ===== 490 ==========
-   aPseudoTicket[700] = 351;
+   //aPseudoTicket[700] = 351;
    aAction[700] = 1; // OPEN
    aReturn[351] = 700;
    aType[700] = OP_SELL; // SELL
@@ -7384,7 +7384,7 @@ void init_tab() {
    aPrice[700] = 1.37262;
 
    // ========== 701 ===== 490 ==========
-   aPseudoTicket[701] = 351;
+   //aPseudoTicket[701] = 351;
    aAction[701] = 0; // CLOSE
    aType[701] = OP_SELL; // SELL
    aTicket[701] = -1; // Ticket given by broker
@@ -7394,7 +7394,7 @@ void init_tab() {
    aPrice[701] = 1.37469;
 
    // ========== 702 ===== 489 ==========
-   aPseudoTicket[702] = 352;
+   //aPseudoTicket[702] = 352;
    aAction[702] = 1; // OPEN
    aReturn[352] = 702;
    aType[702] = OP_SELL; // SELL
@@ -7405,7 +7405,7 @@ void init_tab() {
    aPrice[702] = 0.90355;
 
    // ========== 703 ===== 489 ==========
-   aPseudoTicket[703] = 352;
+   //aPseudoTicket[703] = 352;
    aAction[703] = 0; // CLOSE
    aType[703] = OP_SELL; // SELL
    aTicket[703] = -1; // Ticket given by broker
@@ -7415,7 +7415,7 @@ void init_tab() {
    aPrice[703] = 0.90339;
 
    // ========== 704 ===== 487 ==========
-   aPseudoTicket[704] = 353;
+   //aPseudoTicket[704] = 353;
    aAction[704] = 1; // OPEN
    aReturn[353] = 704;
    aType[704] = OP_SELL; // SELL
@@ -7426,7 +7426,7 @@ void init_tab() {
    aPrice[704] = 1.60616;
 
    // ========== 705 ===== 488 ==========
-   aPseudoTicket[705] = 354;
+   //aPseudoTicket[705] = 354;
    aAction[705] = 1; // OPEN
    aReturn[354] = 705;
    aType[705] = OP_SELL; // SELL
@@ -7437,7 +7437,7 @@ void init_tab() {
    aPrice[705] = 1.60868;
 
    // ========== 706 ===== 488 ==========
-   aPseudoTicket[706] = 354;
+   //aPseudoTicket[706] = 354;
    aAction[706] = 0; // CLOSE
    aType[706] = OP_SELL; // SELL
    aTicket[706] = -1; // Ticket given by broker
@@ -7447,7 +7447,7 @@ void init_tab() {
    aPrice[706] = 1.60873;
 
    // ========== 707 ===== 487 ==========
-   aPseudoTicket[707] = 353;
+   //aPseudoTicket[707] = 353;
    aAction[707] = 0; // CLOSE
    aType[707] = OP_SELL; // SELL
    aTicket[707] = -1; // Ticket given by broker
@@ -7457,7 +7457,7 @@ void init_tab() {
    aPrice[707] = 1.60872;
 
    // ========== 708 ===== 485 ==========
-   aPseudoTicket[708] = 355;
+   //aPseudoTicket[708] = 355;
    aAction[708] = 1; // OPEN
    aReturn[355] = 708;
    aType[708] = OP_SELL; // SELL
@@ -7468,7 +7468,7 @@ void init_tab() {
    aPrice[708] = 1.37676;
 
    // ========== 709 ===== 484 ==========
-   aPseudoTicket[709] = 356;
+   //aPseudoTicket[709] = 356;
    aAction[709] = 1; // OPEN
    aReturn[356] = 709;
    aType[709] = OP_SELL; // SELL
@@ -7479,7 +7479,7 @@ void init_tab() {
    aPrice[709] = 1.37596;
 
    // ========== 710 ===== 483 ==========
-   aPseudoTicket[710] = 357;
+   //aPseudoTicket[710] = 357;
    aAction[710] = 1; // OPEN
    aReturn[357] = 710;
    aType[710] = OP_SELL; // SELL
@@ -7490,7 +7490,7 @@ void init_tab() {
    aPrice[710] = 1.37571;
 
    // ========== 711 ===== 486 ==========
-   aPseudoTicket[711] = 358;
+   //aPseudoTicket[711] = 358;
    aAction[711] = 1; // OPEN
    aReturn[358] = 711;
    aType[711] = OP_SELL; // SELL
@@ -7501,7 +7501,7 @@ void init_tab() {
    aPrice[711] = 1.60557;
 
    // ========== 712 ===== 486 ==========
-   aPseudoTicket[712] = 358;
+   //aPseudoTicket[712] = 358;
    aAction[712] = 0; // CLOSE
    aType[712] = OP_SELL; // SELL
    aTicket[712] = -1; // Ticket given by broker
@@ -7511,7 +7511,7 @@ void init_tab() {
    aPrice[712] = 1.6028;
 
    // ========== 713 ===== 485 ==========
-   aPseudoTicket[713] = 355;
+   //aPseudoTicket[713] = 355;
    aAction[713] = 0; // CLOSE
    aType[713] = OP_SELL; // SELL
    aTicket[713] = -1; // Ticket given by broker
@@ -7521,7 +7521,7 @@ void init_tab() {
    aPrice[713] = 1.37204;
 
    // ========== 714 ===== 484 ==========
-   aPseudoTicket[714] = 356;
+   //aPseudoTicket[714] = 356;
    aAction[714] = 0; // CLOSE
    aType[714] = OP_SELL; // SELL
    aTicket[714] = -1; // Ticket given by broker
@@ -7531,7 +7531,7 @@ void init_tab() {
    aPrice[714] = 1.3667;
 
    // ========== 715 ===== 483 ==========
-   aPseudoTicket[715] = 357;
+   //aPseudoTicket[715] = 357;
    aAction[715] = 0; // CLOSE
    aType[715] = OP_SELL; // SELL
    aTicket[715] = -1; // Ticket given by broker
@@ -7541,7 +7541,7 @@ void init_tab() {
    aPrice[715] = 1.36261;
 
    // ========== 716 ===== 482 ==========
-   aPseudoTicket[716] = 359;
+   //aPseudoTicket[716] = 359;
    aAction[716] = 1; // OPEN
    aReturn[359] = 716;
    aType[716] = OP_BUY; // BUY
@@ -7552,7 +7552,7 @@ void init_tab() {
    aPrice[716] = 1.356;
 
    // ========== 717 ===== 482 ==========
-   aPseudoTicket[717] = 359;
+   //aPseudoTicket[717] = 359;
    aAction[717] = 0; // CLOSE
    aType[717] = OP_BUY; // BUY
    aTicket[717] = -1; // Ticket given by broker
@@ -7562,7 +7562,7 @@ void init_tab() {
    aPrice[717] = 1.3593;
 
    // ========== 718 ===== 478 ==========
-   aPseudoTicket[718] = 360;
+   //aPseudoTicket[718] = 360;
    aAction[718] = 1; // OPEN
    aReturn[360] = 718;
    aType[718] = OP_BUY; // BUY
@@ -7573,7 +7573,7 @@ void init_tab() {
    aPrice[718] = 1.35422;
 
    // ========== 719 ===== 481 ==========
-   aPseudoTicket[719] = 361;
+   //aPseudoTicket[719] = 361;
    aAction[719] = 1; // OPEN
    aReturn[361] = 719;
    aType[719] = OP_BUY; // BUY
@@ -7584,7 +7584,7 @@ void init_tab() {
    aPrice[719] = 1.01329;
 
    // ========== 720 ===== 480 ==========
-   aPseudoTicket[720] = 362;
+   //aPseudoTicket[720] = 362;
    aAction[720] = 1; // OPEN
    aReturn[362] = 720;
    aType[720] = OP_SELL; // SELL
@@ -7595,7 +7595,7 @@ void init_tab() {
    aPrice[720] = 0.9106;
 
    // ========== 721 ===== 481 ==========
-   aPseudoTicket[721] = 361;
+   //aPseudoTicket[721] = 361;
    aAction[721] = 0; // CLOSE
    aType[721] = OP_BUY; // BUY
    aTicket[721] = -1; // Ticket given by broker
@@ -7605,7 +7605,7 @@ void init_tab() {
    aPrice[721] = 1.01391;
 
    // ========== 722 ===== 479 ==========
-   aPseudoTicket[722] = 363;
+   //aPseudoTicket[722] = 363;
    aAction[722] = 1; // OPEN
    aReturn[363] = 722;
    aType[722] = OP_BUY; // BUY
@@ -7616,7 +7616,7 @@ void init_tab() {
    aPrice[722] = 1.35208;
 
    // ========== 723 ===== 480 ==========
-   aPseudoTicket[723] = 362;
+   //aPseudoTicket[723] = 362;
    aAction[723] = 0; // CLOSE
    aType[723] = OP_SELL; // SELL
    aTicket[723] = -1; // Ticket given by broker
@@ -7626,7 +7626,7 @@ void init_tab() {
    aPrice[723] = 0.9107;
 
    // ========== 724 ===== 479 ==========
-   aPseudoTicket[724] = 363;
+   //aPseudoTicket[724] = 363;
    aAction[724] = 0; // CLOSE
    aType[724] = OP_BUY; // BUY
    aTicket[724] = -1; // Ticket given by broker
@@ -7636,7 +7636,7 @@ void init_tab() {
    aPrice[724] = 1.35395;
 
    // ========== 725 ===== 478 ==========
-   aPseudoTicket[725] = 360;
+   //aPseudoTicket[725] = 360;
    aAction[725] = 0; // CLOSE
    aType[725] = OP_BUY; // BUY
    aTicket[725] = -1; // Ticket given by broker
@@ -7646,7 +7646,7 @@ void init_tab() {
    aPrice[725] = 1.35434;
 
    // ========== 726 ===== 475 ==========
-   aPseudoTicket[726] = 364;
+   //aPseudoTicket[726] = 364;
    aAction[726] = 1; // OPEN
    aReturn[364] = 726;
    aType[726] = OP_SELL; // SELL
@@ -7657,7 +7657,7 @@ void init_tab() {
    aPrice[726] = 1.361;
 
    // ========== 727 ===== 476 ==========
-   aPseudoTicket[727] = 365;
+   //aPseudoTicket[727] = 365;
    aAction[727] = 1; // OPEN
    aReturn[365] = 727;
    aType[727] = OP_BUY; // BUY
@@ -7668,7 +7668,7 @@ void init_tab() {
    aPrice[727] = 0.9053;
 
    // ========== 728 ===== 477 ==========
-   aPseudoTicket[728] = 366;
+   //aPseudoTicket[728] = 366;
    aAction[728] = 1; // OPEN
    aReturn[366] = 728;
    aType[728] = OP_BUY; // BUY
@@ -7679,7 +7679,7 @@ void init_tab() {
    aPrice[728] = 0.90524;
 
    // ========== 729 ===== 477 ==========
-   aPseudoTicket[729] = 366;
+   //aPseudoTicket[729] = 366;
    aAction[729] = 0; // CLOSE
    aType[729] = OP_BUY; // BUY
    aTicket[729] = -1; // Ticket given by broker
@@ -7689,7 +7689,7 @@ void init_tab() {
    aPrice[729] = 0.90646;
 
    // ========== 730 ===== 476 ==========
-   aPseudoTicket[730] = 365;
+   //aPseudoTicket[730] = 365;
    aAction[730] = 0; // CLOSE
    aType[730] = OP_BUY; // BUY
    aTicket[730] = -1; // Ticket given by broker
@@ -7699,7 +7699,7 @@ void init_tab() {
    aPrice[730] = 0.90651;
 
    // ========== 731 ===== 475 ==========
-   aPseudoTicket[731] = 364;
+   //aPseudoTicket[731] = 364;
    aAction[731] = 0; // CLOSE
    aType[731] = OP_SELL; // SELL
    aTicket[731] = -1; // Ticket given by broker
@@ -7709,7 +7709,7 @@ void init_tab() {
    aPrice[731] = 1.357;
 
    // ========== 732 ===== 474 ==========
-   aPseudoTicket[732] = 367;
+   //aPseudoTicket[732] = 367;
    aAction[732] = 1; // OPEN
    aReturn[367] = 732;
    aType[732] = OP_BUY; // BUY
@@ -7720,7 +7720,7 @@ void init_tab() {
    aPrice[732] = 1.01067;
 
    // ========== 733 ===== 474 ==========
-   aPseudoTicket[733] = 367;
+   //aPseudoTicket[733] = 367;
    aAction[733] = 0; // CLOSE
    aType[733] = OP_BUY; // BUY
    aTicket[733] = -1; // Ticket given by broker
@@ -7730,7 +7730,7 @@ void init_tab() {
    aPrice[733] = 1.01293;
 
    // ========== 734 ===== 473 ==========
-   aPseudoTicket[734] = 368;
+   //aPseudoTicket[734] = 368;
    aAction[734] = 1; // OPEN
    aReturn[368] = 734;
    aType[734] = OP_BUY; // BUY
@@ -7741,7 +7741,7 @@ void init_tab() {
    aPrice[734] = 1.01678;
 
    // ========== 735 ===== 473 ==========
-   aPseudoTicket[735] = 368;
+   //aPseudoTicket[735] = 368;
    aAction[735] = 0; // CLOSE
    aType[735] = OP_BUY; // BUY
    aTicket[735] = -1; // Ticket given by broker
@@ -7751,7 +7751,7 @@ void init_tab() {
    aPrice[735] = 1.01929;
 
    // ========== 736 ===== 472 ==========
-   aPseudoTicket[736] = 369;
+   //aPseudoTicket[736] = 369;
    aAction[736] = 1; // OPEN
    aReturn[369] = 736;
    aType[736] = OP_BUY; // BUY
@@ -7762,7 +7762,7 @@ void init_tab() {
    aPrice[736] = 0.90537;
 
    // ========== 737 ===== 472 ==========
-   aPseudoTicket[737] = 369;
+   //aPseudoTicket[737] = 369;
    aAction[737] = 0; // CLOSE
    aType[737] = OP_BUY; // BUY
    aTicket[737] = -1; // Ticket given by broker
@@ -7772,7 +7772,7 @@ void init_tab() {
    aPrice[737] = 0.90626;
 
    // ========== 738 ===== 471 ==========
-   aPseudoTicket[738] = 370;
+   //aPseudoTicket[738] = 370;
    aAction[738] = 1; // OPEN
    aReturn[370] = 738;
    aType[738] = OP_SELL; // SELL
@@ -7783,7 +7783,7 @@ void init_tab() {
    aPrice[738] = 1.59038;
 
    // ========== 739 ===== 471 ==========
-   aPseudoTicket[739] = 370;
+   //aPseudoTicket[739] = 370;
    aAction[739] = 0; // CLOSE
    aType[739] = OP_SELL; // SELL
    aTicket[739] = -1; // Ticket given by broker
@@ -7793,7 +7793,7 @@ void init_tab() {
    aPrice[739] = 1.591;
 
    // ========== 740 ===== 469 ==========
-   aPseudoTicket[740] = 371;
+   //aPseudoTicket[740] = 371;
    aAction[740] = 1; // OPEN
    aReturn[371] = 740;
    aType[740] = OP_SELL; // SELL
@@ -7804,7 +7804,7 @@ void init_tab() {
    aPrice[740] = 1.36421;
 
    // ========== 741 ===== 470 ==========
-   aPseudoTicket[741] = 372;
+   //aPseudoTicket[741] = 372;
    aAction[741] = 1; // OPEN
    aReturn[372] = 741;
    aType[741] = OP_SELL; // SELL
@@ -7815,7 +7815,7 @@ void init_tab() {
    aPrice[741] = 1.36784;
 
    // ========== 742 ===== 470 ==========
-   aPseudoTicket[742] = 372;
+   //aPseudoTicket[742] = 372;
    aAction[742] = 0; // CLOSE
    aType[742] = OP_SELL; // SELL
    aTicket[742] = -1; // Ticket given by broker
@@ -7825,7 +7825,7 @@ void init_tab() {
    aPrice[742] = 1.37195;
 
    // ========== 743 ===== 469 ==========
-   aPseudoTicket[743] = 371;
+   //aPseudoTicket[743] = 371;
    aAction[743] = 0; // CLOSE
    aType[743] = OP_SELL; // SELL
    aTicket[743] = -1; // Ticket given by broker
@@ -7835,7 +7835,7 @@ void init_tab() {
    aPrice[743] = 1.37173;
 
    // ========== 744 ===== 468 ==========
-   aPseudoTicket[744] = 373;
+   //aPseudoTicket[744] = 373;
    aAction[744] = 1; // OPEN
    aReturn[373] = 744;
    aType[744] = OP_BUY; // BUY
@@ -7846,7 +7846,7 @@ void init_tab() {
    aPrice[744] = 1.60631;
 
    // ========== 745 ===== 467 ==========
-   aPseudoTicket[745] = 374;
+   //aPseudoTicket[745] = 374;
    aAction[745] = 1; // OPEN
    aReturn[374] = 745;
    aType[745] = OP_BUY; // BUY
@@ -7857,7 +7857,7 @@ void init_tab() {
    aPrice[745] = 0.90079;
 
    // ========== 746 ===== 468 ==========
-   aPseudoTicket[746] = 373;
+   //aPseudoTicket[746] = 373;
    aAction[746] = 0; // CLOSE
    aType[746] = OP_BUY; // BUY
    aTicket[746] = -1; // Ticket given by broker
@@ -7867,7 +7867,7 @@ void init_tab() {
    aPrice[746] = 1.60102;
 
    // ========== 747 ===== 467 ==========
-   aPseudoTicket[747] = 374;
+   //aPseudoTicket[747] = 374;
    aAction[747] = 0; // CLOSE
    aType[747] = OP_BUY; // BUY
    aTicket[747] = -1; // Ticket given by broker
@@ -7877,7 +7877,7 @@ void init_tab() {
    aPrice[747] = 0.90207;
 
    // ========== 748 ===== 466 ==========
-   aPseudoTicket[748] = 375;
+   //aPseudoTicket[748] = 375;
    aAction[748] = 1; // OPEN
    aReturn[375] = 748;
    aType[748] = OP_SELL; // SELL
@@ -7888,7 +7888,7 @@ void init_tab() {
    aPrice[748] = 1.59993;
 
    // ========== 749 ===== 466 ==========
-   aPseudoTicket[749] = 375;
+   //aPseudoTicket[749] = 375;
    aAction[749] = 0; // CLOSE
    aType[749] = OP_SELL; // SELL
    aTicket[749] = -1; // Ticket given by broker
@@ -7898,7 +7898,7 @@ void init_tab() {
    aPrice[749] = 1.59891;
 
    // ========== 750 ===== 465 ==========
-   aPseudoTicket[750] = 376;
+   //aPseudoTicket[750] = 376;
    aAction[750] = 1; // OPEN
    aReturn[376] = 750;
    aType[750] = OP_SELL; // SELL
@@ -7909,7 +7909,7 @@ void init_tab() {
    aPrice[750] = 1.36908;
 
    // ========== 751 ===== 463 ==========
-   aPseudoTicket[751] = 377;
+   //aPseudoTicket[751] = 377;
    aAction[751] = 1; // OPEN
    aReturn[377] = 751;
    aType[751] = OP_BUY; // BUY
@@ -7920,7 +7920,7 @@ void init_tab() {
    aPrice[751] = 1.02514;
 
    // ========== 752 ===== 465 ==========
-   aPseudoTicket[752] = 376;
+   //aPseudoTicket[752] = 376;
    aAction[752] = 0; // CLOSE
    aType[752] = OP_SELL; // SELL
    aTicket[752] = -1; // Ticket given by broker
@@ -7930,7 +7930,7 @@ void init_tab() {
    aPrice[752] = 1.36962;
 
    // ========== 753 ===== 464 ==========
-   aPseudoTicket[753] = 378;
+   //aPseudoTicket[753] = 378;
    aAction[753] = 1; // OPEN
    aReturn[378] = 753;
    aType[753] = OP_BUY; // BUY
@@ -7941,7 +7941,7 @@ void init_tab() {
    aPrice[753] = 1.36847;
 
    // ========== 754 ===== 464 ==========
-   aPseudoTicket[754] = 378;
+   //aPseudoTicket[754] = 378;
    aAction[754] = 0; // CLOSE
    aType[754] = OP_BUY; // BUY
    aTicket[754] = -1; // Ticket given by broker
@@ -7951,7 +7951,7 @@ void init_tab() {
    aPrice[754] = 1.36967;
 
    // ========== 755 ===== 463 ==========
-   aPseudoTicket[755] = 377;
+   //aPseudoTicket[755] = 377;
    aAction[755] = 0; // CLOSE
    aType[755] = OP_BUY; // BUY
    aTicket[755] = -1; // Ticket given by broker
@@ -7961,7 +7961,7 @@ void init_tab() {
    aPrice[755] = 1.02591;
 
    // ========== 756 ===== 462 ==========
-   aPseudoTicket[756] = 379;
+   //aPseudoTicket[756] = 379;
    aAction[756] = 1; // OPEN
    aReturn[379] = 756;
    aType[756] = OP_SELL; // SELL
@@ -7972,7 +7972,7 @@ void init_tab() {
    aPrice[756] = 1.01805;
 
    // ========== 757 ===== 462 ==========
-   aPseudoTicket[757] = 379;
+   //aPseudoTicket[757] = 379;
    aAction[757] = 0; // CLOSE
    aType[757] = OP_SELL; // SELL
    aTicket[757] = -1; // Ticket given by broker
@@ -7982,7 +7982,7 @@ void init_tab() {
    aPrice[757] = 1.01873;
 
    // ========== 758 ===== 460 ==========
-   aPseudoTicket[758] = 380;
+   //aPseudoTicket[758] = 380;
    aAction[758] = 1; // OPEN
    aReturn[380] = 758;
    aType[758] = OP_BUY; // BUY
@@ -7993,7 +7993,7 @@ void init_tab() {
    aPrice[758] = 1.36374;
 
    // ========== 759 ===== 461 ==========
-   aPseudoTicket[759] = 381;
+   //aPseudoTicket[759] = 381;
    aAction[759] = 1; // OPEN
    aReturn[381] = 759;
    aType[759] = OP_BUY; // BUY
@@ -8004,7 +8004,7 @@ void init_tab() {
    aPrice[759] = 1.3623;
 
    // ========== 760 ===== 461 ==========
-   aPseudoTicket[760] = 381;
+   //aPseudoTicket[760] = 381;
    aAction[760] = 0; // CLOSE
    aType[760] = OP_BUY; // BUY
    aTicket[760] = -1; // Ticket given by broker
@@ -8014,7 +8014,7 @@ void init_tab() {
    aPrice[760] = 1.36345;
 
    // ========== 761 ===== 460 ==========
-   aPseudoTicket[761] = 380;
+   //aPseudoTicket[761] = 380;
    aAction[761] = 0; // CLOSE
    aType[761] = OP_BUY; // BUY
    aTicket[761] = -1; // Ticket given by broker
@@ -8024,7 +8024,7 @@ void init_tab() {
    aPrice[761] = 1.36408;
 
    // ========== 762 ===== 459 ==========
-   aPseudoTicket[762] = 382;
+   //aPseudoTicket[762] = 382;
    aAction[762] = 1; // OPEN
    aReturn[382] = 762;
    aType[762] = OP_SELL; // SELL
@@ -8035,7 +8035,7 @@ void init_tab() {
    aPrice[762] = 1.35709;
 
    // ========== 763 ===== 459 ==========
-   aPseudoTicket[763] = 382;
+   //aPseudoTicket[763] = 382;
    aAction[763] = 0; // CLOSE
    aType[763] = OP_SELL; // SELL
    aTicket[763] = -1; // Ticket given by broker
@@ -8045,7 +8045,7 @@ void init_tab() {
    aPrice[763] = 1.35877;
 
    // ========== 764 ===== 458 ==========
-   aPseudoTicket[764] = 383;
+   //aPseudoTicket[764] = 383;
    aAction[764] = 1; // OPEN
    aReturn[383] = 764;
    aType[764] = OP_SELL; // SELL
@@ -8056,7 +8056,7 @@ void init_tab() {
    aPrice[764] = 0.91361;
 
    // ========== 765 ===== 458 ==========
-   aPseudoTicket[765] = 383;
+   //aPseudoTicket[765] = 383;
    aAction[765] = 0; // CLOSE
    aType[765] = OP_SELL; // SELL
    aTicket[765] = -1; // Ticket given by broker
@@ -8066,7 +8066,7 @@ void init_tab() {
    aPrice[765] = 0.91654;
 
    // ========== 766 ===== 455 ==========
-   aPseudoTicket[766] = 384;
+   //aPseudoTicket[766] = 384;
    aAction[766] = 1; // OPEN
    aReturn[384] = 766;
    aType[766] = OP_SELL; // SELL
@@ -8077,7 +8077,7 @@ void init_tab() {
    aPrice[766] = 1.58517;
 
    // ========== 767 ===== 454 ==========
-   aPseudoTicket[767] = 385;
+   //aPseudoTicket[767] = 385;
    aAction[767] = 1; // OPEN
    aReturn[385] = 767;
    aType[767] = OP_SELL; // SELL
@@ -8088,7 +8088,7 @@ void init_tab() {
    aPrice[767] = 1.58498;
 
    // ========== 768 ===== 457 ==========
-   aPseudoTicket[768] = 386;
+   //aPseudoTicket[768] = 386;
    aAction[768] = 1; // OPEN
    aReturn[386] = 768;
    aType[768] = OP_SELL; // SELL
@@ -8099,7 +8099,7 @@ void init_tab() {
    aPrice[768] = 1.58519;
 
    // ========== 769 ===== 456 ==========
-   aPseudoTicket[769] = 387;
+   //aPseudoTicket[769] = 387;
    aAction[769] = 1; // OPEN
    aReturn[387] = 769;
    aType[769] = OP_SELL; // SELL
@@ -8110,7 +8110,7 @@ void init_tab() {
    aPrice[769] = 1.58514;
 
    // ========== 770 ===== 457 ==========
-   aPseudoTicket[770] = 386;
+   //aPseudoTicket[770] = 386;
    aAction[770] = 0; // CLOSE
    aType[770] = OP_SELL; // SELL
    aTicket[770] = -1; // Ticket given by broker
@@ -8120,7 +8120,7 @@ void init_tab() {
    aPrice[770] = 1.58114;
 
    // ========== 771 ===== 456 ==========
-   aPseudoTicket[771] = 387;
+   //aPseudoTicket[771] = 387;
    aAction[771] = 0; // CLOSE
    aType[771] = OP_SELL; // SELL
    aTicket[771] = -1; // Ticket given by broker
@@ -8130,7 +8130,7 @@ void init_tab() {
    aPrice[771] = 1.58197;
 
    // ========== 772 ===== 453 ==========
-   aPseudoTicket[772] = 388;
+   //aPseudoTicket[772] = 388;
    aAction[772] = 1; // OPEN
    aReturn[388] = 772;
    aType[772] = OP_BUY; // BUY
@@ -8141,7 +8141,7 @@ void init_tab() {
    aPrice[772] = 1.3475;
 
    // ========== 773 ===== 455 ==========
-   aPseudoTicket[773] = 384;
+   //aPseudoTicket[773] = 384;
    aAction[773] = 0; // CLOSE
    aType[773] = OP_SELL; // SELL
    aTicket[773] = -1; // Ticket given by broker
@@ -8151,7 +8151,7 @@ void init_tab() {
    aPrice[773] = 1.57671;
 
    // ========== 774 ===== 454 ==========
-   aPseudoTicket[774] = 385;
+   //aPseudoTicket[774] = 385;
    aAction[774] = 0; // CLOSE
    aType[774] = OP_SELL; // SELL
    aTicket[774] = -1; // Ticket given by broker
@@ -8161,7 +8161,7 @@ void init_tab() {
    aPrice[774] = 1.57618;
 
    // ========== 775 ===== 453 ==========
-   aPseudoTicket[775] = 388;
+   //aPseudoTicket[775] = 388;
    aAction[775] = 0; // CLOSE
    aType[775] = OP_BUY; // BUY
    aTicket[775] = -1; // Ticket given by broker
@@ -8171,7 +8171,7 @@ void init_tab() {
    aPrice[775] = 1.349;
 
    // ========== 776 ===== 452 ==========
-   aPseudoTicket[776] = 389;
+   //aPseudoTicket[776] = 389;
    aAction[776] = 1; // OPEN
    aReturn[389] = 776;
    aType[776] = OP_SELL; // SELL
@@ -8182,7 +8182,7 @@ void init_tab() {
    aPrice[776] = 1.35318;
 
    // ========== 777 ===== 452 ==========
-   aPseudoTicket[777] = 389;
+   //aPseudoTicket[777] = 389;
    aAction[777] = 0; // CLOSE
    aType[777] = OP_SELL; // SELL
    aTicket[777] = -1; // Ticket given by broker
@@ -8192,7 +8192,7 @@ void init_tab() {
    aPrice[777] = 1.35303;
 
    // ========== 778 ===== 451 ==========
-   aPseudoTicket[778] = 390;
+   //aPseudoTicket[778] = 390;
    aAction[778] = 1; // OPEN
    aReturn[390] = 778;
    aType[778] = OP_SELL; // SELL
@@ -8203,7 +8203,7 @@ void init_tab() {
    aPrice[778] = 1.3541;
 
    // ========== 779 ===== 451 ==========
-   aPseudoTicket[779] = 390;
+   //aPseudoTicket[779] = 390;
    aAction[779] = 0; // CLOSE
    aType[779] = OP_SELL; // SELL
    aTicket[779] = -1; // Ticket given by broker
@@ -8213,7 +8213,7 @@ void init_tab() {
    aPrice[779] = 1.35364;
 
    // ========== 780 ===== 450 ==========
-   aPseudoTicket[780] = 391;
+   //aPseudoTicket[780] = 391;
    aAction[780] = 1; // OPEN
    aReturn[391] = 780;
    aType[780] = OP_SELL; // SELL
@@ -8224,7 +8224,7 @@ void init_tab() {
    aPrice[780] = 1.01796;
 
    // ========== 781 ===== 450 ==========
-   aPseudoTicket[781] = 391;
+   //aPseudoTicket[781] = 391;
    aAction[781] = 0; // CLOSE
    aType[781] = OP_SELL; // SELL
    aTicket[781] = -1; // Ticket given by broker
@@ -8234,7 +8234,7 @@ void init_tab() {
    aPrice[781] = 1.01678;
 
    // ========== 782 ===== 449 ==========
-   aPseudoTicket[782] = 392;
+   //aPseudoTicket[782] = 392;
    aAction[782] = 1; // OPEN
    aReturn[392] = 782;
    aType[782] = OP_SELL; // SELL
@@ -8245,7 +8245,7 @@ void init_tab() {
    aPrice[782] = 0.91798;
 
    // ========== 783 ===== 449 ==========
-   aPseudoTicket[783] = 392;
+   //aPseudoTicket[783] = 392;
    aAction[783] = 0; // CLOSE
    aType[783] = OP_SELL; // SELL
    aTicket[783] = -1; // Ticket given by broker
@@ -8255,7 +8255,7 @@ void init_tab() {
    aPrice[783] = 0.91786;
 
    // ========== 784 ===== 448 ==========
-   aPseudoTicket[784] = 393;
+   //aPseudoTicket[784] = 393;
    aAction[784] = 1; // OPEN
    aReturn[393] = 784;
    aType[784] = OP_SELL; // SELL
@@ -8266,7 +8266,7 @@ void init_tab() {
    aPrice[784] = 1.57696;
 
    // ========== 785 ===== 448 ==========
-   aPseudoTicket[785] = 393;
+   //aPseudoTicket[785] = 393;
    aAction[785] = 0; // CLOSE
    aType[785] = OP_SELL; // SELL
    aTicket[785] = -1; // Ticket given by broker
@@ -8276,7 +8276,7 @@ void init_tab() {
    aPrice[785] = 1.57682;
 
    // ========== 786 ===== 447 ==========
-   aPseudoTicket[786] = 394;
+   //aPseudoTicket[786] = 394;
    aAction[786] = 1; // OPEN
    aReturn[394] = 786;
    aType[786] = OP_SELL; // SELL
@@ -8287,7 +8287,7 @@ void init_tab() {
    aPrice[786] = 1.02602;
 
    // ========== 787 ===== 447 ==========
-   aPseudoTicket[787] = 394;
+   //aPseudoTicket[787] = 394;
    aAction[787] = 0; // CLOSE
    aType[787] = OP_SELL; // SELL
    aTicket[787] = -1; // Ticket given by broker
@@ -8297,7 +8297,7 @@ void init_tab() {
    aPrice[787] = 1.02553;
 
    // ========== 788 ===== 446 ==========
-   aPseudoTicket[788] = 395;
+   //aPseudoTicket[788] = 395;
    aAction[788] = 1; // OPEN
    aReturn[395] = 788;
    aType[788] = OP_SELL; // SELL
@@ -8308,7 +8308,7 @@ void init_tab() {
    aPrice[788] = 1.57812;
 
    // ========== 789 ===== 446 ==========
-   aPseudoTicket[789] = 395;
+   //aPseudoTicket[789] = 395;
    aAction[789] = 0; // CLOSE
    aType[789] = OP_SELL; // SELL
    aTicket[789] = -1; // Ticket given by broker
@@ -8318,7 +8318,7 @@ void init_tab() {
    aPrice[789] = 1.57503;
 
    // ========== 790 ===== 444 ==========
-   aPseudoTicket[790] = 396;
+   //aPseudoTicket[790] = 396;
    aAction[790] = 1; // OPEN
    aReturn[396] = 790;
    aType[790] = OP_SELL; // SELL
@@ -8329,7 +8329,7 @@ void init_tab() {
    aPrice[790] = 1.58002;
 
    // ========== 791 ===== 445 ==========
-   aPseudoTicket[791] = 397;
+   //aPseudoTicket[791] = 397;
    aAction[791] = 1; // OPEN
    aReturn[397] = 791;
    aType[791] = OP_SELL; // SELL
@@ -8340,7 +8340,7 @@ void init_tab() {
    aPrice[791] = 1.57937;
 
    // ========== 792 ===== 445 ==========
-   aPseudoTicket[792] = 397;
+   //aPseudoTicket[792] = 397;
    aAction[792] = 0; // CLOSE
    aType[792] = OP_SELL; // SELL
    aTicket[792] = -1; // Ticket given by broker
@@ -8350,7 +8350,7 @@ void init_tab() {
    aPrice[792] = 1.57678;
 
    // ========== 793 ===== 444 ==========
-   aPseudoTicket[793] = 396;
+   //aPseudoTicket[793] = 396;
    aAction[793] = 0; // CLOSE
    aType[793] = OP_SELL; // SELL
    aTicket[793] = -1; // Ticket given by broker
@@ -8360,7 +8360,7 @@ void init_tab() {
    aPrice[793] = 1.57678;
 
    // ========== 794 ===== 443 ==========
-   aPseudoTicket[794] = 398;
+   //aPseudoTicket[794] = 398;
    aAction[794] = 1; // OPEN
    aReturn[398] = 794;
    aType[794] = OP_BUY; // BUY
@@ -8371,7 +8371,7 @@ void init_tab() {
    aPrice[794] = 1.34828;
 
    // ========== 795 ===== 443 ==========
-   aPseudoTicket[795] = 398;
+   //aPseudoTicket[795] = 398;
    aAction[795] = 0; // CLOSE
    aType[795] = OP_BUY; // BUY
    aTicket[795] = -1; // Ticket given by broker
@@ -8381,7 +8381,7 @@ void init_tab() {
    aPrice[795] = 1.34827;
 
    // ========== 796 ===== 442 ==========
-   aPseudoTicket[796] = 399;
+   //aPseudoTicket[796] = 399;
    aAction[796] = 1; // OPEN
    aReturn[399] = 796;
    aType[796] = OP_SELL; // SELL
@@ -8392,7 +8392,7 @@ void init_tab() {
    aPrice[796] = 1.34695;
 
    // ========== 797 ===== 442 ==========
-   aPseudoTicket[797] = 399;
+   //aPseudoTicket[797] = 399;
    aAction[797] = 0; // CLOSE
    aType[797] = OP_SELL; // SELL
    aTicket[797] = -1; // Ticket given by broker
@@ -8402,7 +8402,7 @@ void init_tab() {
    aPrice[797] = 1.35143;
 
    // ========== 798 ===== 440 ==========
-   aPseudoTicket[798] = 400;
+   //aPseudoTicket[798] = 400;
    aAction[798] = 1; // OPEN
    aReturn[400] = 798;
    aType[798] = OP_SELL; // SELL
@@ -8413,7 +8413,7 @@ void init_tab() {
    aPrice[798] = 1.57741;
 
    // ========== 799 ===== 441 ==========
-   aPseudoTicket[799] = 401;
+   //aPseudoTicket[799] = 401;
    aAction[799] = 1; // OPEN
    aReturn[401] = 799;
    aType[799] = OP_SELL; // SELL
@@ -8424,7 +8424,7 @@ void init_tab() {
    aPrice[799] = 1.57901;
 
    // ========== 800 ===== 441 ==========
-   aPseudoTicket[800] = 401;
+   //aPseudoTicket[800] = 401;
    aAction[800] = 0; // CLOSE
    aType[800] = OP_SELL; // SELL
    aTicket[800] = -1; // Ticket given by broker
@@ -8434,7 +8434,7 @@ void init_tab() {
    aPrice[800] = 1.58209;
 
    // ========== 801 ===== 440 ==========
-   aPseudoTicket[801] = 400;
+   //aPseudoTicket[801] = 400;
    aAction[801] = 0; // CLOSE
    aType[801] = OP_SELL; // SELL
    aTicket[801] = -1; // Ticket given by broker
@@ -8444,7 +8444,7 @@ void init_tab() {
    aPrice[801] = 1.5824;
 
    // ========== 802 ===== 438 ==========
-   aPseudoTicket[802] = 402;
+   //aPseudoTicket[802] = 402;
    aAction[802] = 1; // OPEN
    aReturn[402] = 802;
    aType[802] = OP_SELL; // SELL
@@ -8455,7 +8455,7 @@ void init_tab() {
    aPrice[802] = 1.34893;
 
    // ========== 803 ===== 439 ==========
-   aPseudoTicket[803] = 403;
+   //aPseudoTicket[803] = 403;
    aAction[803] = 1; // OPEN
    aReturn[403] = 803;
    aType[803] = OP_SELL; // SELL
@@ -8466,7 +8466,7 @@ void init_tab() {
    aPrice[803] = 1.34925;
 
    // ========== 804 ===== 439 ==========
-   aPseudoTicket[804] = 403;
+   //aPseudoTicket[804] = 403;
    aAction[804] = 0; // CLOSE
    aType[804] = OP_SELL; // SELL
    aTicket[804] = -1; // Ticket given by broker
@@ -8476,7 +8476,7 @@ void init_tab() {
    aPrice[804] = 1.34769;
 
    // ========== 805 ===== 438 ==========
-   aPseudoTicket[805] = 402;
+   //aPseudoTicket[805] = 402;
    aAction[805] = 0; // CLOSE
    aType[805] = OP_SELL; // SELL
    aTicket[805] = -1; // Ticket given by broker
@@ -8486,7 +8486,7 @@ void init_tab() {
    aPrice[805] = 1.34774;
 
    // ========== 806 ===== 437 ==========
-   aPseudoTicket[806] = 404;
+   //aPseudoTicket[806] = 404;
    aAction[806] = 1; // OPEN
    aReturn[404] = 806;
    aType[806] = OP_BUY; // BUY
@@ -8497,7 +8497,7 @@ void init_tab() {
    aPrice[806] = 0.9825;
 
    // ========== 807 ===== 437 ==========
-   aPseudoTicket[807] = 404;
+   //aPseudoTicket[807] = 404;
    aAction[807] = 0; // CLOSE
    aType[807] = OP_BUY; // BUY
    aTicket[807] = -1; // Ticket given by broker
@@ -8507,7 +8507,7 @@ void init_tab() {
    aPrice[807] = 0.98454;
 
    // ========== 808 ===== 436 ==========
-   aPseudoTicket[808] = 405;
+   //aPseudoTicket[808] = 405;
    aAction[808] = 1; // OPEN
    aReturn[405] = 808;
    aType[808] = OP_SELL; // SELL
@@ -8518,7 +8518,7 @@ void init_tab() {
    aPrice[808] = 1.35382;
 
    // ========== 809 ===== 436 ==========
-   aPseudoTicket[809] = 405;
+   //aPseudoTicket[809] = 405;
    aAction[809] = 0; // CLOSE
    aType[809] = OP_SELL; // SELL
    aTicket[809] = -1; // Ticket given by broker
@@ -8528,7 +8528,7 @@ void init_tab() {
    aPrice[809] = 1.35359;
 
    // ========== 810 ===== 435 ==========
-   aPseudoTicket[810] = 406;
+   //aPseudoTicket[810] = 406;
    aAction[810] = 1; // OPEN
    aReturn[406] = 810;
    aType[810] = OP_SELL; // SELL
@@ -8539,7 +8539,7 @@ void init_tab() {
    aPrice[810] = 1.35398;
 
    // ========== 811 ===== 435 ==========
-   aPseudoTicket[811] = 406;
+   //aPseudoTicket[811] = 406;
    aAction[811] = 0; // CLOSE
    aType[811] = OP_SELL; // SELL
    aTicket[811] = -1; // Ticket given by broker
@@ -8549,7 +8549,7 @@ void init_tab() {
    aPrice[811] = 1.35325;
 
    // ========== 812 ===== 434 ==========
-   aPseudoTicket[812] = 407;
+   //aPseudoTicket[812] = 407;
    aAction[812] = 1; // OPEN
    aReturn[407] = 812;
    aType[812] = OP_SELL; // SELL
@@ -8560,7 +8560,7 @@ void init_tab() {
    aPrice[812] = 1.56311;
 
    // ========== 813 ===== 434 ==========
-   aPseudoTicket[813] = 407;
+   //aPseudoTicket[813] = 407;
    aAction[813] = 0; // CLOSE
    aType[813] = OP_SELL; // SELL
    aTicket[813] = -1; // Ticket given by broker
@@ -8570,7 +8570,7 @@ void init_tab() {
    aPrice[813] = 1.56277;
 
    // ========== 814 ===== 433 ==========
-   aPseudoTicket[814] = 408;
+   //aPseudoTicket[814] = 408;
    aAction[814] = 1; // OPEN
    aReturn[408] = 814;
    aType[814] = OP_SELL; // SELL
@@ -8581,7 +8581,7 @@ void init_tab() {
    aPrice[814] = 0.97877;
 
    // ========== 815 ===== 432 ==========
-   aPseudoTicket[815] = 409;
+   //aPseudoTicket[815] = 409;
    aAction[815] = 1; // OPEN
    aReturn[409] = 815;
    aType[815] = OP_SELL; // SELL
@@ -8592,7 +8592,7 @@ void init_tab() {
    aPrice[815] = 0.97925;
 
    // ========== 816 ===== 433 ==========
-   aPseudoTicket[816] = 408;
+   //aPseudoTicket[816] = 408;
    aAction[816] = 0; // CLOSE
    aType[816] = OP_SELL; // SELL
    aTicket[816] = -1; // Ticket given by broker
@@ -8602,7 +8602,7 @@ void init_tab() {
    aPrice[816] = 0.97739;
 
    // ========== 817 ===== 432 ==========
-   aPseudoTicket[817] = 409;
+   //aPseudoTicket[817] = 409;
    aAction[817] = 0; // CLOSE
    aType[817] = OP_SELL; // SELL
    aTicket[817] = -1; // Ticket given by broker
@@ -8612,7 +8612,7 @@ void init_tab() {
    aPrice[817] = 0.97648;
 
    // ========== 818 ===== 431 ==========
-   aPseudoTicket[818] = 410;
+   //aPseudoTicket[818] = 410;
    aAction[818] = 1; // OPEN
    aReturn[410] = 818;
    aType[818] = OP_SELL; // SELL
@@ -8623,7 +8623,7 @@ void init_tab() {
    aPrice[818] = 1.55892;
 
    // ========== 819 ===== 431 ==========
-   aPseudoTicket[819] = 410;
+   //aPseudoTicket[819] = 410;
    aAction[819] = 0; // CLOSE
    aType[819] = OP_SELL; // SELL
    aTicket[819] = -1; // Ticket given by broker
@@ -8633,7 +8633,7 @@ void init_tab() {
    aPrice[819] = 1.55858;
 
    // ========== 820 ===== 430 ==========
-   aPseudoTicket[820] = 411;
+   //aPseudoTicket[820] = 411;
    aAction[820] = 1; // OPEN
    aReturn[411] = 820;
    aType[820] = OP_SELL; // SELL
@@ -8644,7 +8644,7 @@ void init_tab() {
    aPrice[820] = 1.55712;
 
    // ========== 821 ===== 430 ==========
-   aPseudoTicket[821] = 411;
+   //aPseudoTicket[821] = 411;
    aAction[821] = 0; // CLOSE
    aType[821] = OP_SELL; // SELL
    aTicket[821] = -1; // Ticket given by broker
@@ -8654,7 +8654,7 @@ void init_tab() {
    aPrice[821] = 1.5568;
 
    // ========== 822 ===== 429 ==========
-   aPseudoTicket[822] = 412;
+   //aPseudoTicket[822] = 412;
    aAction[822] = 1; // OPEN
    aReturn[412] = 822;
    aType[822] = OP_SELL; // SELL
@@ -8665,7 +8665,7 @@ void init_tab() {
    aPrice[822] = 1.3421;
 
    // ========== 823 ===== 429 ==========
-   aPseudoTicket[823] = 412;
+   //aPseudoTicket[823] = 412;
    aAction[823] = 0; // CLOSE
    aType[823] = OP_SELL; // SELL
    aTicket[823] = -1; // Ticket given by broker
@@ -8675,7 +8675,7 @@ void init_tab() {
    aPrice[823] = 1.33978;
 
    // ========== 824 ===== 426 ==========
-   aPseudoTicket[824] = 413;
+   //aPseudoTicket[824] = 413;
    aAction[824] = 1; // OPEN
    aReturn[413] = 824;
    aType[824] = OP_SELL; // SELL
@@ -8686,7 +8686,7 @@ void init_tab() {
    aPrice[824] = 1.33951;
 
    // ========== 825 ===== 427 ==========
-   aPseudoTicket[825] = 414;
+   //aPseudoTicket[825] = 414;
    aAction[825] = 1; // OPEN
    aReturn[414] = 825;
    aType[825] = OP_SELL; // SELL
@@ -8697,7 +8697,7 @@ void init_tab() {
    aPrice[825] = 1.33982;
 
    // ========== 826 ===== 428 ==========
-   aPseudoTicket[826] = 415;
+   //aPseudoTicket[826] = 415;
    aAction[826] = 1; // OPEN
    aReturn[415] = 826;
    aType[826] = OP_SELL; // SELL
@@ -8708,7 +8708,7 @@ void init_tab() {
    aPrice[826] = 1.33942;
 
    // ========== 827 ===== 428 ==========
-   aPseudoTicket[827] = 415;
+   //aPseudoTicket[827] = 415;
    aAction[827] = 0; // CLOSE
    aType[827] = OP_SELL; // SELL
    aTicket[827] = -1; // Ticket given by broker
@@ -8718,7 +8718,7 @@ void init_tab() {
    aPrice[827] = 1.33689;
 
    // ========== 828 ===== 427 ==========
-   aPseudoTicket[828] = 414;
+   //aPseudoTicket[828] = 414;
    aAction[828] = 0; // CLOSE
    aType[828] = OP_SELL; // SELL
    aTicket[828] = -1; // Ticket given by broker
@@ -8728,7 +8728,7 @@ void init_tab() {
    aPrice[828] = 1.33664;
 
    // ========== 829 ===== 426 ==========
-   aPseudoTicket[829] = 413;
+   //aPseudoTicket[829] = 413;
    aAction[829] = 0; // CLOSE
    aType[829] = OP_SELL; // SELL
    aTicket[829] = -1; // Ticket given by broker
@@ -8738,7 +8738,7 @@ void init_tab() {
    aPrice[829] = 1.33589;
 
    // ========== 830 ===== 425 ==========
-   aPseudoTicket[830] = 416;
+   //aPseudoTicket[830] = 416;
    aAction[830] = 1; // OPEN
    aReturn[416] = 830;
    aType[830] = OP_BUY; // BUY
@@ -8749,7 +8749,7 @@ void init_tab() {
    aPrice[830] = 1.33824;
 
    // ========== 831 ===== 425 ==========
-   aPseudoTicket[831] = 416;
+   //aPseudoTicket[831] = 416;
    aAction[831] = 0; // CLOSE
    aType[831] = OP_BUY; // BUY
    aTicket[831] = -1; // Ticket given by broker
@@ -8759,7 +8759,7 @@ void init_tab() {
    aPrice[831] = 1.33842;
 
    // ========== 832 ===== 424 ==========
-   aPseudoTicket[832] = 417;
+   //aPseudoTicket[832] = 417;
    aAction[832] = 1; // OPEN
    aReturn[417] = 832;
    aType[832] = OP_SELL; // SELL
@@ -8770,7 +8770,7 @@ void init_tab() {
    aPrice[832] = 0.97545;
 
    // ========== 833 ===== 423 ==========
-   aPseudoTicket[833] = 418;
+   //aPseudoTicket[833] = 418;
    aAction[833] = 1; // OPEN
    aReturn[418] = 833;
    aType[833] = OP_SELL; // SELL
@@ -8781,7 +8781,7 @@ void init_tab() {
    aPrice[833] = 0.9751;
 
    // ========== 834 ===== 424 ==========
-   aPseudoTicket[834] = 417;
+   //aPseudoTicket[834] = 417;
    aAction[834] = 0; // CLOSE
    aType[834] = OP_SELL; // SELL
    aTicket[834] = -1; // Ticket given by broker
@@ -8791,7 +8791,7 @@ void init_tab() {
    aPrice[834] = 0.9715;
 
    // ========== 835 ===== 423 ==========
-   aPseudoTicket[835] = 418;
+   //aPseudoTicket[835] = 418;
    aAction[835] = 0; // CLOSE
    aType[835] = OP_SELL; // SELL
    aTicket[835] = -1; // Ticket given by broker
@@ -8801,7 +8801,7 @@ void init_tab() {
    aPrice[835] = 0.97191;
 
    // ========== 836 ===== 422 ==========
-   aPseudoTicket[836] = 419;
+   //aPseudoTicket[836] = 419;
    aAction[836] = 1; // OPEN
    aReturn[419] = 836;
    aType[836] = OP_BUY; // BUY
@@ -8812,7 +8812,7 @@ void init_tab() {
    aPrice[836] = 1.54713;
 
    // ========== 837 ===== 422 ==========
-   aPseudoTicket[837] = 419;
+   //aPseudoTicket[837] = 419;
    aAction[837] = 0; // CLOSE
    aType[837] = OP_BUY; // BUY
    aTicket[837] = -1; // Ticket given by broker
@@ -8822,7 +8822,7 @@ void init_tab() {
    aPrice[837] = 1.54666;
 
    // ========== 838 ===== 421 ==========
-   aPseudoTicket[838] = 420;
+   //aPseudoTicket[838] = 420;
    aAction[838] = 1; // OPEN
    aReturn[420] = 838;
    aType[838] = OP_BUY; // BUY
@@ -8833,7 +8833,7 @@ void init_tab() {
    aPrice[838] = 1.54571;
 
    // ========== 839 ===== 420 ==========
-   aPseudoTicket[839] = 421;
+   //aPseudoTicket[839] = 421;
    aAction[839] = 1; // OPEN
    aReturn[421] = 839;
    aType[839] = OP_BUY; // BUY
@@ -8844,7 +8844,7 @@ void init_tab() {
    aPrice[839] = 1.54573;
 
    // ========== 840 ===== 421 ==========
-   aPseudoTicket[840] = 420;
+   //aPseudoTicket[840] = 420;
    aAction[840] = 0; // CLOSE
    aType[840] = OP_BUY; // BUY
    aTicket[840] = -1; // Ticket given by broker
@@ -8854,7 +8854,7 @@ void init_tab() {
    aPrice[840] = 1.54598;
 
    // ========== 841 ===== 420 ==========
-   aPseudoTicket[841] = 421;
+   //aPseudoTicket[841] = 421;
    aAction[841] = 0; // CLOSE
    aType[841] = OP_BUY; // BUY
    aTicket[841] = -1; // Ticket given by broker
@@ -8864,7 +8864,7 @@ void init_tab() {
    aPrice[841] = 1.54606;
 
    // ========== 842 ===== 419 ==========
-   aPseudoTicket[842] = 422;
+   //aPseudoTicket[842] = 422;
    aAction[842] = 1; // OPEN
    aReturn[422] = 842;
    aType[842] = OP_SELL; // SELL
@@ -8875,7 +8875,7 @@ void init_tab() {
    aPrice[842] = 1.32688;
 
    // ========== 843 ===== 419 ==========
-   aPseudoTicket[843] = 422;
+   //aPseudoTicket[843] = 422;
    aAction[843] = 0; // CLOSE
    aType[843] = OP_SELL; // SELL
    aTicket[843] = -1; // Ticket given by broker
@@ -8885,7 +8885,7 @@ void init_tab() {
    aPrice[843] = 1.32611;
 
    // ========== 844 ===== 417 ==========
-   aPseudoTicket[844] = 423;
+   //aPseudoTicket[844] = 423;
    aAction[844] = 1; // OPEN
    aReturn[423] = 844;
    aType[844] = OP_BUY; // BUY
@@ -8896,7 +8896,7 @@ void init_tab() {
    aPrice[844] = 1.54953;
 
    // ========== 845 ===== 418 ==========
-   aPseudoTicket[845] = 424;
+   //aPseudoTicket[845] = 424;
    aAction[845] = 1; // OPEN
    aReturn[424] = 845;
    aType[845] = OP_BUY; // BUY
@@ -8907,7 +8907,7 @@ void init_tab() {
    aPrice[845] = 1.54618;
 
    // ========== 846 ===== 418 ==========
-   aPseudoTicket[846] = 424;
+   //aPseudoTicket[846] = 424;
    aAction[846] = 0; // CLOSE
    aType[846] = OP_BUY; // BUY
    aTicket[846] = -1; // Ticket given by broker
@@ -8917,7 +8917,7 @@ void init_tab() {
    aPrice[846] = 1.54522;
 
    // ========== 847 ===== 417 ==========
-   aPseudoTicket[847] = 423;
+   //aPseudoTicket[847] = 423;
    aAction[847] = 0; // CLOSE
    aType[847] = OP_BUY; // BUY
    aTicket[847] = -1; // Ticket given by broker
@@ -8927,7 +8927,7 @@ void init_tab() {
    aPrice[847] = 1.54509;
 
    // ========== 848 ===== 415 ==========
-   aPseudoTicket[848] = 425;
+   //aPseudoTicket[848] = 425;
    aAction[848] = 1; // OPEN
    aReturn[425] = 848;
    aType[848] = OP_SELL; // SELL
@@ -8938,7 +8938,7 @@ void init_tab() {
    aPrice[848] = 1.33176;
 
    // ========== 849 ===== 416 ==========
-   aPseudoTicket[849] = 426;
+   //aPseudoTicket[849] = 426;
    aAction[849] = 1; // OPEN
    aReturn[426] = 849;
    aType[849] = OP_SELL; // SELL
@@ -8949,7 +8949,7 @@ void init_tab() {
    aPrice[849] = 1.33222;
 
    // ========== 850 ===== 416 ==========
-   aPseudoTicket[850] = 426;
+   //aPseudoTicket[850] = 426;
    aAction[850] = 0; // CLOSE
    aType[850] = OP_SELL; // SELL
    aTicket[850] = -1; // Ticket given by broker
@@ -8959,7 +8959,7 @@ void init_tab() {
    aPrice[850] = 1.33096;
 
    // ========== 851 ===== 415 ==========
-   aPseudoTicket[851] = 425;
+   //aPseudoTicket[851] = 425;
    aAction[851] = 0; // CLOSE
    aType[851] = OP_SELL; // SELL
    aTicket[851] = -1; // Ticket given by broker
@@ -8969,7 +8969,7 @@ void init_tab() {
    aPrice[851] = 1.33168;
 
    // ========== 852 ===== 414 ==========
-   aPseudoTicket[852] = 427;
+   //aPseudoTicket[852] = 427;
    aAction[852] = 1; // OPEN
    aReturn[427] = 852;
    aType[852] = OP_SELL; // SELL
@@ -8980,7 +8980,7 @@ void init_tab() {
    aPrice[852] = 1.33159;
 
    // ========== 853 ===== 413 ==========
-   aPseudoTicket[853] = 428;
+   //aPseudoTicket[853] = 428;
    aAction[853] = 1; // OPEN
    aReturn[428] = 853;
    aType[853] = OP_SELL; // SELL
@@ -8991,7 +8991,7 @@ void init_tab() {
    aPrice[853] = 0.98787;
 
    // ========== 854 ===== 414 ==========
-   aPseudoTicket[854] = 427;
+   //aPseudoTicket[854] = 427;
    aAction[854] = 0; // CLOSE
    aType[854] = OP_SELL; // SELL
    aTicket[854] = -1; // Ticket given by broker
@@ -9001,7 +9001,7 @@ void init_tab() {
    aPrice[854] = 1.33097;
 
    // ========== 855 ===== 413 ==========
-   aPseudoTicket[855] = 428;
+   //aPseudoTicket[855] = 428;
    aAction[855] = 0; // CLOSE
    aType[855] = OP_SELL; // SELL
    aTicket[855] = -1; // Ticket given by broker
@@ -9011,7 +9011,7 @@ void init_tab() {
    aPrice[855] = 0.98407;
 
    // ========== 856 ===== 412 ==========
-   aPseudoTicket[856] = 429;
+   //aPseudoTicket[856] = 429;
    aAction[856] = 1; // OPEN
    aReturn[429] = 856;
    aType[856] = OP_SELL; // SELL
@@ -9022,7 +9022,7 @@ void init_tab() {
    aPrice[856] = 1.3278;
 
    // ========== 857 ===== 412 ==========
-   aPseudoTicket[857] = 429;
+   //aPseudoTicket[857] = 429;
    aAction[857] = 0; // CLOSE
    aType[857] = OP_SELL; // SELL
    aTicket[857] = -1; // Ticket given by broker
@@ -9032,7 +9032,7 @@ void init_tab() {
    aPrice[857] = 1.33028;
 
    // ========== 858 ===== 405 ==========
-   aPseudoTicket[858] = 430;
+   //aPseudoTicket[858] = 430;
    aAction[858] = 1; // OPEN
    aReturn[430] = 858;
    aType[858] = OP_BUY; // BUY
@@ -9043,7 +9043,7 @@ void init_tab() {
    aPrice[858] = 1.035;
 
    // ========== 859 ===== 410 ==========
-   aPseudoTicket[859] = 431;
+   //aPseudoTicket[859] = 431;
    aAction[859] = 1; // OPEN
    aReturn[431] = 859;
    aType[859] = OP_BUY; // BUY
@@ -9054,7 +9054,7 @@ void init_tab() {
    aPrice[859] = 1.033;
 
    // ========== 860 ===== 411 ==========
-   aPseudoTicket[860] = 432;
+   //aPseudoTicket[860] = 432;
    aAction[860] = 1; // OPEN
    aReturn[432] = 860;
    aType[860] = OP_BUY; // BUY
@@ -9065,7 +9065,7 @@ void init_tab() {
    aPrice[860] = 1.03265;
 
    // ========== 861 ===== 411 ==========
-   aPseudoTicket[861] = 432;
+   //aPseudoTicket[861] = 432;
    aAction[861] = 0; // CLOSE
    aType[861] = OP_BUY; // BUY
    aTicket[861] = -1; // Ticket given by broker
@@ -9075,7 +9075,7 @@ void init_tab() {
    aPrice[861] = 1.03305;
 
    // ========== 862 ===== 410 ==========
-   aPseudoTicket[862] = 431;
+   //aPseudoTicket[862] = 431;
    aAction[862] = 0; // CLOSE
    aType[862] = OP_BUY; // BUY
    aTicket[862] = -1; // Ticket given by broker
@@ -9085,7 +9085,7 @@ void init_tab() {
    aPrice[862] = 1.03403;
 
    // ========== 863 ===== 409 ==========
-   aPseudoTicket[863] = 433;
+   //aPseudoTicket[863] = 433;
    aAction[863] = 1; // OPEN
    aReturn[433] = 863;
    aType[863] = OP_SELL; // SELL
@@ -9096,7 +9096,7 @@ void init_tab() {
    aPrice[863] = 0.99668;
 
    // ========== 864 ===== 408 ==========
-   aPseudoTicket[864] = 434;
+   //aPseudoTicket[864] = 434;
    aAction[864] = 1; // OPEN
    aReturn[434] = 864;
    aType[864] = OP_SELL; // SELL
@@ -9107,7 +9107,7 @@ void init_tab() {
    aPrice[864] = 0.99625;
 
    // ========== 865 ===== 407 ==========
-   aPseudoTicket[865] = 435;
+   //aPseudoTicket[865] = 435;
    aAction[865] = 1; // OPEN
    aReturn[435] = 865;
    aType[865] = OP_SELL; // SELL
@@ -9118,7 +9118,7 @@ void init_tab() {
    aPrice[865] = 0.9963;
 
    // ========== 866 ===== 409 ==========
-   aPseudoTicket[866] = 433;
+   //aPseudoTicket[866] = 433;
    aAction[866] = 0; // CLOSE
    aType[866] = OP_SELL; // SELL
    aTicket[866] = -1; // Ticket given by broker
@@ -9128,7 +9128,7 @@ void init_tab() {
    aPrice[866] = 0.9952;
 
    // ========== 867 ===== 408 ==========
-   aPseudoTicket[867] = 434;
+   //aPseudoTicket[867] = 434;
    aAction[867] = 0; // CLOSE
    aType[867] = OP_SELL; // SELL
    aTicket[867] = -1; // Ticket given by broker
@@ -9138,7 +9138,7 @@ void init_tab() {
    aPrice[867] = 0.99226;
 
    // ========== 868 ===== 407 ==========
-   aPseudoTicket[868] = 435;
+   //aPseudoTicket[868] = 435;
    aAction[868] = 0; // CLOSE
    aType[868] = OP_SELL; // SELL
    aTicket[868] = -1; // Ticket given by broker
@@ -9148,7 +9148,7 @@ void init_tab() {
    aPrice[868] = 0.9913;
 
    // ========== 869 ===== 406 ==========
-   aPseudoTicket[869] = 436;
+   //aPseudoTicket[869] = 436;
    aAction[869] = 1; // OPEN
    aReturn[436] = 869;
    aType[869] = OP_SELL; // SELL
@@ -9159,7 +9159,7 @@ void init_tab() {
    aPrice[869] = 0.99219;
 
    // ========== 870 ===== 406 ==========
-   aPseudoTicket[870] = 436;
+   //aPseudoTicket[870] = 436;
    aAction[870] = 0; // CLOSE
    aType[870] = OP_SELL; // SELL
    aTicket[870] = -1; // Ticket given by broker
@@ -9169,7 +9169,7 @@ void init_tab() {
    aPrice[870] = 0.99155;
 
    // ========== 871 ===== 405 ==========
-   aPseudoTicket[871] = 430;
+   //aPseudoTicket[871] = 430;
    aAction[871] = 0; // CLOSE
    aType[871] = OP_BUY; // BUY
    aTicket[871] = -1; // Ticket given by broker
@@ -9179,7 +9179,7 @@ void init_tab() {
    aPrice[871] = 1.03308;
 
    // ========== 872 ===== 404 ==========
-   aPseudoTicket[872] = 437;
+   //aPseudoTicket[872] = 437;
    aAction[872] = 1; // OPEN
    aReturn[437] = 872;
    aType[872] = OP_BUY; // BUY
@@ -9190,7 +9190,7 @@ void init_tab() {
    aPrice[872] = 1.03288;
 
    // ========== 873 ===== 403 ==========
-   aPseudoTicket[873] = 438;
+   //aPseudoTicket[873] = 438;
    aAction[873] = 1; // OPEN
    aReturn[438] = 873;
    aType[873] = OP_SELL; // SELL
@@ -9201,7 +9201,7 @@ void init_tab() {
    aPrice[873] = 0.99199;
 
    // ========== 874 ===== 404 ==========
-   aPseudoTicket[874] = 437;
+   //aPseudoTicket[874] = 437;
    aAction[874] = 0; // CLOSE
    aType[874] = OP_BUY; // BUY
    aTicket[874] = -1; // Ticket given by broker
@@ -9211,7 +9211,7 @@ void init_tab() {
    aPrice[874] = 1.033;
 
    // ========== 875 ===== 403 ==========
-   aPseudoTicket[875] = 438;
+   //aPseudoTicket[875] = 438;
    aAction[875] = 0; // CLOSE
    aType[875] = OP_SELL; // SELL
    aTicket[875] = -1; // Ticket given by broker
@@ -9221,7 +9221,7 @@ void init_tab() {
    aPrice[875] = 0.99113;
 
    // ========== 876 ===== 402 ==========
-   aPseudoTicket[876] = 439;
+   //aPseudoTicket[876] = 439;
    aAction[876] = 1; // OPEN
    aReturn[439] = 876;
    aType[876] = OP_BUY; // BUY
@@ -9232,7 +9232,7 @@ void init_tab() {
    aPrice[876] = 1.54846;
 
    // ========== 877 ===== 401 ==========
-   aPseudoTicket[877] = 440;
+   //aPseudoTicket[877] = 440;
    aAction[877] = 1; // OPEN
    aReturn[440] = 877;
    aType[877] = OP_BUY; // BUY
@@ -9243,7 +9243,7 @@ void init_tab() {
    aPrice[877] = 1.54716;
 
    // ========== 878 ===== 402 ==========
-   aPseudoTicket[878] = 439;
+   //aPseudoTicket[878] = 439;
    aAction[878] = 0; // CLOSE
    aType[878] = OP_BUY; // BUY
    aTicket[878] = -1; // Ticket given by broker
@@ -9253,7 +9253,7 @@ void init_tab() {
    aPrice[878] = 1.54883;
 
    // ========== 879 ===== 401 ==========
-   aPseudoTicket[879] = 440;
+   //aPseudoTicket[879] = 440;
    aAction[879] = 0; // CLOSE
    aType[879] = OP_BUY; // BUY
    aTicket[879] = -1; // Ticket given by broker
@@ -9263,7 +9263,7 @@ void init_tab() {
    aPrice[879] = 1.54873;
 
    // ========== 880 ===== 400 ==========
-   aPseudoTicket[880] = 441;
+   //aPseudoTicket[880] = 441;
    aAction[880] = 1; // OPEN
    aReturn[441] = 880;
    aType[880] = OP_SELL; // SELL
@@ -9274,7 +9274,7 @@ void init_tab() {
    aPrice[880] = 1.33325;
 
    // ========== 881 ===== 400 ==========
-   aPseudoTicket[881] = 441;
+   //aPseudoTicket[881] = 441;
    aAction[881] = 0; // CLOSE
    aType[881] = OP_SELL; // SELL
    aTicket[881] = -1; // Ticket given by broker
@@ -9284,7 +9284,7 @@ void init_tab() {
    aPrice[881] = 1.33303;
 
    // ========== 882 ===== 399 ==========
-   aPseudoTicket[882] = 442;
+   //aPseudoTicket[882] = 442;
    aAction[882] = 1; // OPEN
    aReturn[442] = 882;
    aType[882] = OP_SELL; // SELL
@@ -9295,7 +9295,7 @@ void init_tab() {
    aPrice[882] = 1.33246;
 
    // ========== 883 ===== 399 ==========
-   aPseudoTicket[883] = 442;
+   //aPseudoTicket[883] = 442;
    aAction[883] = 0; // CLOSE
    aType[883] = OP_SELL; // SELL
    aTicket[883] = -1; // Ticket given by broker
@@ -9305,7 +9305,7 @@ void init_tab() {
    aPrice[883] = 1.33227;
 
    // ========== 884 ===== 398 ==========
-   aPseudoTicket[884] = 443;
+   //aPseudoTicket[884] = 443;
    aAction[884] = 1; // OPEN
    aReturn[443] = 884;
    aType[884] = OP_BUY; // BUY
@@ -9316,7 +9316,7 @@ void init_tab() {
    aPrice[884] = 1.33866;
 
    // ========== 885 ===== 398 ==========
-   aPseudoTicket[885] = 443;
+   //aPseudoTicket[885] = 443;
    aAction[885] = 0; // CLOSE
    aType[885] = OP_BUY; // BUY
    aTicket[885] = -1; // Ticket given by broker
@@ -9326,7 +9326,7 @@ void init_tab() {
    aPrice[885] = 1.33976;
 
    // ========== 886 ===== 397 ==========
-   aPseudoTicket[886] = 444;
+   //aPseudoTicket[886] = 444;
    aAction[886] = 1; // OPEN
    aReturn[444] = 886;
    aType[886] = OP_BUY; // BUY
@@ -9337,7 +9337,7 @@ void init_tab() {
    aPrice[886] = 1.34017;
 
    // ========== 887 ===== 397 ==========
-   aPseudoTicket[887] = 444;
+   //aPseudoTicket[887] = 444;
    aAction[887] = 0; // CLOSE
    aType[887] = OP_BUY; // BUY
    aTicket[887] = -1; // Ticket given by broker
@@ -9347,7 +9347,7 @@ void init_tab() {
    aPrice[887] = 1.33882;
 
    // ========== 888 ===== 396 ==========
-   aPseudoTicket[888] = 445;
+   //aPseudoTicket[888] = 445;
    aAction[888] = 1; // OPEN
    aReturn[445] = 888;
    aType[888] = OP_SELL; // SELL
@@ -9358,7 +9358,7 @@ void init_tab() {
    aPrice[888] = 1.33015;
 
    // ========== 889 ===== 396 ==========
-   aPseudoTicket[889] = 445;
+   //aPseudoTicket[889] = 445;
    aAction[889] = 0; // CLOSE
    aType[889] = OP_SELL; // SELL
    aTicket[889] = -1; // Ticket given by broker
@@ -9368,7 +9368,7 @@ void init_tab() {
    aPrice[889] = 1.32952;
 
    // ========== 890 ===== 395 ==========
-   aPseudoTicket[890] = 446;
+   //aPseudoTicket[890] = 446;
    aAction[890] = 1; // OPEN
    aReturn[446] = 890;
    aType[890] = OP_SELL; // SELL
@@ -9379,7 +9379,7 @@ void init_tab() {
    aPrice[890] = 1.32662;
 
    // ========== 891 ===== 394 ==========
-   aPseudoTicket[891] = 447;
+   //aPseudoTicket[891] = 447;
    aAction[891] = 1; // OPEN
    aReturn[447] = 891;
    aType[891] = OP_SELL; // SELL
@@ -9390,7 +9390,7 @@ void init_tab() {
    aPrice[891] = 1.32669;
 
    // ========== 892 ===== 393 ==========
-   aPseudoTicket[892] = 448;
+   //aPseudoTicket[892] = 448;
    aAction[892] = 1; // OPEN
    aReturn[448] = 892;
    aType[892] = OP_SELL; // SELL
@@ -9401,7 +9401,7 @@ void init_tab() {
    aPrice[892] = 1.32632;
 
    // ========== 893 ===== 392 ==========
-   aPseudoTicket[893] = 449;
+   //aPseudoTicket[893] = 449;
    aAction[893] = 1; // OPEN
    aReturn[449] = 893;
    aType[893] = OP_SELL; // SELL
@@ -9412,7 +9412,7 @@ void init_tab() {
    aPrice[893] = 1.32623;
 
    // ========== 894 ===== 395 ==========
-   aPseudoTicket[894] = 446;
+   //aPseudoTicket[894] = 446;
    aAction[894] = 0; // CLOSE
    aType[894] = OP_SELL; // SELL
    aTicket[894] = -1; // Ticket given by broker
@@ -9422,7 +9422,7 @@ void init_tab() {
    aPrice[894] = 1.32906;
 
    // ========== 895 ===== 394 ==========
-   aPseudoTicket[895] = 447;
+   //aPseudoTicket[895] = 447;
    aAction[895] = 0; // CLOSE
    aType[895] = OP_SELL; // SELL
    aTicket[895] = -1; // Ticket given by broker
@@ -9432,7 +9432,7 @@ void init_tab() {
    aPrice[895] = 1.32908;
 
    // ========== 896 ===== 393 ==========
-   aPseudoTicket[896] = 448;
+   //aPseudoTicket[896] = 448;
    aAction[896] = 0; // CLOSE
    aType[896] = OP_SELL; // SELL
    aTicket[896] = -1; // Ticket given by broker
@@ -9442,7 +9442,7 @@ void init_tab() {
    aPrice[896] = 1.32906;
 
    // ========== 897 ===== 392 ==========
-   aPseudoTicket[897] = 449;
+   //aPseudoTicket[897] = 449;
    aAction[897] = 0; // CLOSE
    aType[897] = OP_SELL; // SELL
    aTicket[897] = -1; // Ticket given by broker
@@ -9452,7 +9452,7 @@ void init_tab() {
    aPrice[897] = 1.32915;
 
    // ========== 898 ===== 389 ==========
-   aPseudoTicket[898] = 450;
+   //aPseudoTicket[898] = 450;
    aAction[898] = 1; // OPEN
    aReturn[450] = 898;
    aType[898] = OP_BUY; // BUY
@@ -9463,7 +9463,7 @@ void init_tab() {
    aPrice[898] = 1.34301;
 
    // ========== 899 ===== 388 ==========
-   aPseudoTicket[899] = 451;
+   //aPseudoTicket[899] = 451;
    aAction[899] = 1; // OPEN
    aReturn[451] = 899;
    aType[899] = OP_BUY; // BUY
@@ -9474,7 +9474,7 @@ void init_tab() {
    aPrice[899] = 1.34261;
 
    // ========== 900 ===== 391 ==========
-   aPseudoTicket[900] = 452;
+   //aPseudoTicket[900] = 452;
    aAction[900] = 1; // OPEN
    aReturn[452] = 900;
    aType[900] = OP_BUY; // BUY
@@ -9485,7 +9485,7 @@ void init_tab() {
    aPrice[900] = 1.35103;
 
    // ========== 901 ===== 391 ==========
-   aPseudoTicket[901] = 452;
+   //aPseudoTicket[901] = 452;
    aAction[901] = 0; // CLOSE
    aType[901] = OP_BUY; // BUY
    aTicket[901] = -1; // Ticket given by broker
@@ -9495,7 +9495,7 @@ void init_tab() {
    aPrice[901] = 1.35127;
 
    // ========== 902 ===== 390 ==========
-   aPseudoTicket[902] = 453;
+   //aPseudoTicket[902] = 453;
    aAction[902] = 1; // OPEN
    aReturn[453] = 902;
    aType[902] = OP_BUY; // BUY
@@ -9506,7 +9506,7 @@ void init_tab() {
    aPrice[902] = 1.34987;
 
    // ========== 903 ===== 390 ==========
-   aPseudoTicket[903] = 453;
+   //aPseudoTicket[903] = 453;
    aAction[903] = 0; // CLOSE
    aType[903] = OP_BUY; // BUY
    aTicket[903] = -1; // Ticket given by broker
@@ -9516,7 +9516,7 @@ void init_tab() {
    aPrice[903] = 1.35062;
 
    // ========== 904 ===== 383 ==========
-   aPseudoTicket[904] = 454;
+   //aPseudoTicket[904] = 454;
    aAction[904] = 1; // OPEN
    aReturn[454] = 904;
    aType[904] = OP_BUY; // BUY
@@ -9527,7 +9527,7 @@ void init_tab() {
    aPrice[904] = 1.34938;
 
    // ========== 905 ===== 384 ==========
-   aPseudoTicket[905] = 455;
+   //aPseudoTicket[905] = 455;
    aAction[905] = 1; // OPEN
    aReturn[455] = 905;
    aType[905] = OP_BUY; // BUY
@@ -9538,7 +9538,7 @@ void init_tab() {
    aPrice[905] = 1.3481;
 
    // ========== 906 ===== 389 ==========
-   aPseudoTicket[906] = 450;
+   //aPseudoTicket[906] = 450;
    aAction[906] = 0; // CLOSE
    aType[906] = OP_BUY; // BUY
    aTicket[906] = -1; // Ticket given by broker
@@ -9548,7 +9548,7 @@ void init_tab() {
    aPrice[906] = 1.34357;
 
    // ========== 907 ===== 388 ==========
-   aPseudoTicket[907] = 451;
+   //aPseudoTicket[907] = 451;
    aAction[907] = 0; // CLOSE
    aType[907] = OP_BUY; // BUY
    aTicket[907] = -1; // Ticket given by broker
@@ -9558,7 +9558,7 @@ void init_tab() {
    aPrice[907] = 1.34365;
 
    // ========== 908 ===== 387 ==========
-   aPseudoTicket[908] = 456;
+   //aPseudoTicket[908] = 456;
    aAction[908] = 1; // OPEN
    aReturn[456] = 908;
    aType[908] = OP_BUY; // BUY
@@ -9569,7 +9569,7 @@ void init_tab() {
    aPrice[908] = 1.01913;
 
    // ========== 909 ===== 386 ==========
-   aPseudoTicket[909] = 457;
+   //aPseudoTicket[909] = 457;
    aAction[909] = 1; // OPEN
    aReturn[457] = 909;
    aType[909] = OP_BUY; // BUY
@@ -9580,7 +9580,7 @@ void init_tab() {
    aPrice[909] = 1.01927;
 
    // ========== 910 ===== 387 ==========
-   aPseudoTicket[910] = 456;
+   //aPseudoTicket[910] = 456;
    aAction[910] = 0; // CLOSE
    aType[910] = OP_BUY; // BUY
    aTicket[910] = -1; // Ticket given by broker
@@ -9590,7 +9590,7 @@ void init_tab() {
    aPrice[910] = 1.0241;
 
    // ========== 911 ===== 386 ==========
-   aPseudoTicket[911] = 457;
+   //aPseudoTicket[911] = 457;
    aAction[911] = 0; // CLOSE
    aType[911] = OP_BUY; // BUY
    aTicket[911] = -1; // Ticket given by broker
@@ -9600,7 +9600,7 @@ void init_tab() {
    aPrice[911] = 1.0256;
 
    // ========== 912 ===== 385 ==========
-   aPseudoTicket[912] = 458;
+   //aPseudoTicket[912] = 458;
    aAction[912] = 1; // OPEN
    aReturn[458] = 912;
    aType[912] = OP_BUY; // BUY
@@ -9611,7 +9611,7 @@ void init_tab() {
    aPrice[912] = 1.3471;
 
    // ========== 913 ===== 385 ==========
-   aPseudoTicket[913] = 458;
+   //aPseudoTicket[913] = 458;
    aAction[913] = 0; // CLOSE
    aType[913] = OP_BUY; // BUY
    aTicket[913] = -1; // Ticket given by broker
@@ -9621,7 +9621,7 @@ void init_tab() {
    aPrice[913] = 1.3471;
 
    // ========== 914 ===== 384 ==========
-   aPseudoTicket[914] = 455;
+   //aPseudoTicket[914] = 455;
    aAction[914] = 0; // CLOSE
    aType[914] = OP_BUY; // BUY
    aTicket[914] = -1; // Ticket given by broker
@@ -9631,7 +9631,7 @@ void init_tab() {
    aPrice[914] = 1.34705;
 
    // ========== 915 ===== 383 ==========
-   aPseudoTicket[915] = 454;
+   //aPseudoTicket[915] = 454;
    aAction[915] = 0; // CLOSE
    aType[915] = OP_BUY; // BUY
    aTicket[915] = -1; // Ticket given by broker
@@ -9641,7 +9641,7 @@ void init_tab() {
    aPrice[915] = 1.34855;
 
    // ========== 916 ===== 382 ==========
-   aPseudoTicket[916] = 459;
+   //aPseudoTicket[916] = 459;
    aAction[916] = 1; // OPEN
    aReturn[459] = 916;
    aType[916] = OP_BUY; // BUY
@@ -9652,7 +9652,7 @@ void init_tab() {
    aPrice[916] = 1.35094;
 
    // ========== 917 ===== 382 ==========
-   aPseudoTicket[917] = 459;
+   //aPseudoTicket[917] = 459;
    aAction[917] = 0; // CLOSE
    aType[917] = OP_BUY; // BUY
    aTicket[917] = -1; // Ticket given by broker
@@ -9662,7 +9662,7 @@ void init_tab() {
    aPrice[917] = 1.35146;
 
    // ========== 918 ===== 381 ==========
-   aPseudoTicket[918] = 460;
+   //aPseudoTicket[918] = 460;
    aAction[918] = 1; // OPEN
    aReturn[460] = 918;
    aType[918] = OP_SELL; // SELL
@@ -9673,7 +9673,7 @@ void init_tab() {
    aPrice[918] = 1.34851;
 
    // ========== 919 ===== 381 ==========
-   aPseudoTicket[919] = 460;
+   //aPseudoTicket[919] = 460;
    aAction[919] = 0; // CLOSE
    aType[919] = OP_SELL; // SELL
    aTicket[919] = -1; // Ticket given by broker
@@ -9683,7 +9683,7 @@ void init_tab() {
    aPrice[919] = 1.34745;
 
    // ========== 920 ===== 380 ==========
-   aPseudoTicket[920] = 461;
+   //aPseudoTicket[920] = 461;
    aAction[920] = 1; // OPEN
    aReturn[461] = 920;
    aType[920] = OP_SELL; // SELL
@@ -9694,7 +9694,7 @@ void init_tab() {
    aPrice[920] = 1.34753;
 
    // ========== 921 ===== 380 ==========
-   aPseudoTicket[921] = 461;
+   //aPseudoTicket[921] = 461;
    aAction[921] = 0; // CLOSE
    aType[921] = OP_SELL; // SELL
    aTicket[921] = -1; // Ticket given by broker
@@ -9704,7 +9704,7 @@ void init_tab() {
    aPrice[921] = 1.34672;
 
    // ========== 922 ===== 379 ==========
-   aPseudoTicket[922] = 462;
+   //aPseudoTicket[922] = 462;
    aAction[922] = 1; // OPEN
    aReturn[462] = 922;
    aType[922] = OP_BUY; // BUY
@@ -9715,7 +9715,7 @@ void init_tab() {
    aPrice[922] = 1.34842;
 
    // ========== 923 ===== 379 ==========
-   aPseudoTicket[923] = 462;
+   //aPseudoTicket[923] = 462;
    aAction[923] = 0; // CLOSE
    aType[923] = OP_BUY; // BUY
    aTicket[923] = -1; // Ticket given by broker
@@ -9725,7 +9725,7 @@ void init_tab() {
    aPrice[923] = 1.34857;
 
    // ========== 924 ===== 378 ==========
-   aPseudoTicket[924] = 463;
+   //aPseudoTicket[924] = 463;
    aAction[924] = 1; // OPEN
    aReturn[463] = 924;
    aType[924] = OP_BUY; // BUY
@@ -9736,7 +9736,7 @@ void init_tab() {
    aPrice[924] = 1.57042;
 
    // ========== 925 ===== 378 ==========
-   aPseudoTicket[925] = 463;
+   //aPseudoTicket[925] = 463;
    aAction[925] = 0; // CLOSE
    aType[925] = OP_BUY; // BUY
    aTicket[925] = -1; // Ticket given by broker
@@ -9746,7 +9746,7 @@ void init_tab() {
    aPrice[925] = 1.57024;
 
    // ========== 926 ===== 377 ==========
-   aPseudoTicket[926] = 464;
+   //aPseudoTicket[926] = 464;
    aAction[926] = 1; // OPEN
    aReturn[464] = 926;
    aType[926] = OP_SELL; // SELL
@@ -9757,7 +9757,7 @@ void init_tab() {
    aPrice[926] = 1.56887;
 
    // ========== 927 ===== 377 ==========
-   aPseudoTicket[927] = 464;
+   //aPseudoTicket[927] = 464;
    aAction[927] = 0; // CLOSE
    aType[927] = OP_SELL; // SELL
    aTicket[927] = -1; // Ticket given by broker
@@ -9767,7 +9767,7 @@ void init_tab() {
    aPrice[927] = 1.56951;
 
    // ========== 928 ===== 376 ==========
-   aPseudoTicket[928] = 465;
+   //aPseudoTicket[928] = 465;
    aAction[928] = 1; // OPEN
    aReturn[465] = 928;
    aType[928] = OP_BUY; // BUY
@@ -9778,7 +9778,7 @@ void init_tab() {
    aPrice[928] = 1.34918;
 
    // ========== 929 ===== 376 ==========
-   aPseudoTicket[929] = 465;
+   //aPseudoTicket[929] = 465;
    aAction[929] = 0; // CLOSE
    aType[929] = OP_BUY; // BUY
    aTicket[929] = -1; // Ticket given by broker
@@ -9788,7 +9788,7 @@ void init_tab() {
    aPrice[929] = 1.34793;
 
    // ========== 930 ===== 372 ==========
-   aPseudoTicket[930] = 466;
+   //aPseudoTicket[930] = 466;
    aAction[930] = 1; // OPEN
    aReturn[466] = 930;
    aType[930] = OP_BUY; // BUY
@@ -9799,7 +9799,7 @@ void init_tab() {
    aPrice[930] = 1.57042;
 
    // ========== 931 ===== 373 ==========
-   aPseudoTicket[931] = 467;
+   //aPseudoTicket[931] = 467;
    aAction[931] = 1; // OPEN
    aReturn[467] = 931;
    aType[931] = OP_BUY; // BUY
@@ -9810,7 +9810,7 @@ void init_tab() {
    aPrice[931] = 1.57037;
 
    // ========== 932 ===== 374 ==========
-   aPseudoTicket[932] = 468;
+   //aPseudoTicket[932] = 468;
    aAction[932] = 1; // OPEN
    aReturn[468] = 932;
    aType[932] = OP_BUY; // BUY
@@ -9821,7 +9821,7 @@ void init_tab() {
    aPrice[932] = 1.57021;
 
    // ========== 933 ===== 375 ==========
-   aPseudoTicket[933] = 469;
+   //aPseudoTicket[933] = 469;
    aAction[933] = 1; // OPEN
    aReturn[469] = 933;
    aType[933] = OP_BUY; // BUY
@@ -9832,7 +9832,7 @@ void init_tab() {
    aPrice[933] = 1.56999;
 
    // ========== 934 ===== 375 ==========
-   aPseudoTicket[934] = 469;
+   //aPseudoTicket[934] = 469;
    aAction[934] = 0; // CLOSE
    aType[934] = OP_BUY; // BUY
    aTicket[934] = -1; // Ticket given by broker
@@ -9842,7 +9842,7 @@ void init_tab() {
    aPrice[934] = 1.56863;
 
    // ========== 935 ===== 374 ==========
-   aPseudoTicket[935] = 468;
+   //aPseudoTicket[935] = 468;
    aAction[935] = 0; // CLOSE
    aType[935] = OP_BUY; // BUY
    aTicket[935] = -1; // Ticket given by broker
@@ -9852,7 +9852,7 @@ void init_tab() {
    aPrice[935] = 1.56869;
 
    // ========== 936 ===== 368 ==========
-   aPseudoTicket[936] = 470;
+   //aPseudoTicket[936] = 470;
    aAction[936] = 1; // OPEN
    aReturn[470] = 936;
    aType[936] = OP_BUY; // BUY
@@ -9863,7 +9863,7 @@ void init_tab() {
    aPrice[936] = 1.35351;
 
    // ========== 937 ===== 369 ==========
-   aPseudoTicket[937] = 471;
+   //aPseudoTicket[937] = 471;
    aAction[937] = 1; // OPEN
    aReturn[471] = 937;
    aType[937] = OP_BUY; // BUY
@@ -9874,7 +9874,7 @@ void init_tab() {
    aPrice[937] = 1.35317;
 
    // ========== 938 ===== 373 ==========
-   aPseudoTicket[938] = 467;
+   //aPseudoTicket[938] = 467;
    aAction[938] = 0; // CLOSE
    aType[938] = OP_BUY; // BUY
    aTicket[938] = -1; // Ticket given by broker
@@ -9884,7 +9884,7 @@ void init_tab() {
    aPrice[938] = 1.57077;
 
    // ========== 939 ===== 372 ==========
-   aPseudoTicket[939] = 466;
+   //aPseudoTicket[939] = 466;
    aAction[939] = 0; // CLOSE
    aType[939] = OP_BUY; // BUY
    aTicket[939] = -1; // Ticket given by broker
@@ -9894,7 +9894,7 @@ void init_tab() {
    aPrice[939] = 1.57104;
 
    // ========== 940 ===== 370 ==========
-   aPseudoTicket[940] = 472;
+   //aPseudoTicket[940] = 472;
    aAction[940] = 1; // OPEN
    aReturn[472] = 940;
    aType[940] = OP_BUY; // BUY
@@ -9905,7 +9905,7 @@ void init_tab() {
    aPrice[940] = 1.35219;
 
    // ========== 941 ===== 371 ==========
-   aPseudoTicket[941] = 473;
+   //aPseudoTicket[941] = 473;
    aAction[941] = 1; // OPEN
    aReturn[473] = 941;
    aType[941] = OP_BUY; // BUY
@@ -9916,7 +9916,7 @@ void init_tab() {
    aPrice[941] = 1.35242;
 
    // ========== 942 ===== 371 ==========
-   aPseudoTicket[942] = 473;
+   //aPseudoTicket[942] = 473;
    aAction[942] = 0; // CLOSE
    aType[942] = OP_BUY; // BUY
    aTicket[942] = -1; // Ticket given by broker
@@ -9926,7 +9926,7 @@ void init_tab() {
    aPrice[942] = 1.34994;
 
    // ========== 943 ===== 370 ==========
-   aPseudoTicket[943] = 472;
+   //aPseudoTicket[943] = 472;
    aAction[943] = 0; // CLOSE
    aType[943] = OP_BUY; // BUY
    aTicket[943] = -1; // Ticket given by broker
@@ -9936,7 +9936,7 @@ void init_tab() {
    aPrice[943] = 1.34991;
 
    // ========== 944 ===== 369 ==========
-   aPseudoTicket[944] = 471;
+   //aPseudoTicket[944] = 471;
    aAction[944] = 0; // CLOSE
    aType[944] = OP_BUY; // BUY
    aTicket[944] = -1; // Ticket given by broker
@@ -9946,7 +9946,7 @@ void init_tab() {
    aPrice[944] = 1.34998;
 
    // ========== 945 ===== 368 ==========
-   aPseudoTicket[945] = 470;
+   //aPseudoTicket[945] = 470;
    aAction[945] = 0; // CLOSE
    aType[945] = OP_BUY; // BUY
    aTicket[945] = -1; // Ticket given by broker
@@ -9956,7 +9956,7 @@ void init_tab() {
    aPrice[945] = 1.34997;
 
    // ========== 946 ===== 367 ==========
-   aPseudoTicket[946] = 474;
+   //aPseudoTicket[946] = 474;
    aAction[946] = 1; // OPEN
    aReturn[474] = 946;
    aType[946] = OP_SELL; // SELL
@@ -9967,7 +9967,7 @@ void init_tab() {
    aPrice[946] = 1.01723;
 
    // ========== 947 ===== 365 ==========
-   aPseudoTicket[947] = 475;
+   //aPseudoTicket[947] = 475;
    aAction[947] = 1; // OPEN
    aReturn[475] = 947;
    aType[947] = OP_SELL; // SELL
@@ -9978,7 +9978,7 @@ void init_tab() {
    aPrice[947] = 1.0182;
 
    // ========== 948 ===== 367 ==========
-   aPseudoTicket[948] = 474;
+   //aPseudoTicket[948] = 474;
    aAction[948] = 0; // CLOSE
    aType[948] = OP_SELL; // SELL
    aTicket[948] = -1; // Ticket given by broker
@@ -9988,7 +9988,7 @@ void init_tab() {
    aPrice[948] = 1.0162;
 
    // ========== 949 ===== 366 ==========
-   aPseudoTicket[949] = 476;
+   //aPseudoTicket[949] = 476;
    aAction[949] = 1; // OPEN
    aReturn[476] = 949;
    aType[949] = OP_SELL; // SELL
@@ -9999,7 +9999,7 @@ void init_tab() {
    aPrice[949] = 1.01819;
 
    // ========== 950 ===== 366 ==========
-   aPseudoTicket[950] = 476;
+   //aPseudoTicket[950] = 476;
    aAction[950] = 0; // CLOSE
    aType[950] = OP_SELL; // SELL
    aTicket[950] = -1; // Ticket given by broker
@@ -10009,7 +10009,7 @@ void init_tab() {
    aPrice[950] = 1.01715;
 
    // ========== 951 ===== 357 ==========
-   aPseudoTicket[951] = 477;
+   //aPseudoTicket[951] = 477;
    aAction[951] = 1; // OPEN
    aReturn[477] = 951;
    aType[951] = OP_SELL; // SELL
@@ -10020,7 +10020,7 @@ void init_tab() {
    aPrice[951] = 0.92031;
 
    // ========== 952 ===== 356 ==========
-   aPseudoTicket[952] = 478;
+   //aPseudoTicket[952] = 478;
    aAction[952] = 1; // OPEN
    aReturn[478] = 952;
    aType[952] = OP_SELL; // SELL
@@ -10031,7 +10031,7 @@ void init_tab() {
    aPrice[952] = 0.92039;
 
    // ========== 953 ===== 365 ==========
-   aPseudoTicket[953] = 475;
+   //aPseudoTicket[953] = 475;
    aAction[953] = 0; // CLOSE
    aType[953] = OP_SELL; // SELL
    aTicket[953] = -1; // Ticket given by broker
@@ -10041,7 +10041,7 @@ void init_tab() {
    aPrice[953] = 1.0165;
 
    // ========== 954 ===== 364 ==========
-   aPseudoTicket[954] = 479;
+   //aPseudoTicket[954] = 479;
    aAction[954] = 1; // OPEN
    aReturn[479] = 954;
    aType[954] = OP_SELL; // SELL
@@ -10052,7 +10052,7 @@ void init_tab() {
    aPrice[954] = 0.9225;
 
    // ========== 955 ===== 364 ==========
-   aPseudoTicket[955] = 479;
+   //aPseudoTicket[955] = 479;
    aAction[955] = 0; // CLOSE
    aType[955] = OP_SELL; // SELL
    aTicket[955] = -1; // Ticket given by broker
@@ -10062,7 +10062,7 @@ void init_tab() {
    aPrice[955] = 0.92336;
 
    // ========== 956 ===== 362 ==========
-   aPseudoTicket[956] = 480;
+   //aPseudoTicket[956] = 480;
    aAction[956] = 1; // OPEN
    aReturn[480] = 956;
    aType[956] = OP_SELL; // SELL
@@ -10073,7 +10073,7 @@ void init_tab() {
    aPrice[956] = 1.3354;
 
    // ========== 957 ===== 363 ==========
-   aPseudoTicket[957] = 481;
+   //aPseudoTicket[957] = 481;
    aAction[957] = 1; // OPEN
    aReturn[481] = 957;
    aType[957] = OP_SELL; // SELL
@@ -10084,7 +10084,7 @@ void init_tab() {
    aPrice[957] = 1.33581;
 
    // ========== 958 ===== 363 ==========
-   aPseudoTicket[958] = 481;
+   //aPseudoTicket[958] = 481;
    aAction[958] = 0; // CLOSE
    aType[958] = OP_SELL; // SELL
    aTicket[958] = -1; // Ticket given by broker
@@ -10094,7 +10094,7 @@ void init_tab() {
    aPrice[958] = 1.33534;
 
    // ========== 959 ===== 362 ==========
-   aPseudoTicket[959] = 480;
+   //aPseudoTicket[959] = 480;
    aAction[959] = 0; // CLOSE
    aType[959] = OP_SELL; // SELL
    aTicket[959] = -1; // Ticket given by broker
@@ -10104,7 +10104,7 @@ void init_tab() {
    aPrice[959] = 1.33527;
 
    // ========== 960 ===== 360 ==========
-   aPseudoTicket[960] = 482;
+   //aPseudoTicket[960] = 482;
    aAction[960] = 1; // OPEN
    aReturn[482] = 960;
    aType[960] = OP_SELL; // SELL
@@ -10115,7 +10115,7 @@ void init_tab() {
    aPrice[960] = 1.3342;
 
    // ========== 961 ===== 361 ==========
-   aPseudoTicket[961] = 483;
+   //aPseudoTicket[961] = 483;
    aAction[961] = 1; // OPEN
    aReturn[483] = 961;
    aType[961] = OP_SELL; // SELL
@@ -10126,7 +10126,7 @@ void init_tab() {
    aPrice[961] = 1.33471;
 
    // ========== 962 ===== 361 ==========
-   aPseudoTicket[962] = 483;
+   //aPseudoTicket[962] = 483;
    aAction[962] = 0; // CLOSE
    aType[962] = OP_SELL; // SELL
    aTicket[962] = -1; // Ticket given by broker
@@ -10136,7 +10136,7 @@ void init_tab() {
    aPrice[962] = 1.33426;
 
    // ========== 963 ===== 359 ==========
-   aPseudoTicket[963] = 484;
+   //aPseudoTicket[963] = 484;
    aAction[963] = 1; // OPEN
    aReturn[484] = 963;
    aType[963] = OP_SELL; // SELL
@@ -10147,7 +10147,7 @@ void init_tab() {
    aPrice[963] = 0.92878;
 
    // ========== 964 ===== 360 ==========
-   aPseudoTicket[964] = 482;
+   //aPseudoTicket[964] = 482;
    aAction[964] = 0; // CLOSE
    aType[964] = OP_SELL; // SELL
    aTicket[964] = -1; // Ticket given by broker
@@ -10157,7 +10157,7 @@ void init_tab() {
    aPrice[964] = 1.33549;
 
    // ========== 965 ===== 358 ==========
-   aPseudoTicket[965] = 485;
+   //aPseudoTicket[965] = 485;
    aAction[965] = 1; // OPEN
    aReturn[485] = 965;
    aType[965] = OP_SELL; // SELL
@@ -10168,7 +10168,7 @@ void init_tab() {
    aPrice[965] = 0.92695;
 
    // ========== 966 ===== 359 ==========
-   aPseudoTicket[966] = 484;
+   //aPseudoTicket[966] = 484;
    aAction[966] = 0; // CLOSE
    aType[966] = OP_SELL; // SELL
    aTicket[966] = -1; // Ticket given by broker
@@ -10178,7 +10178,7 @@ void init_tab() {
    aPrice[966] = 0.92686;
 
    // ========== 967 ===== 358 ==========
-   aPseudoTicket[967] = 485;
+   //aPseudoTicket[967] = 485;
    aAction[967] = 0; // CLOSE
    aType[967] = OP_SELL; // SELL
    aTicket[967] = -1; // Ticket given by broker
@@ -10188,7 +10188,7 @@ void init_tab() {
    aPrice[967] = 0.9281;
 
    // ========== 968 ===== 357 ==========
-   aPseudoTicket[968] = 477;
+   //aPseudoTicket[968] = 477;
    aAction[968] = 0; // CLOSE
    aType[968] = OP_SELL; // SELL
    aTicket[968] = -1; // Ticket given by broker
@@ -10198,7 +10198,7 @@ void init_tab() {
    aPrice[968] = 0.9282;
 
    // ========== 969 ===== 356 ==========
-   aPseudoTicket[969] = 478;
+   //aPseudoTicket[969] = 478;
    aAction[969] = 0; // CLOSE
    aType[969] = OP_SELL; // SELL
    aTicket[969] = -1; // Ticket given by broker
@@ -10208,7 +10208,7 @@ void init_tab() {
    aPrice[969] = 0.92821;
 
    // ========== 970 ===== 355 ==========
-   aPseudoTicket[970] = 486;
+   //aPseudoTicket[970] = 486;
    aAction[970] = 1; // OPEN
    aReturn[486] = 970;
    aType[970] = OP_SELL; // SELL
@@ -10219,7 +10219,7 @@ void init_tab() {
    aPrice[970] = 1.01266;
 
    // ========== 971 ===== 355 ==========
-   aPseudoTicket[971] = 486;
+   //aPseudoTicket[971] = 486;
    aAction[971] = 0; // CLOSE
    aType[971] = OP_SELL; // SELL
    aTicket[971] = -1; // Ticket given by broker
@@ -10229,7 +10229,7 @@ void init_tab() {
    aPrice[971] = 1.01241;
 
    // ========== 972 ===== 354 ==========
-   aPseudoTicket[972] = 487;
+   //aPseudoTicket[972] = 487;
    aAction[972] = 1; // OPEN
    aReturn[487] = 972;
    aType[972] = OP_BUY; // BUY
@@ -10240,7 +10240,7 @@ void init_tab() {
    aPrice[972] = 1.57386;
 
    // ========== 973 ===== 354 ==========
-   aPseudoTicket[973] = 487;
+   //aPseudoTicket[973] = 487;
    aAction[973] = 0; // CLOSE
    aType[973] = OP_BUY; // BUY
    aTicket[973] = -1; // Ticket given by broker
@@ -10250,7 +10250,7 @@ void init_tab() {
    aPrice[973] = 1.57182;
 
    // ========== 974 ===== 350 ==========
-   aPseudoTicket[974] = 488;
+   //aPseudoTicket[974] = 488;
    aAction[974] = 1; // OPEN
    aReturn[488] = 974;
    aType[974] = OP_BUY; // BUY
@@ -10261,7 +10261,7 @@ void init_tab() {
    aPrice[974] = 1.34195;
 
    // ========== 975 ===== 353 ==========
-   aPseudoTicket[975] = 489;
+   //aPseudoTicket[975] = 489;
    aAction[975] = 1; // OPEN
    aReturn[489] = 975;
    aType[975] = OP_SELL; // SELL
@@ -10272,7 +10272,7 @@ void init_tab() {
    aPrice[975] = 0.91775;
 
    // ========== 976 ===== 352 ==========
-   aPseudoTicket[976] = 490;
+   //aPseudoTicket[976] = 490;
    aAction[976] = 1; // OPEN
    aReturn[490] = 976;
    aType[976] = OP_SELL; // SELL
@@ -10283,7 +10283,7 @@ void init_tab() {
    aPrice[976] = 0.9184;
 
    // ========== 977 ===== 351 ==========
-   aPseudoTicket[977] = 491;
+   //aPseudoTicket[977] = 491;
    aAction[977] = 1; // OPEN
    aReturn[491] = 977;
    aType[977] = OP_SELL; // SELL
@@ -10294,7 +10294,7 @@ void init_tab() {
    aPrice[977] = 0.919;
 
    // ========== 978 ===== 353 ==========
-   aPseudoTicket[978] = 489;
+   //aPseudoTicket[978] = 489;
    aAction[978] = 0; // CLOSE
    aType[978] = OP_SELL; // SELL
    aTicket[978] = -1; // Ticket given by broker
@@ -10304,7 +10304,7 @@ void init_tab() {
    aPrice[978] = 0.922;
 
    // ========== 979 ===== 351 ==========
-   aPseudoTicket[979] = 491;
+   //aPseudoTicket[979] = 491;
    aAction[979] = 0; // CLOSE
    aType[979] = OP_SELL; // SELL
    aTicket[979] = -1; // Ticket given by broker
@@ -10314,7 +10314,7 @@ void init_tab() {
    aPrice[979] = 0.922;
 
    // ========== 980 ===== 352 ==========
-   aPseudoTicket[980] = 490;
+   //aPseudoTicket[980] = 490;
    aAction[980] = 0; // CLOSE
    aType[980] = OP_SELL; // SELL
    aTicket[980] = -1; // Ticket given by broker
@@ -10324,7 +10324,7 @@ void init_tab() {
    aPrice[980] = 0.922;
 
    // ========== 981 ===== 350 ==========
-   aPseudoTicket[981] = 488;
+   //aPseudoTicket[981] = 488;
    aAction[981] = 0; // CLOSE
    aType[981] = OP_BUY; // BUY
    aTicket[981] = -1; // Ticket given by broker
@@ -10334,7 +10334,7 @@ void init_tab() {
    aPrice[981] = 1.338;
 
    // ========== 982 ===== 347 ==========
-   aPseudoTicket[982] = 492;
+   //aPseudoTicket[982] = 492;
    aAction[982] = 1; // OPEN
    aReturn[492] = 982;
    aType[982] = OP_SELL; // SELL
@@ -10345,7 +10345,7 @@ void init_tab() {
    aPrice[982] = 1.01416;
 
    // ========== 983 ===== 348 ==========
-   aPseudoTicket[983] = 493;
+   //aPseudoTicket[983] = 493;
    aAction[983] = 1; // OPEN
    aReturn[493] = 983;
    aType[983] = OP_SELL; // SELL
@@ -10356,7 +10356,7 @@ void init_tab() {
    aPrice[983] = 1.0145;
 
    // ========== 984 ===== 346 ==========
-   aPseudoTicket[984] = 494;
+   //aPseudoTicket[984] = 494;
    aAction[984] = 1; // OPEN
    aReturn[494] = 984;
    aType[984] = OP_SELL; // SELL
@@ -10367,7 +10367,7 @@ void init_tab() {
    aPrice[984] = 1.01483;
 
    // ========== 985 ===== 349 ==========
-   aPseudoTicket[985] = 495;
+   //aPseudoTicket[985] = 495;
    aAction[985] = 1; // OPEN
    aReturn[495] = 985;
    aType[985] = OP_SELL; // SELL
@@ -10378,7 +10378,7 @@ void init_tab() {
    aPrice[985] = 1.01492;
 
    // ========== 986 ===== 349 ==========
-   aPseudoTicket[986] = 495;
+   //aPseudoTicket[986] = 495;
    aAction[986] = 0; // CLOSE
    aType[986] = OP_SELL; // SELL
    aTicket[986] = -1; // Ticket given by broker
@@ -10388,7 +10388,7 @@ void init_tab() {
    aPrice[986] = 1.01398;
 
    // ========== 987 ===== 348 ==========
-   aPseudoTicket[987] = 493;
+   //aPseudoTicket[987] = 493;
    aAction[987] = 0; // CLOSE
    aType[987] = OP_SELL; // SELL
    aTicket[987] = -1; // Ticket given by broker
@@ -10398,7 +10398,7 @@ void init_tab() {
    aPrice[987] = 1.014;
 
    // ========== 988 ===== 347 ==========
-   aPseudoTicket[988] = 492;
+   //aPseudoTicket[988] = 492;
    aAction[988] = 0; // CLOSE
    aType[988] = OP_SELL; // SELL
    aTicket[988] = -1; // Ticket given by broker
@@ -10408,7 +10408,7 @@ void init_tab() {
    aPrice[988] = 1.01393;
 
    // ========== 989 ===== 346 ==========
-   aPseudoTicket[989] = 494;
+   //aPseudoTicket[989] = 494;
    aAction[989] = 0; // CLOSE
    aType[989] = OP_SELL; // SELL
    aTicket[989] = -1; // Ticket given by broker
@@ -10418,7 +10418,7 @@ void init_tab() {
    aPrice[989] = 1.0137;
 
    // ========== 990 ===== 345 ==========
-   aPseudoTicket[990] = 496;
+   //aPseudoTicket[990] = 496;
    aAction[990] = 1; // OPEN
    aReturn[496] = 990;
    aType[990] = OP_SELL; // SELL
@@ -10429,7 +10429,7 @@ void init_tab() {
    aPrice[990] = 1.01921;
 
    // ========== 991 ===== 344 ==========
-   aPseudoTicket[991] = 497;
+   //aPseudoTicket[991] = 497;
    aAction[991] = 1; // OPEN
    aReturn[497] = 991;
    aType[991] = OP_SELL; // SELL
@@ -10440,7 +10440,7 @@ void init_tab() {
    aPrice[991] = 1.01928;
 
    // ========== 992 ===== 343 ==========
-   aPseudoTicket[992] = 498;
+   //aPseudoTicket[992] = 498;
    aAction[992] = 1; // OPEN
    aReturn[498] = 992;
    aType[992] = OP_SELL; // SELL
@@ -10451,7 +10451,7 @@ void init_tab() {
    aPrice[992] = 1.01914;
 
    // ========== 993 ===== 342 ==========
-   aPseudoTicket[993] = 499;
+   //aPseudoTicket[993] = 499;
    aAction[993] = 1; // OPEN
    aReturn[499] = 993;
    aType[993] = OP_SELL; // SELL
@@ -10462,7 +10462,7 @@ void init_tab() {
    aPrice[993] = 1.01974;
 
    // ========== 994 ===== 345 ==========
-   aPseudoTicket[994] = 496;
+   //aPseudoTicket[994] = 496;
    aAction[994] = 0; // CLOSE
    aType[994] = OP_SELL; // SELL
    aTicket[994] = -1; // Ticket given by broker
@@ -10472,7 +10472,7 @@ void init_tab() {
    aPrice[994] = 1.01705;
 
    // ========== 995 ===== 344 ==========
-   aPseudoTicket[995] = 497;
+   //aPseudoTicket[995] = 497;
    aAction[995] = 0; // CLOSE
    aType[995] = OP_SELL; // SELL
    aTicket[995] = -1; // Ticket given by broker
@@ -10482,7 +10482,7 @@ void init_tab() {
    aPrice[995] = 1.01717;
 
    // ========== 996 ===== 343 ==========
-   aPseudoTicket[996] = 498;
+   //aPseudoTicket[996] = 498;
    aAction[996] = 0; // CLOSE
    aType[996] = OP_SELL; // SELL
    aTicket[996] = -1; // Ticket given by broker
@@ -10492,7 +10492,7 @@ void init_tab() {
    aPrice[996] = 1.01709;
 
    // ========== 997 ===== 342 ==========
-   aPseudoTicket[997] = 499;
+   //aPseudoTicket[997] = 499;
    aAction[997] = 0; // CLOSE
    aType[997] = OP_SELL; // SELL
    aTicket[997] = -1; // Ticket given by broker
@@ -10502,7 +10502,7 @@ void init_tab() {
    aPrice[997] = 1.01708;
 
    // ========== 998 ===== 340 ==========
-   aPseudoTicket[998] = 500;
+   //aPseudoTicket[998] = 500;
    aAction[998] = 1; // OPEN
    aReturn[500] = 998;
    aType[998] = OP_SELL; // SELL
@@ -10513,7 +10513,7 @@ void init_tab() {
    aPrice[998] = 1.00907;
 
    // ========== 999 ===== 337 ==========
-   aPseudoTicket[999] = 501;
+   //aPseudoTicket[999] = 501;
    aAction[999] = 1; // OPEN
    aReturn[501] = 999;
    aType[999] = OP_SELL; // SELL
@@ -10524,7 +10524,7 @@ void init_tab() {
    aPrice[999] = 1.0083;
 
    // ========== 1000 ===== 341 ==========
-   aPseudoTicket[1000] = 502;
+   //aPseudoTicket[1000] = 502;
    aAction[1000] = 1; // OPEN
    aReturn[502] = 1000;
    aType[1000] = OP_SELL; // SELL
@@ -10535,7 +10535,7 @@ void init_tab() {
    aPrice[1000] = 1.0091;
 
    // ========== 1001 ===== 341 ==========
-   aPseudoTicket[1001] = 502;
+   //aPseudoTicket[1001] = 502;
    aAction[1001] = 0; // CLOSE
    aType[1001] = OP_SELL; // SELL
    aTicket[1001] = -1; // Ticket given by broker
@@ -10545,7 +10545,7 @@ void init_tab() {
    aPrice[1001] = 1.0112;
 
    // ========== 1002 ===== 340 ==========
-   aPseudoTicket[1002] = 500;
+   //aPseudoTicket[1002] = 500;
    aAction[1002] = 0; // CLOSE
    aType[1002] = OP_SELL; // SELL
    aTicket[1002] = -1; // Ticket given by broker
@@ -10555,7 +10555,7 @@ void init_tab() {
    aPrice[1002] = 1.0112;
 
    // ========== 1003 ===== 338 ==========
-   aPseudoTicket[1003] = 503;
+   //aPseudoTicket[1003] = 503;
    aAction[1003] = 1; // OPEN
    aReturn[503] = 1003;
    aType[1003] = OP_SELL; // SELL
@@ -10566,7 +10566,7 @@ void init_tab() {
    aPrice[1003] = 1.01276;
 
    // ========== 1004 ===== 339 ==========
-   aPseudoTicket[1004] = 504;
+   //aPseudoTicket[1004] = 504;
    aAction[1004] = 1; // OPEN
    aReturn[504] = 1004;
    aType[1004] = OP_SELL; // SELL
@@ -10577,7 +10577,7 @@ void init_tab() {
    aPrice[1004] = 1.01305;
 
    // ========== 1005 ===== 339 ==========
-   aPseudoTicket[1005] = 504;
+   //aPseudoTicket[1005] = 504;
    aAction[1005] = 0; // CLOSE
    aType[1005] = OP_SELL; // SELL
    aTicket[1005] = -1; // Ticket given by broker
@@ -10587,7 +10587,7 @@ void init_tab() {
    aPrice[1005] = 1.01249;
 
    // ========== 1006 ===== 338 ==========
-   aPseudoTicket[1006] = 503;
+   //aPseudoTicket[1006] = 503;
    aAction[1006] = 0; // CLOSE
    aType[1006] = OP_SELL; // SELL
    aTicket[1006] = -1; // Ticket given by broker
@@ -10597,7 +10597,7 @@ void init_tab() {
    aPrice[1006] = 1.01254;
 
    // ========== 1007 ===== 337 ==========
-   aPseudoTicket[1007] = 501;
+   //aPseudoTicket[1007] = 501;
    aAction[1007] = 0; // CLOSE
    aType[1007] = OP_SELL; // SELL
    aTicket[1007] = -1; // Ticket given by broker
@@ -10607,7 +10607,7 @@ void init_tab() {
    aPrice[1007] = 1.01513;
 
    // ========== 1008 ===== 336 ==========
-   aPseudoTicket[1008] = 505;
+   //aPseudoTicket[1008] = 505;
    aAction[1008] = 1; // OPEN
    aReturn[505] = 1008;
    aType[1008] = OP_BUY; // BUY
@@ -10618,7 +10618,7 @@ void init_tab() {
    aPrice[1008] = 1.30042;
 
    // ========== 1009 ===== 334 ==========
-   aPseudoTicket[1009] = 506;
+   //aPseudoTicket[1009] = 506;
    aAction[1009] = 1; // OPEN
    aReturn[506] = 1009;
    aType[1009] = OP_SELL; // SELL
@@ -10629,7 +10629,7 @@ void init_tab() {
    aPrice[1009] = 0.94854;
 
    // ========== 1010 ===== 335 ==========
-   aPseudoTicket[1010] = 507;
+   //aPseudoTicket[1010] = 507;
    aAction[1010] = 1; // OPEN
    aReturn[507] = 1010;
    aType[1010] = OP_SELL; // SELL
@@ -10640,7 +10640,7 @@ void init_tab() {
    aPrice[1010] = 0.94797;
 
    // ========== 1011 ===== 336 ==========
-   aPseudoTicket[1011] = 505;
+   //aPseudoTicket[1011] = 505;
    aAction[1011] = 0; // CLOSE
    aType[1011] = OP_BUY; // BUY
    aTicket[1011] = -1; // Ticket given by broker
@@ -10650,7 +10650,7 @@ void init_tab() {
    aPrice[1011] = 1.29885;
 
    // ========== 1012 ===== 335 ==========
-   aPseudoTicket[1012] = 507;
+   //aPseudoTicket[1012] = 507;
    aAction[1012] = 0; // CLOSE
    aType[1012] = OP_SELL; // SELL
    aTicket[1012] = -1; // Ticket given by broker
@@ -10660,7 +10660,7 @@ void init_tab() {
    aPrice[1012] = 0.948;
 
    // ========== 1013 ===== 334 ==========
-   aPseudoTicket[1013] = 506;
+   //aPseudoTicket[1013] = 506;
    aAction[1013] = 0; // CLOSE
    aType[1013] = OP_SELL; // SELL
    aTicket[1013] = -1; // Ticket given by broker
@@ -10670,7 +10670,7 @@ void init_tab() {
    aPrice[1013] = 0.948;
 
    // ========== 1014 ===== 329 ==========
-   aPseudoTicket[1014] = 508;
+   //aPseudoTicket[1014] = 508;
    aAction[1014] = 1; // OPEN
    aReturn[508] = 1014;
    aType[1014] = OP_BUY; // BUY
@@ -10681,7 +10681,7 @@ void init_tab() {
    aPrice[1014] = 0.94199;
 
    // ========== 1015 ===== 330 ==========
-   aPseudoTicket[1015] = 509;
+   //aPseudoTicket[1015] = 509;
    aAction[1015] = 1; // OPEN
    aReturn[509] = 1015;
    aType[1015] = OP_BUY; // BUY
@@ -10692,7 +10692,7 @@ void init_tab() {
    aPrice[1015] = 0.94173;
 
    // ========== 1016 ===== 331 ==========
-   aPseudoTicket[1016] = 510;
+   //aPseudoTicket[1016] = 510;
    aAction[1016] = 1; // OPEN
    aReturn[510] = 1016;
    aType[1016] = OP_BUY; // BUY
@@ -10703,7 +10703,7 @@ void init_tab() {
    aPrice[1016] = 0.9421;
 
    // ========== 1017 ===== 333 ==========
-   aPseudoTicket[1017] = 511;
+   //aPseudoTicket[1017] = 511;
    aAction[1017] = 1; // OPEN
    aReturn[511] = 1017;
    aType[1017] = OP_SELL; // SELL
@@ -10714,7 +10714,7 @@ void init_tab() {
    aPrice[1017] = 1.55098;
 
    // ========== 1018 ===== 333 ==========
-   aPseudoTicket[1018] = 511;
+   //aPseudoTicket[1018] = 511;
    aAction[1018] = 0; // CLOSE
    aType[1018] = OP_SELL; // SELL
    aTicket[1018] = -1; // Ticket given by broker
@@ -10724,7 +10724,7 @@ void init_tab() {
    aPrice[1018] = 1.54879;
 
    // ========== 1019 ===== 332 ==========
-   aPseudoTicket[1019] = 512;
+   //aPseudoTicket[1019] = 512;
    aAction[1019] = 1; // OPEN
    aReturn[512] = 1019;
    aType[1019] = OP_BUY; // BUY
@@ -10735,7 +10735,7 @@ void init_tab() {
    aPrice[1019] = 0.93622;
 
    // ========== 1020 ===== 332 ==========
-   aPseudoTicket[1020] = 512;
+   //aPseudoTicket[1020] = 512;
    aAction[1020] = 0; // CLOSE
    aType[1020] = OP_BUY; // BUY
    aTicket[1020] = -1; // Ticket given by broker
@@ -10745,7 +10745,7 @@ void init_tab() {
    aPrice[1020] = 0.93258;
 
    // ========== 1021 ===== 331 ==========
-   aPseudoTicket[1021] = 510;
+   //aPseudoTicket[1021] = 510;
    aAction[1021] = 0; // CLOSE
    aType[1021] = OP_BUY; // BUY
    aTicket[1021] = -1; // Ticket given by broker
@@ -10755,7 +10755,7 @@ void init_tab() {
    aPrice[1021] = 0.93218;
 
    // ========== 1022 ===== 330 ==========
-   aPseudoTicket[1022] = 509;
+   //aPseudoTicket[1022] = 509;
    aAction[1022] = 0; // CLOSE
    aType[1022] = OP_BUY; // BUY
    aTicket[1022] = -1; // Ticket given by broker
@@ -10765,7 +10765,7 @@ void init_tab() {
    aPrice[1022] = 0.93223;
 
    // ========== 1023 ===== 329 ==========
-   aPseudoTicket[1023] = 508;
+   //aPseudoTicket[1023] = 508;
    aAction[1023] = 0; // CLOSE
    aType[1023] = OP_BUY; // BUY
    aTicket[1023] = -1; // Ticket given by broker
@@ -10775,7 +10775,7 @@ void init_tab() {
    aPrice[1023] = 0.93218;
 
    // ========== 1024 ===== 328 ==========
-   aPseudoTicket[1024] = 513;
+   //aPseudoTicket[1024] = 513;
    aAction[1024] = 1; // OPEN
    aReturn[513] = 1024;
    aType[1024] = OP_SELL; // SELL
@@ -10786,7 +10786,7 @@ void init_tab() {
    aPrice[1024] = 1.0176;
 
    // ========== 1025 ===== 325 ==========
-   aPseudoTicket[1025] = 514;
+   //aPseudoTicket[1025] = 514;
    aAction[1025] = 1; // OPEN
    aReturn[514] = 1025;
    aType[1025] = OP_SELL; // SELL
@@ -10797,7 +10797,7 @@ void init_tab() {
    aPrice[1025] = 1.01765;
 
    // ========== 1026 ===== 327 ==========
-   aPseudoTicket[1026] = 515;
+   //aPseudoTicket[1026] = 515;
    aAction[1026] = 1; // OPEN
    aReturn[515] = 1026;
    aType[1026] = OP_SELL; // SELL
@@ -10808,7 +10808,7 @@ void init_tab() {
    aPrice[1026] = 1.01807;
 
    // ========== 1027 ===== 326 ==========
-   aPseudoTicket[1027] = 516;
+   //aPseudoTicket[1027] = 516;
    aAction[1027] = 1; // OPEN
    aReturn[516] = 1027;
    aType[1027] = OP_SELL; // SELL
@@ -10819,7 +10819,7 @@ void init_tab() {
    aPrice[1027] = 1.01806;
 
    // ========== 1028 ===== 326 ==========
-   aPseudoTicket[1028] = 516;
+   //aPseudoTicket[1028] = 516;
    aAction[1028] = 0; // CLOSE
    aType[1028] = OP_SELL; // SELL
    aTicket[1028] = -1; // Ticket given by broker
@@ -10829,7 +10829,7 @@ void init_tab() {
    aPrice[1028] = 1.0135;
 
    // ========== 1029 ===== 328 ==========
-   aPseudoTicket[1029] = 513;
+   //aPseudoTicket[1029] = 513;
    aAction[1029] = 0; // CLOSE
    aType[1029] = OP_SELL; // SELL
    aTicket[1029] = -1; // Ticket given by broker
@@ -10839,7 +10839,7 @@ void init_tab() {
    aPrice[1029] = 1.0135;
 
    // ========== 1030 ===== 325 ==========
-   aPseudoTicket[1030] = 514;
+   //aPseudoTicket[1030] = 514;
    aAction[1030] = 0; // CLOSE
    aType[1030] = OP_SELL; // SELL
    aTicket[1030] = -1; // Ticket given by broker
@@ -10849,7 +10849,7 @@ void init_tab() {
    aPrice[1030] = 1.0135;
 
    // ========== 1031 ===== 327 ==========
-   aPseudoTicket[1031] = 515;
+   //aPseudoTicket[1031] = 515;
    aAction[1031] = 0; // CLOSE
    aType[1031] = OP_SELL; // SELL
    aTicket[1031] = -1; // Ticket given by broker
@@ -10859,7 +10859,7 @@ void init_tab() {
    aPrice[1031] = 1.0135;
 
    // ========== 1032 ===== 324 ==========
-   aPseudoTicket[1032] = 517;
+   //aPseudoTicket[1032] = 517;
    aAction[1032] = 1; // OPEN
    aReturn[517] = 1032;
    aType[1032] = OP_BUY; // BUY
@@ -10870,7 +10870,7 @@ void init_tab() {
    aPrice[1032] = 1.01203;
 
    // ========== 1033 ===== 321 ==========
-   aPseudoTicket[1033] = 518;
+   //aPseudoTicket[1033] = 518;
    aAction[1033] = 1; // OPEN
    aReturn[518] = 1033;
    aType[1033] = OP_BUY; // BUY
@@ -10881,7 +10881,7 @@ void init_tab() {
    aPrice[1033] = 1.01025;
 
    // ========== 1034 ===== 323 ==========
-   aPseudoTicket[1034] = 519;
+   //aPseudoTicket[1034] = 519;
    aAction[1034] = 1; // OPEN
    aReturn[519] = 1034;
    aType[1034] = OP_BUY; // BUY
@@ -10892,7 +10892,7 @@ void init_tab() {
    aPrice[1034] = 1.0097;
 
    // ========== 1035 ===== 322 ==========
-   aPseudoTicket[1035] = 520;
+   //aPseudoTicket[1035] = 520;
    aAction[1035] = 1; // OPEN
    aReturn[520] = 1035;
    aType[1035] = OP_BUY; // BUY
@@ -10903,7 +10903,7 @@ void init_tab() {
    aPrice[1035] = 1.00961;
 
    // ========== 1036 ===== 324 ==========
-   aPseudoTicket[1036] = 517;
+   //aPseudoTicket[1036] = 517;
    aAction[1036] = 0; // CLOSE
    aType[1036] = OP_BUY; // BUY
    aTicket[1036] = -1; // Ticket given by broker
@@ -10913,7 +10913,7 @@ void init_tab() {
    aPrice[1036] = 1.0125;
 
    // ========== 1037 ===== 323 ==========
-   aPseudoTicket[1037] = 519;
+   //aPseudoTicket[1037] = 519;
    aAction[1037] = 0; // CLOSE
    aType[1037] = OP_BUY; // BUY
    aTicket[1037] = -1; // Ticket given by broker
@@ -10923,7 +10923,7 @@ void init_tab() {
    aPrice[1037] = 1.0125;
 
    // ========== 1038 ===== 322 ==========
-   aPseudoTicket[1038] = 520;
+   //aPseudoTicket[1038] = 520;
    aAction[1038] = 0; // CLOSE
    aType[1038] = OP_BUY; // BUY
    aTicket[1038] = -1; // Ticket given by broker
@@ -10933,7 +10933,7 @@ void init_tab() {
    aPrice[1038] = 1.01313;
 
    // ========== 1039 ===== 321 ==========
-   aPseudoTicket[1039] = 518;
+   //aPseudoTicket[1039] = 518;
    aAction[1039] = 0; // CLOSE
    aType[1039] = OP_BUY; // BUY
    aTicket[1039] = -1; // Ticket given by broker
@@ -10943,7 +10943,7 @@ void init_tab() {
    aPrice[1039] = 1.01354;
 
    // ========== 1040 ===== 320 ==========
-   aPseudoTicket[1040] = 521;
+   //aPseudoTicket[1040] = 521;
    aAction[1040] = 1; // OPEN
    aReturn[521] = 1040;
    aType[1040] = OP_SELL; // SELL
@@ -10954,7 +10954,7 @@ void init_tab() {
    aPrice[1040] = 1.30568;
 
    // ========== 1041 ===== 320 ==========
-   aPseudoTicket[1041] = 521;
+   //aPseudoTicket[1041] = 521;
    aAction[1041] = 0; // CLOSE
    aType[1041] = OP_SELL; // SELL
    aTicket[1041] = -1; // Ticket given by broker
@@ -10964,7 +10964,7 @@ void init_tab() {
    aPrice[1041] = 1.30483;
 
    // ========== 1042 ===== 316 ==========
-   aPseudoTicket[1042] = 522;
+   //aPseudoTicket[1042] = 522;
    aAction[1042] = 1; // OPEN
    aReturn[522] = 1042;
    aType[1042] = OP_SELL; // SELL
@@ -10975,7 +10975,7 @@ void init_tab() {
    aPrice[1042] = 1.2955;
 
    // ========== 1043 ===== 317 ==========
-   aPseudoTicket[1043] = 523;
+   //aPseudoTicket[1043] = 523;
    aAction[1043] = 1; // OPEN
    aReturn[523] = 1043;
    aType[1043] = OP_SELL; // SELL
@@ -10986,7 +10986,7 @@ void init_tab() {
    aPrice[1043] = 1.29541;
 
    // ========== 1044 ===== 318 ==========
-   aPseudoTicket[1044] = 524;
+   //aPseudoTicket[1044] = 524;
    aAction[1044] = 1; // OPEN
    aReturn[524] = 1044;
    aType[1044] = OP_SELL; // SELL
@@ -10997,7 +10997,7 @@ void init_tab() {
    aPrice[1044] = 1.29602;
 
    // ========== 1045 ===== 319 ==========
-   aPseudoTicket[1045] = 525;
+   //aPseudoTicket[1045] = 525;
    aAction[1045] = 1; // OPEN
    aReturn[525] = 1045;
    aType[1045] = OP_SELL; // SELL
@@ -11008,7 +11008,7 @@ void init_tab() {
    aPrice[1045] = 1.2959;
 
    // ========== 1046 ===== 319 ==========
-   aPseudoTicket[1046] = 525;
+   //aPseudoTicket[1046] = 525;
    aAction[1046] = 0; // CLOSE
    aType[1046] = OP_SELL; // SELL
    aTicket[1046] = -1; // Ticket given by broker
@@ -11018,7 +11018,7 @@ void init_tab() {
    aPrice[1046] = 1.29543;
 
    // ========== 1047 ===== 318 ==========
-   aPseudoTicket[1047] = 524;
+   //aPseudoTicket[1047] = 524;
    aAction[1047] = 0; // CLOSE
    aType[1047] = OP_SELL; // SELL
    aTicket[1047] = -1; // Ticket given by broker
@@ -11028,7 +11028,7 @@ void init_tab() {
    aPrice[1047] = 1.29543;
 
    // ========== 1048 ===== 314 ==========
-   aPseudoTicket[1048] = 526;
+   //aPseudoTicket[1048] = 526;
    aAction[1048] = 1; // OPEN
    aReturn[526] = 1048;
    aType[1048] = OP_SELL; // SELL
@@ -11039,7 +11039,7 @@ void init_tab() {
    aPrice[1048] = 1.29517;
 
    // ========== 1049 ===== 315 ==========
-   aPseudoTicket[1049] = 527;
+   //aPseudoTicket[1049] = 527;
    aAction[1049] = 1; // OPEN
    aReturn[527] = 1049;
    aType[1049] = OP_SELL; // SELL
@@ -11050,7 +11050,7 @@ void init_tab() {
    aPrice[1049] = 1.29537;
 
    // ========== 1050 ===== 317 ==========
-   aPseudoTicket[1050] = 523;
+   //aPseudoTicket[1050] = 523;
    aAction[1050] = 0; // CLOSE
    aType[1050] = OP_SELL; // SELL
    aTicket[1050] = -1; // Ticket given by broker
@@ -11060,7 +11060,7 @@ void init_tab() {
    aPrice[1050] = 1.2905;
 
    // ========== 1051 ===== 316 ==========
-   aPseudoTicket[1051] = 522;
+   //aPseudoTicket[1051] = 522;
    aAction[1051] = 0; // CLOSE
    aType[1051] = OP_SELL; // SELL
    aTicket[1051] = -1; // Ticket given by broker
@@ -11070,7 +11070,7 @@ void init_tab() {
    aPrice[1051] = 1.2905;
 
    // ========== 1052 ===== 315 ==========
-   aPseudoTicket[1052] = 527;
+   //aPseudoTicket[1052] = 527;
    aAction[1052] = 0; // CLOSE
    aType[1052] = OP_SELL; // SELL
    aTicket[1052] = -1; // Ticket given by broker
@@ -11080,7 +11080,7 @@ void init_tab() {
    aPrice[1052] = 1.2927;
 
    // ========== 1053 ===== 314 ==========
-   aPseudoTicket[1053] = 526;
+   //aPseudoTicket[1053] = 526;
    aAction[1053] = 0; // CLOSE
    aType[1053] = OP_SELL; // SELL
    aTicket[1053] = -1; // Ticket given by broker
@@ -11090,7 +11090,7 @@ void init_tab() {
    aPrice[1053] = 1.2933;
 
    // ========== 1054 ===== 313 ==========
-   aPseudoTicket[1054] = 528;
+   //aPseudoTicket[1054] = 528;
    aAction[1054] = 1; // OPEN
    aReturn[528] = 1054;
    aType[1054] = OP_SELL; // SELL
@@ -11101,7 +11101,7 @@ void init_tab() {
    aPrice[1054] = 1.546;
 
    // ========== 1055 ===== 312 ==========
-   aPseudoTicket[1055] = 529;
+   //aPseudoTicket[1055] = 529;
    aAction[1055] = 1; // OPEN
    aReturn[529] = 1055;
    aType[1055] = OP_SELL; // SELL
@@ -11112,7 +11112,7 @@ void init_tab() {
    aPrice[1055] = 1.54577;
 
    // ========== 1056 ===== 311 ==========
-   aPseudoTicket[1056] = 530;
+   //aPseudoTicket[1056] = 530;
    aAction[1056] = 1; // OPEN
    aReturn[530] = 1056;
    aType[1056] = OP_SELL; // SELL
@@ -11123,7 +11123,7 @@ void init_tab() {
    aPrice[1056] = 1.54582;
 
    // ========== 1057 ===== 310 ==========
-   aPseudoTicket[1057] = 531;
+   //aPseudoTicket[1057] = 531;
    aAction[1057] = 1; // OPEN
    aReturn[531] = 1057;
    aType[1057] = OP_SELL; // SELL
@@ -11134,7 +11134,7 @@ void init_tab() {
    aPrice[1057] = 1.5459;
 
    // ========== 1058 ===== 313 ==========
-   aPseudoTicket[1058] = 528;
+   //aPseudoTicket[1058] = 528;
    aAction[1058] = 0; // CLOSE
    aType[1058] = OP_SELL; // SELL
    aTicket[1058] = -1; // Ticket given by broker
@@ -11144,7 +11144,7 @@ void init_tab() {
    aPrice[1058] = 1.54996;
 
    // ========== 1059 ===== 312 ==========
-   aPseudoTicket[1059] = 529;
+   //aPseudoTicket[1059] = 529;
    aAction[1059] = 0; // CLOSE
    aType[1059] = OP_SELL; // SELL
    aTicket[1059] = -1; // Ticket given by broker
@@ -11154,7 +11154,7 @@ void init_tab() {
    aPrice[1059] = 1.54995;
 
    // ========== 1060 ===== 311 ==========
-   aPseudoTicket[1060] = 530;
+   //aPseudoTicket[1060] = 530;
    aAction[1060] = 0; // CLOSE
    aType[1060] = OP_SELL; // SELL
    aTicket[1060] = -1; // Ticket given by broker
@@ -11164,7 +11164,7 @@ void init_tab() {
    aPrice[1060] = 1.54909;
 
    // ========== 1061 ===== 310 ==========
-   aPseudoTicket[1061] = 531;
+   //aPseudoTicket[1061] = 531;
    aAction[1061] = 0; // CLOSE
    aType[1061] = OP_SELL; // SELL
    aTicket[1061] = -1; // Ticket given by broker
@@ -11174,7 +11174,7 @@ void init_tab() {
    aPrice[1061] = 1.55039;
 
    // ========== 1062 ===== 309 ==========
-   aPseudoTicket[1062] = 532;
+   //aPseudoTicket[1062] = 532;
    aAction[1062] = 1; // OPEN
    aReturn[532] = 1062;
    aType[1062] = OP_SELL; // SELL
@@ -11185,7 +11185,7 @@ void init_tab() {
    aPrice[1062] = 0.93283;
 
    // ========== 1063 ===== 309 ==========
-   aPseudoTicket[1063] = 532;
+   //aPseudoTicket[1063] = 532;
    aAction[1063] = 0; // CLOSE
    aType[1063] = OP_SELL; // SELL
    aTicket[1063] = -1; // Ticket given by broker
@@ -11195,7 +11195,7 @@ void init_tab() {
    aPrice[1063] = 0.93216;
 
    // ========== 1064 ===== 305 ==========
-   aPseudoTicket[1064] = 533;
+   //aPseudoTicket[1064] = 533;
    aAction[1064] = 1; // OPEN
    aReturn[533] = 1064;
    aType[1064] = OP_SELL; // SELL
@@ -11206,7 +11206,7 @@ void init_tab() {
    aPrice[1064] = 1.0359;
 
    // ========== 1065 ===== 306 ==========
-   aPseudoTicket[1065] = 534;
+   //aPseudoTicket[1065] = 534;
    aAction[1065] = 1; // OPEN
    aReturn[534] = 1065;
    aType[1065] = OP_SELL; // SELL
@@ -11217,7 +11217,7 @@ void init_tab() {
    aPrice[1065] = 1.03587;
 
    // ========== 1066 ===== 307 ==========
-   aPseudoTicket[1066] = 535;
+   //aPseudoTicket[1066] = 535;
    aAction[1066] = 1; // OPEN
    aReturn[535] = 1066;
    aType[1066] = OP_SELL; // SELL
@@ -11228,7 +11228,7 @@ void init_tab() {
    aPrice[1066] = 1.03594;
 
    // ========== 1067 ===== 308 ==========
-   aPseudoTicket[1067] = 536;
+   //aPseudoTicket[1067] = 536;
    aAction[1067] = 1; // OPEN
    aReturn[536] = 1067;
    aType[1067] = OP_SELL; // SELL
@@ -11239,7 +11239,7 @@ void init_tab() {
    aPrice[1067] = 1.03604;
 
    // ========== 1068 ===== 308 ==========
-   aPseudoTicket[1068] = 536;
+   //aPseudoTicket[1068] = 536;
    aAction[1068] = 0; // CLOSE
    aType[1068] = OP_SELL; // SELL
    aTicket[1068] = -1; // Ticket given by broker
@@ -11249,7 +11249,7 @@ void init_tab() {
    aPrice[1068] = 1.0345;
 
    // ========== 1069 ===== 307 ==========
-   aPseudoTicket[1069] = 535;
+   //aPseudoTicket[1069] = 535;
    aAction[1069] = 0; // CLOSE
    aType[1069] = OP_SELL; // SELL
    aTicket[1069] = -1; // Ticket given by broker
@@ -11259,7 +11259,7 @@ void init_tab() {
    aPrice[1069] = 1.0345;
 
    // ========== 1070 ===== 306 ==========
-   aPseudoTicket[1070] = 534;
+   //aPseudoTicket[1070] = 534;
    aAction[1070] = 0; // CLOSE
    aType[1070] = OP_SELL; // SELL
    aTicket[1070] = -1; // Ticket given by broker
@@ -11269,7 +11269,7 @@ void init_tab() {
    aPrice[1070] = 1.03452;
 
    // ========== 1071 ===== 305 ==========
-   aPseudoTicket[1071] = 533;
+   //aPseudoTicket[1071] = 533;
    aAction[1071] = 0; // CLOSE
    aType[1071] = OP_SELL; // SELL
    aTicket[1071] = -1; // Ticket given by broker
@@ -11279,7 +11279,7 @@ void init_tab() {
    aPrice[1071] = 1.03452;
 
    // ========== 1072 ===== 304 ==========
-   aPseudoTicket[1072] = 537;
+   //aPseudoTicket[1072] = 537;
    aAction[1072] = 1; // OPEN
    aReturn[537] = 1072;
    aType[1072] = OP_SELL; // SELL
@@ -11290,7 +11290,7 @@ void init_tab() {
    aPrice[1072] = 1.56479;
 
    // ========== 1073 ===== 303 ==========
-   aPseudoTicket[1073] = 538;
+   //aPseudoTicket[1073] = 538;
    aAction[1073] = 1; // OPEN
    aReturn[538] = 1073;
    aType[1073] = OP_SELL; // SELL
@@ -11301,7 +11301,7 @@ void init_tab() {
    aPrice[1073] = 1.56465;
 
    // ========== 1074 ===== 302 ==========
-   aPseudoTicket[1074] = 539;
+   //aPseudoTicket[1074] = 539;
    aAction[1074] = 1; // OPEN
    aReturn[539] = 1074;
    aType[1074] = OP_SELL; // SELL
@@ -11312,7 +11312,7 @@ void init_tab() {
    aPrice[1074] = 1.56471;
 
    // ========== 1075 ===== 301 ==========
-   aPseudoTicket[1075] = 540;
+   //aPseudoTicket[1075] = 540;
    aAction[1075] = 1; // OPEN
    aReturn[540] = 1075;
    aType[1075] = OP_SELL; // SELL
@@ -11323,7 +11323,7 @@ void init_tab() {
    aPrice[1075] = 1.56474;
 
    // ========== 1076 ===== 304 ==========
-   aPseudoTicket[1076] = 537;
+   //aPseudoTicket[1076] = 537;
    aAction[1076] = 0; // CLOSE
    aType[1076] = OP_SELL; // SELL
    aTicket[1076] = -1; // Ticket given by broker
@@ -11333,7 +11333,7 @@ void init_tab() {
    aPrice[1076] = 1.56635;
 
    // ========== 1077 ===== 303 ==========
-   aPseudoTicket[1077] = 538;
+   //aPseudoTicket[1077] = 538;
    aAction[1077] = 0; // CLOSE
    aType[1077] = OP_SELL; // SELL
    aTicket[1077] = -1; // Ticket given by broker
@@ -11343,7 +11343,7 @@ void init_tab() {
    aPrice[1077] = 1.56639;
 
    // ========== 1078 ===== 297 ==========
-   aPseudoTicket[1078] = 541;
+   //aPseudoTicket[1078] = 541;
    aAction[1078] = 1; // OPEN
    aReturn[541] = 1078;
    aType[1078] = OP_BUY; // BUY
@@ -11354,7 +11354,7 @@ void init_tab() {
    aPrice[1078] = 1.30631;
 
    // ========== 1079 ===== 298 ==========
-   aPseudoTicket[1079] = 542;
+   //aPseudoTicket[1079] = 542;
    aAction[1079] = 1; // OPEN
    aReturn[542] = 1079;
    aType[1079] = OP_BUY; // BUY
@@ -11365,7 +11365,7 @@ void init_tab() {
    aPrice[1079] = 1.3064;
 
    // ========== 1080 ===== 302 ==========
-   aPseudoTicket[1080] = 539;
+   //aPseudoTicket[1080] = 539;
    aAction[1080] = 0; // CLOSE
    aType[1080] = OP_SELL; // SELL
    aTicket[1080] = -1; // Ticket given by broker
@@ -11375,7 +11375,7 @@ void init_tab() {
    aPrice[1080] = 1.56584;
 
    // ========== 1081 ===== 301 ==========
-   aPseudoTicket[1081] = 540;
+   //aPseudoTicket[1081] = 540;
    aAction[1081] = 0; // CLOSE
    aType[1081] = OP_SELL; // SELL
    aTicket[1081] = -1; // Ticket given by broker
@@ -11385,7 +11385,7 @@ void init_tab() {
    aPrice[1081] = 1.56585;
 
    // ========== 1082 ===== 299 ==========
-   aPseudoTicket[1082] = 543;
+   //aPseudoTicket[1082] = 543;
    aAction[1082] = 1; // OPEN
    aReturn[543] = 1082;
    aType[1082] = OP_BUY; // BUY
@@ -11396,7 +11396,7 @@ void init_tab() {
    aPrice[1082] = 1.30623;
 
    // ========== 1083 ===== 300 ==========
-   aPseudoTicket[1083] = 544;
+   //aPseudoTicket[1083] = 544;
    aAction[1083] = 1; // OPEN
    aReturn[544] = 1083;
    aType[1083] = OP_BUY; // BUY
@@ -11407,7 +11407,7 @@ void init_tab() {
    aPrice[1083] = 1.30614;
 
    // ========== 1084 ===== 300 ==========
-   aPseudoTicket[1084] = 544;
+   //aPseudoTicket[1084] = 544;
    aAction[1084] = 0; // CLOSE
    aType[1084] = OP_BUY; // BUY
    aTicket[1084] = -1; // Ticket given by broker
@@ -11417,7 +11417,7 @@ void init_tab() {
    aPrice[1084] = 1.30353;
 
    // ========== 1085 ===== 299 ==========
-   aPseudoTicket[1085] = 543;
+   //aPseudoTicket[1085] = 543;
    aAction[1085] = 0; // CLOSE
    aType[1085] = OP_BUY; // BUY
    aTicket[1085] = -1; // Ticket given by broker
@@ -11427,7 +11427,7 @@ void init_tab() {
    aPrice[1085] = 1.30351;
 
    // ========== 1086 ===== 298 ==========
-   aPseudoTicket[1086] = 542;
+   //aPseudoTicket[1086] = 542;
    aAction[1086] = 0; // CLOSE
    aType[1086] = OP_BUY; // BUY
    aTicket[1086] = -1; // Ticket given by broker
@@ -11437,7 +11437,7 @@ void init_tab() {
    aPrice[1086] = 1.30352;
 
    // ========== 1087 ===== 297 ==========
-   aPseudoTicket[1087] = 541;
+   //aPseudoTicket[1087] = 541;
    aAction[1087] = 0; // CLOSE
    aType[1087] = OP_BUY; // BUY
    aTicket[1087] = -1; // Ticket given by broker
@@ -11447,7 +11447,7 @@ void init_tab() {
    aPrice[1087] = 1.30357;
 
    // ========== 1088 ===== 296 ==========
-   aPseudoTicket[1088] = 545;
+   //aPseudoTicket[1088] = 545;
    aAction[1088] = 1; // OPEN
    aReturn[545] = 1088;
    aType[1088] = OP_BUY; // BUY
@@ -11458,7 +11458,7 @@ void init_tab() {
    aPrice[1088] = 1.0248;
 
    // ========== 1089 ===== 296 ==========
-   aPseudoTicket[1089] = 545;
+   //aPseudoTicket[1089] = 545;
    aAction[1089] = 0; // CLOSE
    aType[1089] = OP_BUY; // BUY
    aTicket[1089] = -1; // Ticket given by broker
@@ -11468,7 +11468,7 @@ void init_tab() {
    aPrice[1089] = 1.02604;
 
    // ========== 1090 ===== 293 ==========
-   aPseudoTicket[1090] = 546;
+   //aPseudoTicket[1090] = 546;
    aAction[1090] = 1; // OPEN
    aReturn[546] = 1090;
    aType[1090] = OP_BUY; // BUY
@@ -11479,7 +11479,7 @@ void init_tab() {
    aPrice[1090] = 1.019;
 
    // ========== 1091 ===== 294 ==========
-   aPseudoTicket[1091] = 547;
+   //aPseudoTicket[1091] = 547;
    aAction[1091] = 1; // OPEN
    aReturn[547] = 1091;
    aType[1091] = OP_BUY; // BUY
@@ -11490,7 +11490,7 @@ void init_tab() {
    aPrice[1091] = 1.01839;
 
    // ========== 1092 ===== 292 ==========
-   aPseudoTicket[1092] = 548;
+   //aPseudoTicket[1092] = 548;
    aAction[1092] = 1; // OPEN
    aReturn[548] = 1092;
    aType[1092] = OP_BUY; // BUY
@@ -11501,7 +11501,7 @@ void init_tab() {
    aPrice[1092] = 1.0186;
 
    // ========== 1093 ===== 295 ==========
-   aPseudoTicket[1093] = 549;
+   //aPseudoTicket[1093] = 549;
    aAction[1093] = 1; // OPEN
    aReturn[549] = 1093;
    aType[1093] = OP_BUY; // BUY
@@ -11512,7 +11512,7 @@ void init_tab() {
    aPrice[1093] = 1.01774;
 
    // ========== 1094 ===== 295 ==========
-   aPseudoTicket[1094] = 549;
+   //aPseudoTicket[1094] = 549;
    aAction[1094] = 0; // CLOSE
    aType[1094] = OP_BUY; // BUY
    aTicket[1094] = -1; // Ticket given by broker
@@ -11522,7 +11522,7 @@ void init_tab() {
    aPrice[1094] = 1.019;
 
    // ========== 1095 ===== 293 ==========
-   aPseudoTicket[1095] = 546;
+   //aPseudoTicket[1095] = 546;
    aAction[1095] = 0; // CLOSE
    aType[1095] = OP_BUY; // BUY
    aTicket[1095] = -1; // Ticket given by broker
@@ -11532,7 +11532,7 @@ void init_tab() {
    aPrice[1095] = 1.019;
 
    // ========== 1096 ===== 294 ==========
-   aPseudoTicket[1096] = 547;
+   //aPseudoTicket[1096] = 547;
    aAction[1096] = 0; // CLOSE
    aType[1096] = OP_BUY; // BUY
    aTicket[1096] = -1; // Ticket given by broker
@@ -11542,7 +11542,7 @@ void init_tab() {
    aPrice[1096] = 1.019;
 
    // ========== 1097 ===== 292 ==========
-   aPseudoTicket[1097] = 548;
+   //aPseudoTicket[1097] = 548;
    aAction[1097] = 0; // CLOSE
    aType[1097] = OP_BUY; // BUY
    aTicket[1097] = -1; // Ticket given by broker
@@ -11552,7 +11552,7 @@ void init_tab() {
    aPrice[1097] = 1.019;
 
    // ========== 1098 ===== 288 ==========
-   aPseudoTicket[1098] = 550;
+   //aPseudoTicket[1098] = 550;
    aAction[1098] = 1; // OPEN
    aReturn[550] = 1098;
    aType[1098] = OP_SELL; // SELL
@@ -11563,7 +11563,7 @@ void init_tab() {
    aPrice[1098] = 1.2764;
 
    // ========== 1099 ===== 289 ==========
-   aPseudoTicket[1099] = 551;
+   //aPseudoTicket[1099] = 551;
    aAction[1099] = 1; // OPEN
    aReturn[551] = 1099;
    aType[1099] = OP_SELL; // SELL
@@ -11574,7 +11574,7 @@ void init_tab() {
    aPrice[1099] = 1.2767;
 
    // ========== 1100 ===== 290 ==========
-   aPseudoTicket[1100] = 552;
+   //aPseudoTicket[1100] = 552;
    aAction[1100] = 1; // OPEN
    aReturn[552] = 1100;
    aType[1100] = OP_SELL; // SELL
@@ -11585,7 +11585,7 @@ void init_tab() {
    aPrice[1100] = 1.2769;
 
    // ========== 1101 ===== 291 ==========
-   aPseudoTicket[1101] = 553;
+   //aPseudoTicket[1101] = 553;
    aAction[1101] = 1; // OPEN
    aReturn[553] = 1101;
    aType[1101] = OP_SELL; // SELL
@@ -11596,7 +11596,7 @@ void init_tab() {
    aPrice[1101] = 1.27655;
 
    // ========== 1102 ===== 291 ==========
-   aPseudoTicket[1102] = 553;
+   //aPseudoTicket[1102] = 553;
    aAction[1102] = 0; // CLOSE
    aType[1102] = OP_SELL; // SELL
    aTicket[1102] = -1; // Ticket given by broker
@@ -11606,7 +11606,7 @@ void init_tab() {
    aPrice[1102] = 1.27445;
 
    // ========== 1103 ===== 290 ==========
-   aPseudoTicket[1103] = 552;
+   //aPseudoTicket[1103] = 552;
    aAction[1103] = 0; // CLOSE
    aType[1103] = OP_SELL; // SELL
    aTicket[1103] = -1; // Ticket given by broker
@@ -11616,7 +11616,7 @@ void init_tab() {
    aPrice[1103] = 1.27442;
 
    // ========== 1104 ===== 289 ==========
-   aPseudoTicket[1104] = 551;
+   //aPseudoTicket[1104] = 551;
    aAction[1104] = 0; // CLOSE
    aType[1104] = OP_SELL; // SELL
    aTicket[1104] = -1; // Ticket given by broker
@@ -11626,7 +11626,7 @@ void init_tab() {
    aPrice[1104] = 1.27544;
 
    // ========== 1105 ===== 288 ==========
-   aPseudoTicket[1105] = 550;
+   //aPseudoTicket[1105] = 550;
    aAction[1105] = 0; // CLOSE
    aType[1105] = OP_SELL; // SELL
    aTicket[1105] = -1; // Ticket given by broker
@@ -11636,7 +11636,7 @@ void init_tab() {
    aPrice[1105] = 1.27542;
 
    // ========== 1106 ===== 286 ==========
-   aPseudoTicket[1106] = 554;
+   //aPseudoTicket[1106] = 554;
    aAction[1106] = 1; // OPEN
    aReturn[554] = 1106;
    aType[1106] = OP_SELL; // SELL
@@ -11647,7 +11647,7 @@ void init_tab() {
    aPrice[1106] = 1.53768;
 
    // ========== 1107 ===== 285 ==========
-   aPseudoTicket[1107] = 555;
+   //aPseudoTicket[1107] = 555;
    aAction[1107] = 1; // OPEN
    aReturn[555] = 1107;
    aType[1107] = OP_SELL; // SELL
@@ -11658,7 +11658,7 @@ void init_tab() {
    aPrice[1107] = 1.53795;
 
    // ========== 1108 ===== 284 ==========
-   aPseudoTicket[1108] = 556;
+   //aPseudoTicket[1108] = 556;
    aAction[1108] = 1; // OPEN
    aReturn[556] = 1108;
    aType[1108] = OP_SELL; // SELL
@@ -11669,7 +11669,7 @@ void init_tab() {
    aPrice[1108] = 1.53772;
 
    // ========== 1109 ===== 287 ==========
-   aPseudoTicket[1109] = 557;
+   //aPseudoTicket[1109] = 557;
    aAction[1109] = 1; // OPEN
    aReturn[557] = 1109;
    aType[1109] = OP_SELL; // SELL
@@ -11680,7 +11680,7 @@ void init_tab() {
    aPrice[1109] = 1.53799;
 
    // ========== 1110 ===== 287 ==========
-   aPseudoTicket[1110] = 557;
+   //aPseudoTicket[1110] = 557;
    aAction[1110] = 0; // CLOSE
    aType[1110] = OP_SELL; // SELL
    aTicket[1110] = -1; // Ticket given by broker
@@ -11690,7 +11690,7 @@ void init_tab() {
    aPrice[1110] = 1.53668;
 
    // ========== 1111 ===== 283 ==========
-   aPseudoTicket[1111] = 558;
+   //aPseudoTicket[1111] = 558;
    aAction[1111] = 1; // OPEN
    aReturn[558] = 1111;
    aType[1111] = OP_SELL; // SELL
@@ -11701,7 +11701,7 @@ void init_tab() {
    aPrice[1111] = 1.28644;
 
    // ========== 1112 ===== 286 ==========
-   aPseudoTicket[1112] = 554;
+   //aPseudoTicket[1112] = 554;
    aAction[1112] = 0; // CLOSE
    aType[1112] = OP_SELL; // SELL
    aTicket[1112] = -1; // Ticket given by broker
@@ -11711,7 +11711,7 @@ void init_tab() {
    aPrice[1112] = 1.5355;
 
    // ========== 1113 ===== 285 ==========
-   aPseudoTicket[1113] = 555;
+   //aPseudoTicket[1113] = 555;
    aAction[1113] = 0; // CLOSE
    aType[1113] = OP_SELL; // SELL
    aTicket[1113] = -1; // Ticket given by broker
@@ -11721,7 +11721,7 @@ void init_tab() {
    aPrice[1113] = 1.53472;
 
    // ========== 1114 ===== 284 ==========
-   aPseudoTicket[1114] = 556;
+   //aPseudoTicket[1114] = 556;
    aAction[1114] = 0; // CLOSE
    aType[1114] = OP_SELL; // SELL
    aTicket[1114] = -1; // Ticket given by broker
@@ -11731,7 +11731,7 @@ void init_tab() {
    aPrice[1114] = 1.53467;
 
    // ========== 1115 ===== 283 ==========
-   aPseudoTicket[1115] = 558;
+   //aPseudoTicket[1115] = 558;
    aAction[1115] = 0; // CLOSE
    aType[1115] = OP_SELL; // SELL
    aTicket[1115] = -1; // Ticket given by broker
@@ -11741,7 +11741,7 @@ void init_tab() {
    aPrice[1115] = 1.28388;
 
    // ========== 1116 ===== 279 ==========
-   aPseudoTicket[1116] = 559;
+   //aPseudoTicket[1116] = 559;
    aAction[1116] = 1; // OPEN
    aReturn[559] = 1116;
    aType[1116] = OP_BUY; // BUY
@@ -11752,7 +11752,7 @@ void init_tab() {
    aPrice[1116] = 1.27199;
 
    // ========== 1117 ===== 281 ==========
-   aPseudoTicket[1117] = 560;
+   //aPseudoTicket[1117] = 560;
    aAction[1117] = 1; // OPEN
    aReturn[560] = 1117;
    aType[1117] = OP_BUY; // BUY
@@ -11763,7 +11763,7 @@ void init_tab() {
    aPrice[1117] = 1.27127;
 
    // ========== 1118 ===== 282 ==========
-   aPseudoTicket[1118] = 561;
+   //aPseudoTicket[1118] = 561;
    aAction[1118] = 1; // OPEN
    aReturn[561] = 1118;
    aType[1118] = OP_BUY; // BUY
@@ -11774,7 +11774,7 @@ void init_tab() {
    aPrice[1118] = 1.27047;
 
    // ========== 1119 ===== 280 ==========
-   aPseudoTicket[1119] = 562;
+   //aPseudoTicket[1119] = 562;
    aAction[1119] = 1; // OPEN
    aReturn[562] = 1119;
    aType[1119] = OP_BUY; // BUY
@@ -11785,7 +11785,7 @@ void init_tab() {
    aPrice[1119] = 1.2683;
 
    // ========== 1120 ===== 282 ==========
-   aPseudoTicket[1120] = 561;
+   //aPseudoTicket[1120] = 561;
    aAction[1120] = 0; // CLOSE
    aType[1120] = OP_BUY; // BUY
    aTicket[1120] = -1; // Ticket given by broker
@@ -11795,7 +11795,7 @@ void init_tab() {
    aPrice[1120] = 1.26769;
 
    // ========== 1121 ===== 281 ==========
-   aPseudoTicket[1121] = 560;
+   //aPseudoTicket[1121] = 560;
    aAction[1121] = 0; // CLOSE
    aType[1121] = OP_BUY; // BUY
    aTicket[1121] = -1; // Ticket given by broker
@@ -11805,7 +11805,7 @@ void init_tab() {
    aPrice[1121] = 1.26769;
 
    // ========== 1122 ===== 280 ==========
-   aPseudoTicket[1122] = 562;
+   //aPseudoTicket[1122] = 562;
    aAction[1122] = 0; // CLOSE
    aType[1122] = OP_BUY; // BUY
    aTicket[1122] = -1; // Ticket given by broker
@@ -11815,7 +11815,7 @@ void init_tab() {
    aPrice[1122] = 1.26769;
 
    // ========== 1123 ===== 279 ==========
-   aPseudoTicket[1123] = 559;
+   //aPseudoTicket[1123] = 559;
    aAction[1123] = 0; // CLOSE
    aType[1123] = OP_BUY; // BUY
    aTicket[1123] = -1; // Ticket given by broker
@@ -11825,7 +11825,7 @@ void init_tab() {
    aPrice[1123] = 1.26764;
 
    // ========== 1124 ===== 278 ==========
-   aPseudoTicket[1124] = 563;
+   //aPseudoTicket[1124] = 563;
    aAction[1124] = 1; // OPEN
    aReturn[563] = 1124;
    aType[1124] = OP_SELL; // SELL
@@ -11836,7 +11836,7 @@ void init_tab() {
    aPrice[1124] = 1.2725;
 
    // ========== 1125 ===== 277 ==========
-   aPseudoTicket[1125] = 564;
+   //aPseudoTicket[1125] = 564;
    aAction[1125] = 1; // OPEN
    aReturn[564] = 1125;
    aType[1125] = OP_SELL; // SELL
@@ -11847,7 +11847,7 @@ void init_tab() {
    aPrice[1125] = 1.27297;
 
    // ========== 1126 ===== 275 ==========
-   aPseudoTicket[1126] = 565;
+   //aPseudoTicket[1126] = 565;
    aAction[1126] = 1; // OPEN
    aReturn[565] = 1126;
    aType[1126] = OP_SELL; // SELL
@@ -11858,7 +11858,7 @@ void init_tab() {
    aPrice[1126] = 1.27285;
 
    // ========== 1127 ===== 276 ==========
-   aPseudoTicket[1127] = 566;
+   //aPseudoTicket[1127] = 566;
    aAction[1127] = 1; // OPEN
    aReturn[566] = 1127;
    aType[1127] = OP_SELL; // SELL
@@ -11869,7 +11869,7 @@ void init_tab() {
    aPrice[1127] = 1.27314;
 
    // ========== 1128 ===== 277 ==========
-   aPseudoTicket[1128] = 564;
+   //aPseudoTicket[1128] = 564;
    aAction[1128] = 0; // CLOSE
    aType[1128] = OP_SELL; // SELL
    aTicket[1128] = -1; // Ticket given by broker
@@ -11879,7 +11879,7 @@ void init_tab() {
    aPrice[1128] = 1.272;
 
    // ========== 1129 ===== 278 ==========
-   aPseudoTicket[1129] = 563;
+   //aPseudoTicket[1129] = 563;
    aAction[1129] = 0; // CLOSE
    aType[1129] = OP_SELL; // SELL
    aTicket[1129] = -1; // Ticket given by broker
@@ -11889,7 +11889,7 @@ void init_tab() {
    aPrice[1129] = 1.272;
 
    // ========== 1130 ===== 276 ==========
-   aPseudoTicket[1130] = 566;
+   //aPseudoTicket[1130] = 566;
    aAction[1130] = 0; // CLOSE
    aType[1130] = OP_SELL; // SELL
    aTicket[1130] = -1; // Ticket given by broker
@@ -11899,7 +11899,7 @@ void init_tab() {
    aPrice[1130] = 1.27189;
 
    // ========== 1131 ===== 275 ==========
-   aPseudoTicket[1131] = 565;
+   //aPseudoTicket[1131] = 565;
    aAction[1131] = 0; // CLOSE
    aType[1131] = OP_SELL; // SELL
    aTicket[1131] = -1; // Ticket given by broker
@@ -11909,7 +11909,7 @@ void init_tab() {
    aPrice[1131] = 1.27187;
 
    // ========== 1132 ===== 271 ==========
-   aPseudoTicket[1132] = 567;
+   //aPseudoTicket[1132] = 567;
    aAction[1132] = 1; // OPEN
    aReturn[567] = 1132;
    aType[1132] = OP_SELL; // SELL
@@ -11920,7 +11920,7 @@ void init_tab() {
    aPrice[1132] = 1.2852;
 
    // ========== 1133 ===== 272 ==========
-   aPseudoTicket[1133] = 568;
+   //aPseudoTicket[1133] = 568;
    aAction[1133] = 1; // OPEN
    aReturn[568] = 1133;
    aType[1133] = OP_SELL; // SELL
@@ -11931,7 +11931,7 @@ void init_tab() {
    aPrice[1133] = 1.28729;
 
    // ========== 1134 ===== 273 ==========
-   aPseudoTicket[1134] = 569;
+   //aPseudoTicket[1134] = 569;
    aAction[1134] = 1; // OPEN
    aReturn[569] = 1134;
    aType[1134] = OP_SELL; // SELL
@@ -11942,7 +11942,7 @@ void init_tab() {
    aPrice[1134] = 1.29076;
 
    // ========== 1135 ===== 274 ==========
-   aPseudoTicket[1135] = 570;
+   //aPseudoTicket[1135] = 570;
    aAction[1135] = 1; // OPEN
    aReturn[570] = 1135;
    aType[1135] = OP_SELL; // SELL
@@ -11953,7 +11953,7 @@ void init_tab() {
    aPrice[1135] = 1.2925;
 
    // ========== 1136 ===== 274 ==========
-   aPseudoTicket[1136] = 570;
+   //aPseudoTicket[1136] = 570;
    aAction[1136] = 0; // CLOSE
    aType[1136] = OP_SELL; // SELL
    aTicket[1136] = -1; // Ticket given by broker
@@ -11963,7 +11963,7 @@ void init_tab() {
    aPrice[1136] = 1.29178;
 
    // ========== 1137 ===== 273 ==========
-   aPseudoTicket[1137] = 569;
+   //aPseudoTicket[1137] = 569;
    aAction[1137] = 0; // CLOSE
    aType[1137] = OP_SELL; // SELL
    aTicket[1137] = -1; // Ticket given by broker
@@ -11973,7 +11973,7 @@ void init_tab() {
    aPrice[1137] = 1.29181;
 
    // ========== 1138 ===== 272 ==========
-   aPseudoTicket[1138] = 568;
+   //aPseudoTicket[1138] = 568;
    aAction[1138] = 0; // CLOSE
    aType[1138] = OP_SELL; // SELL
    aTicket[1138] = -1; // Ticket given by broker
@@ -11983,7 +11983,7 @@ void init_tab() {
    aPrice[1138] = 1.29239;
 
    // ========== 1139 ===== 271 ==========
-   aPseudoTicket[1139] = 567;
+   //aPseudoTicket[1139] = 567;
    aAction[1139] = 0; // CLOSE
    aType[1139] = OP_SELL; // SELL
    aTicket[1139] = -1; // Ticket given by broker
@@ -11993,7 +11993,7 @@ void init_tab() {
    aPrice[1139] = 1.2924;
 
    // ========== 1140 ===== 267 ==========
-   aPseudoTicket[1140] = 571;
+   //aPseudoTicket[1140] = 571;
    aAction[1140] = 1; // OPEN
    aReturn[571] = 1140;
    aType[1140] = OP_SELL; // SELL
@@ -12004,7 +12004,7 @@ void init_tab() {
    aPrice[1140] = 1.29703;
 
    // ========== 1141 ===== 268 ==========
-   aPseudoTicket[1141] = 572;
+   //aPseudoTicket[1141] = 572;
    aAction[1141] = 1; // OPEN
    aReturn[572] = 1141;
    aType[1141] = OP_SELL; // SELL
@@ -12015,7 +12015,7 @@ void init_tab() {
    aPrice[1141] = 1.29716;
 
    // ========== 1142 ===== 269 ==========
-   aPseudoTicket[1142] = 573;
+   //aPseudoTicket[1142] = 573;
    aAction[1142] = 1; // OPEN
    aReturn[573] = 1142;
    aType[1142] = OP_SELL; // SELL
@@ -12026,7 +12026,7 @@ void init_tab() {
    aPrice[1142] = 1.29754;
 
    // ========== 1143 ===== 270 ==========
-   aPseudoTicket[1143] = 574;
+   //aPseudoTicket[1143] = 574;
    aAction[1143] = 1; // OPEN
    aReturn[574] = 1143;
    aType[1143] = OP_SELL; // SELL
@@ -12037,7 +12037,7 @@ void init_tab() {
    aPrice[1143] = 1.2977;
 
    // ========== 1144 ===== 270 ==========
-   aPseudoTicket[1144] = 574;
+   //aPseudoTicket[1144] = 574;
    aAction[1144] = 0; // CLOSE
    aType[1144] = OP_SELL; // SELL
    aTicket[1144] = -1; // Ticket given by broker
@@ -12047,7 +12047,7 @@ void init_tab() {
    aPrice[1144] = 1.30472;
 
    // ========== 1145 ===== 269 ==========
-   aPseudoTicket[1145] = 573;
+   //aPseudoTicket[1145] = 573;
    aAction[1145] = 0; // CLOSE
    aType[1145] = OP_SELL; // SELL
    aTicket[1145] = -1; // Ticket given by broker
@@ -12057,7 +12057,7 @@ void init_tab() {
    aPrice[1145] = 1.30468;
 
    // ========== 1146 ===== 268 ==========
-   aPseudoTicket[1146] = 572;
+   //aPseudoTicket[1146] = 572;
    aAction[1146] = 0; // CLOSE
    aType[1146] = OP_SELL; // SELL
    aTicket[1146] = -1; // Ticket given by broker
@@ -12067,7 +12067,7 @@ void init_tab() {
    aPrice[1146] = 1.30428;
 
    // ========== 1147 ===== 267 ==========
-   aPseudoTicket[1147] = 571;
+   //aPseudoTicket[1147] = 571;
    aAction[1147] = 0; // CLOSE
    aType[1147] = OP_SELL; // SELL
    aTicket[1147] = -1; // Ticket given by broker
@@ -12077,7 +12077,7 @@ void init_tab() {
    aPrice[1147] = 1.30424;
 
    // ========== 1148 ===== 265 ==========
-   aPseudoTicket[1148] = 575;
+   //aPseudoTicket[1148] = 575;
    aAction[1148] = 1; // OPEN
    aReturn[575] = 1148;
    aType[1148] = OP_BUY; // BUY
@@ -12088,7 +12088,7 @@ void init_tab() {
    aPrice[1148] = 1.04669;
 
    // ========== 1149 ===== 266 ==========
-   aPseudoTicket[1149] = 576;
+   //aPseudoTicket[1149] = 576;
    aAction[1149] = 1; // OPEN
    aReturn[576] = 1149;
    aType[1149] = OP_BUY; // BUY
@@ -12099,7 +12099,7 @@ void init_tab() {
    aPrice[1149] = 1.0435;
 
    // ========== 1150 ===== 265 ==========
-   aPseudoTicket[1150] = 575;
+   //aPseudoTicket[1150] = 575;
    aAction[1150] = 0; // CLOSE
    aType[1150] = OP_BUY; // BUY
    aTicket[1150] = -1; // Ticket given by broker
@@ -12109,7 +12109,7 @@ void init_tab() {
    aPrice[1150] = 1.0478;
 
    // ========== 1151 ===== 266 ==========
-   aPseudoTicket[1151] = 576;
+   //aPseudoTicket[1151] = 576;
    aAction[1151] = 0; // CLOSE
    aType[1151] = OP_BUY; // BUY
    aTicket[1151] = -1; // Ticket given by broker
@@ -12119,7 +12119,7 @@ void init_tab() {
    aPrice[1151] = 1.0478;
 
    // ========== 1152 ===== 262 ==========
-   aPseudoTicket[1152] = 577;
+   //aPseudoTicket[1152] = 577;
    aAction[1152] = 1; // OPEN
    aReturn[577] = 1152;
    aType[1152] = OP_SELL; // SELL
@@ -12130,7 +12130,7 @@ void init_tab() {
    aPrice[1152] = 1.56157;
 
    // ========== 1153 ===== 261 ==========
-   aPseudoTicket[1153] = 578;
+   //aPseudoTicket[1153] = 578;
    aAction[1153] = 1; // OPEN
    aReturn[578] = 1153;
    aType[1153] = OP_SELL; // SELL
@@ -12141,7 +12141,7 @@ void init_tab() {
    aPrice[1153] = 1.56153;
 
    // ========== 1154 ===== 260 ==========
-   aPseudoTicket[1154] = 579;
+   //aPseudoTicket[1154] = 579;
    aAction[1154] = 1; // OPEN
    aReturn[579] = 1154;
    aType[1154] = OP_SELL; // SELL
@@ -12152,7 +12152,7 @@ void init_tab() {
    aPrice[1154] = 1.5615;
 
    // ========== 1155 ===== 264 ==========
-   aPseudoTicket[1155] = 580;
+   //aPseudoTicket[1155] = 580;
    aAction[1155] = 1; // OPEN
    aReturn[580] = 1155;
    aType[1155] = OP_SELL; // SELL
@@ -12163,7 +12163,7 @@ void init_tab() {
    aPrice[1155] = 1.56164;
 
    // ========== 1156 ===== 264 ==========
-   aPseudoTicket[1156] = 580;
+   //aPseudoTicket[1156] = 580;
    aAction[1156] = 0; // CLOSE
    aType[1156] = OP_SELL; // SELL
    aTicket[1156] = -1; // Ticket given by broker
@@ -12173,7 +12173,7 @@ void init_tab() {
    aPrice[1156] = 1.55569;
 
    // ========== 1157 ===== 263 ==========
-   aPseudoTicket[1157] = 581;
+   //aPseudoTicket[1157] = 581;
    aAction[1157] = 1; // OPEN
    aReturn[581] = 1157;
    aType[1157] = OP_SELL; // SELL
@@ -12184,7 +12184,7 @@ void init_tab() {
    aPrice[1157] = 1.55779;
 
    // ========== 1158 ===== 263 ==========
-   aPseudoTicket[1158] = 581;
+   //aPseudoTicket[1158] = 581;
    aAction[1158] = 0; // CLOSE
    aType[1158] = OP_SELL; // SELL
    aTicket[1158] = -1; // Ticket given by broker
@@ -12194,7 +12194,7 @@ void init_tab() {
    aPrice[1158] = 1.5562;
 
    // ========== 1159 ===== 259 ==========
-   aPseudoTicket[1159] = 582;
+   //aPseudoTicket[1159] = 582;
    aAction[1159] = 1; // OPEN
    aReturn[582] = 1159;
    aType[1159] = OP_SELL; // SELL
@@ -12205,7 +12205,7 @@ void init_tab() {
    aPrice[1159] = 0.93299;
 
    // ========== 1160 ===== 262 ==========
-   aPseudoTicket[1160] = 577;
+   //aPseudoTicket[1160] = 577;
    aAction[1160] = 0; // CLOSE
    aType[1160] = OP_SELL; // SELL
    aTicket[1160] = -1; // Ticket given by broker
@@ -12215,7 +12215,7 @@ void init_tab() {
    aPrice[1160] = 1.55623;
 
    // ========== 1161 ===== 261 ==========
-   aPseudoTicket[1161] = 578;
+   //aPseudoTicket[1161] = 578;
    aAction[1161] = 0; // CLOSE
    aType[1161] = OP_SELL; // SELL
    aTicket[1161] = -1; // Ticket given by broker
@@ -12225,7 +12225,7 @@ void init_tab() {
    aPrice[1161] = 1.55602;
 
    // ========== 1162 ===== 260 ==========
-   aPseudoTicket[1162] = 579;
+   //aPseudoTicket[1162] = 579;
    aAction[1162] = 0; // CLOSE
    aType[1162] = OP_SELL; // SELL
    aTicket[1162] = -1; // Ticket given by broker
@@ -12235,7 +12235,7 @@ void init_tab() {
    aPrice[1162] = 1.55599;
 
    // ========== 1163 ===== 259 ==========
-   aPseudoTicket[1163] = 582;
+   //aPseudoTicket[1163] = 582;
    aAction[1163] = 0; // CLOSE
    aType[1163] = OP_SELL; // SELL
    aTicket[1163] = -1; // Ticket given by broker
@@ -12245,7 +12245,7 @@ void init_tab() {
    aPrice[1163] = 0.92193;
 
    // ========== 1164 ===== 255 ==========
-   aPseudoTicket[1164] = 583;
+   //aPseudoTicket[1164] = 583;
    aAction[1164] = 1; // OPEN
    aReturn[583] = 1164;
    aType[1164] = OP_BUY; // BUY
@@ -12256,7 +12256,7 @@ void init_tab() {
    aPrice[1164] = 1.30887;
 
    // ========== 1165 ===== 257 ==========
-   aPseudoTicket[1165] = 584;
+   //aPseudoTicket[1165] = 584;
    aAction[1165] = 1; // OPEN
    aReturn[584] = 1165;
    aType[1165] = OP_BUY; // BUY
@@ -12267,7 +12267,7 @@ void init_tab() {
    aPrice[1165] = 1.30859;
 
    // ========== 1166 ===== 256 ==========
-   aPseudoTicket[1166] = 585;
+   //aPseudoTicket[1166] = 585;
    aAction[1166] = 1; // OPEN
    aReturn[585] = 1166;
    aType[1166] = OP_BUY; // BUY
@@ -12278,7 +12278,7 @@ void init_tab() {
    aPrice[1166] = 1.3083;
 
    // ========== 1167 ===== 258 ==========
-   aPseudoTicket[1167] = 586;
+   //aPseudoTicket[1167] = 586;
    aAction[1167] = 1; // OPEN
    aReturn[586] = 1167;
    aType[1167] = OP_BUY; // BUY
@@ -12289,7 +12289,7 @@ void init_tab() {
    aPrice[1167] = 1.30836;
 
    // ========== 1168 ===== 258 ==========
-   aPseudoTicket[1168] = 586;
+   //aPseudoTicket[1168] = 586;
    aAction[1168] = 0; // CLOSE
    aType[1168] = OP_BUY; // BUY
    aTicket[1168] = -1; // Ticket given by broker
@@ -12299,7 +12299,7 @@ void init_tab() {
    aPrice[1168] = 1.3109;
 
    // ========== 1169 ===== 257 ==========
-   aPseudoTicket[1169] = 584;
+   //aPseudoTicket[1169] = 584;
    aAction[1169] = 0; // CLOSE
    aType[1169] = OP_BUY; // BUY
    aTicket[1169] = -1; // Ticket given by broker
@@ -12309,7 +12309,7 @@ void init_tab() {
    aPrice[1169] = 1.31081;
 
    // ========== 1170 ===== 256 ==========
-   aPseudoTicket[1170] = 585;
+   //aPseudoTicket[1170] = 585;
    aAction[1170] = 0; // CLOSE
    aType[1170] = OP_BUY; // BUY
    aTicket[1170] = -1; // Ticket given by broker
@@ -12319,7 +12319,7 @@ void init_tab() {
    aPrice[1170] = 1.31266;
 
    // ========== 1171 ===== 255 ==========
-   aPseudoTicket[1171] = 583;
+   //aPseudoTicket[1171] = 583;
    aAction[1171] = 0; // CLOSE
    aType[1171] = OP_BUY; // BUY
    aTicket[1171] = -1; // Ticket given by broker
@@ -12329,7 +12329,7 @@ void init_tab() {
    aPrice[1171] = 1.314;
 
    // ========== 1172 ===== 253 ==========
-   aPseudoTicket[1172] = 587;
+   //aPseudoTicket[1172] = 587;
    aAction[1172] = 1; // OPEN
    aReturn[587] = 1172;
    aType[1172] = OP_BUY; // BUY
@@ -12340,7 +12340,7 @@ void init_tab() {
    aPrice[1172] = 1.05664;
 
    // ========== 1173 ===== 252 ==========
-   aPseudoTicket[1173] = 588;
+   //aPseudoTicket[1173] = 588;
    aAction[1173] = 1; // OPEN
    aReturn[588] = 1173;
    aType[1173] = OP_BUY; // BUY
@@ -12351,7 +12351,7 @@ void init_tab() {
    aPrice[1173] = 1.053;
 
    // ========== 1174 ===== 254 ==========
-   aPseudoTicket[1174] = 589;
+   //aPseudoTicket[1174] = 589;
    aAction[1174] = 1; // OPEN
    aReturn[589] = 1174;
    aType[1174] = OP_BUY; // BUY
@@ -12362,7 +12362,7 @@ void init_tab() {
    aPrice[1174] = 1.05434;
 
    // ========== 1175 ===== 254 ==========
-   aPseudoTicket[1175] = 589;
+   //aPseudoTicket[1175] = 589;
    aAction[1175] = 0; // CLOSE
    aType[1175] = OP_BUY; // BUY
    aTicket[1175] = -1; // Ticket given by broker
@@ -12372,7 +12372,7 @@ void init_tab() {
    aPrice[1175] = 1.05636;
 
    // ========== 1176 ===== 253 ==========
-   aPseudoTicket[1176] = 587;
+   //aPseudoTicket[1176] = 587;
    aAction[1176] = 0; // CLOSE
    aType[1176] = OP_BUY; // BUY
    aTicket[1176] = -1; // Ticket given by broker
@@ -12382,7 +12382,7 @@ void init_tab() {
    aPrice[1176] = 1.0579;
 
    // ========== 1177 ===== 252 ==========
-   aPseudoTicket[1177] = 588;
+   //aPseudoTicket[1177] = 588;
    aAction[1177] = 0; // CLOSE
    aType[1177] = OP_BUY; // BUY
    aTicket[1177] = -1; // Ticket given by broker
@@ -12392,7 +12392,7 @@ void init_tab() {
    aPrice[1177] = 1.0579;
 
    // ========== 1178 ===== 251 ==========
-   aPseudoTicket[1178] = 590;
+   //aPseudoTicket[1178] = 590;
    aAction[1178] = 1; // OPEN
    aReturn[590] = 1178;
    aType[1178] = OP_SELL; // SELL
@@ -12403,7 +12403,7 @@ void init_tab() {
    aPrice[1178] = 1.31826;
 
    // ========== 1179 ===== 251 ==========
-   aPseudoTicket[1179] = 590;
+   //aPseudoTicket[1179] = 590;
    aAction[1179] = 0; // CLOSE
    aType[1179] = OP_SELL; // SELL
    aTicket[1179] = -1; // Ticket given by broker
@@ -12413,7 +12413,7 @@ void init_tab() {
    aPrice[1179] = 1.31756;
 
    // ========== 1180 ===== 250 ==========
-   aPseudoTicket[1180] = 591;
+   //aPseudoTicket[1180] = 591;
    aAction[1180] = 1; // OPEN
    aReturn[591] = 1180;
    aType[1180] = OP_BUY; // BUY
@@ -12424,7 +12424,7 @@ void init_tab() {
    aPrice[1180] = 1.57872;
 
    // ========== 1181 ===== 250 ==========
-   aPseudoTicket[1181] = 591;
+   //aPseudoTicket[1181] = 591;
    aAction[1181] = 0; // CLOSE
    aType[1181] = OP_BUY; // BUY
    aTicket[1181] = -1; // Ticket given by broker
@@ -12434,7 +12434,7 @@ void init_tab() {
    aPrice[1181] = 1.584;
 
    // ========== 1182 ===== 249 ==========
-   aPseudoTicket[1182] = 592;
+   //aPseudoTicket[1182] = 592;
    aAction[1182] = 1; // OPEN
    aReturn[592] = 1182;
    aType[1182] = OP_SELL; // SELL
@@ -12445,7 +12445,7 @@ void init_tab() {
    aPrice[1182] = 1.5764;
 
    // ========== 1183 ===== 248 ==========
-   aPseudoTicket[1183] = 593;
+   //aPseudoTicket[1183] = 593;
    aAction[1183] = 1; // OPEN
    aReturn[593] = 1183;
    aType[1183] = OP_SELL; // SELL
@@ -12456,7 +12456,7 @@ void init_tab() {
    aPrice[1183] = 1.57718;
 
    // ========== 1184 ===== 249 ==========
-   aPseudoTicket[1184] = 592;
+   //aPseudoTicket[1184] = 592;
    aAction[1184] = 0; // CLOSE
    aType[1184] = OP_SELL; // SELL
    aTicket[1184] = -1; // Ticket given by broker
@@ -12466,7 +12466,7 @@ void init_tab() {
    aPrice[1184] = 1.57594;
 
    // ========== 1185 ===== 248 ==========
-   aPseudoTicket[1185] = 593;
+   //aPseudoTicket[1185] = 593;
    aAction[1185] = 0; // CLOSE
    aType[1185] = OP_SELL; // SELL
    aTicket[1185] = -1; // Ticket given by broker
@@ -12476,7 +12476,7 @@ void init_tab() {
    aPrice[1185] = 1.57657;
 
    // ========== 1186 ===== 247 ==========
-   aPseudoTicket[1186] = 594;
+   //aPseudoTicket[1186] = 594;
    aAction[1186] = 1; // OPEN
    aReturn[594] = 1186;
    aType[1186] = OP_BUY; // BUY
@@ -12487,7 +12487,7 @@ void init_tab() {
    aPrice[1186] = 1.07824;
 
    // ========== 1187 ===== 247 ==========
-   aPseudoTicket[1187] = 594;
+   //aPseudoTicket[1187] = 594;
    aAction[1187] = 0; // CLOSE
    aType[1187] = OP_BUY; // BUY
    aTicket[1187] = -1; // Ticket given by broker
@@ -12497,7 +12497,7 @@ void init_tab() {
    aPrice[1187] = 1.07914;
 
    // ========== 1188 ===== 246 ==========
-   aPseudoTicket[1188] = 595;
+   //aPseudoTicket[1188] = 595;
    aAction[1188] = 1; // OPEN
    aReturn[595] = 1188;
    aType[1188] = OP_SELL; // SELL
@@ -12508,7 +12508,7 @@ void init_tab() {
    aPrice[1188] = 1.08381;
 
    // ========== 1189 ===== 246 ==========
-   aPseudoTicket[1189] = 595;
+   //aPseudoTicket[1189] = 595;
    aAction[1189] = 0; // CLOSE
    aType[1189] = OP_SELL; // SELL
    aTicket[1189] = -1; // Ticket given by broker
@@ -12518,7 +12518,7 @@ void init_tab() {
    aPrice[1189] = 1.08201;
 
    // ========== 1190 ===== 245 ==========
-   aPseudoTicket[1190] = 596;
+   //aPseudoTicket[1190] = 596;
    aAction[1190] = 1; // OPEN
    aReturn[596] = 1190;
    aType[1190] = OP_BUY; // BUY
@@ -12529,7 +12529,7 @@ void init_tab() {
    aPrice[1190] = 1.32964;
 
    // ========== 1191 ===== 243 ==========
-   aPseudoTicket[1191] = 597;
+   //aPseudoTicket[1191] = 597;
    aAction[1191] = 1; // OPEN
    aReturn[597] = 1191;
    aType[1191] = OP_SELL; // SELL
@@ -12540,7 +12540,7 @@ void init_tab() {
    aPrice[1191] = 1.58478;
 
    // ========== 1192 ===== 245 ==========
-   aPseudoTicket[1192] = 596;
+   //aPseudoTicket[1192] = 596;
    aAction[1192] = 0; // CLOSE
    aType[1192] = OP_BUY; // BUY
    aTicket[1192] = -1; // Ticket given by broker
@@ -12550,7 +12550,7 @@ void init_tab() {
    aPrice[1192] = 1.32588;
 
    // ========== 1193 ===== 244 ==========
-   aPseudoTicket[1193] = 598;
+   //aPseudoTicket[1193] = 598;
    aAction[1193] = 1; // OPEN
    aReturn[598] = 1193;
    aType[1193] = OP_SELL; // SELL
@@ -12561,7 +12561,7 @@ void init_tab() {
    aPrice[1193] = 1.58632;
 
    // ========== 1194 ===== 244 ==========
-   aPseudoTicket[1194] = 598;
+   //aPseudoTicket[1194] = 598;
    aAction[1194] = 0; // CLOSE
    aType[1194] = OP_SELL; // SELL
    aTicket[1194] = -1; // Ticket given by broker
@@ -12571,7 +12571,7 @@ void init_tab() {
    aPrice[1194] = 1.58102;
 
    // ========== 1195 ===== 243 ==========
-   aPseudoTicket[1195] = 597;
+   //aPseudoTicket[1195] = 597;
    aAction[1195] = 0; // CLOSE
    aType[1195] = OP_SELL; // SELL
    aTicket[1195] = -1; // Ticket given by broker
@@ -12581,7 +12581,7 @@ void init_tab() {
    aPrice[1195] = 1.58101;
 
    // ========== 1196 ===== 242 ==========
-   aPseudoTicket[1196] = 599;
+   //aPseudoTicket[1196] = 599;
    aAction[1196] = 1; // OPEN
    aReturn[599] = 1196;
    aType[1196] = OP_BUY; // BUY
@@ -12592,7 +12592,7 @@ void init_tab() {
    aPrice[1196] = 1.0704;
 
    // ========== 1197 ===== 242 ==========
-   aPseudoTicket[1197] = 599;
+   //aPseudoTicket[1197] = 599;
    aAction[1197] = 0; // CLOSE
    aType[1197] = OP_BUY; // BUY
    aTicket[1197] = -1; // Ticket given by broker
@@ -12602,7 +12602,7 @@ void init_tab() {
    aPrice[1197] = 1.069;
 
    // ========== 1198 ===== 241 ==========
-   aPseudoTicket[1198] = 600;
+   //aPseudoTicket[1198] = 600;
    aAction[1198] = 1; // OPEN
    aReturn[600] = 1198;
    aType[1198] = OP_SELL; // SELL
@@ -12613,7 +12613,7 @@ void init_tab() {
    aPrice[1198] = 1.07532;
 
    // ========== 1199 ===== 240 ==========
-   aPseudoTicket[1199] = 601;
+   //aPseudoTicket[1199] = 601;
    aAction[1199] = 1; // OPEN
    aReturn[601] = 1199;
    aType[1199] = OP_SELL; // SELL
@@ -12624,7 +12624,7 @@ void init_tab() {
    aPrice[1199] = 1.07675;
 
    // ========== 1200 ===== 239 ==========
-   aPseudoTicket[1200] = 602;
+   //aPseudoTicket[1200] = 602;
    aAction[1200] = 1; // OPEN
    aReturn[602] = 1200;
    aType[1200] = OP_SELL; // SELL
@@ -12635,7 +12635,7 @@ void init_tab() {
    aPrice[1200] = 1.07741;
 
    // ========== 1201 ===== 241 ==========
-   aPseudoTicket[1201] = 600;
+   //aPseudoTicket[1201] = 600;
    aAction[1201] = 0; // CLOSE
    aType[1201] = OP_SELL; // SELL
    aTicket[1201] = -1; // Ticket given by broker
@@ -12645,7 +12645,7 @@ void init_tab() {
    aPrice[1201] = 1.07309;
 
    // ========== 1202 ===== 240 ==========
-   aPseudoTicket[1202] = 601;
+   //aPseudoTicket[1202] = 601;
    aAction[1202] = 0; // CLOSE
    aType[1202] = OP_SELL; // SELL
    aTicket[1202] = -1; // Ticket given by broker
@@ -12655,7 +12655,7 @@ void init_tab() {
    aPrice[1202] = 1.06882;
 
    // ========== 1203 ===== 239 ==========
-   aPseudoTicket[1203] = 602;
+   //aPseudoTicket[1203] = 602;
    aAction[1203] = 0; // CLOSE
    aType[1203] = OP_SELL; // SELL
    aTicket[1203] = -1; // Ticket given by broker
@@ -12665,7 +12665,7 @@ void init_tab() {
    aPrice[1203] = 1.06735;
 
    // ========== 1204 ===== 237 ==========
-   aPseudoTicket[1204] = 603;
+   //aPseudoTicket[1204] = 603;
    aAction[1204] = 1; // OPEN
    aReturn[603] = 1204;
    aType[1204] = OP_SELL; // SELL
@@ -12676,7 +12676,7 @@ void init_tab() {
    aPrice[1204] = 78.158;
 
    // ========== 1205 ===== 238 ==========
-   aPseudoTicket[1205] = 604;
+   //aPseudoTicket[1205] = 604;
    aAction[1205] = 1; // OPEN
    aReturn[604] = 1205;
    aType[1205] = OP_SELL; // SELL
@@ -12687,7 +12687,7 @@ void init_tab() {
    aPrice[1205] = 78.572;
 
    // ========== 1206 ===== 238 ==========
-   aPseudoTicket[1206] = 604;
+   //aPseudoTicket[1206] = 604;
    aAction[1206] = 0; // CLOSE
    aType[1206] = OP_SELL; // SELL
    aTicket[1206] = -1; // Ticket given by broker
@@ -12697,7 +12697,7 @@ void init_tab() {
    aPrice[1206] = 78.265;
 
    // ========== 1207 ===== 237 ==========
-   aPseudoTicket[1207] = 603;
+   //aPseudoTicket[1207] = 603;
    aAction[1207] = 0; // CLOSE
    aType[1207] = OP_SELL; // SELL
    aTicket[1207] = -1; // Ticket given by broker
@@ -12707,7 +12707,7 @@ void init_tab() {
    aPrice[1207] = 78.259;
 
    // ========== 1208 ===== 236 ==========
-   aPseudoTicket[1208] = 605;
+   //aPseudoTicket[1208] = 605;
    aAction[1208] = 1; // OPEN
    aReturn[605] = 1208;
    aType[1208] = OP_BUY; // BUY
@@ -12718,7 +12718,7 @@ void init_tab() {
    aPrice[1208] = 1.29987;
 
    // ========== 1209 ===== 236 ==========
-   aPseudoTicket[1209] = 605;
+   //aPseudoTicket[1209] = 605;
    aAction[1209] = 0; // CLOSE
    aType[1209] = OP_BUY; // BUY
    aTicket[1209] = -1; // Ticket given by broker
@@ -12728,7 +12728,7 @@ void init_tab() {
    aPrice[1209] = 1.30392;
 
    // ========== 1210 ===== 231 ==========
-   aPseudoTicket[1210] = 606;
+   //aPseudoTicket[1210] = 606;
    aAction[1210] = 1; // OPEN
    aReturn[606] = 1210;
    aType[1210] = OP_SELL; // SELL
@@ -12739,7 +12739,7 @@ void init_tab() {
    aPrice[1210] = 79.219;
 
    // ========== 1211 ===== 235 ==========
-   aPseudoTicket[1211] = 607;
+   //aPseudoTicket[1211] = 607;
    aAction[1211] = 1; // OPEN
    aReturn[607] = 1211;
    aType[1211] = OP_SELL; // SELL
@@ -12750,7 +12750,7 @@ void init_tab() {
    aPrice[1211] = 1.31728;
 
    // ========== 1212 ===== 235 ==========
-   aPseudoTicket[1212] = 607;
+   //aPseudoTicket[1212] = 607;
    aAction[1212] = 0; // CLOSE
    aType[1212] = OP_SELL; // SELL
    aTicket[1212] = -1; // Ticket given by broker
@@ -12760,7 +12760,7 @@ void init_tab() {
    aPrice[1212] = 1.31541;
 
    // ========== 1213 ===== 232 ==========
-   aPseudoTicket[1213] = 608;
+   //aPseudoTicket[1213] = 608;
    aAction[1213] = 1; // OPEN
    aReturn[608] = 1213;
    aType[1213] = OP_SELL; // SELL
@@ -12771,7 +12771,7 @@ void init_tab() {
    aPrice[1213] = 1.31771;
 
    // ========== 1214 ===== 233 ==========
-   aPseudoTicket[1214] = 609;
+   //aPseudoTicket[1214] = 609;
    aAction[1214] = 1; // OPEN
    aReturn[609] = 1214;
    aType[1214] = OP_SELL; // SELL
@@ -12782,7 +12782,7 @@ void init_tab() {
    aPrice[1214] = 1.32682;
 
    // ========== 1215 ===== 234 ==========
-   aPseudoTicket[1215] = 610;
+   //aPseudoTicket[1215] = 610;
    aAction[1215] = 1; // OPEN
    aReturn[610] = 1215;
    aType[1215] = OP_SELL; // SELL
@@ -12793,7 +12793,7 @@ void init_tab() {
    aPrice[1215] = 1.3268;
 
    // ========== 1216 ===== 234 ==========
-   aPseudoTicket[1216] = 610;
+   //aPseudoTicket[1216] = 610;
    aAction[1216] = 0; // CLOSE
    aType[1216] = OP_SELL; // SELL
    aTicket[1216] = -1; // Ticket given by broker
@@ -12803,7 +12803,7 @@ void init_tab() {
    aPrice[1216] = 1.32067;
 
    // ========== 1217 ===== 233 ==========
-   aPseudoTicket[1217] = 609;
+   //aPseudoTicket[1217] = 609;
    aAction[1217] = 0; // CLOSE
    aType[1217] = OP_SELL; // SELL
    aTicket[1217] = -1; // Ticket given by broker
@@ -12813,7 +12813,7 @@ void init_tab() {
    aPrice[1217] = 1.32473;
 
    // ========== 1218 ===== 232 ==========
-   aPseudoTicket[1218] = 608;
+   //aPseudoTicket[1218] = 608;
    aAction[1218] = 0; // CLOSE
    aType[1218] = OP_SELL; // SELL
    aTicket[1218] = -1; // Ticket given by broker
@@ -12823,7 +12823,7 @@ void init_tab() {
    aPrice[1218] = 1.32536;
 
    // ========== 1219 ===== 230 ==========
-   aPseudoTicket[1219] = 611;
+   //aPseudoTicket[1219] = 611;
    aAction[1219] = 1; // OPEN
    aReturn[611] = 1219;
    aType[1219] = OP_BUY; // BUY
@@ -12834,7 +12834,7 @@ void init_tab() {
    aPrice[1219] = 1.32911;
 
    // ========== 1220 ===== 231 ==========
-   aPseudoTicket[1220] = 606;
+   //aPseudoTicket[1220] = 606;
    aAction[1220] = 0; // CLOSE
    aType[1220] = OP_SELL; // SELL
    aTicket[1220] = -1; // Ticket given by broker
@@ -12844,7 +12844,7 @@ void init_tab() {
    aPrice[1220] = 79.8;
 
    // ========== 1221 ===== 230 ==========
-   aPseudoTicket[1221] = 611;
+   //aPseudoTicket[1221] = 611;
    aAction[1221] = 0; // CLOSE
    aType[1221] = OP_BUY; // BUY
    aTicket[1221] = -1; // Ticket given by broker
@@ -12854,7 +12854,7 @@ void init_tab() {
    aPrice[1221] = 1.32525;
 
    // ========== 1222 ===== 228 ==========
-   aPseudoTicket[1222] = 612;
+   //aPseudoTicket[1222] = 612;
    aAction[1222] = 1; // OPEN
    aReturn[612] = 1222;
    aType[1222] = OP_SELL; // SELL
@@ -12865,7 +12865,7 @@ void init_tab() {
    aPrice[1222] = 80.063;
 
    // ========== 1223 ===== 229 ==========
-   aPseudoTicket[1223] = 613;
+   //aPseudoTicket[1223] = 613;
    aAction[1223] = 1; // OPEN
    aReturn[613] = 1223;
    aType[1223] = OP_SELL; // SELL
@@ -12876,7 +12876,7 @@ void init_tab() {
    aPrice[1223] = 80.216;
 
    // ========== 1224 ===== 229 ==========
-   aPseudoTicket[1224] = 613;
+   //aPseudoTicket[1224] = 613;
    aAction[1224] = 0; // CLOSE
    aType[1224] = OP_SELL; // SELL
    aTicket[1224] = -1; // Ticket given by broker
@@ -12886,7 +12886,7 @@ void init_tab() {
    aPrice[1224] = 79.962;
 
    // ========== 1225 ===== 225 ==========
-   aPseudoTicket[1225] = 614;
+   //aPseudoTicket[1225] = 614;
    aAction[1225] = 1; // OPEN
    aReturn[614] = 1225;
    aType[1225] = OP_SELL; // SELL
@@ -12897,7 +12897,7 @@ void init_tab() {
    aPrice[1225] = 1.34119;
 
    // ========== 1226 ===== 226 ==========
-   aPseudoTicket[1226] = 615;
+   //aPseudoTicket[1226] = 615;
    aAction[1226] = 1; // OPEN
    aReturn[615] = 1226;
    aType[1226] = OP_SELL; // SELL
@@ -12908,7 +12908,7 @@ void init_tab() {
    aPrice[1226] = 1.34649;
 
    // ========== 1227 ===== 228 ==========
-   aPseudoTicket[1227] = 612;
+   //aPseudoTicket[1227] = 612;
    aAction[1227] = 0; // CLOSE
    aType[1227] = OP_SELL; // SELL
    aTicket[1227] = -1; // Ticket given by broker
@@ -12918,7 +12918,7 @@ void init_tab() {
    aPrice[1227] = 80.936;
 
    // ========== 1228 ===== 227 ==========
-   aPseudoTicket[1228] = 616;
+   //aPseudoTicket[1228] = 616;
    aAction[1228] = 1; // OPEN
    aReturn[616] = 1228;
    aType[1228] = OP_BUY; // BUY
@@ -12929,7 +12929,7 @@ void init_tab() {
    aPrice[1228] = 80.647;
 
    // ========== 1229 ===== 227 ==========
-   aPseudoTicket[1229] = 616;
+   //aPseudoTicket[1229] = 616;
    aAction[1229] = 0; // CLOSE
    aType[1229] = OP_BUY; // BUY
    aTicket[1229] = -1; // Ticket given by broker
@@ -12939,7 +12939,7 @@ void init_tab() {
    aPrice[1229] = 80.636;
 
    // ========== 1230 ===== 226 ==========
-   aPseudoTicket[1230] = 615;
+   //aPseudoTicket[1230] = 615;
    aAction[1230] = 0; // CLOSE
    aType[1230] = OP_SELL; // SELL
    aTicket[1230] = -1; // Ticket given by broker
@@ -12949,7 +12949,7 @@ void init_tab() {
    aPrice[1230] = 1.34194;
 
    // ========== 1231 ===== 225 ==========
-   aPseudoTicket[1231] = 614;
+   //aPseudoTicket[1231] = 614;
    aAction[1231] = 0; // CLOSE
    aType[1231] = OP_SELL; // SELL
    aTicket[1231] = -1; // Ticket given by broker
@@ -12959,7 +12959,7 @@ void init_tab() {
    aPrice[1231] = 1.34146;
 
    // ========== 1232 ===== 224 ==========
-   aPseudoTicket[1232] = 617;
+   //aPseudoTicket[1232] = 617;
    aAction[1232] = 1; // OPEN
    aReturn[617] = 1232;
    aType[1232] = OP_BUY; // BUY
@@ -12970,7 +12970,7 @@ void init_tab() {
    aPrice[1232] = 1.33922;
 
    // ========== 1233 ===== 224 ==========
-   aPseudoTicket[1233] = 617;
+   //aPseudoTicket[1233] = 617;
    aAction[1233] = 0; // CLOSE
    aType[1233] = OP_BUY; // BUY
    aTicket[1233] = -1; // Ticket given by broker
@@ -12980,7 +12980,7 @@ void init_tab() {
    aPrice[1233] = 1.3413;
 
    // ========== 1234 ===== 223 ==========
-   aPseudoTicket[1234] = 618;
+   //aPseudoTicket[1234] = 618;
    aAction[1234] = 1; // OPEN
    aReturn[618] = 1234;
    aType[1234] = OP_BUY; // BUY
@@ -12991,7 +12991,7 @@ void init_tab() {
    aPrice[1234] = 80.18;
 
    // ========== 1235 ===== 223 ==========
-   aPseudoTicket[1235] = 618;
+   //aPseudoTicket[1235] = 618;
    aAction[1235] = 0; // CLOSE
    aType[1235] = OP_BUY; // BUY
    aTicket[1235] = -1; // Ticket given by broker
@@ -13001,7 +13001,7 @@ void init_tab() {
    aPrice[1235] = 80.623;
 
    // ========== 1236 ===== 222 ==========
-   aPseudoTicket[1236] = 619;
+   //aPseudoTicket[1236] = 619;
    aAction[1236] = 1; // OPEN
    aReturn[619] = 1236;
    aType[1236] = OP_BUY; // BUY
@@ -13012,7 +13012,7 @@ void init_tab() {
    aPrice[1236] = 0.89614;
 
    // ========== 1237 ===== 222 ==========
-   aPseudoTicket[1237] = 619;
+   //aPseudoTicket[1237] = 619;
    aAction[1237] = 0; // CLOSE
    aType[1237] = OP_BUY; // BUY
    aTicket[1237] = -1; // Ticket given by broker
@@ -13022,7 +13022,7 @@ void init_tab() {
    aPrice[1237] = 0.89667;
 
    // ========== 1238 ===== 221 ==========
-   aPseudoTicket[1238] = 620;
+   //aPseudoTicket[1238] = 620;
    aAction[1238] = 1; // OPEN
    aReturn[620] = 1238;
    aType[1238] = OP_SELL; // SELL
@@ -13033,7 +13033,7 @@ void init_tab() {
    aPrice[1238] = 0.89746;
 
    // ========== 1239 ===== 221 ==========
-   aPseudoTicket[1239] = 620;
+   //aPseudoTicket[1239] = 620;
    aAction[1239] = 0; // CLOSE
    aType[1239] = OP_SELL; // SELL
    aTicket[1239] = -1; // Ticket given by broker
@@ -13043,7 +13043,7 @@ void init_tab() {
    aPrice[1239] = 0.89704;
 
    // ========== 1240 ===== 220 ==========
-   aPseudoTicket[1240] = 621;
+   //aPseudoTicket[1240] = 621;
    aAction[1240] = 1; // OPEN
    aReturn[621] = 1240;
    aType[1240] = OP_BUY; // BUY
@@ -13054,7 +13054,7 @@ void init_tab() {
    aPrice[1240] = 1.32927;
 
    // ========== 1241 ===== 220 ==========
-   aPseudoTicket[1241] = 621;
+   //aPseudoTicket[1241] = 621;
    aAction[1241] = 0; // CLOSE
    aType[1241] = OP_BUY; // BUY
    aTicket[1241] = -1; // Ticket given by broker
@@ -13064,7 +13064,7 @@ void init_tab() {
    aPrice[1241] = 1.33134;
 
    // ========== 1242 ===== 218 ==========
-   aPseudoTicket[1242] = 622;
+   //aPseudoTicket[1242] = 622;
    aAction[1242] = 1; // OPEN
    aReturn[622] = 1242;
    aType[1242] = OP_SELL; // SELL
@@ -13075,7 +13075,7 @@ void init_tab() {
    aPrice[1242] = 81.479;
 
    // ========== 1243 ===== 219 ==========
-   aPseudoTicket[1243] = 623;
+   //aPseudoTicket[1243] = 623;
    aAction[1243] = 1; // OPEN
    aReturn[623] = 1243;
    aType[1243] = OP_SELL; // SELL
@@ -13086,7 +13086,7 @@ void init_tab() {
    aPrice[1243] = 81.611;
 
    // ========== 1244 ===== 219 ==========
-   aPseudoTicket[1244] = 623;
+   //aPseudoTicket[1244] = 623;
    aAction[1244] = 0; // CLOSE
    aType[1244] = OP_SELL; // SELL
    aTicket[1244] = -1; // Ticket given by broker
@@ -13096,7 +13096,7 @@ void init_tab() {
    aPrice[1244] = 81.502;
 
    // ========== 1245 ===== 218 ==========
-   aPseudoTicket[1245] = 622;
+   //aPseudoTicket[1245] = 622;
    aAction[1245] = 0; // CLOSE
    aType[1245] = OP_SELL; // SELL
    aTicket[1245] = -1; // Ticket given by broker
@@ -13106,7 +13106,7 @@ void init_tab() {
    aPrice[1245] = 81.479;
 
    // ========== 1246 ===== 217 ==========
-   aPseudoTicket[1246] = 624;
+   //aPseudoTicket[1246] = 624;
    aAction[1246] = 1; // OPEN
    aReturn[624] = 1246;
    aType[1246] = OP_SELL; // SELL
@@ -13117,7 +13117,7 @@ void init_tab() {
    aPrice[1246] = 0.9125;
 
    // ========== 1247 ===== 216 ==========
-   aPseudoTicket[1247] = 625;
+   //aPseudoTicket[1247] = 625;
    aAction[1247] = 1; // OPEN
    aReturn[625] = 1247;
    aType[1247] = OP_BUY; // BUY
@@ -13128,7 +13128,7 @@ void init_tab() {
    aPrice[1247] = 1.319;
 
    // ========== 1248 ===== 217 ==========
-   aPseudoTicket[1248] = 624;
+   //aPseudoTicket[1248] = 624;
    aAction[1248] = 0; // CLOSE
    aType[1248] = OP_SELL; // SELL
    aTicket[1248] = -1; // Ticket given by broker
@@ -13138,7 +13138,7 @@ void init_tab() {
    aPrice[1248] = 0.91304;
 
    // ========== 1249 ===== 216 ==========
-   aPseudoTicket[1249] = 625;
+   //aPseudoTicket[1249] = 625;
    aAction[1249] = 0; // CLOSE
    aType[1249] = OP_BUY; // BUY
    aTicket[1249] = -1; // Ticket given by broker
@@ -13148,7 +13148,7 @@ void init_tab() {
    aPrice[1249] = 1.32026;
 
    // ========== 1250 ===== 215 ==========
-   aPseudoTicket[1250] = 626;
+   //aPseudoTicket[1250] = 626;
    aAction[1250] = 1; // OPEN
    aReturn[626] = 1250;
    aType[1250] = OP_BUY; // BUY
@@ -13159,7 +13159,7 @@ void init_tab() {
    aPrice[1250] = 1.58048;
 
    // ========== 1251 ===== 214 ==========
-   aPseudoTicket[1251] = 627;
+   //aPseudoTicket[1251] = 627;
    aAction[1251] = 1; // OPEN
    aReturn[627] = 1251;
    aType[1251] = OP_BUY; // BUY
@@ -13170,7 +13170,7 @@ void init_tab() {
    aPrice[1251] = 1.57926;
 
    // ========== 1252 ===== 215 ==========
-   aPseudoTicket[1252] = 626;
+   //aPseudoTicket[1252] = 626;
    aAction[1252] = 0; // CLOSE
    aType[1252] = OP_BUY; // BUY
    aTicket[1252] = -1; // Ticket given by broker
@@ -13180,7 +13180,7 @@ void init_tab() {
    aPrice[1252] = 1.58112;
 
    // ========== 1253 ===== 213 ==========
-   aPseudoTicket[1253] = 628;
+   //aPseudoTicket[1253] = 628;
    aAction[1253] = 1; // OPEN
    aReturn[628] = 1253;
    aType[1253] = OP_BUY; // BUY
@@ -13191,7 +13191,7 @@ void init_tab() {
    aPrice[1253] = 1.31746;
 
    // ========== 1254 ===== 214 ==========
-   aPseudoTicket[1254] = 627;
+   //aPseudoTicket[1254] = 627;
    aAction[1254] = 0; // CLOSE
    aType[1254] = OP_BUY; // BUY
    aTicket[1254] = -1; // Ticket given by broker
@@ -13201,7 +13201,7 @@ void init_tab() {
    aPrice[1254] = 1.58167;
 
    // ========== 1255 ===== 213 ==========
-   aPseudoTicket[1255] = 628;
+   //aPseudoTicket[1255] = 628;
    aAction[1255] = 0; // CLOSE
    aType[1255] = OP_BUY; // BUY
    aTicket[1255] = -1; // Ticket given by broker
@@ -13211,7 +13211,7 @@ void init_tab() {
    aPrice[1255] = 1.32024;
 
    // ========== 1256 ===== 212 ==========
-   aPseudoTicket[1256] = 629;
+   //aPseudoTicket[1256] = 629;
    aAction[1256] = 1; // OPEN
    aReturn[629] = 1256;
    aType[1256] = OP_SELL; // SELL
@@ -13222,7 +13222,7 @@ void init_tab() {
    aPrice[1256] = 1.57736;
 
    // ========== 1257 ===== 212 ==========
-   aPseudoTicket[1257] = 629;
+   //aPseudoTicket[1257] = 629;
    aAction[1257] = 0; // CLOSE
    aType[1257] = OP_SELL; // SELL
    aTicket[1257] = -1; // Ticket given by broker
@@ -13232,7 +13232,7 @@ void init_tab() {
    aPrice[1257] = 1.57658;
 
    // ========== 1258 ===== 211 ==========
-   aPseudoTicket[1258] = 630;
+   //aPseudoTicket[1258] = 630;
    aAction[1258] = 1; // OPEN
    aReturn[630] = 1258;
    aType[1258] = OP_SELL; // SELL
@@ -13243,7 +13243,7 @@ void init_tab() {
    aPrice[1258] = 1.5794;
 
    // ========== 1259 ===== 208 ==========
-   aPseudoTicket[1259] = 631;
+   //aPseudoTicket[1259] = 631;
    aAction[1259] = 1; // OPEN
    aReturn[631] = 1259;
    aType[1259] = OP_SELL; // SELL
@@ -13254,7 +13254,7 @@ void init_tab() {
    aPrice[1259] = 1.32003;
 
    // ========== 1260 ===== 211 ==========
-   aPseudoTicket[1260] = 630;
+   //aPseudoTicket[1260] = 630;
    aAction[1260] = 0; // CLOSE
    aType[1260] = OP_SELL; // SELL
    aTicket[1260] = -1; // Ticket given by broker
@@ -13264,7 +13264,7 @@ void init_tab() {
    aPrice[1260] = 1.57919;
 
    // ========== 1261 ===== 209 ==========
-   aPseudoTicket[1261] = 632;
+   //aPseudoTicket[1261] = 632;
    aAction[1261] = 1; // OPEN
    aReturn[632] = 1261;
    aType[1261] = OP_SELL; // SELL
@@ -13275,7 +13275,7 @@ void init_tab() {
    aPrice[1261] = 1.32362;
 
    // ========== 1262 ===== 210 ==========
-   aPseudoTicket[1262] = 633;
+   //aPseudoTicket[1262] = 633;
    aAction[1262] = 1; // OPEN
    aReturn[633] = 1262;
    aType[1262] = OP_SELL; // SELL
@@ -13286,7 +13286,7 @@ void init_tab() {
    aPrice[1262] = 1.32441;
 
    // ========== 1263 ===== 210 ==========
-   aPseudoTicket[1263] = 633;
+   //aPseudoTicket[1263] = 633;
    aAction[1263] = 0; // CLOSE
    aType[1263] = OP_SELL; // SELL
    aTicket[1263] = -1; // Ticket given by broker
@@ -13296,7 +13296,7 @@ void init_tab() {
    aPrice[1263] = 1.32354;
 
    // ========== 1264 ===== 209 ==========
-   aPseudoTicket[1264] = 632;
+   //aPseudoTicket[1264] = 632;
    aAction[1264] = 0; // CLOSE
    aType[1264] = OP_SELL; // SELL
    aTicket[1264] = -1; // Ticket given by broker
@@ -13306,7 +13306,7 @@ void init_tab() {
    aPrice[1264] = 1.32237;
 
    // ========== 1265 ===== 208 ==========
-   aPseudoTicket[1265] = 631;
+   //aPseudoTicket[1265] = 631;
    aAction[1265] = 0; // CLOSE
    aType[1265] = OP_SELL; // SELL
    aTicket[1265] = -1; // Ticket given by broker
@@ -13316,7 +13316,7 @@ void init_tab() {
    aPrice[1265] = 1.32198;
 
    // ========== 1266 ===== 207 ==========
-   aPseudoTicket[1266] = 634;
+   //aPseudoTicket[1266] = 634;
    aAction[1266] = 1; // OPEN
    aReturn[634] = 1266;
    aType[1266] = OP_BUY; // BUY
@@ -13327,7 +13327,7 @@ void init_tab() {
    aPrice[1266] = 82.136;
 
    // ========== 1267 ===== 207 ==========
-   aPseudoTicket[1267] = 634;
+   //aPseudoTicket[1267] = 634;
    aAction[1267] = 0; // CLOSE
    aType[1267] = OP_BUY; // BUY
    aTicket[1267] = -1; // Ticket given by broker
@@ -13337,7 +13337,7 @@ void init_tab() {
    aPrice[1267] = 82.276;
 
    // ========== 1268 ===== 206 ==========
-   aPseudoTicket[1268] = 635;
+   //aPseudoTicket[1268] = 635;
    aAction[1268] = 1; // OPEN
    aReturn[635] = 1268;
    aType[1268] = OP_BUY; // BUY
@@ -13348,7 +13348,7 @@ void init_tab() {
    aPrice[1268] = 1.31397;
 
    // ========== 1269 ===== 206 ==========
-   aPseudoTicket[1269] = 635;
+   //aPseudoTicket[1269] = 635;
    aAction[1269] = 0; // CLOSE
    aType[1269] = OP_BUY; // BUY
    aTicket[1269] = -1; // Ticket given by broker
@@ -13358,7 +13358,7 @@ void init_tab() {
    aPrice[1269] = 1.30869;
 
    // ========== 1270 ===== 205 ==========
-   aPseudoTicket[1270] = 636;
+   //aPseudoTicket[1270] = 636;
    aAction[1270] = 1; // OPEN
    aReturn[636] = 1270;
    aType[1270] = OP_BUY; // BUY
@@ -13369,7 +13369,7 @@ void init_tab() {
    aPrice[1270] = 0.91865;
 
    // ========== 1271 ===== 205 ==========
-   aPseudoTicket[1271] = 636;
+   //aPseudoTicket[1271] = 636;
    aAction[1271] = 0; // CLOSE
    aType[1271] = OP_BUY; // BUY
    aTicket[1271] = -1; // Ticket given by broker
@@ -13379,7 +13379,7 @@ void init_tab() {
    aPrice[1271] = 0.91946;
 
    // ========== 1272 ===== 204 ==========
-   aPseudoTicket[1272] = 637;
+   //aPseudoTicket[1272] = 637;
    aAction[1272] = 1; // OPEN
    aReturn[637] = 1272;
    aType[1272] = OP_SELL; // SELL
@@ -13390,7 +13390,7 @@ void init_tab() {
    aPrice[1272] = 1.30523;
 
    // ========== 1273 ===== 204 ==========
-   aPseudoTicket[1273] = 637;
+   //aPseudoTicket[1273] = 637;
    aAction[1273] = 0; // CLOSE
    aType[1273] = OP_SELL; // SELL
    aTicket[1273] = -1; // Ticket given by broker
@@ -13400,7 +13400,7 @@ void init_tab() {
    aPrice[1273] = 1.308;
 
    // ========== 1274 ===== 203 ==========
-   aPseudoTicket[1274] = 638;
+   //aPseudoTicket[1274] = 638;
    aAction[1274] = 1; // OPEN
    aReturn[638] = 1274;
    aType[1274] = OP_SELL; // SELL
@@ -13411,7 +13411,7 @@ void init_tab() {
    aPrice[1274] = 83.637;
 
    // ========== 1275 ===== 201 ==========
-   aPseudoTicket[1275] = 639;
+   //aPseudoTicket[1275] = 639;
    aAction[1275] = 1; // OPEN
    aReturn[639] = 1275;
    aType[1275] = OP_SELL; // SELL
@@ -13422,7 +13422,7 @@ void init_tab() {
    aPrice[1275] = 83.837;
 
    // ========== 1276 ===== 200 ==========
-   aPseudoTicket[1276] = 640;
+   //aPseudoTicket[1276] = 640;
    aAction[1276] = 1; // OPEN
    aReturn[640] = 1276;
    aType[1276] = OP_SELL; // SELL
@@ -13433,7 +13433,7 @@ void init_tab() {
    aPrice[1276] = 83.951;
 
    // ========== 1277 ===== 202 ==========
-   aPseudoTicket[1277] = 641;
+   //aPseudoTicket[1277] = 641;
    aAction[1277] = 1; // OPEN
    aReturn[641] = 1277;
    aType[1277] = OP_SELL; // SELL
@@ -13444,7 +13444,7 @@ void init_tab() {
    aPrice[1277] = 84.077;
 
    // ========== 1278 ===== 203 ==========
-   aPseudoTicket[1278] = 638;
+   //aPseudoTicket[1278] = 638;
    aAction[1278] = 0; // CLOSE
    aType[1278] = OP_SELL; // SELL
    aTicket[1278] = -1; // Ticket given by broker
@@ -13454,7 +13454,7 @@ void init_tab() {
    aPrice[1278] = 83.538;
 
    // ========== 1279 ===== 202 ==========
-   aPseudoTicket[1279] = 641;
+   //aPseudoTicket[1279] = 641;
    aAction[1279] = 0; // CLOSE
    aType[1279] = OP_SELL; // SELL
    aTicket[1279] = -1; // Ticket given by broker
@@ -13464,7 +13464,7 @@ void init_tab() {
    aPrice[1279] = 83.463;
 
    // ========== 1280 ===== 201 ==========
-   aPseudoTicket[1280] = 639;
+   //aPseudoTicket[1280] = 639;
    aAction[1280] = 0; // CLOSE
    aType[1280] = OP_SELL; // SELL
    aTicket[1280] = -1; // Ticket given by broker
@@ -13474,7 +13474,7 @@ void init_tab() {
    aPrice[1280] = 83.3;
 
    // ========== 1281 ===== 200 ==========
-   aPseudoTicket[1281] = 640;
+   //aPseudoTicket[1281] = 640;
    aAction[1281] = 0; // CLOSE
    aType[1281] = OP_SELL; // SELL
    aTicket[1281] = -1; // Ticket given by broker
@@ -13484,7 +13484,7 @@ void init_tab() {
    aPrice[1281] = 83.327;
 
    // ========== 1282 ===== 199 ==========
-   aPseudoTicket[1282] = 642;
+   //aPseudoTicket[1282] = 642;
    aAction[1282] = 1; // OPEN
    aReturn[642] = 1282;
    aType[1282] = OP_BUY; // BUY
@@ -13495,7 +13495,7 @@ void init_tab() {
    aPrice[1282] = 1.30557;
 
    // ========== 1283 ===== 199 ==========
-   aPseudoTicket[1283] = 642;
+   //aPseudoTicket[1283] = 642;
    aAction[1283] = 0; // CLOSE
    aType[1283] = OP_BUY; // BUY
    aTicket[1283] = -1; // Ticket given by broker
@@ -13505,7 +13505,7 @@ void init_tab() {
    aPrice[1283] = 1.30668;
 
    // ========== 1284 ===== 198 ==========
-   aPseudoTicket[1284] = 643;
+   //aPseudoTicket[1284] = 643;
    aAction[1284] = 1; // OPEN
    aReturn[643] = 1284;
    aType[1284] = OP_SELL; // SELL
@@ -13516,7 +13516,7 @@ void init_tab() {
    aPrice[1284] = 1.59006;
 
    // ========== 1285 ===== 198 ==========
-   aPseudoTicket[1285] = 643;
+   //aPseudoTicket[1285] = 643;
    aAction[1285] = 0; // CLOSE
    aType[1285] = OP_SELL; // SELL
    aTicket[1285] = -1; // Ticket given by broker
@@ -13526,7 +13526,7 @@ void init_tab() {
    aPrice[1285] = 1.58944;
 
    // ========== 1286 ===== 197 ==========
-   aPseudoTicket[1286] = 644;
+   //aPseudoTicket[1286] = 644;
    aAction[1286] = 1; // OPEN
    aReturn[644] = 1286;
    aType[1286] = OP_SELL; // SELL
@@ -13537,7 +13537,7 @@ void init_tab() {
    aPrice[1286] = 1.31889;
 
    // ========== 1287 ===== 197 ==========
-   aPseudoTicket[1287] = 644;
+   //aPseudoTicket[1287] = 644;
    aAction[1287] = 0; // CLOSE
    aType[1287] = OP_SELL; // SELL
    aTicket[1287] = -1; // Ticket given by broker
@@ -13547,7 +13547,7 @@ void init_tab() {
    aPrice[1287] = 1.32019;
 
    // ========== 1288 ===== 196 ==========
-   aPseudoTicket[1288] = 645;
+   //aPseudoTicket[1288] = 645;
    aAction[1288] = 1; // OPEN
    aReturn[645] = 1288;
    aType[1288] = OP_SELL; // SELL
@@ -13558,7 +13558,7 @@ void init_tab() {
    aPrice[1288] = 1.31624;
 
    // ========== 1289 ===== 196 ==========
-   aPseudoTicket[1289] = 645;
+   //aPseudoTicket[1289] = 645;
    aAction[1289] = 0; // CLOSE
    aType[1289] = OP_SELL; // SELL
    aTicket[1289] = -1; // Ticket given by broker
@@ -13568,7 +13568,7 @@ void init_tab() {
    aPrice[1289] = 1.32;
 
    // ========== 1290 ===== 195 ==========
-   aPseudoTicket[1290] = 646;
+   //aPseudoTicket[1290] = 646;
    aAction[1290] = 1; // OPEN
    aReturn[646] = 1290;
    aType[1290] = OP_BUY; // BUY
@@ -13579,7 +13579,7 @@ void init_tab() {
    aPrice[1290] = 1.32677;
 
    // ========== 1291 ===== 194 ==========
-   aPseudoTicket[1291] = 647;
+   //aPseudoTicket[1291] = 647;
    aAction[1291] = 1; // OPEN
    aReturn[647] = 1291;
    aType[1291] = OP_SELL; // SELL
@@ -13590,7 +13590,7 @@ void init_tab() {
    aPrice[1291] = 1.04814;
 
    // ========== 1292 ===== 195 ==========
-   aPseudoTicket[1292] = 646;
+   //aPseudoTicket[1292] = 646;
    aAction[1292] = 0; // CLOSE
    aType[1292] = OP_BUY; // BUY
    aTicket[1292] = -1; // Ticket given by broker
@@ -13600,7 +13600,7 @@ void init_tab() {
    aPrice[1292] = 1.32538;
 
    // ========== 1293 ===== 194 ==========
-   aPseudoTicket[1293] = 647;
+   //aPseudoTicket[1293] = 647;
    aAction[1293] = 0; // CLOSE
    aType[1293] = OP_SELL; // SELL
    aTicket[1293] = -1; // Ticket given by broker
@@ -13610,7 +13610,7 @@ void init_tab() {
    aPrice[1293] = 1.0431;
 
    // ========== 1294 ===== 193 ==========
-   aPseudoTicket[1294] = 648;
+   //aPseudoTicket[1294] = 648;
    aAction[1294] = 1; // OPEN
    aReturn[648] = 1294;
    aType[1294] = OP_SELL; // SELL
@@ -13621,7 +13621,7 @@ void init_tab() {
    aPrice[1294] = 1.32075;
 
    // ========== 1295 ===== 193 ==========
-   aPseudoTicket[1295] = 648;
+   //aPseudoTicket[1295] = 648;
    aAction[1295] = 0; // CLOSE
    aType[1295] = OP_SELL; // SELL
    aTicket[1295] = -1; // Ticket given by broker
@@ -13631,7 +13631,7 @@ void init_tab() {
    aPrice[1295] = 1.3247;
 
    // ========== 1296 ===== 192 ==========
-   aPseudoTicket[1296] = 649;
+   //aPseudoTicket[1296] = 649;
    aAction[1296] = 1; // OPEN
    aReturn[649] = 1296;
    aType[1296] = OP_BUY; // BUY
@@ -13642,7 +13642,7 @@ void init_tab() {
    aPrice[1296] = 1.58869;
 
    // ========== 1297 ===== 192 ==========
-   aPseudoTicket[1297] = 649;
+   //aPseudoTicket[1297] = 649;
    aAction[1297] = 0; // CLOSE
    aType[1297] = OP_BUY; // BUY
    aTicket[1297] = -1; // Ticket given by broker
@@ -13652,7 +13652,7 @@ void init_tab() {
    aPrice[1297] = 1.59672;
 
    // ========== 1298 ===== 191 ==========
-   aPseudoTicket[1298] = 650;
+   //aPseudoTicket[1298] = 650;
    aAction[1298] = 1; // OPEN
    aReturn[650] = 1298;
    aType[1298] = OP_BUY; // BUY
@@ -13663,7 +13663,7 @@ void init_tab() {
    aPrice[1298] = 1.58835;
 
    // ========== 1299 ===== 191 ==========
-   aPseudoTicket[1299] = 650;
+   //aPseudoTicket[1299] = 650;
    aAction[1299] = 0; // CLOSE
    aType[1299] = OP_BUY; // BUY
    aTicket[1299] = -1; // Ticket given by broker
@@ -13673,7 +13673,7 @@ void init_tab() {
    aPrice[1299] = 1.58519;
 
    // ========== 1300 ===== 189 ==========
-   aPseudoTicket[1300] = 651;
+   //aPseudoTicket[1300] = 651;
    aAction[1300] = 1; // OPEN
    aReturn[651] = 1300;
    aType[1300] = OP_BUY; // BUY
@@ -13684,7 +13684,7 @@ void init_tab() {
    aPrice[1300] = 1.33334;
 
    // ========== 1301 ===== 190 ==========
-   aPseudoTicket[1301] = 652;
+   //aPseudoTicket[1301] = 652;
    aAction[1301] = 1; // OPEN
    aReturn[652] = 1301;
    aType[1301] = OP_SELL; // SELL
@@ -13695,7 +13695,7 @@ void init_tab() {
    aPrice[1301] = 1.04029;
 
    // ========== 1302 ===== 190 ==========
-   aPseudoTicket[1302] = 652;
+   //aPseudoTicket[1302] = 652;
    aAction[1302] = 0; // CLOSE
    aType[1302] = OP_SELL; // SELL
    aTicket[1302] = -1; // Ticket given by broker
@@ -13705,7 +13705,7 @@ void init_tab() {
    aPrice[1302] = 1.03967;
 
    // ========== 1303 ===== 189 ==========
-   aPseudoTicket[1303] = 651;
+   //aPseudoTicket[1303] = 651;
    aAction[1303] = 0; // CLOSE
    aType[1303] = OP_BUY; // BUY
    aTicket[1303] = -1; // Ticket given by broker
@@ -13715,7 +13715,7 @@ void init_tab() {
    aPrice[1303] = 1.33386;
 
    // ========== 1304 ===== 188 ==========
-   aPseudoTicket[1304] = 653;
+   //aPseudoTicket[1304] = 653;
    aAction[1304] = 1; // OPEN
    aReturn[653] = 1304;
    aType[1304] = OP_BUY; // BUY
@@ -13726,7 +13726,7 @@ void init_tab() {
    aPrice[1304] = 1.33683;
 
    // ========== 1305 ===== 188 ==========
-   aPseudoTicket[1305] = 653;
+   //aPseudoTicket[1305] = 653;
    aAction[1305] = 0; // CLOSE
    aType[1305] = OP_BUY; // BUY
    aTicket[1305] = -1; // Ticket given by broker
@@ -13736,7 +13736,7 @@ void init_tab() {
    aPrice[1305] = 1.332;
 
    // ========== 1306 ===== 187 ==========
-   aPseudoTicket[1306] = 654;
+   //aPseudoTicket[1306] = 654;
    aAction[1306] = 1; // OPEN
    aReturn[654] = 1306;
    aType[1306] = OP_BUY; // BUY
@@ -13747,7 +13747,7 @@ void init_tab() {
    aPrice[1306] = 0.90703;
 
    // ========== 1307 ===== 187 ==========
-   aPseudoTicket[1307] = 654;
+   //aPseudoTicket[1307] = 654;
    aAction[1307] = 0; // CLOSE
    aType[1307] = OP_BUY; // BUY
    aTicket[1307] = -1; // Ticket given by broker
@@ -13757,7 +13757,7 @@ void init_tab() {
    aPrice[1307] = 0.90031;
 
    // ========== 1308 ===== 186 ==========
-   aPseudoTicket[1308] = 655;
+   //aPseudoTicket[1308] = 655;
    aAction[1308] = 1; // OPEN
    aReturn[655] = 1308;
    aType[1308] = OP_SELL; // SELL
@@ -13768,7 +13768,7 @@ void init_tab() {
    aPrice[1308] = 1.32233;
 
    // ========== 1309 ===== 186 ==========
-   aPseudoTicket[1309] = 655;
+   //aPseudoTicket[1309] = 655;
    aAction[1309] = 0; // CLOSE
    aType[1309] = OP_SELL; // SELL
    aTicket[1309] = -1; // Ticket given by broker
@@ -13778,7 +13778,7 @@ void init_tab() {
    aPrice[1309] = 1.31589;
 
    // ========== 1310 ===== 184 ==========
-   aPseudoTicket[1310] = 656;
+   //aPseudoTicket[1310] = 656;
    aAction[1310] = 1; // OPEN
    aReturn[656] = 1310;
    aType[1310] = OP_BUY; // BUY
@@ -13789,7 +13789,7 @@ void init_tab() {
    aPrice[1310] = 1.3091;
 
    // ========== 1311 ===== 185 ==========
-   aPseudoTicket[1311] = 657;
+   //aPseudoTicket[1311] = 657;
    aAction[1311] = 1; // OPEN
    aReturn[657] = 1311;
    aType[1311] = OP_BUY; // BUY
@@ -13800,7 +13800,7 @@ void init_tab() {
    aPrice[1311] = 1.30621;
 
    // ========== 1312 ===== 185 ==========
-   aPseudoTicket[1312] = 657;
+   //aPseudoTicket[1312] = 657;
    aAction[1312] = 0; // CLOSE
    aType[1312] = OP_BUY; // BUY
    aTicket[1312] = -1; // Ticket given by broker
@@ -13810,7 +13810,7 @@ void init_tab() {
    aPrice[1312] = 1.30726;
 
    // ========== 1313 ===== 184 ==========
-   aPseudoTicket[1313] = 656;
+   //aPseudoTicket[1313] = 656;
    aAction[1313] = 0; // CLOSE
    aType[1313] = OP_BUY; // BUY
    aTicket[1313] = -1; // Ticket given by broker
@@ -13820,7 +13820,7 @@ void init_tab() {
    aPrice[1313] = 1.31;
 
    // ========== 1314 ===== 183 ==========
-   aPseudoTicket[1314] = 658;
+   //aPseudoTicket[1314] = 658;
    aAction[1314] = 1; // OPEN
    aReturn[658] = 1314;
    aType[1314] = OP_SELL; // SELL
@@ -13831,7 +13831,7 @@ void init_tab() {
    aPrice[1314] = 1.58994;
 
    // ========== 1315 ===== 183 ==========
-   aPseudoTicket[1315] = 658;
+   //aPseudoTicket[1315] = 658;
    aAction[1315] = 0; // CLOSE
    aType[1315] = OP_SELL; // SELL
    aTicket[1315] = -1; // Ticket given by broker
@@ -13841,7 +13841,7 @@ void init_tab() {
    aPrice[1315] = 1.58558;
 
    // ========== 1316 ===== 182 ==========
-   aPseudoTicket[1316] = 659;
+   //aPseudoTicket[1316] = 659;
    aAction[1316] = 1; // OPEN
    aReturn[659] = 1316;
    aType[1316] = OP_SELL; // SELL
@@ -13852,7 +13852,7 @@ void init_tab() {
    aPrice[1316] = 1.58988;
 
    // ========== 1317 ===== 182 ==========
-   aPseudoTicket[1317] = 659;
+   //aPseudoTicket[1317] = 659;
    aAction[1317] = 0; // CLOSE
    aType[1317] = OP_SELL; // SELL
    aTicket[1317] = -1; // Ticket given by broker
@@ -13862,7 +13862,7 @@ void init_tab() {
    aPrice[1317] = 1.58867;
 
    // ========== 1318 ===== 181 ==========
-   aPseudoTicket[1318] = 660;
+   //aPseudoTicket[1318] = 660;
    aAction[1318] = 1; // OPEN
    aReturn[660] = 1318;
    aType[1318] = OP_SELL; // SELL
@@ -13873,7 +13873,7 @@ void init_tab() {
    aPrice[1318] = 1.59086;
 
    // ========== 1319 ===== 181 ==========
-   aPseudoTicket[1319] = 660;
+   //aPseudoTicket[1319] = 660;
    aAction[1319] = 0; // CLOSE
    aType[1319] = OP_SELL; // SELL
    aTicket[1319] = -1; // Ticket given by broker
@@ -13883,7 +13883,7 @@ void init_tab() {
    aPrice[1319] = 1.58878;
 
    // ========== 1320 ===== 178 ==========
-   aPseudoTicket[1320] = 661;
+   //aPseudoTicket[1320] = 661;
    aAction[1320] = 1; // OPEN
    aReturn[661] = 1320;
    aType[1320] = OP_SELL; // SELL
@@ -13894,7 +13894,7 @@ void init_tab() {
    aPrice[1320] = 1.59274;
 
    // ========== 1321 ===== 180 ==========
-   aPseudoTicket[1321] = 662;
+   //aPseudoTicket[1321] = 662;
    aAction[1321] = 1; // OPEN
    aReturn[662] = 1321;
    aType[1321] = OP_SELL; // SELL
@@ -13905,7 +13905,7 @@ void init_tab() {
    aPrice[1321] = 1.59564;
 
    // ========== 1322 ===== 180 ==========
-   aPseudoTicket[1322] = 662;
+   //aPseudoTicket[1322] = 662;
    aAction[1322] = 0; // CLOSE
    aType[1322] = OP_SELL; // SELL
    aTicket[1322] = -1; // Ticket given by broker
@@ -13915,7 +13915,7 @@ void init_tab() {
    aPrice[1322] = 1.59516;
 
    // ========== 1323 ===== 179 ==========
-   aPseudoTicket[1323] = 663;
+   //aPseudoTicket[1323] = 663;
    aAction[1323] = 1; // OPEN
    aReturn[663] = 1323;
    aType[1323] = OP_SELL; // SELL
@@ -13926,7 +13926,7 @@ void init_tab() {
    aPrice[1323] = 1.59674;
 
    // ========== 1324 ===== 179 ==========
-   aPseudoTicket[1324] = 663;
+   //aPseudoTicket[1324] = 663;
    aAction[1324] = 0; // CLOSE
    aType[1324] = OP_SELL; // SELL
    aTicket[1324] = -1; // Ticket given by broker
@@ -13936,7 +13936,7 @@ void init_tab() {
    aPrice[1324] = 1.59418;
 
    // ========== 1325 ===== 178 ==========
-   aPseudoTicket[1325] = 661;
+   //aPseudoTicket[1325] = 661;
    aAction[1325] = 0; // CLOSE
    aType[1325] = OP_SELL; // SELL
    aTicket[1325] = -1; // Ticket given by broker
@@ -13946,7 +13946,7 @@ void init_tab() {
    aPrice[1325] = 1.59348;
 
    // ========== 1326 ===== 176 ==========
-   aPseudoTicket[1326] = 664;
+   //aPseudoTicket[1326] = 664;
    aAction[1326] = 1; // OPEN
    aReturn[664] = 1326;
    aType[1326] = OP_BUY; // BUY
@@ -13957,7 +13957,7 @@ void init_tab() {
    aPrice[1326] = 1.03582;
 
    // ========== 1327 ===== 177 ==========
-   aPseudoTicket[1327] = 665;
+   //aPseudoTicket[1327] = 665;
    aAction[1327] = 1; // OPEN
    aReturn[665] = 1327;
    aType[1327] = OP_BUY; // BUY
@@ -13968,7 +13968,7 @@ void init_tab() {
    aPrice[1327] = 1.0345;
 
    // ========== 1328 ===== 177 ==========
-   aPseudoTicket[1328] = 665;
+   //aPseudoTicket[1328] = 665;
    aAction[1328] = 0; // CLOSE
    aType[1328] = OP_BUY; // BUY
    aTicket[1328] = -1; // Ticket given by broker
@@ -13978,7 +13978,7 @@ void init_tab() {
    aPrice[1328] = 1.03451;
 
    // ========== 1329 ===== 176 ==========
-   aPseudoTicket[1329] = 664;
+   //aPseudoTicket[1329] = 664;
    aAction[1329] = 0; // CLOSE
    aType[1329] = OP_BUY; // BUY
    aTicket[1329] = -1; // Ticket given by broker
@@ -13988,7 +13988,7 @@ void init_tab() {
    aPrice[1329] = 1.03514;
 
    // ========== 1330 ===== 175 ==========
-   aPseudoTicket[1330] = 666;
+   //aPseudoTicket[1330] = 666;
    aAction[1330] = 1; // OPEN
    aReturn[666] = 1330;
    aType[1330] = OP_SELL; // SELL
@@ -13999,7 +13999,7 @@ void init_tab() {
    aPrice[1330] = 1.31418;
 
    // ========== 1331 ===== 174 ==========
-   aPseudoTicket[1331] = 667;
+   //aPseudoTicket[1331] = 667;
    aAction[1331] = 1; // OPEN
    aReturn[667] = 1331;
    aType[1331] = OP_BUY; // BUY
@@ -14010,7 +14010,7 @@ void init_tab() {
    aPrice[1331] = 1.5867;
 
    // ========== 1332 ===== 175 ==========
-   aPseudoTicket[1332] = 666;
+   //aPseudoTicket[1332] = 666;
    aAction[1332] = 0; // CLOSE
    aType[1332] = OP_SELL; // SELL
    aTicket[1332] = -1; // Ticket given by broker
@@ -14020,7 +14020,7 @@ void init_tab() {
    aPrice[1332] = 1.30987;
 
    // ========== 1333 ===== 174 ==========
-   aPseudoTicket[1333] = 667;
+   //aPseudoTicket[1333] = 667;
    aAction[1333] = 0; // CLOSE
    aType[1333] = OP_BUY; // BUY
    aTicket[1333] = -1; // Ticket given by broker
@@ -14030,7 +14030,7 @@ void init_tab() {
    aPrice[1333] = 1.5885;
 
    // ========== 1334 ===== 172 ==========
-   aPseudoTicket[1334] = 668;
+   //aPseudoTicket[1334] = 668;
    aAction[1334] = 1; // OPEN
    aReturn[668] = 1334;
    aType[1334] = OP_SELL; // SELL
@@ -14041,7 +14041,7 @@ void init_tab() {
    aPrice[1334] = 1.60162;
 
    // ========== 1335 ===== 173 ==========
-   aPseudoTicket[1335] = 669;
+   //aPseudoTicket[1335] = 669;
    aAction[1335] = 1; // OPEN
    aReturn[669] = 1335;
    aType[1335] = OP_SELL; // SELL
@@ -14052,7 +14052,7 @@ void init_tab() {
    aPrice[1335] = 1.60595;
 
    // ========== 1336 ===== 173 ==========
-   aPseudoTicket[1336] = 669;
+   //aPseudoTicket[1336] = 669;
    aAction[1336] = 0; // CLOSE
    aType[1336] = OP_SELL; // SELL
    aTicket[1336] = -1; // Ticket given by broker
@@ -14062,7 +14062,7 @@ void init_tab() {
    aPrice[1336] = 1.60363;
 
    // ========== 1337 ===== 172 ==========
-   aPseudoTicket[1337] = 668;
+   //aPseudoTicket[1337] = 668;
    aAction[1337] = 0; // CLOSE
    aType[1337] = OP_SELL; // SELL
    aTicket[1337] = -1; // Ticket given by broker
@@ -14072,7 +14072,7 @@ void init_tab() {
    aPrice[1337] = 1.60151;
 
    // ========== 1338 ===== 171 ==========
-   aPseudoTicket[1338] = 670;
+   //aPseudoTicket[1338] = 670;
    aAction[1338] = 1; // OPEN
    aReturn[670] = 1338;
    aType[1338] = OP_BUY; // BUY
@@ -14083,7 +14083,7 @@ void init_tab() {
    aPrice[1338] = 1.31651;
 
    // ========== 1339 ===== 171 ==========
-   aPseudoTicket[1339] = 670;
+   //aPseudoTicket[1339] = 670;
    aAction[1339] = 0; // CLOSE
    aType[1339] = OP_BUY; // BUY
    aTicket[1339] = -1; // Ticket given by broker
@@ -14093,7 +14093,7 @@ void init_tab() {
    aPrice[1339] = 1.31456;
 
    // ========== 1340 ===== 169 ==========
-   aPseudoTicket[1340] = 671;
+   //aPseudoTicket[1340] = 671;
    aAction[1340] = 1; // OPEN
    aReturn[671] = 1340;
    aType[1340] = OP_BUY; // BUY
@@ -14104,7 +14104,7 @@ void init_tab() {
    aPrice[1340] = 1.31763;
 
    // ========== 1341 ===== 170 ==========
-   aPseudoTicket[1341] = 672;
+   //aPseudoTicket[1341] = 672;
    aAction[1341] = 1; // OPEN
    aReturn[672] = 1341;
    aType[1341] = OP_BUY; // BUY
@@ -14115,7 +14115,7 @@ void init_tab() {
    aPrice[1341] = 1.31673;
 
    // ========== 1342 ===== 168 ==========
-   aPseudoTicket[1342] = 673;
+   //aPseudoTicket[1342] = 673;
    aAction[1342] = 1; // OPEN
    aReturn[673] = 1342;
    aType[1342] = OP_SELL; // SELL
@@ -14126,7 +14126,7 @@ void init_tab() {
    aPrice[1342] = 1.6115;
 
    // ========== 1343 ===== 170 ==========
-   aPseudoTicket[1343] = 672;
+   //aPseudoTicket[1343] = 672;
    aAction[1343] = 0; // CLOSE
    aType[1343] = OP_BUY; // BUY
    aTicket[1343] = -1; // Ticket given by broker
@@ -14136,7 +14136,7 @@ void init_tab() {
    aPrice[1343] = 1.31525;
 
    // ========== 1344 ===== 169 ==========
-   aPseudoTicket[1344] = 671;
+   //aPseudoTicket[1344] = 671;
    aAction[1344] = 0; // CLOSE
    aType[1344] = OP_BUY; // BUY
    aTicket[1344] = -1; // Ticket given by broker
@@ -14146,7 +14146,7 @@ void init_tab() {
    aPrice[1344] = 1.31566;
 
    // ========== 1345 ===== 167 ==========
-   aPseudoTicket[1345] = 674;
+   //aPseudoTicket[1345] = 674;
    aAction[1345] = 1; // OPEN
    aReturn[674] = 1345;
    aType[1345] = OP_SELL; // SELL
@@ -14157,7 +14157,7 @@ void init_tab() {
    aPrice[1345] = 1.61118;
 
    // ========== 1346 ===== 168 ==========
-   aPseudoTicket[1346] = 673;
+   //aPseudoTicket[1346] = 673;
    aAction[1346] = 0; // CLOSE
    aType[1346] = OP_SELL; // SELL
    aTicket[1346] = -1; // Ticket given by broker
@@ -14167,7 +14167,7 @@ void init_tab() {
    aPrice[1346] = 1.60914;
 
    // ========== 1347 ===== 167 ==========
-   aPseudoTicket[1347] = 674;
+   //aPseudoTicket[1347] = 674;
    aAction[1347] = 0; // CLOSE
    aType[1347] = OP_SELL; // SELL
    aTicket[1347] = -1; // Ticket given by broker
@@ -14177,7 +14177,7 @@ void init_tab() {
    aPrice[1347] = 1.60844;
 
    // ========== 1348 ===== 165 ==========
-   aPseudoTicket[1348] = 675;
+   //aPseudoTicket[1348] = 675;
    aAction[1348] = 1; // OPEN
    aReturn[675] = 1348;
    aType[1348] = OP_SELL; // SELL
@@ -14188,7 +14188,7 @@ void init_tab() {
    aPrice[1348] = 1.61361;
 
    // ========== 1349 ===== 166 ==========
-   aPseudoTicket[1349] = 676;
+   //aPseudoTicket[1349] = 676;
    aAction[1349] = 1; // OPEN
    aReturn[676] = 1349;
    aType[1349] = OP_SELL; // SELL
@@ -14199,7 +14199,7 @@ void init_tab() {
    aPrice[1349] = 1.61608;
 
    // ========== 1350 ===== 166 ==========
-   aPseudoTicket[1350] = 676;
+   //aPseudoTicket[1350] = 676;
    aAction[1350] = 0; // CLOSE
    aType[1350] = OP_SELL; // SELL
    aTicket[1350] = -1; // Ticket given by broker
@@ -14209,7 +14209,7 @@ void init_tab() {
    aPrice[1350] = 1.6141;
 
    // ========== 1351 ===== 165 ==========
-   aPseudoTicket[1351] = 675;
+   //aPseudoTicket[1351] = 675;
    aAction[1351] = 0; // CLOSE
    aType[1351] = OP_SELL; // SELL
    aTicket[1351] = -1; // Ticket given by broker
@@ -14219,7 +14219,7 @@ void init_tab() {
    aPrice[1351] = 1.61334;
 
    // ========== 1352 ===== 164 ==========
-   aPseudoTicket[1352] = 677;
+   //aPseudoTicket[1352] = 677;
    aAction[1352] = 1; // OPEN
    aReturn[677] = 1352;
    aType[1352] = OP_SELL; // SELL
@@ -14230,7 +14230,7 @@ void init_tab() {
    aPrice[1352] = 1.32038;
 
    // ========== 1353 ===== 164 ==========
-   aPseudoTicket[1353] = 677;
+   //aPseudoTicket[1353] = 677;
    aAction[1353] = 0; // CLOSE
    aType[1353] = OP_SELL; // SELL
    aTicket[1353] = -1; // Ticket given by broker
@@ -14240,7 +14240,7 @@ void init_tab() {
    aPrice[1353] = 1.31997;
 
    // ========== 1354 ===== 163 ==========
-   aPseudoTicket[1354] = 678;
+   //aPseudoTicket[1354] = 678;
    aAction[1354] = 1; // OPEN
    aReturn[678] = 1354;
    aType[1354] = OP_SELL; // SELL
@@ -14251,7 +14251,7 @@ void init_tab() {
    aPrice[1354] = 1.61856;
 
    // ========== 1355 ===== 162 ==========
-   aPseudoTicket[1355] = 679;
+   //aPseudoTicket[1355] = 679;
    aAction[1355] = 1; // OPEN
    aReturn[679] = 1355;
    aType[1355] = OP_BUY; // BUY
@@ -14262,7 +14262,7 @@ void init_tab() {
    aPrice[1355] = 80.883;
 
    // ========== 1356 ===== 163 ==========
-   aPseudoTicket[1356] = 678;
+   //aPseudoTicket[1356] = 678;
    aAction[1356] = 0; // CLOSE
    aType[1356] = OP_SELL; // SELL
    aTicket[1356] = -1; // Ticket given by broker
@@ -14272,7 +14272,7 @@ void init_tab() {
    aPrice[1356] = 1.61574;
 
    // ========== 1357 ===== 162 ==========
-   aPseudoTicket[1357] = 679;
+   //aPseudoTicket[1357] = 679;
    aAction[1357] = 0; // CLOSE
    aType[1357] = OP_BUY; // BUY
    aTicket[1357] = -1; // Ticket given by broker
@@ -14282,7 +14282,7 @@ void init_tab() {
    aPrice[1357] = 80.619;
 
    // ========== 1358 ===== 159 ==========
-   aPseudoTicket[1358] = 680;
+   //aPseudoTicket[1358] = 680;
    aAction[1358] = 1; // OPEN
    aReturn[680] = 1358;
    aType[1358] = OP_SELL; // SELL
@@ -14293,7 +14293,7 @@ void init_tab() {
    aPrice[1358] = 1.61749;
 
    // ========== 1359 ===== 160 ==========
-   aPseudoTicket[1359] = 681;
+   //aPseudoTicket[1359] = 681;
    aAction[1359] = 1; // OPEN
    aReturn[681] = 1359;
    aType[1359] = OP_SELL; // SELL
@@ -14304,7 +14304,7 @@ void init_tab() {
    aPrice[1359] = 1.623;
 
    // ========== 1360 ===== 161 ==========
-   aPseudoTicket[1360] = 682;
+   //aPseudoTicket[1360] = 682;
    aAction[1360] = 1; // OPEN
    aReturn[682] = 1360;
    aType[1360] = OP_SELL; // SELL
@@ -14315,7 +14315,7 @@ void init_tab() {
    aPrice[1360] = 1.62488;
 
    // ========== 1361 ===== 161 ==========
-   aPseudoTicket[1361] = 682;
+   //aPseudoTicket[1361] = 682;
    aAction[1361] = 0; // CLOSE
    aType[1361] = OP_SELL; // SELL
    aTicket[1361] = -1; // Ticket given by broker
@@ -14325,7 +14325,7 @@ void init_tab() {
    aPrice[1361] = 1.62332;
 
    // ========== 1362 ===== 160 ==========
-   aPseudoTicket[1362] = 681;
+   //aPseudoTicket[1362] = 681;
    aAction[1362] = 0; // CLOSE
    aType[1362] = OP_SELL; // SELL
    aTicket[1362] = -1; // Ticket given by broker
@@ -14335,7 +14335,7 @@ void init_tab() {
    aPrice[1362] = 1.62305;
 
    // ========== 1363 ===== 159 ==========
-   aPseudoTicket[1363] = 680;
+   //aPseudoTicket[1363] = 680;
    aAction[1363] = 0; // CLOSE
    aType[1363] = OP_SELL; // SELL
    aTicket[1363] = -1; // Ticket given by broker
@@ -14345,7 +14345,7 @@ void init_tab() {
    aPrice[1363] = 1.6226;
 
    // ========== 1364 ===== 158 ==========
-   aPseudoTicket[1364] = 683;
+   //aPseudoTicket[1364] = 683;
    aAction[1364] = 1; // OPEN
    aReturn[683] = 1364;
    aType[1364] = OP_BUY; // BUY
@@ -14356,7 +14356,7 @@ void init_tab() {
    aPrice[1364] = 79.671;
 
    // ========== 1365 ===== 158 ==========
-   aPseudoTicket[1365] = 683;
+   //aPseudoTicket[1365] = 683;
    aAction[1365] = 0; // CLOSE
    aType[1365] = OP_BUY; // BUY
    aTicket[1365] = -1; // Ticket given by broker
@@ -14366,7 +14366,7 @@ void init_tab() {
    aPrice[1365] = 80.141;
 
    // ========== 1366 ===== 157 ==========
-   aPseudoTicket[1366] = 684;
+   //aPseudoTicket[1366] = 684;
    aAction[1366] = 1; // OPEN
    aReturn[684] = 1366;
    aType[1366] = OP_SELL; // SELL
@@ -14377,7 +14377,7 @@ void init_tab() {
    aPrice[1366] = 80.575;
 
    // ========== 1367 ===== 157 ==========
-   aPseudoTicket[1367] = 684;
+   //aPseudoTicket[1367] = 684;
    aAction[1367] = 0; // CLOSE
    aType[1367] = OP_SELL; // SELL
    aTicket[1367] = -1; // Ticket given by broker
@@ -14387,7 +14387,7 @@ void init_tab() {
    aPrice[1367] = 80.483;
 
    // ========== 1368 ===== 156 ==========
-   aPseudoTicket[1368] = 685;
+   //aPseudoTicket[1368] = 685;
    aAction[1368] = 1; // OPEN
    aReturn[685] = 1368;
    aType[1368] = OP_SELL; // SELL
@@ -14398,7 +14398,7 @@ void init_tab() {
    aPrice[1368] = 1.32039;
 
    // ========== 1369 ===== 154 ==========
-   aPseudoTicket[1369] = 686;
+   //aPseudoTicket[1369] = 686;
    aAction[1369] = 1; // OPEN
    aReturn[686] = 1369;
    aType[1369] = OP_SELL; // SELL
@@ -14409,7 +14409,7 @@ void init_tab() {
    aPrice[1369] = 1.31933;
 
    // ========== 1370 ===== 156 ==========
-   aPseudoTicket[1370] = 685;
+   //aPseudoTicket[1370] = 685;
    aAction[1370] = 0; // CLOSE
    aType[1370] = OP_SELL; // SELL
    aTicket[1370] = -1; // Ticket given by broker
@@ -14419,7 +14419,7 @@ void init_tab() {
    aPrice[1370] = 1.3143;
 
    // ========== 1371 ===== 155 ==========
-   aPseudoTicket[1371] = 687;
+   //aPseudoTicket[1371] = 687;
    aAction[1371] = 1; // OPEN
    aReturn[687] = 1371;
    aType[1371] = OP_SELL; // SELL
@@ -14430,7 +14430,7 @@ void init_tab() {
    aPrice[1371] = 1.31526;
 
    // ========== 1372 ===== 155 ==========
-   aPseudoTicket[1372] = 687;
+   //aPseudoTicket[1372] = 687;
    aAction[1372] = 0; // CLOSE
    aType[1372] = OP_SELL; // SELL
    aTicket[1372] = -1; // Ticket given by broker
@@ -14440,7 +14440,7 @@ void init_tab() {
    aPrice[1372] = 1.31391;
 
    // ========== 1373 ===== 154 ==========
-   aPseudoTicket[1373] = 686;
+   //aPseudoTicket[1373] = 686;
    aAction[1373] = 0; // CLOSE
    aType[1373] = OP_SELL; // SELL
    aTicket[1373] = -1; // Ticket given by broker
@@ -14450,7 +14450,7 @@ void init_tab() {
    aPrice[1373] = 1.31469;
 
    // ========== 1374 ===== 152 ==========
-   aPseudoTicket[1374] = 688;
+   //aPseudoTicket[1374] = 688;
    aAction[1374] = 1; // OPEN
    aReturn[688] = 1374;
    aType[1374] = OP_BUY; // BUY
@@ -14461,7 +14461,7 @@ void init_tab() {
    aPrice[1374] = 1.01844;
 
    // ========== 1375 ===== 153 ==========
-   aPseudoTicket[1375] = 689;
+   //aPseudoTicket[1375] = 689;
    aAction[1375] = 1; // OPEN
    aReturn[689] = 1375;
    aType[1375] = OP_SELL; // SELL
@@ -14472,7 +14472,7 @@ void init_tab() {
    aPrice[1375] = 1.31025;
 
    // ========== 1376 ===== 153 ==========
-   aPseudoTicket[1376] = 689;
+   //aPseudoTicket[1376] = 689;
    aAction[1376] = 0; // CLOSE
    aType[1376] = OP_SELL; // SELL
    aTicket[1376] = -1; // Ticket given by broker
@@ -14482,7 +14482,7 @@ void init_tab() {
    aPrice[1376] = 1.30894;
 
    // ========== 1377 ===== 152 ==========
-   aPseudoTicket[1377] = 688;
+   //aPseudoTicket[1377] = 688;
    aAction[1377] = 0; // CLOSE
    aType[1377] = OP_BUY; // BUY
    aTicket[1377] = -1; // Ticket given by broker
@@ -14492,7 +14492,7 @@ void init_tab() {
    aPrice[1377] = 1.01949;
 
    // ========== 1378 ===== 150 ==========
-   aPseudoTicket[1378] = 690;
+   //aPseudoTicket[1378] = 690;
    aAction[1378] = 1; // OPEN
    aReturn[690] = 1378;
    aType[1378] = OP_BUY; // BUY
@@ -14503,7 +14503,7 @@ void init_tab() {
    aPrice[1378] = 1.01326;
 
    // ========== 1379 ===== 151 ==========
-   aPseudoTicket[1379] = 691;
+   //aPseudoTicket[1379] = 691;
    aAction[1379] = 1; // OPEN
    aReturn[691] = 1379;
    aType[1379] = OP_BUY; // BUY
@@ -14514,7 +14514,7 @@ void init_tab() {
    aPrice[1379] = 1.01176;
 
    // ========== 1380 ===== 151 ==========
-   aPseudoTicket[1380] = 691;
+   //aPseudoTicket[1380] = 691;
    aAction[1380] = 0; // CLOSE
    aType[1380] = OP_BUY; // BUY
    aTicket[1380] = -1; // Ticket given by broker
@@ -14524,7 +14524,7 @@ void init_tab() {
    aPrice[1380] = 1.01375;
 
    // ========== 1381 ===== 150 ==========
-   aPseudoTicket[1381] = 690;
+   //aPseudoTicket[1381] = 690;
    aAction[1381] = 0; // CLOSE
    aType[1381] = OP_BUY; // BUY
    aTicket[1381] = -1; // Ticket given by broker
@@ -14534,7 +14534,7 @@ void init_tab() {
    aPrice[1381] = 1.01464;
 
    // ========== 1382 ===== 147 ==========
-   aPseudoTicket[1382] = 692;
+   //aPseudoTicket[1382] = 692;
    aAction[1382] = 1; // OPEN
    aReturn[692] = 1382;
    aType[1382] = OP_SELL; // SELL
@@ -14545,7 +14545,7 @@ void init_tab() {
    aPrice[1382] = 1.30453;
 
    // ========== 1383 ===== 149 ==========
-   aPseudoTicket[1383] = 693;
+   //aPseudoTicket[1383] = 693;
    aAction[1383] = 1; // OPEN
    aReturn[693] = 1383;
    aType[1383] = OP_SELL; // SELL
@@ -14556,7 +14556,7 @@ void init_tab() {
    aPrice[1383] = 1.3054;
 
    // ========== 1384 ===== 149 ==========
-   aPseudoTicket[1384] = 693;
+   //aPseudoTicket[1384] = 693;
    aAction[1384] = 0; // CLOSE
    aType[1384] = OP_SELL; // SELL
    aTicket[1384] = -1; // Ticket given by broker
@@ -14566,7 +14566,7 @@ void init_tab() {
    aPrice[1384] = 1.30445;
 
    // ========== 1385 ===== 148 ==========
-   aPseudoTicket[1385] = 694;
+   //aPseudoTicket[1385] = 694;
    aAction[1385] = 1; // OPEN
    aReturn[694] = 1385;
    aType[1385] = OP_SELL; // SELL
@@ -14577,7 +14577,7 @@ void init_tab() {
    aPrice[1385] = 1.02093;
 
    // ========== 1386 ===== 148 ==========
-   aPseudoTicket[1386] = 694;
+   //aPseudoTicket[1386] = 694;
    aAction[1386] = 0; // CLOSE
    aType[1386] = OP_SELL; // SELL
    aTicket[1386] = -1; // Ticket given by broker
@@ -14587,7 +14587,7 @@ void init_tab() {
    aPrice[1386] = 1.01768;
 
    // ========== 1387 ===== 147 ==========
-   aPseudoTicket[1387] = 692;
+   //aPseudoTicket[1387] = 692;
    aAction[1387] = 0; // CLOSE
    aType[1387] = OP_SELL; // SELL
    aTicket[1387] = -1; // Ticket given by broker
@@ -14597,7 +14597,7 @@ void init_tab() {
    aPrice[1387] = 1.30314;
 
    // ========== 1388 ===== 146 ==========
-   aPseudoTicket[1388] = 695;
+   //aPseudoTicket[1388] = 695;
    aAction[1388] = 1; // OPEN
    aReturn[695] = 1388;
    aType[1388] = OP_SELL; // SELL
@@ -14608,7 +14608,7 @@ void init_tab() {
    aPrice[1388] = 1.01929;
 
    // ========== 1389 ===== 146 ==========
-   aPseudoTicket[1389] = 695;
+   //aPseudoTicket[1389] = 695;
    aAction[1389] = 0; // CLOSE
    aType[1389] = OP_SELL; // SELL
    aTicket[1389] = -1; // Ticket given by broker
@@ -14618,7 +14618,7 @@ void init_tab() {
    aPrice[1389] = 1.0179;
 
    // ========== 1390 ===== 143 ==========
-   aPseudoTicket[1390] = 696;
+   //aPseudoTicket[1390] = 696;
    aAction[1390] = 1; // OPEN
    aReturn[696] = 1390;
    aType[1390] = OP_BUY; // BUY
@@ -14629,7 +14629,7 @@ void init_tab() {
    aPrice[1390] = 1.61581;
 
    // ========== 1391 ===== 144 ==========
-   aPseudoTicket[1391] = 697;
+   //aPseudoTicket[1391] = 697;
    aAction[1391] = 1; // OPEN
    aReturn[697] = 1391;
    aType[1391] = OP_BUY; // BUY
@@ -14640,7 +14640,7 @@ void init_tab() {
    aPrice[1391] = 1.6143;
 
    // ========== 1392 ===== 145 ==========
-   aPseudoTicket[1392] = 698;
+   //aPseudoTicket[1392] = 698;
    aAction[1392] = 1; // OPEN
    aReturn[698] = 1392;
    aType[1392] = OP_BUY; // BUY
@@ -14651,7 +14651,7 @@ void init_tab() {
    aPrice[1392] = 1.61281;
 
    // ========== 1393 ===== 145 ==========
-   aPseudoTicket[1393] = 698;
+   //aPseudoTicket[1393] = 698;
    aAction[1393] = 0; // CLOSE
    aType[1393] = OP_BUY; // BUY
    aTicket[1393] = -1; // Ticket given by broker
@@ -14661,7 +14661,7 @@ void init_tab() {
    aPrice[1393] = 1.61478;
 
    // ========== 1394 ===== 144 ==========
-   aPseudoTicket[1394] = 697;
+   //aPseudoTicket[1394] = 697;
    aAction[1394] = 0; // CLOSE
    aType[1394] = OP_BUY; // BUY
    aTicket[1394] = -1; // Ticket given by broker
@@ -14671,7 +14671,7 @@ void init_tab() {
    aPrice[1394] = 1.61491;
 
    // ========== 1395 ===== 143 ==========
-   aPseudoTicket[1395] = 696;
+   //aPseudoTicket[1395] = 696;
    aAction[1395] = 0; // CLOSE
    aType[1395] = OP_BUY; // BUY
    aTicket[1395] = -1; // Ticket given by broker
@@ -14681,7 +14681,7 @@ void init_tab() {
    aPrice[1395] = 1.61529;
 
    // ========== 1396 ===== 142 ==========
-   aPseudoTicket[1396] = 699;
+   //aPseudoTicket[1396] = 699;
    aAction[1396] = 1; // OPEN
    aReturn[699] = 1396;
    aType[1396] = OP_BUY; // BUY
@@ -14692,7 +14692,7 @@ void init_tab() {
    aPrice[1396] = 1.6137;
 
    // ========== 1397 ===== 142 ==========
-   aPseudoTicket[1397] = 699;
+   //aPseudoTicket[1397] = 699;
    aAction[1397] = 0; // CLOSE
    aType[1397] = OP_BUY; // BUY
    aTicket[1397] = -1; // Ticket given by broker
@@ -14702,7 +14702,7 @@ void init_tab() {
    aPrice[1397] = 1.61536;
 
    // ========== 1398 ===== 141 ==========
-   aPseudoTicket[1398] = 700;
+   //aPseudoTicket[1398] = 700;
    aAction[1398] = 1; // OPEN
    aReturn[700] = 1398;
    aType[1398] = OP_BUY; // BUY
@@ -14713,7 +14713,7 @@ void init_tab() {
    aPrice[1398] = 79.474;
 
    // ========== 1399 ===== 141 ==========
-   aPseudoTicket[1399] = 700;
+   //aPseudoTicket[1399] = 700;
    aAction[1399] = 0; // CLOSE
    aType[1399] = OP_BUY; // BUY
    aTicket[1399] = -1; // Ticket given by broker
@@ -14723,7 +14723,7 @@ void init_tab() {
    aPrice[1399] = 79.632;
 
    // ========== 1400 ===== 140 ==========
-   aPseudoTicket[1400] = 701;
+   //aPseudoTicket[1400] = 701;
    aAction[1400] = 1; // OPEN
    aReturn[701] = 1400;
    aType[1400] = OP_SELL; // SELL
@@ -14734,7 +14734,7 @@ void init_tab() {
    aPrice[1400] = 1.01189;
 
    // ========== 1401 ===== 140 ==========
-   aPseudoTicket[1401] = 701;
+   //aPseudoTicket[1401] = 701;
    aAction[1401] = 0; // CLOSE
    aType[1401] = OP_SELL; // SELL
    aTicket[1401] = -1; // Ticket given by broker
@@ -14744,7 +14744,7 @@ void init_tab() {
    aPrice[1401] = 1.00895;
 
    // ========== 1402 ===== 139 ==========
-   aPseudoTicket[1402] = 702;
+   //aPseudoTicket[1402] = 702;
    aAction[1402] = 1; // OPEN
    aReturn[702] = 1402;
    aType[1402] = OP_BUY; // BUY
@@ -14755,7 +14755,7 @@ void init_tab() {
    aPrice[1402] = 1.6115;
 
    // ========== 1403 ===== 139 ==========
-   aPseudoTicket[1403] = 702;
+   //aPseudoTicket[1403] = 702;
    aAction[1403] = 0; // CLOSE
    aType[1403] = OP_BUY; // BUY
    aTicket[1403] = -1; // Ticket given by broker
@@ -14765,7 +14765,7 @@ void init_tab() {
    aPrice[1403] = 1.61225;
 
    // ========== 1404 ===== 138 ==========
-   aPseudoTicket[1404] = 703;
+   //aPseudoTicket[1404] = 703;
    aAction[1404] = 1; // OPEN
    aReturn[703] = 1404;
    aType[1404] = OP_BUY; // BUY
@@ -14776,7 +14776,7 @@ void init_tab() {
    aPrice[1404] = 1.61055;
 
    // ========== 1405 ===== 138 ==========
-   aPseudoTicket[1405] = 703;
+   //aPseudoTicket[1405] = 703;
    aAction[1405] = 0; // CLOSE
    aType[1405] = OP_BUY; // BUY
    aTicket[1405] = -1; // Ticket given by broker
@@ -14786,7 +14786,7 @@ void init_tab() {
    aPrice[1405] = 1.61243;
 
    // ========== 1406 ===== 136 ==========
-   aPseudoTicket[1406] = 704;
+   //aPseudoTicket[1406] = 704;
    aAction[1406] = 1; // OPEN
    aReturn[704] = 1406;
    aType[1406] = OP_BUY; // BUY
@@ -14797,7 +14797,7 @@ void init_tab() {
    aPrice[1406] = 1.61047;
 
    // ========== 1407 ===== 137 ==========
-   aPseudoTicket[1407] = 705;
+   //aPseudoTicket[1407] = 705;
    aAction[1407] = 1; // OPEN
    aReturn[705] = 1407;
    aType[1407] = OP_BUY; // BUY
@@ -14808,7 +14808,7 @@ void init_tab() {
    aPrice[1407] = 1.60926;
 
    // ========== 1408 ===== 137 ==========
-   aPseudoTicket[1408] = 705;
+   //aPseudoTicket[1408] = 705;
    aAction[1408] = 0; // CLOSE
    aType[1408] = OP_BUY; // BUY
    aTicket[1408] = -1; // Ticket given by broker
@@ -14818,7 +14818,7 @@ void init_tab() {
    aPrice[1408] = 1.6103;
 
    // ========== 1409 ===== 136 ==========
-   aPseudoTicket[1409] = 704;
+   //aPseudoTicket[1409] = 704;
    aAction[1409] = 0; // CLOSE
    aType[1409] = OP_BUY; // BUY
    aTicket[1409] = -1; // Ticket given by broker
@@ -14828,7 +14828,7 @@ void init_tab() {
    aPrice[1409] = 1.61075;
 
    // ========== 1410 ===== 133 ==========
-   aPseudoTicket[1410] = 706;
+   //aPseudoTicket[1410] = 706;
    aAction[1410] = 1; // OPEN
    aReturn[706] = 1410;
    aType[1410] = OP_BUY; // BUY
@@ -14839,7 +14839,7 @@ void init_tab() {
    aPrice[1410] = 0.99856;
 
    // ========== 1411 ===== 135 ==========
-   aPseudoTicket[1411] = 707;
+   //aPseudoTicket[1411] = 707;
    aAction[1411] = 1; // OPEN
    aReturn[707] = 1411;
    aType[1411] = OP_BUY; // BUY
@@ -14850,7 +14850,7 @@ void init_tab() {
    aPrice[1411] = 0.99687;
 
    // ========== 1412 ===== 135 ==========
-   aPseudoTicket[1412] = 707;
+   //aPseudoTicket[1412] = 707;
    aAction[1412] = 0; // CLOSE
    aType[1412] = OP_BUY; // BUY
    aTicket[1412] = -1; // Ticket given by broker
@@ -14860,7 +14860,7 @@ void init_tab() {
    aPrice[1412] = 0.99846;
 
    // ========== 1413 ===== 132 ==========
-   aPseudoTicket[1413] = 708;
+   //aPseudoTicket[1413] = 708;
    aAction[1413] = 1; // OPEN
    aReturn[708] = 1413;
    aType[1413] = OP_SELL; // SELL
@@ -14871,7 +14871,7 @@ void init_tab() {
    aPrice[1413] = 0.93357;
 
    // ========== 1414 ===== 134 ==========
-   aPseudoTicket[1414] = 709;
+   //aPseudoTicket[1414] = 709;
    aAction[1414] = 1; // OPEN
    aReturn[709] = 1414;
    aType[1414] = OP_BUY; // BUY
@@ -14882,7 +14882,7 @@ void init_tab() {
    aPrice[1414] = 0.99582;
 
    // ========== 1415 ===== 134 ==========
-   aPseudoTicket[1415] = 709;
+   //aPseudoTicket[1415] = 709;
    aAction[1415] = 0; // CLOSE
    aType[1415] = OP_BUY; // BUY
    aTicket[1415] = -1; // Ticket given by broker
@@ -14892,7 +14892,7 @@ void init_tab() {
    aPrice[1415] = 0.99759;
 
    // ========== 1416 ===== 133 ==========
-   aPseudoTicket[1416] = 706;
+   //aPseudoTicket[1416] = 706;
    aAction[1416] = 0; // CLOSE
    aType[1416] = OP_BUY; // BUY
    aTicket[1416] = -1; // Ticket given by broker
@@ -14902,7 +14902,7 @@ void init_tab() {
    aPrice[1416] = 1.00008;
 
    // ========== 1417 ===== 132 ==========
-   aPseudoTicket[1417] = 708;
+   //aPseudoTicket[1417] = 708;
    aAction[1417] = 0; // CLOSE
    aType[1417] = OP_SELL; // SELL
    aTicket[1417] = -1; // Ticket given by broker
@@ -14912,7 +14912,7 @@ void init_tab() {
    aPrice[1417] = 0.93367;
 
    // ========== 1418 ===== 130 ==========
-   aPseudoTicket[1418] = 710;
+   //aPseudoTicket[1418] = 710;
    aAction[1418] = 1; // OPEN
    aReturn[710] = 1418;
    aType[1418] = OP_BUY; // BUY
@@ -14923,7 +14923,7 @@ void init_tab() {
    aPrice[1418] = 1.59794;
 
    // ========== 1419 ===== 129 ==========
-   aPseudoTicket[1419] = 711;
+   //aPseudoTicket[1419] = 711;
    aAction[1419] = 1; // OPEN
    aReturn[711] = 1419;
    aType[1419] = OP_BUY; // BUY
@@ -14934,7 +14934,7 @@ void init_tab() {
    aPrice[1419] = 0.9895;
 
    // ========== 1420 ===== 131 ==========
-   aPseudoTicket[1420] = 712;
+   //aPseudoTicket[1420] = 712;
    aAction[1420] = 1; // OPEN
    aReturn[712] = 1420;
    aType[1420] = OP_BUY; // BUY
@@ -14945,7 +14945,7 @@ void init_tab() {
    aPrice[1420] = 1.59373;
 
    // ========== 1421 ===== 131 ==========
-   aPseudoTicket[1421] = 712;
+   //aPseudoTicket[1421] = 712;
    aAction[1421] = 0; // CLOSE
    aType[1421] = OP_BUY; // BUY
    aTicket[1421] = -1; // Ticket given by broker
@@ -14955,7 +14955,7 @@ void init_tab() {
    aPrice[1421] = 1.5966;
 
    // ========== 1422 ===== 130 ==========
-   aPseudoTicket[1422] = 710;
+   //aPseudoTicket[1422] = 710;
    aAction[1422] = 0; // CLOSE
    aType[1422] = OP_BUY; // BUY
    aTicket[1422] = -1; // Ticket given by broker
@@ -14965,7 +14965,7 @@ void init_tab() {
    aPrice[1422] = 1.5971;
 
    // ========== 1423 ===== 129 ==========
-   aPseudoTicket[1423] = 711;
+   //aPseudoTicket[1423] = 711;
    aAction[1423] = 0; // CLOSE
    aType[1423] = OP_BUY; // BUY
    aTicket[1423] = -1; // Ticket given by broker
@@ -14975,7 +14975,7 @@ void init_tab() {
    aPrice[1423] = 0.99194;
 
    // ========== 1424 ===== 128 ==========
-   aPseudoTicket[1424] = 713;
+   //aPseudoTicket[1424] = 713;
    aAction[1424] = 1; // OPEN
    aReturn[713] = 1424;
    aType[1424] = OP_BUY; // BUY
@@ -14986,7 +14986,7 @@ void init_tab() {
    aPrice[1424] = 1.59179;
 
    // ========== 1425 ===== 128 ==========
-   aPseudoTicket[1425] = 713;
+   //aPseudoTicket[1425] = 713;
    aAction[1425] = 0; // CLOSE
    aType[1425] = OP_BUY; // BUY
    aTicket[1425] = -1; // Ticket given by broker
@@ -14996,7 +14996,7 @@ void init_tab() {
    aPrice[1425] = 1.59236;
 
    // ========== 1426 ===== 127 ==========
-   aPseudoTicket[1426] = 714;
+   //aPseudoTicket[1426] = 714;
    aAction[1426] = 1; // OPEN
    aReturn[714] = 1426;
    aType[1426] = OP_SELL; // SELL
@@ -15007,7 +15007,7 @@ void init_tab() {
    aPrice[1426] = 0.99623;
 
    // ========== 1427 ===== 127 ==========
-   aPseudoTicket[1427] = 714;
+   //aPseudoTicket[1427] = 714;
    aAction[1427] = 0; // CLOSE
    aType[1427] = OP_SELL; // SELL
    aTicket[1427] = -1; // Ticket given by broker
@@ -15017,7 +15017,7 @@ void init_tab() {
    aPrice[1427] = 0.99278;
 
    // ========== 1428 ===== 126 ==========
-   aPseudoTicket[1428] = 715;
+   //aPseudoTicket[1428] = 715;
    aAction[1428] = 1; // OPEN
    aReturn[715] = 1428;
    aType[1428] = OP_BUY; // BUY
@@ -15028,7 +15028,7 @@ void init_tab() {
    aPrice[1428] = 0.99229;
 
    // ========== 1429 ===== 126 ==========
-   aPseudoTicket[1429] = 715;
+   //aPseudoTicket[1429] = 715;
    aAction[1429] = 0; // CLOSE
    aType[1429] = OP_BUY; // BUY
    aTicket[1429] = -1; // Ticket given by broker
@@ -15038,7 +15038,7 @@ void init_tab() {
    aPrice[1429] = 0.99327;
 
    // ========== 1430 ===== 124 ==========
-   aPseudoTicket[1430] = 716;
+   //aPseudoTicket[1430] = 716;
    aAction[1430] = 1; // OPEN
    aReturn[716] = 1430;
    aType[1430] = OP_BUY; // BUY
@@ -15049,7 +15049,7 @@ void init_tab() {
    aPrice[1430] = 1.58782;
 
    // ========== 1431 ===== 123 ==========
-   aPseudoTicket[1431] = 717;
+   //aPseudoTicket[1431] = 717;
    aAction[1431] = 1; // OPEN
    aReturn[717] = 1431;
    aType[1431] = OP_BUY; // BUY
@@ -15060,7 +15060,7 @@ void init_tab() {
    aPrice[1431] = 1.581;
 
    // ========== 1432 ===== 122 ==========
-   aPseudoTicket[1432] = 718;
+   //aPseudoTicket[1432] = 718;
    aAction[1432] = 1; // OPEN
    aReturn[718] = 1432;
    aType[1432] = OP_BUY; // BUY
@@ -15071,7 +15071,7 @@ void init_tab() {
    aPrice[1432] = 1.58114;
 
    // ========== 1433 ===== 125 ==========
-   aPseudoTicket[1433] = 719;
+   //aPseudoTicket[1433] = 719;
    aAction[1433] = 1; // OPEN
    aReturn[719] = 1433;
    aType[1433] = OP_BUY; // BUY
@@ -15082,7 +15082,7 @@ void init_tab() {
    aPrice[1433] = 1.5784;
 
    // ========== 1434 ===== 125 ==========
-   aPseudoTicket[1434] = 719;
+   //aPseudoTicket[1434] = 719;
    aAction[1434] = 0; // CLOSE
    aType[1434] = OP_BUY; // BUY
    aTicket[1434] = -1; // Ticket given by broker
@@ -15092,7 +15092,7 @@ void init_tab() {
    aPrice[1434] = 1.5805;
 
    // ========== 1435 ===== 123 ==========
-   aPseudoTicket[1435] = 717;
+   //aPseudoTicket[1435] = 717;
    aAction[1435] = 0; // CLOSE
    aType[1435] = OP_BUY; // BUY
    aTicket[1435] = -1; // Ticket given by broker
@@ -15102,7 +15102,7 @@ void init_tab() {
    aPrice[1435] = 1.582;
 
    // ========== 1436 ===== 124 ==========
-   aPseudoTicket[1436] = 716;
+   //aPseudoTicket[1436] = 716;
    aAction[1436] = 0; // CLOSE
    aType[1436] = OP_BUY; // BUY
    aTicket[1436] = -1; // Ticket given by broker
@@ -15112,7 +15112,7 @@ void init_tab() {
    aPrice[1436] = 1.582;
 
    // ========== 1437 ===== 122 ==========
-   aPseudoTicket[1437] = 718;
+   //aPseudoTicket[1437] = 718;
    aAction[1437] = 0; // CLOSE
    aType[1437] = OP_BUY; // BUY
    aTicket[1437] = -1; // Ticket given by broker
@@ -15122,7 +15122,7 @@ void init_tab() {
    aPrice[1437] = 1.58184;
 
    // ========== 1438 ===== 120 ==========
-   aPseudoTicket[1438] = 720;
+   //aPseudoTicket[1438] = 720;
    aAction[1438] = 1; // OPEN
    aReturn[720] = 1438;
    aType[1438] = OP_SELL; // SELL
@@ -15133,7 +15133,7 @@ void init_tab() {
    aPrice[1438] = 1.58266;
 
    // ========== 1439 ===== 121 ==========
-   aPseudoTicket[1439] = 721;
+   //aPseudoTicket[1439] = 721;
    aAction[1439] = 1; // OPEN
    aReturn[721] = 1439;
    aType[1439] = OP_SELL; // SELL
@@ -15144,7 +15144,7 @@ void init_tab() {
    aPrice[1439] = 1.58325;
 
    // ========== 1440 ===== 121 ==========
-   aPseudoTicket[1440] = 721;
+   //aPseudoTicket[1440] = 721;
    aAction[1440] = 0; // CLOSE
    aType[1440] = OP_SELL; // SELL
    aTicket[1440] = -1; // Ticket given by broker
@@ -15154,7 +15154,7 @@ void init_tab() {
    aPrice[1440] = 1.58181;
 
    // ========== 1441 ===== 120 ==========
-   aPseudoTicket[1441] = 720;
+   //aPseudoTicket[1441] = 720;
    aAction[1441] = 0; // CLOSE
    aType[1441] = OP_SELL; // SELL
    aTicket[1441] = -1; // Ticket given by broker
@@ -15164,7 +15164,7 @@ void init_tab() {
    aPrice[1441] = 1.58145;
 
    // ========== 1442 ===== 118 ==========
-   aPseudoTicket[1442] = 722;
+   //aPseudoTicket[1442] = 722;
    aAction[1442] = 1; // OPEN
    aReturn[722] = 1442;
    aType[1442] = OP_SELL; // SELL
@@ -15175,7 +15175,7 @@ void init_tab() {
    aPrice[1442] = 1.27653;
 
    // ========== 1443 ===== 119 ==========
-   aPseudoTicket[1443] = 723;
+   //aPseudoTicket[1443] = 723;
    aAction[1443] = 1; // OPEN
    aReturn[723] = 1443;
    aType[1443] = OP_SELL; // SELL
@@ -15186,7 +15186,7 @@ void init_tab() {
    aPrice[1443] = 1.28085;
 
    // ========== 1444 ===== 119 ==========
-   aPseudoTicket[1444] = 723;
+   //aPseudoTicket[1444] = 723;
    aAction[1444] = 0; // CLOSE
    aType[1444] = OP_SELL; // SELL
    aTicket[1444] = -1; // Ticket given by broker
@@ -15196,7 +15196,7 @@ void init_tab() {
    aPrice[1444] = 1.27951;
 
    // ========== 1445 ===== 118 ==========
-   aPseudoTicket[1445] = 722;
+   //aPseudoTicket[1445] = 722;
    aAction[1445] = 0; // CLOSE
    aType[1445] = OP_SELL; // SELL
    aTicket[1445] = -1; // Ticket given by broker
@@ -15206,7 +15206,7 @@ void init_tab() {
    aPrice[1445] = 1.2765;
 
    // ========== 1446 ===== 117 ==========
-   aPseudoTicket[1446] = 724;
+   //aPseudoTicket[1446] = 724;
    aAction[1446] = 1; // OPEN
    aReturn[724] = 1446;
    aType[1446] = OP_SELL; // SELL
@@ -15217,7 +15217,7 @@ void init_tab() {
    aPrice[1446] = 1.58341;
 
    // ========== 1447 ===== 117 ==========
-   aPseudoTicket[1447] = 724;
+   //aPseudoTicket[1447] = 724;
    aAction[1447] = 0; // CLOSE
    aType[1447] = OP_SELL; // SELL
    aTicket[1447] = -1; // Ticket given by broker
@@ -15227,7 +15227,7 @@ void init_tab() {
    aPrice[1447] = 1.58008;
 
    // ========== 1448 ===== 116 ==========
-   aPseudoTicket[1448] = 725;
+   //aPseudoTicket[1448] = 725;
    aAction[1448] = 1; // OPEN
    aReturn[725] = 1448;
    aType[1448] = OP_SELL; // SELL
@@ -15238,7 +15238,7 @@ void init_tab() {
    aPrice[1448] = 1.27602;
 
    // ========== 1449 ===== 116 ==========
-   aPseudoTicket[1449] = 725;
+   //aPseudoTicket[1449] = 725;
    aAction[1449] = 0; // CLOSE
    aType[1449] = OP_SELL; // SELL
    aTicket[1449] = -1; // Ticket given by broker
@@ -15248,7 +15248,7 @@ void init_tab() {
    aPrice[1449] = 1.27579;
 
    // ========== 1450 ===== 115 ==========
-   aPseudoTicket[1450] = 726;
+   //aPseudoTicket[1450] = 726;
    aAction[1450] = 1; // OPEN
    aReturn[726] = 1450;
    aType[1450] = OP_BUY; // BUY
@@ -15259,7 +15259,7 @@ void init_tab() {
    aPrice[1450] = 0.9838;
 
    // ========== 1451 ===== 113 ==========
-   aPseudoTicket[1451] = 727;
+   //aPseudoTicket[1451] = 727;
    aAction[1451] = 1; // OPEN
    aReturn[727] = 1451;
    aType[1451] = OP_BUY; // BUY
@@ -15270,7 +15270,7 @@ void init_tab() {
    aPrice[1451] = 1.26777;
 
    // ========== 1452 ===== 114 ==========
-   aPseudoTicket[1452] = 728;
+   //aPseudoTicket[1452] = 728;
    aAction[1452] = 1; // OPEN
    aReturn[728] = 1452;
    aType[1452] = OP_BUY; // BUY
@@ -15281,7 +15281,7 @@ void init_tab() {
    aPrice[1452] = 1.26611;
 
    // ========== 1453 ===== 115 ==========
-   aPseudoTicket[1453] = 726;
+   //aPseudoTicket[1453] = 726;
    aAction[1453] = 0; // CLOSE
    aType[1453] = OP_BUY; // BUY
    aTicket[1453] = -1; // Ticket given by broker
@@ -15291,7 +15291,7 @@ void init_tab() {
    aPrice[1453] = 0.97738;
 
    // ========== 1454 ===== 114 ==========
-   aPseudoTicket[1454] = 728;
+   //aPseudoTicket[1454] = 728;
    aAction[1454] = 0; // CLOSE
    aType[1454] = OP_BUY; // BUY
    aTicket[1454] = -1; // Ticket given by broker
@@ -15301,7 +15301,7 @@ void init_tab() {
    aPrice[1454] = 1.26574;
 
    // ========== 1455 ===== 113 ==========
-   aPseudoTicket[1455] = 727;
+   //aPseudoTicket[1455] = 727;
    aAction[1455] = 0; // CLOSE
    aType[1455] = OP_BUY; // BUY
    aTicket[1455] = -1; // Ticket given by broker
@@ -15311,7 +15311,7 @@ void init_tab() {
    aPrice[1455] = 1.2654;
 
    // ========== 1456 ===== 112 ==========
-   aPseudoTicket[1456] = 729;
+   //aPseudoTicket[1456] = 729;
    aAction[1456] = 1; // OPEN
    aReturn[729] = 1456;
    aType[1456] = OP_SELL; // SELL
@@ -15322,7 +15322,7 @@ void init_tab() {
    aPrice[1456] = 1.25449;
 
    // ========== 1457 ===== 112 ==========
-   aPseudoTicket[1457] = 729;
+   //aPseudoTicket[1457] = 729;
    aAction[1457] = 0; // CLOSE
    aType[1457] = OP_SELL; // SELL
    aTicket[1457] = -1; // Ticket given by broker
@@ -15332,7 +15332,7 @@ void init_tab() {
    aPrice[1457] = 1.25419;
 
    // ========== 1458 ===== 111 ==========
-   aPseudoTicket[1458] = 730;
+   //aPseudoTicket[1458] = 730;
    aAction[1458] = 1; // OPEN
    aReturn[730] = 1458;
    aType[1458] = OP_BUY; // BUY
@@ -15343,7 +15343,7 @@ void init_tab() {
    aPrice[1458] = 0.97178;
 
    // ========== 1459 ===== 111 ==========
-   aPseudoTicket[1459] = 730;
+   //aPseudoTicket[1459] = 730;
    aAction[1459] = 0; // CLOSE
    aType[1459] = OP_BUY; // BUY
    aTicket[1459] = -1; // Ticket given by broker
@@ -15353,7 +15353,7 @@ void init_tab() {
    aPrice[1459] = 0.97395;
 
    // ========== 1460 ===== 110 ==========
-   aPseudoTicket[1460] = 731;
+   //aPseudoTicket[1460] = 731;
    aAction[1460] = 1; // OPEN
    aReturn[731] = 1460;
    aType[1460] = OP_BUY; // BUY
@@ -15364,7 +15364,7 @@ void init_tab() {
    aPrice[1460] = 1.25256;
 
    // ========== 1461 ===== 110 ==========
-   aPseudoTicket[1461] = 731;
+   //aPseudoTicket[1461] = 731;
    aAction[1461] = 0; // CLOSE
    aType[1461] = OP_BUY; // BUY
    aTicket[1461] = -1; // Ticket given by broker
@@ -15374,7 +15374,7 @@ void init_tab() {
    aPrice[1461] = 1.25412;
 
    // ========== 1462 ===== 109 ==========
-   aPseudoTicket[1462] = 732;
+   //aPseudoTicket[1462] = 732;
    aAction[1462] = 1; // OPEN
    aReturn[732] = 1462;
    aType[1462] = OP_SELL; // SELL
@@ -15385,7 +15385,7 @@ void init_tab() {
    aPrice[1462] = 1.25233;
 
    // ========== 1463 ===== 109 ==========
-   aPseudoTicket[1463] = 732;
+   //aPseudoTicket[1463] = 732;
    aAction[1463] = 0; // CLOSE
    aType[1463] = OP_SELL; // SELL
    aTicket[1463] = -1; // Ticket given by broker
@@ -15395,7 +15395,7 @@ void init_tab() {
    aPrice[1463] = 1.25088;
 
    // ========== 1464 ===== 107 ==========
-   aPseudoTicket[1464] = 733;
+   //aPseudoTicket[1464] = 733;
    aAction[1464] = 1; // OPEN
    aReturn[733] = 1464;
    aType[1464] = OP_SELL; // SELL
@@ -15406,7 +15406,7 @@ void init_tab() {
    aPrice[1464] = 1.25898;
 
    // ========== 1465 ===== 108 ==========
-   aPseudoTicket[1465] = 734;
+   //aPseudoTicket[1465] = 734;
    aAction[1465] = 1; // OPEN
    aReturn[734] = 1465;
    aType[1465] = OP_SELL; // SELL
@@ -15417,7 +15417,7 @@ void init_tab() {
    aPrice[1465] = 1.2603;
 
    // ========== 1466 ===== 108 ==========
-   aPseudoTicket[1466] = 734;
+   //aPseudoTicket[1466] = 734;
    aAction[1466] = 0; // CLOSE
    aType[1466] = OP_SELL; // SELL
    aTicket[1466] = -1; // Ticket given by broker
@@ -15427,7 +15427,7 @@ void init_tab() {
    aPrice[1466] = 1.25967;
 
    // ========== 1467 ===== 107 ==========
-   aPseudoTicket[1467] = 733;
+   //aPseudoTicket[1467] = 733;
    aAction[1467] = 0; // CLOSE
    aType[1467] = OP_SELL; // SELL
    aTicket[1467] = -1; // Ticket given by broker
@@ -15437,7 +15437,7 @@ void init_tab() {
    aPrice[1467] = 1.25752;
 
    // ========== 1468 ===== 106 ==========
-   aPseudoTicket[1468] = 735;
+   //aPseudoTicket[1468] = 735;
    aAction[1468] = 1; // OPEN
    aReturn[735] = 1468;
    aType[1468] = OP_SELL; // SELL
@@ -15448,7 +15448,7 @@ void init_tab() {
    aPrice[1468] = 0.9879;
 
    // ========== 1469 ===== 106 ==========
-   aPseudoTicket[1469] = 735;
+   //aPseudoTicket[1469] = 735;
    aAction[1469] = 0; // CLOSE
    aType[1469] = OP_SELL; // SELL
    aTicket[1469] = -1; // Ticket given by broker
@@ -15458,7 +15458,7 @@ void init_tab() {
    aPrice[1469] = 0.98737;
 
    // ========== 1470 ===== 105 ==========
-   aPseudoTicket[1470] = 736;
+   //aPseudoTicket[1470] = 736;
    aAction[1470] = 1; // OPEN
    aReturn[736] = 1470;
    aType[1470] = OP_BUY; // BUY
@@ -15469,7 +15469,7 @@ void init_tab() {
    aPrice[1470] = 1.25619;
 
    // ========== 1471 ===== 105 ==========
-   aPseudoTicket[1471] = 736;
+   //aPseudoTicket[1471] = 736;
    aAction[1471] = 0; // CLOSE
    aType[1471] = OP_BUY; // BUY
    aTicket[1471] = -1; // Ticket given by broker
@@ -15479,7 +15479,7 @@ void init_tab() {
    aPrice[1471] = 1.25606;
 
    // ========== 1472 ===== 104 ==========
-   aPseudoTicket[1472] = 737;
+   //aPseudoTicket[1472] = 737;
    aAction[1472] = 1; // OPEN
    aReturn[737] = 1472;
    aType[1472] = OP_SELL; // SELL
@@ -15490,7 +15490,7 @@ void init_tab() {
    aPrice[1472] = 1.25215;
 
    // ========== 1473 ===== 104 ==========
-   aPseudoTicket[1473] = 737;
+   //aPseudoTicket[1473] = 737;
    aAction[1473] = 0; // CLOSE
    aType[1473] = OP_SELL; // SELL
    aTicket[1473] = -1; // Ticket given by broker
@@ -15500,7 +15500,7 @@ void init_tab() {
    aPrice[1473] = 1.25212;
 
    // ========== 1474 ===== 103 ==========
-   aPseudoTicket[1474] = 738;
+   //aPseudoTicket[1474] = 738;
    aAction[1474] = 1; // OPEN
    aReturn[738] = 1474;
    aType[1474] = OP_BUY; // BUY
@@ -15511,7 +15511,7 @@ void init_tab() {
    aPrice[1474] = 1.24657;
 
    // ========== 1475 ===== 103 ==========
-   aPseudoTicket[1475] = 738;
+   //aPseudoTicket[1475] = 738;
    aAction[1475] = 0; // CLOSE
    aType[1475] = OP_BUY; // BUY
    aTicket[1475] = -1; // Ticket given by broker
@@ -15521,7 +15521,7 @@ void init_tab() {
    aPrice[1475] = 1.24722;
 
    // ========== 1476 ===== 97 ==========
-   aPseudoTicket[1476] = 739;
+   //aPseudoTicket[1476] = 739;
    aAction[1476] = 1; // OPEN
    aReturn[739] = 1476;
    aType[1476] = OP_BUY; // BUY
@@ -15532,7 +15532,7 @@ void init_tab() {
    aPrice[1476] = 1.24584;
 
    // ========== 1477 ===== 98 ==========
-   aPseudoTicket[1477] = 740;
+   //aPseudoTicket[1477] = 740;
    aAction[1477] = 1; // OPEN
    aReturn[740] = 1477;
    aType[1477] = OP_BUY; // BUY
@@ -15543,7 +15543,7 @@ void init_tab() {
    aPrice[1477] = 1.24416;
 
    // ========== 1478 ===== 101 ==========
-   aPseudoTicket[1478] = 741;
+   //aPseudoTicket[1478] = 741;
    aAction[1478] = 1; // OPEN
    aReturn[741] = 1478;
    aType[1478] = OP_SELL; // SELL
@@ -15554,7 +15554,7 @@ void init_tab() {
    aPrice[1478] = 1.55345;
 
    // ========== 1479 ===== 102 ==========
-   aPseudoTicket[1479] = 742;
+   //aPseudoTicket[1479] = 742;
    aAction[1479] = 1; // OPEN
    aReturn[742] = 1479;
    aType[1479] = OP_SELL; // SELL
@@ -15565,7 +15565,7 @@ void init_tab() {
    aPrice[1479] = 1.55498;
 
    // ========== 1480 ===== 102 ==========
-   aPseudoTicket[1480] = 742;
+   //aPseudoTicket[1480] = 742;
    aAction[1480] = 0; // CLOSE
    aType[1480] = OP_SELL; // SELL
    aTicket[1480] = -1; // Ticket given by broker
@@ -15575,7 +15575,7 @@ void init_tab() {
    aPrice[1480] = 1.55344;
 
    // ========== 1481 ===== 101 ==========
-   aPseudoTicket[1481] = 741;
+   //aPseudoTicket[1481] = 741;
    aAction[1481] = 0; // CLOSE
    aType[1481] = OP_SELL; // SELL
    aTicket[1481] = -1; // Ticket given by broker
@@ -15585,7 +15585,7 @@ void init_tab() {
    aPrice[1481] = 1.55267;
 
    // ========== 1482 ===== 100 ==========
-   aPseudoTicket[1482] = 743;
+   //aPseudoTicket[1482] = 743;
    aAction[1482] = 1; // OPEN
    aReturn[743] = 1482;
    aType[1482] = OP_BUY; // BUY
@@ -15596,7 +15596,7 @@ void init_tab() {
    aPrice[1482] = 1.23676;
 
    // ========== 1483 ===== 100 ==========
-   aPseudoTicket[1483] = 743;
+   //aPseudoTicket[1483] = 743;
    aAction[1483] = 0; // CLOSE
    aType[1483] = OP_BUY; // BUY
    aTicket[1483] = -1; // Ticket given by broker
@@ -15606,7 +15606,7 @@ void init_tab() {
    aPrice[1483] = 1.23741;
 
    // ========== 1484 ===== 99 ==========
-   aPseudoTicket[1484] = 744;
+   //aPseudoTicket[1484] = 744;
    aAction[1484] = 1; // OPEN
    aReturn[744] = 1484;
    aType[1484] = OP_BUY; // BUY
@@ -15617,7 +15617,7 @@ void init_tab() {
    aPrice[1484] = 1.54898;
 
    // ========== 1485 ===== 99 ==========
-   aPseudoTicket[1485] = 744;
+   //aPseudoTicket[1485] = 744;
    aAction[1485] = 0; // CLOSE
    aType[1485] = OP_BUY; // BUY
    aTicket[1485] = -1; // Ticket given by broker
@@ -15627,7 +15627,7 @@ void init_tab() {
    aPrice[1485] = 1.54974;
 
    // ========== 1486 ===== 98 ==========
-   aPseudoTicket[1486] = 740;
+   //aPseudoTicket[1486] = 740;
    aAction[1486] = 0; // CLOSE
    aType[1486] = OP_BUY; // BUY
    aTicket[1486] = -1; // Ticket given by broker
@@ -15637,7 +15637,7 @@ void init_tab() {
    aPrice[1486] = 1.24146;
 
    // ========== 1487 ===== 97 ==========
-   aPseudoTicket[1487] = 739;
+   //aPseudoTicket[1487] = 739;
    aAction[1487] = 0; // CLOSE
    aType[1487] = OP_BUY; // BUY
    aTicket[1487] = -1; // Ticket given by broker
@@ -15647,7 +15647,7 @@ void init_tab() {
    aPrice[1487] = 1.24203;
 
    // ========== 1488 ===== 94 ==========
-   aPseudoTicket[1488] = 745;
+   //aPseudoTicket[1488] = 745;
    aAction[1488] = 1; // OPEN
    aReturn[745] = 1488;
    aType[1488] = OP_BUY; // BUY
@@ -15658,7 +15658,7 @@ void init_tab() {
    aPrice[1488] = 1.23448;
 
    // ========== 1489 ===== 96 ==========
-   aPseudoTicket[1489] = 746;
+   //aPseudoTicket[1489] = 746;
    aAction[1489] = 1; // OPEN
    aReturn[746] = 1489;
    aType[1489] = OP_BUY; // BUY
@@ -15669,7 +15669,7 @@ void init_tab() {
    aPrice[1489] = 1.5305;
 
    // ========== 1490 ===== 93 ==========
-   aPseudoTicket[1490] = 747;
+   //aPseudoTicket[1490] = 747;
    aAction[1490] = 1; // OPEN
    aReturn[747] = 1490;
    aType[1490] = OP_BUY; // BUY
@@ -15680,7 +15680,7 @@ void init_tab() {
    aPrice[1490] = 1.23229;
 
    // ========== 1491 ===== 95 ==========
-   aPseudoTicket[1491] = 748;
+   //aPseudoTicket[1491] = 748;
    aAction[1491] = 1; // OPEN
    aReturn[748] = 1491;
    aType[1491] = OP_BUY; // BUY
@@ -15691,7 +15691,7 @@ void init_tab() {
    aPrice[1491] = 1.22984;
 
    // ========== 1492 ===== 96 ==========
-   aPseudoTicket[1492] = 746;
+   //aPseudoTicket[1492] = 746;
    aAction[1492] = 0; // CLOSE
    aType[1492] = OP_BUY; // BUY
    aTicket[1492] = -1; // Ticket given by broker
@@ -15701,7 +15701,7 @@ void init_tab() {
    aPrice[1492] = 1.53482;
 
    // ========== 1493 ===== 95 ==========
-   aPseudoTicket[1493] = 748;
+   //aPseudoTicket[1493] = 748;
    aAction[1493] = 0; // CLOSE
    aType[1493] = OP_BUY; // BUY
    aTicket[1493] = -1; // Ticket given by broker
@@ -15711,7 +15711,7 @@ void init_tab() {
    aPrice[1493] = 1.23929;
 
    // ========== 1494 ===== 94 ==========
-   aPseudoTicket[1494] = 745;
+   //aPseudoTicket[1494] = 745;
    aAction[1494] = 0; // CLOSE
    aType[1494] = OP_BUY; // BUY
    aTicket[1494] = -1; // Ticket given by broker
@@ -15721,7 +15721,7 @@ void init_tab() {
    aPrice[1494] = 1.24001;
 
    // ========== 1495 ===== 93 ==========
-   aPseudoTicket[1495] = 747;
+   //aPseudoTicket[1495] = 747;
    aAction[1495] = 0; // CLOSE
    aType[1495] = OP_BUY; // BUY
    aTicket[1495] = -1; // Ticket given by broker
@@ -15731,7 +15731,7 @@ void init_tab() {
    aPrice[1495] = 1.24112;
 
    // ========== 1496 ===== 91 ==========
-   aPseudoTicket[1496] = 749;
+   //aPseudoTicket[1496] = 749;
    aAction[1496] = 1; // OPEN
    aReturn[749] = 1496;
    aType[1496] = OP_BUY; // BUY
@@ -15742,7 +15742,7 @@ void init_tab() {
    aPrice[1496] = 1.241;
 
    // ========== 1497 ===== 92 ==========
-   aPseudoTicket[1497] = 750;
+   //aPseudoTicket[1497] = 750;
    aAction[1497] = 1; // OPEN
    aReturn[750] = 1497;
    aType[1497] = OP_BUY; // BUY
@@ -15753,7 +15753,7 @@ void init_tab() {
    aPrice[1497] = 1.23946;
 
    // ========== 1498 ===== 92 ==========
-   aPseudoTicket[1498] = 750;
+   //aPseudoTicket[1498] = 750;
    aAction[1498] = 0; // CLOSE
    aType[1498] = OP_BUY; // BUY
    aTicket[1498] = -1; // Ticket given by broker
@@ -15763,7 +15763,7 @@ void init_tab() {
    aPrice[1498] = 1.24158;
 
    // ========== 1499 ===== 91 ==========
-   aPseudoTicket[1499] = 749;
+   //aPseudoTicket[1499] = 749;
    aAction[1499] = 0; // CLOSE
    aType[1499] = OP_BUY; // BUY
    aTicket[1499] = -1; // Ticket given by broker
@@ -15773,7 +15773,7 @@ void init_tab() {
    aPrice[1499] = 1.24259;
 
    // ========== 1500 ===== 90 ==========
-   aPseudoTicket[1500] = 751;
+   //aPseudoTicket[1500] = 751;
    aAction[1500] = 1; // OPEN
    aReturn[751] = 1500;
    aType[1500] = OP_BUY; // BUY
@@ -15784,7 +15784,7 @@ void init_tab() {
    aPrice[1500] = 1.2365;
 
    // ========== 1501 ===== 90 ==========
-   aPseudoTicket[1501] = 751;
+   //aPseudoTicket[1501] = 751;
    aAction[1501] = 0; // CLOSE
    aType[1501] = OP_BUY; // BUY
    aTicket[1501] = -1; // Ticket given by broker
@@ -15794,7 +15794,7 @@ void init_tab() {
    aPrice[1501] = 1.23826;
 
    // ========== 1502 ===== 89 ==========
-   aPseudoTicket[1502] = 752;
+   //aPseudoTicket[1502] = 752;
    aAction[1502] = 1; // OPEN
    aReturn[752] = 1502;
    aType[1502] = OP_SELL; // SELL
@@ -15805,7 +15805,7 @@ void init_tab() {
    aPrice[1502] = 1.24951;
 
    // ========== 1503 ===== 89 ==========
-   aPseudoTicket[1503] = 752;
+   //aPseudoTicket[1503] = 752;
    aAction[1503] = 0; // CLOSE
    aType[1503] = OP_SELL; // SELL
    aTicket[1503] = -1; // Ticket given by broker
@@ -15815,7 +15815,7 @@ void init_tab() {
    aPrice[1503] = 1.2487;
 
    // ========== 1504 ===== 87 ==========
-   aPseudoTicket[1504] = 753;
+   //aPseudoTicket[1504] = 753;
    aAction[1504] = 1; // OPEN
    aReturn[753] = 1504;
    aType[1504] = OP_SELL; // SELL
@@ -15826,7 +15826,7 @@ void init_tab() {
    aPrice[1504] = 1.24906;
 
    // ========== 1505 ===== 88 ==========
-   aPseudoTicket[1505] = 754;
+   //aPseudoTicket[1505] = 754;
    aAction[1505] = 1; // OPEN
    aReturn[754] = 1505;
    aType[1505] = OP_SELL; // SELL
@@ -15837,7 +15837,7 @@ void init_tab() {
    aPrice[1505] = 1.25357;
 
    // ========== 1506 ===== 88 ==========
-   aPseudoTicket[1506] = 754;
+   //aPseudoTicket[1506] = 754;
    aAction[1506] = 0; // CLOSE
    aType[1506] = OP_SELL; // SELL
    aTicket[1506] = -1; // Ticket given by broker
@@ -15847,7 +15847,7 @@ void init_tab() {
    aPrice[1506] = 1.24994;
 
    // ========== 1507 ===== 87 ==========
-   aPseudoTicket[1507] = 753;
+   //aPseudoTicket[1507] = 753;
    aAction[1507] = 0; // CLOSE
    aType[1507] = OP_SELL; // SELL
    aTicket[1507] = -1; // Ticket given by broker
@@ -15857,7 +15857,7 @@ void init_tab() {
    aPrice[1507] = 1.24951;
 
    // ========== 1508 ===== 86 ==========
-   aPseudoTicket[1508] = 755;
+   //aPseudoTicket[1508] = 755;
    aAction[1508] = 1; // OPEN
    aReturn[755] = 1508;
    aType[1508] = OP_SELL; // SELL
@@ -15868,7 +15868,7 @@ void init_tab() {
    aPrice[1508] = 1.54545;
 
    // ========== 1509 ===== 86 ==========
-   aPseudoTicket[1509] = 755;
+   //aPseudoTicket[1509] = 755;
    aAction[1509] = 0; // CLOSE
    aType[1509] = OP_SELL; // SELL
    aTicket[1509] = -1; // Ticket given by broker
@@ -15878,7 +15878,7 @@ void init_tab() {
    aPrice[1509] = 1.54485;
 
    // ========== 1510 ===== 82 ==========
-   aPseudoTicket[1510] = 756;
+   //aPseudoTicket[1510] = 756;
    aAction[1510] = 1; // OPEN
    aReturn[756] = 1510;
    aType[1510] = OP_SELL; // SELL
@@ -15889,7 +15889,7 @@ void init_tab() {
    aPrice[1510] = 0.98614;
 
    // ========== 1511 ===== 85 ==========
-   aPseudoTicket[1511] = 757;
+   //aPseudoTicket[1511] = 757;
    aAction[1511] = 1; // OPEN
    aReturn[757] = 1511;
    aType[1511] = OP_SELL; // SELL
@@ -15900,7 +15900,7 @@ void init_tab() {
    aPrice[1511] = 1.5513;
 
    // ========== 1512 ===== 85 ==========
-   aPseudoTicket[1512] = 757;
+   //aPseudoTicket[1512] = 757;
    aAction[1512] = 0; // CLOSE
    aType[1512] = OP_SELL; // SELL
    aTicket[1512] = -1; // Ticket given by broker
@@ -15910,7 +15910,7 @@ void init_tab() {
    aPrice[1512] = 1.55063;
 
    // ========== 1513 ===== 84 ==========
-   aPseudoTicket[1513] = 758;
+   //aPseudoTicket[1513] = 758;
    aAction[1513] = 1; // OPEN
    aReturn[758] = 1513;
    aType[1513] = OP_SELL; // SELL
@@ -15921,7 +15921,7 @@ void init_tab() {
    aPrice[1513] = 79.447;
 
    // ========== 1514 ===== 84 ==========
-   aPseudoTicket[1514] = 758;
+   //aPseudoTicket[1514] = 758;
    aAction[1514] = 0; // CLOSE
    aType[1514] = OP_SELL; // SELL
    aTicket[1514] = -1; // Ticket given by broker
@@ -15931,7 +15931,7 @@ void init_tab() {
    aPrice[1514] = 79.451;
 
    // ========== 1515 ===== 83 ==========
-   aPseudoTicket[1515] = 759;
+   //aPseudoTicket[1515] = 759;
    aAction[1515] = 1; // OPEN
    aReturn[759] = 1515;
    aType[1515] = OP_SELL; // SELL
@@ -15942,7 +15942,7 @@ void init_tab() {
    aPrice[1515] = 1.25859;
 
    // ========== 1516 ===== 83 ==========
-   aPseudoTicket[1516] = 759;
+   //aPseudoTicket[1516] = 759;
    aAction[1516] = 0; // CLOSE
    aType[1516] = OP_SELL; // SELL
    aTicket[1516] = -1; // Ticket given by broker
@@ -15952,7 +15952,7 @@ void init_tab() {
    aPrice[1516] = 1.25629;
 
    // ========== 1517 ===== 80 ==========
-   aPseudoTicket[1517] = 760;
+   //aPseudoTicket[1517] = 760;
    aAction[1517] = 1; // OPEN
    aReturn[760] = 1517;
    aType[1517] = OP_SELL; // SELL
@@ -15963,7 +15963,7 @@ void init_tab() {
    aPrice[1517] = 79.64;
 
    // ========== 1518 ===== 82 ==========
-   aPseudoTicket[1518] = 756;
+   //aPseudoTicket[1518] = 756;
    aAction[1518] = 0; // CLOSE
    aType[1518] = OP_SELL; // SELL
    aTicket[1518] = -1; // Ticket given by broker
@@ -15973,7 +15973,7 @@ void init_tab() {
    aPrice[1518] = 0.99003;
 
    // ========== 1519 ===== 81 ==========
-   aPseudoTicket[1519] = 761;
+   //aPseudoTicket[1519] = 761;
    aAction[1519] = 1; // OPEN
    aReturn[761] = 1519;
    aType[1519] = OP_SELL; // SELL
@@ -15984,7 +15984,7 @@ void init_tab() {
    aPrice[1519] = 79.742;
 
    // ========== 1520 ===== 81 ==========
-   aPseudoTicket[1520] = 761;
+   //aPseudoTicket[1520] = 761;
    aAction[1520] = 0; // CLOSE
    aType[1520] = OP_SELL; // SELL
    aTicket[1520] = -1; // Ticket given by broker
@@ -15994,7 +15994,7 @@ void init_tab() {
    aPrice[1520] = 79.592;
 
    // ========== 1521 ===== 80 ==========
-   aPseudoTicket[1521] = 760;
+   //aPseudoTicket[1521] = 760;
    aAction[1521] = 0; // CLOSE
    aType[1521] = OP_SELL; // SELL
    aTicket[1521] = -1; // Ticket given by broker
@@ -16004,7 +16004,7 @@ void init_tab() {
    aPrice[1521] = 79.407;
 
    // ========== 1522 ===== 79 ==========
-   aPseudoTicket[1522] = 762;
+   //aPseudoTicket[1522] = 762;
    aAction[1522] = 1; // OPEN
    aReturn[762] = 1522;
    aType[1522] = OP_BUY; // BUY
@@ -16015,7 +16015,7 @@ void init_tab() {
    aPrice[1522] = 1.5414;
 
    // ========== 1523 ===== 79 ==========
-   aPseudoTicket[1523] = 762;
+   //aPseudoTicket[1523] = 762;
    aAction[1523] = 0; // CLOSE
    aType[1523] = OP_BUY; // BUY
    aTicket[1523] = -1; // Ticket given by broker
@@ -16025,7 +16025,7 @@ void init_tab() {
    aPrice[1523] = 1.54154;
 
    // ========== 1524 ===== 76 ==========
-   aPseudoTicket[1524] = 763;
+   //aPseudoTicket[1524] = 763;
    aAction[1524] = 1; // OPEN
    aReturn[763] = 1524;
    aType[1524] = OP_SELL; // SELL
@@ -16036,7 +16036,7 @@ void init_tab() {
    aPrice[1524] = 1.266;
 
    // ========== 1525 ===== 77 ==========
-   aPseudoTicket[1525] = 764;
+   //aPseudoTicket[1525] = 764;
    aAction[1525] = 1; // OPEN
    aReturn[764] = 1525;
    aType[1525] = OP_SELL; // SELL
@@ -16047,7 +16047,7 @@ void init_tab() {
    aPrice[1525] = 1.55537;
 
    // ========== 1526 ===== 78 ==========
-   aPseudoTicket[1526] = 765;
+   //aPseudoTicket[1526] = 765;
    aAction[1526] = 1; // OPEN
    aReturn[765] = 1526;
    aType[1526] = OP_SELL; // SELL
@@ -16058,7 +16058,7 @@ void init_tab() {
    aPrice[1526] = 1.26445;
 
    // ========== 1527 ===== 78 ==========
-   aPseudoTicket[1527] = 765;
+   //aPseudoTicket[1527] = 765;
    aAction[1527] = 0; // CLOSE
    aType[1527] = OP_SELL; // SELL
    aTicket[1527] = -1; // Ticket given by broker
@@ -16068,7 +16068,7 @@ void init_tab() {
    aPrice[1527] = 1.26286;
 
    // ========== 1528 ===== 77 ==========
-   aPseudoTicket[1528] = 764;
+   //aPseudoTicket[1528] = 764;
    aAction[1528] = 0; // CLOSE
    aType[1528] = OP_SELL; // SELL
    aTicket[1528] = -1; // Ticket given by broker
@@ -16078,7 +16078,7 @@ void init_tab() {
    aPrice[1528] = 1.55426;
 
    // ========== 1529 ===== 76 ==========
-   aPseudoTicket[1529] = 763;
+   //aPseudoTicket[1529] = 763;
    aAction[1529] = 0; // CLOSE
    aType[1529] = OP_SELL; // SELL
    aTicket[1529] = -1; // Ticket given by broker
@@ -16088,7 +16088,7 @@ void init_tab() {
    aPrice[1529] = 1.26194;
 
    // ========== 1530 ===== 74 ==========
-   aPseudoTicket[1530] = 766;
+   //aPseudoTicket[1530] = 766;
    aAction[1530] = 1; // OPEN
    aReturn[766] = 1530;
    aType[1530] = OP_BUY; // BUY
@@ -16099,7 +16099,7 @@ void init_tab() {
    aPrice[1530] = 1.24746;
 
    // ========== 1531 ===== 75 ==========
-   aPseudoTicket[1531] = 767;
+   //aPseudoTicket[1531] = 767;
    aAction[1531] = 1; // OPEN
    aReturn[767] = 1531;
    aType[1531] = OP_BUY; // BUY
@@ -16110,7 +16110,7 @@ void init_tab() {
    aPrice[1531] = 1.24644;
 
    // ========== 1532 ===== 75 ==========
-   aPseudoTicket[1532] = 767;
+   //aPseudoTicket[1532] = 767;
    aAction[1532] = 0; // CLOSE
    aType[1532] = OP_BUY; // BUY
    aTicket[1532] = -1; // Ticket given by broker
@@ -16120,7 +16120,7 @@ void init_tab() {
    aPrice[1532] = 1.24709;
 
    // ========== 1533 ===== 74 ==========
-   aPseudoTicket[1533] = 766;
+   //aPseudoTicket[1533] = 766;
    aAction[1533] = 0; // CLOSE
    aType[1533] = OP_BUY; // BUY
    aTicket[1533] = -1; // Ticket given by broker
@@ -16130,7 +16130,7 @@ void init_tab() {
    aPrice[1533] = 1.24765;
 
    // ========== 1534 ===== 73 ==========
-   aPseudoTicket[1534] = 768;
+   //aPseudoTicket[1534] = 768;
    aAction[1534] = 1; // OPEN
    aReturn[768] = 1534;
    aType[1534] = OP_SELL; // SELL
@@ -16141,7 +16141,7 @@ void init_tab() {
    aPrice[1534] = 1.24568;
 
    // ========== 1535 ===== 73 ==========
-   aPseudoTicket[1535] = 768;
+   //aPseudoTicket[1535] = 768;
    aAction[1535] = 0; // CLOSE
    aType[1535] = OP_SELL; // SELL
    aTicket[1535] = -1; // Ticket given by broker
@@ -16151,7 +16151,7 @@ void init_tab() {
    aPrice[1535] = 1.24784;
 
    // ========== 1536 ===== 72 ==========
-   aPseudoTicket[1536] = 769;
+   //aPseudoTicket[1536] = 769;
    aAction[1536] = 1; // OPEN
    aReturn[769] = 1536;
    aType[1536] = OP_SELL; // SELL
@@ -16162,7 +16162,7 @@ void init_tab() {
    aPrice[1536] = 1.25363;
 
    // ========== 1537 ===== 71 ==========
-   aPseudoTicket[1537] = 770;
+   //aPseudoTicket[1537] = 770;
    aAction[1537] = 1; // OPEN
    aReturn[770] = 1537;
    aType[1537] = OP_SELL; // SELL
@@ -16173,7 +16173,7 @@ void init_tab() {
    aPrice[1537] = 1.25378;
 
    // ========== 1538 ===== 72 ==========
-   aPseudoTicket[1538] = 769;
+   //aPseudoTicket[1538] = 769;
    aAction[1538] = 0; // CLOSE
    aType[1538] = OP_SELL; // SELL
    aTicket[1538] = -1; // Ticket given by broker
@@ -16183,7 +16183,7 @@ void init_tab() {
    aPrice[1538] = 1.25241;
 
    // ========== 1539 ===== 71 ==========
-   aPseudoTicket[1539] = 770;
+   //aPseudoTicket[1539] = 770;
    aAction[1539] = 0; // CLOSE
    aType[1539] = OP_SELL; // SELL
    aTicket[1539] = -1; // Ticket given by broker
@@ -16193,7 +16193,7 @@ void init_tab() {
    aPrice[1539] = 1.25278;
 
    // ========== 1540 ===== 70 ==========
-   aPseudoTicket[1540] = 771;
+   //aPseudoTicket[1540] = 771;
    aAction[1540] = 1; // OPEN
    aReturn[771] = 1540;
    aType[1540] = OP_SELL; // SELL
@@ -16204,7 +16204,7 @@ void init_tab() {
    aPrice[1540] = 1.26009;
 
    // ========== 1541 ===== 70 ==========
-   aPseudoTicket[1541] = 771;
+   //aPseudoTicket[1541] = 771;
    aAction[1541] = 0; // CLOSE
    aType[1541] = OP_SELL; // SELL
    aTicket[1541] = -1; // Ticket given by broker
@@ -16214,7 +16214,7 @@ void init_tab() {
    aPrice[1541] = 1.25936;
 
    // ========== 1542 ===== 69 ==========
-   aPseudoTicket[1542] = 772;
+   //aPseudoTicket[1542] = 772;
    aAction[1542] = 1; // OPEN
    aReturn[772] = 1542;
    aType[1542] = OP_SELL; // SELL
@@ -16225,7 +16225,7 @@ void init_tab() {
    aPrice[1542] = 1.54928;
 
    // ========== 1543 ===== 69 ==========
-   aPseudoTicket[1543] = 772;
+   //aPseudoTicket[1543] = 772;
    aAction[1543] = 0; // CLOSE
    aType[1543] = OP_SELL; // SELL
    aTicket[1543] = -1; // Ticket given by broker
@@ -16235,7 +16235,7 @@ void init_tab() {
    aPrice[1543] = 1.5481;
 
    // ========== 1544 ===== 68 ==========
-   aPseudoTicket[1544] = 773;
+   //aPseudoTicket[1544] = 773;
    aAction[1544] = 1; // OPEN
    aReturn[773] = 1544;
    aType[1544] = OP_SELL; // SELL
@@ -16246,7 +16246,7 @@ void init_tab() {
    aPrice[1544] = 1.2546;
 
    // ========== 1545 ===== 68 ==========
-   aPseudoTicket[1545] = 773;
+   //aPseudoTicket[1545] = 773;
    aAction[1545] = 0; // CLOSE
    aType[1545] = OP_SELL; // SELL
    aTicket[1545] = -1; // Ticket given by broker
@@ -16256,7 +16256,7 @@ void init_tab() {
    aPrice[1545] = 1.25653;
 
    // ========== 1546 ===== 67 ==========
-   aPseudoTicket[1546] = 774;
+   //aPseudoTicket[1546] = 774;
    aAction[1546] = 1; // OPEN
    aReturn[774] = 1546;
    aType[1546] = OP_SELL; // SELL
@@ -16267,7 +16267,7 @@ void init_tab() {
    aPrice[1546] = 1.26284;
 
    // ========== 1547 ===== 67 ==========
-   aPseudoTicket[1547] = 774;
+   //aPseudoTicket[1547] = 774;
    aAction[1547] = 0; // CLOSE
    aType[1547] = OP_SELL; // SELL
    aTicket[1547] = -1; // Ticket given by broker
@@ -16277,7 +16277,7 @@ void init_tab() {
    aPrice[1547] = 1.26163;
 
    // ========== 1548 ===== 66 ==========
-   aPseudoTicket[1548] = 775;
+   //aPseudoTicket[1548] = 775;
    aAction[1548] = 1; // OPEN
    aReturn[775] = 1548;
    aType[1548] = OP_SELL; // SELL
@@ -16288,7 +16288,7 @@ void init_tab() {
    aPrice[1548] = 1.2639;
 
    // ========== 1549 ===== 66 ==========
-   aPseudoTicket[1549] = 775;
+   //aPseudoTicket[1549] = 775;
    aAction[1549] = 0; // CLOSE
    aType[1549] = OP_SELL; // SELL
    aTicket[1549] = -1; // Ticket given by broker
@@ -16298,7 +16298,7 @@ void init_tab() {
    aPrice[1549] = 1.26256;
 
    // ========== 1550 ===== 65 ==========
-   aPseudoTicket[1550] = 776;
+   //aPseudoTicket[1550] = 776;
    aAction[1550] = 1; // OPEN
    aReturn[776] = 1550;
    aType[1550] = OP_SELL; // SELL
@@ -16309,7 +16309,7 @@ void init_tab() {
    aPrice[1550] = 1.00653;
 
    // ========== 1551 ===== 65 ==========
-   aPseudoTicket[1551] = 776;
+   //aPseudoTicket[1551] = 776;
    aAction[1551] = 0; // CLOSE
    aType[1551] = OP_SELL; // SELL
    aTicket[1551] = -1; // Ticket given by broker
@@ -16319,7 +16319,7 @@ void init_tab() {
    aPrice[1551] = 1.00547;
 
    // ========== 1552 ===== 64 ==========
-   aPseudoTicket[1552] = 777;
+   //aPseudoTicket[1552] = 777;
    aAction[1552] = 1; // OPEN
    aReturn[777] = 1552;
    aType[1552] = OP_SELL; // SELL
@@ -16330,7 +16330,7 @@ void init_tab() {
    aPrice[1552] = 1.01149;
 
    // ========== 1553 ===== 64 ==========
-   aPseudoTicket[1553] = 777;
+   //aPseudoTicket[1553] = 777;
    aAction[1553] = 0; // CLOSE
    aType[1553] = OP_SELL; // SELL
    aTicket[1553] = -1; // Ticket given by broker
@@ -16340,7 +16340,7 @@ void init_tab() {
    aPrice[1553] = 1.00929;
 
    // ========== 1554 ===== 63 ==========
-   aPseudoTicket[1554] = 778;
+   //aPseudoTicket[1554] = 778;
    aAction[1554] = 1; // OPEN
    aReturn[778] = 1554;
    aType[1554] = OP_SELL; // SELL
@@ -16351,7 +16351,7 @@ void init_tab() {
    aPrice[1554] = 1.01151;
 
    // ========== 1555 ===== 63 ==========
-   aPseudoTicket[1555] = 778;
+   //aPseudoTicket[1555] = 778;
    aAction[1555] = 0; // CLOSE
    aType[1555] = OP_SELL; // SELL
    aTicket[1555] = -1; // Ticket given by broker
@@ -16361,7 +16361,7 @@ void init_tab() {
    aPrice[1555] = 1.01023;
 
    // ========== 1556 ===== 62 ==========
-   aPseudoTicket[1556] = 779;
+   //aPseudoTicket[1556] = 779;
    aAction[1556] = 1; // OPEN
    aReturn[779] = 1556;
    aType[1556] = OP_BUY; // BUY
@@ -16372,7 +16372,7 @@ void init_tab() {
    aPrice[1556] = 1.26066;
 
    // ========== 1557 ===== 62 ==========
-   aPseudoTicket[1557] = 779;
+   //aPseudoTicket[1557] = 779;
    aAction[1557] = 0; // CLOSE
    aType[1557] = OP_BUY; // BUY
    aTicket[1557] = -1; // Ticket given by broker
@@ -16382,7 +16382,7 @@ void init_tab() {
    aPrice[1557] = 1.26009;
 
    // ========== 1558 ===== 59 ==========
-   aPseudoTicket[1558] = 780;
+   //aPseudoTicket[1558] = 780;
    aAction[1558] = 1; // OPEN
    aReturn[780] = 1558;
    aType[1558] = OP_SELL; // SELL
@@ -16393,7 +16393,7 @@ void init_tab() {
    aPrice[1558] = 1.01744;
 
    // ========== 1559 ===== 58 ==========
-   aPseudoTicket[1559] = 781;
+   //aPseudoTicket[1559] = 781;
    aAction[1559] = 1; // OPEN
    aReturn[781] = 1559;
    aType[1559] = OP_SELL; // SELL
@@ -16404,7 +16404,7 @@ void init_tab() {
    aPrice[1559] = 1.01762;
 
    // ========== 1560 ===== 61 ==========
-   aPseudoTicket[1560] = 782;
+   //aPseudoTicket[1560] = 782;
    aAction[1560] = 1; // OPEN
    aReturn[782] = 1560;
    aType[1560] = OP_SELL; // SELL
@@ -16415,7 +16415,7 @@ void init_tab() {
    aPrice[1560] = 1.01914;
 
    // ========== 1561 ===== 61 ==========
-   aPseudoTicket[1561] = 782;
+   //aPseudoTicket[1561] = 782;
    aAction[1561] = 0; // CLOSE
    aType[1561] = OP_SELL; // SELL
    aTicket[1561] = -1; // Ticket given by broker
@@ -16425,7 +16425,7 @@ void init_tab() {
    aPrice[1561] = 1.01771;
 
    // ========== 1562 ===== 60 ==========
-   aPseudoTicket[1562] = 783;
+   //aPseudoTicket[1562] = 783;
    aAction[1562] = 1; // OPEN
    aReturn[783] = 1562;
    aType[1562] = OP_SELL; // SELL
@@ -16436,7 +16436,7 @@ void init_tab() {
    aPrice[1562] = 1.0206;
 
    // ========== 1563 ===== 60 ==========
-   aPseudoTicket[1563] = 783;
+   //aPseudoTicket[1563] = 783;
    aAction[1563] = 0; // CLOSE
    aType[1563] = OP_SELL; // SELL
    aTicket[1563] = -1; // Ticket given by broker
@@ -16446,7 +16446,7 @@ void init_tab() {
    aPrice[1563] = 1.01942;
 
    // ========== 1564 ===== 59 ==========
-   aPseudoTicket[1564] = 780;
+   //aPseudoTicket[1564] = 780;
    aAction[1564] = 0; // CLOSE
    aType[1564] = OP_SELL; // SELL
    aTicket[1564] = -1; // Ticket given by broker
@@ -16456,7 +16456,7 @@ void init_tab() {
    aPrice[1564] = 1.017;
 
    // ========== 1565 ===== 58 ==========
-   aPseudoTicket[1565] = 781;
+   //aPseudoTicket[1565] = 781;
    aAction[1565] = 0; // CLOSE
    aType[1565] = OP_SELL; // SELL
    aTicket[1565] = -1; // Ticket given by broker
@@ -16466,7 +16466,7 @@ void init_tab() {
    aPrice[1565] = 1.0172;
 
    // ========== 1566 ===== 57 ==========
-   aPseudoTicket[1566] = 784;
+   //aPseudoTicket[1566] = 784;
    aAction[1566] = 1; // OPEN
    aReturn[784] = 1566;
    aType[1566] = OP_SELL; // SELL
@@ -16477,7 +16477,7 @@ void init_tab() {
    aPrice[1566] = 1.25646;
 
    // ========== 1567 ===== 57 ==========
-   aPseudoTicket[1567] = 784;
+   //aPseudoTicket[1567] = 784;
    aAction[1567] = 0; // CLOSE
    aType[1567] = OP_SELL; // SELL
    aTicket[1567] = -1; // Ticket given by broker
@@ -16487,7 +16487,7 @@ void init_tab() {
    aPrice[1567] = 1.25611;
 
    // ========== 1568 ===== 56 ==========
-   aPseudoTicket[1568] = 785;
+   //aPseudoTicket[1568] = 785;
    aAction[1568] = 1; // OPEN
    aReturn[785] = 1568;
    aType[1568] = OP_SELL; // SELL
@@ -16498,7 +16498,7 @@ void init_tab() {
    aPrice[1568] = 1.25537;
 
    // ========== 1569 ===== 56 ==========
-   aPseudoTicket[1569] = 785;
+   //aPseudoTicket[1569] = 785;
    aAction[1569] = 0; // CLOSE
    aType[1569] = OP_SELL; // SELL
    aTicket[1569] = -1; // Ticket given by broker
@@ -16508,7 +16508,7 @@ void init_tab() {
    aPrice[1569] = 1.25267;
 
    // ========== 1570 ===== 55 ==========
-   aPseudoTicket[1570] = 786;
+   //aPseudoTicket[1570] = 786;
    aAction[1570] = 1; // OPEN
    aReturn[786] = 1570;
    aType[1570] = OP_SELL; // SELL
@@ -16519,7 +16519,7 @@ void init_tab() {
    aPrice[1570] = 1.24993;
 
    // ========== 1571 ===== 54 ==========
-   aPseudoTicket[1571] = 787;
+   //aPseudoTicket[1571] = 787;
    aAction[1571] = 1; // OPEN
    aReturn[787] = 1571;
    aType[1571] = OP_SELL; // SELL
@@ -16530,7 +16530,7 @@ void init_tab() {
    aPrice[1571] = 1.25058;
 
    // ========== 1572 ===== 55 ==========
-   aPseudoTicket[1572] = 786;
+   //aPseudoTicket[1572] = 786;
    aAction[1572] = 0; // CLOSE
    aType[1572] = OP_SELL; // SELL
    aTicket[1572] = -1; // Ticket given by broker
@@ -16540,7 +16540,7 @@ void init_tab() {
    aPrice[1572] = 1.2493;
 
    // ========== 1573 ===== 54 ==========
-   aPseudoTicket[1573] = 787;
+   //aPseudoTicket[1573] = 787;
    aAction[1573] = 0; // CLOSE
    aType[1573] = OP_SELL; // SELL
    aTicket[1573] = -1; // Ticket given by broker
@@ -16550,7 +16550,7 @@ void init_tab() {
    aPrice[1573] = 1.24917;
 
    // ========== 1574 ===== 53 ==========
-   aPseudoTicket[1574] = 788;
+   //aPseudoTicket[1574] = 788;
    aAction[1574] = 1; // OPEN
    aReturn[788] = 1574;
    aType[1574] = OP_BUY; // BUY
@@ -16561,7 +16561,7 @@ void init_tab() {
    aPrice[1574] = 79.674;
 
    // ========== 1575 ===== 53 ==========
-   aPseudoTicket[1575] = 788;
+   //aPseudoTicket[1575] = 788;
    aAction[1575] = 0; // CLOSE
    aType[1575] = OP_BUY; // BUY
    aTicket[1575] = -1; // Ticket given by broker
@@ -16571,7 +16571,7 @@ void init_tab() {
    aPrice[1575] = 79.598;
 
    // ========== 1576 ===== 52 ==========
-   aPseudoTicket[1576] = 789;
+   //aPseudoTicket[1576] = 789;
    aAction[1576] = 1; // OPEN
    aReturn[789] = 1576;
    aType[1576] = OP_SELL; // SELL
@@ -16582,7 +16582,7 @@ void init_tab() {
    aPrice[1576] = 1.2488;
 
    // ========== 1577 ===== 52 ==========
-   aPseudoTicket[1577] = 789;
+   //aPseudoTicket[1577] = 789;
    aAction[1577] = 0; // CLOSE
    aType[1577] = OP_SELL; // SELL
    aTicket[1577] = -1; // Ticket given by broker
@@ -16592,7 +16592,7 @@ void init_tab() {
    aPrice[1577] = 1.24981;
 
    // ========== 1578 ===== 51 ==========
-   aPseudoTicket[1578] = 790;
+   //aPseudoTicket[1578] = 790;
    aAction[1578] = 1; // OPEN
    aReturn[790] = 1578;
    aType[1578] = OP_SELL; // SELL
@@ -16603,7 +16603,7 @@ void init_tab() {
    aPrice[1578] = 1.24614;
 
    // ========== 1579 ===== 51 ==========
-   aPseudoTicket[1579] = 790;
+   //aPseudoTicket[1579] = 790;
    aAction[1579] = 0; // CLOSE
    aType[1579] = OP_SELL; // SELL
    aTicket[1579] = -1; // Ticket given by broker
@@ -16613,7 +16613,7 @@ void init_tab() {
    aPrice[1579] = 1.24726;
 
    // ========== 1580 ===== 48 ==========
-   aPseudoTicket[1580] = 791;
+   //aPseudoTicket[1580] = 791;
    aAction[1580] = 1; // OPEN
    aReturn[791] = 1580;
    aType[1580] = OP_SELL; // SELL
@@ -16624,7 +16624,7 @@ void init_tab() {
    aPrice[1580] = 1.24262;
 
    // ========== 1581 ===== 49 ==========
-   aPseudoTicket[1581] = 792;
+   //aPseudoTicket[1581] = 792;
    aAction[1581] = 1; // OPEN
    aReturn[792] = 1581;
    aType[1581] = OP_SELL; // SELL
@@ -16635,7 +16635,7 @@ void init_tab() {
    aPrice[1581] = 1.24323;
 
    // ========== 1582 ===== 50 ==========
-   aPseudoTicket[1582] = 793;
+   //aPseudoTicket[1582] = 793;
    aAction[1582] = 1; // OPEN
    aReturn[793] = 1582;
    aType[1582] = OP_SELL; // SELL
@@ -16646,7 +16646,7 @@ void init_tab() {
    aPrice[1582] = 1.24486;
 
    // ========== 1583 ===== 50 ==========
-   aPseudoTicket[1583] = 793;
+   //aPseudoTicket[1583] = 793;
    aAction[1583] = 0; // CLOSE
    aType[1583] = OP_SELL; // SELL
    aTicket[1583] = -1; // Ticket given by broker
@@ -16656,7 +16656,7 @@ void init_tab() {
    aPrice[1583] = 1.24314;
 
    // ========== 1584 ===== 49 ==========
-   aPseudoTicket[1584] = 792;
+   //aPseudoTicket[1584] = 792;
    aAction[1584] = 0; // CLOSE
    aType[1584] = OP_SELL; // SELL
    aTicket[1584] = -1; // Ticket given by broker
@@ -16666,7 +16666,7 @@ void init_tab() {
    aPrice[1584] = 1.24716;
 
    // ========== 1585 ===== 48 ==========
-   aPseudoTicket[1585] = 791;
+   //aPseudoTicket[1585] = 791;
    aAction[1585] = 0; // CLOSE
    aType[1585] = OP_SELL; // SELL
    aTicket[1585] = -1; // Ticket given by broker
@@ -16676,7 +16676,7 @@ void init_tab() {
    aPrice[1585] = 1.24704;
 
    // ========== 1586 ===== 47 ==========
-   aPseudoTicket[1586] = 794;
+   //aPseudoTicket[1586] = 794;
    aAction[1586] = 1; // OPEN
    aReturn[794] = 1586;
    aType[1586] = OP_SELL; // SELL
@@ -16687,7 +16687,7 @@ void init_tab() {
    aPrice[1586] = 1.26047;
 
    // ========== 1587 ===== 47 ==========
-   aPseudoTicket[1587] = 794;
+   //aPseudoTicket[1587] = 794;
    aAction[1587] = 0; // CLOSE
    aType[1587] = OP_SELL; // SELL
    aTicket[1587] = -1; // Ticket given by broker
@@ -16697,7 +16697,7 @@ void init_tab() {
    aPrice[1587] = 1.2585;
 
    // ========== 1588 ===== 46 ==========
-   aPseudoTicket[1588] = 795;
+   //aPseudoTicket[1588] = 795;
    aAction[1588] = 1; // OPEN
    aReturn[795] = 1588;
    aType[1588] = OP_BUY; // BUY
@@ -16708,7 +16708,7 @@ void init_tab() {
    aPrice[1588] = 1.25851;
 
    // ========== 1589 ===== 46 ==========
-   aPseudoTicket[1589] = 795;
+   //aPseudoTicket[1589] = 795;
    aAction[1589] = 0; // CLOSE
    aType[1589] = OP_BUY; // BUY
    aTicket[1589] = -1; // Ticket given by broker
@@ -16718,7 +16718,7 @@ void init_tab() {
    aPrice[1589] = 1.26018;
 
    // ========== 1590 ===== 45 ==========
-   aPseudoTicket[1590] = 796;
+   //aPseudoTicket[1590] = 796;
    aAction[1590] = 1; // OPEN
    aReturn[796] = 1590;
    aType[1590] = OP_SELL; // SELL
@@ -16729,7 +16729,7 @@ void init_tab() {
    aPrice[1590] = 1.56538;
 
    // ========== 1591 ===== 45 ==========
-   aPseudoTicket[1591] = 796;
+   //aPseudoTicket[1591] = 796;
    aAction[1591] = 0; // CLOSE
    aType[1591] = OP_SELL; // SELL
    aTicket[1591] = -1; // Ticket given by broker
@@ -16739,7 +16739,7 @@ void init_tab() {
    aPrice[1591] = 1.56443;
 
    // ========== 1592 ===== 43 ==========
-   aPseudoTicket[1592] = 797;
+   //aPseudoTicket[1592] = 797;
    aAction[1592] = 1; // OPEN
    aReturn[797] = 1592;
    aType[1592] = OP_BUY; // BUY
@@ -16750,7 +16750,7 @@ void init_tab() {
    aPrice[1592] = 1.03184;
 
    // ========== 1593 ===== 44 ==========
-   aPseudoTicket[1593] = 798;
+   //aPseudoTicket[1593] = 798;
    aAction[1593] = 1; // OPEN
    aReturn[798] = 1593;
    aType[1593] = OP_BUY; // BUY
@@ -16761,7 +16761,7 @@ void init_tab() {
    aPrice[1593] = 1.03072;
 
    // ========== 1594 ===== 43 ==========
-   aPseudoTicket[1594] = 797;
+   //aPseudoTicket[1594] = 797;
    aAction[1594] = 0; // CLOSE
    aType[1594] = OP_BUY; // BUY
    aTicket[1594] = -1; // Ticket given by broker
@@ -16771,7 +16771,7 @@ void init_tab() {
    aPrice[1594] = 1.0281;
 
    // ========== 1595 ===== 44 ==========
-   aPseudoTicket[1595] = 798;
+   //aPseudoTicket[1595] = 798;
    aAction[1595] = 0; // CLOSE
    aType[1595] = OP_BUY; // BUY
    aTicket[1595] = -1; // Ticket given by broker
@@ -16781,7 +16781,7 @@ void init_tab() {
    aPrice[1595] = 1.0281;
 
    // ========== 1596 ===== 42 ==========
-   aPseudoTicket[1596] = 799;
+   //aPseudoTicket[1596] = 799;
    aAction[1596] = 1; // OPEN
    aReturn[799] = 1596;
    aType[1596] = OP_SELL; // SELL
@@ -16792,7 +16792,7 @@ void init_tab() {
    aPrice[1596] = 1.02608;
 
    // ========== 1597 ===== 41 ==========
-   aPseudoTicket[1597] = 800;
+   //aPseudoTicket[1597] = 800;
    aAction[1597] = 1; // OPEN
    aReturn[800] = 1597;
    aType[1597] = OP_SELL; // SELL
@@ -16803,7 +16803,7 @@ void init_tab() {
    aPrice[1597] = 1.0264;
 
    // ========== 1598 ===== 39 ==========
-   aPseudoTicket[1598] = 801;
+   //aPseudoTicket[1598] = 801;
    aAction[1598] = 1; // OPEN
    aReturn[801] = 1598;
    aType[1598] = OP_SELL; // SELL
@@ -16814,7 +16814,7 @@ void init_tab() {
    aPrice[1598] = 1.02614;
 
    // ========== 1599 ===== 40 ==========
-   aPseudoTicket[1599] = 802;
+   //aPseudoTicket[1599] = 802;
    aAction[1599] = 1; // OPEN
    aReturn[802] = 1599;
    aType[1599] = OP_SELL; // SELL
@@ -16825,7 +16825,7 @@ void init_tab() {
    aPrice[1599] = 1.02623;
 
    // ========== 1600 ===== 42 ==========
-   aPseudoTicket[1600] = 799;
+   //aPseudoTicket[1600] = 799;
    aAction[1600] = 0; // CLOSE
    aType[1600] = OP_SELL; // SELL
    aTicket[1600] = -1; // Ticket given by broker
@@ -16835,7 +16835,7 @@ void init_tab() {
    aPrice[1600] = 1.02589;
 
    // ========== 1601 ===== 41 ==========
-   aPseudoTicket[1601] = 800;
+   //aPseudoTicket[1601] = 800;
    aAction[1601] = 0; // CLOSE
    aType[1601] = OP_SELL; // SELL
    aTicket[1601] = -1; // Ticket given by broker
@@ -16845,7 +16845,7 @@ void init_tab() {
    aPrice[1601] = 1.02583;
 
    // ========== 1602 ===== 40 ==========
-   aPseudoTicket[1602] = 802;
+   //aPseudoTicket[1602] = 802;
    aAction[1602] = 0; // CLOSE
    aType[1602] = OP_SELL; // SELL
    aTicket[1602] = -1; // Ticket given by broker
@@ -16855,7 +16855,7 @@ void init_tab() {
    aPrice[1602] = 1.0255;
 
    // ========== 1603 ===== 39 ==========
-   aPseudoTicket[1603] = 801;
+   //aPseudoTicket[1603] = 801;
    aAction[1603] = 0; // CLOSE
    aType[1603] = OP_SELL; // SELL
    aTicket[1603] = -1; // Ticket given by broker
@@ -16865,7 +16865,7 @@ void init_tab() {
    aPrice[1603] = 1.02553;
 
    // ========== 1604 ===== 38 ==========
-   aPseudoTicket[1604] = 803;
+   //aPseudoTicket[1604] = 803;
    aAction[1604] = 1; // OPEN
    aReturn[803] = 1604;
    aType[1604] = OP_BUY; // BUY
@@ -16876,7 +16876,7 @@ void init_tab() {
    aPrice[1604] = 1.23711;
 
    // ========== 1605 ===== 38 ==========
-   aPseudoTicket[1605] = 803;
+   //aPseudoTicket[1605] = 803;
    aAction[1605] = 0; // CLOSE
    aType[1605] = OP_BUY; // BUY
    aTicket[1605] = -1; // Ticket given by broker
@@ -16886,7 +16886,7 @@ void init_tab() {
    aPrice[1605] = 1.2383;
 
    // ========== 1606 ===== 36 ==========
-   aPseudoTicket[1606] = 804;
+   //aPseudoTicket[1606] = 804;
    aAction[1606] = 1; // OPEN
    aReturn[804] = 1606;
    aType[1606] = OP_BUY; // BUY
@@ -16897,7 +16897,7 @@ void init_tab() {
    aPrice[1606] = 1.23545;
 
    // ========== 1607 ===== 37 ==========
-   aPseudoTicket[1607] = 805;
+   //aPseudoTicket[1607] = 805;
    aAction[1607] = 1; // OPEN
    aReturn[805] = 1607;
    aType[1607] = OP_SELL; // SELL
@@ -16908,7 +16908,7 @@ void init_tab() {
    aPrice[1607] = 0.97526;
 
    // ========== 1608 ===== 37 ==========
-   aPseudoTicket[1608] = 805;
+   //aPseudoTicket[1608] = 805;
    aAction[1608] = 0; // CLOSE
    aType[1608] = OP_SELL; // SELL
    aTicket[1608] = -1; // Ticket given by broker
@@ -16918,7 +16918,7 @@ void init_tab() {
    aPrice[1608] = 0.97657;
 
    // ========== 1609 ===== 36 ==========
-   aPseudoTicket[1609] = 804;
+   //aPseudoTicket[1609] = 804;
    aAction[1609] = 0; // CLOSE
    aType[1609] = OP_BUY; // BUY
    aTicket[1609] = -1; // Ticket given by broker
@@ -16928,7 +16928,7 @@ void init_tab() {
    aPrice[1609] = 1.23193;
 
    // ========== 1610 ===== 35 ==========
-   aPseudoTicket[1610] = 806;
+   //aPseudoTicket[1610] = 806;
    aAction[1610] = 1; // OPEN
    aReturn[806] = 1610;
    aType[1610] = OP_SELL; // SELL
@@ -16939,7 +16939,7 @@ void init_tab() {
    aPrice[1610] = 1.23192;
 
    // ========== 1611 ===== 35 ==========
-   aPseudoTicket[1611] = 806;
+   //aPseudoTicket[1611] = 806;
    aAction[1611] = 0; // CLOSE
    aType[1611] = OP_SELL; // SELL
    aTicket[1611] = -1; // Ticket given by broker
@@ -16949,7 +16949,7 @@ void init_tab() {
    aPrice[1611] = 1.2299;
 
    // ========== 1612 ===== 34 ==========
-   aPseudoTicket[1612] = 807;
+   //aPseudoTicket[1612] = 807;
    aAction[1612] = 1; // OPEN
    aReturn[807] = 1612;
    aType[1612] = OP_BUY; // BUY
@@ -16960,7 +16960,7 @@ void init_tab() {
    aPrice[1612] = 0.97804;
 
    // ========== 1613 ===== 34 ==========
-   aPseudoTicket[1613] = 807;
+   //aPseudoTicket[1613] = 807;
    aAction[1613] = 0; // CLOSE
    aType[1613] = OP_BUY; // BUY
    aTicket[1613] = -1; // Ticket given by broker
@@ -16970,7 +16970,7 @@ void init_tab() {
    aPrice[1613] = 0.9766;
 
    // ========== 1614 ===== 32 ==========
-   aPseudoTicket[1614] = 808;
+   //aPseudoTicket[1614] = 808;
    aAction[1614] = 1; // OPEN
    aReturn[808] = 1614;
    aType[1614] = OP_SELL; // SELL
@@ -16981,7 +16981,7 @@ void init_tab() {
    aPrice[1614] = 1.55571;
 
    // ========== 1615 ===== 33 ==========
-   aPseudoTicket[1615] = 809;
+   //aPseudoTicket[1615] = 809;
    aAction[1615] = 1; // OPEN
    aReturn[809] = 1615;
    aType[1615] = OP_SELL; // SELL
@@ -16992,7 +16992,7 @@ void init_tab() {
    aPrice[1615] = 1.55754;
 
    // ========== 1616 ===== 33 ==========
-   aPseudoTicket[1616] = 809;
+   //aPseudoTicket[1616] = 809;
    aAction[1616] = 0; // CLOSE
    aType[1616] = OP_SELL; // SELL
    aTicket[1616] = -1; // Ticket given by broker
@@ -17002,7 +17002,7 @@ void init_tab() {
    aPrice[1616] = 1.55542;
 
    // ========== 1617 ===== 32 ==========
-   aPseudoTicket[1617] = 808;
+   //aPseudoTicket[1617] = 808;
    aAction[1617] = 0; // CLOSE
    aType[1617] = OP_SELL; // SELL
    aTicket[1617] = -1; // Ticket given by broker
@@ -17012,7 +17012,7 @@ void init_tab() {
    aPrice[1617] = 1.55391;
 
    // ========== 1618 ===== 30 ==========
-   aPseudoTicket[1618] = 810;
+   //aPseudoTicket[1618] = 810;
    aAction[1618] = 1; // OPEN
    aReturn[810] = 1618;
    aType[1618] = OP_BUY; // BUY
@@ -17023,7 +17023,7 @@ void init_tab() {
    aPrice[1618] = 1.22236;
 
    // ========== 1619 ===== 31 ==========
-   aPseudoTicket[1619] = 811;
+   //aPseudoTicket[1619] = 811;
    aAction[1619] = 1; // OPEN
    aReturn[811] = 1619;
    aType[1619] = OP_BUY; // BUY
@@ -17034,7 +17034,7 @@ void init_tab() {
    aPrice[1619] = 1.22008;
 
    // ========== 1620 ===== 31 ==========
-   aPseudoTicket[1620] = 811;
+   //aPseudoTicket[1620] = 811;
    aAction[1620] = 0; // CLOSE
    aType[1620] = OP_BUY; // BUY
    aTicket[1620] = -1; // Ticket given by broker
@@ -17044,7 +17044,7 @@ void init_tab() {
    aPrice[1620] = 1.22061;
 
    // ========== 1621 ===== 30 ==========
-   aPseudoTicket[1621] = 810;
+   //aPseudoTicket[1621] = 810;
    aAction[1621] = 0; // CLOSE
    aType[1621] = OP_BUY; // BUY
    aTicket[1621] = -1; // Ticket given by broker
@@ -17054,7 +17054,7 @@ void init_tab() {
    aPrice[1621] = 1.22336;
 
    // ========== 1622 ===== 29 ==========
-   aPseudoTicket[1622] = 812;
+   //aPseudoTicket[1622] = 812;
    aAction[1622] = 1; // OPEN
    aReturn[812] = 1622;
    aType[1622] = OP_SELL; // SELL
@@ -17065,7 +17065,7 @@ void init_tab() {
    aPrice[1622] = 1.55897;
 
    // ========== 1623 ===== 29 ==========
-   aPseudoTicket[1623] = 812;
+   //aPseudoTicket[1623] = 812;
    aAction[1623] = 0; // CLOSE
    aType[1623] = OP_SELL; // SELL
    aTicket[1623] = -1; // Ticket given by broker
@@ -17075,7 +17075,7 @@ void init_tab() {
    aPrice[1623] = 1.55794;
 
    // ========== 1624 ===== 28 ==========
-   aPseudoTicket[1624] = 813;
+   //aPseudoTicket[1624] = 813;
    aAction[1624] = 1; // OPEN
    aReturn[813] = 1624;
    aType[1624] = OP_SELL; // SELL
@@ -17086,7 +17086,7 @@ void init_tab() {
    aPrice[1624] = 1.2186;
 
    // ========== 1625 ===== 28 ==========
-   aPseudoTicket[1625] = 813;
+   //aPseudoTicket[1625] = 813;
    aAction[1625] = 0; // CLOSE
    aType[1625] = OP_SELL; // SELL
    aTicket[1625] = -1; // Ticket given by broker
@@ -17096,7 +17096,7 @@ void init_tab() {
    aPrice[1625] = 1.2179;
 
    // ========== 1626 ===== 27 ==========
-   aPseudoTicket[1626] = 814;
+   //aPseudoTicket[1626] = 814;
    aAction[1626] = 1; // OPEN
    aReturn[814] = 1626;
    aType[1626] = OP_BUY; // BUY
@@ -17107,7 +17107,7 @@ void init_tab() {
    aPrice[1626] = 1.22127;
 
    // ========== 1627 ===== 27 ==========
-   aPseudoTicket[1627] = 814;
+   //aPseudoTicket[1627] = 814;
    aAction[1627] = 0; // CLOSE
    aType[1627] = OP_BUY; // BUY
    aTicket[1627] = -1; // Ticket given by broker
@@ -17117,7 +17117,7 @@ void init_tab() {
    aPrice[1627] = 1.22193;
 
    // ========== 1628 ===== 26 ==========
-   aPseudoTicket[1628] = 815;
+   //aPseudoTicket[1628] = 815;
    aAction[1628] = 1; // OPEN
    aReturn[815] = 1628;
    aType[1628] = OP_SELL; // SELL
@@ -17128,7 +17128,7 @@ void init_tab() {
    aPrice[1628] = 1.22333;
 
    // ========== 1629 ===== 26 ==========
-   aPseudoTicket[1629] = 815;
+   //aPseudoTicket[1629] = 815;
    aAction[1629] = 0; // CLOSE
    aType[1629] = OP_SELL; // SELL
    aTicket[1629] = -1; // Ticket given by broker
@@ -17138,7 +17138,7 @@ void init_tab() {
    aPrice[1629] = 1.22222;
 
    // ========== 1630 ===== 25 ==========
-   aPseudoTicket[1630] = 816;
+   //aPseudoTicket[1630] = 816;
    aAction[1630] = 1; // OPEN
    aReturn[816] = 1630;
    aType[1630] = OP_SELL; // SELL
@@ -17149,7 +17149,7 @@ void init_tab() {
    aPrice[1630] = 1.03607;
 
    // ========== 1631 ===== 25 ==========
-   aPseudoTicket[1631] = 816;
+   //aPseudoTicket[1631] = 816;
    aAction[1631] = 0; // CLOSE
    aType[1631] = OP_SELL; // SELL
    aTicket[1631] = -1; // Ticket given by broker
@@ -17159,7 +17159,7 @@ void init_tab() {
    aPrice[1631] = 1.035;
 
    // ========== 1632 ===== 20 ==========
-   aPseudoTicket[1632] = 817;
+   //aPseudoTicket[1632] = 817;
    aAction[1632] = 1; // OPEN
    aReturn[817] = 1632;
    aType[1632] = OP_SELL; // SELL
@@ -17170,7 +17170,7 @@ void init_tab() {
    aPrice[1632] = 1.03729;
 
    // ========== 1633 ===== 21 ==========
-   aPseudoTicket[1633] = 818;
+   //aPseudoTicket[1633] = 818;
    aAction[1633] = 1; // OPEN
    aReturn[818] = 1633;
    aType[1633] = OP_SELL; // SELL
@@ -17181,7 +17181,7 @@ void init_tab() {
    aPrice[1633] = 1.03929;
 
    // ========== 1634 ===== 23 ==========
-   aPseudoTicket[1634] = 819;
+   //aPseudoTicket[1634] = 819;
    aAction[1634] = 1; // OPEN
    aReturn[819] = 1634;
    aType[1634] = OP_SELL; // SELL
@@ -17192,7 +17192,7 @@ void init_tab() {
    aPrice[1634] = 1.04095;
 
    // ========== 1635 ===== 24 ==========
-   aPseudoTicket[1635] = 820;
+   //aPseudoTicket[1635] = 820;
    aAction[1635] = 1; // OPEN
    aReturn[820] = 1635;
    aType[1635] = OP_SELL; // SELL
@@ -17203,7 +17203,7 @@ void init_tab() {
    aPrice[1635] = 1.04172;
 
    // ========== 1636 ===== 24 ==========
-   aPseudoTicket[1636] = 820;
+   //aPseudoTicket[1636] = 820;
    aAction[1636] = 0; // CLOSE
    aType[1636] = OP_SELL; // SELL
    aTicket[1636] = -1; // Ticket given by broker
@@ -17213,7 +17213,7 @@ void init_tab() {
    aPrice[1636] = 1.04065;
 
    // ========== 1637 ===== 23 ==========
-   aPseudoTicket[1637] = 819;
+   //aPseudoTicket[1637] = 819;
    aAction[1637] = 0; // CLOSE
    aType[1637] = OP_SELL; // SELL
    aTicket[1637] = -1; // Ticket given by broker
@@ -17223,7 +17223,7 @@ void init_tab() {
    aPrice[1637] = 1.04065;
 
    // ========== 1638 ===== 22 ==========
-   aPseudoTicket[1638] = 821;
+   //aPseudoTicket[1638] = 821;
    aAction[1638] = 1; // OPEN
    aReturn[821] = 1638;
    aType[1638] = OP_SELL; // SELL
@@ -17234,7 +17234,7 @@ void init_tab() {
    aPrice[1638] = 1.04238;
 
    // ========== 1639 ===== 22 ==========
-   aPseudoTicket[1639] = 821;
+   //aPseudoTicket[1639] = 821;
    aAction[1639] = 0; // CLOSE
    aType[1639] = OP_SELL; // SELL
    aTicket[1639] = -1; // Ticket given by broker
@@ -17244,7 +17244,7 @@ void init_tab() {
    aPrice[1639] = 1.04138;
 
    // ========== 1640 ===== 21 ==========
-   aPseudoTicket[1640] = 818;
+   //aPseudoTicket[1640] = 818;
    aAction[1640] = 0; // CLOSE
    aType[1640] = OP_SELL; // SELL
    aTicket[1640] = -1; // Ticket given by broker
@@ -17254,7 +17254,7 @@ void init_tab() {
    aPrice[1640] = 1.03914;
 
    // ========== 1641 ===== 20 ==========
-   aPseudoTicket[1641] = 817;
+   //aPseudoTicket[1641] = 817;
    aAction[1641] = 0; // CLOSE
    aType[1641] = OP_SELL; // SELL
    aTicket[1641] = -1; // Ticket given by broker
@@ -17264,7 +17264,7 @@ void init_tab() {
    aPrice[1641] = 1.03905;
 
    // ========== 1642 ===== 19 ==========
-   aPseudoTicket[1642] = 822;
+   //aPseudoTicket[1642] = 822;
    aAction[1642] = 1; // OPEN
    aReturn[822] = 1642;
    aType[1642] = OP_SELL; // SELL
@@ -17275,7 +17275,7 @@ void init_tab() {
    aPrice[1642] = 1.02933;
 
    // ========== 1643 ===== 19 ==========
-   aPseudoTicket[1643] = 822;
+   //aPseudoTicket[1643] = 822;
    aAction[1643] = 0; // CLOSE
    aType[1643] = OP_SELL; // SELL
    aTicket[1643] = -1; // Ticket given by broker
@@ -17285,7 +17285,7 @@ void init_tab() {
    aPrice[1643] = 1.02808;
 
    // ========== 1644 ===== 18 ==========
-   aPseudoTicket[1644] = 823;
+   //aPseudoTicket[1644] = 823;
    aAction[1644] = 1; // OPEN
    aReturn[823] = 1644;
    aType[1644] = OP_SELL; // SELL
@@ -17296,7 +17296,7 @@ void init_tab() {
    aPrice[1644] = 1.04802;
 
    // ========== 1645 ===== 18 ==========
-   aPseudoTicket[1645] = 823;
+   //aPseudoTicket[1645] = 823;
    aAction[1645] = 0; // CLOSE
    aType[1645] = OP_SELL; // SELL
    aTicket[1645] = -1; // Ticket given by broker
@@ -17306,7 +17306,7 @@ void init_tab() {
    aPrice[1645] = 1.04701;
 
    // ========== 1646 ===== 17 ==========
-   aPseudoTicket[1646] = 824;
+   //aPseudoTicket[1646] = 824;
    aAction[1646] = 1; // OPEN
    aReturn[824] = 1646;
    aType[1646] = OP_SELL; // SELL
@@ -17317,7 +17317,7 @@ void init_tab() {
    aPrice[1646] = 1.04936;
 
    // ========== 1647 ===== 17 ==========
-   aPseudoTicket[1647] = 824;
+   //aPseudoTicket[1647] = 824;
    aAction[1647] = 0; // CLOSE
    aType[1647] = OP_SELL; // SELL
    aTicket[1647] = -1; // Ticket given by broker
@@ -17327,7 +17327,7 @@ void init_tab() {
    aPrice[1647] = 1.04844;
 
    // ========== 1648 ===== 16 ==========
-   aPseudoTicket[1648] = 825;
+   //aPseudoTicket[1648] = 825;
    aAction[1648] = 1; // OPEN
    aReturn[825] = 1648;
    aType[1648] = OP_SELL; // SELL
@@ -17338,7 +17338,7 @@ void init_tab() {
    aPrice[1648] = 1.04959;
 
    // ========== 1649 ===== 16 ==========
-   aPseudoTicket[1649] = 825;
+   //aPseudoTicket[1649] = 825;
    aAction[1649] = 0; // CLOSE
    aType[1649] = OP_SELL; // SELL
    aTicket[1649] = -1; // Ticket given by broker
@@ -17348,7 +17348,7 @@ void init_tab() {
    aPrice[1649] = 1.04834;
 
    // ========== 1650 ===== 15 ==========
-   aPseudoTicket[1650] = 826;
+   //aPseudoTicket[1650] = 826;
    aAction[1650] = 1; // OPEN
    aReturn[826] = 1650;
    aType[1650] = OP_SELL; // SELL
@@ -17359,7 +17359,7 @@ void init_tab() {
    aPrice[1650] = 1.05309;
 
    // ========== 1651 ===== 15 ==========
-   aPseudoTicket[1651] = 826;
+   //aPseudoTicket[1651] = 826;
    aAction[1651] = 0; // CLOSE
    aType[1651] = OP_SELL; // SELL
    aTicket[1651] = -1; // Ticket given by broker
@@ -17369,7 +17369,7 @@ void init_tab() {
    aPrice[1651] = 1.05189;
 
    // ========== 1652 ===== 14 ==========
-   aPseudoTicket[1652] = 827;
+   //aPseudoTicket[1652] = 827;
    aAction[1652] = 1; // OPEN
    aReturn[827] = 1652;
    aType[1652] = OP_BUY; // BUY
@@ -17380,7 +17380,7 @@ void init_tab() {
    aPrice[1652] = 1.22935;
 
    // ========== 1653 ===== 14 ==========
-   aPseudoTicket[1653] = 827;
+   //aPseudoTicket[1653] = 827;
    aAction[1653] = 0; // CLOSE
    aType[1653] = OP_BUY; // BUY
    aTicket[1653] = -1; // Ticket given by broker
@@ -17390,7 +17390,7 @@ void init_tab() {
    aPrice[1653] = 1.2312;
 
    // ========== 1654 ===== 13 ==========
-   aPseudoTicket[1654] = 828;
+   //aPseudoTicket[1654] = 828;
    aAction[1654] = 1; // OPEN
    aReturn[828] = 1654;
    aType[1654] = OP_SELL; // SELL
@@ -17401,7 +17401,7 @@ void init_tab() {
    aPrice[1654] = 1.05615;
 
    // ========== 1655 ===== 12 ==========
-   aPseudoTicket[1655] = 829;
+   //aPseudoTicket[1655] = 829;
    aAction[1655] = 1; // OPEN
    aReturn[829] = 1655;
    aType[1655] = OP_SELL; // SELL
@@ -17412,7 +17412,7 @@ void init_tab() {
    aPrice[1655] = 1.0568;
 
    // ========== 1656 ===== 13 ==========
-   aPseudoTicket[1656] = 828;
+   //aPseudoTicket[1656] = 828;
    aAction[1656] = 0; // CLOSE
    aType[1656] = OP_SELL; // SELL
    aTicket[1656] = -1; // Ticket given by broker
@@ -17422,7 +17422,7 @@ void init_tab() {
    aPrice[1656] = 1.05423;
 
    // ========== 1657 ===== 12 ==========
-   aPseudoTicket[1657] = 829;
+   //aPseudoTicket[1657] = 829;
    aAction[1657] = 0; // CLOSE
    aType[1657] = OP_SELL; // SELL
    aTicket[1657] = -1; // Ticket given by broker
@@ -17432,7 +17432,7 @@ void init_tab() {
    aPrice[1657] = 1.05369;
 
    // ========== 1658 ===== 11 ==========
-   aPseudoTicket[1658] = 830;
+   //aPseudoTicket[1658] = 830;
    aAction[1658] = 1; // OPEN
    aReturn[830] = 1658;
    aType[1658] = OP_BUY; // BUY
@@ -17443,7 +17443,7 @@ void init_tab() {
    aPrice[1658] = 1.04665;
 
    // ========== 1659 ===== 11 ==========
-   aPseudoTicket[1659] = 830;
+   //aPseudoTicket[1659] = 830;
    aAction[1659] = 0; // CLOSE
    aType[1659] = OP_BUY; // BUY
    aTicket[1659] = -1; // Ticket given by broker
@@ -17453,7 +17453,7 @@ void init_tab() {
    aPrice[1659] = 1.04686;
 
    // ========== 1660 ===== 7 ==========
-   aPseudoTicket[1660] = 831;
+   //aPseudoTicket[1660] = 831;
    aAction[1660] = 1; // OPEN
    aReturn[831] = 1660;
    aType[1660] = OP_SELL; // SELL
@@ -17464,7 +17464,7 @@ void init_tab() {
    aPrice[1660] = 1.21686;
 
    // ========== 1661 ===== 8 ==========
-   aPseudoTicket[1661] = 832;
+   //aPseudoTicket[1661] = 832;
    aAction[1661] = 1; // OPEN
    aReturn[832] = 1661;
    aType[1661] = OP_SELL; // SELL
@@ -17475,7 +17475,7 @@ void init_tab() {
    aPrice[1661] = 1.22034;
 
    // ========== 1662 ===== 9 ==========
-   aPseudoTicket[1662] = 833;
+   //aPseudoTicket[1662] = 833;
    aAction[1662] = 1; // OPEN
    aReturn[833] = 1662;
    aType[1662] = OP_SELL; // SELL
@@ -17486,7 +17486,7 @@ void init_tab() {
    aPrice[1662] = 1.22205;
 
    // ========== 1663 ===== 10 ==========
-   aPseudoTicket[1663] = 834;
+   //aPseudoTicket[1663] = 834;
    aAction[1663] = 1; // OPEN
    aReturn[834] = 1663;
    aType[1663] = OP_SELL; // SELL
@@ -17497,7 +17497,7 @@ void init_tab() {
    aPrice[1663] = 1.22294;
 
    // ========== 1664 ===== 10 ==========
-   aPseudoTicket[1664] = 834;
+   //aPseudoTicket[1664] = 834;
    aAction[1664] = 0; // CLOSE
    aType[1664] = OP_SELL; // SELL
    aTicket[1664] = -1; // Ticket given by broker
@@ -17507,7 +17507,7 @@ void init_tab() {
    aPrice[1664] = 1.22532;
 
    // ========== 1665 ===== 9 ==========
-   aPseudoTicket[1665] = 833;
+   //aPseudoTicket[1665] = 833;
    aAction[1665] = 0; // CLOSE
    aType[1665] = OP_SELL; // SELL
    aTicket[1665] = -1; // Ticket given by broker
@@ -17517,7 +17517,7 @@ void init_tab() {
    aPrice[1665] = 1.22516;
 
    // ========== 1666 ===== 8 ==========
-   aPseudoTicket[1666] = 832;
+   //aPseudoTicket[1666] = 832;
    aAction[1666] = 0; // CLOSE
    aType[1666] = OP_SELL; // SELL
    aTicket[1666] = -1; // Ticket given by broker
@@ -17527,7 +17527,7 @@ void init_tab() {
    aPrice[1666] = 1.22524;
 
    // ========== 1667 ===== 7 ==========
-   aPseudoTicket[1667] = 831;
+   //aPseudoTicket[1667] = 831;
    aAction[1667] = 0; // CLOSE
    aType[1667] = OP_SELL; // SELL
    aTicket[1667] = -1; // Ticket given by broker
@@ -17537,7 +17537,7 @@ void init_tab() {
    aPrice[1667] = 1.22499;
 
    // ========== 1668 ===== 6 ==========
-   aPseudoTicket[1668] = 835;
+   //aPseudoTicket[1668] = 835;
    aAction[1668] = 1; // OPEN
    aReturn[835] = 1668;
    aType[1668] = OP_BUY; // BUY
@@ -17548,7 +17548,7 @@ void init_tab() {
    aPrice[1668] = 78.699;
 
    // ========== 1669 ===== 2 ==========
-   aPseudoTicket[1669] = 836;
+   //aPseudoTicket[1669] = 836;
    aAction[1669] = 1; // OPEN
    aReturn[836] = 1669;
    aType[1669] = OP_SELL; // SELL
@@ -17559,7 +17559,7 @@ void init_tab() {
    aPrice[1669] = 1.23408;
 
    // ========== 1670 ===== 3 ==========
-   aPseudoTicket[1670] = 837;
+   //aPseudoTicket[1670] = 837;
    aAction[1670] = 1; // OPEN
    aReturn[837] = 1670;
    aType[1670] = OP_SELL; // SELL
@@ -17570,7 +17570,7 @@ void init_tab() {
    aPrice[1670] = 1.23447;
 
    // ========== 1671 ===== 4 ==========
-   aPseudoTicket[1671] = 838;
+   //aPseudoTicket[1671] = 838;
    aAction[1671] = 1; // OPEN
    aReturn[838] = 1671;
    aType[1671] = OP_SELL; // SELL
@@ -17581,7 +17581,7 @@ void init_tab() {
    aPrice[1671] = 1.23541;
 
    // ========== 1672 ===== 6 ==========
-   aPseudoTicket[1672] = 835;
+   //aPseudoTicket[1672] = 835;
    aAction[1672] = 0; // CLOSE
    aType[1672] = OP_BUY; // BUY
    aTicket[1672] = -1; // Ticket given by broker
@@ -17591,7 +17591,7 @@ void init_tab() {
    aPrice[1672] = 78.545;
 
    // ========== 1673 ===== 5 ==========
-   aPseudoTicket[1673] = 839;
+   //aPseudoTicket[1673] = 839;
    aAction[1673] = 1; // OPEN
    aReturn[839] = 1673;
    aType[1673] = OP_SELL; // SELL
@@ -17602,7 +17602,7 @@ void init_tab() {
    aPrice[1673] = 1.23645;
 
    // ========== 1674 ===== 5 ==========
-   aPseudoTicket[1674] = 839;
+   //aPseudoTicket[1674] = 839;
    aAction[1674] = 0; // CLOSE
    aType[1674] = OP_SELL; // SELL
    aTicket[1674] = -1; // Ticket given by broker
@@ -17612,7 +17612,7 @@ void init_tab() {
    aPrice[1674] = 1.23689;
 
    // ========== 1675 ===== 4 ==========
-   aPseudoTicket[1675] = 838;
+   //aPseudoTicket[1675] = 838;
    aAction[1675] = 0; // CLOSE
    aType[1675] = OP_SELL; // SELL
    aTicket[1675] = -1; // Ticket given by broker
@@ -17622,7 +17622,7 @@ void init_tab() {
    aPrice[1675] = 1.23689;
 
    // ========== 1676 ===== 3 ==========
-   aPseudoTicket[1676] = 837;
+   //aPseudoTicket[1676] = 837;
    aAction[1676] = 0; // CLOSE
    aType[1676] = OP_SELL; // SELL
    aTicket[1676] = -1; // Ticket given by broker
@@ -17632,7 +17632,7 @@ void init_tab() {
    aPrice[1676] = 1.23653;
 
    // ========== 1677 ===== 2 ==========
-   aPseudoTicket[1677] = 836;
+   //aPseudoTicket[1677] = 836;
    aAction[1677] = 0; // CLOSE
    aType[1677] = OP_SELL; // SELL
    aTicket[1677] = -1; // Ticket given by broker
@@ -17642,7 +17642,7 @@ void init_tab() {
    aPrice[1677] = 1.2356;
 
    // ========== 1678 ===== 1 ==========
-   aPseudoTicket[1678] = 840;
+   //aPseudoTicket[1678] = 840;
    aAction[1678] = 1; // OPEN
    aReturn[840] = 1678;
    aType[1678] = OP_SELL; // SELL
@@ -17653,7 +17653,7 @@ void init_tab() {
    aPrice[1678] = 1.5636;
 
    // ========== 1679 ===== 1 ==========
-   aPseudoTicket[1679] = 840;
+   //aPseudoTicket[1679] = 840;
    aAction[1679] = 0; // CLOSE
    aType[1679] = OP_SELL; // SELL
    aTicket[1679] = -1; // Ticket given by broker
@@ -17663,7 +17663,7 @@ void init_tab() {
    aPrice[1679] = 1.5682;
 
    // ========== 1680 ===== 0 ==========
-   aPseudoTicket[1680] = 841;
+   //aPseudoTicket[1680] = 841;
    aAction[1680] = 1; // OPEN
    aReturn[841] = 1680;
    aType[1680] = OP_BUY; // BUY
@@ -17674,7 +17674,7 @@ void init_tab() {
    aPrice[1680] = 0.98548;
 
    // ========== 1681 ===== 0 ==========
-   aPseudoTicket[1681] = 841;
+   //aPseudoTicket[1681] = 841;
    aAction[1681] = 0; // CLOSE
    aType[1681] = OP_BUY; // BUY
    aTicket[1681] = -1; // Ticket given by broker

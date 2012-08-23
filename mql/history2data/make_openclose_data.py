@@ -3,6 +3,7 @@
 from datetime import *
 import numpy as np
 import pandas as pd
+import math
 
 def conv_str_to_datetime(x):
   return(datetime.strptime(x, '%Y/%m/%d %H:%M:%S'))
@@ -59,7 +60,7 @@ def dfOpenClose2mql(df, filename):
 
 int NbOrdersInFile = {NbOrdersInFile};
 
-int aPseudoTicket[{NbOrdersInFile}];
+//int aPseudoTicket[{NbOrdersInFile}];
 int aAction[{NbOrdersInFile}]; // 1=OPEN 0=CLOSE
 int aType[{NbOrdersInFile}];  // OP_BUY or OP_SELL
 string aSymbol[{NbOrdersInFile}];
@@ -67,10 +68,10 @@ double aLots[{NbOrdersInFile}];
 datetime aDate[{NbOrdersInFile}];
 double aPrice[{NbOrdersInFile}];
 
-int aReturn[{NbOrdersInFile}];
+int aReturn[{NbDiv2}];
 
 int time_offset = 3;
-""".format(filename=filename, NbOrdersInFile=len(df))
+""".format(filename=filename, NbOrdersInFile=len(df), NbDiv2=len(df)/2) #NbDiv2=int(math.ceil(len(df)/2.0))
   code = code + '\n';
 
   code = code + 'void init_tab() {\n';
@@ -80,7 +81,7 @@ int time_offset = 3;
     #print(df.get_value(index, 'Type'))
     code = code + '\n   // ' + '='*10 + ' {0} ===== {1} '.format(i, index) + '='*10 + '\n'
   
-    code = code + '   {var}[{tab_index}] = {value};\n'.format(var='aPseudoTicket', tab_index=i, value=df.irow(i)['PseudoTicket'])
+    code = code + '   //{var}[{tab_index}] = {value};\n'.format(var='aPseudoTicket', tab_index=i, value=df.irow(i)['PseudoTicket'])
 
     if df.irow(i)['Action']=='OPEN':
       code = code + '   {var}[{tab_index}] = {value}; // OPEN\n'.format(var='aAction', tab_index=i, value=1)
