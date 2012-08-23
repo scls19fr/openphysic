@@ -39,6 +39,16 @@ def orderOpenClose(s1, s2):
 """
 
 def dfOpenClose2mql(df, filename):
+  """Generate source code (MQL) in a file named filename from a DataFrame df
+  
+  Vars:
+    df_out: DataFrame
+    filename: name of the file
+  
+  Returns:
+    string of source code
+  """
+  
   code = """//+------------------------------------------------------------------+
 //|{filename}
 //|                                 Copyright (c) 2012, Femto Trader |
@@ -90,10 +100,14 @@ int time_offset = 3;
   
   return(code)
 
-"""
-Write file
-"""
 def generate_mql_code_openclose(df_out, filename):
+  """Write DataFrame df in a file named filename 
+  
+  Vars:
+    df_out: DataFrame
+    filename: name of the file
+  
+  """
   f = open(filename, 'w')
 
   code = dfOpenClose2mql(df_out, filename)
@@ -101,6 +115,39 @@ def generate_mql_code_openclose(df_out, filename):
 
   f.write(code)
   f.close()
+
+def dfHistory2dfOpenClose(df):
+  #print("="*4+" DataFrame "+"="*4)
+  #print(df)
+
+  #print("="*4+" DataFrame Open "+"="*4)
+  dfOpen = df.copy()
+  dfOpen = dfOpen[['Type', 'Symbol', 'Lots', 'DateOpen', 'PriceOpen', 'PseudoTicket']]
+  dfOpen['Date'] = dfOpen['DateOpen']
+  dfOpen['Price'] = dfOpen['PriceOpen']
+  dfOpen['Action'] = 'OPEN'
+  #print(dfOpen)
+
+  #print("="*20+" Debug "+"="*20)
+  #print(df)
+
+  #print("="*4+" DataFrame Close "+"="*4)
+  dfClose = df.copy()
+  dfClose = dfClose[['Type', 'Symbol', 'Lots', 'DateClose', 'PriceClose', 'PseudoTicket']]
+  dfClose['Date'] = dfClose['DateClose']
+  dfClose['Price'] = dfClose['PriceClose']
+  dfClose['Action'] = 'CLOSE'
+  #print(dfClose)
+
+  print("="*4+" DataFrame OpenClose "+"="*4)
+  #Generate new DataFrame with OPEN BUY/SELL and CLOSE (sort ascending Date)
+  dfOpenClose = pd.concat([dfOpen, dfClose])
+  #dfOpenClose = dfOpenClose.sort(columns='Action', ascending=False) # en cas d'egalite, mettre OPEN avant CLOSE
+  dfOpenClose = dfOpenClose.sort(columns='Date') # ToFix
+
+  dfOpenClose = dfOpenClose.reindex_axis(['PseudoTicket', 'Action', 'Type', 'Symbol', 'Lots', 'Date', 'Price'], axis=1)
+
+  return dfOpenClose
 
 trade_history_filename_full = 'files/Trade_History_Full.csv'
 
@@ -142,37 +189,7 @@ symbols = df['Symbol'].unique()
 df['PseudoTicket'] = np.arange(1, len(df)+1)
 #df['PseudoTicket'] = np.arange(len(df),0,-1)
 
-print("="*4+" DataFrame "+"="*4)
-#print(df)
-
-print("="*4+" DataFrame Open "+"="*4)
-dfOpen = df.copy()
-dfOpen = dfOpen[['Type', 'Symbol', 'Lots', 'DateOpen', 'PriceOpen', 'PseudoTicket']]
-dfOpen['Date'] = dfOpen['DateOpen']
-dfOpen['Price'] = dfOpen['PriceOpen']
-dfOpen['Action'] = 'OPEN'
-#print(dfOpen)
-
-#print("="*20+" Debug "+"="*20)
-#print(df)
-
-print("="*4+" DataFrame Close "+"="*4)
-dfClose = df.copy()
-dfClose = dfClose[['Type', 'Symbol', 'Lots', 'DateClose', 'PriceClose', 'PseudoTicket']]
-dfClose['Date'] = dfClose['DateClose']
-dfClose['Price'] = dfClose['PriceClose']
-dfClose['Action'] = 'CLOSE'
-#print(dfClose)
-
-print("="*4+" DataFrame OpenClose "+"="*4)
-#Generate new DataFrame with OPEN BUY/SELL and CLOSE (sort ascending Date)
-dfOpenClose = pd.concat([dfOpen, dfClose])
-#dfOpenClose = dfOpenClose.sort(columns='Action', ascending=False) # en cas d'egalite, mettre OPEN avant CLOSE
-dfOpenClose = dfOpenClose.sort(columns='Date') # ToFix
-
-dfOpenClose = dfOpenClose.reindex_axis(['PseudoTicket', 'Action', 'Type', 'Symbol', 'Lots', 'Date', 'Price'], axis=1)
-
-
+dfOpenClose = dfHistory2dfOpenClose(df)
 #print(dfOpenClose)
 
 #
@@ -203,3 +220,8 @@ for symbol in symbols:
   filename = 'include/Trade_History_out_OpenClose_{symbol}.mqh'.format(symbol=symbol)
   print("="*4+" Generating MQL file {0} ".format(filename)+"="*4)
   generate_mql_code_openclose(df_out, filename)
+
+
+# PseudoTicket0
+#for symbol in symbols:
+#  df_out = df[df['Symbol']==symbol]

@@ -20,3 +20,8 @@ MQL4 Expert Advisor
 Python script make_openclose_data.py
 	Generate CSV files and MQL code with trade actions (OPEN, CLOSE)
 	(sequential)
+	
+	
+ToDo:
+put a PseudoTicket0 variable (instead of PseudoTicket) in files/Trade_History_out_OpenClose_EURUSD.csv
+(from 0 to size-1)
