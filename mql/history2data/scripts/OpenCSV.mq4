@@ -6,7 +6,7 @@
 #property copyright "Copyright © 2012, Femto Trader"
 #property link      "http://sites.google.com/site/femtotrader/"
 
-extern string filename = "Trade_History_out_EURUSD.csv";
+extern string filename = "Trade_History_out_History_EURUSD.csv";
 extern int MaxOrders = 10;
 
 //+------------------------------------------------------------------+
