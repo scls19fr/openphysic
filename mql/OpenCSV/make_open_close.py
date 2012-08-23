@@ -27,6 +27,15 @@ def conv_strBuySell_to_str(x):
   else:
     return('UNDEF')
 
+def orderOpenClose(s1, s2):
+  if ( not ( (s1=='OPEN' or s1=='CLOSE') and (s2=='OPEN' or s2=='CLOSE') ) ):
+    raise(Exception('OPEN/CLOSE error'))
+
+  if s1=='OPEN' and s2=='CLOSE':
+    return(True)
+  elif s1=='CLOSE' and s2=='OPEN':
+    return(False)
+
 trade_history_filename_full = 'files/Trade_History_Full.csv'
 
 df = pd.read_csv(trade_history_filename_full, converters={'Type': conv_strBuySell_to_str, 'Date Open': conv_str_to_datetime, 'Date Close': conv_str_to_datetime, 'Currency': conv_str_to_pair})
@@ -61,8 +70,8 @@ df = df.sort(columns='DateOpen')
 symbols = df['Symbol'].unique()
 
 # Add PseudoTicket col
-#df['PseudoTicket'] = np.arange(1, len(df)+1)
-df['PseudoTicket'] = np.arange(len(df),0,-1)
+df['PseudoTicket'] = np.arange(1, len(df)+1)
+#df['PseudoTicket'] = np.arange(len(df),0,-1)
  
 print("="*4+" DataFrame "+"="*4)
 #print(df)
@@ -93,7 +102,10 @@ dfClose['Action'] = 'CLOSE'
 print("="*4+" DataFrame OpenClose "+"="*4)
 #Generate new DataFrame with OPEN BUY/SELL and CLOSE (sort ascending Date)
 dfOpenClose = pd.concat([dfOpen, dfClose])
-dfOpenClose = dfOpenClose.sort(columns='Date') # ToFix en cas d'égalité, mettre OPEN avant CLOSE
+dfOpenClose = dfOpenClose.sort(columns='Date') # ToFix en cas d'egalite, mettre OPEN avant CLOSE
+
+dfOpenClose = dfOpenClose.reindex_axis(['PseudoTicket', 'Action', 'Type', 'Symbol', 'Lots', 'Date', 'Price'], axis=1)
+
 
 #print(dfOpenClose)
 
