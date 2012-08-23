@@ -111,6 +111,8 @@ code = code + '\n';
 
 code = code + 'void init_tab() {\n';
 
+# time_offset = 1
+
 for i in range(len(df_out)):
   index =  df_out.index[i]
   print(df_out.get_value(index, 'Type'))
