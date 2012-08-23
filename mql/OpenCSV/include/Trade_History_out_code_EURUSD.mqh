@@ -16,7 +16,7 @@ double aPriceOpen[326];
 datetime aDateClose[326];
 double aPriceClose[326];
 
-int time_offset = 1;
+int time_offset = 3;
 
 void init_tab() {
 

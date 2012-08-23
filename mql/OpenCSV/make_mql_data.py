@@ -107,7 +107,7 @@ double aPriceOpen[{NbOrdersInFile}];
 datetime aDateClose[{NbOrdersInFile}];
 double aPriceClose[{NbOrdersInFile}];
 
-int time_offset = 1;
+int time_offset = 3;
 """.format(filename=trade_history_filename_out_code_symbol, NbOrdersInFile=len(df_out))
 code = code + '\n';
 
