@@ -179,12 +179,27 @@ dfOpenClose = dfOpenClose.reindex_axis(['PseudoTicket', 'Action', 'Type', 'Symbo
 #df.to_csv('files/df.csv', index=False)
 #dfOpen.to_csv('files/dfOpen.csv', index=False)
 #dfClose.to_csv('files/dfClose.csv', index=False)
-dfOpenClose.to_csv('files/Trade_History_out_OpenClose_all_symbols.csv', index=True)
+filename = 'files/Trade_History_out_OpenClose__all_symbols.csv'
+print("="*4+" Generating CSV file {0} ".format(filename)+"="*4)
+dfOpenClose.to_csv(filename, index=False)
 
 #print(df)
 
 #print()
 
-generate_mql_code_openclose(dfOpenClose, 'include/Trade_History_out_OpenClose_all_symbols.mqh')
+filename = 'include/Trade_History_out_OpenClose__all_symbols.mqh'
+print("="*4+" Generating MQL file {0} ".format(filename)+"="*4)
+generate_mql_code_openclose(dfOpenClose, filename)
 
 
+for symbol in symbols:
+  #symbol = 'EURUSD'
+  df_out = dfOpenClose[dfOpenClose['Symbol']==symbol] # only one symbol
+
+  filename = 'files/Trade_History_out_OpenClose_{symbol}.csv'.format(symbol=symbol)
+  print("="*4+" Generating CSV file {0} ".format(filename)+"="*4)
+  df_out.to_csv(filename, index=False)
+
+  filename = 'include/Trade_History_out_OpenClose_{symbol}.mqh'.format(symbol=symbol)
+  print("="*4+" Generating MQL file {0} ".format(filename)+"="*4)
+  generate_mql_code_openclose(df_out, filename)
