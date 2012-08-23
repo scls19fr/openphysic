@@ -1,18 +1,13 @@
 all:
-	#$(MAKE) csv
-	$(MAKE) mqh
+	$(MAKE) history
 	$(MAKE) openclose
 
-csv:
-	python make_clean_csv.py
-	head files/Trade_History_out_EURUSD.csv
-
-mqh:
-	python make_mql_data.py
+history:
+	python make_history_data.py
 	#head include/Trade_History_out_code_EURUSD.mqh
 
 openclose:
-	python make_open_close.py
+	python make_openclose_data.py
 
 .PHONY: clean
 
