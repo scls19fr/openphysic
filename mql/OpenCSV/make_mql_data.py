@@ -84,13 +84,13 @@ def generate_mql_code(df_out, filename):
 
 trade_history_filename_full = 'files/Trade_History_Full.csv'
 
-trade_history_filename_symbols_list = 'files/Trade_History_out_Symbols_List.txt'
+trade_history_filename_symbols_list = 'files/Trade_History_out__Symbols_List.txt'
 
-trade_history_filename_out_clean = 'files/Trade_History_out__all_symbols.csv'
-trade_history_filename_out_model = "files/Trade_History_out_{symbol}.csv"
+trade_history_filename_out_clean = 'files/Trade_History_out_History__all_symbols.csv'
+trade_history_filename_out_model = "files/Trade_History_out_History_{symbol}.csv"
 
-trade_history_filename_out_code_all_symbols = 'include/Trade_History_out__all_symbols.mqh'
-trade_history_filename_out_code_symbol_model = "include/Trade_History_out_{symbol}.mqh"
+trade_history_filename_out_code_all_symbols = 'include/Trade_History_out_History__all_symbols.mqh'
+trade_history_filename_out_code_symbol_model = "include/Trade_History_out_History_{symbol}.mqh"
 
 df = pd.read_csv(trade_history_filename_full, converters={'Type': conv_strBuySell_to_int, 'Date Open': conv_str_to_datetime, 'Date Close': conv_str_to_datetime, 'Currency': conv_str_to_pair})
 
