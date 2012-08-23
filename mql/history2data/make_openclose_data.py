@@ -67,6 +67,8 @@ double aLots[{NbOrdersInFile}];
 datetime aDate[{NbOrdersInFile}];
 double aPrice[{NbOrdersInFile}];
 
+int aReturn[{NbOrdersInFile}];
+
 int time_offset = 3;
 """.format(filename=filename, NbOrdersInFile=len(df))
   code = code + '\n';
@@ -82,6 +84,7 @@ int time_offset = 3;
 
     if df.irow(i)['Action']=='OPEN':
       code = code + '   {var}[{tab_index}] = {value}; // OPEN\n'.format(var='aAction', tab_index=i, value=1)
+      code = code + '   {var}[{tab_index}] = {value};\n'.format(var='aReturn', tab_index=df.irow(i)['PseudoTicket'], value=i)
     elif df.irow(i)['Action']=='CLOSE':
       code = code + '   {var}[{tab_index}] = {value}; // CLOSE\n'.format(var='aAction', tab_index=i, value=0)
 
@@ -90,12 +93,12 @@ int time_offset = 3;
     elif df.irow(i)['Type']=='SELL':
       code = code + "   {var}[{tab_index}] = {value}; // SELL\n".format(var='aType', tab_index=i, value='OP_SELL')
     
-
+    code = code + '   {var}[{tab_index}] = {value}; // Ticket given by broker\n'.format(var='aTicket', tab_index=i, value=-1)
     code = code + '   {var}[{tab_index}] = "{value}";\n'.format(var='aSymbol', tab_index=i, value=df.irow(i)['Symbol'])
     code = code + "   {var}[{tab_index}] = {value};\n".format(var='aLots', tab_index=i, value=df.irow(i)['Lots'])
     code = code + "   {var}[{tab_index}] = D'{value}'+time_offset*3600;\n".format(var='aDate', tab_index=i, value=df.irow(i)['Date'].strftime("%Y.%m.%d %H:%M:%S"))
     code = code + "   {var}[{tab_index}] = {value};\n".format(var='aPrice', tab_index=i, value=df.irow(i)['Price'])
-
+    
   code = code + '}\n'
   
   return(code)
