@@ -21,4 +21,5 @@ clean:
 	$(RM) files/Trade_History_Symbols_List.txt
 	$(RM) include/*.mqh
 	$(RM) include/*.mql
+	$(RM) files/Trade_History_out_Symbols_List.txt
 
