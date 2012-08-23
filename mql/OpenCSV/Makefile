@@ -20,3 +20,5 @@ clean:
 	$(RM) files/Trade_History_out_*.csv
 	$(RM) files/Trade_History_Symbols_List.txt
 	$(RM) include/*.mqh
+	$(RM) include/*.mql
+

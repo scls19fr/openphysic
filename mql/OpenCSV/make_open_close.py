@@ -90,6 +90,18 @@ int time_offset = 3;
   
   return(code)
 
+"""
+Write file
+"""
+def generate_mql_code_openclose(df_out, filename):
+  f = open(filename, 'w')
+
+  code = dfOpenClose2mql(df_out, filename)
+  #print(code)
+
+  f.write(code)
+  f.close()
+
 trade_history_filename_full = 'files/Trade_History_Full.csv'
 
 df = pd.read_csv(trade_history_filename_full, converters={'Type': conv_strBuySell_to_str, 'Date Open': conv_str_to_datetime, 'Date Close': conv_str_to_datetime, 'Currency': conv_str_to_pair})
@@ -129,11 +141,6 @@ symbols = df['Symbol'].unique()
 # Add PseudoTicket col
 df['PseudoTicket'] = np.arange(1, len(df)+1)
 #df['PseudoTicket'] = np.arange(len(df),0,-1)
-
-
-# Keep only one symbol
-df = df[df['Symbol']=='EURUSD']
-
 
 print("="*4+" DataFrame "+"="*4)
 #print(df)
@@ -176,4 +183,8 @@ dfOpenClose.to_csv('files/Trade_History_out_OpenClose_all_symbols.csv', index=Tr
 
 #print(df)
 
-print(dfOpenClose2mql(dfOpenClose, 'include/Trade_History_out_OpenClose_all_symbols.mql'))
+#print()
+
+generate_mql_code_openclose(dfOpenClose, 'include/Trade_History_out_OpenClose_all_symbols.mqh')
+
+
