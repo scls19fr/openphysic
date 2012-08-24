@@ -4,7 +4,10 @@ import pandas as pd
 from datetime import date, datetime, timedelta
 import numpy as np
 
-print("Tick generator")
+print("""Tick generator
+a little framework to backtest strategies""")
+
+print("="*40)
 
 periods_dict = dict({
   'M1': 1,
@@ -29,41 +32,46 @@ periods_list = [('M1', 1),
  ('W1', 10080),
  ('MN', 43200)]
 
-def init():
-  print("Begin backtest")
+class Strategy:
+  def __init__(self, name="New Strategy"):
+    self.name = name
+  
+  def init(self):
+    print("Initialize strategy '{name}'".format(name=self.name))
 
-def start(t, Symbol, Bid, Ask, tickComment=''):
-  print("t={t} Symbol={Symbol} Bid={Bid} Ask={Ask} {Comment}".format(t=t, Symbol=Symbol, Bid=Bid, Ask=Ask, Comment=tickComment))
+  def start(self, t, Symbol, Bid, Ask, tickComment=''):
+    pass
+    #print("t={t} Symbol={Symbol} Bid={Bid} Ask={Ask} {Comment}".format(t=t, Symbol=Symbol, Bid=Bid, Ask=Ask, Comment=tickComment))
 
-def deinit():
-  print("End of backtest")
+  def deinit(self):
+    print("Deinitialize strategy '{name}'".format(name=self.name))
 
-def generate_pseudo_ticks(i, df, symbol):
+def generate_pseudo_ticks(i, df, symbol, strategy):
   # mode='OHLC'
   # 1:O 2:H 3:L 4:C
   t = df.index[i]
   Bid = df.irow(i)['Open']
   Spread = df.irow(i)['Spread']
   Ask = Bid + Spread
-  start(t, symbol, Bid, Ask, 'Open')
+  strategy.start(t, symbol, Bid, Ask, 'Open')
 
   t = df.index[i] + timedelta(minutes=period/3.0)
   Bid = df.irow(i)['Low']
   Spread = df.irow(i)['Spread']
   Ask = Bid + Spread
-  start(t, symbol, Bid, Ask, 'Low')
+  strategy.start(t, symbol, Bid, Ask, 'Low')
 
   t = df.index[i] + timedelta(minutes=(period/3.0)*2.0)
   Bid = df.irow(i)['High']
   Spread = df.irow(i)['Spread']
   Ask = Bid + Spread
-  start(t, symbol, Bid, Ask, 'High')
+  strategy.start(t, symbol, Bid, Ask, 'High')
 
   t = df.index[i] + (timedelta(minutes=period) - timedelta(seconds=1)) #timedelta(seconds=0.001)
   Bid = df.irow(i)['Close']
   Spread = df.irow(i)['Spread']
   Ask = Bid + Spread
-  start(t, symbol, Bid, Ask, 'Close')
+  strategy.start(t, symbol, Bid, Ask, 'Close')
 
   # mode='OLHC'
   # 1:O 2:L 3:H 4:C
@@ -72,17 +80,20 @@ def generate_pseudo_ticks(i, df, symbol):
 
 
 def backtest(df):
-  init()
+  print("Starting backtest")
+  strategy = Strategy()
+  strategy.init()
   for i in range(len(dfMB)):
-    generate_pseudo_ticks(i, df, symbol)
-  deinit()
+    generate_pseudo_ticks(i, df, symbol, strategy)
+  strategy.deinit()
+  print("End of backtest")
 
 """====================================================================================="""
 
 symbol = 'EURUSD'
 period_string = 'M15'
 PipPosition = 4 # 0.0001 (so 4 because 10^(-4)) for most pairs but for xxxJPY PipPosition=2
-period = periods_dict[period_string] # min
+Period = periods_dict[period_string] # min
 
 filename = "data/{symbol}{period}.csv".format(symbol=symbol, period=period)
 
@@ -98,7 +109,7 @@ print("End of reading {filename}".format(filename=filename))
 
 print("{pts} points in file".format(pts=len(dfMk)))
 
-"""====================================================================================="""
+print("="*40)
 
 dt_start = datetime(2011, 5, 16, 0, 0, 0)
 dt_end = datetime(2011, 6, 16, 0, 0, 0)
@@ -109,7 +120,6 @@ b_select = (dfMk.index>=dt_start) & (dfMk.index<=dt_end)
 dfMB = dfMk[b_select] # MB = market backtester from
 print("Selecting {pts} points of data from {dt1} to {dt2}".format(pts=len(dfMB), dt1=dt_start, dt2=dt_end))
 
-
-print("{pts} points in backtest".format(pts=len(dfMB)))
+print("="*40)
 
 backtest(dfMB)
