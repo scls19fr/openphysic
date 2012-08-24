@@ -32,6 +32,34 @@ periods_list = [('M1', 1),
  ('W1', 10080),
  ('MN', 43200)]
 
+class OHLC:
+  def __init__(self):
+    self.Open = None
+    self.High = None
+    self.Low = None
+    self.Close = None
+    
+    self.FirstAppendFlag = True
+
+  def append(self, price):
+    if self.FirstAppendFlag:
+      self.FirstAppendFlag = False
+      self.Open = price
+      self.High = price
+      self.Low = price
+      self.Close = price
+    else:
+      self.Close = price
+      if price>self.High:
+        self.High = price
+        
+      if price<self.Low:
+        self.Low = price
+    
+  def __repr__(self):
+    return("OHLC = {0} / {1} / {2} / {3}".format(self.Open, self.High, self.Low, self.Close))
+
+
 class Strategy:
   def __init__(self, name="New Strategy"):
     self.name = name
@@ -39,10 +67,16 @@ class Strategy:
   def init(self):
     print("Initialize strategy '{name}'".format(name=self.name))
 
-  def start(self, t, df, Symbol, Period, Bid, Ask, tickComment=''):
+  def start(self, t, df, Symbol, Period, Bid, Ask, Open, High, Low, Close, tickComment=''):
     #pass
     print("t={t} Symbol={Symbol} Bid={Bid} Ask={Ask} {Comment}".format(t=t, Symbol=Symbol, Bid=Bid, Ask=Ask, Comment=tickComment))
     #print(df.irow(0))
+    #print("O={0}".format(Open))
+    #print("H={0}".format(High))
+    #print("L={0}".format(Low))
+    #print("C={0}".format(Close))
+    print("OHLC = {0} / {1} / {2} / {3}".format(Open, High, Low, Close))
+    
 
   def deinit(self):
     print("Deinitialize strategy '{name}'".format(name=self.name))
@@ -52,15 +86,17 @@ def generate_pseudo_ticks(i, df, symbol, period, strategy):
   df2 = df.copy() # tofix
   df2 = df2.sort(ascending=False) # should be done before and passed as argument (to avoid to do it several time)
   df2 = df2[len(df2)-i-1:len(df2)]
+  
+  ohlc = OHLC()
 
   #df2.irow(len(df2)-i-1)['Open'] = df.irow(i)['Open']
 
   # mode='OHLC'
   # 1:O 2:H 3:L 4:C
   #   OHLC=OOOO
-  df2.irow(len(df2)-i-1)['High'] = df.irow(i)['Open'] # tofix
-  df2.irow(len(df2)-i-1)['Low'] = df.irow(i)['Open']
-  df2.irow(len(df2)-i-1)['Close'] = df.irow(i)['Open']
+  #df2.irow(len(df2)-i-1)['High'] = df.irow(i)['Open'] # tofix
+  #df2.irow(len(df2)-i-1)['Low'] = df.irow(i)['Open']
+  #df2.irow(len(df2)-i-1)['Close'] = df.irow(i)['Open']
   
   print(df2.irow(len(df2)-i-1))
   
@@ -70,40 +106,52 @@ def generate_pseudo_ticks(i, df, symbol, period, strategy):
   bid = df.irow(i)['Open']
   spread = df.irow(i)['Spread']
   ask = bid + spread
-  strategy.start(t, df2, symbol, period, bid, ask, 'Open')
+  
+  ohlc.append(bid)
+  
+  strategy.start(t, df2, symbol, period, bid, ask, ohlc.Open, ohlc.High, ohlc.Low, ohlc.Close, 'Open')
 
   #   OHLC=OOLL
-  df2.irow(len(df2)-i-1)['High'] = df.irow(i)['Open']
-  df2.irow(len(df2)-i-1)['Low'] = df.irow(i)['Low']
-  df2.irow(len(df2)-i-1)['Close'] = df.irow(i)['Low']
+  #df2.irow(len(df2)-i-1)['High'] = df.irow(i)['Open']
+  #df2.irow(len(df2)-i-1)['Low'] = df.irow(i)['Low']
+  #df2.irow(len(df2)-i-1)['Close'] = df.irow(i)['Low']
 
   t = df.index[i] + timedelta(minutes=period/3.0)
   bid = df.irow(i)['Low']
   spread = df.irow(i)['Spread']
   ask = bid + spread
-  strategy.start(t, df2, symbol, period, bid, ask, 'Low')
+
+  ohlc.append(bid)
+  
+  strategy.start(t, df2, symbol, period, bid, ask, ohlc.Open, ohlc.High, ohlc.Low, ohlc.Close, 'Low')
 
   #   OHLC=OHLH
-  df2.irow(len(df2)-i-1)['High'] = df.irow(i)['High']
-  df2.irow(len(df2)-i-1)['Low'] = df.irow(i)['Low']
-  df2.irow(len(df2)-i-1)['Close'] = df.irow(i)['High']
+  #df2.irow(len(df2)-i-1)['High'] = df.irow(i)['High']
+  #df2.irow(len(df2)-i-1)['Low'] = df.irow(i)['Low']
+  #df2.irow(len(df2)-i-1)['Close'] = df.irow(i)['High']
 
   t = df.index[i] + timedelta(minutes=(period/3.0)*2.0)
   bid = df.irow(i)['High']
   spread = df.irow(i)['Spread']
   ask = bid + spread
-  strategy.start(t, df2, symbol, period, bid, ask, 'High')
+
+  ohlc.append(bid)
+
+  strategy.start(t, df2, symbol, period, bid, ask, ohlc.Open, ohlc.High, ohlc.Low, ohlc.Close, 'High')
 
   #   OHLC=OHLC
-  df2.irow(len(df2)-i-1)['High'] = df.irow(i)['High']
-  df2.irow(len(df2)-i-1)['Low'] = df.irow(i)['Low']
-  df2.irow(len(df2)-i-1)['Close'] = df.irow(i)['Close']
+  #df2.irow(len(df2)-i-1)['High'] = df.irow(i)['High']
+  #df2.irow(len(df2)-i-1)['Low'] = df.irow(i)['Low']
+  #df2.irow(len(df2)-i-1)['Close'] = df.irow(i)['Close']
 
   t = df.index[i] + (timedelta(minutes=period) - timedelta(seconds=1)) #timedelta(seconds=0.001)
   bid = df.irow(i)['Close']
   spread = df.irow(i)['Spread']
   ask = bid + spread
-  strategy.start(t, df2, symbol, period, bid, ask, 'Close')
+  
+  ohlc.append(bid)
+
+  strategy.start(t, df2, symbol, period, bid, ask, ohlc.Open, ohlc.High, ohlc.Low, ohlc.Close, 'Close')
 
   # mode='OLHC'
   # 1:O 2:L 3:H 4:C
