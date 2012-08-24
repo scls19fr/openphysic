@@ -39,31 +39,36 @@ def deinit():
   print("End of backtest")
 
 def generate_pseudo_ticks(i, df, symbol):
-  # OHLC
-  # 1:O 2:L 3:H 4:C
-  t = dfMB.index[i]
+  # mode='OHLC'
+  # 1:O 2:H 3:L 4:C
+  t = df.index[i]
   Bid = df.irow(i)['Open']
   Spread = df.irow(i)['Spread']
   Ask = Bid + Spread
   start(t, symbol, Bid, Ask, 'Open')
 
-  t = dfMB.index[i] + timedelta(minutes=period/3.0)
+  t = df.index[i] + timedelta(minutes=period/3.0)
   Bid = df.irow(i)['Low']
   Spread = df.irow(i)['Spread']
   Ask = Bid + Spread
   start(t, symbol, Bid, Ask, 'Low')
 
-  t = dfMB.index[i] + timedelta(minutes=(period/3.0)*2.0)
+  t = df.index[i] + timedelta(minutes=(period/3.0)*2.0)
   Bid = df.irow(i)['High']
   Spread = df.irow(i)['Spread']
   Ask = Bid + Spread
   start(t, symbol, Bid, Ask, 'High')
 
-  t = dfMB.index[i] + (timedelta(minutes=period) - timedelta(seconds=0.001))
+  t = df.index[i] + (timedelta(minutes=period) - timedelta(seconds=1)) #timedelta(seconds=0.001)
   Bid = df.irow(i)['Close']
   Spread = df.irow(i)['Spread']
   Ask = Bid + Spread
   start(t, symbol, Bid, Ask, 'Close')
+
+  # mode='OLHC'
+  # 1:O 2:L 3:H 4:C
+  
+  # mode= use lower timeframe (if possible)
 
 
 def backtest(df):
