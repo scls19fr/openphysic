@@ -39,39 +39,71 @@ class Strategy:
   def init(self):
     print("Initialize strategy '{name}'".format(name=self.name))
 
-  def start(self, t, Symbol, Bid, Ask, tickComment=''):
-    pass
-    #print("t={t} Symbol={Symbol} Bid={Bid} Ask={Ask} {Comment}".format(t=t, Symbol=Symbol, Bid=Bid, Ask=Ask, Comment=tickComment))
+  def start(self, t, df, Symbol, Period, Bid, Ask, tickComment=''):
+    #pass
+    print("t={t} Symbol={Symbol} Bid={Bid} Ask={Ask} {Comment}".format(t=t, Symbol=Symbol, Bid=Bid, Ask=Ask, Comment=tickComment))
+    #print(df.irow(0))
 
   def deinit(self):
     print("Deinitialize strategy '{name}'".format(name=self.name))
 
-def generate_pseudo_ticks(i, df, symbol, strategy):
+def generate_pseudo_ticks(i, df, symbol, period, strategy):
+  # restrict df to past and current
+  df2 = df.copy() # tofix
+  df2 = df2.sort(ascending=False) # should be done before and passed as argument (to avoid to do it several time)
+  df2 = df2[len(df2)-i-1:len(df2)]
+
+  #df2.irow(len(df2)-i-1)['Open'] = df.irow(i)['Open']
+
   # mode='OHLC'
   # 1:O 2:H 3:L 4:C
+  #   OHLC=OOOO
+  df2.irow(len(df2)-i-1)['High'] = df.irow(i)['Open'] # tofix
+  df2.irow(len(df2)-i-1)['Low'] = df.irow(i)['Open']
+  df2.irow(len(df2)-i-1)['Close'] = df.irow(i)['Open']
+  
+  print(df2.irow(len(df2)-i-1))
+  
+  print(df.irow(i))
+  
   t = df.index[i]
-  Bid = df.irow(i)['Open']
-  Spread = df.irow(i)['Spread']
-  Ask = Bid + Spread
-  strategy.start(t, symbol, Bid, Ask, 'Open')
+  bid = df.irow(i)['Open']
+  spread = df.irow(i)['Spread']
+  ask = bid + spread
+  strategy.start(t, df2, symbol, period, bid, ask, 'Open')
+
+  #   OHLC=OOLL
+  df2.irow(len(df2)-i-1)['High'] = df.irow(i)['Open']
+  df2.irow(len(df2)-i-1)['Low'] = df.irow(i)['Low']
+  df2.irow(len(df2)-i-1)['Close'] = df.irow(i)['Low']
 
   t = df.index[i] + timedelta(minutes=period/3.0)
-  Bid = df.irow(i)['Low']
-  Spread = df.irow(i)['Spread']
-  Ask = Bid + Spread
-  strategy.start(t, symbol, Bid, Ask, 'Low')
+  bid = df.irow(i)['Low']
+  spread = df.irow(i)['Spread']
+  ask = bid + spread
+  strategy.start(t, df2, symbol, period, bid, ask, 'Low')
+
+  #   OHLC=OHLH
+  df2.irow(len(df2)-i-1)['High'] = df.irow(i)['High']
+  df2.irow(len(df2)-i-1)['Low'] = df.irow(i)['Low']
+  df2.irow(len(df2)-i-1)['Close'] = df.irow(i)['High']
 
   t = df.index[i] + timedelta(minutes=(period/3.0)*2.0)
-  Bid = df.irow(i)['High']
-  Spread = df.irow(i)['Spread']
-  Ask = Bid + Spread
-  strategy.start(t, symbol, Bid, Ask, 'High')
+  bid = df.irow(i)['High']
+  spread = df.irow(i)['Spread']
+  ask = bid + spread
+  strategy.start(t, df2, symbol, period, bid, ask, 'High')
+
+  #   OHLC=OHLC
+  df2.irow(len(df2)-i-1)['High'] = df.irow(i)['High']
+  df2.irow(len(df2)-i-1)['Low'] = df.irow(i)['Low']
+  df2.irow(len(df2)-i-1)['Close'] = df.irow(i)['Close']
 
   t = df.index[i] + (timedelta(minutes=period) - timedelta(seconds=1)) #timedelta(seconds=0.001)
-  Bid = df.irow(i)['Close']
-  Spread = df.irow(i)['Spread']
-  Ask = Bid + Spread
-  strategy.start(t, symbol, Bid, Ask, 'Close')
+  bid = df.irow(i)['Close']
+  spread = df.irow(i)['Spread']
+  ask = bid + spread
+  strategy.start(t, df2, symbol, period, bid, ask, 'Close')
 
   # mode='OLHC'
   # 1:O 2:L 3:H 4:C
@@ -79,23 +111,23 @@ def generate_pseudo_ticks(i, df, symbol, strategy):
   # mode= use lower timeframe (if possible)
 
 
-def backtest(df):
+def backtest(df, Symbol, Period):
   print("Starting backtest")
   strategy = Strategy()
   strategy.init()
   for i in range(len(dfMB)):
-    generate_pseudo_ticks(i, df, symbol, strategy)
+    generate_pseudo_ticks(i, df, Symbol, Period, strategy)
   strategy.deinit()
   print("End of backtest")
 
 """====================================================================================="""
 
-symbol = 'EURUSD'
+Symbol = 'EURUSD'
 period_string = 'M15'
 PipPosition = 4 # 0.0001 (so 4 because 10^(-4)) for most pairs but for xxxJPY PipPosition=2
 Period = periods_dict[period_string] # min
 
-filename = "data/{symbol}{period}.csv".format(symbol=symbol, period=period)
+filename = "data/{symbol}{period}.csv".format(symbol=Symbol, period=Period)
 
 print("Reading {filename}".format(filename=filename))
 
@@ -122,4 +154,4 @@ print("Selecting {pts} points of data from {dt1} to {dt2}".format(pts=len(dfMB),
 
 print("="*40)
 
-backtest(dfMB)
+backtest(dfMB, Symbol, Period)

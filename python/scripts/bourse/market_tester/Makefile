@@ -1,7 +1,8 @@
 PYTHON=python
 
 all:
-	$(PYTHON) market_tester.py
+	#$(PYTHON) market_tester.py
+	time $(PYTHON) tick_generator.py
 	
 silent:
-	$(PYTHON) market_tester.py > backtest.txt
+	#$(PYTHON) market_tester.py > backtest.txt
