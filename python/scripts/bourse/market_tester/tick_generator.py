@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# -*- coding: utf8 -*-
+
 """
 ToDo : dissocier la générération des ticks et les chandeliers
 """
