@@ -55,9 +55,24 @@ class OHLC:
         
       if price<self.Low:
         self.Low = price
-    
+
   def __repr__(self):
     return("OHLC = {0} / {1} / {2} / {3}".format(self.Open, self.High, self.Low, self.Close))
+    
+  def __add__(self, val):
+    self.Open = self.Open + val
+    self.High = self.High + val
+    self.Low = self.Low + val
+    self.Close = self.Close + val
+
+  def __sub__(self, val):
+    self.__add__(-val)
+
+  def InCandle(self, val):
+    return( (val>=self.Low) and (val<=self.High) )
+
+  def InCandleBody(self, val):
+    return( (val>=self.Open) and (val<=self.Close) )
 
 
 class Strategy:
@@ -98,9 +113,9 @@ def generate_pseudo_ticks(i, df, symbol, period, strategy):
   #df2.irow(len(df2)-i-1)['Low'] = df.irow(i)['Open']
   #df2.irow(len(df2)-i-1)['Close'] = df.irow(i)['Open']
   
-  print(df2.irow(len(df2)-i-1))
+  #print(df2.irow(len(df2)-i-1))
   
-  print(df.irow(i))
+  #print(df.irow(i))
   
   t = df.index[i]
   bid = df.irow(i)['Open']
