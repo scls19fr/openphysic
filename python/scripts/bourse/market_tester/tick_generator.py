@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+"""
+ToDo : dissocier la générération des ticks et les chandeliers
+"""
 
 import pandas as pd
 from datetime import date, datetime, timedelta
