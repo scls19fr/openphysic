@@ -5,6 +5,9 @@ import pandas as pd
 #from datetime import date, datetime, timedelta
 from scipy.integrate import odeint
 
+def func_acc(V, t):
+  return(F/m)
+
 m = 1 # kg
 g = 9.81 # m.s^(-2)
 
@@ -17,6 +20,8 @@ nul = np.zeros(t.shape)
 
 F = pd.DataFrame({'x':nul, 'y':nul, 'z':nul}, index=t)
 F['z'] = -m*g 
+
+A = F/m
 
 V = pd.DataFrame({'x':nul, 'y':nul, 'z':nul}, index=t)
 V.ix[0] = [1, 0, 1] # m/s
