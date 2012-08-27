@@ -3,6 +3,7 @@
 
 #import unittest
 from trading_classes import *
+from datetime import date, datetime, timedelta
 
 types = ['BUY', 'SELL', 'BUYLIMIT', 'SELLLIMIT', 'BUYSTOP', 'SELLSTOP']
 
@@ -39,6 +40,8 @@ print("y = {0} = {1}".format(y, y.getDir()))
 
 print('='*20)
 
-tr = Trade(ticket=-1, opentime=None, operation=OperationType('BUY'), lots=0.01, symbol='', openprice=None, stoploss=0.0, takeprofit=0.0, closetime=None, commission=0.0, swap=0.0, profit=0.0, comment="", magicnumber=0, pendingorderexpirationdate=None)
+tr = Trade(ticketnumber=-9, opentime=datetime(2009,9,9), operation=OperationType('BUY'), lots=0.09, symbol='NEUFRA',
+  openprice=1.9, stoploss=0.9, takeprofit=2.9, closetime=datetime(2009,10,9), closeprice=2.9, commission=0.9,
+  swap=0.9, profit=0.9, comment="", magicnumber=999, pendingorderexpirationdate=None)
 
 print(tr)
