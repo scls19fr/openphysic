@@ -3,6 +3,13 @@
 
 """
 ToDo : dissocier la générération des ticks et les chandeliers
+
+Objet simulant MarketInfo
+double MarketInfo( 	string symbol, int type)
+	http://docs.mql4.com/common/MarketInfo
+	http://docs.mql4.com/constants/marketinfo
+	
+ contient l'historique de plusieurs symboles
 """
 
 import pandas as pd
