@@ -17,6 +17,9 @@ class MyStrategy(strategy.Strategy):
         self.i_tr = 0
         
         #print(self.dfTr)
+        
+        self.price_error = 0
+
 
     def onBars(self, bars):
         bar = bars.getBar("EURUSD")
@@ -25,11 +28,12 @@ class MyStrategy(strategy.Strategy):
         dt2 = bar.getDateTime() + timedelta(minutes=15)
         #print("{0}-{1} O={open} H={high} L={low} C={close}".format(dt1, dt2, open=bar.getOpen(), high=bar.getHigh(), low=bar.getLow(), close=bar.getClose()))
         
+        
         if self.i_tr<len(self.dfTr):
             dt_tr = self.dfTr.index[self.i_tr]
 
-            if (dt1<=dt_tr and dt_tr<dt2):
-                print("tr #{0}".format(self.i_tr, len(self.dfTr)))
+            while (dt_tr>=dt1 and dt_tr<dt2):
+                #print("tr #{0}".format(self.i_tr, len(self.dfTr)))
 
                 #print("  Bar {0}-{1} O={open} H={high} L={low} C={close}".format(dt1, dt2, open=bar.getOpen(), high=bar.getHigh(), low=bar.getLow(), close=bar.getClose()))
                 
@@ -40,12 +44,26 @@ class MyStrategy(strategy.Strategy):
                 
                 b_in_price = (price_tr>=bar.getLow()) and (price_tr<=bar.getHigh())
                 
-                print(b_in_price)
+                if (not b_in_price):
+                    self.price_error = self.price_error + 1
+                    print("="*10)
+                    print(price_tr-bar.getLow())
+                    print(bar.getHigh()-price_tr)
+                
+                #print(b_in_price)
 
                 self.i_tr = self.i_tr + 1
-                
+                if self.i_tr<len(self.dfTr):
+                    dt_tr = self.dfTr.index[self.i_tr]
+                else:
+                    break
+                    
         else:
             return
+
+    def stop(self):
+        #print("end of strategy")
+        print(myStrategy.price_error)
 
 
 # Load the MetaTrader feed from the CSV file
@@ -55,3 +73,4 @@ feed.addBarsFromCSV("EURUSD", "data/EURUSD15.csv", 3)
 # Evaluate the strategy with the feed's bars.
 myStrategy = MyStrategy(feed)
 myStrategy.run()
+myStrategy.stop()
