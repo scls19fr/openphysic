@@ -38,6 +38,7 @@ class MyStrategy(strategy.Strategy):
                 print("  Error: history missing for tr #{0}\t{1}".format(self.i_tr, dt_tr))
                 self.missing_history = self.missing_history + 1
                 self.i_tr = self.i_tr + 1
+                dt_tr = self.dfTr.index[self.i_tr]
 
             if (dt_tr>=dt1 and dt_tr<dt2):
                 print("Bar from {0} to {1} O={open} H={high} L={low} C={close}".format(dt1, dt2, open=bar.getOpen(), high=bar.getHigh(), low=bar.getLow(), close=bar.getClose()))
@@ -94,7 +95,7 @@ class MyStrategy(strategy.Strategy):
 
 # Load the MetaTrader feed from the CSV file
 feed = metatraderfeed.Feed()
-feed.addBarsFromCSV("EURUSD", "data/EURUSD15.csv", 3)
+feed.addBarsFromCSV("EURUSD", "data/EURUSD15_AAAFX.csv", 0)
 
 # Evaluate the strategy with the feed's bars.
 myStrategy = MyStrategy(feed)
