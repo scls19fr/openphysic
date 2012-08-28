@@ -33,7 +33,8 @@ class MyStrategy(strategy.Strategy):
 
 
     def onBars(self, bars):
-        bar = bars.getBar("EURUSD")
+        symbol = 'EURUSD'
+        bar = bars.getBar(symbol)
         #print "%s: %s" % (bar.getDateTime(), bar.getClose())
         dt1 = bar.getDateTime()
         dt2 = bar.getDateTime() + timedelta(minutes=15)
@@ -43,37 +44,55 @@ class MyStrategy(strategy.Strategy):
         # utiliser une boucle while(True) avec break
 
         if (self.i_tr<len(self.dfTr)):
-            dt_tr = self.dfTr.index[self.i_tr]
-            if (dt_tr>=dt1 and dt_tr<dt2):
+            order_open_time = self.dfTr.index[self.i_tr]
+            if (order_open_time>=dt1 and order_open_time<dt2):
                 print("Bar from {0} to {1} O={open} H={high} L={low} C={close}".format(dt1, dt2, open=bar.getOpen(), high=bar.getHigh(), low=bar.getLow(), close=bar.getClose()))
         
         while (self.i_tr<len(self.dfTr)):
-            dt_tr = self.dfTr.index[self.i_tr]
-            price_tr = self.dfTr.irow(self.i_tr)['Price']
-            action = self.dfTr.irow(self.i_tr)['Action']
-            type = self.dfTr.irow(self.i_tr)['Type']
-            symbol = self.dfTr.irow(self.i_tr)['Symbol']
+            order_symbol = self.dfTr.irow(self.i_tr)['Symbol']
             
-            if (dt_tr<dt1):
-                print("  Error: history missing for tr #{0}\t{1}\t{2}\t{3}\t{4}\t{5}".format(self.i_tr, dt_tr, price_tr, action, type, symbol))
-                self.missing_history = self.missing_history + 1
-                self.i_tr = self.i_tr + 1
+            if (symbol==order_symbol):
+                order_open_time = self.dfTr.index[self.i_tr]
+                order_open_price = self.dfTr.irow(self.i_tr)['Price']
+                order_action = self.dfTr.irow(self.i_tr)['Action'] # OPEN/CLOSE
+                order_type = self.dfTr.irow(self.i_tr)['Type'] # BUY/SELL
+                order_pseudoticket = self.dfTr.irow(self.i_tr)['PseudoTicket'] # to know what order to close
+            
+                if (order_open_time<dt1):
+                    print(" Error: history missing for tr #{0}\t{1}\t{2}\t{3}\t{4}\t{5}".format(self.i_tr, order_open_time, order_open_price, order_action, order_type, order_symbol))
+                    self.missing_history = self.missing_history + 1
+                    self.i_tr = self.i_tr + 1
                 
-            elif (dt_tr>=dt1 and dt_tr<dt2):
-                print("  Tr #{0}\t{1}\t{2}\t{3}\t{4}\t{5}".format(self.i_tr, dt_tr, price_tr, action, type, symbol))
+                elif (order_open_time>=dt1 and order_open_time<dt2):
+                    print(" Tr #{0}\t{1}\t{2}\t{3}\t{4}\t{5}".format(self.i_tr, order_open_time, order_open_price, order_action, order_type, order_symbol))
                 
-                b_in_price = (price_tr>=bar.getLow()) and (price_tr<=bar.getHigh())
-                if (not b_in_price):
-                    pdiff = min(abs(price_tr-bar.getLow()), abs(bar.getHigh()-price_tr))
-                    if (pdiff>0.0003):
-                        print("  pdiff={0}".format(pdiff))
-                        self.price_error = self.price_error + 1
+                    b_in_price = (order_open_price>=bar.getLow()) and (order_open_price<=bar.getHigh())
+                    if (not b_in_price):
+                        pdiff = min(abs(order_open_price-bar.getLow()), abs(bar.getHigh()-order_open_price))
+                        if (pdiff>0.0010):
+                            print("  pdiff={0}".format(pdiff))
+                            self.price_error = self.price_error + 1
+                    else:
+                        if (order_action=='OPEN'):
+                            if (order_type=='BUY'):
+                                print("OPEN BUY")
+                            elif (order_type=='SELL'):
+                                print("OPEN SELL")
+                        elif (order_action=='CLOSE'):
+                            if (order_type=='BUY'):
+                                print("CLOSE BUY")
+                            elif (order_type=='SELL'):
+                                print("CLOSE SELL")
 
-                self.i_tr = self.i_tr + 1
+                    self.i_tr = self.i_tr + 1
                 
-            else: # dt_tr>=dt2
-                #print("dt_tr>=dt2")
-                return
+                else: # order_open_time>=dt2
+                    #print("dt_tr>=dt2")
+                    return
+
+            else: # symbol!=order_symbol
+                print("symbol!=order_symbol")
+                self.i_tr = self.i_tr + 1
 
     def stop(self):
         #print("end of strategy")
@@ -84,7 +103,7 @@ class MyStrategy(strategy.Strategy):
 # Load the MetaTrader feed from the CSV file
 feed = metatraderfeed.Feed()
 #feed.addBarsFromCSV("EURUSD", "data/EURUSD15_AAAFX.csv", 1) # 0 ou 1 ?
-feed.addBarsFromCSV("EURUSD", "data/EURUSD15.csv", 3) # 0 ou 1 ?
+feed.addBarsFromCSV("EURUSD", "data/EURUSD15_ALPNZ2.csv", 3) # 0 ou 1 ?
 
 # Evaluate the strategy with the feed's bars.
 myStrategy = MyStrategy(feed)
