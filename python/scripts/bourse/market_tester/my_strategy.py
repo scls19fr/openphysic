@@ -31,6 +31,11 @@ class MyStrategy(strategy.Strategy):
         else:
             return(len(self.dfTr))
 
+    def onStart(self):
+        #self.getBroker().setCash(1000.0)
+        #print("Initial portfolio value: $%.2f" % self.getBroker().getCash())
+        print("Initial portfolio value: ${:.2f}".format(self.getBroker().getCash()))
+
 
     def onBars(self, bars):
         symbol = 'EURUSD'
