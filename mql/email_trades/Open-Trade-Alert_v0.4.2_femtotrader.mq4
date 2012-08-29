@@ -63,6 +63,17 @@ void SendNotifications(string subject, string message)
     //if (SoundNotification) PlaySound(SoundFilename);
 }
 
+int getDir(int ordt)
+{
+    if (ordt==OP_BUY || ordt==OP_BUYLIMIT || ordt==OP_BUYSTOP) {
+        return(1);
+    } else if (ordt==OP_SELL || ordt==OP_SELLLIMIT || ordt==OP_SELLSTOP) {
+        return(-1);
+    } else {
+        return(0);
+    }    
+}
+
 //+------------------------------------------------------------------+
 //| Custom indicator initialization function                         |
 //+------------------------------------------------------------------+
@@ -144,6 +155,7 @@ int start()
         //pips = pips * 10000; // ToFix for xxxJPY
         double point = PipPoint(OrderSymbol());
         pips = pips/point;
+        pips = pips*getDir(OrderType());
         
         if(NotifyOpenBuy && ( OrderType()==OP_BUY ) && ( OrderCloseTime()==0 ) ) {
             ordertyp="OPEN BUY";
