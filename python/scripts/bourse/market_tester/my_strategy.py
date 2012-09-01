@@ -3,6 +3,7 @@
 
 from pyalgotrade import strategy
 from pyalgotrade.barfeed import metatraderfeed
+from pyalgotrade.broker import *
 from datetime import *
 import pandas as pd
 from math import *
@@ -22,6 +23,11 @@ class MyStrategy(strategy.Strategy):
         self.price_error = 0
         self.missing_history = 0
         
+        self.getBroker().getOrderUpdatedEvent().subscribe(self.onOrderUpdated)
+
+    def onOrderUpdated(self, broker_, order):
+        pass
+                
     #def EOF(self):
     #    return( not (self.i_tr<len(self.dfTr)) )
     
@@ -81,13 +87,21 @@ class MyStrategy(strategy.Strategy):
                         if (order_action=='OPEN'):
                             if (order_type=='BUY'):
                                 print("OPEN BUY")
+                                limitPrice = order_open_price - 0.0002
+                                stopPrice = order_open_price + 0.0002
+                                o = self.getBroker().createStopLimitOrder(Order.Action.BUY, order_symbol, stopPrice, limitPrice, 1000)
+                                self.getBroker().placeOrder(o)
                             elif (order_type=='SELL'):
-                                print("OPEN SELL")
+                                #print("OPEN SELL")
+                                limitPrice = order_open_price + 0.0002
+                                stopPrice = order_open_price - 0.0002
+                                #o = self.getBroker().createStopLimitOrder(Order.Action.SELL, order_symbol, stopPrice, limitPrice, 1000)
+                                #self.getBroker().placeOrder(o)
                         elif (order_action=='CLOSE'):
                             if (order_type=='BUY'):
-                                print("CLOSE BUY")
+                                print("CLOSE BUY") # = SELL
                             elif (order_type=='SELL'):
-                                print("CLOSE SELL")
+                                print("CLOSE SELL") # = BUY 
 
                     self.i_tr = self.i_tr + 1
                 
@@ -99,10 +113,14 @@ class MyStrategy(strategy.Strategy):
                 print("symbol!=order_symbol")
                 self.i_tr = self.i_tr + 1
 
-    def stop(self):
-        #print("end of strategy")
+    def onFinish(self, bars):
         print("{0} price errors".format(myStrategy.price_error))
         print("missing_history={0}".format(self.missing_history))
+        
+        # close all opened positions
+        
+        print("Final portfolio value: ${:.2f}".format(self.getBroker().getValue(bars)))
+        print(self.getBroker().getPendingOrders())
 
 
 # Load the MetaTrader feed from the CSV file
@@ -113,4 +131,3 @@ feed.addBarsFromCSV("EURUSD", "data/EURUSD15_ALPNZ2.csv", 3) # 0 ou 1 ?
 # Evaluate the strategy with the feed's bars.
 myStrategy = MyStrategy(feed)
 myStrategy.run()
-myStrategy.stop()
