@@ -23,10 +23,10 @@ class MyStrategy(strategy.Strategy):
         self.price_error = 0
         self.missing_history = 0
         
-        self.getBroker().getOrderUpdatedEvent().subscribe(self.onOrderUpdated)
+        #self.getBroker().getOrderUpdatedEvent().subscribe(self.onOrderUpdated)
 
-    def onOrderUpdated(self, broker_, order):
-        pass
+    #def onOrderUpdated(self, broker_, order):
+    #    pass
                 
     #def EOF(self):
     #    return( not (self.i_tr<len(self.dfTr)) )
@@ -87,14 +87,15 @@ class MyStrategy(strategy.Strategy):
                         if (order_action=='OPEN'):
                             if (order_type=='BUY'):
                                 print("OPEN BUY")
-                                limitPrice = order_open_price - 0.0002
-                                stopPrice = order_open_price + 0.0002
+                                limitPrice = order_open_price + 0.0002
+                                stopPrice = order_open_price - 0.0002
+                                #print(order_symbol)
                                 o = self.getBroker().createStopLimitOrder(Order.Action.BUY, order_symbol, stopPrice, limitPrice, 1000)
                                 self.getBroker().placeOrder(o)
                             elif (order_type=='SELL'):
                                 #print("OPEN SELL")
-                                limitPrice = order_open_price + 0.0002
-                                stopPrice = order_open_price - 0.0002
+                                limitPrice = order_open_price - 0.0002
+                                stopPrice = order_open_price + 0.0002
                                 #o = self.getBroker().createStopLimitOrder(Order.Action.SELL, order_symbol, stopPrice, limitPrice, 1000)
                                 #self.getBroker().placeOrder(o)
                         elif (order_action=='CLOSE'):
