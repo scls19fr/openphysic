@@ -218,7 +218,7 @@ int start()
         if(NotifyCloseBuy && ( OrderType()==OP_BUY ) && ( OrderCloseTime()!=0 ) ) {
             ordertyp="CLOSE BUY";
             msg = msg + "\n" + ordertyp;
-            SendNotifications(strTitle+ordertyp+" pips:"+DoubleToStr(pips,1)+" $: "+DoubleToStr(OrderProfit(),2)+" "+OrderSymbol()+"@"+DoubleToStr(OrderClosePrice(),5)+", bal: "+DoubleToStr(AccountBalance(),2)+", eq: "+DoubleToStr(AccountEquity(),2)+", mar: "+DoubleToStr(AccountMargin(),2)+", "+OrderComment()+"",
+            SendNotifications(strTitle+ordertyp+" pips:"+DoubleToStr(pips,1)+" $:"+DoubleToStr(OrderProfit(),2)+" "+DoubleToStr(OrderLots(),2)+" "+OrderSymbol()+"@"+DoubleToStr(OrderClosePrice(),5)+", bal: "+DoubleToStr(AccountBalance(),2)+", eq: "+DoubleToStr(AccountEquity(),2)+", mar: "+DoubleToStr(AccountMargin(),2)+", "+OrderComment()+"",
             "Symbol: "+Symbol()+" "+ordertyp+" \n"+
             "MagicNumber: "+OrderMagicNumber()+" \n"+
             "Comment: "+OrderComment()+" \n"+
@@ -247,7 +247,7 @@ int start()
         if(NotifyCloseSell && ( OrderType()==OP_SELL ) && ( OrderCloseTime()!=0 ) ) {
             ordertyp="CLOSE SELL";
             msg = msg + "\n" + ordertyp;
-            SendNotifications(strTitle+ordertyp+" pips:"+DoubleToStr(pips,1)+" $: "+DoubleToStr(OrderProfit(),2)+" "+OrderSymbol()+"@"+DoubleToStr(OrderClosePrice(),5)+", bal: "+DoubleToStr(AccountBalance(),2)+", eq: "+DoubleToStr(AccountEquity(),2)+", mar: "+DoubleToStr(AccountMargin(),2)+", "+OrderComment()+"",
+            SendNotifications(strTitle+ordertyp+" pips:"+DoubleToStr(pips,1)+" $:"+DoubleToStr(OrderProfit(),2)+" "+DoubleToStr(OrderLots(),2)+" "+OrderSymbol()+"@"+DoubleToStr(OrderClosePrice(),5)+", bal: "+DoubleToStr(AccountBalance(),2)+", eq: "+DoubleToStr(AccountEquity(),2)+", mar: "+DoubleToStr(AccountMargin(),2)+", "+OrderComment()+"",
             "Symbol: "+Symbol()+" "+ordertyp+" \n"+
             "MagicNumber: "+OrderMagicNumber()+" \n"+
             "Comment: "+OrderComment()+" \n"+
