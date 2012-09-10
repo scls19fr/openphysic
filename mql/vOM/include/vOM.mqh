@@ -116,6 +116,8 @@ double PipPoint(string symbol) {
         double CalcPoint = 0.01;
     } else if(CalcDigits == 4 || CalcDigits == 5) {
         CalcPoint = 0.0001;
+    } else if(CalcDigits == 0) {
+        CalcPoint = 1.0;
     }
     return(CalcPoint);
 }
