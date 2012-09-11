@@ -1,6 +1,0 @@
-library(quantmod)
-getSymbols("YHOO",src="google")
-getSymbols("GOOG",src="google")
-getSymbols("MSFT",src="google")
-df = data.frame( dailyReturn(YHOO), dailyReturn(GOOG), dailyReturn(MSFT) )
-cor(df)
