@@ -3,7 +3,7 @@
 LOGFILE="iplog.txt"
 LASTIPFILE="lastip.txt"
 CURRENT_IP=`exec wget -q -O - http://www.celles.net/php/whatismyip.php`
-LAST_IP=( $( /bin/cat $LASTIPFILE ) ) 2> /dev/null
+LAST_IP=`exec /bin/cat $LASTIPFILE 2> /dev/null`
 TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
 
 #echo "Current IP: " $CURRENT_IP
