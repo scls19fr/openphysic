@@ -57,6 +57,13 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   <browser>
  
  
+  Serialization
+  http://qt.onyou.ch/2010/10/19/62/
+  QTextStream
+  QDataStream
+  QHash<QString,QVariant> options;
+  http://stackoverflow.com/questions/2570679/serialization-with-qt
+ 
  
  
  */
