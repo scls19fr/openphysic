@@ -1,6 +1,6 @@
 /*
 Browser
-Copyright (C) 2008  Sebastien CELLES
+Copyright (C) 2012  Sebastien Celles
  
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -42,16 +42,20 @@ Browser::Browser( QWidget * parent, Qt::WFlags f) : QDialog(parent, f)
 // url = about:blank
 
   //setGeometry(0,0,320,240);
-  setGeometry(0,0,640,480);
+  //setGeometry(0,0,640,480);
+  //this->resize(1600,1200);
+  this->resize(800,600);
   //setWindowFlags(Qt::SplashScreen);
   //setWindowFlags(Qt::Popup);
-
+  //setWindowFlags(Qt::WStyle_Maximize);
+  //setWindowFlags(Qt::WindowFullScreen);
+  this->setWindowState(Qt::WindowFullScreen);
 
   timer = new QTimer(this);
   connect( timer, SIGNAL( timeout() ), this, SLOT( update() ) );
   //timer->start(2000);
 
-  load(); // load value in ~/browser.
+  load(); // load value in ~/browser.xml
 
   //play();
   //pause();
@@ -99,7 +103,7 @@ void Browser::update(void)
   update_view();
 
   // ToDo double buffering (next) or triple buffering (next/previous)
-  // use an other webView
+  // use an other webView or differents form (with on webView)
 }
 
 void Browser::update_view(void)
@@ -156,6 +160,7 @@ void Browser::keyPressEvent(QKeyEvent * event)
     case Qt::Key_Q: /* quit - just for test */
       //save();
       close();
+      
       break;
     case Qt::Key_R: /* Reload config file - just for test */
       reload();
@@ -249,7 +254,7 @@ int Browser::page()
 
 void Browser::load(void)
 {
-  std::cout << qPrintable(tr("Loading data")) << std::endl;
+  std::cout << qPrintable(tr("Loading configuration from ")) << qPrintable(CFG_FILE) << qPrintable(tr(" in ")) << qPrintable(CFG_DIR) << qPrintable(tr(" directory")) << std::endl;
 
   QFile file( CFG_FILE );
   QDir::setCurrent( CFG_DIR );

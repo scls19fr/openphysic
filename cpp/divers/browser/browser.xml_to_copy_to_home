@@ -1,0 +1,8 @@
+<!DOCTYPE BrowserML PUBLIC '-//CELLES//DTD Browser 0.1 //EN' 'http://www.celles.net/dtd/browser/browser_data-0_1.dtd'>
+<!--This file describe data for a very light browser for dynamic display-->
+<!--http://www.celles.net/wiki/Browser-->
+<browser timer="5000">
+ <url>https://upplanning.appli.univ-poitiers.fr/ade/custom/modules/plannings/direct_planning.jsp?login=visu&amp;password=visu&amp;showTree=false&amp;showPianoDays=false&amp;showPianoWeeks=false&amp;showOptions=false&amp;days=0,1,2,3,4&amp;displayConfName=IUTP-Campus (GTE) affichage lim&amp;code=_Z1PT11_TP1,_Z1PT11_TP2,_Z1PT11_TP3,_Z1PT11_TP4,_Z1PT11_TP5,_Z1PT11_TP6&amp;projectId=3</url>
+ <url>https://upplanning.appli.univ-poitiers.fr/ade/custom/modules/plannings/direct_planning.jsp?login=visu&amp;password=visu&amp;showTree=false&amp;showPianoDays=false&amp;showPianoWeeks=false&amp;showOptions=false&amp;days=0,1,2,3,4&amp;displayConfName=IUTP-Campus (GTE) affichage lim&amp;code=_Z2PT11_S3_TP1,_Z2PT11_S3_TP2,_Z2PT11_S3_TP3,_Z2PT11_S3_TP4,_Z2PT11_S3_TP5&amp;projectId=3</url>
+ <url>https://upplanning.appli.univ-poitiers.fr/ade/custom/modules/plannings/direct_planning.jsp?login=visu&amp;password=visu&amp;showTree=false&amp;showPianoDays=false&amp;showPianoWeeks=false&amp;showOptions=false&amp;days=0,1,2,3,4&amp;displayConfName=IUTP-Campus (GTE) affichage lim&amp;code=_ZWP041_TP1FI,_ZWP041_TP1FA,_ZWP041_TP2FI,_ZWP041_TP2FA&amp;projectId=3</url>
+</browser>

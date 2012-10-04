@@ -1,6 +1,6 @@
 /*
 Browser
-Copyright (C) 2007  Sebastien CELLES
+Copyright (C) 2012  Sebastien Celles
  
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -22,19 +22,57 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <Qt>
 #include <QApplication> // QT
 
+/*
+  ToDo:
+ 
+  ~/browser.xml
+ 
+  <browser timer="">
+    <url>http://...</url>
+  </browser>
+ 
+  <browser>
+ 
+  <browser>
+    <default_slide>
+      <title>Default title<title>
+      <url>http://...</url>
+      <delay>5000</delay>
+      <model></model>
+    </default_slide>
+
+    <slides>
+      <slide>
+        <title>Titre</title>
+        <url>http://...</url>
+        <delay></delay>
+      </slide>
+
+      <slide>
+        <title>Titre</title>
+        <url>http://...</url>
+        <delay></delay>
+      </slide>
+    </slides>
+  <browser>
+ 
+ 
+ 
+ 
+ */
 
 
 //#include <qtopiaapplication> // QTopia
 
 
-#include "mainapplication.h"
+//#include "mainapplication.h"
 #include "browser.h"
 
 #include <iostream>
 
 //#include <QtDBus> // ToDo : DBus for reloading config file
 
-#include "mainapplicationadaptor.h"
+//#include "mainapplicationadaptor.h"
 
 int main(int argc, char ** argv)
 {
