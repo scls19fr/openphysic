@@ -70,7 +70,8 @@ Browser::Browser( QWidget * parent, Qt::WFlags f) : QDialog(parent, f)
 //webView->load(QUrl("http://www.trolltech.com/"));
 
 //webView_2->hide();
-  webView->setZoomFactor(1.50);
+//  webView->setZoomFactor(1.50);
+  webView->setZoomFactor(1);
 
   //page=url_list.count()-1;
 
