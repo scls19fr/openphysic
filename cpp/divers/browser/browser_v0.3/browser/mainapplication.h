@@ -32,6 +32,7 @@ class MainApplication : public QApplication
 
   public:
     MainApplication(int &argc, char *argv[]);
+    //void keyPressEvent(QKeyEvent * event);
 
   public slots:
     void update_timer1(void);

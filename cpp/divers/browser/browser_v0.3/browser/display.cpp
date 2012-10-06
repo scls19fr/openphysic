@@ -31,6 +31,7 @@ Display::Display(QObject *parent) :
   s = new Slide();
   arraySlide = new QVector<Slide *>();
 
+  /*
   s->title = QString("Title of this slide 0");
   s->url = QString("http://www.google.fr?q=test0");
   s->message = QString("Message of slide 0");
@@ -50,6 +51,7 @@ Display::Display(QObject *parent) :
   s->message = QString("Message of slide 2");
   //s->delay = 4000;
   arraySlide->append(s);
+  */
 
   /*
   s->title = QString("GTE 1 - S1-S2");
@@ -66,6 +68,20 @@ Display::Display(QObject *parent) :
   s->url = QString("https://upplanning.appli.univ-poitiers.fr/ade/custom/modules/plannings/direct_planning.jsp?login=visu&password=visu&showTree=false&showPianoDays=false&showPianoWeeks=false&showOptions=false&days=0,1,2,3,4&displayConfName=IUTP-Campus (GTE) affichage lim&code=_ZWP041_TP1FI,_ZWP041_TP1FA,_ZWP041_TP2FI,_ZWP041_TP2FA&projectId=3");
   arraySlide->append(s);
   */
+
+  s->title = QString("GTE 1 - S1-S2");
+  s->url = QString("https://upplanning.appli.univ-poitiers.fr/ade/custom/modules/plannings/direct_planning.jsp?login=visu&password=visu&showTree=false&showPianoDays=false&showPianoWeeks=false&showOptions=false&days=0,1,2,3,4&displayConfName=IUTP-Campus (GTE) affichage lim&code=_Z1PT11_TP1,_Z1PT11_TP2,_Z1PT11_TP3,_Z1PT11_TP4,_Z1PT11_TP5,_Z1PT11_TP6&projectId=3");
+  arraySlide->append(s);
+
+  s = new Slide();
+  s->title = QString("GTE 2 - S3");
+  s->url = QString("https://upplanning.appli.univ-poitiers.fr/ade/custom/modules/plannings/direct_planning.jsp?login=visu&password=visu&showTree=false&showPianoDays=false&showPianoWeeks=false&showOptions=false&days=0,1,2,3,4&displayConfName=IUTP-Campus (GTE) affichage lim&code=_Z2PT11_S3_TP1,_Z2PT11_S3_TP2,_Z2PT11_S3_TP3,_Z2PT11_S3_TP4,_Z2PT11_S3_TP5&projectId=3");
+  arraySlide->append(s);
+
+  s = new Slide();
+  s->title = QString("LP VERTE");
+  s->url = QString("https://upplanning.appli.univ-poitiers.fr/ade/custom/modules/plannings/direct_planning.jsp?login=visu&password=visu&showTree=false&showPianoDays=false&showPianoWeeks=false&showOptions=false&days=0,1,2,3,4&displayConfName=IUTP-Campus (GTE) affichage lim&code=_ZWP041_TP1FI,_ZWP041_TP1FA,_ZWP041_TP2FI,_ZWP041_TP2FA&projectId=3");
+  arraySlide->append(s);
 
 
   m_N = arraySlide->count();

@@ -42,6 +42,9 @@ public:
     void showThisWindow(void);
     void hideThisWindow(void);
 
+signals:
+    void NextPressed();
+    void PreviousPressed();
 
 public slots:
     void reload_slide(void); // load data (long)

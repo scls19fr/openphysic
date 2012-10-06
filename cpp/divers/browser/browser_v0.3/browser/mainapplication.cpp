@@ -51,6 +51,9 @@ void MainApplication::update_timer1(void)
 {
   disp->next();
   change_slide();
+  //timer1->reset ?
+  //setSingleShot(true)
+
   // ToDo double buffering (next) or triple buffering (next/previous)
   // use an other webView or differents form (with on webView)
   //qDebug() << "Timer1 timeout (change slide)";
@@ -106,7 +109,10 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   arraySDV = new QVector<SlideDefaultView *>();
   for (int i=0;i<disp->pageTotal();i++) {
     w = new SlideDefaultView(NULL, disp->arraySlide->at(i));
-    w->refresh_slide(); // ToFix: permet de bien charger les pages au debut
+    w->showThisWindow(); // ToFix: permet de bien charger les pages au debut
+    // Signal void 	loadFinished ( bool ok ) sur webview
+    //qSleep(500); //?
+
     arraySDV->append(w);
   }
 

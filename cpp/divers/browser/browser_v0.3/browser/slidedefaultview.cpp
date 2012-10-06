@@ -132,7 +132,9 @@ void SlideDefaultView::reload_slide(void)
     //ui->lblLogo3->setPixmap(QPixmap("logo3.png"));
     //ui->lblLogo4->setPixmap(QPixmap("logo4.png"));
 
-    //setWindowState(Qt::WindowFullScreen);
+    // set focus
+
+    setWindowState(Qt::WindowFullScreen);
 }
 
 void SlideDefaultView::keyPressEvent(QKeyEvent * event)
@@ -140,26 +142,37 @@ void SlideDefaultView::keyPressEvent(QKeyEvent * event)
   switch ( event->key() )
     {
     case Qt::Key_K: /* next */
+      qDebug() << "Next";
       //nextpage();
+      //m_slide->next();
+      emit NextPressed();
+
       break;
     case Qt::Key_J: /* previous */
+      qDebug() << "Previous";
       //previouspage();
+      emit PreviousPressed();
+
       break;
     case Qt::Key_Q: /* quit - just for test */
+      qDebug() << "Quit";
       //save();
       close();
 
       break;
     case Qt::Key_R: /* Reload config file - just for test */
+      qDebug() << "Reload config file";
       //reload();
       break;
     case Qt::Key_U: /* Reload URL */
+      qDebug() << "Reload URL slide";
       reload_slide();
       break;
     case Qt::Key_P:
       //playpause();
       break;
     case Qt::Key_T: /* just for debug */
+      qDebug() << "Debug Test";
       //test();
       break;
     default: // n'importe quelle autre touche
