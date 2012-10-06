@@ -23,3 +23,42 @@ Display::Display(QObject *parent) :
     QObject(parent)
 {
 }
+
+void Display::play(void)
+{
+  m_playing = true;
+  //reset_timer();
+}
+
+void Display::pause(void)
+{
+  m_playing = false;
+  //reset_timer();
+}
+
+void Display::playpause()
+{
+  m_playing = !m_playing;
+  //reset_timer();
+}
+
+void Display::next()
+{
+  //std::cout << "next" << std::endl;
+
+  if (m_page>m_N-1) {
+    m_page++;
+  } else {
+    m_page=0;
+  }
+}
+
+void Display::previous()
+{
+  //std::cout << "previous" << std::endl;
+  if (m_page>0) {
+    m_page--;
+  } else {
+    m_page=m_N-1;
+  }
+}

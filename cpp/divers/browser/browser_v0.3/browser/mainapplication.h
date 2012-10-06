@@ -35,6 +35,8 @@ class MainApplication : public QApplication
     void update_timer2(void);
 
   private:
+    //Display * display;
+
     QTimer * timer1; // timer slide change
     //QTimer * timer2; // timer refresh data
 
@@ -43,6 +45,7 @@ class MainApplication : public QApplication
     // list of windows
 
     void show_slide(quint8 i);
+
 
 };
 

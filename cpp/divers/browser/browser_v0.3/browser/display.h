@@ -27,11 +27,24 @@ class Display : public QObject
     Q_OBJECT
 public:
     explicit Display(QObject *parent = 0);
-    
+
+    void play(void);
+    void pause(void);
+    void playpause(void);
+
+    void next(void);
+    void previous(void);
+
 signals:
     
 public slots:
-    
+
+private:
+    quint8 m_page;
+    quint8 m_N;
+
+    bool m_playing;
+
 };
 
 #endif // DISPLAY_H

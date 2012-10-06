@@ -19,9 +19,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include "mainapplication.h"
 
+#include "debugwindow.h"
 #include "slidedefaultview.h"
 #include "slide.h"
-
+#include "display.h"
 
 #include <QStyle>
 #include <QPlastiqueStyle> // style
@@ -89,6 +90,9 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   // QList ou QVector ?
   //QList<SlideDefaultView> lstSlideWindow;
   SlideDefaultView w[N];
+
+  DebugWindow w_debug;
+  w_debug.show();
 
   //QVector<SlideDefaultView> w;
 
