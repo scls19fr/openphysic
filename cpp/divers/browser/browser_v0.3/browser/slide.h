@@ -21,6 +21,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #define SLIDE_H
 
 #include <QObject>
+#include <QDateTime>
 
 class Slide : public QObject
 {
@@ -34,6 +35,8 @@ public:
     int delay;
     qreal zoom;
     // model
+
+    QDateTime lastupdate;
 
 signals:
     

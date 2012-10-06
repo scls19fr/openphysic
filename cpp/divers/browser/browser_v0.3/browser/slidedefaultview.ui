@@ -82,6 +82,20 @@
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="QLabel" name="lblSystem">
+      <property name="text">
+       <string>lblSystem</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
  </widget>

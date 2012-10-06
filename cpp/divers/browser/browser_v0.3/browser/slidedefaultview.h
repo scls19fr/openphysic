@@ -37,9 +37,12 @@ public:
     explicit SlideDefaultView(QWidget *parent = 0, Slide * slide = 0);
     ~SlideDefaultView();
 
+    void keyPressEvent(QKeyEvent *event);
+
 public slots:
-    void refresh_slide(void);
-    
+    void reload_slide(void); // load data (long)
+    void refresh_slide(void); // show + update date (short)
+
 private:
     Ui::SlideDefaultView *ui;
     Slide * m_slide;

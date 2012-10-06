@@ -35,7 +35,7 @@ void MainApplication::change_slide(void)
 {
     for (int i=0;i<disp->pageTotal();i++) {
         if (i==disp->page()) {
-            arraySDV->at(i)->show();
+            arraySDV->at(i)->refresh_slide();
         }
     }
 
@@ -66,7 +66,7 @@ void MainApplication::update_timer2(void)
   //}
 
   for (int i=0;i<disp->pageTotal();i++) {
-    arraySDV->at(i)->refresh_slide();
+    arraySDV->at(i)->reload_slide();
   }
 
 }
@@ -105,7 +105,7 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   arraySDV = new QVector<SlideDefaultView *>();
   for (int i=0;i<disp->pageTotal();i++) {
     w = new SlideDefaultView(NULL, disp->arraySlide->at(i));
-    w->show();
+    w->refresh_slide(); // ToFix: permet de bien charger les pages au debut
     arraySDV->append(w);
   }
 

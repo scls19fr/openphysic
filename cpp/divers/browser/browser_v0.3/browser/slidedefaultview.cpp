@@ -23,6 +23,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <QDebug>
 
 #include <QWebFrame>
+#include <QKeyEvent>
+#include <QDateTime>
 
 SlideDefaultView::SlideDefaultView(QWidget *parent, Slide *slide) :
     QMainWindow(parent),
@@ -31,7 +33,7 @@ SlideDefaultView::SlideDefaultView(QWidget *parent, Slide *slide) :
     ui->setupUi(this);
     m_slide = slide;
 
-    refresh_slide();
+    reload_slide();
 }
 
 SlideDefaultView::~SlideDefaultView()
@@ -40,6 +42,17 @@ SlideDefaultView::~SlideDefaultView()
 }
 
 void SlideDefaultView::refresh_slide(void)
+{
+    this->show();
+
+    QString datetimeLastUpdateString = m_slide->lastupdate.toString(QString("dd/MM/yyyy hh:mm:ss"));
+    QString datetimeCurrentString = QDateTime::currentDateTime().toString(QString("dd/MM/yyyy hh:mm:ss"));
+
+    ui->lblSystem->setText(QString("MAJ: ")+datetimeLastUpdateString+QString("\tActuel: ")+datetimeCurrentString);
+
+}
+
+void SlideDefaultView::reload_slide(void)
 {
     QFont font;
     font.setPointSize(32);
@@ -57,8 +70,14 @@ void SlideDefaultView::refresh_slide(void)
 
     this->setWindowTitle(QString("Browser"));
     ui->lblTitle->setText(this->m_slide->title);
-    ui->lblMessage->setText(this->m_slide->message);
 
+    m_slide->lastupdate = QDateTime::currentDateTime();
+
+    QString datetimeLastUpdateString = m_slide->lastupdate.toString(QString("dd/MM/yyyy hh:mm:ss"));
+    QString datetimeCurrentString = QDateTime::currentDateTime().toString(QString("dd/MM/yyyy hh:mm:ss"));
+
+    ui->lblMessage->setText(this->m_slide->message);
+    ui->lblSystem->setText(QString("MAJ: ")+datetimeLastUpdateString+QString("\tActuel: ")+datetimeCurrentString);
 
     // disable vertical scrollbar
     ui->webView->page()->mainFrame()->setScrollBarPolicy(Qt::Vertical,Qt::ScrollBarAlwaysOff);
@@ -67,8 +86,42 @@ void SlideDefaultView::refresh_slide(void)
     //ui->webView->setUrl(QUrl("http://www.google.fr"));
     //ui->webView->setZoomFactor(1.0);
 
-    ui->webView->setUrl(this->m_slide->url);
+    //ui->webView->setUrl(this->m_slide->url);
+    ui->webView->load(this->m_slide->url);
     ui->webView->setZoomFactor(this->m_slide->zoom);
 
-    this->setWindowState(Qt::WindowFullScreen);
+    //setWindowState(Qt::WindowFullScreen);
+}
+
+void SlideDefaultView::keyPressEvent(QKeyEvent * event)
+{
+  switch ( event->key() )
+    {
+    case Qt::Key_K: /* next */
+      //nextpage();
+      break;
+    case Qt::Key_J: /* previous */
+      //previouspage();
+      break;
+    case Qt::Key_Q: /* quit - just for test */
+      //save();
+      close();
+
+      break;
+    case Qt::Key_R: /* Reload config file - just for test */
+      //reload();
+      break;
+    case Qt::Key_U: /* Reload URL */
+      reload_slide();
+      break;
+    case Qt::Key_P:
+      //playpause();
+      break;
+    case Qt::Key_T: /* just for debug */
+      //test();
+      break;
+    default: // n'importe quelle autre touche
+      qDebug() << "UNDEF KEY";
+      break;
+    }
 }
