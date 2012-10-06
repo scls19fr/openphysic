@@ -32,7 +32,7 @@ class MainApplication : public QApplication
 
   private slots:
     void update_timer1(void);
-    //void update_timer2(void);
+    void update_timer2(void);
 
   private:
     QTimer * timer1; // timer slide change

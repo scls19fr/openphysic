@@ -13,10 +13,12 @@ TEMPLATE = app
 SOURCES += main.cpp\
         slidedefaultview.cpp \
     slide.cpp \
-    mainapplication.cpp
+    mainapplication.cpp \
+    display.cpp
 
 HEADERS  += slidedefaultview.h \
     slide.h \
-    mainapplication.h
+    mainapplication.h \
+    display.h
 
 FORMS    += slidedefaultview.ui

@@ -43,38 +43,29 @@ void MainApplication::update_timer1(void)
   //update_view();
   // ToDo double buffering (next) or triple buffering (next/previous)
   // use an other webView or differents form (with on webView)
+  std::cout << "Timer1 timeout" << std::endl;
+}
+
+void MainApplication::update_timer2(void)
+{
+  std::cout << "Timer2 timeout" << std::endl;
 }
 
 MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, argv)
 {
   /* Style */
-  QApplication::setStyle(new QPlastiqueStyle);
-
+  //QApplication::setStyle(new QPlastiqueStyle);
   //QApplication::setStyle(new QWindowsStyle);
   //QApplication::setStyle("QPushButton { color: white }");
 
-  /* Traduction openchrono.qrc translations/openchrono_fr_FR.qm */
-  /*
-  QTranslator appTranslator;
-  QString strTrans = QLatin1String("browser_")+QLocale::system().name();
-  std::cout << ("Translation : ") << qPrintable(strTrans) << std::endl;
-  //appTranslator.load(strTrans, qApp->applicationDirPath()+QLatin1String("/translations")); // sans ressource
-  appTranslator.load(QLatin1String(":translations/")+strTrans); // avec ressource browser.qrc
-  app.installTranslator(&appTranslator);
-  */
+  timer1 = new QTimer(this);
+  //timer1->setInterval(1000);
+  timer1->start(1000);
 
-/*
-  Browser browser;
-  //Browser browser_next;
-  //browser.webView->setUrl(QUrl("http://www.google.fr"));
-  //browser_next.webView->setUrl(QUrl("http://www.orange.fr"));
+  connect( timer1, SIGNAL( timeout() ), this, SLOT( update_timer1() ) );
 
-  browser.show();
-  //browser.showFullScreen();
-
-  //browser_next.show();
-*/
-
+  //timer2 = new QTimer(this);
+  //connect( timer2, SIGNAL( timeout() ), this, SLOT( update_timer2() ) );
 
   /*
     QNetworkProxy proxy;
@@ -99,8 +90,10 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   //QList<SlideDefaultView> lstSlideWindow;
   SlideDefaultView w[N];
 
-  //SlideDefaultView w0;
-  //lstSlideWindow.append(w0);
+  //QVector<SlideDefaultView> w;
+
+  //SlideDefaultView w0 = new SlideDefaultView();
+  //w.append(w0);
   //SlideDefaultView w1;
   //lstSlideWindow.append(w1);
   //SlideDefaultView w2;
