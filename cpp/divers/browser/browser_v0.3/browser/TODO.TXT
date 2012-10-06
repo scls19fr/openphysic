@@ -1,0 +1,2 @@
+Fusionner code de v0.2 (1 seule feuille, fichier de config XML...)
+avec la v0.3
