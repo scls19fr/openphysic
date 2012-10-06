@@ -2,6 +2,7 @@
 #include "ui_slidedefaultview.h"
 
 #include "iostream.h"
+#include <QWebFrame>
 
 SlideDefaultView::SlideDefaultView(QWidget *parent) :
     QMainWindow(parent),
@@ -27,9 +28,16 @@ SlideDefaultView::SlideDefaultView(QWidget *parent) :
     this->setWindowTitle(QString("Browser"));
     ui->lblTitle->setText(QString("Title"));
     //ui->lblTitle->setText(this->slide->message);
-    ui->webView->setUrl(QUrl("http://www.google.fr"));
     ui->lblMessage->setText(QString("Message"));
 
+    // disable vertical scrollbar
+    ui->webView->page()->mainFrame()->setScrollBarPolicy(Qt::Vertical,Qt::ScrollBarAlwaysOff);
+    ui->webView->page()->mainFrame()->setScrollBarPolicy(Qt::Horizontal,Qt::ScrollBarAlwaysOff);
+
+    ui->webView->setUrl(QUrl("http://www.google.fr"));
+    ui->webView->setZoomFactor(1.0);
+
+    //this->setWindowState(Qt::WindowFullScreen);
 }
 
 SlideDefaultView::~SlideDefaultView()

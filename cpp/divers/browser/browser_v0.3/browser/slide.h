@@ -13,8 +13,8 @@ public:
     QString url;
     QString message;
     // delay
+    qreal zoom;
     // model
-    // zoom
 
 signals:
     

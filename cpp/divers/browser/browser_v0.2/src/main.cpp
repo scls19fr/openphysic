@@ -34,6 +34,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   <browser>
  
   <browser>
+    <config>
+      <proxy>
+       ...
+      </proxy>
+    </config>
     <default_slide>
       <title>Default title<title>
       <url>http://...</url>
@@ -41,6 +46,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
       <model></model>
       <zoom>1.0</zoom>
       <message>No message</message>
+      <autoscroll>off</autoscroll>
     </default_slide>
 
     <slides>

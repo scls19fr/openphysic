@@ -36,6 +36,15 @@ void MainApplication::show_slide(quint8 i)
 
 }
 
+
+void MainApplication::update_timer1(void)
+{
+  //next();
+  //update_view();
+  // ToDo double buffering (next) or triple buffering (next/previous)
+  // use an other webView or differents form (with on webView)
+}
+
 MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, argv)
 {
   /* Style */
@@ -66,6 +75,17 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   //browser_next.show();
 */
 
+
+  /*
+    QNetworkProxy proxy;
+    proxy.setType(QNetworkProxy::Socks5Proxy);
+    proxy.setType(QNetworkProxy::HttpProxy);
+    proxy.setHostName("proxy.example.com");
+    proxy.setPort(1080);
+    // proxy.setUser("username");
+    // proxy.setPassword("password");
+    QNetworkProxy::setApplicationProxy(proxy);
+  */
 
   N = 3;
 
