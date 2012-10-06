@@ -47,7 +47,7 @@ class MainApplication : public QApplication
 
     // list of windows
 
-    void show_slide(quint8 i);
+    void change_slide(void);
 
     Display * disp;
     QVector <SlideDefaultView*> *arraySDV;

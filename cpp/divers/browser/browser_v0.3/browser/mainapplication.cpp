@@ -30,25 +30,40 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include <QDebug>
 
-void MainApplication::show_slide(quint8 i)
+
+void MainApplication::change_slide(void)
 {
+    for (int i=0;i<disp->pageTotal();i++) {
+        if (i==disp->page()) {
+            arraySDV->at(i)->show();
+        }
+    }
 
+    for (int i=0;i<disp->pageTotal();i++) {
+        if (i!=disp->page()) {
+            arraySDV->at(i)->setVisible(false);
+        }
+    }
 }
-
 
 void MainApplication::update_timer1(void)
 {
   disp->next();
-  //update_view();
+  change_slide();
   // ToDo double buffering (next) or triple buffering (next/previous)
   // use an other webView or differents form (with on webView)
   qDebug() << "Timer1 timeout";
   //disp->print();
+
+
 }
 
 void MainApplication::update_timer2(void)
 {
   qDebug() << "Timer2 timeout";
+  //for (int i=0;i<disp->pageTotal();i++) {
+  //  arraySDV->at(i)->; // refresh
+  //}
 }
 
 MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, argv)
@@ -83,11 +98,13 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   disp = new Display();
 
   SlideDefaultView * w;
+  arraySDV = new QVector<SlideDefaultView *>();
   for (int i=0;i<disp->pageTotal();i++) {
     w = new SlideDefaultView(NULL, disp->arraySlide->at(i));
-    //arraySDV->append(w);
-    w->show();
+    arraySDV->append(w);
   }
+
+
 
   /*
   Slide * s;
@@ -127,7 +144,7 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
 
 
-  DebugWindow w_debug(NULL, disp);
+  DebugWindow w_debug(NULL, disp, this);
   //connect( &w_debug, SIGNAL(destroyed()), this, SLOT(quit()) );
   w_debug.show();
 
@@ -160,6 +177,8 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   //iv = 2;
   //w[iv].setVisible(true);
   */
+
+  change_slide();
 
   this->exec();
 
