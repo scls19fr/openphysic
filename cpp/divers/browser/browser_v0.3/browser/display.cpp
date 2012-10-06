@@ -27,13 +27,26 @@ Display::Display(QObject *parent) :
   m_playing = true;
   m_page = 0;
 
-  Slide s;
-  s.title = QString("Title of this slide 0");
-  s.url = QString("http://www.google.fr?q=test0");
-  s.message = QString("Message of this slide");
+  Slide *s;
+  s = new Slide();
+  arraySlide = new QVector<Slide *>();
+
+  s->title = QString("Title of this slide 0");
+  s->url = QString("http://www.google.fr?q=test0");
+  s->message = QString("Message of this slide");
   arraySlide->append(s);
 
-  m_N = 3;
+  s = new Slide();
+  s->title = QString("Title of this slide 1");
+  s->url = QString("http://www.google.fr?q=test1");
+  arraySlide->append(s);
+
+  s = new Slide();
+  s->title = QString("Title of this slide 2");
+  s->url = QString("http://www.google.fr?q=test2");
+  arraySlide->append(s);
+
+  m_N = arraySlide->count();
 }
 
 void Display::play(void)
@@ -79,8 +92,16 @@ quint8 Display::page(void) const
    return m_page;
 }
 
+quint8 Display::pageTotal(void) const
+{
+   return m_N;
+}
 
 void Display::print(void)
 {
     qDebug() << "page/N =" << m_page+1 << "/" << m_N;
+
+    for (int i=0;i<m_N;i++) {
+        qDebug() << i << ":" << arraySlide->at(i)->title;
+    }
 }

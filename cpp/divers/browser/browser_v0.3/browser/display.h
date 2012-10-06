@@ -38,11 +38,14 @@ public:
     void previous(void);
 
     quint8 page(void) const;
+    quint8 pageTotal(void) const;
 
     //void load_config(void);
     //void save_config(void);
 
     void print(void);
+
+    QVector <Slide*> *arraySlide;
 
 signals:
     
@@ -54,7 +57,6 @@ private:
 
     bool m_playing;
 
-    QVector <Slide> *arraySlide;
 
 };
 

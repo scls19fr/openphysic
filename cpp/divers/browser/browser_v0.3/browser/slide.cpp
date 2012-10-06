@@ -24,11 +24,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 Slide::Slide(QObject *parent) :
     QObject(parent)
 {
-    Slide::init();
-}
-
-void Slide::init(void)
-{
     title = QString("Titre par defaut");
     url = QString("http://www.google.fr?q=defaut");
     message = QString("Message par defaut");

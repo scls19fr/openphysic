@@ -38,7 +38,7 @@ void MainApplication::show_slide(quint8 i)
 
 void MainApplication::update_timer1(void)
 {
-  //next();
+  disp->next();
   //update_view();
   // ToDo double buffering (next) or triple buffering (next/previous)
   // use an other webView or differents form (with on webView)
@@ -82,19 +82,29 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
   disp = new Display();
 
+  SlideDefaultView * w;
+  for (int i=0;i<disp->pageTotal();i++) {
+    w = new SlideDefaultView(NULL, disp->arraySlide->at(i));
+    //arraySDV->append(w);
+    w->show();
+  }
+
   /*
   Slide * s;
   SlideDefaultView *w;
   */
 
-  Slide s;
-  s.title = QString("Title of this slide 0");
-  s.url = QString("http://www.google.fr?q=test0");
-  s.message = QString("Message of this slide");
+  /*
+  Slide * s;
+  s = new Slide();
+  s->title = QString("Title of this slide 0");
+  s->url = QString("http://www.google.fr?q=test0");
+  s->message = QString("Message of this slide");
 
   SlideDefaultView * w0;
-  w0 = new SlideDefaultView(NULL, &s);
+  w0 = new SlideDefaultView(NULL, s);
   w0->show();
+  */
 
   /*
   SlideDefaultView * w1;
@@ -115,33 +125,6 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
   disp->print();
 
-
-  /*
-  s = new Slide();
-  s->title = QString("Title of this slide 0");
-  s->url = QString("http://www.google.fr?q=test0");
-  s->message = QString("Message of this slide");
-  arraySDV = new QVector<SlideDefaultView *>();
-  w = new SlideDefaultView(NULL, s);
-  arraySDV->append(w);
-  */
-
-  /*
-  s = new Slide();
-  s->title = QString("Title of this slide 1");
-  s->url = QString("http://www.google.fr?q=test1");
-  s->message = QString("Message of this slide");
-  arraySDV = new QVector<SlideDefaultView *>();
-  w = new SlideDefaultView(NULL, s);
-  arraySDV->append(w);
-  */
-
-
-  //arraySDV->at(0)->show();
-  //arraySDV->at(1)->show();
-
-
-//  w->show();
 
 
   DebugWindow w_debug(NULL, disp);
