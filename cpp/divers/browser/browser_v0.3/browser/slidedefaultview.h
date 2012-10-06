@@ -24,8 +24,6 @@ public:
 private:
     Ui::SlideDefaultView *ui;
 
-    QTimer * timer;
-
 };
 
 #endif // SLIDEDEFAULTVIEW_H

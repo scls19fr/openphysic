@@ -29,6 +29,13 @@ class MainApplication : public QApplication
 
   public:
     MainApplication(int &argc, char *argv[]);
+
+  private:
+    QTimer * timer;
+
+    quint8 N; // nb de slides
+    void show_slide(quint8 i);
+
 };
 
 #endif

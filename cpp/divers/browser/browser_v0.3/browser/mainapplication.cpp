@@ -31,6 +31,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include <iostream> // std::cout
 
+void MainApplication::show_slide(quint8 i)
+{
+
+}
 
 MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, argv)
 {
@@ -63,7 +67,7 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 */
 
 
-  quint8 N = 3;
+  N = 3;
 
   Slide s;
   s.title = QString("Title of this slide");
@@ -88,10 +92,10 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   w[iv].setVisible(true);
   w[iv-1].setVisible(false);
 
-  iv = 2;
-  w[iv].setVisible(true);
+  //iv = 2;
+  //w[iv].setVisible(true);
 
-  std::cout << "ok app is running" << std::endl;
+  //std::cout << "ok app is running" << std::endl;
 
   this->exec();
 }
