@@ -34,16 +34,19 @@ Display::Display(QObject *parent) :
   s->title = QString("Title of this slide 0");
   s->url = QString("http://www.google.fr?q=test0");
   s->message = QString("Message of this slide");
+  //s->delay = 2000;
   arraySlide->append(s);
 
   s = new Slide();
   s->title = QString("Title of this slide 1");
   s->url = QString("http://www.google.fr?q=test1");
+  //s->delay = 3000;
   arraySlide->append(s);
 
   s = new Slide();
   s->title = QString("Title of this slide 2");
   s->url = QString("http://www.google.fr?q=test2");
+  //s->delay = 4000;
   arraySlide->append(s);
 
   /*

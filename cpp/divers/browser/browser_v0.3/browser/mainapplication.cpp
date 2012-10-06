@@ -35,13 +35,14 @@ void MainApplication::change_slide(void)
 {
     for (int i=0;i<disp->pageTotal();i++) {
         if (i==disp->page()) {
-            arraySDV->at(i)->refresh_slide();
+            arraySDV->at(i)->showThisWindow();
+            timer1->setInterval(disp->arraySlide->at(i)->delay);
         }
     }
 
     for (int i=0;i<disp->pageTotal();i++) {
         if (i!=disp->page()) {
-            arraySDV->at(i)->setVisible(false);
+            arraySDV->at(i)->hideThisWindow();
         }
     }
 }
@@ -80,12 +81,12 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
   timer1 = new QTimer(this);
   //timer1->setInterval(1000);
-  timer1->start(10000);
+  timer1->start(1*1000);
 
   connect( timer1, SIGNAL( timeout() ), this, SLOT( update_timer1() ) );
 
   timer2 = new QTimer(this);
-  timer2->start(100000);
+  timer2->start(2*60*1000);
   connect( timer2, SIGNAL( timeout() ), this, SLOT( update_timer2() ) );
 
   /*

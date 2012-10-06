@@ -34,6 +34,20 @@ SlideDefaultView::SlideDefaultView(QWidget *parent, Slide *slide) :
     m_slide = slide;
 
     reload_slide();
+
+    timerW = new QTimer(this);
+    connect( timerW, SIGNAL( timeout() ), this, SLOT( update_timerW() ) );
+}
+
+void SlideDefaultView::showThisWindow(void) {
+  timerW->start(200);
+  update_timerW();
+  this->show();
+}
+
+void SlideDefaultView::hideThisWindow(void) {
+  timerW->stop();
+  this->setVisible(false);
 }
 
 SlideDefaultView::~SlideDefaultView()
@@ -41,14 +55,23 @@ SlideDefaultView::~SlideDefaultView()
     delete ui;
 }
 
+void SlideDefaultView::update_timerW(void)
+{
+    refresh_slide();
+}
+
 void SlideDefaultView::refresh_slide(void)
 {
-    this->show();
+    //this->show();
+    //qDebug() << "refresh_slide" << m_slide->title;
 
     QString datetimeLastUpdateString = m_slide->lastupdate.toString(QString("dd/MM/yyyy hh:mm:ss"));
     QString datetimeCurrentString = QDateTime::currentDateTime().toString(QString("dd/MM/yyyy hh:mm:ss"));
 
     ui->lblSystem->setText(QString("MAJ: ")+datetimeLastUpdateString+QString("\tActuel: ")+datetimeCurrentString);
+
+    //ui->lblTest->setText(QString("test"));
+    ui->lblTest->setText(QString::number(m_slide->delay));
 
 }
 

@@ -27,6 +27,6 @@ Slide::Slide(QObject *parent) :
     title = QString("Titre par defaut");
     url = QString("http://www.google.fr?q=defaut");
     message = QString("Pas de message");
-    delay = 2000;
+    delay = 5000;
     zoom = 1.0;
 }

@@ -39,13 +39,20 @@ public:
 
     void keyPressEvent(QKeyEvent *event);
 
+    void showThisWindow(void);
+    void hideThisWindow(void);
+
+
 public slots:
     void reload_slide(void); // load data (long)
     void refresh_slide(void); // show + update date (short)
+    void update_timerW(void);
 
 private:
     Ui::SlideDefaultView *ui;
     Slide * m_slide;
+
+    QTimer * timerW;
 
 };
 
