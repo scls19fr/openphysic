@@ -74,8 +74,17 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   s.url = QString("http://www.google.fr");
   s.message = QString("Message of this slide");
 
+
+  // QList ou QVector ?
+  //QList<SlideDefaultView> lstSlideWindow;
   SlideDefaultView w[N];
 
+  //SlideDefaultView w0;
+  //lstSlideWindow.append(w0);
+  //SlideDefaultView w1;
+  //lstSlideWindow.append(w1);
+  //SlideDefaultView w2;
+  //lstSlideWindow.append(w2);
 
   quint8 iv;
 
@@ -84,6 +93,7 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   for(int i=0 ; i<N ; i++) {
       //(&w[i])->slide = s;
       w[i].setVisible(false);
+      //lstSlideWindow[i].setVisible(false);
   }
 
   w[iv].setVisible(true);
