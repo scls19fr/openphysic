@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui webkit
+QT       += core gui webkit console
 
 TARGET = browser
 TEMPLATE = app
@@ -12,9 +12,11 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         slidedefaultview.cpp \
-    slide.cpp
+    slide.cpp \
+    mainapplication.cpp
 
 HEADERS  += slidedefaultview.h \
-    slide.h
+    slide.h \
+    mainapplication.h
 
 FORMS    += slidedefaultview.ui

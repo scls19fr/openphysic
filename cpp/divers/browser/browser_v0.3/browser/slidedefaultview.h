@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 
+#include "slide.h"
+#include <QTimer>
+
 namespace Ui {
 class SlideDefaultView;
 }
@@ -14,9 +17,15 @@ class SlideDefaultView : public QMainWindow
 public:
     explicit SlideDefaultView(QWidget *parent = 0);
     ~SlideDefaultView();
+
+    //Slide & slide;
+
     
 private:
     Ui::SlideDefaultView *ui;
+
+    QTimer * timer;
+
 };
 
 #endif // SLIDEDEFAULTVIEW_H
