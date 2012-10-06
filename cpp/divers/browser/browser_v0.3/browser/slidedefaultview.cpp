@@ -31,12 +31,16 @@ SlideDefaultView::SlideDefaultView(QWidget *parent, Slide *slide) :
     ui->setupUi(this);
     m_slide = slide;
 
-    //timer->setInterval(1000);
+    refresh_slide();
+}
 
-    //timer = new QTimer(this);
-    //connect( timer, SIGNAL( timeout() ), this, SLOT( update() ) );
+SlideDefaultView::~SlideDefaultView()
+{
+    delete ui;
+}
 
-
+void SlideDefaultView::refresh_slide(void)
+{
     QFont font;
     font.setPointSize(32);
     font.setBold(true);
@@ -67,9 +71,4 @@ SlideDefaultView::SlideDefaultView(QWidget *parent, Slide *slide) :
     ui->webView->setZoomFactor(this->m_slide->zoom);
 
     //this->setWindowState(Qt::WindowFullScreen);
-}
-
-SlideDefaultView::~SlideDefaultView()
-{
-    delete ui;
 }

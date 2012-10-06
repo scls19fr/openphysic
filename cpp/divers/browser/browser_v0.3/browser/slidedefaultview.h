@@ -37,7 +37,8 @@ public:
     explicit SlideDefaultView(QWidget *parent = 0, Slide * slide = 0);
     ~SlideDefaultView();
 
-
+public slots:
+    void refresh_slide(void);
     
 private:
     Ui::SlideDefaultView *ui;

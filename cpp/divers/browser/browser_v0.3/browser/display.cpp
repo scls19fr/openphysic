@@ -97,6 +97,11 @@ quint8 Display::pageTotal(void) const
    return m_N;
 }
 
+bool Display::isPlaying(void) const
+{
+   return m_playing;
+}
+
 void Display::print(void)
 {
     qDebug() << "page/N =" << m_page+1 << "/" << m_N;

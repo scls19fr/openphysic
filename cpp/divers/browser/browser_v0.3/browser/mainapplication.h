@@ -33,24 +33,19 @@ class MainApplication : public QApplication
   public:
     MainApplication(int &argc, char *argv[]);
 
-  private slots:
+  public slots:
     void update_timer1(void);
     void update_timer2(void);
 
   private:
-    //Display * display;
-
     QTimer * timer1; // timer slide change
-    //QTimer * timer2; // timer refresh data
-
-    quint8 N; // nb de slides
-
-    // list of windows
+    QTimer * timer2; // timer refresh data
 
     void change_slide(void);
 
     Display * disp;
-    QVector <SlideDefaultView*> *arraySDV;
+    QVector <SlideDefaultView*> *arraySDV;    // list of windows
+
 };
 
 #endif

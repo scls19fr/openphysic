@@ -39,6 +39,7 @@ public:
 
     quint8 page(void) const;
     quint8 pageTotal(void) const;
+    bool isPlaying(void) const;
 
     //void load_config(void);
     //void save_config(void);

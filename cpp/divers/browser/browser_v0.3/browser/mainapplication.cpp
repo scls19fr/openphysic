@@ -52,7 +52,7 @@ void MainApplication::update_timer1(void)
   change_slide();
   // ToDo double buffering (next) or triple buffering (next/previous)
   // use an other webView or differents form (with on webView)
-  qDebug() << "Timer1 timeout";
+  qDebug() << "Timer1 timeout (change slide)";
   //disp->print();
 
 
@@ -60,10 +60,15 @@ void MainApplication::update_timer1(void)
 
 void MainApplication::update_timer2(void)
 {
-  qDebug() << "Timer2 timeout";
+  qDebug() << "Timer2 timeout (refresh data)";
   //for (int i=0;i<disp->pageTotal();i++) {
   //  arraySDV->at(i)->; // refresh
   //}
+
+  for (int i=0;i<disp->pageTotal();i++) {
+    arraySDV->at(i)->refresh_slide();
+  }
+
 }
 
 MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, argv)
@@ -79,8 +84,9 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
   connect( timer1, SIGNAL( timeout() ), this, SLOT( update_timer1() ) );
 
-  //timer2 = new QTimer(this);
-  //connect( timer2, SIGNAL( timeout() ), this, SLOT( update_timer2() ) );
+  timer2 = new QTimer(this);
+  timer2->start(100000);
+  connect( timer2, SIGNAL( timeout() ), this, SLOT( update_timer2() ) );
 
   /*
     QNetworkProxy proxy;
@@ -93,8 +99,6 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
     QNetworkProxy::setApplicationProxy(proxy);
   */
 
-  //N = 5;
-
   disp = new Display();
 
   SlideDefaultView * w;
@@ -104,81 +108,15 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
     arraySDV->append(w);
   }
 
-
-
-  /*
-  Slide * s;
-  SlideDefaultView *w;
-  */
-
-  /*
-  Slide * s;
-  s = new Slide();
-  s->title = QString("Title of this slide 0");
-  s->url = QString("http://www.google.fr?q=test0");
-  s->message = QString("Message of this slide");
-
-  SlideDefaultView * w0;
-  w0 = new SlideDefaultView(NULL, s);
-  w0->show();
-  */
-
-  /*
-  SlideDefaultView * w1;
-  s.init();
-  s.title = QString("Title of this slide 1");
-  s.url = QString("http://www.google.fr?q=test1");
-  s.message = QString("Message of this slide");
-  w1 = new SlideDefaultView(NULL, &s);
-  w1->show();
-  */
-
-  /*
-  SlideDefaultView * w2;
-  s.init();
-  w2 = new SlideDefaultView(NULL, &s);
-  w2->show();
-  */
-
   disp->print();
 
-
-
-  DebugWindow w_debug(NULL, disp, this);
+  DebugWindow w_debug(NULL, this);
   //connect( &w_debug, SIGNAL(destroyed()), this, SLOT(quit()) );
   w_debug.show();
 
-  //QVector<SlideDefaultView> w;
-
-  //SlideDefaultView w0 = new SlideDefaultView();
-  //w.append(w0);
-  //SlideDefaultView w1;
-  //lstSlideWindow.append(w1);
-  //SlideDefaultView w2;
-  //lstSlideWindow.append(w2);
-
-  /*
-  quint8 iv;
-
-  iv = 0;
-
-  for(int i=0 ; i<N ; i++) {
-      //(&w[i])->slide = s;
-      w[i].setVisible(false);
-      //lstSlideWindow[i].setVisible(false);
+  if (disp->isPlaying()) {
+    change_slide();
   }
-
-  w[iv].setVisible(true);
-
-  iv = 1;
-  w[iv].setVisible(true);
-  w[iv-1].setVisible(false);
-
-  //iv = 2;
-  //w[iv].setVisible(true);
-  */
-
-  change_slide();
 
   this->exec();
 
