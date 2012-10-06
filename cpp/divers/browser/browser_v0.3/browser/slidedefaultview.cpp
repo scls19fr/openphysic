@@ -60,6 +60,11 @@ void SlideDefaultView::update_timerW(void)
     refresh_slide();
 }
 
+//void SlideDefaultView::resizeEvent (QResizeEvent * event ) {
+//    qDebug() << "Resize";
+//    ui->verticalWidget->setGeometry(ui->Ui_SlideDefaultView.);
+//}
+
 void SlideDefaultView::refresh_slide(void)
 {
     //this->show();
@@ -68,10 +73,12 @@ void SlideDefaultView::refresh_slide(void)
     QString datetimeLastUpdateString = m_slide->lastupdate.toString(QString("dd/MM/yyyy hh:mm:ss"));
     QString datetimeCurrentString = QDateTime::currentDateTime().toString(QString("dd/MM/yyyy hh:mm:ss"));
 
-    ui->lblSystem->setText(QString("MAJ: ")+datetimeLastUpdateString+QString("\tActuel: ")+datetimeCurrentString);
+    ui->lblSystem->setText(QString("MAJ: "+datetimeLastUpdateString));
+    ui->lblSystem2->setText(QString("-"));
+    ui->lblSystem3->setText(QString("Actuel: "+datetimeCurrentString));
 
     //ui->lblTest->setText(QString("test"));
-    ui->lblTest->setText(QString::number(m_slide->delay));
+    //ui->lblTest->setText(QString::number(m_slide->delay));
 
 }
 
@@ -112,6 +119,18 @@ void SlideDefaultView::reload_slide(void)
     //ui->webView->setUrl(this->m_slide->url);
     ui->webView->load(this->m_slide->url);
     ui->webView->setZoomFactor(this->m_slide->zoom);
+
+    ui->lblLogo1->setText("");
+    ui->lblLogo2->setText("");
+    ui->lblLogo3->setText("");
+    ui->lblLogo4->setText("");
+    //ui->lblLogo1->setPixmap(QPixmap("/Users/scls/aff_dyn/divers/browser/browser_v0.3/browser/logo1.png"));
+    //ui->lblLogo1->setPixmap(QPixmap(":/logo1.png"));
+    //ui->lblLogo1->pixmap()->scaledToHeight(100);
+    //ui->lblLogo1->pixmap()->scaled(100,100);
+    //ui->lblLogo2->setPixmap(QPixmap("logo2.png"));
+    //ui->lblLogo3->setPixmap(QPixmap("logo3.png"));
+    //ui->lblLogo4->setPixmap(QPixmap("logo4.png"));
 
     //setWindowState(Qt::WindowFullScreen);
 }

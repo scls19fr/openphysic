@@ -33,19 +33,21 @@ Display::Display(QObject *parent) :
 
   s->title = QString("Title of this slide 0");
   s->url = QString("http://www.google.fr?q=test0");
-  s->message = QString("Message of this slide");
+  s->message = QString("Message of slide 0");
   //s->delay = 2000;
   arraySlide->append(s);
 
   s = new Slide();
   s->title = QString("Title of this slide 1");
   s->url = QString("http://www.google.fr?q=test1");
+  s->message = QString("Message of slide 1");
   //s->delay = 3000;
   arraySlide->append(s);
 
   s = new Slide();
   s->title = QString("Title of this slide 2");
   s->url = QString("http://www.google.fr?q=test2");
+  s->message = QString("Message of slide 2");
   //s->delay = 4000;
   arraySlide->append(s);
 
@@ -89,7 +91,7 @@ void Display::playpause(void)
 
 void Display::next(void)
 {
-  qDebug() << "next";
+  //qDebug() << "next";
   if (m_page<m_N-1) {
     m_page++;
   } else {
@@ -99,7 +101,7 @@ void Display::next(void)
 
 void Display::previous(void)
 {
-  qDebug() << "previous";
+  //qDebug() << "previous";
   if (m_page>0) {
     m_page--;
   } else {

@@ -48,6 +48,8 @@ public slots:
     void refresh_slide(void); // show + update date (short)
     void update_timerW(void);
 
+    //void resizeEvent (QResizeEvent * event );
+
 private:
     Ui::SlideDefaultView *ui;
     Slide * m_slide;

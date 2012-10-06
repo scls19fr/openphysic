@@ -53,7 +53,7 @@ void MainApplication::update_timer1(void)
   change_slide();
   // ToDo double buffering (next) or triple buffering (next/previous)
   // use an other webView or differents form (with on webView)
-  qDebug() << "Timer1 timeout (change slide)";
+  //qDebug() << "Timer1 timeout (change slide)";
   //disp->print();
 
 

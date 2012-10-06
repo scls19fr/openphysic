@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>925</width>
+    <width>550</width>
     <height>459</height>
    </rect>
   </property>
@@ -38,11 +38,7 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
-         <widget class="QLabel" name="lblLogo1">
-          <property name="text">
-           <string>lblLogo1</string>
-          </property>
-         </widget>
+         <widget class="QGraphicsView" name="graphicsView_3"/>
         </item>
         <item>
          <spacer name="horizontalSpacer_5">
@@ -87,18 +83,14 @@
          </spacer>
         </item>
         <item>
-         <widget class="QLabel" name="lblLogo2">
-          <property name="text">
-           <string>lblLogo2</string>
-          </property>
-         </widget>
+         <widget class="QGraphicsView" name="graphicsView_4"/>
         </item>
        </layout>
       </item>
       <item>
        <widget class="QWebView" name="webView">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -111,26 +103,9 @@
        </widget>
       </item>
       <item>
-       <widget class="Line" name="line_2">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <widget class="QLabel" name="lblLogo3">
-          <property name="text">
-           <string>lblLogo3</string>
-          </property>
-         </widget>
+         <widget class="QGraphicsView" name="graphicsView"/>
         </item>
         <item>
          <widget class="QLabel" name="lblMessage">
@@ -149,11 +124,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="lblLogo4">
-          <property name="text">
-           <string>lblLogo4</string>
-          </property>
-         </widget>
+         <widget class="QGraphicsView" name="graphicsView_2"/>
         </item>
        </layout>
       </item>
@@ -194,6 +165,19 @@
          </widget>
         </item>
        </layout>
+      </item>
+      <item>
+       <widget class="Line" name="line_2">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="Line" name="line_3">
