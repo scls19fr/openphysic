@@ -26,6 +26,13 @@ Display::Display(QObject *parent) :
 {
   m_playing = true;
   m_page = 0;
+
+  Slide s;
+  s.title = QString("Title of this slide 0");
+  s.url = QString("http://www.google.fr?q=test0");
+  s.message = QString("Message of this slide");
+  arraySlide->append(s);
+
   m_N = 3;
 }
 
@@ -75,6 +82,5 @@ quint8 Display::page(void) const
 
 void Display::print(void)
 {
-    qDebug() << "N=" << m_N;
-    qDebug() << "page=" << m_page;
+    qDebug() << "page/N =" << m_page+1 << "/" << m_N;
 }

@@ -60,8 +60,11 @@ SlideDefaultView::SlideDefaultView(QWidget *parent, Slide *slide) :
     ui->webView->page()->mainFrame()->setScrollBarPolicy(Qt::Vertical,Qt::ScrollBarAlwaysOff);
     ui->webView->page()->mainFrame()->setScrollBarPolicy(Qt::Horizontal,Qt::ScrollBarAlwaysOff);
 
-    ui->webView->setUrl(QUrl("http://www.google.fr"));
-    ui->webView->setZoomFactor(1.0);
+    //ui->webView->setUrl(QUrl("http://www.google.fr"));
+    //ui->webView->setZoomFactor(1.0);
+
+    ui->webView->setUrl(this->m_slide->url);
+    ui->webView->setZoomFactor(this->m_slide->zoom);
 
     //this->setWindowState(Qt::WindowFullScreen);
 }

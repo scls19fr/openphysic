@@ -28,10 +28,12 @@ class Slide : public QObject
 public:
     explicit Slide(QObject *parent = 0);
 
+    void init(void);
+
     QString title;
     QString url;
     QString message;
-    // delay
+    int delay;
     qreal zoom;
     // model
 

@@ -20,7 +20,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "mainapplication.h"
 
 #include "debugwindow.h"
-#include "slidedefaultview.h"
 #include "slide.h"
 
 #include <QStyle>
@@ -44,7 +43,7 @@ void MainApplication::update_timer1(void)
   // ToDo double buffering (next) or triple buffering (next/previous)
   // use an other webView or differents form (with on webView)
   qDebug() << "Timer1 timeout";
-  disp->print();
+  //disp->print();
 }
 
 void MainApplication::update_timer2(void)
@@ -61,7 +60,7 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
   timer1 = new QTimer(this);
   //timer1->setInterval(1000);
-  timer1->start(1000);
+  timer1->start(5000);
 
   connect( timer1, SIGNAL( timeout() ), this, SLOT( update_timer1() ) );
 
@@ -81,21 +80,69 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
   //N = 5;
 
-
   disp = new Display();
 
-  Slide * s = new Slide();
-  s->title = QString("Title of this slide");
-  s->url = QString("http://www.google.fr");
+  /*
+  Slide * s;
+  SlideDefaultView *w;
+  */
+
+  Slide s;
+  s.title = QString("Title of this slide 0");
+  s.url = QString("http://www.google.fr?q=test0");
+  s.message = QString("Message of this slide");
+
+  SlideDefaultView * w0;
+  w0 = new SlideDefaultView(NULL, &s);
+  w0->show();
+
+  /*
+  SlideDefaultView * w1;
+  s.init();
+  s.title = QString("Title of this slide 1");
+  s.url = QString("http://www.google.fr?q=test1");
+  s.message = QString("Message of this slide");
+  w1 = new SlideDefaultView(NULL, &s);
+  w1->show();
+  */
+
+  /*
+  SlideDefaultView * w2;
+  s.init();
+  w2 = new SlideDefaultView(NULL, &s);
+  w2->show();
+  */
+
+  disp->print();
+
+
+  /*
+  s = new Slide();
+  s->title = QString("Title of this slide 0");
+  s->url = QString("http://www.google.fr?q=test0");
   s->message = QString("Message of this slide");
+  arraySDV = new QVector<SlideDefaultView *>();
+  w = new SlideDefaultView(NULL, s);
+  arraySDV->append(w);
+  */
+
+  /*
+  s = new Slide();
+  s->title = QString("Title of this slide 1");
+  s->url = QString("http://www.google.fr?q=test1");
+  s->message = QString("Message of this slide");
+  arraySDV = new QVector<SlideDefaultView *>();
+  w = new SlideDefaultView(NULL, s);
+  arraySDV->append(w);
+  */
 
 
-  // QList ou QVector ?
-  //QList<SlideDefaultView> lstSlideWindow;
-  //SlideDefaultView w[N];
+  //arraySDV->at(0)->show();
+  //arraySDV->at(1)->show();
 
-  SlideDefaultView w(NULL, s);
-  w.show();
+
+//  w->show();
+
 
   DebugWindow w_debug(NULL, disp);
   //connect( &w_debug, SIGNAL(destroyed()), this, SLOT(quit()) );
@@ -132,5 +179,11 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   */
 
   this->exec();
+
+  /*
+  delete s;
+  delete w;
+  delete arraySDV;
+  */
 }
 

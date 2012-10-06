@@ -22,6 +22,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include <QObject>
 
+#include "slide.h"
+
 class Display : public QObject
 {
     Q_OBJECT
@@ -51,6 +53,8 @@ private:
     quint8 m_N;
 
     bool m_playing;
+
+    QVector <Slide> *arraySlide;
 
 };
 
