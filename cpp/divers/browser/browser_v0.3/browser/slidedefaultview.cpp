@@ -20,14 +20,16 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "slidedefaultview.h"
 #include "ui_slidedefaultview.h"
 
-#include "iostream.h"
+#include <QDebug>
+
 #include <QWebFrame>
 
-SlideDefaultView::SlideDefaultView(QWidget *parent) :
+SlideDefaultView::SlideDefaultView(QWidget *parent, Slide *slide) :
     QMainWindow(parent),
     ui(new Ui::SlideDefaultView)
 {
     ui->setupUi(this);
+    m_slide = slide;
 
     //timer->setInterval(1000);
 
@@ -43,11 +45,16 @@ SlideDefaultView::SlideDefaultView(QWidget *parent) :
     font.setItalic(true);
     ui->lblMessage->setFont(font);
 
-
+    /*
     this->setWindowTitle(QString("Browser"));
     ui->lblTitle->setText(QString("Title"));
-    //ui->lblTitle->setText(this->slide->message);
     ui->lblMessage->setText(QString("Message"));
+    */
+
+    this->setWindowTitle(QString("Browser"));
+    ui->lblTitle->setText(this->m_slide->title);
+    ui->lblMessage->setText(this->m_slide->message);
+
 
     // disable vertical scrollbar
     ui->webView->page()->mainFrame()->setScrollBarPolicy(Qt::Vertical,Qt::ScrollBarAlwaysOff);

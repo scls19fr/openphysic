@@ -35,6 +35,13 @@ public:
     void next(void);
     void previous(void);
 
+    quint8 page(void) const;
+
+    //void load_config(void);
+    //void save_config(void);
+
+    void print(void);
+
 signals:
     
 public slots:

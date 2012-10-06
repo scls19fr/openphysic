@@ -34,14 +34,14 @@ class SlideDefaultView : public QMainWindow
     Q_OBJECT
     
 public:
-    explicit SlideDefaultView(QWidget *parent = 0);
+    explicit SlideDefaultView(QWidget *parent = 0, Slide * slide = 0);
     ~SlideDefaultView();
 
-    //Slide & slide;
 
     
 private:
     Ui::SlideDefaultView *ui;
+    Slide * m_slide;
 
 };
 

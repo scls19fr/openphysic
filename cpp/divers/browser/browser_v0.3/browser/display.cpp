@@ -19,9 +19,14 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include "display.h"
 
+#include <QDebug>
+
 Display::Display(QObject *parent) :
     QObject(parent)
 {
+  m_playing = true;
+  m_page = 0;
+  m_N = 3;
 }
 
 void Display::play(void)
@@ -36,29 +41,40 @@ void Display::pause(void)
   //reset_timer();
 }
 
-void Display::playpause()
+void Display::playpause(void)
 {
   m_playing = !m_playing;
   //reset_timer();
 }
 
-void Display::next()
+void Display::next(void)
 {
-  //std::cout << "next" << std::endl;
-
-  if (m_page>m_N-1) {
+  qDebug() << "next";
+  if (m_page<m_N-1) {
     m_page++;
   } else {
     m_page=0;
   }
 }
 
-void Display::previous()
+void Display::previous(void)
 {
-  //std::cout << "previous" << std::endl;
+  qDebug() << "previous";
   if (m_page>0) {
     m_page--;
   } else {
     m_page=m_N-1;
   }
+}
+
+quint8 Display::page(void) const
+{
+   return m_page;
+}
+
+
+void Display::print(void)
+{
+    qDebug() << "N=" << m_N;
+    qDebug() << "page=" << m_page;
 }

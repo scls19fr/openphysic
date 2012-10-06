@@ -23,6 +23,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <Qt>
 #include <QApplication>
 
+#include "display.h"
+
 class MainApplication : public QApplication
 {
   Q_OBJECT
@@ -45,6 +47,8 @@ class MainApplication : public QApplication
     // list of windows
 
     void show_slide(quint8 i);
+
+    Display * disp;
 
 
 };

@@ -6,6 +6,8 @@
 
 QT       += core gui webkit
 
+CONFIG += console
+
 TARGET = browser
 TEMPLATE = app
 

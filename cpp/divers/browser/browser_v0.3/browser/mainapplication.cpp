@@ -22,7 +22,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "debugwindow.h"
 #include "slidedefaultview.h"
 #include "slide.h"
-#include "display.h"
 
 #include <QStyle>
 #include <QPlastiqueStyle> // style
@@ -30,7 +29,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 //#include <QTranslator> // i18n
 
-#include <iostream> // std::cout
+#include <QDebug>
 
 void MainApplication::show_slide(quint8 i)
 {
@@ -44,12 +43,13 @@ void MainApplication::update_timer1(void)
   //update_view();
   // ToDo double buffering (next) or triple buffering (next/previous)
   // use an other webView or differents form (with on webView)
-  std::cout << "Timer1 timeout" << std::endl;
+  qDebug() << "Timer1 timeout";
+  disp->print();
 }
 
 void MainApplication::update_timer2(void)
 {
-  std::cout << "Timer2 timeout" << std::endl;
+  qDebug() << "Timer2 timeout";
 }
 
 MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, argv)
@@ -79,19 +79,26 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
     QNetworkProxy::setApplicationProxy(proxy);
   */
 
-  N = 3;
+  //N = 5;
 
-  Slide s;
-  s.title = QString("Title of this slide");
-  s.url = QString("http://www.google.fr");
-  s.message = QString("Message of this slide");
+
+  disp = new Display();
+
+  Slide * s = new Slide();
+  s->title = QString("Title of this slide");
+  s->url = QString("http://www.google.fr");
+  s->message = QString("Message of this slide");
 
 
   // QList ou QVector ?
   //QList<SlideDefaultView> lstSlideWindow;
-  SlideDefaultView w[N];
+  //SlideDefaultView w[N];
 
-  DebugWindow w_debug;
+  SlideDefaultView w(NULL, s);
+  w.show();
+
+  DebugWindow w_debug(NULL, disp);
+  //connect( &w_debug, SIGNAL(destroyed()), this, SLOT(quit()) );
   w_debug.show();
 
   //QVector<SlideDefaultView> w;
@@ -103,6 +110,7 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   //SlideDefaultView w2;
   //lstSlideWindow.append(w2);
 
+  /*
   quint8 iv;
 
   iv = 0;
@@ -121,8 +129,7 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
   //iv = 2;
   //w[iv].setVisible(true);
-
-  //std::cout << "ok app is running" << std::endl;
+  */
 
   this->exec();
 }
