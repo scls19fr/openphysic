@@ -80,7 +80,7 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
   timer1 = new QTimer(this);
   //timer1->setInterval(1000);
-  timer1->start(5000);
+  timer1->start(10000);
 
   connect( timer1, SIGNAL( timeout() ), this, SLOT( update_timer1() ) );
 
@@ -105,14 +105,15 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   arraySDV = new QVector<SlideDefaultView *>();
   for (int i=0;i<disp->pageTotal();i++) {
     w = new SlideDefaultView(NULL, disp->arraySlide->at(i));
+    w->show();
     arraySDV->append(w);
   }
 
-  disp->print();
+  //disp->print();
 
-  DebugWindow w_debug(NULL, this);
-  //connect( &w_debug, SIGNAL(destroyed()), this, SLOT(quit()) );
-  w_debug.show();
+  //DebugWindow w_debug(NULL, this);
+  //?connect( &w_debug, SIGNAL(destroyed()), this, SLOT(quit()) );
+  //w_debug.show();
 
   if (disp->isPlaying()) {
     change_slide();

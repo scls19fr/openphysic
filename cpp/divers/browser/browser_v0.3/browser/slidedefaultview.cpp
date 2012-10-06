@@ -70,5 +70,5 @@ void SlideDefaultView::refresh_slide(void)
     ui->webView->setUrl(this->m_slide->url);
     ui->webView->setZoomFactor(this->m_slide->zoom);
 
-    //this->setWindowState(Qt::WindowFullScreen);
+    this->setWindowState(Qt::WindowFullScreen);
 }
