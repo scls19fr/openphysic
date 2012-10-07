@@ -56,7 +56,7 @@ class MainApplication : public QApplication
     void print(void);
 
     QVector <Slide*> *arraySlide;
-    const Slide slide_default;
+    Slide slide_default;
 
     //int delayChangeSlide;
     int delayReloadData;

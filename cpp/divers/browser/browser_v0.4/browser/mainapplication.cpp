@@ -350,14 +350,12 @@ void MainApplication::load_config(void)
         m_proxy.setPassword(settings.value("setPassword", m_proxy.password()).toString());
         settings.endGroup();
 
-        Slide *s_def;
-        s_def = new Slide();
         settings.beginGroup("slide_default");
-        s_def->title = settings.value("title", s_def->title).toString();
-        s_def->url = settings.value("url", s_def->url).toString();
-        s_def->message = settings.value("message", s_def->message).toString();
-        s_def->delay = settings.value("delay", s_def->delay).toUInt();
-        s_def->zoom = settings.value("zoom", s_def->zoom).toReal();
+        slide_default.title = settings.value("title", slide_default.title).toString();
+        slide_default.url = settings.value("url", slide_default.url).toString();
+        slide_default.message = settings.value("message", slide_default.message).toString();
+        slide_default.delay = settings.value("delay", slide_default.delay).toUInt();
+        slide_default.zoom = settings.value("zoom", slide_default.zoom).toReal();
         settings.endGroup();
 
         settings.beginGroup("slides");
@@ -374,19 +372,15 @@ void MainApplication::load_config(void)
             //qDebug() << (*stlIter);
             s = new Slide();
             settings.beginGroup((*stlIter));
-            s->title = settings.value("title", s_def->title).toString();
-            s->url = settings.value("url", s_def->url).toString();
-            s->message = settings.value("message", s_def->message).toString();
-            s->delay = settings.value("delay", s_def->delay).toUInt();
-            s->zoom = settings.value("zoom", s_def->zoom).toReal();
+            s->title = settings.value("title", slide_default.title).toString();
+            s->url = settings.value("url", slide_default.url).toString();
+            s->message = settings.value("message", slide_default.message).toString();
+            s->delay = settings.value("delay", slide_default.delay).toUInt();
+            s->zoom = settings.value("zoom", slide_default.zoom).toReal();
             settings.endGroup();
             arraySlide->append(s);
-
         }
-
         settings.endGroup();
-
-
      }
 
      //file.close();
@@ -421,14 +415,12 @@ void MainApplication::save_config(void)
     settings.setValue("setPassword", m_proxy.password());
     settings.endGroup();
 
-    Slide *s;
-    s = new Slide();
     settings.beginGroup("slide_default");
-    settings.setValue("title", s->title);
-    settings.setValue("url", s->url);
-    settings.setValue("message", s->message);
-    settings.setValue("delay", s->delay);
-    settings.setValue("zoom", s->zoom);
+    settings.setValue("title", slide_default.title);
+    settings.setValue("url", slide_default.url);
+    settings.setValue("message", slide_default.message);
+    settings.setValue("delay", slide_default.delay);
+    settings.setValue("zoom", slide_default.zoom);
     settings.endGroup();
 
     settings.beginGroup("slides");
