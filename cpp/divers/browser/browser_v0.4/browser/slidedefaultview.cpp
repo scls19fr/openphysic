@@ -19,6 +19,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include "slidedefaultview.h"
 #include "ui_slidedefaultview.h"
+#include "mainapplication.h"
 
 #include <QDebug>
 
@@ -45,6 +46,7 @@ void SlideDefaultView::showThisWindow(void) {
   update_timerW();
   this->show();
   this->ui->centralWidget->setFocus();
+//  this->ui->lblTitle->setFocus();
 }
 
 void SlideDefaultView::hideThisWindow(void) {
@@ -137,7 +139,10 @@ void SlideDefaultView::reload_slide(void)
     // set focus
 
     //if (this->m_display->) {
+    #ifndef DEBUG
     setWindowState(Qt::WindowFullScreen);
+    #endif
+
     //}
 }
 

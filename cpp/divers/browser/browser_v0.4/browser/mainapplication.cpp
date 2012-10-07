@@ -22,10 +22,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "debugwindow.h"
 #include "slide.h"
 
-#include <QStyle>
-#include <QPlastiqueStyle> // style
+//#include <QStyle>
+//#include <QPlastiqueStyle> // style
 //#include <QWindowsXPStyle>
-#include <QThread>
+//#include <QThread>
 
 //#include <QTranslator> // i18n
 
@@ -35,50 +35,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <QFile>
 #include <QDir>
 #include <QMessageBox>
-
-void MainApplication::change_slide(void)
-{
-    for (int i=0;i<pageTotal();i++) {
-        if (i==page()) {
-            arraySDV->at(i)->showThisWindow();
-            timer1->setInterval(disp->arraySlide->at(i)->delay);
-        }
-    }
-
-    for (int i=0;i<disp->pageTotal();i++) {
-        if (i!=page()) {
-            arraySDV->at(i)->hideThisWindow();
-        }
-    }
-}
-
-void MainApplication::update_timer1(void)
-{
-  disp->next();
-  change_slide();
-  //timer1->reset ?
-  //setSingleShot(true)
-
-  // ToDo double buffering (next) or triple buffering (next/previous)
-  // use an other webView or differents form (with on webView)
-  //qDebug() << "Timer1 timeout (change slide)";
-  //disp->print();
-
-
-}
-
-void MainApplication::update_timer2(void)
-{
-  qDebug() << "Timer2 timeout (refresh data)";
-  //for (int i=0;i<disp->pageTotal();i++) {
-  //  arraySDV->at(i)->; // refresh
-  //}
-
-  for (int i=0;i<disp->pageTotal();i++) {
-    arraySDV->at(i)->reload_slide();
-  }
-
-}
 
 MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, argv)
 {
@@ -101,24 +57,23 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
   timer1 = new QTimer(this);
   //timer1->setInterval(1000);
-  timer1->start(disp->slide_default.delay);
+  timer1->start(slide_default.delay);
   connect( timer1, SIGNAL( timeout() ), this, SLOT( update_timer1() ) );
 
   timer2 = new QTimer(this);
-  timer2->start(disp->delayReloadData);
+  timer2->start(delayReloadData);
   connect( timer2, SIGNAL( timeout() ), this, SLOT( update_timer2() ) );
 
 
   SlideDefaultView * w;
   arraySDV = new QVector<SlideDefaultView *>();
-  for (int i=0;i<disp->pageTotal();i++) {
-    w = new SlideDefaultView(NULL, disp->arraySlide->at(i));
+  for (int i=0;i<pageTotal();i++) {
+    w = new SlideDefaultView(NULL, arraySlide->at(i));
     w->showThisWindow(); // ToFix: permet de bien charger les pages au debut
     // Signal void 	loadFinished ( bool ok ) sur webview
     //qSleep(500); //?
     //QThread::sleep(500);
     arraySDV->append(w);
-
     //connect(w, SIGNAL( ), this, )
   }
   arraySDV->at(0)->showThisWindow();
@@ -127,25 +82,26 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   bool isLoaded = false;
   while(!isLoaded) {
       isLoaded = true;
-      for (int i=0;i<disp->pageTotal();i++) {
+      for (int i=0;i<pageTotal();i++) {
           isLoaded = isLoaded && arraySDV->at(i)->isLoaded();
       }
   }
   */
 
-  //disp->print();
+  //print();
 
-  //DebugWindow w_debug(NULL, this);
-  //?connect( &w_debug, SIGNAL(destroyed()), this, SLOT(quit()) );
-  //w_debug.show();
+  #ifdef DEBUG
+  DebugWindow w_debug(NULL, this);
+  w_debug.show();
+  #endif
 
-  if (disp->isPlaying()) {
+  if (isPlaying()) {
     change_slide();
   }
 
   this->exec();
 
-  //disp->save_config();
+  //save_config();
 
   /*
   delete s;
@@ -154,22 +110,70 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   */
 }
 
+void MainApplication::change_slide(void)
+{
+    for (int i=0;i<pageTotal();i++) {
+        if (i==page()) {
+            arraySDV->at(i)->showThisWindow();
+            timer1->setInterval(arraySlide->at(i)->delay);
+        }
+    }
+
+    for (int i=0;i<pageTotal();i++) {
+        if (i!=page()) {
+            arraySDV->at(i)->hideThisWindow();
+        }
+    }
+}
+
+void MainApplication::update_timer1(void)
+{
+  next();
+  //timer1->reset ?
+  //setSingleShot(true)
+
+  // ToDo double buffering (next) or triple buffering (next/previous)
+  // use an other webView or differents form (with on webView)
+  //qDebug() << "Timer1 timeout (change slide)";
+  //print();
+}
+
+void MainApplication::update_timer2(void)
+{
+  qDebug() << "Timer2 timeout (refresh data)";
+  //for (int i=0;i<pageTotal();i++) {
+  //  arraySDV->at(i)->; // refresh
+  //}
+
+  for (int i=0;i<pageTotal();i++) {
+    arraySDV->at(i)->reload_slide();
+  }
+
+}
+
 void MainApplication::play(void)
 {
   m_playing = true;
   //reset_timer();
+  connect( timer1, SIGNAL( timeout() ), this, SLOT( update_timer1() ) );
 }
 
 void MainApplication::pause(void)
 {
   m_playing = false;
   //reset_timer();
+  timer1->disconnect(this, 0);
 }
 
 void MainApplication::playpause(void)
 {
   m_playing = !m_playing;
   //reset_timer();
+  if (m_playing) {
+    connect( timer1, SIGNAL( timeout() ), this, SLOT( update_timer1() ) );
+  } else {
+    timer1->disconnect(this, 0);
+  }
 }
 
 void MainApplication::next(void)
@@ -180,6 +184,7 @@ void MainApplication::next(void)
   } else {
     m_page=0;
   }
+  change_slide();
 }
 
 void MainApplication::previous(void)
@@ -190,6 +195,7 @@ void MainApplication::previous(void)
   } else {
     m_page=pageTotal()-1;
   }
+  change_slide();
 }
 
 quint8 MainApplication::page(void) const
@@ -216,9 +222,6 @@ void MainApplication::print(void)
         qDebug() << i << ":" << arraySlide->at(i)->title;
     }
 }
-
-#define CFG_FILE QLatin1String("browser.ini")
-#define CFG_DIR QDir::homePath()
 
 void MainApplication::load_config(void)
 {
@@ -452,3 +455,9 @@ void MainApplication::save_config(void)
 
     settings.endGroup();
 }
+
+#ifdef DEBUG
+void MainApplication::debug(void) {
+    qDebug() << "Debug MainApplication";
+}
+#endif

@@ -6,8 +6,6 @@
 
 QT       += core gui webkit network
 
-CONFIG += console
-
 TARGET = browser
 TEMPLATE = app
 
@@ -25,3 +23,6 @@ HEADERS  += slidedefaultview.h \
 
 FORMS    += slidedefaultview.ui \
     debugwindow.ui
+
+RESOURCES += \
+    debug.qrc

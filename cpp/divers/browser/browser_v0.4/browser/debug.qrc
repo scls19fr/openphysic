@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/accept.svg</file>
+    </qresource>
+</RCC>
