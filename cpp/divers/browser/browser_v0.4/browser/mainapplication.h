@@ -41,7 +41,7 @@ class MainApplication : public QApplication
 
     void play(void);
     void pause(void);
-    void playpause(void);
+    void stop(void);
 
     void next(void);
     void previous(void);

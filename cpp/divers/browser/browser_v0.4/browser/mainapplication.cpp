@@ -158,14 +158,14 @@ void MainApplication::play(void)
   connect( timer1, SIGNAL( timeout() ), this, SLOT( update_timer1() ) );
 }
 
-void MainApplication::pause(void)
+void MainApplication::stop(void)
 {
   m_playing = false;
   //reset_timer();
   timer1->disconnect(this, 0);
 }
 
-void MainApplication::playpause(void)
+void MainApplication::pause(void)
 {
   m_playing = !m_playing;
   //reset_timer();
