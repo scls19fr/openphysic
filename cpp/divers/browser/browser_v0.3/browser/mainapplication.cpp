@@ -30,7 +30,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include <QDebug>
 
-
 void MainApplication::change_slide(void)
 {
     for (int i=0;i<disp->pageTotal();i++) {
@@ -82,6 +81,9 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   //QApplication::setStyle(new QWindowsStyle);
   //QApplication::setStyle("QPushButton { color: white }");
 
+  disp = new Display();
+
+
   timer1 = new QTimer(this);
   //timer1->setInterval(1000);
   timer1->start(1*1000);
@@ -92,18 +94,6 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   timer2->start(2*60*1000);
   connect( timer2, SIGNAL( timeout() ), this, SLOT( update_timer2() ) );
 
-  /*
-    QNetworkProxy proxy;
-    proxy.setType(QNetworkProxy::Socks5Proxy);
-    proxy.setType(QNetworkProxy::HttpProxy);
-    proxy.setHostName("proxy.example.com");
-    proxy.setPort(1080);
-    // proxy.setUser("username");
-    // proxy.setPassword("password");
-    QNetworkProxy::setApplicationProxy(proxy);
-  */
-
-  disp = new Display();
 
   SlideDefaultView * w;
   arraySDV = new QVector<SlideDefaultView *>();
@@ -127,6 +117,8 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   }
 
   this->exec();
+
+  //disp->save_config();
 
   /*
   delete s;

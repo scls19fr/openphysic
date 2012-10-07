@@ -23,6 +23,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <QObject>
 
 #include "slide.h"
+#include <QNetworkProxy>
 
 class Display : public QObject
 {
@@ -54,9 +55,11 @@ public slots:
 
 private:
     quint8 m_page;
-    quint8 m_N;
+    //quint8 m_N;
 
     bool m_playing;
+    bool m_proxy_enabled;
+    QNetworkProxy m_proxy;
 
 
 };
