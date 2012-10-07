@@ -39,19 +39,10 @@ class MainApplication : public QApplication
     MainApplication(int &argc, char *argv[]);
     //void keyPressEvent(QKeyEvent * event);
 
-    void play(void);
-    void pause(void);
-    void stop(void);
-
-    void next(void);
-    void previous(void);
 
     quint8 page(void) const;
     quint8 pageTotal(void) const;
     bool isPlaying(void) const;
-
-    void load_config(void);
-    void save_config(void);
 
     void print(void);
 
@@ -68,6 +59,16 @@ class MainApplication : public QApplication
   public slots:
     void update_timer1(void);
     void update_timer2(void);
+
+    void play(void);
+    void pause(void);
+    void stop(void);
+
+    void next(void);
+    void previous(void);
+
+    void load_config(void);
+    void save_config(void);
 
   private:
     QTimer * timer1; // timer slide change

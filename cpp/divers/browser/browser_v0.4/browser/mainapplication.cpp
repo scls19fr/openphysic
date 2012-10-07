@@ -49,6 +49,10 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   delayReloadData = 20*1000;
 
   //m_fullscreen = true;
+  #ifdef DEBUG
+  DebugWindow w_debug(NULL, this);
+  w_debug.show();
+  #endif
 
   arraySlide = new QVector<Slide *>();
 
@@ -69,14 +73,20 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   arraySDV = new QVector<SlideDefaultView *>();
   for (int i=0;i<pageTotal();i++) {
     w = new SlideDefaultView(NULL, arraySlide->at(i));
+
     w->showThisWindow(); // ToFix: permet de bien charger les pages au debut
     // Signal void 	loadFinished ( bool ok ) sur webview
     //qSleep(500); //?
     //QThread::sleep(500);
     arraySDV->append(w);
-    //connect(w, SIGNAL( ), this, )
+
+    connect(w, SIGNAL( QuitPressed() ), this, SLOT( quit() ));
+    connect(w, SIGNAL( NextPressed() ), this, SLOT( next() ));
+    connect(w, SIGNAL( PreviousPressed() ), this, SLOT( previous() ));
+    //connect(w, SIGNAL( destroyed() ), this, SLOT( quit() ));
   }
   arraySDV->at(0)->showThisWindow();
+  arraySDV->at(0)->setFocus();
 
   /*
   bool isLoaded = false;
@@ -90,10 +100,7 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
   //print();
 
-  #ifdef DEBUG
-  DebugWindow w_debug(NULL, this);
-  w_debug.show();
-  #endif
+
 
   if (isPlaying()) {
     change_slide();

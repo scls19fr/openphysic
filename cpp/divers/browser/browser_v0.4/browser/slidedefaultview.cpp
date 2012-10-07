@@ -31,7 +31,9 @@ SlideDefaultView::SlideDefaultView(QWidget *parent, Slide *slide) :
     QMainWindow(parent),
     ui(new Ui::SlideDefaultView)
 {
+//    this->setAttribute(Qt::WA_DeleteOnClose, true); // ToFix: QMetaObject::connectSlotsByName: No matching signal for on_SlideDefaultView_destroyed()
     ui->setupUi(this);
+
     m_slide = slide;
 
     reload_slide();
@@ -128,9 +130,9 @@ void SlideDefaultView::reload_slide(void)
     ui->lblLogo2->setText("");
     ui->lblLogo3->setText("");
     ui->lblLogo4->setText("");
-    //ui->lblLogo1->setPixmap(QPixmap("/Users/scls/aff_dyn/divers/browser/browser_v0.3/browser/logo1.png"));
+    //ui->lblLogo1->setPixmap(QPixmap("/Users/scls/aff_dyn/divers/browser/browser_v0.3/browser/logos/logo1.png"));
     //ui->lblLogo1->setPixmap(QPixmap(":/logo1.png"));
-    //ui->lblLogo1->pixmap()->scaledToHeight(100);
+    ui->lblLogo1->pixmap()->scaledToHeight(100);
     //ui->lblLogo1->pixmap()->scaled(100,100);
     //ui->lblLogo2->setPixmap(QPixmap("logo2.png"));
     //ui->lblLogo3->setPixmap(QPixmap("logo3.png"));
@@ -152,46 +154,57 @@ void SlideDefaultView::reload_slide(void)
     //return(ui->webView->loadFinished());
 //}
 
-void SlideDefaultView::keyPressEvent(QKeyEvent * event)
+void SlideDefaultView::keyPressEvent(QKeyEvent * event) // ToFix -> pass this to app
 {
   switch ( event->key() )
     {
     case Qt::Key_K: /* next */
       qDebug() << "Next";
-      //nextpage();
-      //m_slide->next();
       emit NextPressed();
-
       break;
+
     case Qt::Key_J: /* previous */
       qDebug() << "Previous";
-      //previouspage();
       emit PreviousPressed();
-
       break;
+
     case Qt::Key_Q: /* quit - just for test */
       qDebug() << "Quit";
-      //save();
+      emit QuitPressed();
       close();
-
       break;
+
     case Qt::Key_R: /* Reload config file - just for test */
       qDebug() << "Reload config file";
-      //reload();
+      emit ReloadConfigPressed();
       break;
+
     case Qt::Key_U: /* Reload URL */
       qDebug() << "Reload URL slide";
+      emit ReloadDataPressed();
       reload_slide();
       break;
+
     case Qt::Key_P:
-      //playpause();
+      emit PausePressed();
       break;
+
     case Qt::Key_T: /* just for debug */
       qDebug() << "Debug Test";
-      //test();
+      emit TestPressed();
       break;
+
     default: // n'importe quelle autre touche
       qDebug() << "UNDEF KEY";
+      emit UndefKeyPressed();
       break;
     }
 }
+
+/*
+  ToFix: QMetaObject::connectSlotsByName: No matching signal for on_SlideDefaultView_destroyed()
+void SlideDefaultView::on_SlideDefaultView_destroyed()
+{
+    qDebug() << "Destroyed";
+}
+*/

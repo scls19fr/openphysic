@@ -39,8 +39,29 @@
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
          <widget class="QLabel" name="lblLogo1">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>100</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="baseSize">
+           <size>
+            <width>100</width>
+            <height>100</height>
+           </size>
+          </property>
           <property name="text">
-           <string>lblLogo1</string>
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap resource="screen.qrc">:/logos/logo1.png</pixmap>
           </property>
          </widget>
         </item>
@@ -89,7 +110,10 @@
         <item>
          <widget class="QLabel" name="lblLogo2">
           <property name="text">
-           <string>lblLogo2</string>
+           <string/>
+          </property>
+          <property name="textFormat">
+           <enum>Qt::LogText</enum>
           </property>
          </widget>
         </item>
@@ -128,7 +152,7 @@
         <item>
          <widget class="QLabel" name="lblLogo3">
           <property name="text">
-           <string>lblLogo3</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -151,7 +175,7 @@
         <item>
          <widget class="QLabel" name="lblLogo4">
           <property name="text">
-           <string>lblLogo4</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -221,6 +245,8 @@
    <header>QtWebKit/QWebView</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="screen.qrc"/>
+ </resources>
  <connections/>
 </ui>

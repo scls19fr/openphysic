@@ -46,6 +46,12 @@ public:
 signals:
     void NextPressed();
     void PreviousPressed();
+    void QuitPressed();
+    void ReloadConfigPressed();
+    void ReloadDataPressed();
+    void TestPressed();
+    void PausePressed();
+    void UndefKeyPressed();
 
 public slots:
     void reload_slide(void); // load data (long)
@@ -53,6 +59,9 @@ public slots:
     void update_timerW(void);
 
     //void resizeEvent (QResizeEvent * event );
+
+//private slots:
+//    void on_SlideDefaultView_destroyed();
 
 private:
     Ui::SlideDefaultView *ui;
