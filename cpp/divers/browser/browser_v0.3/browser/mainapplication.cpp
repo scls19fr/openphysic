@@ -25,6 +25,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <QStyle>
 #include <QPlastiqueStyle> // style
 //#include <QWindowsXPStyle>
+#include <QThread>
 
 //#include <QTranslator> // i18n
 
@@ -91,7 +92,7 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   connect( timer1, SIGNAL( timeout() ), this, SLOT( update_timer1() ) );
 
   timer2 = new QTimer(this);
-  timer2->start(2*60*1000);
+  timer2->start(20*1000);
   connect( timer2, SIGNAL( timeout() ), this, SLOT( update_timer2() ) );
 
 
@@ -102,9 +103,19 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
     w->showThisWindow(); // ToFix: permet de bien charger les pages au debut
     // Signal void 	loadFinished ( bool ok ) sur webview
     //qSleep(500); //?
-
+    //QThread::sleep(500);
     arraySDV->append(w);
   }
+
+  /*
+  bool isLoaded = false;
+  while(!isLoaded) {
+      isLoaded = true;
+      for (int i=0;i<disp->pageTotal();i++) {
+          isLoaded = isLoaded && arraySDV->at(i)->isLoaded();
+      }
+  }
+  */
 
   //disp->print();
 

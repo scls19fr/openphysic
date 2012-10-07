@@ -41,6 +41,7 @@ public:
 
     void showThisWindow(void);
     void hideThisWindow(void);
+    //bool isLoaded(void);
 
 signals:
     void NextPressed();

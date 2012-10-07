@@ -139,6 +139,12 @@ void SlideDefaultView::reload_slide(void)
     //}
 }
 
+//bool SlideDefaultView::isLoaded(void)
+//{
+    //return(true);
+    //return(ui->webView->loadFinished());
+//}
+
 void SlideDefaultView::keyPressEvent(QKeyEvent * event)
 {
   switch ( event->key() )

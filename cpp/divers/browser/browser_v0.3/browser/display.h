@@ -49,6 +49,9 @@ public:
 
     QVector <Slide*> *arraySlide;
 
+    //int delay;
+    int delayReloadData;
+
 signals:
     
 public slots:
