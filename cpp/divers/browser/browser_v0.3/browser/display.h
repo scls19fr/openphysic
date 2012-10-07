@@ -61,6 +61,8 @@ private:
     bool m_proxy_enabled;
     QNetworkProxy m_proxy;
 
+    //bool m_fullscreen;
+
 
 };
 

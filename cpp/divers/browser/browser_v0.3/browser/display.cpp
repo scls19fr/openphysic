@@ -33,6 +33,8 @@ Display::Display(QObject *parent) :
   m_playing = true;
   m_page = 0;
 
+  //m_fullscreen = true;
+
   arraySlide = new QVector<Slide *>();
 
   load_config();
@@ -109,8 +111,6 @@ void Display::load_config(void)
     QString msg;
     //QFile file( CFG_FILE );
     //QDir::setCurrent( CFG_DIR );
-    Slide *s;
-    QSettings settings(CFG_DIR+"/"+CFG_FILE, QSettings::IniFormat);
     //int m_attribut;
     //m_attribut = settings.value("nomDuParametre").toInt();
     //qDebug()<<m_attribut;
@@ -118,7 +118,7 @@ void Display::load_config(void)
     // ToDo test if settings exists ?
     // ToDo default value
 
-    if( !QFile::exists(CFG_DIR+"/"+CFG_FILE) )
+    if( !QFile::exists(CFG_DIR+"/"+CFG_FILE) ) // config file doesn't exist
     {
         //file.open( QIODevice::ReadOnly );
         msg = QObject::tr("Error: can't open configuration file \"")
@@ -134,6 +134,8 @@ void Display::load_config(void)
             QObject::tr("Loading config file"),
             msg
         );
+
+        Slide *s;
         s = new Slide();
 
         /*
@@ -207,15 +209,64 @@ void Display::load_config(void)
             QNetworkProxy::setApplicationProxy(QNetworkProxy::NoProxy);
         }
 
-        save_config();
+        save_config(); // create a new config file with default keys/values
 
-     } else {
+     } else { // config file exists = loading this config file
         msg = QObject::tr("Loading configuration file from \"") + CFG_FILE + "\" in \"" + CFG_DIR + "\" directory";
         qDebug() << msg;
         qDebug() << "if bug occurs, remove config file";
 
+        QSettings settings(CFG_DIR+"/"+CFG_FILE, QSettings::IniFormat);
 
+        settings.beginGroup("config");
+        this->m_playing = settings.value("playing", this->m_playing).toBool();
+        this->m_page = settings.value("page", this->m_page).toInt();
+        settings.endGroup();
 
+        settings.beginGroup("proxy");
+        m_proxy_enabled = settings.value("enabled", m_proxy_enabled).toBool();
+        m_proxy.setType((QNetworkProxy::ProxyType) settings.value("setType", m_proxy.type()).toUInt()); // ToFix ?
+        m_proxy.setHostName(settings.value("setHostName", m_proxy.hostName()).toString());
+        m_proxy.setPort(settings.value("setPort", m_proxy.port()).toUInt()); // ToFix:QUint16
+        m_proxy.setUser(settings.value("setUser", m_proxy.user()).toString());
+        m_proxy.setPassword(settings.value("setPassword", m_proxy.password()).toString());
+        settings.endGroup();
+
+        Slide *s_def;
+        s_def = new Slide();
+        settings.beginGroup("slide_default");
+        s_def->title = settings.value("title", s_def->title).toString();
+        s_def->url = settings.value("url", s_def->url).toString();
+        s_def->message = settings.value("message", s_def->message).toString();
+        s_def->delay = settings.value("delay", s_def->delay).toUInt();
+        s_def->zoom = settings.value("zoom", s_def->zoom).toReal();
+        settings.endGroup();
+
+        settings.beginGroup("slides");
+        QString show_slides;
+        show_slides = settings.value("show_slides", "").toString();
+        //qDebug() << show_slides;
+        QStringList list;
+        list = show_slides.split(",");
+        //qDebug() << list;
+
+        QStringList::Iterator stlIter;
+        Slide *s;
+        for( stlIter = list.begin(); stlIter != list.end(); ++stlIter ) {
+            qDebug() << (*stlIter);
+            s = new Slide();
+            settings.beginGroup((*stlIter));
+            s->title = settings.value("title", s_def->title).toString();
+            s->url = settings.value("url", s_def->url).toString();
+            s->message = settings.value("message", s_def->message).toString();
+            s->delay = settings.value("delay", s_def->delay).toUInt();
+            s->zoom = settings.value("zoom", s_def->zoom).toReal();
+            settings.endGroup();
+            arraySlide->append(s);
+
+        }
+
+        settings.endGroup();
 
 
      }
@@ -252,7 +303,14 @@ void Display::save_config(void)
     settings.setValue("setPassword", m_proxy.password());
     settings.endGroup();
 
+    Slide *s;
+    s = new Slide();
     settings.beginGroup("slide_default");
+    settings.setValue("title", s->title);
+    settings.setValue("url", s->url);
+    settings.setValue("message", s->message);
+    settings.setValue("delay", s->delay);
+    settings.setValue("zoom", s->zoom);
     settings.endGroup();
 
     settings.beginGroup("slides");

@@ -134,7 +134,9 @@ void SlideDefaultView::reload_slide(void)
 
     // set focus
 
+    //if (this->m_display->) {
     setWindowState(Qt::WindowFullScreen);
+    //}
 }
 
 void SlideDefaultView::keyPressEvent(QKeyEvent * event)

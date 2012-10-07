@@ -10,6 +10,13 @@ setPort=8080
 setUser=username
 setPassword=password
 
+[slide_default]
+title=Titre par defaut
+url="http://www.google.fr?q=defaut"
+message=Pas de message
+delay=5000
+zoom=1
+
 [slides]
 show_slides="0,1,2"
 0\title=GTE1 S1/S2
