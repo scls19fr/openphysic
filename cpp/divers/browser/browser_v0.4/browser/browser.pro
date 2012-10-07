@@ -25,4 +25,5 @@ FORMS    += slidedefaultview.ui \
     debugwindow.ui
 
 RESOURCES += \
-    debug.qrc
+    debug.qrc \
+    screen.qrc
