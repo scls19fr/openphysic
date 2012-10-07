@@ -29,4 +29,6 @@ Slide::Slide(QObject *parent) :
     message = QString("Pas de message");
     delay = 5000;
     zoom = 1.0;
+
+    delay_refresh = 200;
 }

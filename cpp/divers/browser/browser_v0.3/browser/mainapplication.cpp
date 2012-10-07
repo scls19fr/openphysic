@@ -84,15 +84,13 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
   disp = new Display();
 
-
   timer1 = new QTimer(this);
   //timer1->setInterval(1000);
-  timer1->start(1*1000);
-
+  timer1->start(disp->slide_default.delay);
   connect( timer1, SIGNAL( timeout() ), this, SLOT( update_timer1() ) );
 
   timer2 = new QTimer(this);
-  timer2->start(20*1000);
+  timer2->start(disp->delayReloadData);
   connect( timer2, SIGNAL( timeout() ), this, SLOT( update_timer2() ) );
 
 
@@ -105,7 +103,10 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
     //qSleep(500); //?
     //QThread::sleep(500);
     arraySDV->append(w);
+
+    //connect(w, SIGNAL( ), this, )
   }
+  arraySDV->at(0)->showThisWindow();
 
   /*
   bool isLoaded = false;

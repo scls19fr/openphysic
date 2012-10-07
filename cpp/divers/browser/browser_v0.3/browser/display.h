@@ -48,8 +48,9 @@ public:
     void print(void);
 
     QVector <Slide*> *arraySlide;
+    const Slide slide_default;
 
-    //int delay;
+    //int delayChangeSlide;
     int delayReloadData;
 
 signals:

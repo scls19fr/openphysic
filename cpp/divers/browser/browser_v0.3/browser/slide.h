@@ -32,11 +32,12 @@ public:
     QString title;
     QString url;
     QString message;
-    int delay;
+    int delay; // delay to change slide
     qreal zoom;
     // model
 
     QDateTime lastupdate;
+    int delay_refresh; // delay to refresh window (200ms)
 
 signals:
     

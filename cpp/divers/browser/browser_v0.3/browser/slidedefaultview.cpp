@@ -37,12 +37,14 @@ SlideDefaultView::SlideDefaultView(QWidget *parent, Slide *slide) :
 
     timerW = new QTimer(this);
     connect( timerW, SIGNAL( timeout() ), this, SLOT( update_timerW() ) );
+
 }
 
 void SlideDefaultView::showThisWindow(void) {
-  timerW->start(200);
+  timerW->start(m_slide->delay_refresh); // 200ms
   update_timerW();
   this->show();
+  this->ui->centralWidget->setFocus();
 }
 
 void SlideDefaultView::hideThisWindow(void) {

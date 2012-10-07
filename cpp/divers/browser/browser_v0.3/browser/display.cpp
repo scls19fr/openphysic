@@ -33,6 +33,8 @@ Display::Display(QObject *parent) :
   m_playing = true;
   m_page = 0;
 
+  delayReloadData = 20*1000;
+
   //m_fullscreen = true;
 
   arraySlide = new QVector<Slide *>();
@@ -220,7 +222,8 @@ void Display::load_config(void)
 
         settings.beginGroup("config");
         this->m_playing = settings.value("playing", this->m_playing).toBool();
-        this->m_page = settings.value("page", this->m_page).toInt();
+        this->m_page = settings.value("page", this->m_page).toUInt();
+        this->delayReloadData = settings.value("delayReloadData", this->delayReloadData).toUInt();
         settings.endGroup();
 
         settings.beginGroup("proxy");
@@ -253,7 +256,7 @@ void Display::load_config(void)
         QStringList::Iterator stlIter;
         Slide *s;
         for( stlIter = list.begin(); stlIter != list.end(); ++stlIter ) {
-            qDebug() << (*stlIter);
+            //qDebug() << (*stlIter);
             s = new Slide();
             settings.beginGroup((*stlIter));
             s->title = settings.value("title", s_def->title).toString();
@@ -291,7 +294,7 @@ void Display::save_config(void)
     settings.setValue("page", this->m_page);
 //    settings.setValue("delayRefreshSlide", ...); // 200ms
 //    settings.setValue("delayChangeSlide", ...); // 5s = 5*60
-//    settings.setValue("delayReloadData", ...); //
+    settings.setValue("delayReloadData", this->delayReloadData);
     settings.endGroup();
 
     settings.beginGroup("proxy");
