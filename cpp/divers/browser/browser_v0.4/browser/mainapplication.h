@@ -22,9 +22,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include <Qt>
 #include <QApplication>
+#include <QNetworkProxy>
 
-#include "display.h"
 #include "slidedefaultview.h"
+#include "slide.h"
 
 class MainApplication : public QApplication
 {
@@ -33,6 +34,28 @@ class MainApplication : public QApplication
   public:
     MainApplication(int &argc, char *argv[]);
     //void keyPressEvent(QKeyEvent * event);
+
+    void play(void);
+    void pause(void);
+    void playpause(void);
+
+    void next(void);
+    void previous(void);
+
+    quint8 page(void) const;
+    quint8 pageTotal(void) const;
+    bool isPlaying(void) const;
+
+    void load_config(void);
+    void save_config(void);
+
+    void print(void);
+
+    QVector <Slide*> *arraySlide;
+    const Slide slide_default;
+
+    //int delayChangeSlide;
+    int delayReloadData;
 
   public slots:
     void update_timer1(void);
@@ -44,8 +67,16 @@ class MainApplication : public QApplication
 
     void change_slide(void);
 
-    Display * disp;
     QVector <SlideDefaultView*> *arraySDV;    // list of windows
+
+    quint8 m_page;
+    //quint8 m_N;
+
+    bool m_playing;
+    bool m_proxy_enabled;
+    QNetworkProxy m_proxy;
+
+    //bool m_fullscreen;
 
 };
 

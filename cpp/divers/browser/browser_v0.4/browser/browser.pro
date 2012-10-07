@@ -16,13 +16,11 @@ SOURCES += main.cpp\
         slidedefaultview.cpp \
     slide.cpp \
     mainapplication.cpp \
-    display.cpp \
     debugwindow.cpp
 
 HEADERS  += slidedefaultview.h \
     slide.h \
     mainapplication.h \
-    display.h \
     debugwindow.h
 
 FORMS    += slidedefaultview.ui \
