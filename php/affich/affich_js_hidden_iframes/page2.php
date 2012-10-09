@@ -17,6 +17,14 @@ echo "OK ! param1 est bien pass&eacute; !";
 echo "Erreur param1 $param1 n'est pas passé<br>\n";
   }
 
+  echo "<br>";
+
+  if ($param2==2) {
+echo "OK ! param2 est bien pass&eacute; !";
+  } else {
+echo "Erreur param2 $param2 n'est pas passé<br>\n";
+  }
+
 ?>
   </body>
 </html>
