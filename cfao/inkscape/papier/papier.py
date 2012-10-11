@@ -101,6 +101,10 @@ class CPapier( inkex.Effect ):
 		# Ajoute le texte au calque
 		#layer.append( texte )
 		
+		# origine (haut-gauche)
+		x0 = 5
+		y0 = 23
+		
 		papier_width = 200
 		papier_height = 250
 		
@@ -116,29 +120,29 @@ class CPapier( inkex.Effect ):
 		# Creation des lignes horizontales secondaires (1mm)
 		for i in range(0,papier_height/10,1):
 			for k in range(1,10):
-				self.drawline(layer, 0, i*10+k, papier_width, i*10+k, couleur2, strokewidth2)
+				self.drawline(layer, x0, y0+i*10+k, x0+papier_width, y0+i*10+k, couleur2, strokewidth2)
 
 
 		# Creation des lignes verticales secondaires (1mm)
 		for j in range(0,papier_width/10,1):
 			for k in range(1,10):
-				self.drawline(layer, j*10+k, 0, j*10+k, papier_height, couleur2, strokewidth2)
+				self.drawline(layer, x0+j*10+k, y0, x0+j*10+k, y0+papier_height, couleur2, strokewidth2)
 		
 		# Creation des lignes horizontales primaires (1cm)
 		for i in range(0,papier_height/10+1,1):
-			self.drawline(layer, 0, 10*i, papier_width, 10*i, couleur1,strokewidth1)
+			self.drawline(layer, x0, y0+10*i, x0+papier_width, y0+10*i, couleur1,strokewidth1)
 	
 		# Creation des lignes verticales primaires (1cm)
 		for j in range(0,papier_width/10+1,1):
-			self.drawline(layer, 10*j, 0, 10*j, papier_height, couleur1, strokewidth1)
+			self.drawline(layer, x0+10*j, y0, x0+10*j, y0+papier_height, couleur1, strokewidth1)
 		
 		# Creation des lignes horizontales "50mm"
 		for i in range(0,papier_height/10,5):
-			self.drawline(layer, 0, 10*i, papier_width, 10*i, couleur0,strokewidth0)
+			self.drawline(layer, x0, y0+10*i, x0+papier_width, y0+10*i, couleur0,strokewidth0)
 	
 		# Creation des lignes verticales "50mm"
 		for j in range(0,papier_width/10,5):
-			self.drawline(layer, 10*j, 0, 10*j, papier_height, couleur0, strokewidth0)
+			self.drawline(layer, x0+10*j, y0, x0+10*j, y0+papier_height, couleur0, strokewidth0)
 
 
 		# Creation des axes
