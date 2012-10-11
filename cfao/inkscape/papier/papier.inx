@@ -1,0 +1,33 @@
+<!--
+Copyright 2012 Sebastien Celles <s.celles@gmail.com>
+
+This file is part of Papier Extension for Inkscape.
+
+Papier Extension for Inkscape is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Papier for Inkscape is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with Papier Extension for Inkscape. If not, see http://www.gnu.org/licenses/.
+-->
+
+<inkscape-extension>
+  <_name>Papier</_name>
+  <id>org.celles.filter.papier</id>
+  <dependency type="executable" location="extensions">papier.py</dependency>
+  <dependency type="executable" location="extensions">inkex.py</dependency>
+<!--
+	no param
+
+  <param name="strTexte" type="string" _gui-text="Saisissez le texte a ecrire :">Papier</param>
+
+  -->
+  <effect>
+    <object-type>all</object-type>
+    <effects-menu>
+       <submenu _name="celles.net"/>
+    </effects-menu>
+  </effect>
+  <script>
+    <command reldir="extensions" interpreter="python">papier.py</command>
+  </script>
+</inkscape-extension>
