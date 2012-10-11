@@ -23,22 +23,3 @@ copier fichiers .inx et .py dans C:\Program Files\Inkscape\share\extensions
 Utilisation
 Lancer Inkscape
 Menu Extensions
-
-ToDo:
-Changement d'origine
-Axe horizontal vers le haut
-Echelle
-idée d'API voir PictureBox en VB
-	ScaleHeight <0
-	ScaleWidth
-	ScaleTop
-	ScaleLeft
-	
-ou plus "physique"
-	xorigin
-	yorigin
-	scaleX
-	scaleY
-
-	fonction de convertion physique vers dessin
-	fonction de convertion dessin vers physique
