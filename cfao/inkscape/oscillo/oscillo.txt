@@ -1,0 +1,34 @@
+Oscillo Extension for Inkscape est une extension pour le logiciel de dessin vectoriel Inkscape
+
+
+Fichiers :
+	oscillo.txt : le présent fichier
+	oscillo.inx : fichier XML permettant de faire apparaître le script dans le menu Extensions/Exemples/Oscillo
+	oscillo.py : code source Python décrivant le tracé
+
+
+Copyright 2012 Sebastien Celles <s.celles@gmail.com>
+
+This file is part of Oscillo Extension for Inkscape.
+
+Oscillo Extension for Inkscape is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Oscillo Extension for Inkscape is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with Oscillo Extension for Inkscape. If not, see http://www.gnu.org/licenses/.
+
+Installation
+copier fichiers .inx et .py dans C:\Program Files\Inkscape\share\extensions
+
+Utilisation
+Lancer Inkscape
+Menu Extensions
+
+
+Remarque
+Script basé sur l'exemple http://www.vvpix.com/ink_Tutoriels.php
+
+ToDo
+	Classe GBF
+		sin, square, triangle
+		frequence, amplitude, offset, duty cycle...
