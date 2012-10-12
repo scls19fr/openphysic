@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 '''
 Copyright 2012 Sebastien Celles <s.celles@gmail.com>
@@ -21,6 +22,7 @@ import sys
 import inkex 
 # Le module simplestyle fournit des fonctions pour le parsing des styles
 from simplestyle import *
+from simpletransform import *
 
 class CPapier( inkex.Effect ):
 	"""
@@ -56,6 +58,7 @@ class CPapier( inkex.Effect ):
 		style = {'text-align' : 'center', \
 		         'text-anchor': 'center', \
 		         'font-size': size,\
+		         'fillstyle': 'rgb(255,255,0)',\
 		         'fill': RGB}
 		texte.set('style', formatStyle(style) )
 		layer.append( texte ) # Ajoute le texte au calque
@@ -106,6 +109,7 @@ class CPapier( inkex.Effect ):
 		# Reglage unite en mm
 		# ToDo
 		
+		
 		# Creation d'un nouveau calque
 		layer = inkex.etree.SubElement(svg, 'g')
 		layer.set(inkex.addNS( 'label', 'inkscape'), 'Layer texte' )
@@ -146,17 +150,26 @@ class CPapier( inkex.Effect ):
 		self.x0 = 5 # mm
 		self.y0 = 290 # mm
 
-		self.x0 = 205 # mm
-		self.y0 = 490 # mm
+		self.x0 = self.x0 + 60 # mm
+		self.y0 = self.y0 - 10 # mm
+
+		#inkex.debug("x0 = %f" % (self.x0))
+		#inkex.debug("y0 = %f" % (self.y0))
+
+		#self.x0 = 205 # mm
+		#self.y0 = 490 # mm
 		
 		self.scaleX = 1
 		self.scaleY = -1		
 		
-		papier_width = 200
-		papier_height = 250
+		#papier_width = 200
+		#papier_height = 250
 		
 		#papier_width = 150
 		#papier_height = 120
+
+		papier_width = 120
+		papier_height = 260
 
 		# 5 cm
 		couleur0 = 'rgb(5,5,5)'
@@ -194,8 +207,8 @@ class CPapier( inkex.Effect ):
 		for j in range(0,papier_width/10,1):
 			self.drawline(layer, j*10+k, 0, j*10+k, papier_height, couleur2, strokewidth2)
 
-		Xorigin = 0 # 20
-		Yorigin = 0 # 30
+		Xorigin = 0
+		Yorigin = 0
 		
 		for i in range(0,papier_height+10,10):
 			if ((i-Yorigin)%50)<>0: # Creation des lignes horizontales primaires (1cm)
@@ -210,32 +223,47 @@ class CPapier( inkex.Effect ):
 				self.drawline(layer, j, 0, j, papier_height, couleur0, strokewidth0)
 		
 		# Creation des axes
-		self.drawline(layer, Xorigin, 0, Xorigin, papier_height, 'rgb(255,0,0)', '3px') # axe ordonnees
-		self.drawline(layer, 0, Yorigin, papier_width, Yorigin, 'rgb(255,0,0)', '3px') # axe abscisses
-		self.drawtext(layer, -5+Xorigin + 2.5, papier_height + 2.5, 'U (V)', 'rgb(255, 0, 0)', '12pt')		# Etiquette nom axe Y
-		self.drawtext(layer, papier_width + 2.5, -1.4+Yorigin, 'I (A)', 'rgb(255, 0, 0)', '12pt')		# Etiquette nom axe X
+		colorCustom0 = 'rgb(0,0,0)' # axes
+		
+		colorAxes = colorCustom0
+		self.drawline(layer, Xorigin, 0, Xorigin, papier_height, colorAxes, '3px') # axe ordonnees
+		self.drawline(layer, 0, Yorigin, papier_width, Yorigin, colorAxes, '3px') # axe abscisses
+		self.drawtext(layer, -5+Xorigin + 2.5, papier_height + 2.5, 'U (V)', colorAxes, '12pt')		# Etiquette nom axe Y
+		self.drawtext(layer, papier_width + 2.5, -1.4+Yorigin, 'I (A)', colorAxes, '12pt')		# Etiquette nom axe X
+		#self.drawtext(layer, papier_width-5, Yorigin+2.5, 'I (A)', colorAxes, '12pt')		# Etiquette nom axe X
 
 		YmajorTick = 50
 		YminorTickNb = 5
+		colorTick = colorCustom0
 		for i in range(0, (papier_height + YmajorTick)//YmajorTick):
 			y = i*YmajorTick+Yorigin
-			self.drawline(layer, -2.5+Xorigin, y, Xorigin, y, 'rgb(255,0,0)','2px')
-			for k in range(1, YminorTickNb):
-				y = i*YmajorTick+Yorigin-k*YmajorTick/YminorTickNb
-				#if y>=self.get_yval(0) and y<self.get_yval(papier_height):
-				self.drawline(layer, -1.5+Xorigin, y, Xorigin, y, 'rgb(255,0,0)','2px')
+			self.drawline(layer, -2.5+Xorigin, y, Xorigin, y, colorTick,'2px')
+			if i<>0: # tofix
+				for k in range(1, YminorTickNb):
+					y = i*YmajorTick+Yorigin-k*YmajorTick/YminorTickNb
+					#if y>=self.get_yval(0) and y<self.get_yval(papier_height):
+					self.drawline(layer, -1.5+Xorigin, y, Xorigin, y, colorTick,'2px')
 
 		XmajorTick = 50
 		XminorTickNb = 5
+		colorTick = colorCustom0
 		for j in range(0, (papier_width + XmajorTick)//XmajorTick):
 			x = j*XmajorTick+Xorigin
-			self.drawline(layer, x, -2.5+Yorigin, x, Yorigin, 'rgb(255,0,0)','2px')
-			for k in range(1, YminorTickNb):
-				x = j*XmajorTick+Xorigin-k*XmajorTick/XminorTickNb
-				#if x>=self.get_xval(0) and x<=self.get_xval(papier_width):
-				self.drawline(layer, x, -1.5+Yorigin, x, Yorigin, 'rgb(255,0,0)','2px')
+			self.drawline(layer, x, -2.5+Yorigin, x, Yorigin, colorTick,'2px')
+			if j<>0: # tofix
+				for k in range(1, YminorTickNb):
+					x = j*XmajorTick+Xorigin-k*XmajorTick/XminorTickNb
+					#if x>=self.get_xval(0) and x<=self.get_xval(papier_width):
+					self.drawline(layer, x, -1.5+Yorigin, x, Yorigin, colorTick,'2px')
 
+		colorWrite = colorCustom0
 		#self.drawtext(layer, 0.5*papier_width, 0.85*papier_height, 'Titre du graphique', 'rgb(255, 0, 0)', '18pt')		# Etiquette titre graphique
+		self.drawtext(layer, -0.30*papier_width, 1.12*papier_height, 'Nom : ........................', colorWrite, '18pt')		# Etiquette titre graphique
+		self.drawtext(layer, 0.35*papier_width, 1.12*papier_height, 'Prenom : ........................', colorWrite, '18pt')		# Etiquette titre graphique
+		
+		matrix = parseTransform('rotate(45)')
+		
+		self.drawtext(layer, 0, 1.07*papier_height, 'Montage : ...........................................', colorWrite, '18pt')		# Etiquette titre graphique
 
 		# Creation du texte sur axe ordonnees
 
@@ -251,8 +279,8 @@ class CPapier( inkex.Effect ):
 
 		#self.drawline(layer, 0, 0, 10, 20, 'rgb(0,255,0)', '3px')
 		
-		self.drawline(layer, 0, 12, 100, 10, 'rgb(0,255,0)', '3px')
-		self.drawline_extrapo(layer, 0, 12, 100, 10, -1, 13, 'rgb(0,255,255)', '3px')
+		#self.drawline(layer, 0, 12, 100, 10, 'rgb(0,255,0)', '3px')
+		#self.drawline_extrapo(layer, 0, 12, 100, 10, -1, 13, 'rgb(0,255,255)', '3px')
 		
 		# Trace des points experimentaux, de la modelisation lineaire, ...
 		#self.drawpoint(layer, 0, 0, 1, 'rgb(0,0,255)')
