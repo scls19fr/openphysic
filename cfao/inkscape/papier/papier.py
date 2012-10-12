@@ -41,18 +41,18 @@ class CPapier( inkex.Effect ):
 		                             type = 'string', 
 		                             dest = 'strTexte', default = 'Hello',
 		                             help = 'Message a ecrire ?')
-	
+
 	def get_xval(self, x):
-		return(x/self.scaleX+self.x0)
+		return(float(x)/self.scaleX+self.x0)
 
 	def get_yval(self, y):
-		return(y/self.scaleX+self.y0)
+		return(float(y)/self.scaleX+self.y0)
 
 	def drawtext(self, layer, x, y, msg, RGB, size):		
 		texte = inkex.etree.Element(inkex.addNS('text', 'svg'))
 		texte.text = msg
-		texte.set('x', str( str(x/self.scaleX+self.x0) + 'mm' ) )
-		texte.set('y', str( str(y/self.scaleY+self.y0) + 'mm' ) )
+		texte.set('x', str( str(float(x)/self.scaleX+self.x0) + 'mm' ) )
+		texte.set('y', str( str(float(y)/self.scaleY+self.y0) + 'mm' ) )
 		style = {'text-align' : 'center', \
 		         'text-anchor': 'center', \
 		         'font-size': size,\
@@ -61,32 +61,34 @@ class CPapier( inkex.Effect ):
 		layer.append( texte ) # Ajoute le texte au calque
 
 
-	def drawpoint(self, layer, x, y, rayon, RGB):		
+	def drawpoint(self, layer, x, y, rayon=1, RGB='rgb(0,0,255)'):
 		cercle = inkex.etree.Element(inkex.addNS('circle','svg'))
-		cercle.set('cx', str(x/self.scaleX+self.x0) + 'mm')
-		cercle.set('cy', str(y/self.scaleY+self.y0) + 'mm')
+		cercle.set('cx', str(float(x)/self.scaleX+self.x0) + 'mm')
+		cercle.set('cy', str(float(y)/self.scaleY+self.y0) + 'mm')
 		cercle.set('r', str(rayon) + 'mm')
 		cercle.set('fill', RGB)
 		cercle.set('stroke', RGB)
 		cercle.set('stroke-width', '1px')
 		layer.append(cercle)
+
+	def drawline_extrapo(self, layer, x1, y1, x2, y2, x_ex1, x_ex2, RGB='rgb(10,10,10)', strokewidth='1px', show_point=False):
+		a = float(y2 - y1) / float(x2 - x1)
+		#a = a * (-self.scaleY)
+		y_ex1 = a * (x_ex1 - x1) + y1
+		y_ex2 = a * (x_ex2 - x1) + y1
+		self.drawline(layer, x_ex1, y_ex1, x_ex2, y_ex2, RGB, strokewidth)
+		self.drawpoint(layer, x1, y1, 1, RGB)
+		self.drawpoint(layer, x2, y2, 1, RGB)
 	
 	def drawline(self, layer, x1, y1, x2, y2, RGB='rgb(10,10,10)', strokewidth='1px'):
 		line = inkex.etree.Element(inkex.addNS('line', 'svg'))
 		line.set('stroke', RGB);
 		line.set('stroke-width', strokewidth );
-		line.set('x1', str(x1/self.scaleX+self.x0) + 'mm' )
-		line.set('y1', str(y1/self.scaleY+self.y0) + 'mm' )
-		line.set('x2', str(x2/self.scaleX+self.x0) + 'mm' )
-		line.set('y2', str(y2/self.scaleY+self.y0) + 'mm' );
+		line.set('x1', str(float(x1)/self.scaleX+self.x0) + 'mm' )
+		line.set('y1', str(float(y1)/self.scaleY+self.y0) + 'mm' )
+		line.set('x2', str(float(x2)/self.scaleX+self.x0) + 'mm' )
+		line.set('y2', str(float(y2)/self.scaleY+self.y0) + 'mm' );
 		layer.append( line ) # Ajout de la ligne sur le calque
-	
-	#def drawpoint(self, layer, x, y, RGB='rgb(255,0,0)'):
-	#	circle = inkex.etree.Element(inkex.addNS('line', 'svg'))
-	#	circle.set('stroke', RGB);
-	#	circle.set('x', str(x1/self.scaleX+self.x0) + 'mm' )
-	#	circle.set('y', str(y1/self.scaleY+self.y0) + 'mm' )
-	#	layer.append( circle ) # Ajout de la ligne sur le calque	
 	
 	def effect(self):
 		"""
@@ -146,15 +148,15 @@ class CPapier( inkex.Effect ):
 
 		self.x0 = 205 # mm
 		self.y0 = 490 # mm
-
 		
 		self.scaleX = 1
 		self.scaleY = -1		
 		
-		#papier_width = 200
-		#papier_height = 250
-		papier_width = 150
-		papier_height = 120
+		papier_width = 200
+		papier_height = 250
+		
+		#papier_width = 150
+		#papier_height = 120
 
 		# 5 cm
 		couleur0 = 'rgb(5,5,5)'
@@ -177,7 +179,6 @@ class CPapier( inkex.Effect ):
 			for k in range(1,10):
 				self.drawline(layer, 0, i*10+k, papier_width, i*10+k, couleur3, strokewidth3)
 
-
 		# Creation des lignes verticales secondaires (1mm)
 		for j in range(0,papier_width/10,1):
 			for k in range(1,10):
@@ -193,16 +194,15 @@ class CPapier( inkex.Effect ):
 		for j in range(0,papier_width/10,1):
 			self.drawline(layer, j*10+k, 0, j*10+k, papier_height, couleur2, strokewidth2)
 
-		Xorigin = 20
-		Yorigin = 30
+		Xorigin = 0 # 20
+		Yorigin = 0 # 30
 		
 		for i in range(0,papier_height+10,10):
 			if ((i-Yorigin)%50)<>0: # Creation des lignes horizontales primaires (1cm)
 				self.drawline(layer, 0, i, papier_width, i, couleur1,strokewidth1)
 			else: # Creation des lignes horizontales primaires (5cm)
 				self.drawline(layer, 0, i, papier_width, i, couleur0,strokewidth0)
-	
-		
+
 		for j in range(0,papier_width+10,10):
 			if ((j-Xorigin)%50)<>0: # Creation des lignes verticales primaires (1cm)
 				self.drawline(layer, j, 0, j, papier_height, couleur1, strokewidth1)
@@ -212,46 +212,34 @@ class CPapier( inkex.Effect ):
 		# Creation des axes
 		self.drawline(layer, Xorigin, 0, Xorigin, papier_height, 'rgb(255,0,0)', '3px') # axe ordonnees
 		self.drawline(layer, 0, Yorigin, papier_width, Yorigin, 'rgb(255,0,0)', '3px') # axe abscisses
-		
-		# Creation des ticks axe ordonnees
-		#YminorTick = 10 # 25 # 10
-		#YmajorTick = 50
-		#for i in range(YminorTick, papier_height, YminorTick):
-		#	if ((i-Yorigin)%YmajorTick)<>0:
-		#		self.drawline(layer, -1.5+Xorigin, i, Xorigin, i, 'rgb(255,0,0)','2px')
-		#	else:
-		#		self.drawline(layer, -2.5+Xorigin, i, Xorigin, i, 'rgb(255,0,0)','2px')
+		self.drawtext(layer, -5+Xorigin + 2.5, papier_height + 2.5, 'U (V)', 'rgb(255, 0, 0)', '12pt')		# Etiquette nom axe Y
+		self.drawtext(layer, papier_width + 2.5, -1.4+Yorigin, 'I (A)', 'rgb(255, 0, 0)', '12pt')		# Etiquette nom axe X
 
 		YmajorTick = 50
-		YminorTickNb = 3
+		YminorTickNb = 5
 		for i in range(0, (papier_height + YmajorTick)//YmajorTick):
 			y = i*YmajorTick+Yorigin
 			self.drawline(layer, -2.5+Xorigin, y, Xorigin, y, 'rgb(255,0,0)','2px')
-			for k in range(0, YminorTickNb):
+			for k in range(1, YminorTickNb):
 				y = i*YmajorTick+Yorigin-k*YmajorTick/YminorTickNb
 				#if y>=self.get_yval(0) and y<self.get_yval(papier_height):
 				self.drawline(layer, -1.5+Xorigin, y, Xorigin, y, 'rgb(255,0,0)','2px')
 
 		XmajorTick = 50
-		XminorTickNb = 3
+		XminorTickNb = 5
 		for j in range(0, (papier_width + XmajorTick)//XmajorTick):
 			x = j*XmajorTick+Xorigin
 			self.drawline(layer, x, -2.5+Yorigin, x, Yorigin, 'rgb(255,0,0)','2px')
-			for k in range(0, YminorTickNb):
+			for k in range(1, YminorTickNb):
 				x = j*XmajorTick+Xorigin-k*XmajorTick/XminorTickNb
 				#if x>=self.get_xval(0) and x<=self.get_xval(papier_width):
 				self.drawline(layer, x, -1.5+Yorigin, x, Yorigin, 'rgb(255,0,0)','2px')
 
-		self.drawtext(layer, -5+Xorigin + 2.5, papier_height + 2.5, 'U (V)', 'rgb(255, 0, 0)', '12pt')		# Etiquette nom axe Y
-		self.drawtext(layer, papier_width + 2.5, -1.4+Yorigin, 'I (A)', 'rgb(255, 0, 0)', '12pt')		# Etiquette nom axe X
-
-		self.drawtext(layer, 0.5*papier_width, 0.85*papier_height, 'Titre du graphique', 'rgb(255, 0, 0)', '18pt')		# Etiquette titre graphique
-
+		#self.drawtext(layer, 0.5*papier_width, 0.85*papier_height, 'Titre du graphique', 'rgb(255, 0, 0)', '18pt')		# Etiquette titre graphique
 
 		# Creation du texte sur axe ordonnees
 
-		# Creation du texte sur axe abscisses		
-		
+		# Creation du texte sur axe abscisses
 		
 		# Nouvelle origine
 		
@@ -259,18 +247,18 @@ class CPapier( inkex.Effect ):
 		self.y0 = self.y0 - Yorigin # tjs en mm par rapport au Haut-Gauche
 		
 		self.scaleX = 1  # 1 cm = scaleX UniteX
-		self.scaleY = -1 # 1 cm = 10mm = scaleY UniteY
+		self.scaleY = -0.1 # 1 cm = 10mm = scaleY UniteY
 
-		self.drawline(layer, 0, 0, 10, 20, 'rgb(0,255,0)', '3px')
-
+		#self.drawline(layer, 0, 0, 10, 20, 'rgb(0,255,0)', '3px')
+		
+		self.drawline(layer, 0, 12, 100, 10, 'rgb(0,255,0)', '3px')
+		self.drawline_extrapo(layer, 0, 12, 100, 10, -1, 13, 'rgb(0,255,255)', '3px')
 		
 		# Trace des points experimentaux, de la modelisation lineaire, ...
-		self.drawpoint(layer, 0, 0, 1, 'rgb(0,0,255)')
-		self.drawpoint(layer, 10, 20, 1, 'rgb(0,255,255)')
+		#self.drawpoint(layer, 0, 0, 1, 'rgb(0,0,255)')
+		#self.drawpoint(layer, 10, 20, 1, 'rgb(0,255,255)')
 		
-		# Trace de courbe
-		
-
+		# Trace de courbe		
 
 # Execute la fonction "effect" de la classe "CHello"
 drawing = CPapier()

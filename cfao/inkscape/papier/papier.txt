@@ -25,4 +25,13 @@ Lancer Inkscape
 Menu Extensions
 
 ToDo:
-quatre quadrans
+quatre quadrans (decalage des majeurs)
+drawline_extrapo
+valeurs sur axe x et y
+0 (décalé en bas à gauche - 45°)
+tracé des coordonnée d'un point (pointillés vertical et horizontal)
+tracé du nom d'un point
+calcul point d'intersection entre 2 droites
+definition d'une classe point
+Point(x, y)
+p.x & p.y
