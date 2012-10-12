@@ -1,4 +1,4 @@
-Fusionner code de v0.2 (1 seule feuille, fichier de config XML...)
-avec la v0.3
+Faire animation entre 2 slides
 
-emit signal keypress à transmettre de la feuille à l'appli
+w_current->setVisible(false)
+w_next->show()
