@@ -2,9 +2,9 @@ Papier est une extension pour le logiciel de dessin vectoriel Inkscape
 
 
 Fichiers :
-	papier.txt : le présent fichier
-	papier.inx : fichier XML permettant de faire apparaître le script dans le menu Extensions
-	papier.py : code source Python décrivant le tracé
+	papier.txt : le prÈsent fichier
+	papier.inx : fichier XML permettant de faire apparaÓtre le script dans le menu Extensions
+	papier.py : code source Python dÈcrivant le tracÈ
 
 
 Copyright 2012 Sebastien Celles <s.celles@gmail.com>
@@ -23,3 +23,6 @@ copier fichiers .inx et .py dans C:\Program Files\Inkscape\share\extensions
 Utilisation
 Lancer Inkscape
 Menu Extensions
+
+ToDo:
+quatre quadrans
