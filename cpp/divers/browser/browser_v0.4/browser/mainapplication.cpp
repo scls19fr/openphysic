@@ -35,6 +35,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <QFile>
 #include <QDir>
 #include <QMessageBox>
+#include <QPropertyAnimation>
 
 MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, argv)
 {
@@ -53,6 +54,14 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   #ifdef DEBUG
   DebugWindow w_debug(NULL, this);
   w_debug.show();
+
+  //QPropertyAnimation animation(&w_debug, "geometry");
+  //animation.setDuration(3000);
+  //animation.setStartValue(QRect(500, 500, w_debug.geometry().width(), w_debug.geometry().height()));
+  //animation.setEndValue(QRect(0, 0, w_debug.geometry().width(), w_debug.geometry().height()));
+  //animation.setEasingCurve(QEasingCurve::OutBounce);
+  //animation.start();
+
   #endif
 
   arraySlide = new QVector<Slide *>();
@@ -72,6 +81,7 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   arraySDV = new QVector<SlideDefaultView *>();
   for (int i=0;i<pageTotal();i++) {
     w = new SlideDefaultView(NULL, arraySlide->at(i));
+
 
 //    w->showThisWindow(); // ToFix: permet de bien charger les pages au debut
     // Signal void 	loadFinished ( bool ok ) sur webview
@@ -124,10 +134,25 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
 void MainApplication::change_slide(void)
 {
-    arraySDV->at(m_page)->showThisWindow();
-    timer1->setInterval(arraySlide->at(m_page)->delay);
+    SlideDefaultView *w_current;
+    SlideDefaultView *w_previous;
+    w_current = arraySDV->at(m_page);
+    w_previous = arraySDV->at(m_page_previous);
 
-    arraySDV->at(m_page_previous)->hideThisWindow();
+    timer1->setInterval(arraySlide->at(m_page)->delay); // useful if slides doesn't have same delay
+
+    w_current->showThisWindow();
+    w_previous->hideThisWindow();
+
+    /*
+    QPropertyAnimation animation(w_current, "geometry");
+    animation.setDuration(3000);
+    animation.setStartValue(QRect(500, 500, w_current->geometry().width(), w_current->geometry().height()));
+    animation.setEndValue(QRect(0, 0, w_current->geometry().width(), w_current->geometry().height()));
+    animation.setEasingCurve(QEasingCurve::OutBounce);
+    animation.start();
+    */
+
 }
 
 void MainApplication::update_timer1(void)
