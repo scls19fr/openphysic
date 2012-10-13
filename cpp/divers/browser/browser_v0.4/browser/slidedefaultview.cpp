@@ -126,10 +126,10 @@ void SlideDefaultView::reload_slide(void)
     ui->webView->load(this->m_slide->url);
     ui->webView->setZoomFactor(this->m_slide->zoom);
 
-    ui->lblLogo1->setText("");
-    ui->lblLogo2->setText("");
-    ui->lblLogo3->setText("");
-    ui->lblLogo4->setText("");
+    //ui->lblLogo1->setText("");
+    //ui->lblLogo2->setText("");
+    //ui->lblLogo3->setText("");
+    //ui->lblLogo4->setText("");
     //ui->lblLogo1->setPixmap(QPixmap("/Users/scls/aff_dyn/divers/browser/browser_v0.3/browser/logos/logo1.png"));
     //ui->lblLogo1->setPixmap(QPixmap(":/logos/logo1.png"));
     //ui->lblLogo1->pixmap()->scaledToHeight(100);
