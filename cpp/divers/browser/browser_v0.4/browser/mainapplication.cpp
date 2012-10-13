@@ -45,6 +45,7 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
   m_playing = true;
   m_page = 0;
+  flag_first_shot_timer1 = true;
 
   delayReloadData = 20*1000;
 
@@ -71,7 +72,7 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
   SlideDefaultView * w;
   arraySDV = new QVector<SlideDefaultView *>();
-  for (int i=0;i<pageTotal();i++) {
+  for (int i=pageTotal()-1;i>=0;i--) {
     w = new SlideDefaultView(NULL, arraySlide->at(i));
 
     w->showThisWindow(); // ToFix: permet de bien charger les pages au debut
@@ -101,10 +102,11 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   //print();
 
 
-
+/*
   if (isPlaying()) {
     change_slide();
   }
+*/
 
   this->exec();
 
@@ -123,16 +125,22 @@ void MainApplication::change_slide(void)
     arraySDV->at(i)->showThisWindow();
     timer1->setInterval(arraySlide->at(i)->delay);
 
-    for (int i=0;i<pageTotal();i++) {
-        if (i!=page()) {
-            arraySDV->at(i)->hideThisWindow();
-        }
-    }
+    arraySDV->at(m_page_previous)->hideThisWindow();
 }
 
 void MainApplication::update_timer1(void)
 {
-  next();
+    if (flag_first_shot_timer1) {
+        flag_first_shot_timer1 = false;
+        for (int i=0;i<pageTotal();i++) {
+            if (i!=page()) {
+                arraySDV->at(i)->hideThisWindow();
+            }
+        }
+        next();
+    } else {
+        next();
+    }
   //timer1->reset ?
   //setSingleShot(true)
 
@@ -183,6 +191,7 @@ void MainApplication::pause(void)
 void MainApplication::next(void)
 {
   //qDebug() << "next";
+  m_page_previous = m_page;
   if (m_page<pageTotal()-1) {
     m_page++;
   } else {
@@ -194,6 +203,7 @@ void MainApplication::next(void)
 void MainApplication::previous(void)
 {
   //qDebug() << "previous";
+  m_page_previous = m_page;
   if (m_page>0) {
     m_page--;
   } else {

@@ -79,11 +79,14 @@ class MainApplication : public QApplication
     QVector <SlideDefaultView*> *arraySDV;    // list of windows
 
     quint8 m_page;
+    quint8 m_page_previous;
     //quint8 m_N;
 
     bool m_playing;
     bool m_proxy_enabled;
     QNetworkProxy m_proxy;
+
+    bool flag_first_shot_timer1;
 
     //bool m_fullscreen;
 
