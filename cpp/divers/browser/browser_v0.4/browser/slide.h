@@ -33,6 +33,7 @@ public:
     QString url;
     QString message;
     int delay; // delay to change slide
+    int transition_duration; // duration of transition
     qreal zoom;
     // model
 

@@ -24,10 +24,12 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <QApplication>
 #include <QNetworkProxy>
 
+#include <QParallelAnimationGroup>
+
 #include "slidedefaultview.h"
 #include "slide.h"
 
-#define DEBUG
+//#define DEBUG
 #define CFG_FILE QLatin1String("browser.ini")
 #define CFG_DIR QDir::homePath()
 
@@ -87,6 +89,8 @@ class MainApplication : public QApplication
     QNetworkProxy m_proxy;
 
     bool flag_first_shot_timer1;
+
+    QParallelAnimationGroup *group_anim_slide;
 
     //bool m_fullscreen;
 

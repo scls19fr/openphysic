@@ -50,6 +50,16 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
   delayReloadData = 20*1000;
 
+  QDialog *wblank = new QDialog(NULL, 0);
+  wblank->setStyleSheet("background-color: white;");
+  //wblank->setFocusPolicy(Qt::NoFocus);
+  #ifdef DEBUG
+  wblank->setWindowState(Qt::WindowMaximized);
+  #else
+  wblank->setWindowState(Qt::WindowFullScreen);
+  #endif
+  wblank->show();
+
   //m_fullscreen = true;
   #ifdef DEBUG
   DebugWindow w_debug(NULL, this);
@@ -76,6 +86,7 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   timer2 = new QTimer(this);
   timer2->start(delayReloadData);
   connect( timer2, SIGNAL( timeout() ), this, SLOT( update_timer2() ) );
+
 
   SlideDefaultView * w;
   arraySDV = new QVector<SlideDefaultView *>();
@@ -141,8 +152,30 @@ void MainApplication::change_slide(void)
 
     timer1->setInterval(arraySlide->at(m_page)->delay); // useful if slides doesn't have same delay
 
+
     w_current->showThisWindow();
-    w_previous->hideThisWindow();
+
+    //QPropertyAnimation animation2(w_current, "windowOpacity");
+    group_anim_slide = new QParallelAnimationGroup;
+    QPropertyAnimation *anim_slide_current;
+    QPropertyAnimation *anim_slide_previous;
+
+    anim_slide_current = new QPropertyAnimation(w_current, "windowOpacity");
+    anim_slide_current->setDuration(slide_default.transition_duration);
+    anim_slide_current->setStartValue(0.0);
+    anim_slide_current->setEndValue(1.0);
+    anim_slide_current->setEasingCurve(QEasingCurve::Linear);
+    //anim_slide_current->start();
+
+    anim_slide_previous = new QPropertyAnimation(w_previous, "windowOpacity");
+    anim_slide_previous->setDuration(slide_default.transition_duration);
+    anim_slide_previous->setStartValue(1.0);
+    anim_slide_previous->setEndValue(0.0);
+    anim_slide_previous->setEasingCurve(QEasingCurve::Linear);
+
+    group_anim_slide->addAnimation(anim_slide_current);
+    group_anim_slide->addAnimation(anim_slide_previous);
+    group_anim_slide->start();
 
     /*
     QPropertyAnimation animation(w_current, "geometry");
@@ -152,6 +185,10 @@ void MainApplication::change_slide(void)
     animation.setEasingCurve(QEasingCurve::OutBounce);
     animation.start();
     */
+
+    //w_current->showThisWindow();
+
+    //w_previous->hideThisWindow();
 
 }
 
@@ -396,6 +433,7 @@ void MainApplication::load_config(void)
         slide_default.url = settings.value("url", slide_default.url).toString();
         slide_default.message = settings.value("message", slide_default.message).toString();
         slide_default.delay = settings.value("delay", slide_default.delay).toUInt();
+        slide_default.transition_duration = settings.value("transition_duration", slide_default.transition_duration).toUInt();
         slide_default.zoom = settings.value("zoom", slide_default.zoom).toReal();
         settings.endGroup();
 
@@ -461,6 +499,7 @@ void MainApplication::save_config(void)
     settings.setValue("url", slide_default.url);
     settings.setValue("message", slide_default.message);
     settings.setValue("delay", slide_default.delay);
+    settings.setValue("transition_duration", slide_default.transition_duration);
     settings.setValue("zoom", slide_default.zoom);
     settings.endGroup();
 
