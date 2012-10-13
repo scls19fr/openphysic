@@ -119,12 +119,9 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
 void MainApplication::change_slide(void)
 {
-    for (int i=0;i<pageTotal();i++) {
-        if (i==page()) {
-            arraySDV->at(i)->showThisWindow();
-            timer1->setInterval(arraySlide->at(i)->delay);
-        }
-    }
+    int i = page();
+    arraySDV->at(i)->showThisWindow();
+    timer1->setInterval(arraySlide->at(i)->delay);
 
     for (int i=0;i<pageTotal();i++) {
         if (i!=page()) {
