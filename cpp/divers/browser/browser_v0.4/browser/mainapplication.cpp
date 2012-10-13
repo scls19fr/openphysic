@@ -59,7 +59,6 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
   load_config();
 
-
   timer1 = new QTimer(this);
   //timer1->setInterval(1000);
   timer1->start(slide_default.delay);
@@ -69,13 +68,12 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   timer2->start(delayReloadData);
   connect( timer2, SIGNAL( timeout() ), this, SLOT( update_timer2() ) );
 
-
   SlideDefaultView * w;
   arraySDV = new QVector<SlideDefaultView *>();
-  for (int i=pageTotal()-1;i>=0;i--) {
+  for (int i=0;i<pageTotal();i++) {
     w = new SlideDefaultView(NULL, arraySlide->at(i));
 
-    w->showThisWindow(); // ToFix: permet de bien charger les pages au debut
+//    w->showThisWindow(); // ToFix: permet de bien charger les pages au debut
     // Signal void 	loadFinished ( bool ok ) sur webview
     //qSleep(500); //?
     //QThread::sleep(500);
@@ -86,8 +84,13 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
     connect(w, SIGNAL( PreviousPressed() ), this, SLOT( previous() ));
     //connect(w, SIGNAL( destroyed() ), this, SLOT( quit() ));
   }
-  arraySDV->at(0)->showThisWindow();
-  arraySDV->at(0)->setFocus();
+
+  for (int i=pageTotal()-1;i>=0;i--) {
+    arraySDV->at(i)->showThisWindow();
+  }
+
+  //arraySDV->at(0)->showThisWindow();
+  //arraySDV->at(0)->setFocus();
 
   /*
   bool isLoaded = false;
@@ -121,9 +124,8 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
 void MainApplication::change_slide(void)
 {
-    int i = page();
-    arraySDV->at(i)->showThisWindow();
-    timer1->setInterval(arraySlide->at(i)->delay);
+    arraySDV->at(m_page)->showThisWindow();
+    timer1->setInterval(arraySlide->at(m_page)->delay);
 
     arraySDV->at(m_page_previous)->hideThisWindow();
 }
