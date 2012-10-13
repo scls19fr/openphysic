@@ -78,6 +78,10 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
   load_config();
 
+  for (int i=0;i<pageTotal();i++) {
+      qDebug() << arraySlide->at(i)->message;
+  }
+
   timer1 = new QTimer(this);
   //timer1->setInterval(1000);
   timer1->start(slide_default.delay);
@@ -151,7 +155,7 @@ void MainApplication::change_slide(void)
     w_next = arraySDV->at(m_page_next); // ?
     w_current = arraySDV->at(m_page);
     w_previous = arraySDV->at(m_page_previous);
-    qDebug()<< "previous:" <<m_page_previous << " page=" << m_page << " next=" << m_page_next;
+    //qDebug()<< "previous:" <<m_page_previous << " page=" << m_page << " next=" << m_page_next;
 
     timer1->setInterval(arraySlide->at(m_page)->delay); // useful if slides doesn't have same delay
 
@@ -159,7 +163,6 @@ void MainApplication::change_slide(void)
     QPropertyAnimation *anim_slide_current;
     QPropertyAnimation *anim_slide_previous;
     QPropertyAnimation *anim_slide_next;
-
 
     switch (slide_default.transition_type) {
         case 1: {   // opacity
@@ -377,21 +380,21 @@ void MainApplication::load_config(void)
         /*
         s->title = QString("Title of this slide 0");
         s->url = QString("http://www.google.fr?q=test0");
-        s->message = QString("Message of slide 0");
+        s->message = QString("Message of slide 0.");
         //s->delay = 2000;
         arraySlide->append(s);
 
         s = new Slide();
         s->title = QString("Title of this slide 1");
         s->url = QString("http://www.google.fr?q=test1");
-        s->message = QString("Message of slide 1");
+        s->message = QString("Message of slide 1.");
         //s->delay = 3000;
         arraySlide->append(s);
 
         s = new Slide();
         s->title = QString("Title of this slide 2");
         s->url = QString("http://www.google.fr?q=test2");
-        s->message = QString("Message of slide 2");
+        s->message = QString("Message of slide 2.");
         //s->delay = 4000;
         arraySlide->append(s);
         */
@@ -414,21 +417,24 @@ void MainApplication::load_config(void)
 
         s->title = QString("Title of this slide 0");
         s->url = QString("http://www.google.fr?q=test0");
-        s->message = QString("Message of slide 0");
+        //s->message = QString("Message of slide 0");
+        s->message = QString("Lorem ipsum dolor sit amet, consectetur adipiscing elit. (slide 0) Sed non risus. (slide 0) Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. (slide 0) Cras elementum ultrices diam. (slide 0) Maecenas ligula massa, varius a, semper congue, euismod non, mi. (slide 0) Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. (slide 0) Duis semper. (slide 0) Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. (slide 0) Pellentesque congue. (slide 0)");
         //s->delay = 2000;
         arraySlide->append(s);
 
         s = new Slide();
         s->title = QString("Title of this slide 1");
         s->url = QString("http://www.google.fr?q=test1");
-        s->message = QString("Message of slide 1");
+        //s->message = QString("Message of slide 1");
+        s->message = QString("Lorem ipsum dolor sit amet, consectetur adipiscing elit. (slide 1) Sed non risus. (slide 1) Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. (slide 1) Cras elementum ultrices diam. (slide 1) Maecenas ligula massa, varius a, semper congue, euismod non, mi. (slide 1) Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. (slide 1) Duis semper. (slide 1) Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. (slide 1) Pellentesque congue. (slide 1)");
         //s->delay = 3000;
         arraySlide->append(s);
 
         s = new Slide();
         s->title = QString("Title of this slide 2");
         s->url = QString("http://www.google.fr?q=test2");
-        s->message = QString("Message of slide 2");
+        //s->message = QString("Message of slide 2");
+        s->message = QString("Lorem ipsum dolor sit amet, consectetur adipiscing elit. (slide 2) Sed non risus. (slide 2) Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. (slide 2) Cras elementum ultrices diam. (slide 2) Maecenas ligula massa, varius a, semper congue, euismod non, mi. (slide 2) Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. (slide 2) Duis semper. (slide 2) Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. (slide 2) Pellentesque congue. (slide 2)");
         //s->delay = 4000;
         arraySlide->append(s);
 

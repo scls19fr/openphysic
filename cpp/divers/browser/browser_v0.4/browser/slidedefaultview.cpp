@@ -36,6 +36,8 @@ SlideDefaultView::SlideDefaultView(QWidget *parent, Slide *slide) :
 
     m_slide = slide;
 
+    qDebug() << slide->message;
+
     reload_slide();
 
     timerW = new QTimer(this);
