@@ -82,6 +82,7 @@ class MainApplication : public QApplication
 
     quint8 m_page;
     quint8 m_page_previous;
+    quint8 m_page_next;
     //quint8 m_N;
 
     bool m_playing;
