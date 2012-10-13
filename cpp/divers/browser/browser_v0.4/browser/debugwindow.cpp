@@ -58,7 +58,7 @@ void DebugWindow::on_cmdPlay_clicked()
 void DebugWindow::on_cmdPause_clicked()
 {
     qDebug() << "Pause (debug window)";
-    m_app->stop();
+    m_app->pause();
 }
 
 /*

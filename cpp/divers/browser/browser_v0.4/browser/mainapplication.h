@@ -29,7 +29,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "slidedefaultview.h"
 #include "slide.h"
 
-//#define DEBUG
+#define DEBUG
 #define CFG_FILE QLatin1String("browser.ini")
 #define CFG_DIR QDir::homePath()
 
@@ -85,6 +85,7 @@ class MainApplication : public QApplication
     quint8 m_page_next;
     //quint8 m_N;
 
+    //bool m_debug_mode;
     bool m_playing;
     bool m_proxy_enabled;
     QNetworkProxy m_proxy;

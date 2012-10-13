@@ -73,6 +73,9 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   //animation.start();
   #endif
 
+  arraySDV = new QVector<SlideDefaultView *>();
+  //arraySlide = new QVector<Slide *>();
+
   load_config();
 
   timer1 = new QTimer(this);
@@ -83,10 +86,6 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   timer2 = new QTimer(this);
   timer2->start(delayReloadData);
   connect( timer2, SIGNAL( timeout() ), this, SLOT( update_timer2() ) );
-
-  for (int i=pageTotal()-1;i>=0;i--) {
-    arraySDV->at(i)->showThisWindow(); // ToFix: permet de bien charger les pages au debut
-  }
 
   this->exec();
 
@@ -463,7 +462,13 @@ void MainApplication::load_config(void)
         QFile::copy(CFG_DIR+"/"+CFG_FILE, CFG_DIR+"/"+CFG_FILE+"."+QDateTime::currentDateTime().toString(QString("yyyy-MM-dd_hh-mm-ss"))+".bak");
         QFile::remove(CFG_DIR+"/"+CFG_FILE);
         load_config();
+        return;
     }
+
+    for (int i=0;i<arraySDV->size();i++) {
+        delete arraySDV->at(i);
+    }
+    delete arraySDV;
 
     SlideDefaultView * w;
     arraySDV = new QVector<SlideDefaultView *>();
@@ -477,6 +482,11 @@ void MainApplication::load_config(void)
       connect(w, SIGNAL( ReloadConfigPressed() ), this, SLOT( load_config() ));
       //connect(w, SIGNAL( destroyed() ), this, SLOT( quit() ));
     }
+
+    for (int i=pageTotal()-1;i>=0;i--) {
+      arraySDV->at(i)->showThisWindow(); // ToFix: permet de bien charger les pages au debut
+    }
+
 }
 
 void MainApplication::save_config(void)
