@@ -161,28 +161,28 @@ void SlideDefaultView::keyPressEvent(QKeyEvent * event) // ToFix -> pass this to
   switch ( event->key() )
     {
     case Qt::Key_K: /* next */
-      qDebug() << "Next";
+      //qDebug() << "Next";
       emit NextPressed();
       break;
 
     case Qt::Key_J: /* previous */
-      qDebug() << "Previous";
+      //qDebug() << "Previous";
       emit PreviousPressed();
       break;
 
     case Qt::Key_Q: /* quit - just for test */
-      qDebug() << "Quit";
+      //qDebug() << "Quit";
       emit QuitPressed();
       close();
       break;
 
     case Qt::Key_R: /* Reload config file - just for test */
-      qDebug() << "Reload config file";
+      //qDebug() << "Reload config file";
       emit ReloadConfigPressed();
       break;
 
     case Qt::Key_U: /* Reload URL */
-      qDebug() << "Reload URL slide";
+      //qDebug() << "Reload URL slide";
       emit ReloadDataPressed();
       reload_slide();
       break;

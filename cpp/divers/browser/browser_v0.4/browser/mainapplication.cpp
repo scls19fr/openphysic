@@ -71,10 +71,7 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   //animation.setEndValue(QRect(0, 0, w_debug.geometry().width(), w_debug.geometry().height()));
   //animation.setEasingCurve(QEasingCurve::OutBounce);
   //animation.start();
-
   #endif
-
-  arraySlide = new QVector<Slide *>();
 
   load_config();
 
@@ -87,60 +84,12 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   timer2->start(delayReloadData);
   connect( timer2, SIGNAL( timeout() ), this, SLOT( update_timer2() ) );
 
-
-  SlideDefaultView * w;
-  arraySDV = new QVector<SlideDefaultView *>();
-  for (int i=0;i<pageTotal();i++) {
-    w = new SlideDefaultView(NULL, arraySlide->at(i));
-
-
-//    w->showThisWindow(); // ToFix: permet de bien charger les pages au debut
-    // Signal void 	loadFinished ( bool ok ) sur webview
-    //qSleep(500); //?
-    //QThread::sleep(500);
-    arraySDV->append(w);
-
-    connect(w, SIGNAL( QuitPressed() ), this, SLOT( quit() ));
-    connect(w, SIGNAL( NextPressed() ), this, SLOT( next() ));
-    connect(w, SIGNAL( PreviousPressed() ), this, SLOT( previous() ));
-    //connect(w, SIGNAL( destroyed() ), this, SLOT( quit() ));
-  }
-
   for (int i=pageTotal()-1;i>=0;i--) {
     arraySDV->at(i)->showThisWindow(); // ToFix: permet de bien charger les pages au debut
   }
 
-  //arraySDV->at(0)->showThisWindow();
-  //arraySDV->at(0)->setFocus();
-
-  /*
-  bool isLoaded = false;
-  while(!isLoaded) {
-      isLoaded = true;
-      for (int i=0;i<pageTotal();i++) {
-          isLoaded = isLoaded && arraySDV->at(i)->isLoaded();
-      }
-  }
-  */
-
-  //print();
-
-
-/*
-  if (isPlaying()) {
-    change_slide();
-  }
-*/
-
   this->exec();
 
-  //save_config();
-
-  /*
-  delete s;
-  delete w;
-  delete arraySDV;
-  */
 }
 
 void MainApplication::change_slide(void)
@@ -343,6 +292,8 @@ void MainApplication::print(void)
 
 void MainApplication::load_config(void)
 {
+    arraySlide = new QVector<Slide *>();
+
     QString msg;
     //QFile file( CFG_FILE );
     //QDir::setCurrent( CFG_DIR );
@@ -512,6 +463,19 @@ void MainApplication::load_config(void)
         QFile::copy(CFG_DIR+"/"+CFG_FILE, CFG_DIR+"/"+CFG_FILE+"."+QDateTime::currentDateTime().toString(QString("yyyy-MM-dd_hh-mm-ss"))+".bak");
         QFile::remove(CFG_DIR+"/"+CFG_FILE);
         load_config();
+    }
+
+    SlideDefaultView * w;
+    arraySDV = new QVector<SlideDefaultView *>();
+    for (int i=0;i<pageTotal();i++) {
+      w = new SlideDefaultView(NULL, arraySlide->at(i));
+      arraySDV->append(w);
+      connect(w, SIGNAL( QuitPressed() ), this, SLOT( quit() ));
+      connect(w, SIGNAL( NextPressed() ), this, SLOT( next() ));
+      connect(w, SIGNAL( PreviousPressed() ), this, SLOT( previous() ));
+      connect(w, SIGNAL( ReloadDataPressed() ), this, SLOT( update_timer2() ));
+      connect(w, SIGNAL( ReloadConfigPressed() ), this, SLOT( load_config() ));
+      //connect(w, SIGNAL( destroyed() ), this, SLOT( quit() ));
     }
 }
 
