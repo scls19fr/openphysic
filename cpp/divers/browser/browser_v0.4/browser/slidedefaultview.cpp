@@ -75,7 +75,7 @@ void SlideDefaultView::refresh_slide(void)
 {
     //this->show();
     //qDebug() << "refresh_slide" << m_slide->title;
-    ui->lblMessage->setText(this->m_slide->message);
+    ui->lblMessage->setText(this->m_slide->getMessage());
 
     QString datetimeLastUpdateString = m_slide->lastupdate.toString(QString("dd/MM/yyyy hh:mm:ss"));
     QString datetimeCurrentString = QDateTime::currentDateTime().toString(QString("dd/MM/yyyy hh:mm:ss"));
@@ -113,7 +113,8 @@ void SlideDefaultView::reload_slide(void)
     //QString datetimeLastUpdateString = m_slide->lastupdate.toString(QString("dd/MM/yyyy hh:mm:ss"));
     //QString datetimeCurrentString = QDateTime::currentDateTime().toString(QString("dd/MM/yyyy hh:mm:ss"));
 
-    ui->lblMessage->setText(this->m_slide->message);
+    this->m_slide->load_message();
+    ui->lblMessage->setText(this->m_slide->getMessage());
     //ui->lblSystem->setText(QString("MAJ: ")+datetimeLastUpdateString+QString("\tActuel: ")+datetimeCurrentString);
 
     // disable vertical scrollbar

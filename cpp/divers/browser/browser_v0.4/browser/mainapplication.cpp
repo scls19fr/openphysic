@@ -364,7 +364,7 @@ void MainApplication::load_config(void)
         s->title = QString("Title of this slide 0");
         s->url = QString("http://www.google.fr?q=test0");
         //s->message = QString("Message of slide 0");
-        s->message = QString("Lorem ipsum dolor sit amet, consectetur adipiscing elit. (slide 0) Sed non risus. (slide 0) Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. (slide 0) Cras elementum ultrices diam. (slide 0) Maecenas ligula massa, varius a, semper congue, euismod non, mi. (slide 0) Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. (slide 0) Duis semper. (slide 0) Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. (slide 0) Pellentesque congue. (slide 0)");
+        s->setMessage(QString("Lorem ipsum dolor sit amet, consectetur adipiscing elit. (slide 0) Sed non risus. (slide 0) Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. (slide 0) Cras elementum ultrices diam. (slide 0) Maecenas ligula massa, varius a, semper congue, euismod non, mi. (slide 0) Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. (slide 0) Duis semper. (slide 0) Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. (slide 0) Pellentesque congue. (slide 0)"));
         //s->delay = 2000;
         arraySlide->append(s);
 
@@ -372,7 +372,7 @@ void MainApplication::load_config(void)
         s->title = QString("Title of this slide 1");
         s->url = QString("http://www.google.fr?q=test1");
         //s->message = QString("Message of slide 1");
-        s->message = QString("Lorem ipsum dolor sit amet, consectetur adipiscing elit. (slide 1) Sed non risus. (slide 1) Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. (slide 1) Cras elementum ultrices diam. (slide 1) Maecenas ligula massa, varius a, semper congue, euismod non, mi. (slide 1) Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. (slide 1) Duis semper. (slide 1) Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. (slide 1) Pellentesque congue. (slide 1)");
+        s->setMessage(QString("Lorem ipsum dolor sit amet, consectetur adipiscing elit. (slide 1) Sed non risus. (slide 1) Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. (slide 1) Cras elementum ultrices diam. (slide 1) Maecenas ligula massa, varius a, semper congue, euismod non, mi. (slide 1) Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. (slide 1) Duis semper. (slide 1) Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. (slide 1) Pellentesque congue. (slide 1)"));
         //s->delay = 3000;
         arraySlide->append(s);
 
@@ -380,7 +380,7 @@ void MainApplication::load_config(void)
         s->title = QString("Title of this slide 2");
         s->url = QString("http://www.google.fr?q=test2");
         //s->message = QString("Message of slide 2");
-        s->message = QString("Lorem ipsum dolor sit amet, consectetur adipiscing elit. (slide 2) Sed non risus. (slide 2) Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. (slide 2) Cras elementum ultrices diam. (slide 2) Maecenas ligula massa, varius a, semper congue, euismod non, mi. (slide 2) Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. (slide 2) Duis semper. (slide 2) Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. (slide 2) Pellentesque congue. (slide 2)");
+        s->setMessage(QString("Lorem ipsum dolor sit amet, consectetur adipiscing elit. (slide 2) Sed non risus. (slide 2) Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. (slide 2) Cras elementum ultrices diam. (slide 2) Maecenas ligula massa, varius a, semper congue, euismod non, mi. (slide 2) Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. (slide 2) Duis semper. (slide 2) Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. (slide 2) Pellentesque congue. (slide 2)"));
         //s->delay = 4000;
         arraySlide->append(s);
 
@@ -424,7 +424,8 @@ void MainApplication::load_config(void)
         settings.beginGroup("slide_default");
         slide_default.title = settings.value("title", slide_default.title).toString();
         slide_default.url = settings.value("url", slide_default.url).toString();
-        slide_default.message = settings.value("message", slide_default.message).toString();
+        slide_default.message_file = settings.value("message_file", slide_default.message_file).toString();
+        slide_default.setMessage(settings.value("message", slide_default.getMessage()).toString());
         slide_default.delay = settings.value("delay", slide_default.delay).toUInt();
         slide_default.transition_type = settings.value("transition_type", slide_default.transition_type).toUInt();
         slide_default.transition_duration = settings.value("transition_duration", slide_default.transition_duration).toUInt();
@@ -447,7 +448,8 @@ void MainApplication::load_config(void)
             settings.beginGroup((*stlIter));
             s->title = settings.value("title", slide_default.title).toString();
             s->url = settings.value("url", slide_default.url).toString();
-            s->message = settings.value("message", slide_default.message).toString();
+            s->message_file = settings.value("message_file", slide_default.message_file).toString();
+            s->setMessage(settings.value("message", slide_default.getMessage()).toString());
             s->delay = settings.value("delay", slide_default.delay).toUInt();
             s->zoom = settings.value("zoom", slide_default.zoom).toReal();
             settings.endGroup();
@@ -515,7 +517,8 @@ void MainApplication::save_config(void)
     settings.beginGroup("slide_default");
     settings.setValue("title", slide_default.title);
     settings.setValue("url", slide_default.url);
-    settings.setValue("message", slide_default.message);
+    settings.setValue("message_file", slide_default.message_file);
+    settings.setValue("message", slide_default.getMessage());
     settings.setValue("delay", slide_default.delay);
     settings.setValue("transition_type", slide_default.transition_type);
     settings.setValue("transition_duration", slide_default.transition_duration);
@@ -538,7 +541,8 @@ void MainApplication::save_config(void)
         settings.beginGroup(QString::number(i));
         settings.setValue("title", arraySlide->at(i)->title);
         settings.setValue("url", arraySlide->at(i)->url);
-        settings.setValue("message", arraySlide->at(i)->message);
+        settings.setValue("message_file", arraySlide->at(i)->message_file);
+        settings.setValue("message", arraySlide->at(i)->getMessage());
         settings.setValue("delay", arraySlide->at(i)->delay);
         settings.setValue("zoom", arraySlide->at(i)->zoom);
         settings.endGroup();

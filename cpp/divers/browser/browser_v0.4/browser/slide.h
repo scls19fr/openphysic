@@ -31,7 +31,7 @@ public:
 
     QString title;
     QString url;
-    QString message;
+    QString message_file;
     int delay; // delay to change slide
     int transition_type;
     int transition_duration; // duration of transition
@@ -41,10 +41,19 @@ public:
     QDateTime lastupdate;
     int delay_refresh; // delay to refresh window (200ms)
 
+    void load_message(void);
+
+    QString getMessage(void) const;
+    void setMessage(QString msg);
+
 signals:
     
 public slots:
-    
+
+private:
+    QString m_message; // contains file message or config message
+    QString message;
+
 };
 
 #endif // SLIDE_H
