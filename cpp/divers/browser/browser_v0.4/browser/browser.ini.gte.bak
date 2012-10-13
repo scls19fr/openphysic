@@ -16,7 +16,8 @@ title=Titre par defaut
 url="http://www.google.fr?q=defaut"
 message=Pas de message
 delay=5000
-transition_duration=500
+transition_type=1
+transition_duration=1000
 zoom=1
 
 [slides]
@@ -41,3 +42,4 @@ show_slides="0,1,2"
 3\message=Pas de message
 3\delay=10000
 3\zoom=1
+

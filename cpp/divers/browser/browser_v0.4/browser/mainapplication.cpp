@@ -48,7 +48,7 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   m_page = 0;
   flag_first_shot_timer1 = true;
 
-  delayReloadData = 20*1000;
+  delayReloadData = 5*60*1000; // reload data
 
   QDialog *wblank = new QDialog(NULL, 0);
   wblank->setStyleSheet("background-color: white;");
@@ -152,20 +152,75 @@ void MainApplication::change_slide(void)
 
     timer1->setInterval(arraySlide->at(m_page)->delay); // useful if slides doesn't have same delay
 
-
-    w_current->showThisWindow();
-
-    //QPropertyAnimation animation2(w_current, "windowOpacity");
     group_anim_slide = new QParallelAnimationGroup;
     QPropertyAnimation *anim_slide_current;
     QPropertyAnimation *anim_slide_previous;
 
+    switch (slide_default.transition_type) {
+        case 1: {// opacity
+            anim_slide_current = new QPropertyAnimation(w_current, "windowOpacity");
+            anim_slide_current->setDuration(slide_default.transition_duration);
+            anim_slide_current->setStartValue(0.0);
+            anim_slide_current->setEndValue(1.0);
+            anim_slide_current->setEasingCurve(QEasingCurve::Linear);
+
+            anim_slide_previous = new QPropertyAnimation(w_previous, "windowOpacity");
+            anim_slide_previous->setDuration(slide_default.transition_duration);
+            anim_slide_previous->setStartValue(1.0);
+            anim_slide_previous->setEndValue(0.0);
+            anim_slide_previous->setEasingCurve(QEasingCurve::Linear);
+
+            group_anim_slide->addAnimation(anim_slide_current);
+            group_anim_slide->addAnimation(anim_slide_previous);
+            group_anim_slide->start();
+            break;
+        }
+        case 2: {// scroll
+            #ifdef DEBUG
+            QRect geom_enter = QRect(500+w_current->geometry().width(), 250, w_current->geometry().width(), w_current->geometry().height());
+            QRect geom_view  = QRect(500, 250, w_current->geometry().width(), w_current->geometry().height());
+            QRect geom_exit  = QRect(500-w_current->geometry().width(), 250, w_current->geometry().width(), w_current->geometry().height());
+            #else
+            QRect geom_enter = QRect(w_current->geometry().width(), 0, w_current->geometry().width(), w_current->geometry().height());
+            QRect geom_view  = QRect(0, 0, w_current->geometry().width(), w_current->geometry().height());
+            QRect geom_exit  = QRect(-w_current->geometry().width(), 0, w_current->geometry().width(), w_current->geometry().height());
+            #endif
+
+            anim_slide_current = new QPropertyAnimation(w_current, "geometry");
+            anim_slide_current->setDuration(slide_default.transition_duration);
+            anim_slide_current->setStartValue(geom_enter);
+            anim_slide_current->setEndValue(geom_view);
+            anim_slide_current->setEasingCurve(QEasingCurve::Linear);
+
+            anim_slide_previous = new QPropertyAnimation(w_previous, "geometry");
+            anim_slide_previous->setDuration(slide_default.transition_duration);
+            anim_slide_previous->setStartValue(geom_view);
+            anim_slide_previous->setEndValue(geom_exit);
+            anim_slide_previous->setEasingCurve(QEasingCurve::Linear);
+
+            group_anim_slide->addAnimation(anim_slide_current);
+            group_anim_slide->addAnimation(anim_slide_previous);
+            group_anim_slide->start();
+
+            break;
+        }
+        default: {// no transition
+            w_previous->hideThisWindow();
+            break;
+        }
+    }
+
+
+    w_current->showThisWindow();
+
+    //QPropertyAnimation animation2(w_current, "windowOpacity");
+
+    /*
     anim_slide_current = new QPropertyAnimation(w_current, "windowOpacity");
     anim_slide_current->setDuration(slide_default.transition_duration);
     anim_slide_current->setStartValue(0.0);
     anim_slide_current->setEndValue(1.0);
     anim_slide_current->setEasingCurve(QEasingCurve::Linear);
-    //anim_slide_current->start();
 
     anim_slide_previous = new QPropertyAnimation(w_previous, "windowOpacity");
     anim_slide_previous->setDuration(slide_default.transition_duration);
@@ -176,6 +231,9 @@ void MainApplication::change_slide(void)
     group_anim_slide->addAnimation(anim_slide_current);
     group_anim_slide->addAnimation(anim_slide_previous);
     group_anim_slide->start();
+    */
+
+
 
     /*
     QPropertyAnimation animation(w_current, "geometry");
@@ -433,6 +491,7 @@ void MainApplication::load_config(void)
         slide_default.url = settings.value("url", slide_default.url).toString();
         slide_default.message = settings.value("message", slide_default.message).toString();
         slide_default.delay = settings.value("delay", slide_default.delay).toUInt();
+        slide_default.transition_type = settings.value("transition_type", slide_default.transition_type).toUInt();
         slide_default.transition_duration = settings.value("transition_duration", slide_default.transition_duration).toUInt();
         slide_default.zoom = settings.value("zoom", slide_default.zoom).toReal();
         settings.endGroup();
@@ -499,6 +558,7 @@ void MainApplication::save_config(void)
     settings.setValue("url", slide_default.url);
     settings.setValue("message", slide_default.message);
     settings.setValue("delay", slide_default.delay);
+    settings.setValue("transition_type", slide_default.transition_type);
     settings.setValue("transition_duration", slide_default.transition_duration);
     settings.setValue("zoom", slide_default.zoom);
     settings.endGroup();

@@ -28,7 +28,8 @@ Slide::Slide(QObject *parent) :
     url = QString("http://www.google.fr?q=defaut");
     message = QString("Pas de message");
     delay = 5000;
-    transition_duration = 2000;
+    transition_type = 1; // 0=no transition ; 1=opacity ; 2=scroll from right to left
+    transition_duration = 1000;
     zoom = 1.0;
 
     delay_refresh = 200;
