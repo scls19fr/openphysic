@@ -23,9 +23,11 @@ QString ScrollText::text() const
 
 void ScrollText::setText(QString text)
 {
-    _text = text;
-    updateText();
-    update();
+    if (text!=_text) {
+        _text = text;
+        updateText();
+        update();
+    }
 }
 
 QString ScrollText::separator() const
@@ -45,16 +47,20 @@ void ScrollText::updateText()
     timer.stop();
 
     singleTextWidth = fontMetrics().width(_text);
-    scrollEnabled = (singleTextWidth > width() - leftMargin);
+
+    //scrollEnabled = (singleTextWidth > width() - leftMargin);
+
+    scrollEnabled = _text.length()>0;
 
     if(scrollEnabled)
     {
         scrollPos = -64;
         staticText.setText(_text + _separator);
         timer.start();
+    } else {
+//        staticText.setText(_text);
+        staticText.setText("Pas de message");
     }
-    else
-        staticText.setText(_text);
 
     staticText.prepare(QTransform(), font());
     wholeTextSize = QSize(fontMetrics().width(staticText.text()), fontMetrics().height());

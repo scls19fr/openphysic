@@ -75,6 +75,7 @@ void SlideDefaultView::refresh_slide(void)
 {
     //this->show();
     //qDebug() << "refresh_slide" << m_slide->title;
+    ui->lblMessage->setText(this->m_slide->message);
 
     QString datetimeLastUpdateString = m_slide->lastupdate.toString(QString("dd/MM/yyyy hh:mm:ss"));
     QString datetimeCurrentString = QDateTime::currentDateTime().toString(QString("dd/MM/yyyy hh:mm:ss"));
@@ -109,11 +110,11 @@ void SlideDefaultView::reload_slide(void)
 
     m_slide->lastupdate = QDateTime::currentDateTime();
 
-    QString datetimeLastUpdateString = m_slide->lastupdate.toString(QString("dd/MM/yyyy hh:mm:ss"));
-    QString datetimeCurrentString = QDateTime::currentDateTime().toString(QString("dd/MM/yyyy hh:mm:ss"));
+    //QString datetimeLastUpdateString = m_slide->lastupdate.toString(QString("dd/MM/yyyy hh:mm:ss"));
+    //QString datetimeCurrentString = QDateTime::currentDateTime().toString(QString("dd/MM/yyyy hh:mm:ss"));
 
     ui->lblMessage->setText(this->m_slide->message);
-    ui->lblSystem->setText(QString("MAJ: ")+datetimeLastUpdateString+QString("\tActuel: ")+datetimeCurrentString);
+    //ui->lblSystem->setText(QString("MAJ: ")+datetimeLastUpdateString+QString("\tActuel: ")+datetimeCurrentString);
 
     // disable vertical scrollbar
     ui->webView->page()->mainFrame()->setScrollBarPolicy(Qt::Vertical,Qt::ScrollBarAlwaysOff);

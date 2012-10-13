@@ -26,7 +26,7 @@ Slide::Slide(QObject *parent) :
 {
     title = QString("Titre par defaut");
     url = QString("http://www.google.fr?q=defaut");
-    message = QString("Pas de message");
+    message = QString("Pas de message"); // in ini file use "..."
     delay = 5000;
     transition_type = 1; // 0=no transition ; 1=opacity ; 2=scroll from right to left
     transition_duration = 1000;

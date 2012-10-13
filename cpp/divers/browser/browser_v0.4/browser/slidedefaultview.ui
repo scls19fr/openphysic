@@ -86,18 +86,12 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <widget class="QLabel" name="lblMessage">
+         <widget class="ScrollText" name="lblMessage" native="true">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
-          </property>
-          <property name="text">
-           <string>lblMessage</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -165,6 +159,12 @@
    <class>QWebView</class>
    <extends>QWidget</extends>
    <header>QtWebKit/QWebView</header>
+  </customwidget>
+  <customwidget>
+   <class>ScrollText</class>
+   <extends>QWidget</extends>
+   <header>scrolltext.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

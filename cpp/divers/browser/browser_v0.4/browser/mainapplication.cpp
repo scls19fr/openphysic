@@ -107,7 +107,7 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   }
 
   for (int i=pageTotal()-1;i>=0;i--) {
-    arraySDV->at(i)->showThisWindow();
+    arraySDV->at(i)->showThisWindow(); // ToFix: permet de bien charger les pages au debut
   }
 
   //arraySDV->at(0)->showThisWindow();
