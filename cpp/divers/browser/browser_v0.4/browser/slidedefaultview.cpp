@@ -131,10 +131,11 @@ void SlideDefaultView::reload_slide(void)
     ui->lblLogo3->setText("");
     ui->lblLogo4->setText("");
     //ui->lblLogo1->setPixmap(QPixmap("/Users/scls/aff_dyn/divers/browser/browser_v0.3/browser/logos/logo1.png"));
-    //ui->lblLogo1->setPixmap(QPixmap(":/logo1.png"));
-    ui->lblLogo1->pixmap()->scaledToHeight(100);
+    //ui->lblLogo1->setPixmap(QPixmap(":/logos/logo1.png"));
+    //ui->lblLogo1->pixmap()->scaledToHeight(100);
     //ui->lblLogo1->pixmap()->scaled(100,100);
-    //ui->lblLogo2->setPixmap(QPixmap("logo2.png"));
+    //ui->lblLogo2->setPixmap(QPixmap(":/logos/logo2.png"));
+    //ui->lblLogo2->pixmap()->scaledToHeight(10);
     //ui->lblLogo3->setPixmap(QPixmap("logo3.png"));
     //ui->lblLogo4->setPixmap(QPixmap("logo4.png"));
 

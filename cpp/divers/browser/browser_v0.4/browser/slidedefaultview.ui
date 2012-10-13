@@ -60,9 +60,6 @@
           <property name="text">
            <string/>
           </property>
-          <property name="pixmap">
-           <pixmap resource="screen.qrc">:/logos/logo1.png</pixmap>
-          </property>
          </widget>
         </item>
         <item>
@@ -245,8 +242,6 @@
    <header>QtWebKit/QWebView</header>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="screen.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
