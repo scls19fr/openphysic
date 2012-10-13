@@ -78,10 +78,6 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
   load_config();
 
-  for (int i=0;i<pageTotal();i++) {
-      qDebug() << arraySlide->at(i)->message;
-  }
-
   timer1 = new QTimer(this);
   //timer1->setInterval(1000);
   timer1->start(slide_default.delay);
