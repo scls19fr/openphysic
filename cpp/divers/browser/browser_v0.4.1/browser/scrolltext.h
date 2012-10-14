@@ -1,11 +1,13 @@
 #ifndef SCROLLTEXT_H
 #define SCROLLTEXT_H
 
+#include <QLabel> // scls
 #include <QWidget>
 #include <QStaticText>
 #include <QTimer>
 
-class ScrollText : public QWidget
+//class ScrollText : public QLabel
+class ScrollText : public QLabel
 {
     Q_OBJECT
     Q_PROPERTY(QString text READ text WRITE setText)
