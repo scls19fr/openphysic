@@ -1,0 +1,3 @@
+$ r
+
+> source('main.R')
