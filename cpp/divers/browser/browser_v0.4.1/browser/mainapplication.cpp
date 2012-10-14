@@ -552,6 +552,7 @@ void MainApplication::save_config(void)
         settings.setValue("url", arraySlide->at(i)->url);
         settings.setValue("message_file", arraySlide->at(i)->message_file);
         settings.setValue("message", arraySlide->at(i)->getMessage());
+        //qDebug()<< arraySlide->at(i)->getMessage(); // ToFix
         settings.setValue("delay", arraySlide->at(i)->delay);
         settings.setValue("zoom", arraySlide->at(i)->zoom);
         settings.endGroup();

@@ -73,4 +73,5 @@ QString Slide::getMessage(void) const {
 
 void Slide::setMessage(const QString msg) {
     message = msg;
+    load_message();
 }
