@@ -29,7 +29,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "slidedefaultview.h"
 #include "slide.h"
 
-//#define DEBUG
+#define DEBUG
+#define WEBKIT_ENABLED
 #define CFG_FILE QLatin1String("browser.ini")
 #define CFG_DIR QDir::homePath()
 

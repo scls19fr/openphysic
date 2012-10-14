@@ -15,13 +15,15 @@ SOURCES += main.cpp\
     slide.cpp \
     mainapplication.cpp \
     debugwindow.cpp \
-    scrolltext.cpp
+    scrolltext.cpp \
+    slideabstractview.cpp
 
 HEADERS  += slidedefaultview.h \
     slide.h \
     mainapplication.h \
     debugwindow.h \
-    scrolltext.h
+    scrolltext.h \
+    slideabstractview.h
 
 FORMS    += slidedefaultview.ui \
     debugwindow.ui
