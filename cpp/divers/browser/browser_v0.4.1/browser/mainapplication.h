@@ -80,6 +80,7 @@ class MainApplication : public QApplication
     void change_slide(void);
 
     QVector <SlideDefaultView*> *arraySDV;    // list of windows
+    QDialog *wblank;
 
     quint8 m_page;
     quint8 m_page_previous;

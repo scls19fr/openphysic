@@ -52,20 +52,6 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
   delayReloadData = 5*60*1000; // reload data
 
-  //wblank->setFocusPolicy(Qt::NoFocus);
-  //SlideDefaultView *sdv = new SlideDefaultView(NULL,0);
-  #ifdef DEBUG
-  //wblank->setStyleSheet("background-color: white;");
-  //wblank->setGeometry(QRect(100,200,1000,500));
-  //wblank->show();
-  #else
-  QDialog *wblank = new QDialog(NULL, 0);
-  wblank->setStyleSheet("background-color: white;");
-  //wblank->setWindowState(Qt::WindowMaximized);
-  wblank->setWindowState(Qt::WindowFullScreen);
-  wblank->show();
-  #endif
-
   //m_fullscreen = true;
   #ifdef DEBUG
   DebugWindow w_debug(NULL, this);
@@ -419,7 +405,6 @@ void MainApplication::load_config(void)
         this->m_playing = settings.value("playing", this->m_playing).toBool();
         if (m_first_load) {
             this->m_page = settings.value("page", this->m_page).toUInt();
-            m_first_load = false;
         }
         this->delayReloadData = settings.value("delayReloadData", this->delayReloadData).toUInt();
         settings.endGroup();
@@ -503,6 +488,19 @@ void MainApplication::load_config(void)
       //connect(w, SIGNAL( destroyed() ), this, SLOT( quit() ));
     }
 
+    if (m_first_load) {
+        wblank = new QDialog(NULL, 0);
+    }
+    wblank->setStyleSheet("background-color: white;");
+    #ifdef DEBUG
+    wblank->setGeometry(arraySDV->at(0)->geometry()); // QRect(100,200,1000,500)
+    wblank->show();
+    #else
+    //wblank->setWindowState(Qt::WindowMaximized);
+    wblank->setWindowState(Qt::WindowFullScreen);
+    wblank->show();
+    #endif
+
     for (int i=pageTotal()-1;i>=0;i--) {
         if (i!=m_page) {
             arraySDV->at(i)->showThisWindow(); // ToFix: permet de bien charger les pages au debut
@@ -511,6 +509,9 @@ void MainApplication::load_config(void)
 
     arraySDV->at(m_page)->showThisWindow();
 
+    if (m_first_load) {
+        m_first_load = false;
+    }
 }
 
 void MainApplication::save_config(void)
