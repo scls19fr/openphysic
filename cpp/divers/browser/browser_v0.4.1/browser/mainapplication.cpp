@@ -71,13 +71,14 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   DebugWindow w_debug(NULL, this);
   w_debug.show();
 
-
+  /*
   QPropertyAnimation animation(&w_debug, "geometry");
   animation.setDuration(3000);
   animation.setStartValue(QRect(500, 500, w_debug.geometry().width(), w_debug.geometry().height()));
   animation.setEndValue(QRect(0, 0, w_debug.geometry().width(), w_debug.geometry().height()));
   animation.setEasingCurve(QEasingCurve::OutBounce);
   animation.start();
+  */
 
   #endif
 
