@@ -432,8 +432,11 @@ void MainApplication::load_config(void)
         m_proxy.setPassword(settings.value("setPassword", m_proxy.password()).toString());
         settings.endGroup();
 
-        QNetworkProxy::setApplicationProxy(m_proxy);
-
+        if (m_proxy_enabled) {
+            QNetworkProxy::setApplicationProxy(m_proxy);
+        } else {
+            QNetworkProxy::setApplicationProxy(QNetworkProxy::NoProxy);
+        }
         //qDebug() << m_proxy_enabled;
         qDebug() << (m_proxy.type() == QNetworkProxy::HttpProxy);
         qDebug() << (m_proxy.hostName() == "cache.univ-poitiers.fr");
