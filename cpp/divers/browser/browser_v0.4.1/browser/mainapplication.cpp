@@ -53,10 +53,11 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   delayReloadData = 5*60*1000; // reload data
 
   //wblank->setFocusPolicy(Qt::NoFocus);
+  QDialog *wblank = new QDialog(NULL, 0);
+  //SlideDefaultView *sdv = new SlideDefaultView(NULL,0);
   #ifdef DEBUG
   //wblank->setWindowState(Qt::WindowMaximized);
   #else
-  QDialog *wblank = new QDialog(NULL, 0);
   wblank->setStyleSheet("background-color: white;");
   wblank->setWindowState(Qt::WindowFullScreen);
   wblank->show();
@@ -67,12 +68,14 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   DebugWindow w_debug(NULL, this);
   w_debug.show();
 
-  //QPropertyAnimation animation(&w_debug, "geometry");
-  //animation.setDuration(3000);
-  //animation.setStartValue(QRect(500, 500, w_debug.geometry().width(), w_debug.geometry().height()));
-  //animation.setEndValue(QRect(0, 0, w_debug.geometry().width(), w_debug.geometry().height()));
-  //animation.setEasingCurve(QEasingCurve::OutBounce);
-  //animation.start();
+  /*
+  QPropertyAnimation animation(&w_debug, "geometry");
+  animation.setDuration(3000);
+  animation.setStartValue(QRect(500, 500, w_debug.geometry().width(), w_debug.geometry().height()));
+  animation.setEndValue(QRect(0, 0, w_debug.geometry().width(), w_debug.geometry().height()));
+  animation.setEasingCurve(QEasingCurve::OutBounce);
+  animation.start();
+  */
   #endif
 
   arraySDV = new QVector<SlideDefaultView *>();
@@ -425,6 +428,7 @@ void MainApplication::load_config(void)
         m_proxy.setUser(settings.value("setUser", m_proxy.user()).toString());
         m_proxy.setPassword(settings.value("setPassword", m_proxy.password()).toString());
         settings.endGroup();
+
 
         settings.beginGroup("slide_default");
         slide_default.title = settings.value("title", slide_default.title).toString();
