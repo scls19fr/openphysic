@@ -437,15 +437,6 @@ void MainApplication::load_config(void)
         } else {
             QNetworkProxy::setApplicationProxy(QNetworkProxy::NoProxy);
         }
-        //qDebug() << m_proxy_enabled;
-        qDebug() << (m_proxy.type() == QNetworkProxy::HttpProxy);
-        qDebug() << (m_proxy.hostName() == "cache.univ-poitiers.fr");
-        //qDebug() << "---" + "cache.univ-poitiers.fr" + "---";
-        qDebug() << "---" + m_proxy.hostName() + "---";
-        qDebug() << (m_proxy.port() == 3128);
-        qDebug() << m_proxy.user();
-        qDebug() << m_proxy.password();
-        //qDebug() << QNetworkProxy::applicationProxy;
 
         settings.beginGroup("slide_default");
         slide_default.title = settings.value("title", slide_default.title).toString();
