@@ -53,12 +53,15 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   delayReloadData = 5*60*1000; // reload data
 
   //wblank->setFocusPolicy(Qt::NoFocus);
-  QDialog *wblank = new QDialog(NULL, 0);
   //SlideDefaultView *sdv = new SlideDefaultView(NULL,0);
   #ifdef DEBUG
-  //wblank->setWindowState(Qt::WindowMaximized);
+  //wblank->setStyleSheet("background-color: white;");
+  //wblank->setGeometry(QRect(100,200,1000,500));
+  //wblank->show();
   #else
+  QDialog *wblank = new QDialog(NULL, 0);
   wblank->setStyleSheet("background-color: white;");
+  //wblank->setWindowState(Qt::WindowMaximized);
   wblank->setWindowState(Qt::WindowFullScreen);
   wblank->show();
   #endif
@@ -68,14 +71,14 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   DebugWindow w_debug(NULL, this);
   w_debug.show();
 
-  /*
+
   QPropertyAnimation animation(&w_debug, "geometry");
   animation.setDuration(3000);
   animation.setStartValue(QRect(500, 500, w_debug.geometry().width(), w_debug.geometry().height()));
   animation.setEndValue(QRect(0, 0, w_debug.geometry().width(), w_debug.geometry().height()));
   animation.setEasingCurve(QEasingCurve::OutBounce);
   animation.start();
-  */
+
   #endif
 
   arraySDV = new QVector<SlideDefaultView *>();
@@ -392,10 +395,10 @@ void MainApplication::load_config(void)
         m_proxy_enabled = false;
         //m_proxy.setType(QNetworkProxy::Socks5Proxy);
         m_proxy.setType(QNetworkProxy::HttpProxy);
-        m_proxy.setHostName("proxy.example.com");
-        m_proxy.setPort(8080);
-        m_proxy.setUser("username");
-        m_proxy.setPassword("password");
+        m_proxy.setHostName("cache.univ-poitiers.fr");
+        m_proxy.setPort(3128);
+        m_proxy.setUser("");
+        m_proxy.setPassword("");
         if (m_proxy_enabled) {
             QNetworkProxy::setApplicationProxy(m_proxy);
         } else {
@@ -421,7 +424,7 @@ void MainApplication::load_config(void)
         settings.endGroup();
 
         settings.beginGroup("proxy");
-        m_proxy_enabled = settings.value("enabled", m_proxy_enabled).toBool();
+        //m_proxy_enabled = settings.value("enabled", m_proxy_enabled).toBool();
         m_proxy.setType((QNetworkProxy::ProxyType) settings.value("setType", m_proxy.type()).toUInt()); // ToFix ?
         m_proxy.setHostName(settings.value("setHostName", m_proxy.hostName()).toString());
         m_proxy.setPort(settings.value("setPort", m_proxy.port()).toUInt()); // ToFix:QUint16
@@ -429,6 +432,17 @@ void MainApplication::load_config(void)
         m_proxy.setPassword(settings.value("setPassword", m_proxy.password()).toString());
         settings.endGroup();
 
+        QNetworkProxy::setApplicationProxy(m_proxy);
+
+        //qDebug() << m_proxy_enabled;
+        qDebug() << (m_proxy.type() == QNetworkProxy::HttpProxy);
+        qDebug() << (m_proxy.hostName() == "cache.univ-poitiers.fr");
+        //qDebug() << "---" + "cache.univ-poitiers.fr" + "---";
+        qDebug() << "---" + m_proxy.hostName() + "---";
+        qDebug() << (m_proxy.port() == 3128);
+        qDebug() << m_proxy.user();
+        qDebug() << m_proxy.password();
+        //qDebug() << QNetworkProxy::applicationProxy;
 
         settings.beginGroup("slide_default");
         slide_default.title = settings.value("title", slide_default.title).toString();
