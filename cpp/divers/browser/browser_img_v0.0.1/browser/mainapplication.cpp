@@ -320,6 +320,7 @@ void MainApplication::load_config(void)
         s->url = QString("C:/Documents and Settings/scelles/display_img/img/slide0.gif");
         //s->message = QString("Message of slide 0");
         s->setMessage(QString("Lorem ipsum dolor sit amet, consectetur adipiscing elit. (slide 0) Sed non risus. (slide 0) Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. (slide 0) Cras elementum ultrices diam. (slide 0) Maecenas ligula massa, varius a, semper congue, euismod non, mi. (slide 0) Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. (slide 0) Duis semper. (slide 0) Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. (slide 0) Pellentesque congue. (slide 0)"));
+        s->message_file = QString("C:/Documents and Settings/scelles/display_img/messages/slide0.txt");
         //s->delay = 2000;
         arraySlide->append(s);
 
@@ -328,6 +329,7 @@ void MainApplication::load_config(void)
         s->url = QString("C:/Documents and Settings/scelles/display_img/img/slide1.gif");
         //s->message = QString("Message of slide 1");
         s->setMessage(QString("Lorem ipsum dolor sit amet, consectetur adipiscing elit. (slide 1) Sed non risus. (slide 1) Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. (slide 1) Cras elementum ultrices diam. (slide 1) Maecenas ligula massa, varius a, semper congue, euismod non, mi. (slide 1) Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. (slide 1) Duis semper. (slide 1) Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. (slide 1) Pellentesque congue. (slide 1)"));
+        s->message_file = QString("C:/Documents and Settings/scelles/display_img/messages/slide1.txt");
         //s->delay = 3000;
         arraySlide->append(s);
 
@@ -336,6 +338,7 @@ void MainApplication::load_config(void)
         s->url = QString("C:/Documents and Settings/scelles/display_img/img/slide2.gif");
         //s->message = QString("Message of slide 2");
         s->setMessage(QString("Lorem ipsum dolor sit amet, consectetur adipiscing elit. (slide 2) Sed non risus. (slide 2) Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. (slide 2) Cras elementum ultrices diam. (slide 2) Maecenas ligula massa, varius a, semper congue, euismod non, mi. (slide 2) Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. (slide 2) Duis semper. (slide 2) Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. (slide 2) Pellentesque congue. (slide 2)"));
+        s->message_file = QString("C:/Documents and Settings/scelles/display_img/messages/slide2.txt");
         //s->delay = 4000;
         arraySlide->append(s);
 
