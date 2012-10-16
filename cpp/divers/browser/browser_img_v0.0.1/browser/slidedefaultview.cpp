@@ -23,7 +23,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include <QDebug>
 
-#include <QWebFrame>
 #include <QKeyEvent>
 #include <QDateTime>
 
@@ -118,15 +117,18 @@ void SlideDefaultView::reload_slide(void)
     //ui->lblSystem->setText(QString("MAJ: ")+datetimeLastUpdateString+QString("\tActuel: ")+datetimeCurrentString);
 
     // disable vertical scrollbar
-    ui->webView->page()->mainFrame()->setScrollBarPolicy(Qt::Vertical,Qt::ScrollBarAlwaysOff);
-    ui->webView->page()->mainFrame()->setScrollBarPolicy(Qt::Horizontal,Qt::ScrollBarAlwaysOff);
+    //ui->webView->page()->mainFrame()->setScrollBarPolicy(Qt::Vertical,Qt::ScrollBarAlwaysOff);
+    //ui->webView->page()->mainFrame()->setScrollBarPolicy(Qt::Horizontal,Qt::ScrollBarAlwaysOff);
 
     //ui->webView->setUrl(QUrl("http://www.google.fr"));
     //ui->webView->setZoomFactor(1.0);
 
     //ui->webView->setUrl(this->m_slide->url);
-    ui->webView->load(this->m_slide->url);
-    ui->webView->setZoomFactor(this->m_slide->zoom);
+    //ui->webView->load(this->m_slide->url);
+    //ui->webView->setZoomFactor(this->m_slide->zoom);
+
+    qDebug() << this->m_slide->url;
+    ui->labelView->setPixmap(QPixmap(this->m_slide->url));
 
     //ui->lblLogo1->setText("");
     //ui->lblLogo2->setText("");

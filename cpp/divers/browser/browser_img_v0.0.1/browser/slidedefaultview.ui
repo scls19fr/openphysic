@@ -56,17 +56,15 @@
        </layout>
       </item>
       <item>
-       <widget class="QWebView" name="webView">
+       <widget class="QLabel" name="labelView">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
-        <property name="url">
-         <url>
-          <string>about:blank</string>
-         </url>
+        <property name="text">
+         <string>TextLabel</string>
         </property>
        </widget>
       </item>
@@ -161,11 +159,6 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
-  <customwidget>
-   <class>QWebView</class>
-   <extends>QWidget</extends>
-   <header>QtWebKit/QWebView</header>
-  </customwidget>
   <customwidget>
    <class>ScrollText</class>
    <extends>QWidget</extends>

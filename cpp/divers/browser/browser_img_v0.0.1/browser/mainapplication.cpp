@@ -316,46 +316,8 @@ void MainApplication::load_config(void)
         Slide *s;
         s = new Slide();
 
-        /*
         s->title = QString("Title of this slide 0");
-        s->url = QString("http://www.google.fr?q=test0");
-        s->message = QString("Message of slide 0.");
-        //s->delay = 2000;
-        arraySlide->append(s);
-
-        s = new Slide();
-        s->title = QString("Title of this slide 1");
-        s->url = QString("http://www.google.fr?q=test1");
-        s->message = QString("Message of slide 1.");
-        //s->delay = 3000;
-        arraySlide->append(s);
-
-        s = new Slide();
-        s->title = QString("Title of this slide 2");
-        s->url = QString("http://www.google.fr?q=test2");
-        s->message = QString("Message of slide 2.");
-        //s->delay = 4000;
-        arraySlide->append(s);
-        */
-
-        /*
-        s->title = QString("GTE 1 - S1-S2");
-        s->url = QString("https://upplanning.appli.univ-poitiers.fr/ade/custom/modules/plannings/direct_planning.jsp?login=visu&password=visu&showTree=false&showPianoDays=false&showPianoWeeks=false&showOptions=false&days=0,1,2,3,4&displayConfName=IUTP-Campus (GTE) affichage lim&code=_Z1PT11_TP1,_Z1PT11_TP2,_Z1PT11_TP3,_Z1PT11_TP4,_Z1PT11_TP5,_Z1PT11_TP6&projectId=3");
-        arraySlide->append(s);
-
-        s = new Slide();
-        s->title = QString("GTE 2 - S3");
-        s->url = QString("https://upplanning.appli.univ-poitiers.fr/ade/custom/modules/plannings/direct_planning.jsp?login=visu&password=visu&showTree=false&showPianoDays=false&showPianoWeeks=false&showOptions=false&days=0,1,2,3,4&displayConfName=IUTP-Campus (GTE) affichage lim&code=_Z2PT11_S3_TP1,_Z2PT11_S3_TP2,_Z2PT11_S3_TP3,_Z2PT11_S3_TP4,_Z2PT11_S3_TP5&projectId=3");
-        arraySlide->append(s);
-
-        s = new Slide();
-        s->title = QString("LP VERTE");
-        s->url = QString("https://upplanning.appli.univ-poitiers.fr/ade/custom/modules/plannings/direct_planning.jsp?login=visu&password=visu&showTree=false&showPianoDays=false&showPianoWeeks=false&showOptions=false&days=0,1,2,3,4&displayConfName=IUTP-Campus (GTE) affichage lim&code=_ZWP041_TP1FI,_ZWP041_TP1FA,_ZWP041_TP2FI,_ZWP041_TP2FA&projectId=3");
-        arraySlide->append(s);
-        */
-
-        s->title = QString("Title of this slide 0");
-        s->url = QString("http://www.google.fr?q=test0");
+        s->url = QString("C:/Documents and Settings/scelles/display_img/img/slide0.gif");
         //s->message = QString("Message of slide 0");
         s->setMessage(QString("Lorem ipsum dolor sit amet, consectetur adipiscing elit. (slide 0) Sed non risus. (slide 0) Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. (slide 0) Cras elementum ultrices diam. (slide 0) Maecenas ligula massa, varius a, semper congue, euismod non, mi. (slide 0) Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. (slide 0) Duis semper. (slide 0) Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. (slide 0) Pellentesque congue. (slide 0)"));
         //s->delay = 2000;
@@ -363,7 +325,7 @@ void MainApplication::load_config(void)
 
         s = new Slide();
         s->title = QString("Title of this slide 1");
-        s->url = QString("http://www.google.fr?q=test1");
+        s->url = QString("C:/Documents and Settings/scelles/display_img/img/slide1.gif");
         //s->message = QString("Message of slide 1");
         s->setMessage(QString("Lorem ipsum dolor sit amet, consectetur adipiscing elit. (slide 1) Sed non risus. (slide 1) Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. (slide 1) Cras elementum ultrices diam. (slide 1) Maecenas ligula massa, varius a, semper congue, euismod non, mi. (slide 1) Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. (slide 1) Duis semper. (slide 1) Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. (slide 1) Pellentesque congue. (slide 1)"));
         //s->delay = 3000;
@@ -371,24 +333,12 @@ void MainApplication::load_config(void)
 
         s = new Slide();
         s->title = QString("Title of this slide 2");
-        s->url = QString("http://www.google.fr?q=test2");
+        s->url = QString("C:/Documents and Settings/scelles/display_img/img/slide2.gif");
         //s->message = QString("Message of slide 2");
         s->setMessage(QString("Lorem ipsum dolor sit amet, consectetur adipiscing elit. (slide 2) Sed non risus. (slide 2) Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. (slide 2) Cras elementum ultrices diam. (slide 2) Maecenas ligula massa, varius a, semper congue, euismod non, mi. (slide 2) Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. (slide 2) Duis semper. (slide 2) Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. (slide 2) Pellentesque congue. (slide 2)"));
         //s->delay = 4000;
         arraySlide->append(s);
 
-        m_proxy_enabled = false;
-        //m_proxy.setType(QNetworkProxy::Socks5Proxy);
-        m_proxy.setType(QNetworkProxy::HttpProxy);
-        m_proxy.setHostName("cache.univ-poitiers.fr");
-        m_proxy.setPort(3128);
-        m_proxy.setUser("");
-        m_proxy.setPassword("");
-        if (m_proxy_enabled) {
-            QNetworkProxy::setApplicationProxy(m_proxy);
-        } else {
-            QNetworkProxy::setApplicationProxy(QNetworkProxy::NoProxy);
-        }
 
         save_config(); // create a new config file with default keys/values
 
@@ -407,20 +357,6 @@ void MainApplication::load_config(void)
         this->delayReloadData = settings.value("delayReloadData", this->delayReloadData).toUInt();
         settings.endGroup();
 
-        settings.beginGroup("proxy");
-        //m_proxy_enabled = settings.value("enabled", m_proxy_enabled).toBool();
-        m_proxy.setType((QNetworkProxy::ProxyType) settings.value("setType", m_proxy.type()).toUInt()); // ToFix ?
-        m_proxy.setHostName(settings.value("setHostName", m_proxy.hostName()).toString());
-        m_proxy.setPort(settings.value("setPort", m_proxy.port()).toUInt()); // ToFix:QUint16
-        m_proxy.setUser(settings.value("setUser", m_proxy.user()).toString());
-        m_proxy.setPassword(settings.value("setPassword", m_proxy.password()).toString());
-        settings.endGroup();
-
-        if (m_proxy_enabled) {
-            QNetworkProxy::setApplicationProxy(m_proxy);
-        } else {
-            QNetworkProxy::setApplicationProxy(QNetworkProxy::NoProxy);
-        }
 
         settings.beginGroup("slide_default");
         slide_default.title = settings.value("title", slide_default.title).toString();
@@ -526,14 +462,6 @@ void MainApplication::save_config(void)
     settings.setValue("delayReloadData", this->delayReloadData);
     settings.endGroup();
 
-    settings.beginGroup("proxy");
-    settings.setValue("enabled", m_proxy_enabled);
-    settings.setValue("setType", m_proxy.type());
-    settings.setValue("setHostName", m_proxy.hostName());
-    settings.setValue("setPort", m_proxy.port());
-    settings.setValue("setUser", m_proxy.user());
-    settings.setValue("setPassword", m_proxy.password());
-    settings.endGroup();
 
     settings.beginGroup("slide_default");
     settings.setValue("title", slide_default.title);

@@ -27,7 +27,7 @@ Slide::Slide(QObject *parent) :
     QObject(parent)
 {
     title = QString("Titre par defaut");
-    url = QString("http://www.google.fr?q=defaut");
+    url = QString("C:/Documents and Settings/scelles/display_img/img/slide0.gif"); // /Users/scls/messages/slide0.txt
     //message_file = QString("/Users/scls/messages/slide0.txt"); // in ini file use "..."
     message_file = QString(""); // in ini file use "..."
     message = QString("Pas de message"); // in ini file use "..."

@@ -22,7 +22,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include <Qt>
 #include <QApplication>
-#include <QNetworkProxy>
 
 #include <QParallelAnimationGroup>
 
@@ -32,7 +31,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 //#define DEBUG
 //#define WEBKIT_ENABLED // ToDo
 #define CFG_FILE QLatin1String("browser.ini")
-#define CFG_DIR QDir::homePath()+"/display"
+#define CFG_DIR QDir::homePath()+"/display_img"
 
 class MainApplication : public QApplication
 {
@@ -89,8 +88,6 @@ class MainApplication : public QApplication
 
     //bool m_debug_mode;
     bool m_playing;
-    bool m_proxy_enabled;
-    QNetworkProxy m_proxy;
 
     bool flag_first_shot_timer1;
 

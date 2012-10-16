@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui webkit network
+QT       += core gui
 
 TARGET = browser
 TEMPLATE = app
@@ -15,15 +15,13 @@ SOURCES += main.cpp\
     slide.cpp \
     mainapplication.cpp \
     debugwindow.cpp \
-    scrolltext.cpp \
-    slideabstractview.cpp
+    scrolltext.cpp
 
 HEADERS  += slidedefaultview.h \
     slide.h \
     mainapplication.h \
     debugwindow.h \
-    scrolltext.h \
-    slideabstractview.h
+    scrolltext.h
 
 FORMS    += slidedefaultview.ui \
     debugwindow.ui
