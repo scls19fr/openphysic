@@ -2,6 +2,7 @@
 #include "ui_slidewidget.h"
 
 #include <QDebug>
+#include <QPainter>
 
 //#include <QPropertyAnimation>
 
@@ -24,6 +25,8 @@ SlideWidget::SlideWidget(QWidget *parent, Slide *slide) :
     timerW->setInterval(slide->delay_refresh);
     timerW->start();
     connect( timerW, SIGNAL( timeout() ), this, SLOT( refresh_slide() ) );
+
+    this->setStyleSheet("background-color: green;");
 }
 
 SlideWidget::~SlideWidget()
@@ -118,7 +121,11 @@ void SlideWidget::show_slide(void)
 {
     this->setVisible(true);
 
-    //this->setWindowOpacity(0.0);
+    qDebug() << "show_slide";
+
+    this->setWindowOpacity(0.25);
+    //QPainter::setOpacity()
+    ui->labelView->setWindowOpacity(0.25);
     //ui->labelView->setWindowOpacity(0.25);
 
     // ToFix:
@@ -141,3 +148,14 @@ void SlideWidget::hide_slide(void)
 {
     this->setVisible(false);
 }
+
+/*
+void SlideWidget::paintEvent(QPaintEvent *event)
+{
+    //qDebug() << "Paint Event";
+    QPainter painter(this);
+    //painter(this);
+    painter.setOpacity(0.5);
+    render(&painter);
+}
+*/

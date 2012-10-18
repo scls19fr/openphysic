@@ -43,13 +43,15 @@ public slots:
     void show_slide(void);
     void hide_slide(void);
 
+//protected:
+//    void paintEvent(QPaintEvent *event);
+
 private:
     Ui::SlideWidget *ui;
 
     Slide * m_slide;
 
     QTimer * timerW;
-
 };
 
 #endif // SLIDEWIDGET_H

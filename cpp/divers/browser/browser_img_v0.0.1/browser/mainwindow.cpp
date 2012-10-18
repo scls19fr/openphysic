@@ -41,48 +41,41 @@ MainWindow::~MainWindow()
 
 void MainWindow::keyPressEvent(QKeyEvent * event) // ToFix -> pass this to app
 {
-  switch ( event->key() )
-    {
-    case Qt::Key_K: /* next */
-      qDebug() << "Next";
-      emit NextPressed();
-      break;
+    if ( event->key()==Qt::Key_K || event->key()==Qt::Key_Right ) { // next
+        qDebug() << "Next";
+        emit NextPressed();
 
-    case Qt::Key_J: /* previous */
-      qDebug() << "Previous";
-      emit PreviousPressed();
-      break;
+    } else if ( event->key()==Qt::Key_J || event->key()==Qt::Key_Left ) { // previous
+        qDebug() << "Previous";
+        emit PreviousPressed();
 
-    case Qt::Key_Q: /* quit - just for test */
-      qDebug() << "Quit";
-      emit QuitPressed();
-      close();
-      break;
+    } else if ( event->key()==Qt::Key_Q ) { // quit - just for test
+        qDebug() << "Quit";
+        emit QuitPressed();
+        close();
 
-    case Qt::Key_R: /* Reload config file - just for test */
-      qDebug() << "Reload config file";
-      emit ReloadConfigPressed();
-      break;
+    } else if ( event->key()==Qt::Key_T ) { // Reload config file - just for test
+        qDebug() << "Reload config file";
+        emit ReloadConfigPressed();
 
-    case Qt::Key_U: /* Reload URL */
-      qDebug() << "Reload URL slide";
-      emit ReloadDataPressed();
-      //reload_slide();
-      break;
+    } else if ( event->key()==Qt::Key_U ) { // Reload URL
+        qDebug() << "Reload URL slide";
+        emit ReloadDataPressed();
+        //reload_slide();
 
-    case Qt::Key_P:
-      qDebug() << "Pause";
-      emit PausePressed();
-      break;
+    } else if ( event->key()==Qt::Key_P ) { // Pause
+        qDebug() << "Pause";
+        emit PausePressed();
 
-    case Qt::Key_T: /* just for debug */
-      qDebug() << "Debug Test";
-      emit TestPressed();
-      break;
+    } else if ( event->key()==Qt::Key_T ) { // just for debug
+        qDebug() << "Debug Test";
+        emit TestPressed();
 
-    default: // n'importe quelle autre touche
-      qDebug() << "UNDEF KEY";
-      emit UndefKeyPressed();
-      break;
+    } else { // n'importe quelle autre touche
+        qDebug() << "UNDEF KEY" << event->key();
+        //event->key()
+        emit UndefKeyPressed();
+
     }
+
 }

@@ -490,6 +490,7 @@ void MainApplication::load_config(void)
 
     for (int i=0;i<pageTotal();i++) {
       sw = new SlideWidget(main_win, arraySlide->at(i));
+      //main_win->setCentralWidget(sw);
       //sw->setGeometry(0, 0, main_win->width(), main_win->height());
       sw->setVisible(false);
       //connect(sw, SIGNAL( destroyed() ), this, SLOT( quit() ));
