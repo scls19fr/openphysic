@@ -28,7 +28,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "slidedefaultview.h"
 #include "slide.h"
 
-//#define DEBUG
+#include "mainwindow.h"
+
+#define DEBUG
 //#define WEBKIT_ENABLED // ToDo
 #define CFG_FILE QLatin1String("browser.ini")
 #define CFG_DIR QDir::homePath()+"/display_img"
@@ -95,6 +97,8 @@ class MainApplication : public QApplication
 
     //bool m_fullscreen;
     bool m_first_load;
+
+    MainWindow *main_win;
 
 };
 

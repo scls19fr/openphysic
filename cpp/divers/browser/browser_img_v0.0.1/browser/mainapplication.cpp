@@ -44,6 +44,8 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   //QApplication::setStyle(new QWindowsStyle);
   //QApplication::setStyle("QPushButton { color: white }");
 
+
+
   m_first_load = true;
 
   m_playing = true;
@@ -57,12 +59,14 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   DebugWindow w_debug(NULL, this);
   w_debug.show();
 
+  /*
   QPropertyAnimation animation(&w_debug, "geometry");
   animation.setDuration(3000);
   animation.setStartValue(QRect(500, 500, w_debug.geometry().width(), w_debug.geometry().height()));
   animation.setEndValue(QRect(0, 0, w_debug.geometry().width(), w_debug.geometry().height()));
   animation.setEasingCurve(QEasingCurve::OutBounce);
   animation.start();
+  */
 
   #endif
 
@@ -440,6 +444,11 @@ void MainApplication::load_config(void)
     wblank->show();
     #endif
 
+    main_win = new MainWindow(0);
+    main_win->show();
+    //main_win->ad
+
+    /*
     for (int i=pageTotal()-1;i>=0;i--) {
         if (i!=m_page) {
             arraySDV->at(i)->showThisWindow(); // ToFix: permet de bien charger les pages au debut
@@ -447,6 +456,7 @@ void MainApplication::load_config(void)
     }
 
     arraySDV->at(m_page)->showThisWindow();
+    */
 
     if (m_first_load) {
         m_first_load = false;
