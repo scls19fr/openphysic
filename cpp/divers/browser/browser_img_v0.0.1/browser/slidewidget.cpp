@@ -3,6 +3,8 @@
 
 #include <QDebug>
 
+//#include <QPropertyAnimation>
+
 SlideWidget::SlideWidget(QWidget *parent, Slide *slide) :
     QWidget(parent),
     ui(new Ui::SlideWidget)
@@ -115,6 +117,24 @@ void SlideWidget::reload_slide(void)
 void SlideWidget::show_slide(void)
 {
     this->setVisible(true);
+
+    //this->setWindowOpacity(0.0);
+    //ui->labelView->setWindowOpacity(0.25);
+
+    // ToFix:
+/*
+  QWidget: setOpacity
+http://doc.qt.digia.com/qq/32/qq32-next-gen-uis.html
+  */
+
+    /*
+    QPropertyAnimation animate;
+    animate = new QPropertyAnimation(this, "windowOpacity");
+    animate.setDuration(100);
+    animate.setStartValue(0);
+    animate.setEndValue(1);
+    animate.start();
+    */
 }
 
 void SlideWidget::hide_slide(void)
