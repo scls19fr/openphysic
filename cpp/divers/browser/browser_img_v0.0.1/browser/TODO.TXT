@@ -5,7 +5,6 @@ Taille du widget = taille de la fenêtre
 setCentralWidget ?
 
 
-
 Faire animation entre 2 slides
 
 w_current->setVisible(false)
