@@ -25,9 +25,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include <QParallelAnimationGroup>
 
-#include "slidedefaultview.h"
 #include "slide.h"
-
 #include "mainwindow.h"
 
 #define DEBUG
@@ -56,9 +54,6 @@ class MainApplication : public QApplication
     //int delayChangeSlide;
     int delayReloadData;
 
-    #ifdef DEBUG
-    void debug(void);
-    #endif
 
   public slots:
     void update_timer1(void);
@@ -74,14 +69,13 @@ class MainApplication : public QApplication
     void load_config(void);
     void save_config(void);
 
+    void debug(void);
+
   private:
     QTimer * timer1; // timer slide change
     QTimer * timer2; // timer refresh data
 
     void change_slide(void);
-
-    QVector <SlideDefaultView*> *arraySDV;    // list of windows
-    QDialog *wblank;
 
     quint8 m_page;
     quint8 m_page_previous;

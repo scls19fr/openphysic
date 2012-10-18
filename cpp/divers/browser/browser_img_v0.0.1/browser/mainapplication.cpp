@@ -37,6 +37,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <QMessageBox>
 #include <QPropertyAnimation>
 
+#include "slidewidget.h"
+
 MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, argv)
 {
   /* Style */
@@ -44,6 +46,7 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   //QApplication::setStyle(new QWindowsStyle);
   //QApplication::setStyle("QPushButton { color: white }");
 
+  //arraySlide = new QVector<Slide *>();
 
 
   m_first_load = true;
@@ -53,6 +56,7 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   flag_first_shot_timer1 = true;
 
   delayReloadData = 5*60*1000; // reload data
+
 
   //m_fullscreen = true;
   #ifdef DEBUG
@@ -70,8 +74,6 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
   #endif
 
-  arraySDV = new QVector<SlideDefaultView *>();
-  //arraySlide = new QVector<Slide *>();
 
   load_config();
 
@@ -90,6 +92,64 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
 void MainApplication::change_slide(void)
 {
+    qDebug() << "change_slide";
+
+    SlideWidget *w_current;
+    SlideWidget *w_previous;
+    SlideWidget *w_next; // ?
+    w_next = main_win->arraySlideWidget->at(m_page_next); // ?
+    w_current = main_win->arraySlideWidget->at(m_page);
+    w_previous = main_win->arraySlideWidget->at(m_page_previous);
+    //qDebug()<< "previous:" <<m_page_previous << " page=" << m_page << " next=" << m_page_next;
+    timer1->setInterval(arraySlide->at(m_page)->delay); // useful if slides doesn't have same delay
+
+    group_anim_slide = new QParallelAnimationGroup;
+    QPropertyAnimation *anim_slide_current;
+    QPropertyAnimation *anim_slide_previous;
+    //QPropertyAnimation *anim_slide_next;
+
+
+    switch (slide_default.transition_type) {
+    /*
+        case 1: {   // opacity
+            qDebug() << "opacity anim";
+            anim_slide_current = new QPropertyAnimation(w_current, "windowOpacity");
+            anim_slide_current->setDuration(slide_default.transition_duration);
+            anim_slide_current->setStartValue(0.0);
+            anim_slide_current->setEndValue(1.0);
+            anim_slide_current->setEasingCurve(QEasingCurve::Linear);
+
+            anim_slide_previous = new QPropertyAnimation(w_previous, "windowOpacity");
+            anim_slide_previous->setDuration(slide_default.transition_duration);
+            anim_slide_previous->setStartValue(1.0);
+            anim_slide_previous->setEndValue(0.0);
+            anim_slide_previous->setEasingCurve(QEasingCurve::Linear);
+
+            group_anim_slide->addAnimation(anim_slide_current);
+            group_anim_slide->addAnimation(anim_slide_previous);
+            group_anim_slide->start();
+
+            break;
+        }
+        */
+    /*
+        default: {
+            qDebug() << "default anim";
+            w_previous->hide();
+            w_current->show();
+            break;
+        }
+*/
+    }
+
+//    w_current->setVisible(true);
+//    w_previous->setVisible(false);
+
+    w_current->show_slide();
+    w_previous->hide_slide();
+
+
+    /*
     SlideDefaultView *w_current;
     SlideDefaultView *w_previous;
     SlideDefaultView *w_next; // ?
@@ -176,10 +236,16 @@ void MainApplication::change_slide(void)
     }
 
     w_current->showThisWindow();
+    */
 }
 
 void MainApplication::update_timer1(void)
 {
+    qDebug() << "update_timer1";
+
+    next();
+
+    /*
     if (flag_first_shot_timer1) {
         flag_first_shot_timer1 = false;
         for (int i=0;i<pageTotal();i++) {
@@ -191,24 +257,19 @@ void MainApplication::update_timer1(void)
     } else {
         next();
     }
-  //timer1->reset ?
-  //setSingleShot(true)
+    */
 
-  // ToDo double buffering (next) or triple buffering (next/previous)
-  // use an other webView or differents form (with on webView)
-  //qDebug() << "Timer1 timeout (change slide)";
-  //print();
 }
 
 void MainApplication::update_timer2(void)
 {
   qDebug() << "Timer2 timeout (refresh data)";
   //for (int i=0;i<pageTotal();i++) {
-  //  arraySDV->at(i)->; // refresh
+  //  main_win->arraySlideWidget->at(i)->; // refresh
   //}
 
   for (int i=0;i<pageTotal();i++) {
-    arraySDV->at(i)->reload_slide();
+    main_win->arraySlideWidget->at(i)->reload_slide();
   }
 
 }
@@ -289,6 +350,7 @@ void MainApplication::print(void)
 void MainApplication::load_config(void)
 {
     arraySlide = new QVector<Slide *>();
+
 
     QString msg;
     //QFile file( CFG_FILE );
@@ -384,12 +446,12 @@ void MainApplication::load_config(void)
         //qDebug() << show_slides;
         QStringList list;
         list = show_slides.split(",");
-        //qDebug() << list;
+        qDebug() << list;
 
         QStringList::Iterator stlIter;
         Slide *s;
         for( stlIter = list.begin(); stlIter != list.end(); ++stlIter ) {
-            //qDebug() << (*stlIter);
+            qDebug() << "Loading slide" << (*stlIter) << "parameters";
             s = new Slide();
             settings.beginGroup((*stlIter));
             s->title = settings.value("title", slide_default.title).toString();
@@ -402,7 +464,8 @@ void MainApplication::load_config(void)
             arraySlide->append(s);
         }
         settings.endGroup();
-     }
+    }
+
 
      //file.close();
     if (pageTotal()<=0) {
@@ -413,40 +476,43 @@ void MainApplication::load_config(void)
         return;
     }
 
-    for (int i=0;i<arraySDV->size();i++) {
-        delete arraySDV->at(i);
-    }
-    delete arraySDV;
+    /* ToFix: delete widget if reload config file */
+    //for (int i=0;i<main_win->arraySlideWidget->size();i++) {
+    //    delete main_win->arraySlideWidget->at(i);
+    //}
+    //delete main_win->arraySlideWidget;
 
-    SlideDefaultView * w;
-    arraySDV = new QVector<SlideDefaultView *>();
-    for (int i=0;i<pageTotal();i++) {
-      w = new SlideDefaultView(NULL, arraySlide->at(i));
-      arraySDV->append(w);
-      connect(w, SIGNAL( QuitPressed() ), this, SLOT( quit() ));
-      connect(w, SIGNAL( NextPressed() ), this, SLOT( next() ));
-      connect(w, SIGNAL( PreviousPressed() ), this, SLOT( previous() ));
-      connect(w, SIGNAL( ReloadDataPressed() ), this, SLOT( update_timer2() ));
-      connect(w, SIGNAL( ReloadConfigPressed() ), this, SLOT( load_config() ));
-      //connect(w, SIGNAL( destroyed() ), this, SLOT( quit() ));
-    }
-
-    if (m_first_load) {
-        wblank = new QDialog(NULL, 0);
-    }
-    wblank->setStyleSheet("background-color: white;");
-    #ifdef DEBUG
-    //wblank->setGeometry(arraySDV->at(0)->geometry()); // QRect(100,200,1000,500)
-    //wblank->show();
-    #else
-    //wblank->setWindowState(Qt::WindowMaximized);
-    wblank->setWindowState(Qt::WindowFullScreen);
-    wblank->show();
-    #endif
 
     main_win = new MainWindow(0);
+    SlideWidget * sw;
+    //main_win->arraySlideWidget = new
+    main_win->arraySlideWidget = new QVector<SlideWidget *>();
+
+    for (int i=0;i<pageTotal();i++) {
+      sw = new SlideWidget(main_win, arraySlide->at(i));
+      //sw->setGeometry(0, 0, main_win->width(), main_win->height());
+      sw->setVisible(false);
+      //connect(sw, SIGNAL( destroyed() ), this, SLOT( quit() ));
+
+      main_win->arraySlideWidget->append(sw);
+    }
+    main_win->arraySlideWidget->at(0)->show();
+    connect(main_win, SIGNAL( QuitPressed() ), this, SLOT( quit() ));
+    connect(main_win, SIGNAL( NextPressed() ), this, SLOT( next() ));
+    connect(main_win, SIGNAL( PreviousPressed() ), this, SLOT( previous() ));
+    connect(main_win, SIGNAL( ReloadDataPressed() ), this, SLOT( update_timer2() ));
+    connect(main_win, SIGNAL( ReloadConfigPressed() ), this, SLOT( load_config() ));
+    connect(main_win, SIGNAL( TestPressed() ), this, SLOT( debug() ));
+
+    //main_win->arraySlideWidget->append();
+
     main_win->show();
     //main_win->ad
+
+    //SlideWidget * sw;
+    //sw = new SlideWidget(main_win, arraySlide->at(0));
+    //sw->show();
+
 
     /*
     for (int i=pageTotal()-1;i>=0;i--) {
@@ -516,8 +582,16 @@ void MainApplication::save_config(void)
     settings.endGroup();
 }
 
-#ifdef DEBUG
 void MainApplication::debug(void) {
     qDebug() << "Debug MainApplication";
+
+    qreal op;
+    op = 0.25;
+    qDebug() << "opacity slide" << m_page << "set to" << op;
+
+    main_win->arraySlideWidget->at(m_page)->setWindowOpacity(op);
+    //main_win->arraySlideWidget->at(0)->labelView.
+
+//    main_win->arraySlideWidget->at(1)->setWindowOpacity(0.5);
+//    main_win->arraySlideWidget->at(2)->setWindowOpacity(0.75);
 }
-#endif

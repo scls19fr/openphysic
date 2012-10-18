@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>slidewidget</class>
- <widget class="QWidget" name="slidewidget">
+ <class>SlideWidget</class>
+ <widget class="QWidget" name="SlideWidget">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>412</width>
-    <height>303</height>
+    <width>425</width>
+    <height>258</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>20</y>
+     <x>0</x>
+     <y>0</y>
      <width>381</width>
      <height>261</height>
     </rect>

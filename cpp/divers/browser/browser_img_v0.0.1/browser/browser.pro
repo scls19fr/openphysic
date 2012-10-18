@@ -11,7 +11,6 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        slidedefaultview.cpp \
     slide.cpp \
     mainapplication.cpp \
     debugwindow.cpp \
@@ -19,7 +18,7 @@ SOURCES += main.cpp\
     slidewidget.cpp \
     mainwindow.cpp
 
-HEADERS  += slidedefaultview.h \
+HEADERS  += \
     slide.h \
     mainapplication.h \
     debugwindow.h \
@@ -27,7 +26,7 @@ HEADERS  += slidedefaultview.h \
     slidewidget.h \
     mainwindow.h
 
-FORMS    += slidedefaultview.ui \
+FORMS    += \
     debugwindow.ui \
     slidewidget.ui \
     mainwindow.ui
