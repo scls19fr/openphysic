@@ -27,6 +27,7 @@ SlideWidget::SlideWidget(QWidget *parent, Slide *slide) :
     connect( timerW, SIGNAL( timeout() ), this, SLOT( refresh_slide() ) );
 
     this->setStyleSheet("background-color: green;");
+
 }
 
 SlideWidget::~SlideWidget()
