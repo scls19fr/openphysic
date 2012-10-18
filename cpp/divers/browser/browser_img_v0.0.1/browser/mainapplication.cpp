@@ -318,6 +318,8 @@ void MainApplication::load_config(void)
 
         s->title = QString("Title of this slide 0");
         s->url = QString("C:/Documents and Settings/scelles/display_img/img/slide0.gif");
+        // Mac OS /Users/scls/display_img/img/slide0.gif
+        // Linux /home/scls/display_img/img/slide0.gif
         //s->message = QString("Message of slide 0");
         s->setMessage(QString("Lorem ipsum dolor sit amet, consectetur adipiscing elit. (slide 0) Sed non risus. (slide 0) Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. (slide 0) Cras elementum ultrices diam. (slide 0) Maecenas ligula massa, varius a, semper congue, euismod non, mi. (slide 0) Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. (slide 0) Duis semper. (slide 0) Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. (slide 0) Pellentesque congue. (slide 0)"));
         s->message_file = QString("C:/Documents and Settings/scelles/display_img/messages/slide0.txt");
