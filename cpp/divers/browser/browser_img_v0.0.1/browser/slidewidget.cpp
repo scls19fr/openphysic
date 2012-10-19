@@ -45,7 +45,7 @@ SlideWidget::SlideWidget(QWidget *parent, Slide *slide) :
     timerW->start();
     connect( timerW, SIGNAL( timeout() ), this, SLOT( refresh_slide() ) );
 
-    //this->setStyleSheet("background-color: green;");
+    this->setStyleSheet("background-color: green;");
 
 }
 
@@ -162,7 +162,6 @@ void SlideWidget::show_slide(void)
 
     qDebug() << "show_slide";
 
-    this->setWindowOpacity(0.25);
     //QPainter::setOpacity()
     ui->labelView->setWindowOpacity(0.25);
     //ui->labelView->setWindowOpacity(0.25);
@@ -213,7 +212,12 @@ void SlideWidget::paintEvent(QPaintEvent *) {
     //pm = pm.scaledToHeight(ui->labelView->geometry().height());
     //pm = pm.scaled(ui->labelView->geometry().size(), Qt::KeepAspectRatio);
     //ui->labelView->setPixmap(pm);
+    //this->setWindowOpacity(0.25);
+    //ui->labelView->setWindowOpacity(0.25);
 
+    //QPainter painter(ui->labelView);
+    //painter.setOpacity(0.25);
+    //render(&painter);
 }
 
 void SlideWidget::resizeEvent (QResizeEvent*) {

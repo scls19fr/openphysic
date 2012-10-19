@@ -6,6 +6,8 @@ text->verticalScrollBar()->setValue(yCurs);
 Animation
 	QWidget setOpacity
 	
+	QGraphicsProxyWidget / QGraphicsScene
+	
 Taille du widget = taille de la fenêtre
 setCentralWidget ?
 

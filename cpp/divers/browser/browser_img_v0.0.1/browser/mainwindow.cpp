@@ -31,7 +31,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //arraySlideWidget = new QVector<SlideWidget *>();
 
-    this->setStyleSheet("background-color: white;");
+    //this->setStyleSheet("background-color: white;");
+    this->setStyleSheet("background-color: yellow;");
 }
 
 MainWindow::~MainWindow()
