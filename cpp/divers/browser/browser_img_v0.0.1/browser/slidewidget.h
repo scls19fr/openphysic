@@ -21,6 +21,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #define SLIDEWIDGET_H
 
 #include <QWidget>
+#include <QResizeEvent>
+#include <QPaintEvent>
 
 #include "slide.h"
 #include <QTimer>
@@ -36,6 +38,8 @@ class SlideWidget : public QWidget
 public:
     explicit SlideWidget(QWidget *parent = 0, Slide *slide = 0);
     ~SlideWidget();
+    void paintEvent(QPaintEvent*);
+    void resizeEvent (QResizeEvent*);
 
 public slots:
     void reload_slide(void); // load data (long)

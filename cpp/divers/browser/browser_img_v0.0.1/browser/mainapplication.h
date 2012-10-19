@@ -70,6 +70,7 @@ class MainApplication : public QApplication
     void save_config(void);
 
     void debug(void);
+    void about(void);
 
   private:
     QTimer * timer1; // timer slide change

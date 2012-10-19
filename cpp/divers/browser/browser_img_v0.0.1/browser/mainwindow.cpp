@@ -71,6 +71,10 @@ void MainWindow::keyPressEvent(QKeyEvent * event) // ToFix -> pass this to app
         qDebug() << "Debug Test";
         emit TestPressed();
 
+    } else if ( event->key()==Qt::Key_A ) { // about
+        qDebug() << "About";
+        emit AboutPressed();
+
     } else { // n'importe quelle autre touche
         qDebug() << "UNDEF KEY" << event->key();
         //event->key()
@@ -79,3 +83,20 @@ void MainWindow::keyPressEvent(QKeyEvent * event) // ToFix -> pass this to app
     }
 
 }
+
+void MainWindow::paintEvent(QPaintEvent *) {
+    //qDebug() << "paint main_win";
+}
+
+void MainWindow::resizeEvent (QResizeEvent*) {
+    //qDebug() << "resize main_win";
+    //this->arraySlideWidget->at(0)->setGeometry(0,0,this->geometry().width(),this->geometry().height());
+    //this->arraySlideWidget->at(1)->setGeometry(0,0,this->geometry().width(),this->geometry().height());
+    //this->arraySlideWidget->at(2)->setGeometry(0,0,this->geometry().width(),this->geometry().height());
+
+    for (int i=0;i<this->arraySlideWidget->count();i++) {
+        this->arraySlideWidget->at(i)->setGeometry(0,0,this->geometry().width(),this->geometry().height());
+    }
+
+}
+

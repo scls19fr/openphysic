@@ -33,6 +33,8 @@ DebugWindow::DebugWindow(QWidget *parent, MainApplication *app) :
     QRect geom = this->geometry();
     this->setGeometry(geom); // top=0 left=0
 
+    //this->setFocusPolicy(Qt::NoFocus);
+
     QObject::connect( this, SIGNAL(rejected()), m_app, SLOT(quit()) );
 
 //    this->ui->cmdQuit->setPixmap();

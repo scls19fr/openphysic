@@ -1,3 +1,22 @@
+/*
+Browser
+Copyright (C) 2012  Sebastien Celles
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
+
 #include "slidewidget.h"
 #include "ui_slidewidget.h"
 
@@ -92,8 +111,15 @@ void SlideWidget::reload_slide(void)
     //ui->webView->load(this->m_slide->url);
     //ui->webView->setZoomFactor(this->m_slide->zoom);
 
+    // ToFix: scale
     qDebug() << this->m_slide->url;
-    ui->labelView->setPixmap(QPixmap(this->m_slide->url));
+    //QPixmap pm(this->m_slide->url);
+    QPixmap pm;
+    pm.load(this->m_slide->url);
+    pm.scaled(100,100);
+    ui->labelView->setPixmap(pm);
+    //ui->labelView->pixmap.scaledToHeight()
+    //ui->labelView->pixmap()->scaled(ui->labelView->size(), Qt::KeepAspectRatio);
 
     //ui->lblLogo1->setText("");
     //ui->lblLogo2->setText("");
@@ -121,6 +147,7 @@ void SlideWidget::reload_slide(void)
 void SlideWidget::show_slide(void)
 {
     this->setVisible(true);
+
 
     qDebug() << "show_slide";
 
@@ -160,3 +187,17 @@ void SlideWidget::paintEvent(QPaintEvent *event)
     render(&painter);
 }
 */
+
+void SlideWidget::paintEvent(QPaintEvent *) {
+    qDebug() << "paint widget";
+    //ui->labelView->pixmap()->scaledToWidth(100);
+    //QPixmap pm;
+    //pm = ui->labelView->pixmap();
+    //pm.scaled(100,100);
+    //ui->labelView->setPixmap(pm);
+}
+
+void SlideWidget::resizeEvent (QResizeEvent*) {
+    //qDebug() << "resize widget";
+    //ui->labelView->pixmap()->scaled(ui->labelView->size(), Qt::KeepAspectRatio);
+}

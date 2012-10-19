@@ -59,6 +59,19 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
 
   //m_fullscreen = true;
+
+
+  load_config();
+
+  timer1 = new QTimer(this);
+  //timer1->setInterval(1000);
+  timer1->start(slide_default.delay);
+  connect( timer1, SIGNAL( timeout() ), this, SLOT( update_timer1() ) );
+
+  timer2 = new QTimer(this);
+  timer2->start(delayReloadData);
+  connect( timer2, SIGNAL( timeout() ), this, SLOT( update_timer2() ) );
+
   #ifdef DEBUG
   DebugWindow w_debug(NULL, this);
   w_debug.show();
@@ -74,17 +87,6 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
   #endif
 
-
-  load_config();
-
-  timer1 = new QTimer(this);
-  //timer1->setInterval(1000);
-  timer1->start(slide_default.delay);
-  connect( timer1, SIGNAL( timeout() ), this, SLOT( update_timer1() ) );
-
-  timer2 = new QTimer(this);
-  timer2->start(delayReloadData);
-  connect( timer2, SIGNAL( timeout() ), this, SLOT( update_timer2() ) );
 
   this->exec();
 
@@ -108,9 +110,9 @@ void MainApplication::change_slide(void)
     QPropertyAnimation *anim_slide_previous;
     //QPropertyAnimation *anim_slide_next;
 
-
-    switch (slide_default.transition_type) {
     /*
+    switch (slide_default.transition_type) {
+
         case 1: {   // opacity
             qDebug() << "opacity anim";
             anim_slide_current = new QPropertyAnimation(w_current, "windowOpacity");
@@ -131,22 +133,24 @@ void MainApplication::change_slide(void)
 
             break;
         }
-        */
-    /*
         default: {
             qDebug() << "default anim";
             w_previous->hide();
             w_current->show();
             break;
         }
-*/
+
     }
+    */
 
 //    w_current->setVisible(true);
 //    w_previous->setVisible(false);
 
     w_current->show_slide();
     w_previous->hide_slide();
+
+    //main_win->centralWidget()->setParent(NULL);
+    //main_win->setCentralWidget(w_current);
 
 
     /*
@@ -504,10 +508,25 @@ void MainApplication::load_config(void)
     connect(main_win, SIGNAL( ReloadDataPressed() ), this, SLOT( update_timer2() ));
     connect(main_win, SIGNAL( ReloadConfigPressed() ), this, SLOT( load_config() ));
     connect(main_win, SIGNAL( TestPressed() ), this, SLOT( debug() ));
+    connect(main_win, SIGNAL( AboutPressed() ), this, SLOT( about() ));
 
     //main_win->arraySlideWidget->append();
 
+    //main_win->show();
+    //main_win->setWindowState(Qt::WindowFullScreen);
+
+    #ifndef DEBUG
+    main_win->showFullScreen();
+    #else
     main_win->show();
+    #endif
+
+    //main_win->setCentralWidget(main_win->arraySlideWidget->at(0));
+    //main_win->setGeometry(500,500,500,100);
+    // tofix
+
+
+    //main_win->setSizePolicy();
     //main_win->ad
 
     //SlideWidget * sw;
@@ -586,13 +605,17 @@ void MainApplication::save_config(void)
 void MainApplication::debug(void) {
     qDebug() << "Debug MainApplication";
 
-    qreal op;
-    op = 0.25;
-    qDebug() << "opacity slide" << m_page << "set to" << op;
+    //qreal op;
+    //op = 0.25;
+    //qDebug() << "opacity slide" << m_page << "set to" << op;
 
-    main_win->arraySlideWidget->at(m_page)->setWindowOpacity(op);
+    //main_win->arraySlideWidget->at(m_page)->setWindowOpacity(op);
     //main_win->arraySlideWidget->at(0)->labelView.
 
 //    main_win->arraySlideWidget->at(1)->setWindowOpacity(0.5);
 //    main_win->arraySlideWidget->at(2)->setWindowOpacity(0.75);
+}
+
+void MainApplication::about(void) {
+    this->aboutQt();
 }

@@ -21,6 +21,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QResizeEvent>
+#include <QPaintEvent>
 
 #include "slidewidget.h"
 
@@ -37,6 +39,8 @@ public:
     ~MainWindow();
     QVector <SlideWidget*> *arraySlideWidget;    // list of slides (widget)
     void keyPressEvent(QKeyEvent *event);
+    void paintEvent(QPaintEvent*);
+    void resizeEvent (QResizeEvent*);
 
 signals:
     void NextPressed();
@@ -46,6 +50,7 @@ signals:
     void ReloadDataPressed();
     void TestPressed();
     void PausePressed();
+    void AboutPressed();
     void UndefKeyPressed();
 
 private:
