@@ -127,7 +127,7 @@ void SlideWidget::reload_slide(void)
     pm.load(this->m_slide->url);
     //pm = pm.scaledToWidth(ui->labelView->geometry().width());
     //pm = pm.scaledToHeight(ui->labelView->geometry().height());
-    pm = pm.scaled(ui->labelView->geometry().size(), Qt::KeepAspectRatio);
+    pm = pm.scaled(ui->labelView->geometry().size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
     ui->labelView->setPixmap(pm);
     //ui->labelView->pixmap.scaledToHeight()
     //ui->labelView->pixmap()->scaled(ui->labelView->size(), Qt::KeepAspectRatio);
@@ -206,6 +206,14 @@ void SlideWidget::paintEvent(QPaintEvent *) {
     //pm = ui->labelView->pixmap();
     //pm.scaled(100,100);
     //ui->labelView->setPixmap(pm);
+
+    //QPixmap pm;
+    //pm.load(this->m_slide->url);
+    //pm = pm.scaledToWidth(ui->labelView->geometry().width());
+    //pm = pm.scaledToHeight(ui->labelView->geometry().height());
+    //pm = pm.scaled(ui->labelView->geometry().size(), Qt::KeepAspectRatio);
+    //ui->labelView->setPixmap(pm);
+
 }
 
 void SlideWidget::resizeEvent (QResizeEvent*) {
@@ -215,7 +223,7 @@ void SlideWidget::resizeEvent (QResizeEvent*) {
     pm.load(this->m_slide->url);
     //pm = pm.scaledToWidth(ui->labelView->geometry().width());
     //pm = pm.scaledToHeight(ui->labelView->geometry().height());
-    pm = pm.scaled(ui->labelView->geometry().size(), Qt::KeepAspectRatio);
+    pm = pm.scaled(ui->labelView->geometry().size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
     ui->labelView->setPixmap(pm);
 
 }
