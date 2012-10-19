@@ -45,7 +45,7 @@ SlideWidget::SlideWidget(QWidget *parent, Slide *slide) :
     timerW->start();
     connect( timerW, SIGNAL( timeout() ), this, SLOT( refresh_slide() ) );
 
-    this->setStyleSheet("background-color: green;");
+    //this->setStyleSheet("background-color: green;");
 
 }
 
@@ -60,12 +60,15 @@ void SlideWidget::refresh_slide(void)
 
     ui->lblMessage->setText(this->m_slide->getMessage());
 
-    QString datetimeLastUpdateString = m_slide->lastupdate.toString(QString("dd/MM/yyyy hh:mm:ss"));
+    //QString datetimeLastUpdateString = m_slide->lastupdate.toString(QString("dd/MM/yyyy hh:mm:ss"));
     QString datetimeCurrentString = QDateTime::currentDateTime().toString(QString("dd/MM/yyyy hh:mm:ss"));
 
-    ui->lblSystem->setText(QString("MAJ: "+datetimeLastUpdateString));
-    ui->lblSystem2->setText(QString("-"));
-    ui->lblSystem3->setText(QString("Actuel: "+datetimeCurrentString));
+    //ui->lblSystem->setText(QString("MAJ: "+datetimeLastUpdateString));
+    //ui->lblSystem->setText(QString(""));
+    //ui->lblSystem2->setText(QString("-"));
+    //ui->lblSystem2->setText(QString(""));
+    //ui->lblSystem3->setText(QString("Actuel: "+datetimeCurrentString));
+    ui->lblCurrentTime->setText(QString(datetimeCurrentString));
 
     //ui->lblTest->setText(QString("test"));
     //ui->lblTest->setText(QString::number(m_slide->delay));
@@ -116,7 +119,9 @@ void SlideWidget::reload_slide(void)
     //QPixmap pm(this->m_slide->url);
     QPixmap pm;
     pm.load(this->m_slide->url);
-    pm.scaled(100,100);
+    //pm = pm.scaledToWidth(ui->labelView->geometry().width());
+    //pm = pm.scaledToHeight(ui->labelView->geometry().height());
+    pm = pm.scaled(ui->labelView->geometry().size(), Qt::KeepAspectRatio);
     ui->labelView->setPixmap(pm);
     //ui->labelView->pixmap.scaledToHeight()
     //ui->labelView->pixmap()->scaled(ui->labelView->size(), Qt::KeepAspectRatio);
@@ -200,4 +205,11 @@ void SlideWidget::paintEvent(QPaintEvent *) {
 void SlideWidget::resizeEvent (QResizeEvent*) {
     //qDebug() << "resize widget";
     //ui->labelView->pixmap()->scaled(ui->labelView->size(), Qt::KeepAspectRatio);
+    QPixmap pm;
+    pm.load(this->m_slide->url);
+    //pm = pm.scaledToWidth(ui->labelView->geometry().width());
+    //pm = pm.scaledToHeight(ui->labelView->geometry().height());
+    pm = pm.scaled(ui->labelView->geometry().size(), Qt::KeepAspectRatio);
+    ui->labelView->setPixmap(pm);
+
 }
