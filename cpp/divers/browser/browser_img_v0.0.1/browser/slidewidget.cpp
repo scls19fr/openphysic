@@ -101,6 +101,12 @@ void SlideWidget::reload_slide(void)
 
     this->m_slide->load_message();
     ui->lblMessage->setText(this->m_slide->getMessage());
+
+    font.setPointSize(16);
+    font.setItalic(true);
+    ui->textBrowser->setFont(font);
+    ui->textBrowser->setText(this->m_slide->getMessage());
+
     //ui->lblSystem->setText(QString("MAJ: ")+datetimeLastUpdateString+QString("\tActuel: ")+datetimeCurrentString);
 
     // disable vertical scrollbar
