@@ -37,6 +37,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <QMessageBox>
 #include <QPropertyAnimation>
 
+#include <QGraphicsScene>
+#include <QGraphicsView>
+
 #include "slidewidget.h"
 
 MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, argv)
@@ -520,6 +523,12 @@ void MainApplication::load_config(void)
     #else
     main_win->show();
     #endif
+
+    //QGraphicsScene scene;
+    //QGraphicsProxyWidget *proxy = scene.addWidget(main_win->arraySlideWidget->at(0));
+
+    //QGraphicsView view(&scene);
+    //view.show();
 
     //main_win->setCentralWidget(main_win->arraySlideWidget->at(0));
     //main_win->setGeometry(500,500,500,100);
