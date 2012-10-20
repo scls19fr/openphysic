@@ -13,7 +13,9 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
     Form frm;
-    frm.show();
+    //frm.show();
+    //frm.showFullScreen();
+    frm.showMaximized();
 
     return app.exec();
 }

@@ -10,49 +10,95 @@ Form::Form(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QWebView *web = new QWebView();
-    web->load(QUrl("http://www.siteduzero.com"));
+    m_angle = 0;
+
+    scene = new QGraphicsScene;
+
+    web = new QWebView();
+    web->load(QUrl("http://news.google.fr"));
     web->show();
 
-    QWebView *web2 = new QWebView();
+    web2 = new QWebView();
     web2->load(QUrl("http://www.google.com"));
     web2->show();
 
-    scene.setSceneRect(0 , 0, 1000, 800);
+    scene->setSceneRect(0 , 0, 1000, 800);
     //scene.setSceneRect(-500 , -400, 2000, 1600);
 
-    QGraphicsProxyWidget *proxy = new QGraphicsProxyWidget();
+    proxy = new QGraphicsProxyWidget();
     proxy->setWidget(web);
-    scene.addItem(proxy);
 
-    QGraphicsProxyWidget *proxy2 = new QGraphicsProxyWidget();
+    //proxy->setOpacity(0.25);
+
+    proxy2 = new QGraphicsProxyWidget();
     proxy2->setWidget(web2);
-    scene.addItem(proxy2);
 
-    //proxy->setOpacity(0.5);
+    //proxy2->setOpacity(0.5);
 
+
+
+    /*
     QTransform matrix;
-    matrix.rotate(180, Qt::YAxis);
     matrix.translate(-web->geometry().width()/2,0);
-    //matrix.rotate(-30, Qt::XAxis);
     proxy->setTransform(matrix);
+    */
 
+    /*
     QTransform matrix2;
-    matrix2.rotate(0, Qt::YAxis);
     matrix2.translate(-web->geometry().width()/2,0);
-    proxy2->setTransform(matrix2);
+    proxy2->setTransform(matrix);
+    */
 
-    //QGraphicsView view(&scene);
-    //view.show();
-
-    ui->graphicsView->setScene(&scene);
+    ui->graphicsView->setScene(scene);
     ui->graphicsView->show();
 
-    //view.setWindowTitle("Ma première scène");
+    this->setWindowTitle("Test QGraphicsScene");
+
+    update_screen();
+
 
 }
 
 Form::~Form()
 {
     delete ui;
+}
+
+void Form::update_screen(void) {
+
+    scene->removeItem(proxy);
+    scene->removeItem(proxy2);
+
+    if ( m_angle > 90 ) {
+        scene->addItem(proxy2);
+        scene->addItem(proxy);
+    } else {
+        scene->addItem(proxy);
+        scene->addItem(proxy2);
+    }
+
+
+    QTransform matrix;
+
+    matrix.rotate(180+m_angle, Qt::YAxis);
+    matrix.translate(-web->geometry().width()/2,0);
+    //matrix.rotate(-30, Qt::XAxis);
+    proxy->setTransform(matrix);
+
+    QTransform matrix2;
+    matrix2.rotate(m_angle, Qt::YAxis);
+    matrix2.translate(-web->geometry().width()/2,0);
+    proxy2->setTransform(matrix2);
+
+    //QGraphicsView view(&scene);
+    //view.show();
+
+}
+
+void Form::on_verticalSlider_valueChanged(int value)
+{
+    qDebug() << value;
+    m_angle = qreal(value)*1.8;
+
+    update_screen();
 }
