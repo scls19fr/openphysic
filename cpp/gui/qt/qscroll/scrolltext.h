@@ -31,6 +31,8 @@ private:
     QString _text;
     QString _separator;
     QStaticText staticText;
+    //QString staticText;
+
     int singleTextWidth;
     QSize wholeTextSize;
     int leftMargin;

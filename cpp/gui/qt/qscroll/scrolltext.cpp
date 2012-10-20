@@ -6,6 +6,10 @@ ScrollText::ScrollText(QWidget *parent) :
     QWidget(parent), scrollPos(0)
 {
     staticText.setTextFormat(Qt::PlainText);
+    //staticText.setTextFormat(Qt::RichText);
+
+    //staticText.setPerformanceHint(QStaticText::ModerateCaching);
+    //staticText.setPerformanceHint(QStaticText::AggressiveCaching);
 
     setFixedHeight(fontMetrics().height());
     leftMargin = height() / 3;
@@ -45,16 +49,23 @@ void ScrollText::updateText()
     timer.stop();
 
     singleTextWidth = fontMetrics().width(_text);
-    scrollEnabled = (singleTextWidth > width() - leftMargin);
+
+    //scrollEnabled = (singleTextWidth > width() - leftMargin);
+    scrollEnabled = _text.length()>0;
 
     if(scrollEnabled)
     {
         scrollPos = -64;
         staticText.setText(_text + _separator);
+        //staticText = _text + _separator;
         timer.start();
     }
     else
-        staticText.setText(_text);
+    {
+        //staticText.setText(_text);
+        staticText.setText("no message");
+        //staticText = "no message";
+    }
 
     staticText.prepare(QTransform(), font());
     wholeTextSize = QSize(fontMetrics().width(staticText.text()), fontMetrics().height());
