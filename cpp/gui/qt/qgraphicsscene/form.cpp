@@ -43,7 +43,6 @@ Form::Form(QWidget *parent) :
 
     this->setWindowTitle("Test QGraphicsScene");
 
-    updateScene(m_angle);
 
     mAngleAnimator = new variantAnimator;
     mAngleAnimator->setStartValue(0);
@@ -51,8 +50,10 @@ Form::Form(QWidget *parent) :
     connect(mAngleAnimator, SIGNAL(valueChanged(const QVariant&)), SLOT(updateScene(const QVariant&)));
 
     mAngleAnimator->setEndValue(360);
-    mAngleAnimator->setDuration(20);
+    mAngleAnimator->setDuration(2000);
     mAngleAnimator->start();
+
+    updateScene(m_angle);
 
 }
 
@@ -63,7 +64,7 @@ Form::~Form()
 
 //void Form::updateScene(qreal m_angle) {
 void Form::updateScene(const QVariant& angle) {
-    qDebug() << "oooo";
+    //qDebug() << angle;
 
     qreal _angle = angle.toDouble();
 
