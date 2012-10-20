@@ -16,7 +16,8 @@ int main(int argc, char *argv[])
     web->show();
 
     QGraphicsScene scene;
-    scene.setSceneRect(0 , 0, 1000, 800);
+    //scene.setSceneRect(0 , 0, 1000, 800);
+    scene.setSceneRect(-500 , -400, 2000, 1600);
 
     QGraphicsProxyWidget *proxy = new QGraphicsProxyWidget();
     proxy->setWidget(web);
@@ -27,6 +28,7 @@ int main(int argc, char *argv[])
     QTransform matrix;
     matrix.translate(-web->geometry().width()/2,0);
     matrix.rotate(45, Qt::YAxis);
+    matrix.rotate(-30, Qt::XAxis);
     proxy->setTransform(matrix);
 
     QGraphicsView view(&scene);
