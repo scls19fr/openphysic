@@ -9,4 +9,11 @@ DEPENDPATH += .
 INCLUDEPATH += .
 
 # Input
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    form.cpp
+
+HEADERS += \
+    form.h
+
+FORMS += \
+    form.ui
