@@ -4,16 +4,18 @@
 #include <QtGui>
 #include <QWebView>
 
+#include "variantanimator.h"
+
 Form::Form(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Form)
 {
     ui->setupUi(this);
 
-    QTimer *timer = new QTimer(this);
-    timer->setInterval(40);
-    connect(timer, SIGNAL(timeout()), this, SLOT(on_timer_timeout()));
-    timer->start();
+    //QTimer *timer = new QTimer(this);
+    //timer->setInterval(40);
+    //connect(timer, SIGNAL(timeout()), this, SLOT(on_timer_timeout()));
+    //timer->start();
 
     m_angle = 0;
 
@@ -41,8 +43,16 @@ Form::Form(QWidget *parent) :
 
     this->setWindowTitle("Test QGraphicsScene");
 
-    updateScene();
+    updateScene(m_angle);
 
+    mAngleAnimator = new variantAnimator;
+    mAngleAnimator->setStartValue(0);
+    mAngleAnimator->setEasingCurve(QEasingCurve::Linear);
+    connect(mAngleAnimator, SIGNAL(valueChanged(const QVariant&)), SLOT(updateScene(const QVariant&)));
+
+    mAngleAnimator->setEndValue(360);
+    mAngleAnimator->setDuration(20);
+    mAngleAnimator->start();
 
 }
 
@@ -51,11 +61,16 @@ Form::~Form()
     delete ui;
 }
 
-void Form::updateScene(void) {
+//void Form::updateScene(qreal m_angle) {
+void Form::updateScene(const QVariant& angle) {
+    qDebug() << "oooo";
+
+    qreal _angle = angle.toDouble();
+
     scene->removeItem(proxy);
     scene->removeItem(proxy2);
 
-    if ( m_angle>=90 && m_angle<270) {
+    if ( _angle>=90 && _angle<270) {
         scene->addItem(proxy2);
         scene->addItem(proxy);
     } else {
@@ -64,12 +79,12 @@ void Form::updateScene(void) {
     }
 
     QTransform matrix;
-    matrix.rotate(180+m_angle, Qt::YAxis);
+    matrix.rotate(180+_angle, Qt::YAxis);
     matrix.translate(-web->geometry().width()/2,0);
     proxy->setTransform(matrix);
 
     QTransform matrix2;
-    matrix2.rotate(m_angle, Qt::YAxis);
+    matrix2.rotate(_angle, Qt::YAxis);
     matrix2.translate(-web->geometry().width()/2,0);
     proxy2->setTransform(matrix2);
 }
@@ -80,7 +95,7 @@ void Form::on_verticalSlider_valueChanged(int value)
     //m_angle = qreal(value)*1.8;
     m_angle = qreal(value)*3.6;
 
-    updateScene();
+    updateScene(m_angle);
 }
 
 void Form::keyPressEvent(QKeyEvent * event)

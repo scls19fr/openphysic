@@ -13,7 +13,8 @@ SOURCES += main.cpp \
     form.cpp
 
 HEADERS += \
-    form.h
+    form.h \
+    variantanimator.h
 
 FORMS += \
     form.ui

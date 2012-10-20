@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QtGui>
 #include <QWebView>
+#include "variantanimator.h"
 
 namespace Ui {
 class Form;
@@ -33,9 +34,11 @@ private:
     QGraphicsProxyWidget *proxy2;
     QGraphicsProxyWidget *proxy;
 
-    void updateScene(void);
+    void updateScene(const QVariant& angle);
 
     void keyPressEvent(QKeyEvent * event);
+
+    variantAnimator *mAngleAnimator;
 
 };
 
