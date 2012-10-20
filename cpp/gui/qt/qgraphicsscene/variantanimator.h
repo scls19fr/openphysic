@@ -7,7 +7,7 @@ class variantAnimator : public QVariantAnimation
 {
     Q_OBJECT
 public:
-     variantAnimator(){};
+    variantAnimator(){};
 
      virtual ~variantAnimator(){};
 

@@ -43,18 +43,7 @@ Form::Form(QWidget *parent) :
 
     this->setWindowTitle("Test QGraphicsScene");
 
-
-    mAngleAnimator = new variantAnimator;
-    mAngleAnimator->setStartValue(0);
-    mAngleAnimator->setEasingCurve(QEasingCurve::Linear);
-    connect(mAngleAnimator, SIGNAL(valueChanged(const QVariant&)), SLOT(updateScene(const QVariant&)));
-
-    mAngleAnimator->setEndValue(360);
-    mAngleAnimator->setDuration(2000);
-    mAngleAnimator->start();
-
     updateScene(m_angle);
-
 }
 
 Form::~Form()
@@ -117,4 +106,29 @@ void Form::on_timer_timeout(void)
     ui->verticalSlider->setValue((ui->verticalSlider->value()+1) % 100);
     //updateScene();
     //qDebug()<< m_angle;
+}
+
+void Form::on_pushButton_clicked() // previous
+{
+    mAngleAnimator = new variantAnimator;
+    mAngleAnimator->setStartValue(0.0);
+    mAngleAnimator->setEasingCurve(QEasingCurve::Linear);
+    connect(mAngleAnimator, SIGNAL(valueChanged(const QVariant&)), SLOT(updateScene(const QVariant&)));
+
+    mAngleAnimator->setEndValue(180.0);
+    mAngleAnimator->setDuration(2000);
+    mAngleAnimator->start();
+}
+
+void Form::on_pushButton_2_clicked() // next
+{
+    mAngleAnimator = new variantAnimator;
+    mAngleAnimator->setStartValue(180.0);
+    mAngleAnimator->setEasingCurve(QEasingCurve::Linear);
+    connect(mAngleAnimator, SIGNAL(valueChanged(const QVariant&)), SLOT(updateScene(const QVariant&)));
+
+    mAngleAnimator->setEndValue(360.0);
+    mAngleAnimator->setDuration(2000);
+    mAngleAnimator->start();
+
 }

@@ -18,9 +18,15 @@ public:
     explicit Form(QWidget *parent = 0);
     ~Form();
 
-private slots:
+public slots:
     void on_verticalSlider_valueChanged(int value);
     void on_timer_timeout(void);
+    void updateScene(const QVariant& angle);
+
+private slots:
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
 
 private:
     Ui::Form *ui;
@@ -34,7 +40,6 @@ private:
     QGraphicsProxyWidget *proxy2;
     QGraphicsProxyWidget *proxy;
 
-    void updateScene(const QVariant& angle);
 
     void keyPressEvent(QKeyEvent * event);
 
