@@ -23,31 +23,12 @@ Form::Form(QWidget *parent) :
     web2->show();
 
     scene->setSceneRect(0 , 0, 1000, 800);
-    //scene.setSceneRect(-500 , -400, 2000, 1600);
 
     proxy = new QGraphicsProxyWidget();
     proxy->setWidget(web);
 
-    //proxy->setOpacity(0.25);
-
     proxy2 = new QGraphicsProxyWidget();
     proxy2->setWidget(web2);
-
-    //proxy2->setOpacity(0.5);
-
-
-
-    /*
-    QTransform matrix;
-    matrix.translate(-web->geometry().width()/2,0);
-    proxy->setTransform(matrix);
-    */
-
-    /*
-    QTransform matrix2;
-    matrix2.translate(-web->geometry().width()/2,0);
-    proxy2->setTransform(matrix);
-    */
 
     ui->graphicsView->setScene(scene);
     ui->graphicsView->show();
@@ -65,7 +46,6 @@ Form::~Form()
 }
 
 void Form::update_screen(void) {
-
     scene->removeItem(proxy);
     scene->removeItem(proxy2);
 
@@ -77,22 +57,16 @@ void Form::update_screen(void) {
         scene->addItem(proxy2);
     }
 
-
     QTransform matrix;
 
     matrix.rotate(180+m_angle, Qt::YAxis);
     matrix.translate(-web->geometry().width()/2,0);
-    //matrix.rotate(-30, Qt::XAxis);
     proxy->setTransform(matrix);
 
     QTransform matrix2;
     matrix2.rotate(m_angle, Qt::YAxis);
     matrix2.translate(-web->geometry().width()/2,0);
     proxy2->setTransform(matrix2);
-
-    //QGraphicsView view(&scene);
-    //view.show();
-
 }
 
 void Form::on_verticalSlider_valueChanged(int value)
