@@ -113,56 +113,48 @@ void Form::next(void) {
     m_state = (m_state + 1) % 2;
 
     if (m_state==0) {
-
         mAngleAnimator = new variantAnimator;
         mAngleAnimator->setStartValue(180.0);
         mAngleAnimator->setEasingCurve(QEasingCurve::Linear);
-        connect(mAngleAnimator, SIGNAL(valueChanged(const QVariant&)), SLOT(updateScene(const QVariant&)));
-
         mAngleAnimator->setEndValue(360.0);
         mAngleAnimator->setDuration(transition_duration);
-        mAngleAnimator->start();
 
     } else { // m_state==1
-
         mAngleAnimator = new variantAnimator;
         mAngleAnimator->setStartValue(0.0);
         mAngleAnimator->setEasingCurve(QEasingCurve::Linear);
-        connect(mAngleAnimator, SIGNAL(valueChanged(const QVariant&)), SLOT(updateScene(const QVariant&)));
-
         mAngleAnimator->setEndValue(180.0);
         mAngleAnimator->setDuration(transition_duration);
-        mAngleAnimator->start();
 
     }
+
+    connect(mAngleAnimator, SIGNAL(valueChanged(const QVariant&)), SLOT(updateScene(const QVariant&)));
+    mAngleAnimator->start();
+
 }
 
 void Form::previous(void) {
     m_state = (m_state + 2 - 1) % 2;
 
     if (m_state==0) {
-
         mAngleAnimator = new variantAnimator;
         mAngleAnimator->setStartValue(180.0);
         mAngleAnimator->setEasingCurve(QEasingCurve::Linear);
-        connect(mAngleAnimator, SIGNAL(valueChanged(const QVariant&)), SLOT(updateScene(const QVariant&)));
-
         mAngleAnimator->setEndValue(0.0);
         mAngleAnimator->setDuration(transition_duration);
-        mAngleAnimator->start();
 
     } else { // m_state==1
-
         mAngleAnimator = new variantAnimator;
         mAngleAnimator->setStartValue(360.0);
         mAngleAnimator->setEasingCurve(QEasingCurve::Linear);
-        connect(mAngleAnimator, SIGNAL(valueChanged(const QVariant&)), SLOT(updateScene(const QVariant&)));
-
         mAngleAnimator->setEndValue(180.0);
         mAngleAnimator->setDuration(transition_duration);
-        mAngleAnimator->start();
 
     }
+
+    connect(mAngleAnimator, SIGNAL(valueChanged(const QVariant&)), SLOT(updateScene(const QVariant&)));
+    mAngleAnimator->start();
+
 }
 
 void Form::on_pushButton_clicked() // previous
