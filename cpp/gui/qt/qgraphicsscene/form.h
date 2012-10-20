@@ -19,6 +19,7 @@ public:
 
 private slots:
     void on_verticalSlider_valueChanged(int value);
+    void on_timer_timeout(void);
 
 private:
     Ui::Form *ui;
@@ -32,7 +33,9 @@ private:
     QGraphicsProxyWidget *proxy2;
     QGraphicsProxyWidget *proxy;
 
-    void update_screen(void);
+    void updateScene(void);
+
+    void keyPressEvent(QKeyEvent * event);
 
 };
 

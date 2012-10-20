@@ -10,6 +10,11 @@ Form::Form(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    QTimer *timer = new QTimer(this);
+    timer->setInterval(40);
+    connect(timer, SIGNAL(timeout()), this, SLOT(on_timer_timeout()));
+    timer->start();
+
     m_angle = 0;
 
     scene = new QGraphicsScene;
@@ -23,6 +28,7 @@ Form::Form(QWidget *parent) :
     web2->show();
 
     scene->setSceneRect(0 , 0, 1000, 800);
+    //scene->
 
     proxy = new QGraphicsProxyWidget();
     proxy->setWidget(web);
@@ -35,7 +41,7 @@ Form::Form(QWidget *parent) :
 
     this->setWindowTitle("Test QGraphicsScene");
 
-    update_screen();
+    updateScene();
 
 
 }
@@ -45,11 +51,11 @@ Form::~Form()
     delete ui;
 }
 
-void Form::update_screen(void) {
+void Form::updateScene(void) {
     scene->removeItem(proxy);
     scene->removeItem(proxy2);
 
-    if ( m_angle > 90 ) {
+    if ( m_angle>=90 && m_angle<270) {
         scene->addItem(proxy2);
         scene->addItem(proxy);
     } else {
@@ -58,7 +64,6 @@ void Form::update_screen(void) {
     }
 
     QTransform matrix;
-
     matrix.rotate(180+m_angle, Qt::YAxis);
     matrix.translate(-web->geometry().width()/2,0);
     proxy->setTransform(matrix);
@@ -71,8 +76,29 @@ void Form::update_screen(void) {
 
 void Form::on_verticalSlider_valueChanged(int value)
 {
-    qDebug() << value;
-    m_angle = qreal(value)*1.8;
+    //qDebug() << value;
+    //m_angle = qreal(value)*1.8;
+    m_angle = qreal(value)*3.6;
 
-    update_screen();
+    updateScene();
+}
+
+void Form::keyPressEvent(QKeyEvent * event)
+{
+    if ( event->key()==Qt::Key_K || event->key()==Qt::Key_Right ) { // next
+        qDebug() << "Next";
+
+    } else if ( event->key()==Qt::Key_Q ) {
+        close();
+
+    }
+}
+
+void Form::on_timer_timeout(void)
+{
+    //m_angle = fmod(m_angle + 1,360);
+    //ui->verticalSlider->setValue(m_angle/3.6);
+    ui->verticalSlider->setValue((ui->verticalSlider->value()+1) % 100);
+    //updateScene();
+    //qDebug()<< m_angle;
 }
