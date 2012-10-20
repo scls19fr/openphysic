@@ -3,6 +3,7 @@
 ######################################################################
 
 TEMPLATE = app
+QT += webkit
 TARGET = 
 DEPENDPATH += .
 INCLUDEPATH += .
