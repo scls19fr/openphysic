@@ -20,7 +20,6 @@ public:
 
 public slots:
     void on_verticalSlider_valueChanged(int value);
-    void on_timer_timeout(void);
     void updateScene(const QVariant& angle);
 
 private slots:
@@ -33,6 +32,7 @@ private:
     QGraphicsScene *scene;
 
     qreal m_angle;
+    int m_state;
 
     QWebView *web;
     QWebView *web2;
@@ -45,6 +45,11 @@ private:
 
     variantAnimator *mAngleAnimator;
 
+    void next(void);
+    void previous(void);
+
+    int getState(void);
+    int transition_duration;
 };
 
 #endif // FORM_H

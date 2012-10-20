@@ -12,25 +12,24 @@ Form::Form(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //QTimer *timer = new QTimer(this);
-    //timer->setInterval(40);
-    //connect(timer, SIGNAL(timeout()), this, SLOT(on_timer_timeout()));
-    //timer->start();
+    transition_duration = 400;
 
     m_angle = 0;
+    m_state = 0;
 
     scene = new QGraphicsScene;
 
     web = new QWebView();
-    web->load(QUrl("http://news.google.fr"));
+    //web->load(QUrl("http://news.google.fr"));
+    web->load(QUrl("https://upplanning.appli.univ-poitiers.fr/ade/custom/modules/plannings/direct_planning.jsp?login=visu&password=visu&showTree=false&showPianoDays=false&showPianoWeeks=false&showOptions=false&days=0,1,2,3,4&displayConfName=IUTP-Campus%20(GTE)%20affichage%20lim&code=_Z1PT11_TP1,_Z1PT11_TP2,_Z1PT11_TP3,_Z1PT11_TP4,_Z1PT11_TP5,_Z1PT11_TP6&projectId=3"));
     web->show();
 
     web2 = new QWebView();
-    web2->load(QUrl("http://www.google.com"));
+    //web2->load(QUrl("http://www.google.com"));
+    web2->load(QUrl("https://upplanning.appli.univ-poitiers.fr/ade/custom/modules/plannings/direct_planning.jsp?login=visu&password=visu&showTree=false&showPianoDays=false&showPianoWeeks=false&showOptions=false&days=0,1,2,3,4&displayConfName=IUTP-Campus%20(GTE)%20affichage%20lim&code=_Z2PT11_S3_TP1,_Z2PT11_S3_TP2,_Z2PT11_S3_TP3,_Z2PT11_S3_TP4,_Z2PT11_S3_TP5&projectId=3"));
     web2->show();
 
     scene->setSceneRect(0 , 0, 1000, 800);
-    //scene->
 
     proxy = new QGraphicsProxyWidget();
     proxy->setWidget(web);
@@ -53,14 +52,12 @@ Form::~Form()
 
 //void Form::updateScene(qreal m_angle) {
 void Form::updateScene(const QVariant& angle) {
-    //qDebug() << angle;
-
     qreal _angle = angle.toDouble();
 
     scene->removeItem(proxy);
     scene->removeItem(proxy2);
 
-    if ( _angle>=90 && _angle<270) {
+    if ( _angle>=90 && _angle<270 ) {
         scene->addItem(proxy2);
         scene->addItem(proxy);
     } else {
@@ -81,54 +78,99 @@ void Form::updateScene(const QVariant& angle) {
 
 void Form::on_verticalSlider_valueChanged(int value)
 {
-    //qDebug() << value;
-    //m_angle = qreal(value)*1.8;
     m_angle = qreal(value)*3.6;
 
     updateScene(m_angle);
 }
 
+int Form::getState(void) {
+    if ( m_angle>=90 && m_angle<270 ) {
+        return(1);
+    } else {
+        return(0);
+    }
+}
+
 void Form::keyPressEvent(QKeyEvent * event)
 {
-    if ( event->key()==Qt::Key_K || event->key()==Qt::Key_Right ) { // next
-        qDebug() << "Next";
+    switch(event->key()) {
+        case Qt::Key_K: {
+            next();
+            break;
+        }
+        case Qt::Key_J: {
+            previous();
+            break;
+        }
+        case Qt::Key_Q: {
+            close();
+            break;
+        }
+    }
+}
 
-    } else if ( event->key()==Qt::Key_Q ) {
-        close();
+void Form::next(void) {
+    m_state = (m_state + 1) % 2;
+
+    if (m_state==0) {
+
+        mAngleAnimator = new variantAnimator;
+        mAngleAnimator->setStartValue(180.0);
+        mAngleAnimator->setEasingCurve(QEasingCurve::Linear);
+        connect(mAngleAnimator, SIGNAL(valueChanged(const QVariant&)), SLOT(updateScene(const QVariant&)));
+
+        mAngleAnimator->setEndValue(360.0);
+        mAngleAnimator->setDuration(transition_duration);
+        mAngleAnimator->start();
+
+    } else { // m_state==1
+
+        mAngleAnimator = new variantAnimator;
+        mAngleAnimator->setStartValue(0.0);
+        mAngleAnimator->setEasingCurve(QEasingCurve::Linear);
+        connect(mAngleAnimator, SIGNAL(valueChanged(const QVariant&)), SLOT(updateScene(const QVariant&)));
+
+        mAngleAnimator->setEndValue(180.0);
+        mAngleAnimator->setDuration(transition_duration);
+        mAngleAnimator->start();
 
     }
 }
 
-void Form::on_timer_timeout(void)
-{
-    //m_angle = fmod(m_angle + 1,360);
-    //ui->verticalSlider->setValue(m_angle/3.6);
-    ui->verticalSlider->setValue((ui->verticalSlider->value()+1) % 100);
-    //updateScene();
-    //qDebug()<< m_angle;
+void Form::previous(void) {
+    m_state = (m_state + 2 - 1) % 2;
+
+    if (m_state==0) {
+
+        mAngleAnimator = new variantAnimator;
+        mAngleAnimator->setStartValue(180.0);
+        mAngleAnimator->setEasingCurve(QEasingCurve::Linear);
+        connect(mAngleAnimator, SIGNAL(valueChanged(const QVariant&)), SLOT(updateScene(const QVariant&)));
+
+        mAngleAnimator->setEndValue(0.0);
+        mAngleAnimator->setDuration(transition_duration);
+        mAngleAnimator->start();
+
+    } else { // m_state==1
+
+        mAngleAnimator = new variantAnimator;
+        mAngleAnimator->setStartValue(360.0);
+        mAngleAnimator->setEasingCurve(QEasingCurve::Linear);
+        connect(mAngleAnimator, SIGNAL(valueChanged(const QVariant&)), SLOT(updateScene(const QVariant&)));
+
+        mAngleAnimator->setEndValue(180.0);
+        mAngleAnimator->setDuration(transition_duration);
+        mAngleAnimator->start();
+
+    }
 }
 
 void Form::on_pushButton_clicked() // previous
 {
-    mAngleAnimator = new variantAnimator;
-    mAngleAnimator->setStartValue(0.0);
-    mAngleAnimator->setEasingCurve(QEasingCurve::Linear);
-    connect(mAngleAnimator, SIGNAL(valueChanged(const QVariant&)), SLOT(updateScene(const QVariant&)));
-
-    mAngleAnimator->setEndValue(180.0);
-    mAngleAnimator->setDuration(2000);
-    mAngleAnimator->start();
+    previous();
 }
 
 void Form::on_pushButton_2_clicked() // next
 {
-    mAngleAnimator = new variantAnimator;
-    mAngleAnimator->setStartValue(180.0);
-    mAngleAnimator->setEasingCurve(QEasingCurve::Linear);
-    connect(mAngleAnimator, SIGNAL(valueChanged(const QVariant&)), SLOT(updateScene(const QVariant&)));
-
-    mAngleAnimator->setEndValue(360.0);
-    mAngleAnimator->setDuration(2000);
-    mAngleAnimator->start();
-
+    next();
 }
