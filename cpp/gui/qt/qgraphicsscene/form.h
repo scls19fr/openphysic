@@ -26,19 +26,21 @@ private slots:
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();
 
+signals:
+    void nextPressed(void);
+    void previousPressed(void);
+
 private:
     Ui::Form *ui;
     QGraphicsScene *scene;
 
     qreal m_angle;
     int m_state;
-
-    QWebView *web;
-    QWebView *web2;
+    int state(void) const; // getter
+    //void setState(const int state); // setter
 
     QGraphicsProxyWidget *proxy2;
     QGraphicsProxyWidget *proxy;
-
 
     void keyPressEvent(QKeyEvent * event);
 
@@ -47,8 +49,12 @@ private:
     void next(void);
     void previous(void);
 
-    int getState(void);
-    int transition_duration;
+
+    int m_transition_duration;
+    QEasingCurve m_easing_curve;
+
+    //QStateMachine machine;
+
 };
 
 #endif // FORM_H

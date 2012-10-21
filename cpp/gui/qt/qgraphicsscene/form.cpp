@@ -12,18 +12,22 @@ Form::Form(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    transition_duration = 400;
+    m_transition_duration = 4000;
+    m_easing_curve = QEasingCurve::Linear;
+    //m_easing_curve = QEasingCurve::InOutBack;
 
     m_angle = 0;
-    m_state = 0;
+    m_state = state();
 
     scene = new QGraphicsScene;
 
+    QWebView *web;
     web = new QWebView();
     web->load(QUrl("http://news.google.fr"));
     //web->load(QUrl("https://upplanning.appli.univ-poitiers.fr/ade/custom/modules/plannings/direct_planning.jsp?login=visu&password=visu&showTree=false&showPianoDays=false&showPianoWeeks=false&showOptions=false&days=0,1,2,3,4&displayConfName=IUTP-Campus%20(GTE)%20affichage%20lim&code=_Z1PT11_TP1,_Z1PT11_TP2,_Z1PT11_TP3,_Z1PT11_TP4,_Z1PT11_TP5,_Z1PT11_TP6&projectId=3"));
     web->show();
 
+    QWebView *web2;
     web2 = new QWebView();
     web2->load(QUrl("http://www.google.com"));
     //web2->load(QUrl("https://upplanning.appli.univ-poitiers.fr/ade/custom/modules/plannings/direct_planning.jsp?login=visu&password=visu&showTree=false&showPianoDays=false&showPianoWeeks=false&showOptions=false&days=0,1,2,3,4&displayConfName=IUTP-Campus%20(GTE)%20affichage%20lim&code=_Z2PT11_S3_TP1,_Z2PT11_S3_TP2,_Z2PT11_S3_TP3,_Z2PT11_S3_TP4,_Z2PT11_S3_TP5&projectId=3"));
@@ -52,12 +56,14 @@ Form::~Form()
 }
 
 void Form::updateScene(const QVariant& angle) {
-    m_angle = angle.toDouble();
+    m_angle = fmod(angle.toDouble(), 360.0);
+
+    this->ui->verticalSlider->setValue(m_angle/3.6);
 
     scene->removeItem(proxy);
     scene->removeItem(proxy2);
 
-    if ( getState() ) {
+    if ( state() ) {
         scene->addItem(proxy2);
         scene->addItem(proxy);
     } else {
@@ -67,23 +73,22 @@ void Form::updateScene(const QVariant& angle) {
 
     QTransform matrix;
     matrix.rotate(180+m_angle, Qt::YAxis);
-    matrix.translate(-web->geometry().width()/2,0);
+    matrix.translate(-proxy->geometry().width()/2,0);
     proxy->setTransform(matrix);
 
     QTransform matrix2;
     matrix2.rotate(m_angle, Qt::YAxis);
-    matrix2.translate(-web->geometry().width()/2,0);
+    matrix2.translate(-proxy->geometry().width()/2,0);
     proxy2->setTransform(matrix2);
 }
 
 void Form::on_verticalSlider_valueChanged(int value)
 {
     m_angle = qreal(value)*3.6;
-
     updateScene(m_angle);
 }
 
-int Form::getState(void) {
+int Form::state(void) const {
     if ( m_angle>=90 && m_angle<270 ) {
         return(1);
     } else {
@@ -110,44 +115,48 @@ void Form::keyPressEvent(QKeyEvent * event)
 }
 
 void Form::next(void) {
-    m_state = (m_state + 1) % 2;
+    m_state = (state() + 1) % 2;
 
-    if (m_state==0) {
+    if ( m_state==0 ) {
         mAngleAnimator = new variantAnimator;
-        mAngleAnimator->setStartValue(180.0);
+        //mAngleAnimator->setStartValue(180.0);
+        mAngleAnimator->setStartValue(m_angle);
         mAngleAnimator->setEndValue(360.0);
 
     } else { // m_state==1
         mAngleAnimator = new variantAnimator;
-        mAngleAnimator->setStartValue(0.0);
+        //mAngleAnimator->setStartValue(0.0);
+        mAngleAnimator->setStartValue(m_angle);
         mAngleAnimator->setEndValue(180.0);
 
     }
 
-    mAngleAnimator->setEasingCurve(QEasingCurve::Linear);
-    mAngleAnimator->setDuration(transition_duration);
+    mAngleAnimator->setEasingCurve(m_easing_curve);
+    mAngleAnimator->setDuration(m_transition_duration);
     connect(mAngleAnimator, SIGNAL(valueChanged(const QVariant&)), SLOT(updateScene(const QVariant&)));
     mAngleAnimator->start();
 
 }
 
 void Form::previous(void) {
-    m_state = (m_state + 2 - 1) % 2;
+    m_state = (state() + 2 - 1) % 2;
 
-    if (m_state==0) {
+    if ( m_state==0 ) {
         mAngleAnimator = new variantAnimator;
-        mAngleAnimator->setStartValue(180.0);
+        //mAngleAnimator->setStartValue(180.0);
+        mAngleAnimator->setStartValue(m_angle);
         mAngleAnimator->setEndValue(0.0);
 
     } else { // m_state==1
         mAngleAnimator = new variantAnimator;
-        mAngleAnimator->setStartValue(360.0);
+        //mAngleAnimator->setStartValue(360.0);
+        mAngleAnimator->setStartValue(m_angle+360);
         mAngleAnimator->setEndValue(180.0);
 
     }
 
-    mAngleAnimator->setEasingCurve(QEasingCurve::Linear);
-    mAngleAnimator->setDuration(transition_duration);
+    mAngleAnimator->setEasingCurve(m_easing_curve);
+    mAngleAnimator->setDuration(m_transition_duration);
     connect(mAngleAnimator, SIGNAL(valueChanged(const QVariant&)), SLOT(updateScene(const QVariant&)));
     mAngleAnimator->start();
 
@@ -155,10 +164,12 @@ void Form::previous(void) {
 
 void Form::on_pushButton_clicked() // previous
 {
+    emit(previousPressed());
     previous();
 }
 
 void Form::on_pushButton_2_clicked() // next
 {
+    emit(nextPressed());
     next();
 }
