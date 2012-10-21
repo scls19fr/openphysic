@@ -23,8 +23,8 @@ Form::Form(QWidget *parent) :
 
     QWebView *web;
     web = new QWebView();
-    //web->load(QUrl("http://news.google.fr"));
-    web->load(QUrl("https://upplanning.appli.univ-poitiers.fr/ade/custom/modules/plannings/direct_planning.jsp?login=visu&password=visu&showTree=false&showPianoDays=false&showPianoWeeks=false&showOptions=false&days=0,1,2,3,4&displayConfName=IUTP-Campus%20(GTE)%20affichage%20lim&code=_Z1PT11_TP1,_Z1PT11_TP2,_Z1PT11_TP3,_Z1PT11_TP4,_Z1PT11_TP5,_Z1PT11_TP6&projectId=3"));
+    web->load(QUrl("http://news.google.fr"));
+    //web->load(QUrl("https://upplanning.appli.univ-poitiers.fr/ade/custom/modules/plannings/direct_planning.jsp?login=visu&password=visu&showTree=false&showPianoDays=false&showPianoWeeks=false&showOptions=false&days=0,1,2,3,4&displayConfName=IUTP-Campus%20(GTE)%20affichage%20lim&code=_Z1PT11_TP1,_Z1PT11_TP2,_Z1PT11_TP3,_Z1PT11_TP4,_Z1PT11_TP5,_Z1PT11_TP6&projectId=3"));
     web->show();
 
     QWebView *web2;
@@ -45,7 +45,7 @@ Form::Form(QWidget *parent) :
 
 
     QPixmap pm;
-    pm.load(QString(":/background.jpg"));
+    pm.load(QString(":/background/background/background.jpg"));
     QGraphicsPixmapItem* item = scene->addPixmap(pm);
     item->setPos(-proxy2->geometry().width()/2, 0);
 
