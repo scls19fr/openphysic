@@ -46,8 +46,12 @@ Form::Form(QWidget *parent) :
 
     QPixmap pm;
     pm.load(QString(":/background/background/background.jpg"));
+    //pm.load(QString(":/background/background/abstract-light.jpg"));
+    //pm = pm.scaled(ui->graphicsView->geometry().width(),ui->graphicsView->geometry().height(),Qt::KeepAspectRatio,Qt::SmoothTransformation);
+    //pm = pm.scaled(640,480,Qt::KeepAspectRatio,Qt::SmoothTransformation);
     QGraphicsPixmapItem* item = scene->addPixmap(pm);
     item->setPos(-proxy2->geometry().width()/2, 0);
+    //item->setPos(-proxy2->geometry().width()/2, proxy2->geometry().height()/2);
 
     ui->graphicsView->setScene(scene);
     ui->graphicsView->show();

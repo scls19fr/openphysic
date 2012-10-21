@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/background">
         <file>background/background.jpg</file>
+        <file>background/abstract-light.jpg</file>
     </qresource>
 </RCC>
