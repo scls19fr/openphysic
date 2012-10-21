@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DebugWindow</class>
+ <widget class="QDialog" name="DebugWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>453</width>
+    <height>176</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>DebugWindow</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>20</y>
+     <width>361</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="cmdPrevious">
+        <property name="text">
+         <string>Previous</string>
+        </property>
+        <property name="icon">
+         <iconset resource="debug.qrc">
+          <normaloff>:/icons/controls_chapter_previous.svg</normaloff>:/icons/controls_chapter_previous.svg</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="cmdNext">
+        <property name="text">
+         <string>Next</string>
+        </property>
+        <property name="icon">
+         <iconset resource="debug.qrc">
+          <normaloff>:/icons/controls_chapter_next.svg</normaloff>:/icons/controls_chapter_next.svg</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QPushButton" name="cmdPlay">
+        <property name="text">
+         <string>Play</string>
+        </property>
+        <property name="icon">
+         <iconset resource="debug.qrc">
+          <normaloff>:/icons/controls_play.svg</normaloff>:/icons/controls_play.svg</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="cmdStop">
+        <property name="text">
+         <string>Stop</string>
+        </property>
+        <property name="icon">
+         <iconset resource="debug.qrc">
+          <normaloff>:/icons/controls_stop.svg</normaloff>:/icons/controls_stop.svg</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="cmdPause">
+        <property name="text">
+         <string>Pause</string>
+        </property>
+        <property name="icon">
+         <iconset resource="debug.qrc">
+          <normaloff>:/icons/controls_pause.svg</normaloff>:/icons/controls_pause.svg</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QPushButton" name="cmdDebug">
+        <property name="text">
+         <string>Debug</string>
+        </property>
+        <property name="icon">
+         <iconset resource="debug.qrc">
+          <normaloff>:/icons/book_text.svg</normaloff>:/icons/book_text.svg</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="cmdQuit">
+        <property name="text">
+         <string>Quit</string>
+        </property>
+        <property name="icon">
+         <iconset resource="debug.qrc">
+          <normaloff>:/icons/controls_eject.svg</normaloff>:/icons/controls_eject.svg</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="debug.qrc"/>
+ </resources>
+ <connections/>
+</ui>
