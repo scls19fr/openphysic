@@ -14,8 +14,8 @@ int main(int argc, char *argv[])
 
     Form frm;
     //frm.show();
-    //frm.showFullScreen();
-    frm.showMaximized();
+    frm.showFullScreen();
+    //frm.showMaximized();
 
     return app.exec();
 }

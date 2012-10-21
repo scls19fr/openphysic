@@ -18,3 +18,6 @@ HEADERS += \
 
 FORMS += \
     form.ui
+
+RESOURCES += \
+    screen.qrc

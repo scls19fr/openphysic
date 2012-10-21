@@ -43,8 +43,16 @@ Form::Form(QWidget *parent) :
 
     ui->graphicsView->scale(1.2,1.2);
 
+
+    QPixmap pm;
+    pm.load(QString(":/background.jpg"));
+    QGraphicsPixmapItem* item = scene->addPixmap(pm);
+    item->setPos(-proxy2->geometry().width()/2, 0);
+
     ui->graphicsView->setScene(scene);
     ui->graphicsView->show();
+
+    qDebug() << scene;
 
     this->setWindowTitle("Test QGraphicsScene");
 
