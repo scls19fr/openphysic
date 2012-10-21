@@ -47,6 +47,8 @@ SlideWidget::SlideWidget(QWidget *parent, Slide *slide) :
 
     //this->setStyleSheet("background-color: green;");
 
+    this->reload_slide();
+
 }
 
 SlideWidget::~SlideWidget()
@@ -58,7 +60,10 @@ void SlideWidget::refresh_slide(void)
 {
     //qDebug() << "refresh_slide" << m_slide->title;
 
-    ui->lblMessage->setText(this->m_slide->getMessage());
+    //ui->lblMessage->setText(this->m_slide->getMessage());
+    //ui->marqueeLabel->setText(this->m_slide->getMessage());
+    ui->textBrowser->setText(this->m_slide->getMessage());
+
 
     //QString datetimeLastUpdateString = m_slide->lastupdate.toString(QString("dd/MM/yyyy hh:mm:ss"));
     QString datetimeCurrentString = QDateTime::currentDateTime().toString(QString("dd/MM/yyyy hh:mm:ss"));
@@ -82,10 +87,12 @@ void SlideWidget::reload_slide(void)
     font_lblTitle.setBold(true);
     ui->lblTitle->setFont(font_lblTitle);
 
+    /*
     QFont font_lblMessage;
     font_lblMessage.setPointSize(16);
     font_lblMessage.setItalic(true);
     ui->lblMessage->setFont(font_lblMessage);
+    */
 
     /*
     this->setWindowTitle(QString("Browser"));
@@ -102,24 +109,19 @@ void SlideWidget::reload_slide(void)
     //QString datetimeCurrentString = QDateTime::currentDateTime().toString(QString("dd/MM/yyyy hh:mm:ss"));
 
     this->m_slide->load_message();
-    ui->lblMessage->setText(this->m_slide->getMessage());
+    //ui->lblMessage->setText(this->m_slide->getMessage());
 
     QFont font_textBrowser;
     font_textBrowser.setPointSize(16);
-    //font.setBold(false);
-    //font.setItalic(true);
-    //font.setItalic(false);
     ui->textBrowser->setFont(font_textBrowser);
     ui->textBrowser->setText(this->m_slide->getMessage());
-    //qDebug() << this->m_slide->getMessage();
 
+    /*
     QFont font_marqueeLabel;
     font_marqueeLabel.setPointSize(16);
-    //ui->marqueeLabel->setTextFormat(Qt::RichText);
-    //ui->marqueeLabel->setAlignment(Qt::AlignVCenter);
     ui->marqueeLabel->setFont(font_marqueeLabel);
-
     ui->marqueeLabel->setText(this->m_slide->getMessage());
+    */
 
     //ui->lblSystem->setText(QString("MAJ: ")+datetimeLastUpdateString+QString("\tActuel: ")+datetimeCurrentString);
 
@@ -130,8 +132,9 @@ void SlideWidget::reload_slide(void)
     //ui->webView->setUrl(QUrl("http://www.google.fr"));
     //ui->webView->setZoomFactor(1.0);
 
-    ui->webView->setUrl(this->m_slide->url);
-    //ui->webView->load(this->m_slide->url);
+    qDebug() << "Loading URL" << this->m_slide->url;
+    //ui->webView->setUrl(this->m_slide->url);
+    ui->webView->load(this->m_slide->url);
     ui->webView->setZoomFactor(this->m_slide->zoom);
 
     // ToFix: scale
