@@ -26,10 +26,6 @@ private slots:
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();
 
-signals:
-    void nextPressed(void);
-    void previousPressed(void);
-
 private:
     Ui::Form *ui;
     QGraphicsScene *scene;
@@ -49,12 +45,8 @@ private:
     void next(void);
     void previous(void);
 
-
     int m_transition_duration;
     QEasingCurve m_easing_curve;
-
-    //QStateMachine machine;
-
 };
 
 #endif // FORM_H

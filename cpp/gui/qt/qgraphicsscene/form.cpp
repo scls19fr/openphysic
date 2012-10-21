@@ -33,12 +33,15 @@ Form::Form(QWidget *parent) :
     //web2->load(QUrl("https://upplanning.appli.univ-poitiers.fr/ade/custom/modules/plannings/direct_planning.jsp?login=visu&password=visu&showTree=false&showPianoDays=false&showPianoWeeks=false&showOptions=false&days=0,1,2,3,4&displayConfName=IUTP-Campus%20(GTE)%20affichage%20lim&code=_Z2PT11_S3_TP1,_Z2PT11_S3_TP2,_Z2PT11_S3_TP3,_Z2PT11_S3_TP4,_Z2PT11_S3_TP5&projectId=3"));
     web2->show();
 
-    scene->setSceneRect(0 , web->geometry().height()*0.3, web->geometry().width()*1.5, web->geometry().height());
     proxy = new QGraphicsProxyWidget();
     proxy->setWidget(web);
 
     proxy2 = new QGraphicsProxyWidget();
     proxy2->setWidget(web2);
+
+    scene->setSceneRect(proxy2->geometry().x()-proxy2->geometry().width()/2, proxy2->geometry().y()+proxy2->geometry().height()*0.08, proxy2->geometry().width(),  proxy2->geometry().height()*0.8);
+
+    ui->graphicsView->scale(1.2,1.2);
 
     ui->graphicsView->setScene(scene);
     ui->graphicsView->show();
@@ -72,6 +75,7 @@ void Form::updateScene(const QVariant& angle) {
 
     QTransform matrix;
     matrix.rotate(180+m_angle, Qt::YAxis);
+    //matrix.rotate(180-m_angle, Qt::YAxis);
     matrix.translate(-proxy->geometry().width()/2,0);
     proxy->setTransform(matrix);
 
@@ -163,12 +167,10 @@ void Form::previous(void) {
 
 void Form::on_pushButton_clicked() // previous
 {
-    emit(previousPressed());
     previous();
 }
 
 void Form::on_pushButton_2_clicked() // next
 {
-    emit(nextPressed());
     next();
 }
