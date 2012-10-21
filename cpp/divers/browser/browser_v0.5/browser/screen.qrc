@@ -1,8 +1,9 @@
 <RCC>
     <qresource prefix="/">
-        <file>logos/logo1.png</file>
+        <file alias="splash">logos/logo1.png</file>
         <file>logos/logo2.png</file>
         <file>logos/logo3.png</file>
         <file>logos/logo4.png</file>
+        <file>config/display/img/splash.jpg</file>
     </qresource>
 </RCC>

@@ -42,6 +42,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <QtGui>
 
 #include "slidewidget.h"
+#include "splash.h"
 
 MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, argv)
 {
@@ -271,9 +272,6 @@ void MainApplication::update_timer1(void)
 void MainApplication::update_timer2(void)
 {
   qDebug() << "Timer2 timeout (refresh data)";
-  //for (int i=0;i<pageTotal();i++) {
-  //  main_win->arraySlideWidget->at(i)->; // refresh
-  //}
 
   for (int i=0;i<pageTotal();i++) {
     main_win->arraySlideWidget->at(i)->reload_slide();
@@ -390,30 +388,31 @@ void MainApplication::load_config(void)
         s = new Slide();
 
         s->title = QString("Title of this slide 0");
-        s->url = QString("C:/Documents and Settings/scelles/display_img/img/slide0.gif");
+        s->url = QString("http://www.google.fr?q=test0");
         // Mac OS /Users/scls/display_img/img/slide0.gif
         // Linux /home/scls/display_img/img/slide0.gif
         //s->message = QString("Message of slide 0");
         s->setMessage(QString("Lorem ipsum dolor sit amet, consectetur adipiscing elit. (slide 0) Sed non risus. (slide 0) Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. (slide 0) Cras elementum ultrices diam. (slide 0) Maecenas ligula massa, varius a, semper congue, euismod non, mi. (slide 0) Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. (slide 0) Duis semper. (slide 0) Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. (slide 0) Pellentesque congue. (slide 0)"));
-        s->message_file = QString("C:/Documents and Settings/scelles/display_img/messages/slide0.txt");
+        s->message_file = QString(CFG_DIR+"/"+CFG_FILE+"/messages/slide0.txt");
+        // /Users/scls/display/messages/slide0.txt
         //s->delay = 2000;
         arraySlide->append(s);
 
         s = new Slide();
         s->title = QString("Title of this slide 1");
-        s->url = QString("C:/Documents and Settings/scelles/display_img/img/slide1.gif");
+        s->url = QString("http://www.google.fr?q=test1");
         //s->message = QString("Message of slide 1");
         s->setMessage(QString("Lorem ipsum dolor sit amet, consectetur adipiscing elit. (slide 1) Sed non risus. (slide 1) Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. (slide 1) Cras elementum ultrices diam. (slide 1) Maecenas ligula massa, varius a, semper congue, euismod non, mi. (slide 1) Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. (slide 1) Duis semper. (slide 1) Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. (slide 1) Pellentesque congue. (slide 1)"));
-        s->message_file = QString("C:/Documents and Settings/scelles/display_img/messages/slide1.txt");
+        s->message_file = QString(CFG_DIR+"/"+CFG_FILE+"/messages/slide1.txt");
         //s->delay = 3000;
         arraySlide->append(s);
 
         s = new Slide();
         s->title = QString("Title of this slide 2");
-        s->url = QString("C:/Documents and Settings/scelles/display_img/img/slide2.gif");
+        s->url = QString("http://www.google.fr?q=test2");
         //s->message = QString("Message of slide 2");
         s->setMessage(QString("Lorem ipsum dolor sit amet, consectetur adipiscing elit. (slide 2) Sed non risus. (slide 2) Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. (slide 2) Cras elementum ultrices diam. (slide 2) Maecenas ligula massa, varius a, semper congue, euismod non, mi. (slide 2) Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. (slide 2) Duis semper. (slide 2) Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. (slide 2) Pellentesque congue. (slide 2)"));
-        s->message_file = QString("C:/Documents and Settings/scelles/display_img/messages/slide2.txt");
+        s->message_file = QString(CFG_DIR+"/"+CFG_FILE+"/messages/slide2.txt");
         //s->delay = 4000;
         arraySlide->append(s);
 
@@ -518,6 +517,8 @@ void MainApplication::load_config(void)
 
     //main_win->show();
     //main_win->setWindowState(Qt::WindowFullScreen);
+
+    //main_win->setPi
 
     #ifndef DEBUG
     main_win->showFullScreen();

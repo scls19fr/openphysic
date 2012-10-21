@@ -23,6 +23,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <QKeyEvent>
 #include <QDebug>
 
+#include "splash.h"
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -33,6 +35,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //this->setStyleSheet("background-color: white;");
     //this->setStyleSheet("background-color: yellow;");
+
+    splash * sp = new splash(this);
+    this->setCentralWidget(sp);
 }
 
 MainWindow::~MainWindow()

@@ -17,7 +17,8 @@ SOURCES += main.cpp\
     scrolltext.cpp \
     slidewidget.cpp \
     mainwindow.cpp \
-    QTMarqueeLabel.cpp
+    QTMarqueeLabel.cpp \
+    splash.cpp
 
 HEADERS  += \
     slide.h \
@@ -26,12 +27,14 @@ HEADERS  += \
     scrolltext.h \
     slidewidget.h \
     mainwindow.h \
-    QTMarqueeLabel.h
+    QTMarqueeLabel.h \
+    splash.h
 
 FORMS    += \
     debugwindow.ui \
     slidewidget.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    splash.ui
 
 RESOURCES += \
     debug.qrc \
