@@ -91,14 +91,13 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
   #endif
 
-
   this->exec();
 
 }
 
 void MainApplication::change_slide(void)
 {
-    qDebug() << "change_slide";
+    //qDebug() << "change_slide";
 
     SlideWidget *w_current;
     SlideWidget *w_previous;
@@ -109,9 +108,9 @@ void MainApplication::change_slide(void)
     //qDebug()<< "previous:" <<m_page_previous << " page=" << m_page << " next=" << m_page_next;
     timer1->setInterval(arraySlide->at(m_page)->delay); // useful if slides doesn't have same delay
 
-    group_anim_slide = new QParallelAnimationGroup;
-    QPropertyAnimation *anim_slide_current;
-    QPropertyAnimation *anim_slide_previous;
+    //group_anim_slide = new QParallelAnimationGroup;
+    //QPropertyAnimation *anim_slide_current;
+    //QPropertyAnimation *anim_slide_previous;
     //QPropertyAnimation *anim_slide_next;
 
     /*
@@ -506,6 +505,7 @@ void MainApplication::load_config(void)
       main_win->arraySlideWidget->append(sw);
     }
     //main_win->arraySlideWidget->at(0)->show();
+
     connect(main_win, SIGNAL( QuitPressed() ), this, SLOT( quit() ));
     connect(main_win, SIGNAL( NextPressed() ), this, SLOT( next() ));
     connect(main_win, SIGNAL( PreviousPressed() ), this, SLOT( previous() ));
@@ -525,14 +525,14 @@ void MainApplication::load_config(void)
     main_win->show();
     #endif
 
-    QGraphicsScene scene;
-    sw = new SlideWidget(NULL, arraySlide->at(0));
-    QGraphicsProxyWidget *proxy = new QGraphicsProxyWidget();
-    proxy->setWidget(sw);
-    scene.addItem(proxy);
+    //QGraphicsScene scene;
+    //sw = new SlideWidget(NULL, arraySlide->at(0));
+    //QGraphicsProxyWidget *proxy = new QGraphicsProxyWidget();
+    //proxy->setWidget(sw);
+    //scene.addItem(proxy);
 
-    QGraphicsView view(&scene);
-    view.show();
+    //QGraphicsView view(&scene);
+    //view.show();
 
     //QGraphicsScene scene;
     //QGraphicsProxyWidget *proxy = scene.addWidget(main_win->arraySlideWidget->at(0));

@@ -77,13 +77,15 @@ void SlideWidget::refresh_slide(void)
 
 void SlideWidget::reload_slide(void)
 {
-    QFont font;
-    font.setPointSize(32);
-    font.setBold(true);
-    ui->lblTitle->setFont(font);
-    font.setPointSize(16);
-    font.setItalic(true);
-    ui->lblMessage->setFont(font);
+    QFont font_lblTitle;
+    font_lblTitle.setPointSize(32);
+    font_lblTitle.setBold(true);
+    ui->lblTitle->setFont(font_lblTitle);
+
+    QFont font_lblMessage;
+    font_lblMessage.setPointSize(16);
+    font_lblMessage.setItalic(true);
+    ui->lblMessage->setFont(font_lblMessage);
 
     /*
     this->setWindowTitle(QString("Browser"));
@@ -102,11 +104,22 @@ void SlideWidget::reload_slide(void)
     this->m_slide->load_message();
     ui->lblMessage->setText(this->m_slide->getMessage());
 
-    font.setPointSize(16);
+    QFont font_textBrowser;
+    font_textBrowser.setPointSize(16);
+    //font.setBold(false);
     //font.setItalic(true);
-    ui->textBrowser->setFont(font);
+    //font.setItalic(false);
+    ui->textBrowser->setFont(font_textBrowser);
     ui->textBrowser->setText(this->m_slide->getMessage());
-    qDebug() << this->m_slide->getMessage();
+    //qDebug() << this->m_slide->getMessage();
+
+    QFont font_marqueeLabel;
+    font_marqueeLabel.setPointSize(16);
+    //ui->marqueeLabel->setTextFormat(Qt::RichText);
+    //ui->marqueeLabel->setAlignment(Qt::AlignVCenter);
+    ui->marqueeLabel->setFont(font_marqueeLabel);
+
+    ui->marqueeLabel->setText(this->m_slide->getMessage());
 
     //ui->lblSystem->setText(QString("MAJ: ")+datetimeLastUpdateString+QString("\tActuel: ")+datetimeCurrentString);
 
@@ -122,7 +135,7 @@ void SlideWidget::reload_slide(void)
     ui->webView->setZoomFactor(this->m_slide->zoom);
 
     // ToFix: scale
-    qDebug() << this->m_slide->url;
+    //qDebug() << this->m_slide->url;
     //QPixmap pm(this->m_slide->url);
     //QPixmap pm;
     //pm.load(this->m_slide->url);
@@ -159,28 +172,6 @@ void SlideWidget::reload_slide(void)
 void SlideWidget::show_slide(void)
 {
     this->setVisible(true);
-
-
-    qDebug() << "show_slide";
-
-    //QPainter::setOpacity()
-    //ui->labelView->setWindowOpacity(0.25);
-    //ui->labelView->setWindowOpacity(0.25);
-
-    // ToFix:
-/*
-  QWidget: setOpacity
-http://doc.qt.digia.com/qq/32/qq32-next-gen-uis.html
-  */
-
-    /*
-    QPropertyAnimation animate;
-    animate = new QPropertyAnimation(this, "windowOpacity");
-    animate.setDuration(100);
-    animate.setStartValue(0);
-    animate.setEndValue(1);
-    animate.start();
-    */
 }
 
 void SlideWidget::hide_slide(void)
@@ -188,47 +179,3 @@ void SlideWidget::hide_slide(void)
     this->setVisible(false);
 }
 
-/*
-void SlideWidget::paintEvent(QPaintEvent *event)
-{
-    //qDebug() << "Paint Event";
-    QPainter painter(this);
-    //painter(this);
-    painter.setOpacity(0.5);
-    render(&painter);
-}
-*/
-
-void SlideWidget::paintEvent(QPaintEvent *) {
-    //qDebug() << "paint widget";
-    //ui->labelView->pixmap()->scaledToWidth(100);
-    //QPixmap pm;
-    //pm = ui->labelView->pixmap();
-    //pm.scaled(100,100);
-    //ui->labelView->setPixmap(pm);
-
-    //QPixmap pm;
-    //pm.load(this->m_slide->url);
-    //pm = pm.scaledToWidth(ui->labelView->geometry().width());
-    //pm = pm.scaledToHeight(ui->labelView->geometry().height());
-    //pm = pm.scaled(ui->labelView->geometry().size(), Qt::KeepAspectRatio);
-    //ui->labelView->setPixmap(pm);
-    //this->setWindowOpacity(0.25);
-    //ui->labelView->setWindowOpacity(0.25);
-
-    //QPainter painter(ui->labelView);
-    //painter.setOpacity(0.25);
-    //render(&painter);
-}
-
-void SlideWidget::resizeEvent (QResizeEvent*) {
-    //qDebug() << "resize widget";
-    //ui->labelView->pixmap()->scaled(ui->labelView->size(), Qt::KeepAspectRatio);
-    //QPixmap pm;
-    //pm.load(this->m_slide->url);
-    //pm = pm.scaledToWidth(ui->labelView->geometry().width());
-    //pm = pm.scaledToHeight(ui->labelView->geometry().height());
-    //pm = pm.scaled(ui->labelView->geometry().size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
-    //ui->labelView->setPixmap(pm);
-
-}

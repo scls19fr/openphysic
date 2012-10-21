@@ -38,8 +38,6 @@ class SlideWidget : public QWidget
 public:
     explicit SlideWidget(QWidget *parent = 0, Slide *slide = 0);
     ~SlideWidget();
-    void paintEvent(QPaintEvent*);
-    void resizeEvent (QResizeEvent*);
 
 public slots:
     void reload_slide(void); // load data (long)
@@ -48,7 +46,8 @@ public slots:
     void hide_slide(void);
 
 //protected:
-//    void paintEvent(QPaintEvent *event);
+    //void paintEvent(QPaintEvent*);
+    //void resizeEvent (QResizeEvent*);
 
 private:
     Ui::SlideWidget *ui;
