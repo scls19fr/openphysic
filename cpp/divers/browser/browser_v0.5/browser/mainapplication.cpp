@@ -42,7 +42,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <QtGui>
 
 #include "slidewidget.h"
-#include "splash.h"
 
 MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, argv)
 {
@@ -494,11 +493,12 @@ void MainApplication::load_config(void)
     //main_win->arraySlideWidget = new
     main_win->arraySlideWidget = new QVector<SlideWidget *>();
 
-    for (int i=0;i<pageTotal();i++) {
+    //for (int i=0;i<pageTotal();i++) {
+    for (int i=pageTotal()-1;i>=0;i--) {
       sw = new SlideWidget(main_win, arraySlide->at(i));
       //main_win->setCentralWidget(sw);
       //sw->setGeometry(0, 0, main_win->width(), main_win->height());
-      sw->setVisible(false);
+      sw->setVisible(true); // ToFix
       //connect(sw, SIGNAL( destroyed() ), this, SLOT( quit() ));
 
       main_win->arraySlideWidget->append(sw);

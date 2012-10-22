@@ -47,7 +47,7 @@ SlideWidget::SlideWidget(QWidget *parent, Slide *slide) :
 
     //this->setStyleSheet("background-color: green;");
 
-    this->reload_slide();
+    //this->reload_slide();
 
 }
 
