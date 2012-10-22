@@ -48,6 +48,7 @@ SlideWidget::SlideWidget(QWidget *parent, Slide *slide) :
     //this->setStyleSheet("background-color: green;");
 
     //this->reload_slide();
+    //ui->textBrowser->addScrollBarWidget();
 
 }
 
@@ -174,6 +175,9 @@ void SlideWidget::reload_slide(void)
 
 void SlideWidget::show_slide(void)
 {
+    this->m_slide->load_message();
+    ui->textBrowser->setText(this->m_slide->getMessage());
+
     this->setVisible(true);
 }
 
