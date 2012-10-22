@@ -56,7 +56,7 @@ void MainWindow::keyPressEvent(QKeyEvent * event) // ToFix -> pass this to app
         emit QuitPressed();
         close();
 
-    } else if ( event->key()==Qt::Key_T ) { // Reload config file - just for test
+    } else if ( event->key()==Qt::Key_C ) { // Reload config file - just for test
         qDebug() << "Reload config file";
         emit ReloadConfigPressed();
 
@@ -69,7 +69,7 @@ void MainWindow::keyPressEvent(QKeyEvent * event) // ToFix -> pass this to app
         qDebug() << "Pause";
         emit PausePressed();
 
-    } else if ( event->key()==Qt::Key_T ) { // just for debug
+    } else if ( event->key()==Qt::Key_D ) { // just for debug
         qDebug() << "Debug Test";
         emit TestPressed();
 
@@ -79,6 +79,15 @@ void MainWindow::keyPressEvent(QKeyEvent * event) // ToFix -> pass this to app
 
     } else { // n'importe quelle autre touche
         qDebug() << "UNDEF KEY" << event->key();
+        qDebug() << "K : next";
+        qDebug() << "J : previous";
+        qDebug() << "Q : quit";
+        qDebug() << "C : reload config file";
+        qDebug() << "U : reload URL";
+        qDebug() << "P : pause";
+        qDebug() << "D : debug";
+        qDebug() << "A : about";
+
         //event->key()
         emit UndefKeyPressed();
 

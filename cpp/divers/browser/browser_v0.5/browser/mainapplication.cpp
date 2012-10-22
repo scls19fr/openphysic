@@ -108,142 +108,10 @@ void MainApplication::change_slide(void)
     //qDebug()<< "previous:" <<m_page_previous << " page=" << m_page << " next=" << m_page_next;
     timer1->setInterval(arraySlide->at(m_page)->delay); // useful if slides doesn't have same delay
 
-    //group_anim_slide = new QParallelAnimationGroup;
-    //QPropertyAnimation *anim_slide_current;
-    //QPropertyAnimation *anim_slide_previous;
-    //QPropertyAnimation *anim_slide_next;
-
-    /*
-    switch (slide_default.transition_type) {
-
-        case 1: {   // opacity
-            qDebug() << "opacity anim";
-            anim_slide_current = new QPropertyAnimation(w_current, "windowOpacity");
-            anim_slide_current->setDuration(slide_default.transition_duration);
-            anim_slide_current->setStartValue(0.0);
-            anim_slide_current->setEndValue(1.0);
-            anim_slide_current->setEasingCurve(QEasingCurve::Linear);
-
-            anim_slide_previous = new QPropertyAnimation(w_previous, "windowOpacity");
-            anim_slide_previous->setDuration(slide_default.transition_duration);
-            anim_slide_previous->setStartValue(1.0);
-            anim_slide_previous->setEndValue(0.0);
-            anim_slide_previous->setEasingCurve(QEasingCurve::Linear);
-
-            group_anim_slide->addAnimation(anim_slide_current);
-            group_anim_slide->addAnimation(anim_slide_previous);
-            group_anim_slide->start();
-
-            break;
-        }
-        default: {
-            qDebug() << "default anim";
-            w_previous->hide();
-            w_current->show();
-            break;
-        }
-
-    }
-    */
-
-//    w_current->setVisible(true);
-//    w_previous->setVisible(false);
-
     w_current->show_slide();
     w_previous->hide_slide();
 
-    //main_win->centralWidget()->setParent(NULL);
-    //main_win->setCentralWidget(w_current);
 
-
-    /*
-    SlideDefaultView *w_current;
-    SlideDefaultView *w_previous;
-    SlideDefaultView *w_next; // ?
-    w_next = arraySDV->at(m_page_next); // ?
-    w_current = arraySDV->at(m_page);
-    w_previous = arraySDV->at(m_page_previous);
-    //qDebug()<< "previous:" <<m_page_previous << " page=" << m_page << " next=" << m_page_next;
-
-    timer1->setInterval(arraySlide->at(m_page)->delay); // useful if slides doesn't have same delay
-
-    group_anim_slide = new QParallelAnimationGroup;
-    QPropertyAnimation *anim_slide_current;
-    QPropertyAnimation *anim_slide_previous;
-    QPropertyAnimation *anim_slide_next;
-
-    switch (slide_default.transition_type) {
-        case 1: {   // opacity
-            anim_slide_current = new QPropertyAnimation(w_current, "windowOpacity");
-            anim_slide_current->setDuration(slide_default.transition_duration);
-            anim_slide_current->setStartValue(0.0);
-            anim_slide_current->setEndValue(1.0);
-            anim_slide_current->setEasingCurve(QEasingCurve::Linear);
-
-            anim_slide_previous = new QPropertyAnimation(w_previous, "windowOpacity");
-            anim_slide_previous->setDuration(slide_default.transition_duration);
-            anim_slide_previous->setStartValue(1.0);
-            anim_slide_previous->setEndValue(0.0);
-            anim_slide_previous->setEasingCurve(QEasingCurve::Linear);
-
-            group_anim_slide->addAnimation(anim_slide_current);
-            group_anim_slide->addAnimation(anim_slide_previous);
-            group_anim_slide->start();
-            break;
-        }
-        case 2: {   // scroll
-            #ifdef DEBUG
-            QRect geom_preenter = QRect(500+2*w_current->geometry().width(), 250, w_current->geometry().width(), w_current->geometry().height());
-            QRect geom_enter = QRect(500+w_current->geometry().width(), 250, w_current->geometry().width(), w_current->geometry().height());
-            QRect geom_view  = QRect(500, 250, w_current->geometry().width(), w_current->geometry().height());
-            QRect geom_exit  = QRect(500-w_current->geometry().width(), 250, w_current->geometry().width(), w_current->geometry().height());
-            #else
-            QRect geom_preenter = QRect(2*w_current->geometry().width(), 0, w_current->geometry().width(), w_current->geometry().height());
-            QRect geom_enter = QRect(w_current->geometry().width(), 0, w_current->geometry().width(), w_current->geometry().height());
-            QRect geom_view  = QRect(0, 0, w_current->geometry().width(), w_current->geometry().height());
-            QRect geom_exit  = QRect(-w_current->geometry().width(), 0, w_current->geometry().width(), w_current->geometry().height());
-            #endif
-
-            if (pageTotal()>=3) {
-                anim_slide_next = new QPropertyAnimation(w_next, "geometry");
-                anim_slide_next->setDuration(slide_default.transition_duration);
-                anim_slide_next->setStartValue(geom_preenter);
-                anim_slide_next->setEndValue(geom_enter);
-                //anim_slide_next->setEasingCurve(QEasingCurve::Linear);
-                anim_slide_next->setEasingCurve(QEasingCurve::OutElastic); // OutElastic  OutBounce
-            }
-
-            anim_slide_current = new QPropertyAnimation(w_current, "geometry");
-            anim_slide_current->setDuration(slide_default.transition_duration);
-            anim_slide_current->setStartValue(geom_enter);
-            anim_slide_current->setEndValue(geom_view);
-            //anim_slide_current->setEasingCurve(QEasingCurve::Linear);
-            anim_slide_current->setEasingCurve(QEasingCurve::OutElastic); // OutElastic  OutBounce
-
-            anim_slide_previous = new QPropertyAnimation(w_previous, "geometry");
-            anim_slide_previous->setDuration(slide_default.transition_duration);
-            anim_slide_previous->setStartValue(geom_view);
-            anim_slide_previous->setEndValue(geom_exit);
-            //anim_slide_previous->setEasingCurve(QEasingCurve::Linear);
-            anim_slide_previous->setEasingCurve(QEasingCurve::OutElastic);
-
-            group_anim_slide->addAnimation(anim_slide_current);
-            group_anim_slide->addAnimation(anim_slide_previous);
-            if (pageTotal()>=3) {
-                group_anim_slide->addAnimation(anim_slide_next);
-            }
-            group_anim_slide->start();
-
-            break;
-        }
-        default: {  // no transition
-            w_previous->hideThisWindow();
-            break;
-        }
-    }
-
-    w_current->showThisWindow();
-    */
 }
 
 void MainApplication::update_timer1(void)
@@ -493,16 +361,20 @@ void MainApplication::load_config(void)
     //main_win->arraySlideWidget = new
     main_win->arraySlideWidget = new QVector<SlideWidget *>();
 
-    //for (int i=0;i<pageTotal();i++) {
-    for (int i=pageTotal()-1;i>=0;i--) {
+    for (int i=0;i<pageTotal();i++) {
+    //for (int i=pageTotal()-1;i>=0;i--) {
       sw = new SlideWidget(main_win, arraySlide->at(i));
       //main_win->setCentralWidget(sw);
       //sw->setGeometry(0, 0, main_win->width(), main_win->height());
-      sw->setVisible(true); // ToFix
+      //sw->setVisible(true); // ToFix
       //connect(sw, SIGNAL( destroyed() ), this, SLOT( quit() ));
 
       main_win->arraySlideWidget->append(sw);
     }
+
+    //for (int i=pageTotal()-1;i>=0;i--) {
+        //main_win->arraySlideWidget->at(i)->setVisible(true);
+    //}
     //main_win->arraySlideWidget->at(0)->show();
 
     connect(main_win, SIGNAL( QuitPressed() ), this, SLOT( quit() ));
@@ -634,6 +506,12 @@ void MainApplication::debug(void) {
 
 //    main_win->arraySlideWidget->at(1)->setWindowOpacity(0.5);
 //    main_win->arraySlideWidget->at(2)->setWindowOpacity(0.75);
+
+    for (int i=0;i<pageTotal();i++) {
+        qDebug() << i << this->arraySlide->at(i)->title;
+        //qDebug() << this->arraySlide->at(i)->
+        main_win->arraySlideWidget->at(i)->setVisible(false);
+    }
 }
 
 void MainApplication::about(void) {
