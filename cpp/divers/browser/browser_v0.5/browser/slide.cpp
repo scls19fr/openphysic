@@ -23,13 +23,16 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <QFile>
 #include <QDir>
 
+#include "mainapplication.h"
+
 Slide::Slide(QObject *parent) :
     QObject(parent)
 {
     title = QString("Titre par defaut");
-    url = QString("C:/Documents and Settings/scelles/display_img/img/slide0.gif"); // /Users/scls/messages/slide0.txt
+    //url = QString("C:/Documents and Settings/scelles/display_img/img/slide0.gif"); // /Users/scls/messages/slide0.txt
+    url = QString("http://www.google.fr?q=default");
     //message_file = QString("/Users/scls/messages/slide0.txt"); // in ini file use "..."
-    message_file = QString(""); // in ini file use "..."
+    message_file = QString(CFG_DIR+"/"+CFG_FILE+"/messages/default.txt"); // in ini file use "..."
     message = QString("Pas de message"); // in ini file use "..."
     delay = 5000;
     transition_type = 1; // 0=no transition ; 1=opacity ; 2=scroll from right to left
