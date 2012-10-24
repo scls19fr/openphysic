@@ -19,5 +19,5 @@ do
        #rm -f /tmp/browser*
 
        # Launch client application
-       /home/pi/browser/browser_v0.5/browser/browser >> $LOG 2>&1
+       /home/pi/browser/browser >> $LOG 2>&1
 done
