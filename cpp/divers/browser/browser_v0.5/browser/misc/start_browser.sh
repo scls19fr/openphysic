@@ -4,6 +4,7 @@ LOG=/tmp/browser.log
 
 echo "Disabling screen power savings..." > $LOG
 
+export DISPLAY=:0
 xset s off         # don't activate screensaver
 xset -dpms         # disable DPMS (Energy Star) features.
 xset s noblank     # don't blank the video device
