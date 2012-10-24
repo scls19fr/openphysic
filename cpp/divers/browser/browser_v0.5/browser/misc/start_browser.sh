@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOG=/tmp/browser_xloader.log
+LOG=/tmp/browser.log
 
 echo "Disabling screen power savings..." > $LOG
 
