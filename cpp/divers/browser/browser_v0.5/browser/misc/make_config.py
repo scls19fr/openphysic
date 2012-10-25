@@ -1,10 +1,26 @@
 #!/usr/bin/env python
 
+"""
+ToDo:
+getopt (passer param template.ini et output config file
+	http://www2-pcmdi.llnl.gov/cdat/tips_and_tricks/python_tips/passing_arguments.html
+open file (read) config template file
+open file (write) config file
+"""
+
+import sys
+import getopt
 from datetime import *
 
 class DisplayConfigGenerator:
 	def __init__(self):
 		self.date0 = date(2012, 8, 6) # date du premier lundi du projet
+		
+		self.dic_replace = { # dictionnaire permettant de faire les remplacements dans le template de fichier de conf
+	    	'weekid': self.currentWeekId(date.today()),
+	    	'nextweekid': self.currentWeekId(date.today())+1
+		}
+
 
 	def currentWeekId(self, date1=date.today()):
 		week = ((date1-self.date0)/7).days
@@ -87,8 +103,18 @@ show_slides="0,1,3,4,5,7"
 7\\message_file=/Users/scls/display/messages/lpverte.txt
 7\\message=
 7\\delay=20000
-7\\zoom=1""".format(nextweekid=self.currentWeekId(date.today())+1))
+7\\zoom=1""".format(**self.dic_replace) )
 
-config = DisplayConfigGenerator()
-#print config.currentWeekId(date(2012,9,6))
-print config.out()
+
+def main(argv):
+	#opts, extraparams = getopt.getopt(sys.argv[1:]) 
+	#print opts
+	#print extraparams
+	
+
+	config = DisplayConfigGenerator()
+	#print config.currentWeekId(date(2012,9,6))
+	print config.out()
+
+if __name__ == "__main__":
+	main(sys.argv[1:])
