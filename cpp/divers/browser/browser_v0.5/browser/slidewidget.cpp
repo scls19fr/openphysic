@@ -98,6 +98,8 @@ void SlideWidget::refresh_slide(void)
     //QString dateCurrentString = days[dt.date().dayOfWeek()] + " " + dt.toString(QString("dd/MM/yyyy"));
     QString dateCurrentString = dt.toString(QString("ddd dd MMM yyyy"));
 
+    //qDebug() << QLocale::system().French;
+
 
     QFont font_lblCurrentDate;
     font_lblCurrentDate.setPointSize(28);
