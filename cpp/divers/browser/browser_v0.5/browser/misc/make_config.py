@@ -21,7 +21,6 @@ class DisplayConfigGenerator:
 	    	'nextweekid': self.currentWeekId(date.today())+1
 		}
 
-
 	def currentWeekId(self, date1=date.today()):
 		week = ((date1-self.date0)/7).days
 		return(week)
