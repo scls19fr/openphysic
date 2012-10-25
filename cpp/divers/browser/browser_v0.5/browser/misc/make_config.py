@@ -4,6 +4,7 @@
 ToDo:
 getopt (passer param template.ini et output config file
 	http://www2-pcmdi.llnl.gov/cdat/tips_and_tricks/python_tips/passing_arguments.html
+ou plutôt argparse http://docs.python.org/library/argparse.html#module-argparse
 open file (read) config template file
 open file (write) config file
 """
