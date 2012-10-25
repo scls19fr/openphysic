@@ -4,7 +4,9 @@ LOG=/tmp/browser.log
 
 echo "Disabling screen power savings..." > $LOG
 
-export LC_ALL=$LANG
+#fr_FR.UTF-8
+#export LC_MEASUREMENT=$LANG
+#export LC_ALL=$LANG
 export DISPLAY=:0
 xset s off         # don't activate screensaver
 xset -dpms         # disable DPMS (Energy Star) features.
