@@ -66,8 +66,14 @@ void SlideWidget::refresh_slide(void)
     ui->textBrowser->setText(this->m_slide->getMessage());
 
 
+    QFont font_lblCurrentTime;
+    font_lblCurrentTime.setPointSize(28);
+    //font_lblTitle.setBold(true);
+    ui->lblCurrentTime->setFont(font_lblCurrentTime);
+
     //QString datetimeLastUpdateString = m_slide->lastupdate.toString(QString("dd/MM/yyyy hh:mm:ss"));
-    QString datetimeCurrentString = QDateTime::currentDateTime().toString(QString("dd/MM/yyyy hh:mm:ss"));
+    //QString datetimeCurrentString = QDateTime::currentDateTime().toString(QString("dd/MM/yyyy hh:mm:ss"));
+    QString datetimeCurrentString = QDateTime::currentDateTime().toString(QString("hh:mm:ss"));
 
     //ui->lblSystem->setText(QString("MAJ: "+datetimeLastUpdateString));
     //ui->lblSystem->setText(QString(""));
@@ -84,7 +90,7 @@ void SlideWidget::refresh_slide(void)
 void SlideWidget::reload_slide(void)
 {
     QFont font_lblTitle;
-    font_lblTitle.setPointSize(32);
+    font_lblTitle.setPointSize(28);
     font_lblTitle.setBold(true);
     ui->lblTitle->setFont(font_lblTitle);
 
