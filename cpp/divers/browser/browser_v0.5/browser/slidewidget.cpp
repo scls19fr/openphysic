@@ -77,15 +77,15 @@ void SlideWidget::refresh_slide(void)
     //QString datetimeCurrentString = QDateTime::currentDateTime().toString(QString("dd/MM/yyyy hh:mm:ss"));
     QString timeCurrentString = dt.toString(QString("hh:mm:ss"));
 
-    QString days[8];
-    days[0] = "undef";
-    days[1] = "Lu";
-    days[2] = "Ma";
-    days[3] = "Me";
-    days[4] = "Je";
-    days[5] = "Ve";
-    days[6] = "Sa";
-    days[7] = "Di";
+    //QString days[8];
+    //days[0] = "undef";
+    //days[1] = "lu";
+    //days[2] = "ma";
+    //days[3] = "me";
+    //days[4] = "je";
+    //days[5] = "ve";
+    //days[6] = "sa";
+    //days[7] = "di";
 
     //days[8] = {"", "Lu", "Ma", "Me", "Je", "Ve", "Sa", "Di"};
 
@@ -95,7 +95,8 @@ void SlideWidget::refresh_slide(void)
     //ui->lblSystem2->setText(QString(""));
     //ui->lblSystem3->setText(QString("Actuel: "+datetimeCurrentString));
     ui->lblCurrentTime->setText(timeCurrentString);
-    QString dateCurrentString = days[dt.date().dayOfWeek()] + " " + dt.toString(QString("dd/MM/yyyy"));
+    //QString dateCurrentString = days[dt.date().dayOfWeek()] + " " + dt.toString(QString("dd/MM/yyyy"));
+    QString dateCurrentString = dt.toString(QString("ddd dd MMM yyyy"));
 
 
     QFont font_lblCurrentDate;
