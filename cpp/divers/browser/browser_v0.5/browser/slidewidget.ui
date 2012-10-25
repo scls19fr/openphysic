@@ -26,6 +26,13 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
+      <widget class="QLabel" name="lblCurrentDate">
+       <property name="text">
+        <string>lblCurrentDate</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QLabel" name="lblTitle">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
