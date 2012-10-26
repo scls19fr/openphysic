@@ -3,7 +3,7 @@
 import sys
 import argparse
 from datetime import *
-
+ 
 class DisplayConfigGenerator:
         def __init__(self, filenameInTemplate, filenameOutConfig):
                 self.date0 = date(2012, 8, 6) # date du premier lundi du projet
