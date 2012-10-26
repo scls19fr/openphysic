@@ -19,8 +19,7 @@ echo "Launching infinite loop..." >> $LOG
 while true
 do
        # generate config file using template
-       # ToDo python make_config.py browser.template.ini /home/pi/display/config.ini
-       #   also add it to cron (monday morning)
+       bash make_config.sh
 
        # Clean up in case of an unclean exit
        echo "Cleaning up..." >> $LOG
