@@ -12,7 +12,10 @@ class DisplayConfigGenerator:
 
                 self.dic_replace = { # dictionnaire permettant de faire les remplacements dans le template de fichier de conf
                         'weekid': weekid,
-                        'nextweekid': weekid+1
+                        'nextweekid': weekid+1,
+                        'inputfilename': filenameInTemplate,
+                        'outputfilename': filenameOutConfig,
+                        'datetime': datetime.now(),
                 }
 
                 self.filenameInTemplate = filenameInTemplate
