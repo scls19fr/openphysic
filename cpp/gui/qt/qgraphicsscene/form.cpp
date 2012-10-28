@@ -75,15 +75,15 @@ void Form::updateScene(const QVariant& angle) {
     //this->ui->verticalSlider->setValue(m_angle/3.6);
 
 
-    if ( (m_angle>90 && m_angle<270) && (m_angle_previous<=90  && m_angle_previous>=0 || m_angle_previous>=270 && m_angle_previous<=360)  ) {
-        qDebug() << "case 1";
+    if ( (m_angle>90 && m_angle<270) &&  ( (m_angle_previous<=90  && m_angle_previous>=0) || (m_angle_previous>=270 && m_angle_previous<=360) )  ) {
+        //qDebug() << "case 1";
         scene->removeItem(proxy);
         scene->removeItem(proxy2);
         scene->addItem(proxy2);
         scene->addItem(proxy);
     } else if ( (m_angle<=90 && m_angle>=0 && m_angle_previous>90 && m_angle_previous<270)
                || (m_angle>=270 && m_angle<=360 && m_angle_previous<270 && m_angle_previous>90) ) {
-        qDebug() << "case 2";
+        //qDebug() << "case 2";
         scene->removeItem(proxy);
         scene->removeItem(proxy2);
         scene->addItem(proxy);
