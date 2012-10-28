@@ -10,17 +10,18 @@ class DisplayConfigGenerator:
 
                 weekid = self.currentWeekId(date.today())
 
+                self.scriptname = scriptname
+                self.filenameInTemplate = filenameInTemplate
+                self.filenameOutConfig = filenameOutConfig
+
                 self.dic_replace = { # dictionnaire permettant de faire les remplacements dans le template de fichier de conf
                         'scriptname': scriptname,
-                        'weekid': weekid,
-                        'nextweekid': weekid+1,
                         'inputfilename': filenameInTemplate,
                         'outputfilename': filenameOutConfig,
                         'datetime': datetime.now(),
+                        'weekid': weekid,
+                        'nextweekid': weekid+1,
                 }
-
-                self.filenameInTemplate = filenameInTemplate
-                self.filenameOutConfig = filenameOutConfig
 
         def currentWeekId(self, date1=date.today()):
                 week = ((date1-self.date0)/7).days
