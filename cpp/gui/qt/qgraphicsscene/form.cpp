@@ -17,6 +17,7 @@ Form::Form(QWidget *parent) :
     //m_easing_curve = QEasingCurve::InOutBack;
 
     m_angle = 0;
+    m_angle_previous = m_angle;
     m_state = state();
 
     scene = new QGraphicsScene;
@@ -41,9 +42,6 @@ Form::Form(QWidget *parent) :
 
     scene->setSceneRect(proxy2->geometry().x()-proxy2->geometry().width()/2, proxy2->geometry().y()+proxy2->geometry().height()*0.08, proxy2->geometry().width(),  proxy2->geometry().height()*0.8);
 
-    ui->graphicsView->scale(1.2,1.2);
-
-
     QPixmap pm;
     pm.load(QString(":/background/background/background.jpg"));
     //pm.load(QString(":/background/background/abstract-light.jpg"));
@@ -51,12 +49,14 @@ Form::Form(QWidget *parent) :
     //pm = pm.scaled(640,480,Qt::KeepAspectRatio,Qt::SmoothTransformation);
     QGraphicsPixmapItem* item = scene->addPixmap(pm);
     item->setPos(-proxy2->geometry().width()/2, 0);
-    //item->setPos(-proxy2->geometry().width()/2, proxy2->geometry().height()/2);
+
+    ui->graphicsView->scale(1.2,1.2);
+
+    scene->addItem(proxy);
+    scene->addItem(proxy2);
 
     ui->graphicsView->setScene(scene);
     ui->graphicsView->show();
-
-    qDebug() << scene;
 
     this->setWindowTitle("Test QGraphicsScene");
 
@@ -72,18 +72,34 @@ Form::~Form()
 void Form::updateScene(const QVariant& angle) {
     m_angle = fmod(angle.toDouble(), 360.0);
 
-    this->ui->verticalSlider->setValue(m_angle/3.6);
+    //this->ui->verticalSlider->setValue(m_angle/3.6);
 
+
+    if ( (m_angle>90 && m_angle<270) && (m_angle_previous<=90 || m_angle_previous>=270)  ) {
+        scene->removeItem(proxy);
+        scene->removeItem(proxy2);
+        scene->addItem(proxy2);
+        scene->addItem(proxy);
+    } else if ( (m_angle<=90 && m_angle>=0 && m_angle_previous>90 && m_angle_previous<270)
+               || (m_angle>=270 && m_angle<=360 && m_angle_previous<270) ) {
+        scene->removeItem(proxy);
+        scene->removeItem(proxy2);
+        scene->addItem(proxy);
+        scene->addItem(proxy2);
+    }
+
+    /*
     scene->removeItem(proxy);
     scene->removeItem(proxy2);
 
-    if ( state() ) {
+    if ( (m_angle>90 && m_angle<270) && (m_angle_previous<=90 || m_angle_previous>)  ) {
         scene->addItem(proxy2);
         scene->addItem(proxy);
     } else {
         scene->addItem(proxy);
         scene->addItem(proxy2);
     }
+    */
 
     QTransform matrix;
     matrix.rotate(180+m_angle, Qt::YAxis);
@@ -95,6 +111,8 @@ void Form::updateScene(const QVariant& angle) {
     matrix2.rotate(m_angle, Qt::YAxis);
     matrix2.translate(-proxy->geometry().width()/2,0);
     proxy2->setTransform(matrix2);
+
+    m_angle_previous = m_angle;
 }
 
 void Form::on_verticalSlider_valueChanged(int value)

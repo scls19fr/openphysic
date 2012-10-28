@@ -35,6 +35,8 @@ private:
     int state(void) const; // getter
     //void setState(const int state); // setter
 
+    qreal m_angle_previous;
+
     QGraphicsProxyWidget *proxy2;
     QGraphicsProxyWidget *proxy;
 
