@@ -5,12 +5,13 @@ import argparse
 from datetime import *
 
 class DisplayConfigGenerator:
-        def __init__(self, filenameInTemplate, filenameOutConfig):
+        def __init__(self, scriptname, filenameInTemplate, filenameOutConfig):
                 self.date0 = date(2012, 8, 6) # date du premier lundi du projet
 
                 weekid = self.currentWeekId(date.today())
 
                 self.dic_replace = { # dictionnaire permettant de faire les remplacements dans le template de fichier de conf
+                        'scriptname': scriptname,
                         'weekid': weekid,
                         'nextweekid': weekid+1,
                         'inputfilename': filenameInTemplate,
@@ -45,6 +46,5 @@ if __name__ == "__main__":
         parser.add_argument('--input', help='filename of template config file', nargs=1, type=str, required=True)
         parser.add_argument('--output', help='filename of output config file', nargs=1, type=str, required=True)
         args = parser.parse_args()
-	
-        myconfig = DisplayConfigGenerator(args.input[0], args.output[0])
+        myconfig = DisplayConfigGenerator(sys.argv[0], args.input[0], args.output[0])
         myconfig.writeFile()

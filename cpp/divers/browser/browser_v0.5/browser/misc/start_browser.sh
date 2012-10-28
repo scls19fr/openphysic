@@ -19,7 +19,7 @@ echo "Launching infinite loop..." >> $LOG
 while true
 do
        # generate config file using template
-       bash make_config.sh
+       bash /home/pi/browser/misc/make_config.sh
 
        # Clean up in case of an unclean exit
        echo "Cleaning up..." >> $LOG

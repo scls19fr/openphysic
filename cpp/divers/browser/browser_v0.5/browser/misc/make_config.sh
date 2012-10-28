@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-python make_config.py --input browser.template.ini --output /home/pi/display/browser.ini
+python /home/pi/browser/misc/make_config.py --input /home/pi/browser/misc/browser.template.ini --output /home/pi/display/browser.ini
