@@ -44,8 +44,8 @@ class DisplayConfigGenerator:
 
 if __name__ == "__main__":
         parser = argparse.ArgumentParser(description='Make config file for digital signage', epilog="That's all Folks!")
-        parser.add_argument('--input', help='filename of template config file', nargs=1, type=str, required=True)
-        parser.add_argument('--output', help='filename of output config file', nargs=1, type=str, required=True)
+        parser.add_argument('input', help='filename of template config file', action='store')
+        parser.add_argument('output', help='filename of output config file', action='store')
         args = parser.parse_args()
-        myconfig = DisplayConfigGenerator(sys.argv[0], args.input[0], args.output[0])
+        myconfig = DisplayConfigGenerator(sys.argv[0], args.input, args.output)
         myconfig.writeFile()
