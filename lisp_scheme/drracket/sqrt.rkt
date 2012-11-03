@@ -1,4 +1,4 @@
-#lang racket
+#lang planet neil/sicp
 
 (define (improve guess x)
   (average guess (/ x guess)))
@@ -7,7 +7,7 @@
   (/ (+ x y) 2))
 
 (define (good-enough? guess x)
-  (< (abs (- (improve guess x) x)) 0.001))
+  (< (abs (- (square guess) x)) 0.001))
 
 (define (square x)
   (* x x))
@@ -21,4 +21,4 @@
        (sqrt-iter (improve guess x)
                   x)))
 
-(sqrrt 2) ; very long... (infinite loop?)
+(sqrrt 2)
