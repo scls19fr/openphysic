@@ -3,6 +3,7 @@
 ; http://www.neilvandyke.org/racket-sicp/
 
 ; Structure and Interpretation of Computer Programs
+; second edition
 ; http://mitpress.mit.edu/sicp/
 
 (display "1.1 The Elements of Programming\n")
@@ -42,3 +43,44 @@ circumference
   (+ (square x) (square y)))
 (sum-of-squares 3 4)
 
+(display "1.1.5 Conditional Expressions and Predicates\n")
+
+(display "define absolute-value procedure\n")
+(define (abs x)
+  (cond ((> x 0) x)
+        ((= x 0) 0)
+        ((< x 0) (- x))))
+
+(abs 2)
+(abs (- 2))
+(abs 0)
+
+(display "another way to write the absolute-value procedure\n")
+(define (abs2 x)
+  (cond ((< x 0) (- x))
+        (else x)))
+
+(abs2 2)
+(abs2 (- 2))
+(abs2 0)
+
+(display "yet another way to write the absolute-value procedure\n")
+(define (abs3 x)
+  (if (< x 0)
+      (- x)
+      x))
+
+(abs3 2)
+(abs3 (- 2))
+(abs3 0)
+
+; and or not
+;(and (> x 5) (< x 10))
+
+(display "define greater-than or equal to (ge) procedure\n")
+(define (>= x y)
+  (or (> x y) (= x y)))
+
+(display "another way to define greater-than or equal to (ge) procedure\n")
+(define (>=2 x y)
+  (not (< x y)))
