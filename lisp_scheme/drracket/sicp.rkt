@@ -121,7 +121,7 @@ circumference
   (/ (+ x y) 2))
      
 (define (good-enough? guess x)
-  (< (abs (- (improve guess x) x)) 0.1))
+  (< (abs (- (improve guess x) x)) 0.001))
           
 (define (sqrrt x)
   (sqrt-iter 1.0 x))
@@ -134,4 +134,4 @@ circumference
 
 (display "sqrrt(2) = \n")
 (sqrt 2)
-;(sqrrt 2) ; very long...
+;(sqrrt 2) ; very long... (infinite loop?)
