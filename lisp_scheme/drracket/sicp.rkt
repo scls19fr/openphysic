@@ -84,3 +84,50 @@ circumference
 (display "another way to define greater-than or equal to (ge) procedure\n")
 (define (>=2 x y)
   (not (< x y)))
+
+(display "Exercises\n")
+(display "ToDo\n")
+
+(display "1.1.7 Example: Square Roots by Newton's Method\n")
+(display "sqrt(x) = y : y such that y>=0 and y^2=x\n")
+
+; pseudo-Lisp
+;(define (sqrt x)
+;  (the y (and (>= y 0)
+;              (= (square y x)))))
+
+; wa want to compute sqrt(2)
+; we guess that sqrt(2) is 1 => y=1 x=2
+1
+; we calculate x/y
+(/ 2 1)
+; quotient=2
+; we calculate average (of guess and x/y)
+(/ (+ 1 2) 2.0)
+; average=1.5
+
+; next step
+; x=previous average=1.5
+(/ 2 1.5)
+; quotient=1.333
+(/ (+ 1.3333333333333333 1.5) 2)
+
+; ...
+
+(define (improve guess x)
+  (average guess (/ x guess)))
+     
+(define (average x y)
+  (/ (+ x y) 2))
+     
+(define (good-enough? guess x)
+  (< (abs (- (improve guess x) x)) 0.001))
+          
+(define (sqrrt x)
+  (sqrt-iter 1.0 x))
+     
+(define (sqrt-iter guess x)
+  ( if (good-enough? guess x)
+      guess
+      (sqrt-iter (improve guess x)
+                 x)))
