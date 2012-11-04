@@ -115,3 +115,32 @@ circumference
 ; ...
 
 ; cf sqrt.rkt
+;(load "sqrt.rkt")
+
+(display "1.2 Procedures and the Processes They Generate\n")
+
+(display "1.2.1 Linear Recursion an Iteration\n")
+
+(display "Linear recursive process\n")
+
+(define (factorial n)
+  (if (= n 1)
+      1
+      (* n (factorial (- n 1)))))
+
+(factorial 6)
+
+
+(display "Linear iterative process\n")
+
+(define (factorial-it n)
+  (fact-iter 1 1 n))
+
+(define (fact-iter product counter max-count)
+  (if (> counter max-count)
+      product
+      (fact-iter (* counter product)
+                 (+ counter 1)
+                 max-count)))
+
+(factorial-it 6)
