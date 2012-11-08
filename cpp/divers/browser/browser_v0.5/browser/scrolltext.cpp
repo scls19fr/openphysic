@@ -77,6 +77,7 @@ void ScrollText::updateText()
     if(scrollEnabled)
     {
         scrollPos = -64;
+        _text.replace('\n', " - ");
         staticText.setText(_text + _separator);
         timer.start();
     } else {
