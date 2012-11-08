@@ -67,7 +67,7 @@ void SlideWidget::refresh_slide(void)
 
     //ui->lblMessage->setText(this->m_slide->getMessage());
     //ui->marqueeLabel->setText(this->m_slide->getMessage());
-    ui->textBrowser->setText(this->m_slide->getMessage());
+    //ui->textBrowser->setText(this->m_slide->getMessage());
 
 
     QDateTime dt = QDateTime::currentDateTime();
@@ -147,10 +147,12 @@ void SlideWidget::reload_slide(void)
     this->m_slide->load_message();
     //ui->lblMessage->setText(this->m_slide->getMessage());
 
-    QFont font_textBrowser;
-    font_textBrowser.setPointSize(16);
-    ui->textBrowser->setFont(font_textBrowser);
-    ui->textBrowser->setText(this->m_slide->getMessage());
+    //QFont font_textBrowser;
+    //font_textBrowser.setPointSize(16);
+    //ui->textBrowser->setFont(font_textBrowser);
+    //ui->textBrowser->setText(this->m_slide->getMessage());
+
+
 
     /*
     QFont font_marqueeLabel;
@@ -158,6 +160,10 @@ void SlideWidget::reload_slide(void)
     ui->marqueeLabel->setFont(font_marqueeLabel);
     ui->marqueeLabel->setText(this->m_slide->getMessage());
     */
+    //ui->marqueeLabel->setText(this->m_slide->getMessage());
+
+    ui->scrolltext->setText(this->m_slide->getMessage());
+
 
     //ui->lblSystem->setText(QString("MAJ: ")+datetimeLastUpdateString+QString("\tActuel: ")+datetimeCurrentString);
 
@@ -214,7 +220,8 @@ void SlideWidget::reload_slide(void)
 void SlideWidget::show_slide(void)
 {
     this->m_slide->load_message();
-    ui->textBrowser->setText(this->m_slide->getMessage());
+    //ui->textBrowser->setText(this->m_slide->getMessage());
+    ui->scrolltext->setText(this->m_slide->getMessage());
 
     this->setVisible(true);
 }

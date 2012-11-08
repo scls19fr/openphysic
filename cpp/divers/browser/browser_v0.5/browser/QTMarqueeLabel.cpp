@@ -11,7 +11,7 @@ QTMarqueeLabel::QTMarqueeLabel(QWidget *parent): QLabel(parent)
 	// initialize all the necessary variables
 	// initialize m_align
 	position_x = 0; //x cordinates
-	position_y = 15;//y cordinates
+    position_y = 10; //15;//y cordinates
 	pixels_to_move = 2;// how many pixels to move 
 
 	direction = RightToLeft; // default direction
@@ -54,7 +54,11 @@ void QTMarqueeLabel::paintEvent(QPaintEvent *evt)
 		if(position_x >= width())
 			position_x = - textLength;
 	}
-    p.drawText(position_x, position_y + fontPointSize, text());
+    if (text().length()>0) {
+       p.drawText(position_x, position_y + fontPointSize, text());
+    } else {
+        p.drawText(0, position_y + fontPointSize, "<i>Pas de message</i>");
+    }
     evt=NULL; // ToFix warning
 }
 

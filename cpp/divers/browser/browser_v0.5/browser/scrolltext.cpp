@@ -25,7 +25,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 ScrollText::ScrollText(QWidget *parent) : QLabel(parent), scrollPos(0)
 {
     staticText.setTextFormat(Qt::PlainText);
-    //staticText.setTextFormat(Qt::RichText);
+    //staticText.setTextFormat(Qt::RichText); // bug avec ===
 
     setFixedHeight(fontMetrics().height());
     leftMargin = height() / 3;
@@ -102,7 +102,7 @@ void ScrollText::paintEvent(QPaintEvent*)
         int x = qMin(-scrollPos, 0) + leftMargin;
         while(x < width())
         {
-            pb.drawStaticText(QPointF(x, (height() - wholeTextSize.height()) / 2) + QPoint(2, 2), staticText);
+            pb.drawStaticText(QPointF(x, (height() - wholeTextSize.height()) / 2 - 3) + QPoint(2, 2), staticText);
             x += wholeTextSize.width();
         }
 
