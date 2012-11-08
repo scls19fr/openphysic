@@ -101,8 +101,8 @@ void MainApplication::change_slide(void)
 
     SlideWidget *w_current;
     SlideWidget *w_previous;
-    SlideWidget *w_next; // ?
-    w_next = main_win->arraySlideWidget->at(m_page_next); // ?
+    //SlideWidget *w_next; // ?
+    //w_next = main_win->arraySlideWidget->at(m_page_next); // ?
     w_current = main_win->arraySlideWidget->at(m_page);
     w_previous = main_win->arraySlideWidget->at(m_page_previous);
     //qDebug()<< "previous:" <<m_page_previous << " page=" << m_page << " next=" << m_page_next;
