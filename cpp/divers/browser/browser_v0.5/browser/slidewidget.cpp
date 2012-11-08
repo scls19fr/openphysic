@@ -230,7 +230,12 @@ void SlideWidget::httpResponseFinished(QNetworkReply * reply)
     {
         case QNetworkReply::NoError:
             //qDebug() << "httpResponseFinished without any error";
-            ui->webView->setPage(page);
+            // http://doc.qt.digia.com/qt/qnetworkreply.html
+            //no error condition. Note: When the HTTP protocol returns a redirect no error will be reported. You can check if there is a redirect with the QNetworkRequest::RedirectionTargetAttribute attribute.
+
+            if (true) { // ToDo : HTTP Code=200 (not 302)
+                ui->webView->setPage(page);
+            }
             break;
         /*
         case QNetworkReply::ContentNotFoundError:
