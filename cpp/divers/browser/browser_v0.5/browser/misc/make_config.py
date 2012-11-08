@@ -21,6 +21,7 @@ class DisplayConfigGenerator:
                         'datetime': datetime.now(),
                         'weekid': weekid,
                         'nextweekid': weekid+1,
+                        'direct_planning_url': "https://upplanning.appli.univ-poitiers.fr/ade/custom/modules/plannings/direct_planning.jsp?login=visu&password=visu&showTree=false&showPianoDays=false&showPianoWeeks=false&showOptions=false&projectId=3",
                 }
 
         def currentWeekId(self, date1=date.today()):
