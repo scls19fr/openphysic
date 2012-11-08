@@ -23,6 +23,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <QWidget>
 #include <QResizeEvent>
 #include <QPaintEvent>
+#include <QWebPage>
+#include <QNetworkReply>
 
 #include "slide.h"
 #include <QTimer>
@@ -44,6 +46,7 @@ public slots:
     void refresh_slide(void); // show + update date (short)
     void show_slide(void);
     void hide_slide(void);
+    void httpResponseFinished(QNetworkReply * reply);
 
 //protected:
     //void paintEvent(QPaintEvent*);
@@ -55,6 +58,9 @@ private:
     Slide * m_slide;
 
     QTimer * timerW;
+
+    QWebPage * page;
+
 };
 
 #endif // SLIDEWIDGET_H

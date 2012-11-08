@@ -22,6 +22,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include <QDebug>
 #include <QPainter>
+#include <QWebFrame>
 
 //#include <QPropertyAnimation>
 
@@ -38,6 +39,12 @@ SlideWidget::SlideWidget(QWidget *parent, Slide *slide) :
         return;
     }
 
+    page = new QWebPage();
+    connect(
+      page->networkAccessManager(), SIGNAL(finished(QNetworkReply *)),
+      this, SLOT(httpResponseFinished(QNetworkReply *))
+    );
+
     reload_slide();
 
     timerW = new QTimer(this);
@@ -46,9 +53,6 @@ SlideWidget::SlideWidget(QWidget *parent, Slide *slide) :
     connect( timerW, SIGNAL( timeout() ), this, SLOT( refresh_slide() ) );
 
     //this->setStyleSheet("background-color: green;");
-
-    //this->reload_slide();
-    //ui->textBrowser->addScrollBarWidget();
 
 }
 
@@ -164,10 +168,13 @@ void SlideWidget::reload_slide(void)
     //ui->webView->setUrl(QUrl("http://www.google.fr"));
     //ui->webView->setZoomFactor(1.0);
 
-    qDebug() << "Loading URL" << this->m_slide->url;
-    //ui->webView->setUrl(this->m_slide->url);
-    ui->webView->load(this->m_slide->url);
+    qDebug() << "Loading URL" << this->m_slide->url << "for " << this->m_slide->title;
+    //ui->webView->load(this->m_slide->url);
+    //ui->webView->setZoomFactor(this->m_slide->zoom);
+
+    page->mainFrame()->load(QUrl(this->m_slide->url));;
     ui->webView->setZoomFactor(this->m_slide->zoom);
+    //ui->webView->setPage(page);
 
     // ToFix: scale
     //qDebug() << this->m_slide->url;
@@ -217,3 +224,26 @@ void SlideWidget::hide_slide(void)
     this->setVisible(false);
 }
 
+void SlideWidget::httpResponseFinished(QNetworkReply * reply)
+{
+    switch (reply->error())
+    {
+        case QNetworkReply::NoError:
+            //qDebug() << "httpResponseFinished without any error";
+            ui->webView->setPage(page);
+            break;
+        /*
+        case QNetworkReply::ContentNotFoundError:
+            // 404 Not found
+            //failedUrl = reply->request.url();
+            //httpStatus = reply->attribute(
+            //QNetworkRequest::HttpStatusCodeAttribute).toInt();
+            //httpStatusMessage = reply->attribute(
+            //QNetworkRequest::HttpReasonPhraseAttribute).toByteArray();
+            //break;
+        */
+        default:
+            qDebug() << "!!! httpResponseFinished with error !!!";
+            break;
+    }
+}
