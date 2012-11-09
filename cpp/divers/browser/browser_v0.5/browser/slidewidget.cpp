@@ -162,6 +162,9 @@ void SlideWidget::reload_slide(void)
     */
     //ui->marqueeLabel->setText(this->m_slide->getMessage());
 
+    QFont font_scrolltext;
+    font_scrolltext.setPointSize(16);
+    ui->scrolltext->setFont(font_scrolltext);
     ui->scrolltext->setText(this->m_slide->getMessage());
 
 
