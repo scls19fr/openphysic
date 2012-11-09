@@ -248,10 +248,13 @@ void SlideWidget::httpResponseFinished(QNetworkReply * reply)
             // 200 OK
             // 302 redirect
 
-            if (reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt()==200) {
+            int http_status_code;
+            http_status_code = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+
+            if (http_status_code==200) {
                 ui->webView->setPage(page);
             } else {
-                qDebug() << "!!! httpResponseFinished with HTTP Status Code <> 200 !!!";
+                qDebug() << "!!! httpResponseFinished with HTTP Status Code =" << http_status_code << " <> 200 !!!";
             }
             break;
         /*
