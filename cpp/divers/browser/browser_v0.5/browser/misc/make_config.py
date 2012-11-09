@@ -14,11 +14,14 @@ class DisplayConfigGenerator:
                 self.filenameInTemplate = filenameInTemplate
                 self.filenameOutConfig = filenameOutConfig
 
+                now = datetime.now()
+
                 self.dic_replace = { # dictionnaire permettant de faire les remplacements dans le template de fichier de conf
                         'scriptname': scriptname,
                         'inputfilename': filenameInTemplate,
                         'outputfilename': filenameOutConfig,
-                        'datetime': datetime.now(),
+                        'datetime': now,
+                        'days': now.weekday(),
                         'weekid': weekid,
                         'nextweekid': weekid+1,
                         'direct_planning_url': "https://upplanning.appli.univ-poitiers.fr/ade/custom/modules/plannings/direct_planning.jsp?login=visu&password=visu&showTree=false&showPianoDays=false&showPianoWeeks=false&showOptions=false&projectId=3",
