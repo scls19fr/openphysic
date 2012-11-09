@@ -1,15 +1,21 @@
-h1 {
-  color: blue;
-}
-
-html,body{
+html {
   height:100%
 }
 
 body {
+  height:100%
   color:black;
   background-color:white;
   background-image:url(background.png);
   background-repeat:no-repeat;
   background-position:center center;
+}
+
+h1 {
+  color: blue;
+  text-align:center;
+}
+
+p {
+  text-align:center;
 }
