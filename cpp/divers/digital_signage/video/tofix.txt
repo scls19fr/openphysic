@@ -1,0 +1,5 @@
+QWebView ne semble pas supporter la balise video de HTML5
+
+ToDo:
+centrer la vidéo avec CSS
+mettre la vidéo en plein écran (récupérer avec JQuery la taille de la fenêtre)
