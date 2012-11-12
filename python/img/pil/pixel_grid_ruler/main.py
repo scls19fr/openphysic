@@ -10,7 +10,6 @@ for i in range(0,height/100):
       draw.line((0,i*100+i2*10,width,i*100+i2*10), fill="#FFFF00")
     else:
       draw.line((0,i*100+i2*10,width,i*100+i2*10), fill="#CFCFCF")
-    
 
 for j in range(0,width/100):
   for j2 in range(1,10):
