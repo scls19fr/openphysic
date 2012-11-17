@@ -9,3 +9,10 @@ book spine shadow
 
 * flatten scanned image
 http://hugin.sourceforge.net/tutorials/scans/en.shtml ?
+
+avoid problems with a book scanner
+Plustek Book Scanner
+http://www.amazon.com/gp/product/B004T3788Q?ie=UTF8&tag=cg0f8-20
+
+DIY Book Scanner
+http://www.diybookscanner.org/
