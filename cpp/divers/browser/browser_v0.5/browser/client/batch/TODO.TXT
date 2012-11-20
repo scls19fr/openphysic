@@ -1,0 +1,10 @@
+Recuperer images, HTML
+Envoyer images, HTML
+Envoyer template de config
+
+Lancer commande en remote
+/home/pi/browser/misc/restart_browser.sh
+/home/pi/browser/misc/reboot.sh
+
+Mettre login et password en variable dans script Batch
+et inclure
