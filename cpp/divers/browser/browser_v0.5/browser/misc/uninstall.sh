@@ -1,10 +1,8 @@
 #!/bin/bash
 
-LOG=/tmp/browser_install.log
+source /home/pi/browser/misc/config.sh
 
-echo "Uninstall" >> $LOG
+f_LOG "Uninstall"
 
 echo "Remove symlink"
 rm /home/pi/browser
-
-

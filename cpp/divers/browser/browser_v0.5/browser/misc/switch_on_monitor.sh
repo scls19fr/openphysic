@@ -2,7 +2,7 @@
 
 source /home/pi/browser/misc/config.sh
 
-echo "$TIMESTAMP Switch on monitor" >> $LOGFILE
+f_LOG "Switch on monitor"
 
 /opt/vc/bin/tvservice -p
 startx /usr/bin/graphical_launcher `fgconsole`

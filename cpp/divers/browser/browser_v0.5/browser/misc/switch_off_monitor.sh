@@ -2,7 +2,7 @@
 
 source /home/pi/browser/misc/config.sh
 
-echo "$TIMESTAMP Switch off monitor" >> $LOGFILE
+f_LOG "Switch off monitor"
 
 /opt/vc/bin/tvservice -p
 /opt/vc/bin/tvservice -o

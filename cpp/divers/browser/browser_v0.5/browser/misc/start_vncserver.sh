@@ -4,7 +4,7 @@
 
 source /home/pi/browser/misc/config.sh
 
-echo "$TIMESTAMP Starting VNC server" >> $LOGFILE
+f_LOG "Starting VNC server"
 
 # set password using
 # $ x11vnc -storepasswd YOUR_PASSWORD ~/.vnc/x11vnc.pass

@@ -2,7 +2,7 @@
 
 source /home/pi/browser/misc/config.sh
 
-echo "$TIMESTAMP Stop browser (not recommanded)" >> $LOGFILE
+f_LOG "Stop browser (not recommanded)"
 
 killall start_browser.sh
 killall browser

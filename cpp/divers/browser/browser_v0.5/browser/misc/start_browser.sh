@@ -2,7 +2,7 @@
 
 source /home/pi/browser/misc/config.sh
 
-echo "$TIMESTAMP Disabling screen power savings..." >> $LOGFILE
+f_LOG "Disabling screen power savings..."
 
 #fr_FR.UTF-8
 #export LC_MEASUREMENT=$LANG
@@ -15,14 +15,14 @@ xset s noblank     # don't blank the video device
 
 sleep 5
 
-echo "$TIMESTAMP Launching infinite loop..." >> $LOGFILE
+f_LOG "Launching infinite loop..."
 while true
 do
        # generate config file using template
        bash /home/pi/browser/misc/make_config.sh
 
        # Clean up in case of an unclean exit
-       echo "$TIMESTAMP Cleaning up..." >> $LOGFILE
+       f_LOG "Cleaning up..."
        killall browser
        #rm -f /tmp/browser*
 

@@ -2,6 +2,6 @@
 
 source /home/pi/browser/misc/config.sh
 
-echo "$TIMESTAMP Restart browser using $0" >> $LOGFILE
+f_LOG "Restart browser using $0"
 
 killall browser

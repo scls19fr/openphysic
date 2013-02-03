@@ -2,6 +2,6 @@
 
 source /home/pi/browser/misc/config.sh
 
-echo "$TIMESTAMP Reboot using $0" >> $LOGFILE
+f_LOG "Reboot using $0"
 
 sudo /sbin/reboot

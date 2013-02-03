@@ -1,10 +1,10 @@
 #!/bin/bash
 
-LOG=/tmp/browser_install.log
+source /home/pi/browser/misc/config.sh
 
-echo "Install" >> $LOG
+f_LOG "Install"
 
-echo "Add symlink"
+f_LOG "Install - Add symlink"
 rm -f /home/pi/browser
 ln -s /home/pi/browser_src/browser/browser_v0.5/browser/ /home/pi/browser
 ln -s /home/pi/browser/misc/browser.template.gte.ini /home/pi/browser/misc/browser.template.ini

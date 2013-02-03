@@ -2,7 +2,7 @@
 
 source /home/pi/browser/misc/config.sh
 
-echo "$TIMESTAMP Start all" >> $LOGFILE
+f_LOG "Start all"
 
 #unclutter -display :0 -noevents -grab
 bash /home/pi/browser/misc/start_vncserver.sh &

@@ -2,6 +2,6 @@
 
 source /home/pi/browser/misc/config.sh
 
-echo "$TIMESTAMP Stop VNC server" >> $LOGFILE
+f_LOG "Stop VNC server"
 
 killall vnc
