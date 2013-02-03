@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+source /home/pi/browser/misc/config.sh
+
+echo "$TIMESTAMP Starting VNC Client" >> $LOGFILE
+
 #no tunnelling
 #vncviewer 192.168.1.28:0
 

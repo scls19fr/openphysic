@@ -1,7 +1,7 @@
 #!/bin/bash
 
-LOG=/tmp/browser.log
+source /home/pi/browser/misc/config.sh
 
-echo "Reboot" >> $LOG
+echo "$TIMESTAMP Reboot using $0" >> $LOGFILE
 
 sudo /sbin/reboot

@@ -2,7 +2,10 @@
 
 # $ apt-get install x11vnc
 
-echo "Starting VNC server"
+source /home/pi/browser/misc/config.sh
+
+echo "$TIMESTAMP Starting VNC server" >> $LOGFILE
+
 # set password using
 # $ x11vnc -storepasswd YOUR_PASSWORD ~/.vnc/x11vnc.pass
 

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-LOG=/tmp/browser.log
+source /home/pi/browser/misc/config.sh
 
-echo "Stop browser (not recommanded)" >> $LOG
+echo "$TIMESTAMP Stop browser (not recommanded)" >> $LOGFILE
 
 killall start_browser.sh
 killall browser

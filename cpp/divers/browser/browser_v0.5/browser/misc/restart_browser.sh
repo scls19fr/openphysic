@@ -1,7 +1,7 @@
 #!/bin/bash
 
-LOG=/tmp/browser.log
+source /home/pi/browser/misc/config.sh
 
-echo "Restart browser" >> $LOG
+echo "$TIMESTAMP Restart browser using $0" >> $LOGFILE
 
 killall browser
