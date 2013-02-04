@@ -26,6 +26,11 @@ w_next->show()
 filtrer pour empêcher les mises à jour le lundi entre 12h et 14h
 en dur dans le code ou via QtScript (basé sur ECMAScript)
 
+solution C++
+    QDateTime dt = QDateTime::currentDateTime();
+    int QDate::dayOfWeek () const
+
+sol JS
 var now = new Date();
 var cur_time = now.getHours() + now.getMinutes()/60.0;
 var b_filter = (now.getDay()==1) && (cur_time>11.5) && (cur_time<14.5)
