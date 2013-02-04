@@ -27,6 +27,7 @@ do
        #rm -f /tmp/browser*
 
        # Launch client application
+	   echo "`date '+%Y-%m-%d %H:%M:%S'` Run browser" >> $TMPLOGFILE
        /home/pi/browser/browser >> $TMPLOGFILE 2>&1
 done
 
