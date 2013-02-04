@@ -252,7 +252,14 @@ void SlideWidget::httpResponseFinished(QNetworkReply * reply)
             http_status_code = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
 
             if (http_status_code==200 || http_status_code==0) {
-                ui->webView->setPage(page);
+                QDateTime dt = QDateTime::currentDateTime();
+                qreal time_f;
+                time_f = dt.time().hour()+dt.time().minute()/60.0;
+                if ( !(dt.date().dayOfWeek()==1 && time_f>11.5 && time_f<14.5) ) { // never update monday noonday (lundi midi) ToDo: faire un test sur autre chose que l'heure
+                    ui->webView->setPage(page);
+                } else {
+                    qDebug() << "!!! Can't update now (see slidewidget.cpp) !!!";
+                }
             } else {
                 qDebug() << "!!! httpResponseFinished with HTTP Status Code =" << http_status_code << " <> 200 !!!";
             }
