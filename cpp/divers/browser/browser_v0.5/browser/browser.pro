@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui webkit network
+QT       += core gui webkit network script
 
 TARGET = browser
 TEMPLATE = app

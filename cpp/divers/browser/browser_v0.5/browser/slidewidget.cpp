@@ -24,6 +24,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <QPainter>
 #include <QWebFrame>
 
+#include <QDir>
+#include "mainapplication.h"
+
 //#include <QPropertyAnimation>
 
 SlideWidget::SlideWidget(QWidget *parent, Slide *slide) :
@@ -252,13 +255,22 @@ void SlideWidget::httpResponseFinished(QNetworkReply * reply)
             http_status_code = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
 
             if (http_status_code==200 || http_status_code==0) {
-                QDateTime dt = QDateTime::currentDateTime();
-                qreal time_f;
-                time_f = dt.time().hour()+dt.time().minute()/60.0;
-                if ( !(dt.date().dayOfWeek()==1 && time_f>11.5 && time_f<14.5) ) { // never update monday noonday (lundi midi) ToDo: faire un test sur autre chose que l'heure
+                QScriptEngine myEngine;
+
+                QString fileName = CFG_DIR+"/script.qs";
+                QFile scriptFile(fileName);
+                if (!scriptFile.open(QIODevice::ReadOnly))
+                    qDebug()<< "Can't open script file" << fileName;
+                bool can_update;
+                QScriptValue value = myEngine.evaluate(scriptFile.readAll(), fileName);
+                scriptFile.close();
+                can_update = myEngine.globalObject().property("b_can_update_now").call(QScriptValue()).toBool();
+
+                if (can_update) {
+                    //qDebug() << "Update page ok";
                     ui->webView->setPage(page);
                 } else {
-                    qDebug() << "!!! Can't update now (see slidewidget.cpp) !!!";
+                    qDebug() << "!!! Can't update now (see script.qs) !!!";
                 }
             } else {
                 qDebug() << "!!! httpResponseFinished with HTTP Status Code =" << http_status_code << " <> 200 !!!";
