@@ -274,7 +274,7 @@ void SlideWidget::httpResponseFinished(QNetworkReply * reply)
                 }
                 */
             } else {
-                qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << "!!! httpResponseFinished with HTTP Status Code =" << http_status_code << " <> 200 !!!";
+                qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << "!!! httpResponseFinished with HTTP Status Code =" << http_status_code << " <> 200 !!! for " << this->m_slide->title << " at " << this->m_slide->url;
             }
             break;
         /*
@@ -288,7 +288,7 @@ void SlideWidget::httpResponseFinished(QNetworkReply * reply)
             //break;
         */
         default:
-            qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << "!!! httpResponseFinished with error !!!";
+            qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << "!!! httpResponseFinished with error !!! for " << this->m_slide->title << " at " << this->m_slide->url;
             break;
     }
 }
