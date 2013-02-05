@@ -24,8 +24,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <QPainter>
 #include <QWebFrame>
 
-#include <QDir>
-#include "mainapplication.h"
 
 //#include <QPropertyAnimation>
 
@@ -48,7 +46,7 @@ SlideWidget::SlideWidget(QWidget *parent, Slide *slide) :
       this, SLOT(httpResponseFinished(QNetworkReply *))
     );
 
-    reload_slide();
+    //reload_slide();
 
     timerW = new QTimer(this);
     timerW->setInterval(slide->delay_refresh);
@@ -180,7 +178,7 @@ void SlideWidget::reload_slide(void)
     //ui->webView->setUrl(QUrl("http://www.google.fr"));
     //ui->webView->setZoomFactor(1.0);
 
-    qDebug() << "Loading URL" << this->m_slide->url << "for " << this->m_slide->title;
+    qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << "Loading URL" << this->m_slide->url << "for " << this->m_slide->title;
     //ui->webView->load(this->m_slide->url);
     //ui->webView->setZoomFactor(this->m_slide->zoom);
 
@@ -255,16 +253,18 @@ void SlideWidget::httpResponseFinished(QNetworkReply * reply)
             http_status_code = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
 
             if (http_status_code==200 || http_status_code==0) {
+                ui->webView->setPage(page);
+
+                /*
                 QScriptEngine myEngine;
 
                 QString fileName = CFG_DIR+"/script.qs";
                 QFile scriptFile(fileName);
                 if (!scriptFile.open(QIODevice::ReadOnly))
                     qDebug()<< "Can't open script file" << fileName;
-                bool can_update;
                 QScriptValue value = myEngine.evaluate(scriptFile.readAll(), fileName);
                 scriptFile.close();
-                can_update = myEngine.globalObject().property("b_can_update_now").call(QScriptValue()).toBool();
+                bool can_update = myEngine.globalObject().property("b_can_update_now").call(QScriptValue()).toBool();
 
                 if (can_update) {
                     //qDebug() << "Update page ok";
@@ -272,8 +272,9 @@ void SlideWidget::httpResponseFinished(QNetworkReply * reply)
                 } else {
                     qDebug() << "!!! Can't update now (see script.qs) !!!";
                 }
+                */
             } else {
-                qDebug() << "!!! httpResponseFinished with HTTP Status Code =" << http_status_code << " <> 200 !!!";
+                qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << "!!! httpResponseFinished with HTTP Status Code =" << http_status_code << " <> 200 !!!";
             }
             break;
         /*
@@ -287,7 +288,7 @@ void SlideWidget::httpResponseFinished(QNetworkReply * reply)
             //break;
         */
         default:
-            qDebug() << "!!! httpResponseFinished with error !!!";
+            qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << "!!! httpResponseFinished with error !!!";
             break;
     }
 }

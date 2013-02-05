@@ -91,6 +91,16 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
 
   #endif
 
+  myEngine = new QScriptEngine;
+  QString fileName = CFG_DIR+"/script.qs";
+  QFile scriptFile(fileName);
+  if (!scriptFile.open(QIODevice::ReadOnly))
+      qDebug()<< "Can't open script file" << fileName;
+  QScriptValue value = myEngine->evaluate(scriptFile.readAll(), fileName);
+  scriptFile.close();
+
+  update_timer2();
+
   this->exec();
 
 }
@@ -116,7 +126,7 @@ void MainApplication::change_slide(void)
 
 void MainApplication::update_timer1(void)
 {
-    qDebug() << "update_timer1";
+    qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << "update_timer1";
 
     next();
 
@@ -138,10 +148,18 @@ void MainApplication::update_timer1(void)
 
 void MainApplication::update_timer2(void)
 {
-  qDebug() << "Timer2 timeout (refresh data)";
+  qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << "Timer2 timeout (refresh data)";
 
-  for (int i=0;i<pageTotal();i++) {
-    main_win->arraySlideWidget->at(i)->reload_slide();
+
+  bool can_update = myEngine->globalObject().property("b_can_update_now").call(QScriptValue()).toBool();
+
+  if (can_update) {
+    for (int i=0;i<pageTotal();i++) {
+      qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << "Can update now (see script.js)";
+      main_win->arraySlideWidget->at(i)->reload_slide();
+    }
+  } else {
+      qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << "Can't update now (see script.js)";
   }
 
 }
@@ -245,7 +263,7 @@ void MainApplication::load_config(void)
                 "So just click ok.\n"
                 "Next time, this message shouldn't appear.\n"
             );
-        qDebug() << msg;
+        qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << msg;
         QMessageBox::warning(0,
             QObject::tr("Loading config file"),
             msg
@@ -288,8 +306,8 @@ void MainApplication::load_config(void)
 
      } else { // config file exists = loading this config file
         msg = QObject::tr("Loading configuration file from \"") + CFG_FILE + "\" in \"" + CFG_DIR + "\" directory";
-        qDebug() << msg;
-        qDebug() << "if bug occurs, remove config file";
+        qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << msg;
+        qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << "if bug occurs, remove config file";
 
         QSettings settings(CFG_DIR+"/"+CFG_FILE, QSettings::IniFormat);
 
@@ -319,12 +337,12 @@ void MainApplication::load_config(void)
         //qDebug() << show_slides;
         QStringList list;
         list = show_slides.split(",");
-        qDebug() << list;
+        qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << list;
 
         QStringList::Iterator stlIter;
         Slide *s;
         for( stlIter = list.begin(); stlIter != list.end(); ++stlIter ) {
-            qDebug() << "Loading slide" << (*stlIter) << "parameters";
+            qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << "Loading slide" << (*stlIter) << "parameters";
             s = new Slide();
             settings.beginGroup((*stlIter));
             s->title = settings.value("title", slide_default.title).toString();
@@ -495,7 +513,7 @@ void MainApplication::save_config(void)
 }
 
 void MainApplication::debug(void) {
-    qDebug() << "Debug MainApplication";
+    qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << "Debug MainApplication";
 
     //qreal op;
     //op = 0.25;
@@ -508,7 +526,7 @@ void MainApplication::debug(void) {
 //    main_win->arraySlideWidget->at(2)->setWindowOpacity(0.75);
 
     for (int i=0;i<pageTotal();i++) {
-        qDebug() << i << this->arraySlide->at(i)->title;
+        qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << i << this->arraySlide->at(i)->title;
         //qDebug() << this->arraySlide->at(i)->
         main_win->arraySlideWidget->at(i)->setVisible(false);
     }

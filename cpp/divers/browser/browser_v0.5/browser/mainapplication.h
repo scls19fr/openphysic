@@ -28,6 +28,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "slide.h"
 #include "mainwindow.h"
 
+#include <QtScript>
+
 //#define DEBUG
 //#define WEBKIT_ENABLED // ToDo
 #define CFG_FILE QLatin1String("browser.ini")
@@ -94,6 +96,9 @@ class MainApplication : public QApplication
     bool m_first_load;
 
     MainWindow *main_win;
+
+    QScriptEngine *myEngine;
+
 
 };
 

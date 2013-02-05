@@ -44,40 +44,41 @@ MainWindow::~MainWindow()
 void MainWindow::keyPressEvent(QKeyEvent * event) // ToFix -> pass this to app
 {
     if ( event->key()==Qt::Key_K || event->key()==Qt::Key_Right ) { // next
-        qDebug() << "Next";
+        qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << "Next";
         emit NextPressed();
 
     } else if ( event->key()==Qt::Key_J || event->key()==Qt::Key_Left ) { // previous
-        qDebug() << "Previous";
+        qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << "Previous";
         emit PreviousPressed();
 
     } else if ( event->key()==Qt::Key_Q ) { // quit - just for test
-        qDebug() << "Quit";
+        qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << "Quit";
         emit QuitPressed();
         close();
 
     } else if ( event->key()==Qt::Key_C ) { // Reload config file - just for test
-        qDebug() << "Reload config file";
+        qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << "Reload config file";
         emit ReloadConfigPressed();
 
     } else if ( event->key()==Qt::Key_U ) { // Reload URL
-        qDebug() << "Reload URL slide";
+        qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << "Reload URL slide";
         emit ReloadDataPressed();
         //reload_slide();
 
     } else if ( event->key()==Qt::Key_P ) { // Pause
-        qDebug() << "Pause";
+        qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << "Pause";
         emit PausePressed();
 
     } else if ( event->key()==Qt::Key_D ) { // just for debug
-        qDebug() << "Debug Test";
+        qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << "Debug Test";
         emit TestPressed();
 
     } else if ( event->key()==Qt::Key_A ) { // about
-        qDebug() << "About";
+        qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << "About";
         emit AboutPressed();
 
     } else { // n'importe quelle autre touche
+        qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss");
         qDebug() << "UNDEF KEY" << event->key();
         qDebug() << "K : next";
         qDebug() << "J : previous";
