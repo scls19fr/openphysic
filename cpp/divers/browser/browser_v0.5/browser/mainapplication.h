@@ -98,6 +98,7 @@ class MainApplication : public QApplication
     MainWindow *main_win;
 
     QScriptEngine *myEngine;
+    bool b_found_script_file;
 
 
 };

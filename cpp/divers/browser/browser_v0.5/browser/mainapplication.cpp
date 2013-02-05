@@ -94,8 +94,12 @@ MainApplication::MainApplication(int &argc, char *argv[]) : QApplication(argc, a
   myEngine = new QScriptEngine;
   QString fileName = CFG_DIR+"/script.qs";
   QFile scriptFile(fileName);
-  if (!scriptFile.open(QIODevice::ReadOnly))
-      qDebug()<< "Can't open script file" << fileName;
+  if (!scriptFile.open(QIODevice::ReadOnly)) {
+      qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << "Can't open script file" << fileName;
+      b_found_script_file = false;
+  } else {
+      b_found_script_file = true;
+  }
   QScriptValue value = myEngine->evaluate(scriptFile.readAll(), fileName);
   scriptFile.close();
 
@@ -151,7 +155,12 @@ void MainApplication::update_timer2(void)
   qDebug() << QDateTime::currentDateTime().toString("yyyy-mm-dd hh:mm:ss") << "Timer2 timeout (refresh data)";
 
 
-  bool can_update = myEngine->globalObject().property("b_can_update_now").call(QScriptValue()).toBool();
+  bool can_update;
+  if (b_found_script_file) {
+    can_update = myEngine->globalObject().property("b_can_update_now").call(QScriptValue()).toBool();
+  } else {
+    can_update = true;
+  }
 
   if (can_update) {
     for (int i=0;i<pageTotal();i++) {
