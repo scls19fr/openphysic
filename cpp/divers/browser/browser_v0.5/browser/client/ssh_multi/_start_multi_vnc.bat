@@ -16,4 +16,4 @@ FOR /f "tokens=1-5 delims=;" %%i IN (afficheurs.csv) DO (
   start C:\Progra~1\UltraVNC\vncviewer.exe !IP! -password %PASSWORD%
 )
 
-PAUSE
+REM PAUSE
