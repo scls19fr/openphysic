@@ -13,7 +13,7 @@ FOR /f "tokens=1-5 delims=;" %%i IN (afficheurs.csv) DO (
   SET HOSTNAME=%%m
 
   ECHO Start VNC connection to !IP! - !HOSTNAME!
-  start C:\Progra~1\UltraVNC\vncviewer.exe !IP! -password %PASSWORD%
+  start C:\Progra~1\UltraVNC\vncviewer.exe !IP! -password %PASSWORD% -autoscaling
 )
 
 REM PAUSE
