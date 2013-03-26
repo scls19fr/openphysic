@@ -3,7 +3,7 @@ SETLOCAL ENABLEDELAYEDEXPANSION
 
 REM Run several SSH connections
 
-SET PASSWORD=raspberry
+SET PASSWORD=ToChange
 
 FOR /f "tokens=1-5 delims=;" %%i IN (afficheurs.csv) DO (
   SET USER=%%i
