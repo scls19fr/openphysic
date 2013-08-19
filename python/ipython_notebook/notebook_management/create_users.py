@@ -20,6 +20,7 @@ class NotebookCreateUsers():
         #eval('self.'+args.action+'('+')')
         
         self.action_createuser(args)
+        #self.__getattribute__('action_createuser')(args)
         
     def action_createuser(self, args):        
         user_config = {
