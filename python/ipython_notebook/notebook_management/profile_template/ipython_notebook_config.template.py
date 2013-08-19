@@ -39,7 +39,7 @@ c.NotebookApp.port_retries = 0
 
 # The port the notebook server will listen on.
 # c.NotebookApp.port = 8888
-c.NotebookApp.port = {c.NotebookApp__port}
+c.NotebookApp.port = {c__NotebookApp__port}
 
 # Whether to overwrite existing config files when copying
 # c.NotebookApp.overwrite = False
@@ -477,4 +477,4 @@ c.NotebookApp.password = {NotebookApp__password}
 
 # The directory to use for notebooks.
 # c.NotebookManager.notebook_dir = u'/Users/scls/openphysic/python/ipython_notebook/notebook_management'
-c.NotebookManager.notebook_dir = {c.NotebookManager__notebook_dir}
+c.NotebookManager.notebook_dir = {c__NotebookManager__notebook_dir}

@@ -136,7 +136,7 @@ class NotebookCreateUsers():
                 print_fail("Unexpected error:", sys.exc_info()[0])
                 raise
         
-        #print(filenames)
+        #print(filenames)        
         
     def action_copy(self, args):
         """Copy file(s) or directory(ies)
@@ -176,11 +176,31 @@ class NotebookCreateUsers():
                     raise
             print("")
 
+    def action_configure(self, args):
+        """Configure profile file for a given user using template"""
+        user = args.user
+        assert(user != None)
+        self.load_users(args)
+        print("Configure profile file for {user}".format(user=user))
+        if user not in self.data['users']:
+            raise(Exception("User '{user}' doesn't exists".format(user=user)))        
+        filename = os.path.join(args.basepath, 'profile_template', 'ipython_notebook_config.template.py')
+        with open(filename, 'r') as file_tpl:
+            data = file_tpl.read()
+        print(data)
+            
 
-    def users(self, args):
+  
+    def load_users(self, args):
+        print("Loading users file")
         filename = os.path.join(args.basepath, args.usersfilename)
         with open(filename, 'r') as file_users:
             self.data = json.load(file_users, object_pairs_hook=collections.OrderedDict)
+
+
+    def users(self, args):
+        """Users generator (yield username and data from JSON file)"""
+        self.load_users(args)
             
         if args.user == None:
             for user in self.data['users']:
@@ -240,7 +260,7 @@ if __name__ == "__main__":
         raise(Exception(MSG))
         
     ARGS.action = ARGS.action.lower()
-    ALLOWED_ACTIONS = ['createuser', 'createuserdir', 'deleteuserdir', 'clone', 'copy']
+    ALLOWED_ACTIONS = ['createuser', 'createuserdir', 'deleteuserdir', 'clone', 'copy', 'configure']
     ALLOWED_ACTIONS_STR = []
     for ALLOWED_ACTIONS in ALLOWED_ACTIONS:
         ALLOWED_ACTIONS_STR.append("\'" + ALLOWED_ACTIONS + "\'")
