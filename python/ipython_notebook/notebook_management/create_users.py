@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
 import os
+import sys
+import shutil
 import argparse
 
 import random
@@ -13,17 +15,21 @@ from IPython.lib import passwd
 
 import datetime
 
+
+def print_success(msg):
+    print(' + ' + msg)
+
+def print_fail(msg):
+    print(' - ' + msg)
+
+
 class NotebookCreateUsers():
     def __init__(self, args):
-        print("NB user CLI")
+        print("Notbook management CLI")
         
-        #eval('self.'+args.action+'('+')')
+        methodToCall = getattr(self, 'action_' + args.action)(args)
         
-        #locals()["action_createuser"](args)
-        self.action_createuser(args)
-        #self.__getattribute__('action_createuser')(args)
-        
-    def action_createuser(self, args):        
+    def action_createuser(self, args):
         user_config = {
             'users': OrderedDict() #OrderedDict() or #dict()  or #{}
         }
@@ -58,6 +64,44 @@ class NotebookCreateUsers():
             f.write(user_config_json)
         print(" + Done")
 
+    def action_createdir(self, args):
+        for user, datauser in self.users(args):
+            directory = datauser['directory']
+            print("Create directory {directory}".format(directory=directory))
+            try:
+                os.mkdir(directory)
+                print_success("Directory created")
+            except OSError as e:
+                print_fail("Can't create directory - OS error({0}): {1}".format(e.errno, e.strerror))
+            except:
+                print_fail("Unexpected error:", sys.exc_info()[0])
+                raise
+            print("")
+
+    def action_deletedir(self, args):
+        for user, datauser in self.users(args):
+            directory = datauser['directory']
+            print("Delete directory {directory}".format(directory=directory))
+            try:
+                #os.rmdir(directory)
+                if not args.force:
+                    os.removedirs(directory)
+                else:
+                    shutil.rmtree(directory)
+                print_success("Directory removed")
+            except OSError as e:
+                print_fail("Can't delete directory - OS error({0}): {1}".format(e.errno, e.strerror))
+            except:
+                print_fail("Unexpected error:", sys.exc_info()[0])
+                raise
+            print("")
+                
+    def users(self, args):
+        with open(args.filename, 'r') as f:
+            self.data = json.load(f)
+
+        for user in self.data['users']:
+            yield(user, self.data['users'][user])
 
 if __name__ == "__main__":
     PARSER = argparse.ArgumentParser(description='Use the following parameters')
@@ -77,8 +121,8 @@ if __name__ == "__main__":
     PARSER.add_argument('--filename', action="store",
         help="JSON users config file", default='users.json')
 
-    #PARSER.add_argument('--force', action="store_true",
-    #    help="Force overwrite")
+    PARSER.add_argument('--force', action="store_true",
+        help="Force overwrite")
         
     ARGS = PARSER.parse_args()
 
@@ -97,7 +141,7 @@ if __name__ == "__main__":
         raise(Exception(MSG))
         
     ARGS.action = ARGS.action.lower()
-    allowed_actions = ['createuser', 'createdir']
+    allowed_actions = ['createuser', 'createdir', 'deletedir']
     allowed_actions_str = []
     for allowed_action in allowed_actions:
         allowed_actions_str.append("\'" + allowed_action + "\'")
