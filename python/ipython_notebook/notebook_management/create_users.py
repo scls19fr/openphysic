@@ -19,6 +19,7 @@ class NotebookCreateUsers():
         
         #eval('self.'+args.action+'('+')')
         
+        #locals()["action_createuser"](args)
         self.action_createuser(args)
         #self.__getattribute__('action_createuser')(args)
         
@@ -94,7 +95,8 @@ if __name__ == "__main__":
     except:
         MSG = 'Number must be integer'
         raise(Exception(MSG))
-
+        
+    ARGS.action = ARGS.action.lower()
     allowed_actions = ['createuser', 'createdir']
     allowed_actions_str = []
     for allowed_action in allowed_actions:
