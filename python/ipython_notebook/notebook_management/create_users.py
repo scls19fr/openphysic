@@ -3,12 +3,15 @@
 import os
 import sys
 import shutil
+import glob
+
 import argparse
 
 import random
 import string
 import json
 
+import collections
 from collections import OrderedDict
 
 from IPython.lib import passwd
@@ -28,7 +31,8 @@ class NotebookCreateUsers():
         print("Notbook management CLI")
         
         methodToCall = getattr(self, 'action_' + args.action)(args)
-        
+
+
     def action_createuser(self, args):
         user_config = {
             'users': OrderedDict() #OrderedDict() or #dict()  or #{}
@@ -58,13 +62,14 @@ class NotebookCreateUsers():
         
         print(json.dumps(user_config, indent=4))
         
-        filename = args.filename
+        filename = os.path.join(args.basepath, args.usersfilename)
         print("Write user config file '{filename}'".format(filename=filename))
         with open(filename, 'w') as f:
             f.write(user_config_json)
         print(" + Done")
 
-    def action_createdir(self, args):
+
+    def action_createuserdir(self, args):
         for user, datauser in self.users(args):
             directory = datauser['directory']
             print("Create directory {directory}".format(directory=directory))
@@ -78,7 +83,8 @@ class NotebookCreateUsers():
                 raise
             print("")
 
-    def action_deletedir(self, args):
+
+    def action_deleteuserdir(self, args):
         for user, datauser in self.users(args):
             directory = datauser['directory']
             print("Delete directory {directory}".format(directory=directory))
@@ -95,13 +101,63 @@ class NotebookCreateUsers():
                 print_fail("Unexpected error:", sys.exc_info()[0])
                 raise
             print("")
+
+
+    def action_clone(self, args):
+        
+        filenames = glob.glob(os.path.join(args.basepath, 'master', args.filename))
+        
+        print(filenames)
+        
+        for filename_src in filenames:
+            print("Cloning {filename}".format(filename=filename_src))
+
+            for user, datauser in self.users(args):
+                directory = datauser['directory']
+                print(" to {user} directory".format(user=user))
                 
+                filename_dst =  os.path.join(args.basepath, 'users', user)
+
+                print(" Copy {filename_src} to {filename_dst}".format(\
+                   filename_src = filename_src,
+                   filename_dst = filename_dst
+                ))
+
+                
+              #filename_base = os.path.join(args.basepath, args.notebook_file)
+              #filename_src = filename_base + '.' + args.extension
+
+                
+                #if not os.path.isfile(filename_dst) or args.force:
+                #    shutil.copyfile(filename_src, filename_dst)
+                #else:
+                #    print_fail("Can't copy this file (ever exists)")
+        
+        """
+        
+            filename_dst = filename_base + clone_sep + args.number_format % (i) + '.' + args.extension
+            
+                print(" Copy {filename_src} to {filename_dst}".format(\
+                   filename_src = filename_src,
+                   filename_dst = filename_dst
+                ))
+                if not os.path.isfile(filename_dst) or args.force:
+                    shutil.copyfile(filename_src, filename_dst)
+                else:
+                    print("  Can't copy this file (ever exists)")
+        """
+
+        
+
+
     def users(self, args):
-        with open(args.filename, 'r') as f:
-            self.data = json.load(f)
+        filename = os.path.join(args.basepath, args.usersfilename)
+        with open(filename, 'r') as f:
+            self.data = json.load(f, object_pairs_hook=collections.OrderedDict)
 
         for user in self.data['users']:
             yield(user, self.data['users'][user])
+
 
 if __name__ == "__main__":
     PARSER = argparse.ArgumentParser(description='Use the following parameters')
@@ -118,11 +174,16 @@ if __name__ == "__main__":
     PARSER.add_argument('--port', action="store",
         help="Initial port (first user)", default='9001') # 8888
 
-    PARSER.add_argument('--filename', action="store",
+    PARSER.add_argument('--usersfilename', action="store",
         help="JSON users config file", default='users.json')
+
+    PARSER.add_argument('--filename', action="store",
+        help="Filename to clone (from master dir to users dir) \
+            or to delete (in users dir)", default='*.ipynb')
 
     PARSER.add_argument('--force', action="store_true",
         help="Force overwrite")
+
         
     ARGS = PARSER.parse_args()
 
@@ -141,7 +202,7 @@ if __name__ == "__main__":
         raise(Exception(MSG))
         
     ARGS.action = ARGS.action.lower()
-    allowed_actions = ['createuser', 'createdir', 'deletedir']
+    allowed_actions = ['createuser', 'createuserdir', 'deleteuserdir', 'clone']
     allowed_actions_str = []
     for allowed_action in allowed_actions:
         allowed_actions_str.append("\'" + allowed_action + "\'")
