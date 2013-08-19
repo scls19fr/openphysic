@@ -27,10 +27,11 @@ def print_fail(msg):
 
 
 class NotebookCreateUsers():
+    """"Class to mangage IPython notebooks"""
     def __init__(self, args):
         print("Notbook management CLI")
         
-        methodToCall = getattr(self, 'action_' + args.action)(args)
+        getattr(self, 'action_' + args.action)(args)
 
 
     def action_createuser(self, args):
@@ -66,7 +67,7 @@ class NotebookCreateUsers():
         print("Write user config file '{filename}'".format(filename=filename))
         with open(filename, 'w') as f:
             f.write(user_config_json)
-        print(" + Done")
+        print_success("Done")
 
 
     def action_createuserdir(self, args):
@@ -74,7 +75,8 @@ class NotebookCreateUsers():
             directory = datauser['directory']
             print("Create directory {directory}".format(directory=directory))
             try:
-                os.mkdir(directory)
+                #os.mkdir(directory)
+                os.makedirs(directory)
                 print_success("Directory created")
             except OSError as e:
                 print_fail("Can't create directory - OS error({0}): {1}".format(e.errno, e.strerror))
@@ -91,7 +93,9 @@ class NotebookCreateUsers():
             try:
                 #os.rmdir(directory)
                 if not args.force:
-                    os.removedirs(directory)
+                    #os.rmdir(directory)
+                    #os.removedirs(directory)
+                    shutil.rmtree(directory)
                 else:
                     shutil.rmtree(directory)
                 print_success("Directory removed")
@@ -104,59 +108,59 @@ class NotebookCreateUsers():
 
 
     def action_clone(self, args):
+        src = os.path.join(args.basepath, 'master')
+        for user, datauser in self.users(args):
+            dst = datauser['directory']
+            print("Cloning \'{src}\' to \'{dst}\'".format(src=src, dst=dst))
+            try:
+                shutil.copytree(src, dst, symlinks=False, ignore=None)
+            except OSError as e:
+                print_fail("Can't clone directory - OS error({0}): {1}".format(e.errno, e.strerror))
         
-        filenames = glob.glob(os.path.join(args.basepath, 'master', args.filename))
+        #print(filenames)
         
+    def action_copy(self, args):
+        filenames = glob.glob(args.filename)
         print(filenames)
-        
+
         for filename_src in filenames:
             print("Cloning {filename}".format(filename=filename_src))
 
             for user, datauser in self.users(args):
                 directory = datauser['directory']
-                print(" to {user} directory".format(user=user))
+                #print(" to {user} directory".format(user=user))
                 
                 filename_dst =  os.path.join(args.basepath, 'users', user)
 
-                print(" Copy {filename_src} to {filename_dst}".format(\
+                print("  Copy {filename_src} to {filename_dst}".format(\
                    filename_src = filename_src,
                    filename_dst = filename_dst
                 ))
-
                 
-              #filename_base = os.path.join(args.basepath, args.notebook_file)
-              #filename_src = filename_base + '.' + args.extension
-
-                
-                #if not os.path.isfile(filename_dst) or args.force:
-                #    shutil.copyfile(filename_src, filename_dst)
-                #else:
-                #    print_fail("Can't copy this file (ever exists)")
-        
-        """
-        
-            filename_dst = filename_base + clone_sep + args.number_format % (i) + '.' + args.extension
-            
-                print(" Copy {filename_src} to {filename_dst}".format(\
-                   filename_src = filename_src,
-                   filename_dst = filename_dst
-                ))
-                if not os.path.isfile(filename_dst) or args.force:
-                    shutil.copyfile(filename_src, filename_dst)
+                if os.path.isfile(filename_src):
+                    shutil.copy2(filename_src, filename_dst)
+                elif os.path.isdir(filename_src):
+                    shutil.copytree(filename_src, filename_dst)
                 else:
-                    print("  Can't copy this file (ever exists)")
-        """
-
-        
+                    print_fail("Can't copy")
+            print("")
 
 
     def users(self, args):
         filename = os.path.join(args.basepath, args.usersfilename)
-        with open(filename, 'r') as f:
-            self.data = json.load(f, object_pairs_hook=collections.OrderedDict)
-
-        for user in self.data['users']:
-            yield(user, self.data['users'][user])
+        with open(filename, 'r') as fd:
+            self.data = json.load(fd, object_pairs_hook=collections.OrderedDict)
+            
+        if args.user == None:
+            for user in self.data['users']:
+                yield(user, self.data['users'][user])
+        else:
+            users = args.user.split(',')
+            for user in users:
+                if user in self.data['users']:
+                    yield(user, self.data['users'][user])
+                else:
+                    raise(Exception("User '{user}' doesn't exists".format(user=user)))
 
 
 if __name__ == "__main__":
@@ -179,7 +183,10 @@ if __name__ == "__main__":
 
     PARSER.add_argument('--filename', action="store",
         help="Filename to clone (from master dir to users dir) \
-            or to delete (in users dir)", default='*.ipynb')
+            or to delete (in users dir)", default='master/*.ipynb')
+
+    PARSER.add_argument('--user', action="store",
+        help="User", default=None)
 
     PARSER.add_argument('--force', action="store_true",
         help="Force overwrite")
@@ -202,13 +209,13 @@ if __name__ == "__main__":
         raise(Exception(MSG))
         
     ARGS.action = ARGS.action.lower()
-    allowed_actions = ['createuser', 'createuserdir', 'deleteuserdir', 'clone']
+    allowed_actions = ['createuser', 'createuserdir', 'deleteuserdir', 'clone', 'copy']
     allowed_actions_str = []
     for allowed_action in allowed_actions:
         allowed_actions_str.append("\'" + allowed_action + "\'")
     if ARGS.action not in allowed_actions:
-        msg = 'Action must be [' + '|'.join(allowed_actions_str) + ']'
-        raise(Exception(msg))
+        MSG = 'Action must be [' + '|'.join(allowed_actions_str) + ']'
+        raise(Exception(MSG))
 
     
     CLI = NotebookCreateUsers(ARGS)
