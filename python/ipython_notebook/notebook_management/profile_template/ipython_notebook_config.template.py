@@ -16,6 +16,7 @@ c = get_config()
 
 # The IP address the notebook server will listen on.
 # c.NotebookApp.ip = '127.0.0.1'
+c.NotebookApp.ip = '*'
 
 # The base URL for the notebook server
 # c.NotebookApp.base_project_url = '/'
@@ -95,7 +96,7 @@ c.NotebookApp.password = {c__NotebookApp__password}
 
 # Supply overrides for the tornado.web.Application that the IPython notebook
 # uses.
-# c.NotebookApp.webapp_settings = {}
+# c.NotebookApp.webapp_settings = {c__NotebookApp__webapp_settings}
 
 # Specify what command to use to invoke a web browser when opening the notebook.
 # If not specified, the default browser will be determined by the `webbrowser`
@@ -440,7 +441,7 @@ c.NotebookApp.password = {c__NotebookApp__password}
 # c.InlineBackend.close_figures = True
 
 # Subset of matplotlib rcParams that should be different for the inline backend.
-# c.InlineBackend.rc = {'font.size': 10, 'figure.figsize': (6.0, 4.0), 'figure.facecolor': 'white', 'savefig.dpi': 72, 'figure.subplot.bottom': 0.125, 'figure.edgecolor': 'white'}
+# c.InlineBackend.rc = {c__InlineBackend__rc}
 
 #------------------------------------------------------------------------------
 # MappingKernelManager configuration
