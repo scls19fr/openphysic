@@ -183,11 +183,19 @@ class NotebookCreateUsers():
         self.load_users(args)
         print("Configure profile file for {user}".format(user=user))
         if user not in self.data['users']:
-            raise(Exception("User '{user}' doesn't exists".format(user=user)))        
+            raise(Exception("User '{user}' doesn't exists".format(user=user)))
+        datauser = self.data['users'][user]
         filename = os.path.join(args.basepath, 'profile_template', 'ipython_notebook_config.template.py')
         with open(filename, 'r') as file_tpl:
             data = file_tpl.read()
-        print(data)
+        d_replace = {
+            'c__NotebookApp__port': datauser['port'],
+            'c__NotebookApp__password': datauser['hash_pwd'],
+            'c__NotebookManager__notebook_dir': datauser['directory'],
+            'c__NotebookApp__webapp_settings': '{}' # To fix problem with {}
+        }
+        print(data.format(**d_replace))
+        #print(data)
             
 
   
