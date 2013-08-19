@@ -20,14 +20,19 @@ import datetime
 
 
 def print_success(msg):
+    """print msg when success"""
     print(' + ' + msg)
 
 def print_fail(msg):
+    """print msg when fail"""
     print(' - ' + msg)
 
 
 class NotebookCreateUsers():
     """"Class to mangage IPython notebooks"""
+    
+    data = {}
+    
     def __init__(self, args):
         print("Notbook management CLI")
         
@@ -35,6 +40,7 @@ class NotebookCreateUsers():
 
 
     def action_createuser(self, args):
+        """Create users JSON file"""
         user_config = {
             'users': OrderedDict() #OrderedDict() or #dict()  or #{}
         }
@@ -45,7 +51,9 @@ class NotebookCreateUsers():
             username = 'user_' + args.number_format % (i)
             #print(username)
             
-            pwd = ''.join(random.choice(string.ascii_lowercase + string.digits) for x in range(6))
+            pwd = ''.join(random.choice(
+                string.ascii_lowercase + string.digits) for x in range(6))
+                
             hash_pwd = passwd(pwd)
             directory = os.path.join(args.basepath, 'users', username)
 
@@ -65,21 +73,24 @@ class NotebookCreateUsers():
         
         filename = os.path.join(args.basepath, args.usersfilename)
         print("Write user config file '{filename}'".format(filename=filename))
-        with open(filename, 'w') as f:
-            f.write(user_config_json)
+        with open(filename, 'w') as file_users:
+            file_users.write(user_config_json)
         print_success("Done")
 
 
     def action_createuserdir(self, args):
+        """Create users directory according JSON user file"""
         for user, datauser in self.users(args):
             directory = datauser['directory']
-            print("Create directory {directory}".format(directory=directory))
+            print("Create directory {directory} for {user}"
+                .format(directory=directory, user=user))
             try:
                 #os.mkdir(directory)
                 os.makedirs(directory)
                 print_success("Directory created")
-            except OSError as e:
-                print_fail("Can't create directory - OS error({0}): {1}".format(e.errno, e.strerror))
+            except OSError as exc:
+                print_fail("Can't create directory - OS error({0}): {1}"
+                    .format(exc.errno, exc.strerror))
             except:
                 print_fail("Unexpected error:", sys.exc_info()[0])
                 raise
@@ -87,6 +98,7 @@ class NotebookCreateUsers():
 
 
     def action_deleteuserdir(self, args):
+        """Delete users directory"""
         for user, datauser in self.users(args):
             directory = datauser['directory']
             print("Delete directory {directory}".format(directory=directory))
@@ -99,8 +111,9 @@ class NotebookCreateUsers():
                 else:
                     shutil.rmtree(directory)
                 print_success("Directory removed")
-            except OSError as e:
-                print_fail("Can't delete directory - OS error({0}): {1}".format(e.errno, e.strerror))
+            except OSError as exc:
+                print_fail("Can't delete directory - OS error({0}): {1}"
+                    .format(exc.errno, exc.strerror))
             except:
                 print_fail("Unexpected error:", sys.exc_info()[0])
                 raise
@@ -108,23 +121,30 @@ class NotebookCreateUsers():
 
 
     def action_clone(self, args):
+        """Clone master directory to users directory"""
         src = os.path.join(args.basepath, 'master')
         for user, datauser in self.users(args):
             dst = datauser['directory']
             print("Cloning \'{src}\' to \'{dst}\'".format(src=src, dst=dst))
             try:
                 shutil.copytree(src, dst, symlinks=False, ignore=None)
-            except OSError as e:
-                print_fail("Can't clone directory - OS error({0}): {1}".format(e.errno, e.strerror))
+                print_success("Master cloned")
+            except OSError as exc:
+                print_fail("Can't clone directory - OS error({0}): {1}"
+                    .format(exc.errno, exc.strerror))
+            except:
+                print_fail("Unexpected error:", sys.exc_info()[0])
+                raise
         
         #print(filenames)
         
     def action_copy(self, args):
+        """Copy file(s) or directory(ies)
+        from master directory to users directory"""
         filenames = glob.glob(args.filename)
-        print(filenames)
 
         for filename_src in filenames:
-            print("Cloning {filename}".format(filename=filename_src))
+            print("Copying {filename}".format(filename=filename_src))
 
             for user, datauser in self.users(args):
                 directory = datauser['directory']
@@ -137,19 +157,30 @@ class NotebookCreateUsers():
                    filename_dst = filename_dst
                 ))
                 
-                if os.path.isfile(filename_src):
-                    shutil.copy2(filename_src, filename_dst)
-                elif os.path.isdir(filename_src):
-                    shutil.copytree(filename_src, filename_dst)
-                else:
-                    print_fail("Can't copy")
+                try:
+                    if os.path.isfile(filename_src):
+                        shutil.copy2(filename_src, filename_dst)
+                    elif os.path.isdir(filename_src):
+                        directory_dst = os.path.join(
+                            filename_dst, os.path.basename(filename_src))
+                        shutil.copytree(filename_src, directory_dst,
+                            symlinks=False, ignore=None)
+                    else:
+                        print_fail("Can't copy")
+                    print_success("Done")
+                except OSError as exc:
+                    print_fail("Can't clone directory - OS error({0}): {1}"
+                        .format(exc.errno, exc.strerror))
+                except:
+                    print_fail("Unexpected error:", sys.exc_info()[0])
+                    raise
             print("")
 
 
     def users(self, args):
         filename = os.path.join(args.basepath, args.usersfilename)
-        with open(filename, 'r') as fd:
-            self.data = json.load(fd, object_pairs_hook=collections.OrderedDict)
+        with open(filename, 'r') as file_users:
+            self.data = json.load(file_users, object_pairs_hook=collections.OrderedDict)
             
         if args.user == None:
             for user in self.data['users']:
@@ -209,12 +240,12 @@ if __name__ == "__main__":
         raise(Exception(MSG))
         
     ARGS.action = ARGS.action.lower()
-    allowed_actions = ['createuser', 'createuserdir', 'deleteuserdir', 'clone', 'copy']
-    allowed_actions_str = []
-    for allowed_action in allowed_actions:
-        allowed_actions_str.append("\'" + allowed_action + "\'")
-    if ARGS.action not in allowed_actions:
-        MSG = 'Action must be [' + '|'.join(allowed_actions_str) + ']'
+    ALLOWED_ACTIONS = ['createuser', 'createuserdir', 'deleteuserdir', 'clone', 'copy']
+    ALLOWED_ACTIONS_STR = []
+    for ALLOWED_ACTIONS in ALLOWED_ACTIONS:
+        ALLOWED_ACTIONS_STR.append("\'" + ALLOWED_ACTIONS + "\'")
+    if ARGS.action not in ALLOWED_ACTIONS:
+        MSG = 'Action must be [' + '|'.join(ALLOWED_ACTIONS_STR) + ']'
         raise(Exception(MSG))
 
     
