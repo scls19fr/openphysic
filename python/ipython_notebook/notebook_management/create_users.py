@@ -17,6 +17,11 @@ class NotebookCreateUsers():
     def __init__(self, args):
         print("NB user CLI")
         
+        #eval('self.'+args.action+'('+')')
+        
+        self.action_createuser(args)
+        
+    def action_createuser(self, args):        
         user_config = {
             'users': OrderedDict() #OrderedDict() or #dict()  or #{}
         }
@@ -88,6 +93,15 @@ if __name__ == "__main__":
     except:
         MSG = 'Number must be integer'
         raise(Exception(MSG))
+
+    allowed_actions = ['createuser', 'createdir']
+    allowed_actions_str = []
+    for allowed_action in allowed_actions:
+        allowed_actions_str.append("\'" + allowed_action + "\'")
+    if ARGS.action not in allowed_actions:
+        msg = 'Action must be [' + '|'.join(allowed_actions_str) + ']'
+        raise(Exception(msg))
+
     
     CLI = NotebookCreateUsers(ARGS)
     
