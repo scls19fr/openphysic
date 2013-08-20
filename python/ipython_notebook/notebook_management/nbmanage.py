@@ -77,6 +77,13 @@ class NotebookManageCLI():
         with open(filename, 'w') as file_users:
             file_users.write(user_config_json)
         print_success("Done")
+         
+        filename = os.path.join(args.basepath, args.userstextfilename)
+        print("Write user name text file '{filename}'".format(filename=filename))
+        with open(filename, 'w') as file_users:
+            for user, datauser in self.users(args):
+                file_users.write(user+'\n')        
+        print_success("Done")
 
 
     def action_createusersdir(self, args):
@@ -261,6 +268,9 @@ if __name__ == "__main__":
     PARSER.add_argument('--usersfilename', action="store",
         help="JSON users config file", default='users.json')
 
+    PARSER.add_argument('--userstextfilename', action="store",
+        help="TXT username file", default='users.txt')
+
     PARSER.add_argument('--filename', action="store",
         help="Filename to clone (from master dir to users dir) \
             or to delete (in users dir)", default='master/*.ipynb')
@@ -289,13 +299,16 @@ if __name__ == "__main__":
         raise(Exception(MSG))
         
     ARGS.action = ARGS.action.lower()
+    
+    
     ALLOWED_ACTIONS = ['createusers', 'createusersdir',
-        'deleteusersdir', 'clone', 'copy', 'configure', 'printusers']
+        'deleteusersdir', 'clone', 'copy', 'configure', 'printusers']    
+
     ALLOWED_ACTIONS_STR = []
-    for ALLOWED_ACTIONS in ALLOWED_ACTIONS:
-        ALLOWED_ACTIONS_STR.append("\'" + ALLOWED_ACTIONS + "\'")
+    for ALLOWED_ACTION in ALLOWED_ACTIONS:
+        ALLOWED_ACTIONS_STR.append("\'" + ALLOWED_ACTION + "\'")
     if ARGS.action not in ALLOWED_ACTIONS:
-        MSG = 'Action must be [' + '|'.join(ALLOWED_ACTIONS_STR) + ']'
+        MSG = "Action '{action}' but it must be [".format(action=ARGS.action) + '|'.join(ALLOWED_ACTIONS_STR) + ']'
         raise(Exception(MSG))
 
     
