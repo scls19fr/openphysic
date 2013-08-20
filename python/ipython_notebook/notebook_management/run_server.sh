@@ -6,7 +6,7 @@ do
     echo "Run notebook for $user"
     python nbmanage.py configure --user $user
     cd ./users/$user
-    ipython notebook --pylab --profile nbserver --no-browser >> ../../log/log_$i.txt 2> ../../log/log_err_$i.txt &
+    ipython notebook --pylab --profile nbserver --no-browser >> ../../log/log_$user.txt 2> ../../log/log_err_$user.txt &
     # --port $port 
     sleep 2
     cd ../..
@@ -14,11 +14,9 @@ do
     i=$(( $i + 1 ))
 done  
 
-i=1
 for user in $(cat users.txt)
 do
     echo "Error Log file for $user"
-    cat log/log_err_$i.txt
+    cat log/log_err_$user.txt
     echo "==="
-    i=$(( $i + 1 ))
 done  
