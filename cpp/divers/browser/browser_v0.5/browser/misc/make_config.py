@@ -6,7 +6,7 @@ from datetime import *
 
 class DisplayConfigGenerator:
         def __init__(self, scriptname, filenameInTemplate, filenameOutConfig):
-                self.date0 = date(2012, 8, 6) # date du premier lundi du projet
+                self.date0 = date(2013, 8, 5) # date du premier lundi du projet
 
                 weekid = self.currentWeekId(date.today())
 
@@ -24,7 +24,7 @@ class DisplayConfigGenerator:
                         'days': now.weekday(),
                         'weekid': weekid,
                         'nextweekid': weekid+1,
-                        'direct_planning_url': "https://upplanning.appli.univ-poitiers.fr/ade/custom/modules/plannings/direct_planning.jsp?login=visu&password=visu&showTree=false&showPianoDays=false&showPianoWeeks=false&showOptions=false&projectId=3",
+                        'direct_planning_url': "https://upplanning.appli.univ-poitiers.fr/ade/custom/modules/plannings/direct_planning.jsp?login=visu&password=visu&showTree=false&showPianoDays=false&showPianoWeeks=false&showOptions=false&projectId=4",
                 }
 
         def currentWeekId(self, date1=date.today()):
