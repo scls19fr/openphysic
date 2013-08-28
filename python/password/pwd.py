@@ -30,6 +30,7 @@ if __name__ == "__main__":
         set_of_chars += string.digits
     
     #set_of_chars = string.ascii_lowercase + string.digits + string.ascii_uppercase
+    
     print("Set of chars: ")
     print(set_of_chars)
 
