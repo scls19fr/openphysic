@@ -20,7 +20,7 @@ B=[[1,2],[3,4]]
 # voir pour les operations
 
 
-import numarray
+import numarray as np
 
-A_num = numarray.array([[1,2],[3,4]])
-print numarray.transpose(A_num)[0]
+A_num = np.array([[1,2],[3,4]])
+print np.transpose(A_num)[0]
