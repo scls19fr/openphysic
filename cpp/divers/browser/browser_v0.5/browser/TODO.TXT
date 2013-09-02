@@ -1,3 +1,66 @@
+projectId auto et project_first_date auto dans script Python
+
+def univ_year(dt):
+    if dt.month>=8:
+        return(dt.year)
+    else:
+        return(dt.year-1)
+
+def project_id(year):
+    """Retourne le projectId pour une année donnée
+       ex: 2013-2014 => year=2013 => projectId=4
+
+       2011-2012: projectId=2
+       2012-2013: projectId=3
+       2013-2014: projectId=4
+
+       En général projectId = year - 2010 + 1 mais on peut gérer des exceptions
+       grâce au dictionnaire d_except
+    """
+
+    d_except = {
+        #2013: 4,
+    }
+
+    if year in d_except:
+        return(d_except[year])
+    else: # règle générale
+        return(year - 2010 + 1)
+
+def first_monday(year, month):
+    """Retourne la date du premier lundi du mois 'month' de l'année 'year'
+       ex 2013-2014 => year=2013 & month=8 => 2013-08-05
+    """
+
+    dt = datetime.date(year=year, month=month, day=1)
+    dt_weekday = dt.weekday()
+
+    if dt_weekday == 0: # lundi
+        return(dt)
+    else:
+        return(dt + datetime.timedelta(days=7-dt_weekday))
+
+def project_first_date(year):
+    """Retourne la date du premier lundi du projet de l'année universitaire 'year' -> 'year'+1
+       ex: année univ 2013-2014 => year=2013
+       En général c'est le premier lundi du mois d'Août mais on peut gérer des exceptions
+       grâce au dictionnaire d_except
+       Cette date permet de calculer le numéro de semaine dans ADE
+       (qui n'est pas le numéro "légal" de la semaine dans l'année civile)
+       Utile pour l'affichage de l'EDT de la semaine suivante
+    """
+
+    d_except = {
+        #2013: datetime.date(year=2013, month=8, day=5), # 2013-2014
+    }
+
+    if year in d_except:
+        return(d_except[year])
+    else: # règle générale
+        return(first_monday(year, 8)) # premier lundi du mois d'Août 
+
+==
+
 Scroll (horizontal) du QTextBrowser
 QRect rectCurs = text->cursorRect(curs);  
 int yCurs = rectCurs.y();  
