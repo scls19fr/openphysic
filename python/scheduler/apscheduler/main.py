@@ -1,5 +1,5 @@
 from apscheduler.scheduler import Scheduler
-from datetime import datetime
+from datetime import datetime, timedelta
 import time
 
 import logging
@@ -18,7 +18,10 @@ class MyScheduler():
         sched = Scheduler(daemonic=False)
         sched.start()
         
-        sched.add_cron_job(self.job_function, second="*/2", max_instances=6)
+        #sched.add_cron_job(self.job_function, second="*/2", max_instances=6)
+        seconds = 5
+        sched.add_cron_job(self.job_function, second="*/%d" % seconds, max_instances=6)
+        
         #sched.add_cron_job(lambda: self.job_function(parameters), second="*/2", max_instances=6)
         
         # second="*/2" = la tache est lancee toutes les 2 secondes (en commencant a 0)
