@@ -55,14 +55,14 @@ if __name__ == "__main__":
         td_loop = timedelta(seconds=seconds)
 
         #minutes = int(args.loopMinutes)
-        #td_loop = timedelta(minutes=seconds)
+        #td_loop = timedelta(minutes=minutes)
 
         if args.run_at_startup:
             thread.start_new_thread(tsk.job_function, ()) # demarre une fois au debut (si necessaire)
         
         # Start the scheduler
-        #sched = Scheduler(daemonic=False)
-        sched = Scheduler()
+        sched = Scheduler(daemonic=False)
+        #sched = Scheduler()
         sched.start()
                 
         #sched.add_cron_job(lambda: tsk.job_function(parameters), second="*/2", max_instances=6)
@@ -77,5 +77,5 @@ if __name__ == "__main__":
         # et est appelee toutes les 2 secondes (a cause de */2)
         # ceil((10 + epsilon) / 2) = 6
         
-        while True:
-            pass
+        #while True:
+        #    pass
