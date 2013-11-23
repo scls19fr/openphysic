@@ -71,7 +71,8 @@ class PasswordNDigits():
         
         rng = range(0, self.N)
         
-        self.i = DigitPossible(rng, 0) # index for digit - example (0 to 4) for a 4 digits password
+        self.i = DigitPossible(rng, 0)
+        # index for digit - example (0 to 4) for a 4 digits password
 
         self.d = [DigitPossible(self.lst_digit_possible, 0, True,
             self.on_cascade_previous, self.on_cascade_next) for i in rng]
@@ -139,12 +140,15 @@ class PasswordNDigits():
         #return(lst[::-1]) # get list of reversed list
 
 class Precision():
-    def __init__(self, lst_digit_possible=['1', '2', '2.5', '5'], exposant=range(-2,3)):
+    def __init__(self, lst_digit_possible=['1', '2', '2.5', '5'],
+            exposant=range(-2,3)):
+        
         self.lst_digit_possible = lst_digit_possible
 
         self.i = DigitPossible(exposant, 0)
         
-        self.d = DigitPossible(self.lst_digit_possible, '1', True, self.on_cascade_previous, self.on_cascade_next)
+        self.d = DigitPossible(self.lst_digit_possible, '1', True,
+            self.on_cascade_previous, self.on_cascade_next)
 
     def next_digit(self):
         self.i.next()
