@@ -2,7 +2,7 @@
 
 import unittest
 
-from digit_selector import DigitPossible
+from digit_selector import *
 
 
 def callback_on_overflow_start():
@@ -64,6 +64,25 @@ class OrderbookTests(unittest.TestCase):
         d.previous()
         print(d)
         self.assertEqual(d._i, 9)
+
+    def test_07(self):
+        d = DigitPossible(range(0,10))
+        d.next();
+        print(d)
+        self.assertEqual(d.get(), 1)
+        
+    def test_10(self):
+        password = PasswordNDigits(4)
+        print("Password")
+        password.next_value();
+        password.next_digit()
+        password.next_value(); password.next_value();
+        password.next_digit()
+        password.previous_value();
+        password.next_digit()
+        password.previous_value(); password.previous_value();
+        print(password)
+        print(password.get())
 
 def main():
     unittest.main()
