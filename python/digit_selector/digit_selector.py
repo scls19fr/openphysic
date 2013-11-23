@@ -87,6 +87,9 @@ class PasswordNDigits():
         return(s)
         
     def get(self):
-        return(self.d)
-        #return(map(self.d.apply, lambda digit: digit.get())
+        #return(self.d)
+        lst = map(lambda digit: digit.get(), self.d)
+        return(lst) # get list
+        #return(reversed(lst)) # get iterator of reversed list
+        #return(lst[::-1]) # get list of reversed list
         
