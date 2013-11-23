@@ -4,6 +4,13 @@ import unittest
 
 from digit_selector import DigitPossible
 
+
+def callback_on_overflow_start():
+    print("Overflow start detected")
+
+def callback_on_overflow_stop():
+    print("Overflow stop detected")
+            
 class DisabledTests(object):
     def test_01(self):
         pass
@@ -43,6 +50,18 @@ class OrderbookTests(unittest.TestCase):
     def test_04(self):
         d = DigitPossible(range(0,10), 9, False)
         d.next()
+        print(d)
+        self.assertEqual(d._i, 9)
+
+    def test_05(self):
+        d = DigitPossible(range(0,10), 9, True, callback_on_overflow_start, callback_on_overflow_stop)
+        d.next()
+        print(d)
+        self.assertEqual(d._i, 0)
+
+    def test_06(self):
+        d = DigitPossible(range(0,10), 0, True, callback_on_overflow_start, callback_on_overflow_stop)
+        d.previous()
         print(d)
         self.assertEqual(d._i, 9)
 
