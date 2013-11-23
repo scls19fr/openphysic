@@ -1,0 +1,53 @@
+#!/usr/bin/env python
+
+import unittest
+
+from digit_selector import DigitPossible
+
+class DisabledTests(object):
+    def test_01(self):
+        pass
+
+class OrderbookTests(unittest.TestCase):
+    def setUp(self):
+        #note, setUp is run before each test.
+        pass
+
+    def test_00(self):
+        d = DigitPossible(range(0,10))
+        d.next()
+        d.next()
+        print(d)
+        self.assertEqual(d._i, 2)
+
+    def test_01(self):
+        d = DigitPossible(range(0,10))
+        d.next(); d.next(); d.next(); d.next(); d.next();
+        d.next(); d.next(); d.next(); d.next(); d.next();
+        d.next();
+        print(d)
+        self.assertEqual(d._i, 1)
+
+    def test_02(self):
+        d = DigitPossible(range(0,10))
+        d.previous(); d.previous();
+        print(d)
+        self.assertEqual(d._i, 8)
+
+    def test_03(self):
+        d = DigitPossible(range(0,10), 0, False)
+        d.previous(); d.previous();
+        print(d)
+        self.assertEqual(d._i, 0)
+
+    def test_04(self):
+        d = DigitPossible(range(0,10), 9, False)
+        d.next()
+        print(d)
+        self.assertEqual(d._i, 9)
+
+def main():
+    unittest.main()
+
+if __name__ == '__main__':
+    main()
