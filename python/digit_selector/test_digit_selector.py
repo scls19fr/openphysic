@@ -70,10 +70,17 @@ class OrderbookTests(unittest.TestCase):
         d.next();
         print(d)
         self.assertEqual(d.get(), 1)
+
+    def test_08(self):
+        d = DigitPossible(range(0,10))
+        d.set(3)
+        d.next(); d.next();
+        self.assertEqual(d.get(), 5)
+        print(d)
         
     def test_10(self):
         password = PasswordNDigits(4)
-        print("Password")
+        #print("Password")
         password.next_value();
         password.next_digit()
         password.next_value(); password.next_value();
@@ -81,20 +88,64 @@ class OrderbookTests(unittest.TestCase):
         password.previous_value();
         password.next_digit()
         password.previous_value(); password.previous_value();
-        print(password)
-        print(password.get())
+        #print(password)
+        #print(password.get())
         self.assertEqual(password.get(), [1, 2, 9, 8])
-        
-    """ToDo:
-    version password avec "cascade" du débordement
-         0 0 0[9] + next_value     ->  0 0 1[0]
-         0 0 1[0] + previous_value ->  0 0 0[9]
-         9 9 9[9] + next_value     ->  0 0 0[0]
-         0 0 0[0] + previous_value ->  9 9 9[9]
-         
-    generation [1, 2, 2.5, 5, 10, 25, 50...]
-    digit -2 (0.01) à 3 (1000)
+
+    def test_11(self):
+        password = PasswordNDigits(4)
+        #print("Password")
+        lst = [1, 2, 3, 4]
+        password.set(lst)
+        #print(password)
+        print(password.get())
+        password.next_value() # digit i is 0 (its value is 1 so next value is 2)
+        password.next_digit()
+        password.next_value(); password.next_value();
+        self.assertEqual(password.get(), [2, 4, 3, 4])
+
+    def test_12(self):
+        password = PasswordNDigits(4, False) # disable cascade
+        #print("Password")
+        lst = [9, 3, 2, 1] # inverse this list to read
+        password.set(lst)
+        password.next_value()
+        print(password)
+        self.assertEqual(password.get(), [0, 3, 2, 1])
+
+    def test_13(self):
+        password = PasswordNDigits(4, True) # enable cascade
+        # test cascade next
+        #print("Password")
+        lst = [9, 3, 2, 1]
+        password.set(lst)
+        password.next_value()
+        print(password)
+        self.assertEqual(password.get(), [0, 4, 2, 1])
+
+    def test_14(self):
+        password = PasswordNDigits(4, True) # enable cascade
+        # test cascade next with 9999
+        #print("Password")
+        lst = [9, 9, 9, 9]
+        password.set(lst)
+        password.next_value()
+        print(password)
+        self.assertEqual(password.get(), [0, 0, 0, 0])
+
+	"""
+    def test_15(self):
+        password = PasswordNDigits(4, True) # enable cascade
+        # test cascade previous
+        #print("Password")
+        lst = [0, 3, 2, 1]
+        password.set(lst)
+        print(password)
+        password.previous_value()
+        print(password)
+        self.assertEqual(password.get(), [9, 2, 2, 1])
     """
+
 
 def main():
     unittest.main()
