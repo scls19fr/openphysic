@@ -3,8 +3,11 @@
 import decimal
 
 class DigitPossible:
-    def __init__(self, lst_digit_possible, i=None, flag_circular=True,
+    def __init__(self, lst_digit_possible, default_value=None, flag_circular=True,
             on_overflow_start=None, on_overflow_stop=None):
+            
+        assert(isinstance(lst_digit_possible, list))
+        assert(isinstance(flag_circular, bool))
         
         self.lst_digit_possible = lst_digit_possible
         self.flag_circular = flag_circular
@@ -12,11 +15,10 @@ class DigitPossible:
         self.on_overflow_start = on_overflow_start
         self.on_overflow_stop = on_overflow_stop
         
-        if i is None:
+        if default_value is None:
             self._i = 0
         else:
-            #self._i = self.lst_digit_possible.index(i)
-            self._i = i
+            self._i = self.lst_digit_possible.index(default_value)
     
     def __repr__(self):
         return('lst_digit_possible='
@@ -139,11 +141,10 @@ class PasswordNDigits():
 class Precision():
     def __init__(self, lst_digit_possible=['1', '2', '2.5', '5'], exposant=range(-2,3)):
         self.lst_digit_possible = lst_digit_possible
-        rng = exposant
-        self.i = DigitPossible(rng, 2)
+
+        self.i = DigitPossible(exposant, 0)
         
-        self.d = [DigitPossible(self.lst_digit_possible, 0, True,
-            self.on_cascade_previous, self.on_cascade_next) for i in rng]
+        self.d = DigitPossible(self.lst_digit_possible, '1', True, self.on_cascade_previous, self.on_cascade_next)
 
     def next_digit(self):
         self.i.next()
@@ -152,30 +153,20 @@ class Precision():
         self.i.previous()
 
     def next_value(self):
-        #if self.get() == [self.lst_digit_possible[-1]]*self.N:
-        #    self.set([self.lst_digit_possible[0]]*self.N)
-        #else:
-        self.d[self.i.get()].next()
+        self.d.next()
 
     def previous_value(self):
-        #if self.get() == [self.lst_digit_possible[0]]*self.N:
-        #    self.set([self.lst_digit_possible[-1]]*self.N)        
-        #else:
-        self.d[self.i.get()].previous()
+        self.d.previous()
 
     def on_cascade_next(self):
         self.next_digit()
 
     def on_cascade_previous(self):
         self.previous_digit()
-        self.previous_digit()
-        self.previous_digit()
-        self.previous_value()
-        #self.next_value()
 
     def get(self):
         i = self.i.get()
-        d = self.d[self.i.get()].get()
+        d = self.d.get()
         #return((i, d))
         return(decimal.Decimal(d)*decimal.Decimal('1E'+str(i)))
         

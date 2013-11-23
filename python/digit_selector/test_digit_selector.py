@@ -27,6 +27,14 @@ class OrderbookTests(unittest.TestCase):
         print(d)
         self.assertEqual(d._i, 2)
 
+    def test_00_with_letters(self):
+        d = DigitPossible(['A', 'B', 'C'])
+        self.assertEqual(d.get(), 'A')
+
+    def test_00_with_default(self):
+        d = DigitPossible(['A', 'B', 'C'], 'B')
+        self.assertEqual(d.get(), 'B')
+
     def test_01(self):
         d = DigitPossible(range(0,10))
         d.next(); d.next(); d.next(); d.next(); d.next();
@@ -208,6 +216,50 @@ class OrderbookTests(unittest.TestCase):
         self.assertEqual(p.get(), decimal.Decimal('2.5'))
 
     def test_22(self):
+        p = Precision()
+        self.assertEqual(p.get(), decimal.Decimal('1'))
+        p.next_digit()
+        self.assertEqual(p.get(), decimal.Decimal('1E1'))
+        p.next_digit()
+        self.assertEqual(p.get(), decimal.Decimal('1E2'))
+        p.next_digit()
+        self.assertEqual(p.get(), decimal.Decimal('1E-2'))
+        p.next_digit()
+        self.assertEqual(p.get(), decimal.Decimal('1E-1'))
+        p.next_digit()
+        self.assertEqual(p.get(), decimal.Decimal('1'))
+
+    def test_23(self):
+        p = Precision()
+        self.assertEqual(p.get(), decimal.Decimal('1'))
+        p.next_value()
+        self.assertEqual(p.get(), decimal.Decimal('2'))
+        p.next_digit()
+        self.assertEqual(p.get(), decimal.Decimal('20'))
+        p.next_digit()
+        self.assertEqual(p.get(), decimal.Decimal('200'))
+        p.next_digit()
+        self.assertEqual(p.get(), decimal.Decimal('0.02'))
+        p.next_digit()
+        self.assertEqual(p.get(), decimal.Decimal('0.2'))
+        p.next_digit()
+        self.assertEqual(p.get(), decimal.Decimal('2'))
+        
+    def test_24(self):
+        p = Precision()
+        self.assertEqual(p.get(), decimal.Decimal('1'))
+        p.previous_digit()
+        self.assertEqual(p.get(), decimal.Decimal('1E-1'))
+        p.previous_digit()
+        self.assertEqual(p.get(), decimal.Decimal('1E-2'))
+        p.previous_digit()
+        self.assertEqual(p.get(), decimal.Decimal('1E2'))
+        p.previous_digit()
+        self.assertEqual(p.get(), decimal.Decimal('1E1'))
+        p.previous_digit()
+        self.assertEqual(p.get(), decimal.Decimal('1'))
+    
+    def test_25(self):
         p = Precision()
         self.assertEqual(p.get(), decimal.Decimal('1'))
         p.previous_value()
