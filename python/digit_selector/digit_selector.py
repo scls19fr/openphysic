@@ -62,6 +62,7 @@ class PasswordNDigits():
     def __init__(self, N, flag_cascade=False):
         self.N = N
         self.flag_cascade = flag_cascade
+        self.lst_digit_possible = range(0,10) # digit from 0 to 9
         
         rng = range(0, self.N)
         
@@ -71,12 +72,15 @@ class PasswordNDigits():
         self.d = []
         
         for i in rng:
+            self.d.append(DigitPossible(self.lst_digit_possible, 0, True, self.on_cascade_previous, self.on_cascade_next))
+            """
             if i == self.N-1:
                 self.d.append(DigitPossible(range(0,10), 0, True, self.on_cascade_previous, None))
             elif i == 0:
                 self.d.append(DigitPossible(range(0,10), 0, True, None, self.on_cascade_next))
             else:
                 self.d.append(DigitPossible(range(0,10), 0, True, self.on_cascade_previous, self.on_cascade_next))
+            """
     
     def set(self, lst):
         if isinstance(lst, list):
@@ -103,15 +107,24 @@ class PasswordNDigits():
         
     def on_cascade_next(self):
         if self.flag_cascade:
-            self.next_digit()
-            self.next_value()
-            self.previous_digit()
+            print("cascade")
+            print(self.get())
+            print([self.lst_digit_possible[0]]*self.N)
+            if self.get() == [self.lst_digit_possible[0]]*self.N:
+                self.next_digit()
+                self.next_value()
+                self.previous_digit()
+            else:
+                for i in range(0, self.N):
+                    self.d[i].set(self.lst_digit_possible[0])
+                
 
     def on_cascade_previous(self):
         if self.flag_cascade:
-            self.previous_digit()
-            self.previous_value()
+            print("="*10)
             self.next_digit()
+            self.previous_value()
+            self.previous_digit()
     
     def __repr__(self):
         #return('digits=' + str(self.d)
