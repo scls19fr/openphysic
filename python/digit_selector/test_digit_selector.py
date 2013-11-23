@@ -134,20 +134,26 @@ class OrderbookTests(unittest.TestCase):
         print(password)
         self.assertEqual(password.get(), [0, 0, 0, 0][::-1])
 
-    #def test_15(self):
-    #    password = PasswordNDigits(4, True) # enable cascade
-    #    # test cascade previous
-    #    #print("Password")
-    #    lst = [1, 2, 3, 0]
-    #    password.set(lst[::-1])
-    #    print(password)
-    #    password.previous_value()
-    #    print(password)
-    #    self.assertEqual(password.get(), [1, 2, 2, 9][::-1])
+    def test_15(self):
+        password = PasswordNDigits(4, True) # enable cascade
+        # test cascade previous
+        #print("Password")
+        lst = [1, 2, 3, 0]
+        password.set(lst[::-1])
+        print(password)
+        password.previous_value()
+        print(password)
+        self.assertEqual(password.get(), [1, 2, 2, 9][::-1])
 
-    #def test_16(self):
-    #    password = PasswordNDigits(4, True) # enable cascade
-    #    # test cascade previous with 0000
+    def test_16(self):
+        password = PasswordNDigits(4, True) # enable cascade
+        # test cascade previous with 0000
+        lst = [0, 0, 0, 0]
+        password.set(lst[::-1])
+        print(password)
+        password.previous_value()
+        print(password)
+        self.assertEqual(password.get(), [9, 9, 9, 9][::-1])
 
 
 def main():

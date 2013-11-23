@@ -68,19 +68,7 @@ class PasswordNDigits():
         
         self.i = DigitPossible(rng, 0) # index for digit - example (0 to 4) for a 4 digits password
 
-        #self.d = [DigitPossible(range(0,10), 0, True, self.on_cascade_previous, self.on_cascade_next) for i in rng]
-        self.d = []
-        
-        for i in rng:
-            self.d.append(DigitPossible(self.lst_digit_possible, 0, True, self.on_cascade_previous, self.on_cascade_next))
-            """
-            if i == self.N-1:
-                self.d.append(DigitPossible(range(0,10), 0, True, self.on_cascade_previous, None))
-            elif i == 0:
-                self.d.append(DigitPossible(range(0,10), 0, True, None, self.on_cascade_next))
-            else:
-                self.d.append(DigitPossible(range(0,10), 0, True, self.on_cascade_previous, self.on_cascade_next))
-            """
+        self.d = [DigitPossible(range(0,10), 0, True, self.on_cascade_previous, self.on_cascade_next) for i in rng]
     
     def set(self, lst):
         if isinstance(lst, list):
@@ -100,24 +88,22 @@ class PasswordNDigits():
         self.i.previous()
 
     def next_value(self):
-        self.d[self.i.get()].next()
+        if self.get() == [self.lst_digit_possible[-1]]*self.N:
+            self.set([self.lst_digit_possible[0]]*self.N)
+        else:
+            self.d[self.i.get()].next()
 
     def previous_value(self):
-        self.d[self.i.get()].previous()
+        if self.get() == [self.lst_digit_possible[0]]*self.N:
+            self.set([self.lst_digit_possible[-1]]*self.N)        
+        else:
+            self.d[self.i.get()].previous()
         
     def on_cascade_next(self):
         if self.flag_cascade:
-            print("cascade")
-            print(self.get())
-            print([self.lst_digit_possible[0]]*self.N)
-            if self.get() == [self.lst_digit_possible[0]]*self.N:
-                self.next_digit()
-                self.next_value()
-                self.previous_digit()
-            else:
-                for i in range(0, self.N):
-                    self.d[i].set(self.lst_digit_possible[0])
-                
+            self.next_digit()
+            self.next_value()
+            self.previous_digit()
 
     def on_cascade_previous(self):
         if self.flag_cascade:
