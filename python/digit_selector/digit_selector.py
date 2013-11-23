@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+import decimal
+
 class DigitPossible:
     def __init__(self, lst_digit_possible, i=None, flag_circular=True,
             on_overflow_start=None, on_overflow_stop=None):
@@ -13,6 +15,7 @@ class DigitPossible:
         if i is None:
             self._i = 0
         else:
+            #self._i = self.lst_digit_possible.index(i)
             self._i = i
     
     def __repr__(self):
@@ -68,7 +71,8 @@ class PasswordNDigits():
         
         self.i = DigitPossible(rng, 0) # index for digit - example (0 to 4) for a 4 digits password
 
-        self.d = [DigitPossible(range(0,10), 0, True, self.on_cascade_previous, self.on_cascade_next) for i in rng]
+        self.d = [DigitPossible(self.lst_digit_possible, 0, True,
+            self.on_cascade_previous, self.on_cascade_next) for i in rng]
     
     def set(self, lst):
         if isinstance(lst, list):
@@ -107,7 +111,6 @@ class PasswordNDigits():
 
     def on_cascade_previous(self):
         if self.flag_cascade:
-            print("="*10)
             self.next_digit()
             self.previous_value()
             self.previous_digit()
@@ -132,4 +135,47 @@ class PasswordNDigits():
         return(lst) # get list
         #return(reversed(lst)) # get iterator of reversed list
         #return(lst[::-1]) # get list of reversed list
+
+class Precision():
+    def __init__(self, lst_digit_possible=['1', '2', '2.5', '5'], exposant=range(-2,3)):
+        self.lst_digit_possible = lst_digit_possible
+        rng = exposant
+        self.i = DigitPossible(rng, 2)
+        
+        self.d = [DigitPossible(self.lst_digit_possible, 0, True,
+            self.on_cascade_previous, self.on_cascade_next) for i in rng]
+
+    def next_digit(self):
+        self.i.next()
+
+    def previous_digit(self):
+        self.i.previous()
+
+    def next_value(self):
+        #if self.get() == [self.lst_digit_possible[-1]]*self.N:
+        #    self.set([self.lst_digit_possible[0]]*self.N)
+        #else:
+        self.d[self.i.get()].next()
+
+    def previous_value(self):
+        #if self.get() == [self.lst_digit_possible[0]]*self.N:
+        #    self.set([self.lst_digit_possible[-1]]*self.N)        
+        #else:
+        self.d[self.i.get()].previous()
+
+    def on_cascade_next(self):
+        self.next_digit()
+
+    def on_cascade_previous(self):
+        self.previous_digit()
+        self.previous_digit()
+        self.previous_digit()
+        self.previous_value()
+        #self.next_value()
+
+    def get(self):
+        i = self.i.get()
+        d = self.d[self.i.get()].get()
+        #return((i, d))
+        return(decimal.Decimal(d)*decimal.Decimal('1E'+str(i)))
         
