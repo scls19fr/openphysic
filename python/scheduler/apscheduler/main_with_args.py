@@ -1,6 +1,6 @@
 #!/sur/bin/env python
 
-from apscheduler.scheduler import Scheduler
+from apscheduler.scheduler import Scheduler, SimpleTrigger
 import thread
 
 import argparse
@@ -32,7 +32,7 @@ class MyScheduler():
             dt_next = dt_start+td_loop
             print "      Job {i:03d} - next job ({i2:03d}) @ {dt_next}".format(i=i, i2=i+1, dt_next=dt_next)
         
-        #time.sleep(10)
+        time.sleep(10)
         
         dt_now = datetime.utcnow()
         print "  END Job {i:03d} @ {dt_now} (was started @ {dt_start})".format(i=i, dt_now=dt_now, dt_start=dt_start)
@@ -52,10 +52,9 @@ if __name__ == "__main__":
         tsk.job_function()
     else:
         # Create the scheduler
-        #sched = Scheduler(standalone=True)
-        sched = Scheduler(standalone=True)
-        #sched = Scheduler(daemonic=False)
         #sched = Scheduler()
+        #sched = Scheduler(daemonic=False)
+        sched = Scheduler(standalone=True)
 
         seconds = int(args.loopSeconds)
         td_loop = timedelta(seconds=seconds)
@@ -66,13 +65,13 @@ if __name__ == "__main__":
         if args.run_at_startup:
             thread.start_new_thread(tsk.job_function, ()) # demarre une fois au debut (si necessaire)
             #pass
-            #sched.add_job(lambda: tsk.job_function(td_loop))
+            #sched.add_job(SimpleTrigger, lambda: tsk.job_function(td_loop))
             # ToFix: cf https://groups.google.com/forum/?hl=fr#!topic/apscheduler/yaHZJy1KVzI
         
         #sched.start()
                 
         #sched.add_cron_job(lambda: tsk.job_function(parameters), second="*/2", max_instances=6)
-        sched.add_cron_job(lambda: tsk.job_function(td_loop), second="*/%d" % seconds, max_instances=6)
+        sched.add_cron_job(lambda: tsk.job_function(td_loop), second="*/%d" % seconds)#, max_instances=6)
         #sched.add_cron_job(tsk.job_function, second="*/%d" % seconds, max_instances=6)
         #sched.add_cron_job(tsk.job_function, minute="*/%d" % minutes, max_instances=6)
 
