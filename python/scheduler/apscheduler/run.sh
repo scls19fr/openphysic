@@ -1,4 +1,4 @@
-#!/sur/bin/env bash
+#!/usr/bin/env bash
 
 #python main_with_args.py # one shot!
 

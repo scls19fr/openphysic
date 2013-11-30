@@ -51,6 +51,12 @@ if __name__ == "__main__":
     if args.loopSeconds is None or args.loopSeconds=='':
         tsk.job_function()
     else:
+        # Create the scheduler
+        #sched = Scheduler(standalone=True)
+        sched = Scheduler(standalone=True)
+        #sched = Scheduler(daemonic=False)
+        #sched = Scheduler()
+
         seconds = int(args.loopSeconds)
         td_loop = timedelta(seconds=seconds)
 
@@ -59,11 +65,11 @@ if __name__ == "__main__":
 
         if args.run_at_startup:
             thread.start_new_thread(tsk.job_function, ()) # demarre une fois au debut (si necessaire)
+            #pass
+            #sched.add_job(lambda: tsk.job_function(td_loop))
+            # ToFix: cf https://groups.google.com/forum/?hl=fr#!topic/apscheduler/yaHZJy1KVzI
         
-        # Start the scheduler
-        sched = Scheduler(daemonic=False)
-        #sched = Scheduler()
-        sched.start()
+        #sched.start()
                 
         #sched.add_cron_job(lambda: tsk.job_function(parameters), second="*/2", max_instances=6)
         sched.add_cron_job(lambda: tsk.job_function(td_loop), second="*/%d" % seconds, max_instances=6)
@@ -79,3 +85,9 @@ if __name__ == "__main__":
         
         #while True:
         #    pass
+
+        try:
+            # Start the scheduler
+            sched.start()
+        except (KeyboardInterrupt, SystemExit):
+            pass
