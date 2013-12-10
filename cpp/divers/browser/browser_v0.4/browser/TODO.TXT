@@ -1,4 +1,0 @@
-Faire animation entre 2 slides
-
-w_current->setVisible(false)
-w_next->show()
