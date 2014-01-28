@@ -15,7 +15,7 @@ class DisabledTests(object):
     def test_01(self):
         pass
 
-class OrderbookTests(unittest.TestCase):
+class DigitSelectorTests(unittest.TestCase):
     def setUp(self):
         #note, setUp is run before each test.
         pass
