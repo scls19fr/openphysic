@@ -1,0 +1,1 @@
+This project is a set of simulation softwares for physics (with Scilab, Scicos, but also in Python, C + + ...). It also includes physics lessons written in LaTeX and many other things (various experiments described on the site http://www.celles.net/)
